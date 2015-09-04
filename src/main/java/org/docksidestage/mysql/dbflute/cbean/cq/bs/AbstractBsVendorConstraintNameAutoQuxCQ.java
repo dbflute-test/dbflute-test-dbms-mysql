@@ -61,7 +61,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_Equal(Long constraintNameAutoQuxId) {
         doSetConstraintNameAutoQuxId_Equal(constraintNameAutoQuxId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_GreaterThan(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_GT, constraintNameAutoQuxId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_LessThan(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_LT, constraintNameAutoQuxId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_GreaterEqual(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_GE, constraintNameAutoQuxId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_LessEqual(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_LE, constraintNameAutoQuxId);

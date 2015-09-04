@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefId The value of genRefId as equal. (NullAllowed: if null, no condition)
+     * @param genRefId The value of genRefId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenRefId_Equal(Long genRefId) {
         doSetGenRefId_Equal(genRefId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefId The value of genRefId as greaterThan. (NullAllowed: if null, no condition)
+     * @param genRefId The value of genRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenRefId_GreaterThan(Long genRefId) {
         regGenRefId(CK_GT, genRefId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefId The value of genRefId as lessThan. (NullAllowed: if null, no condition)
+     * @param genRefId The value of genRefId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenRefId_LessThan(Long genRefId) {
         regGenRefId(CK_LT, genRefId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefId The value of genRefId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param genRefId The value of genRefId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenRefId_GreaterEqual(Long genRefId) {
         regGenRefId(CK_GE, genRefId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefId The value of genRefId as lessEqual. (NullAllowed: if null, no condition)
+     * @param genRefId The value of genRefId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenRefId_LessEqual(Long genRefId) {
         regGenRefId(CK_LE, genRefId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as equal. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_Equal(Long genOnlyId) {
         doSetGenOnlyId_Equal(genOnlyId);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as greaterThan. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_GreaterThan(Long genOnlyId) {
         regGenOnlyId(CK_GT, genOnlyId);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as lessThan. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_LessThan(Long genOnlyId) {
         regGenOnlyId(CK_LT, genOnlyId);
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_GreaterEqual(Long genOnlyId) {
         regGenOnlyId(CK_GE, genOnlyId);
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as lessEqual. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_LessEqual(Long genOnlyId) {
         regGenOnlyId(CK_LE, genOnlyId);

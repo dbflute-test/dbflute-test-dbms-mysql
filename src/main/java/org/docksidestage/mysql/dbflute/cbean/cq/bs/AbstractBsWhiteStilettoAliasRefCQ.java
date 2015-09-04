@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as equal. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_Equal(Integer refId) {
         doSetRefId_Equal(refId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as greaterThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterThan(Integer refId) {
         regRefId(CK_GT, refId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as lessThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessThan(Integer refId) {
         regRefId(CK_LT, refId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterEqual(Integer refId) {
         regRefId(CK_GE, refId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as lessEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessEqual(Integer refId) {
         regRefId(CK_LE, refId);
@@ -1347,7 +1347,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasId The value of stilettoAliasId as equal. (NullAllowed: if null, no condition)
+     * @param stilettoAliasId The value of stilettoAliasId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setStilettoAliasId_Equal(Integer stilettoAliasId) {
         doSetStilettoAliasId_Equal(stilettoAliasId);
@@ -1360,7 +1360,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasId The value of stilettoAliasId as greaterThan. (NullAllowed: if null, no condition)
+     * @param stilettoAliasId The value of stilettoAliasId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setStilettoAliasId_GreaterThan(Integer stilettoAliasId) {
         regStilettoAliasId(CK_GT, stilettoAliasId);
@@ -1369,7 +1369,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasId The value of stilettoAliasId as lessThan. (NullAllowed: if null, no condition)
+     * @param stilettoAliasId The value of stilettoAliasId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setStilettoAliasId_LessThan(Integer stilettoAliasId) {
         regStilettoAliasId(CK_LT, stilettoAliasId);
@@ -1378,7 +1378,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasId The value of stilettoAliasId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param stilettoAliasId The value of stilettoAliasId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setStilettoAliasId_GreaterEqual(Integer stilettoAliasId) {
         regStilettoAliasId(CK_GE, stilettoAliasId);
@@ -1387,7 +1387,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasId The value of stilettoAliasId as lessEqual. (NullAllowed: if null, no condition)
+     * @param stilettoAliasId The value of stilettoAliasId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setStilettoAliasId_LessEqual(Integer stilettoAliasId) {
         regStilettoAliasId(CK_LE, stilettoAliasId);

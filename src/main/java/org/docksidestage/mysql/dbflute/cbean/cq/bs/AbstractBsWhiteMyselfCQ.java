@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as equal. (NullAllowed: if null, no condition)
+     * @param myselfId The value of myselfId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMyselfId_Equal(Integer myselfId) {
         doSetMyselfId_Equal(myselfId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as greaterThan. (NullAllowed: if null, no condition)
+     * @param myselfId The value of myselfId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMyselfId_GreaterThan(Integer myselfId) {
         regMyselfId(CK_GT, myselfId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as lessThan. (NullAllowed: if null, no condition)
+     * @param myselfId The value of myselfId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMyselfId_LessThan(Integer myselfId) {
         regMyselfId(CK_LT, myselfId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param myselfId The value of myselfId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMyselfId_GreaterEqual(Integer myselfId) {
         regMyselfId(CK_GE, myselfId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as lessEqual. (NullAllowed: if null, no condition)
+     * @param myselfId The value of myselfId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMyselfId_LessEqual(Integer myselfId) {
         regMyselfId(CK_LE, myselfId);

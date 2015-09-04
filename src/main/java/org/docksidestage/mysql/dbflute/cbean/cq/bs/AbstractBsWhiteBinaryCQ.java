@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryId The value of binaryId as equal. (NullAllowed: if null, no condition)
+     * @param binaryId The value of binaryId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBinaryId_Equal(Long binaryId) {
         doSetBinaryId_Equal(binaryId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryId The value of binaryId as greaterThan. (NullAllowed: if null, no condition)
+     * @param binaryId The value of binaryId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBinaryId_GreaterThan(Long binaryId) {
         regBinaryId(CK_GT, binaryId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryId The value of binaryId as lessThan. (NullAllowed: if null, no condition)
+     * @param binaryId The value of binaryId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBinaryId_LessThan(Long binaryId) {
         regBinaryId(CK_LT, binaryId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryId The value of binaryId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param binaryId The value of binaryId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBinaryId_GreaterEqual(Long binaryId) {
         regBinaryId(CK_GE, binaryId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryId The value of binaryId as lessEqual. (NullAllowed: if null, no condition)
+     * @param binaryId The value of binaryId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBinaryId_LessEqual(Long binaryId) {
         regBinaryId(CK_LE, binaryId);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as equal. (NullAllowed: if null, no condition)
+     * @param uqClsId The value of uqClsId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsId_Equal(Long uqClsId) {
         doSetUqClsId_Equal(uqClsId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as greaterThan. (NullAllowed: if null, no condition)
+     * @param uqClsId The value of uqClsId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsId_GreaterThan(Long uqClsId) {
         regUqClsId(CK_GT, uqClsId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as lessThan. (NullAllowed: if null, no condition)
+     * @param uqClsId The value of uqClsId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsId_LessThan(Long uqClsId) {
         regUqClsId(CK_LT, uqClsId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param uqClsId The value of uqClsId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsId_GreaterEqual(Long uqClsId) {
         regUqClsId(CK_GE, uqClsId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as lessEqual. (NullAllowed: if null, no condition)
+     * @param uqClsId The value of uqClsId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsId_LessEqual(Long uqClsId) {
         regUqClsId(CK_LE, uqClsId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_BIT_FLG: {+UQ, NotNull, BIT(1), classification=BooleanFlg}
-     * @param uqClsBitFlg The value of uqClsBitFlg as equal. (NullAllowed: if null, no condition)
+     * @param uqClsBitFlg The value of uqClsBitFlg as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsBitFlg_Equal(Boolean uqClsBitFlg) {
         regUqClsBitFlg(CK_EQ, uqClsBitFlg);
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgBitCQ extends AbstractCo
      * Equal(=). As BooleanFlg. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_BIT_FLG: {+UQ, NotNull, BIT(1), classification=BooleanFlg} <br>
      * boolean classification for boolean column
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setUqClsBitFlg_Equal_AsBooleanFlg(CDef.BooleanFlg cdef) {
         doSetUqClsBitFlg_Equal(cdef != null ? Boolean.valueOf(cdef.code()) : null);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as equal. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_Equal(Long xlsManId) {
         doSetXlsManId_Equal(xlsManId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as greaterThan. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_GreaterThan(Long xlsManId) {
         regXlsManId(CK_GT, xlsManId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as lessThan. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_LessThan(Long xlsManId) {
         regXlsManId(CK_LT, xlsManId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_GreaterEqual(Long xlsManId) {
         regXlsManId(CK_GE, xlsManId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as lessEqual. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_LessEqual(Long xlsManId) {
         regXlsManId(CK_LE, xlsManId);
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * @param timestampConverted The value of timestampConverted as equal. (NullAllowed: if null, no condition)
+     * @param timestampConverted The value of timestampConverted as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampConverted_Equal(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_EQ,  timestampConverted);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * @param timestampConverted The value of timestampConverted as greaterThan. (NullAllowed: if null, no condition)
+     * @param timestampConverted The value of timestampConverted as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampConverted_GreaterThan(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_GT,  timestampConverted);
@@ -312,7 +312,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * @param timestampConverted The value of timestampConverted as lessThan. (NullAllowed: if null, no condition)
+     * @param timestampConverted The value of timestampConverted as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampConverted_LessThan(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_LT,  timestampConverted);
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * @param timestampConverted The value of timestampConverted as greaterEqual. (NullAllowed: if null, no condition)
+     * @param timestampConverted The value of timestampConverted as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampConverted_GreaterEqual(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_GE,  timestampConverted);
@@ -330,7 +330,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
-     * @param timestampConverted The value of timestampConverted as lessEqual. (NullAllowed: if null, no condition)
+     * @param timestampConverted The value of timestampConverted as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampConverted_LessEqual(java.time.LocalDateTime timestampConverted) {
         regTimestampConverted(CK_LE, timestampConverted);

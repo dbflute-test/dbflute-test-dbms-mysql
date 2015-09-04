@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqFkRefNestId The value of uqFkRefNestId as equal. (NullAllowed: if null, no condition)
+     * @param uqFkRefNestId The value of uqFkRefNestId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqFkRefNestId_Equal(Long uqFkRefNestId) {
         doSetUqFkRefNestId_Equal(uqFkRefNestId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqFkRefNestId The value of uqFkRefNestId as greaterThan. (NullAllowed: if null, no condition)
+     * @param uqFkRefNestId The value of uqFkRefNestId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqFkRefNestId_GreaterThan(Long uqFkRefNestId) {
         regUqFkRefNestId(CK_GT, uqFkRefNestId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqFkRefNestId The value of uqFkRefNestId as lessThan. (NullAllowed: if null, no condition)
+     * @param uqFkRefNestId The value of uqFkRefNestId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqFkRefNestId_LessThan(Long uqFkRefNestId) {
         regUqFkRefNestId(CK_LT, uqFkRefNestId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqFkRefNestId The value of uqFkRefNestId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param uqFkRefNestId The value of uqFkRefNestId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqFkRefNestId_GreaterEqual(Long uqFkRefNestId) {
         regUqFkRefNestId(CK_GE, uqFkRefNestId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteUqFkRefNestCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_NEST_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqFkRefNestId The value of uqFkRefNestId as lessEqual. (NullAllowed: if null, no condition)
+     * @param uqFkRefNestId The value of uqFkRefNestId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUqFkRefNestId_LessEqual(Long uqFkRefNestId) {
         regUqFkRefNestId(CK_LE, uqFkRefNestId);

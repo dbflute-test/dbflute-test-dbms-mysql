@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestId The value of compoundPkRefNestId as equal. (NullAllowed: if null, no condition)
+     * @param compoundPkRefNestId The value of compoundPkRefNestId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_Equal(Integer compoundPkRefNestId) {
         doSetCompoundPkRefNestId_Equal(compoundPkRefNestId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestId The value of compoundPkRefNestId as greaterThan. (NullAllowed: if null, no condition)
+     * @param compoundPkRefNestId The value of compoundPkRefNestId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_GreaterThan(Integer compoundPkRefNestId) {
         regCompoundPkRefNestId(CK_GT, compoundPkRefNestId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestId The value of compoundPkRefNestId as lessThan. (NullAllowed: if null, no condition)
+     * @param compoundPkRefNestId The value of compoundPkRefNestId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_LessThan(Integer compoundPkRefNestId) {
         regCompoundPkRefNestId(CK_LT, compoundPkRefNestId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestId The value of compoundPkRefNestId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param compoundPkRefNestId The value of compoundPkRefNestId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_GreaterEqual(Integer compoundPkRefNestId) {
         regCompoundPkRefNestId(CK_GE, compoundPkRefNestId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestId The value of compoundPkRefNestId as lessEqual. (NullAllowed: if null, no condition)
+     * @param compoundPkRefNestId The value of compoundPkRefNestId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_LessEqual(Integer compoundPkRefNestId) {
         regCompoundPkRefNestId(CK_LE, compoundPkRefNestId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleId The value of fooMultipleId as equal. (NullAllowed: if null, no condition)
+     * @param fooMultipleId The value of fooMultipleId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooMultipleId_Equal(Integer fooMultipleId) {
         doSetFooMultipleId_Equal(fooMultipleId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleId The value of fooMultipleId as greaterThan. (NullAllowed: if null, no condition)
+     * @param fooMultipleId The value of fooMultipleId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooMultipleId_GreaterThan(Integer fooMultipleId) {
         regFooMultipleId(CK_GT, fooMultipleId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleId The value of fooMultipleId as lessThan. (NullAllowed: if null, no condition)
+     * @param fooMultipleId The value of fooMultipleId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooMultipleId_LessThan(Integer fooMultipleId) {
         regFooMultipleId(CK_LT, fooMultipleId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleId The value of fooMultipleId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param fooMultipleId The value of fooMultipleId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooMultipleId_GreaterEqual(Integer fooMultipleId) {
         regFooMultipleId(CK_GE, fooMultipleId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleId The value of fooMultipleId as lessEqual. (NullAllowed: if null, no condition)
+     * @param fooMultipleId The value of fooMultipleId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooMultipleId_LessEqual(Integer fooMultipleId) {
         regFooMultipleId(CK_LE, fooMultipleId);
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleId The value of barMultipleId as equal. (NullAllowed: if null, no condition)
+     * @param barMultipleId The value of barMultipleId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarMultipleId_Equal(Integer barMultipleId) {
         doSetBarMultipleId_Equal(barMultipleId);
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleId The value of barMultipleId as greaterThan. (NullAllowed: if null, no condition)
+     * @param barMultipleId The value of barMultipleId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarMultipleId_GreaterThan(Integer barMultipleId) {
         regBarMultipleId(CK_GT, barMultipleId);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleId The value of barMultipleId as lessThan. (NullAllowed: if null, no condition)
+     * @param barMultipleId The value of barMultipleId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarMultipleId_LessThan(Integer barMultipleId) {
         regBarMultipleId(CK_LT, barMultipleId);
@@ -312,7 +312,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleId The value of barMultipleId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param barMultipleId The value of barMultipleId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarMultipleId_GreaterEqual(Integer barMultipleId) {
         regBarMultipleId(CK_GE, barMultipleId);
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleId The value of barMultipleId as lessEqual. (NullAllowed: if null, no condition)
+     * @param barMultipleId The value of barMultipleId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarMultipleId_LessEqual(Integer barMultipleId) {
         regBarMultipleId(CK_LE, barMultipleId);
@@ -385,7 +385,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleId The value of quxMultipleId as equal. (NullAllowed: if null, no condition)
+     * @param quxMultipleId The value of quxMultipleId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxMultipleId_Equal(Integer quxMultipleId) {
         doSetQuxMultipleId_Equal(quxMultipleId);
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleId The value of quxMultipleId as greaterThan. (NullAllowed: if null, no condition)
+     * @param quxMultipleId The value of quxMultipleId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxMultipleId_GreaterThan(Integer quxMultipleId) {
         regQuxMultipleId(CK_GT, quxMultipleId);
@@ -407,7 +407,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleId The value of quxMultipleId as lessThan. (NullAllowed: if null, no condition)
+     * @param quxMultipleId The value of quxMultipleId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxMultipleId_LessThan(Integer quxMultipleId) {
         regQuxMultipleId(CK_LT, quxMultipleId);
@@ -416,7 +416,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleId The value of quxMultipleId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param quxMultipleId The value of quxMultipleId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxMultipleId_GreaterEqual(Integer quxMultipleId) {
         regQuxMultipleId(CK_GE, quxMultipleId);
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleId The value of quxMultipleId as lessEqual. (NullAllowed: if null, no condition)
+     * @param quxMultipleId The value of quxMultipleId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxMultipleId_LessEqual(Integer quxMultipleId) {
         regQuxMultipleId(CK_LE, quxMultipleId);

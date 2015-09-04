@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryId The value of includeQueryId as equal. (NullAllowed: if null, no condition)
+     * @param includeQueryId The value of includeQueryId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryId_Equal(Long includeQueryId) {
         doSetIncludeQueryId_Equal(includeQueryId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryId The value of includeQueryId as greaterThan. (NullAllowed: if null, no condition)
+     * @param includeQueryId The value of includeQueryId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryId_GreaterThan(Long includeQueryId) {
         regIncludeQueryId(CK_GT, includeQueryId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryId The value of includeQueryId as lessThan. (NullAllowed: if null, no condition)
+     * @param includeQueryId The value of includeQueryId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryId_LessThan(Long includeQueryId) {
         regIncludeQueryId(CK_LT, includeQueryId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryId The value of includeQueryId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param includeQueryId The value of includeQueryId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryId_GreaterEqual(Long includeQueryId) {
         regIncludeQueryId(CK_GE, includeQueryId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryId The value of includeQueryId as lessEqual. (NullAllowed: if null, no condition)
+     * @param includeQueryId The value of includeQueryId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryId_LessEqual(Long includeQueryId) {
         regIncludeQueryId(CK_LE, includeQueryId);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_INTEGER: {INT(10)}
-     * @param includeQueryInteger The value of includeQueryInteger as equal. (NullAllowed: if null, no condition)
+     * @param includeQueryInteger The value of includeQueryInteger as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryInteger_Equal(Integer includeQueryInteger) {
         doSetIncludeQueryInteger_Equal(includeQueryInteger);
@@ -266,7 +266,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_DATE: {DATE(10)}
-     * @param includeQueryDate The value of includeQueryDate as equal. (NullAllowed: if null, no condition)
+     * @param includeQueryDate The value of includeQueryDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryDate_Equal(java.time.LocalDate includeQueryDate) {
         regIncludeQueryDate(CK_EQ,  includeQueryDate);
@@ -278,7 +278,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
-     * @param includeQueryDatetime The value of includeQueryDatetime as equal. (NullAllowed: if null, no condition)
+     * @param includeQueryDatetime The value of includeQueryDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setIncludeQueryDatetime_Equal(java.time.LocalDateTime includeQueryDatetime) {
         regIncludeQueryDatetime(CK_EQ,  includeQueryDatetime);

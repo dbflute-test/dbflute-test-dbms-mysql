@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadId The value of genHeadId as equal. (NullAllowed: if null, no condition)
+     * @param genHeadId The value of genHeadId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenHeadId_Equal(Long genHeadId) {
         doSetGenHeadId_Equal(genHeadId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadId The value of genHeadId as greaterThan. (NullAllowed: if null, no condition)
+     * @param genHeadId The value of genHeadId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenHeadId_GreaterThan(Long genHeadId) {
         regGenHeadId(CK_GT, genHeadId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadId The value of genHeadId as lessThan. (NullAllowed: if null, no condition)
+     * @param genHeadId The value of genHeadId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenHeadId_LessThan(Long genHeadId) {
         regGenHeadId(CK_LT, genHeadId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadId The value of genHeadId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param genHeadId The value of genHeadId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenHeadId_GreaterEqual(Long genHeadId) {
         regGenHeadId(CK_GE, genHeadId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadId The value of genHeadId as lessEqual. (NullAllowed: if null, no condition)
+     * @param genHeadId The value of genHeadId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenHeadId_LessEqual(Long genHeadId) {
         regGenHeadId(CK_LE, genHeadId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaId The value of nometaId as equal. (NullAllowed: if null, no condition)
+     * @param nometaId The value of nometaId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNometaId_Equal(Long nometaId) {
         doSetNometaId_Equal(nometaId);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaId The value of nometaId as greaterThan. (NullAllowed: if null, no condition)
+     * @param nometaId The value of nometaId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNometaId_GreaterThan(Long nometaId) {
         regNometaId(CK_GT, nometaId);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaId The value of nometaId as lessThan. (NullAllowed: if null, no condition)
+     * @param nometaId The value of nometaId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNometaId_LessThan(Long nometaId) {
         regNometaId(CK_LT, nometaId);
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaId The value of nometaId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nometaId The value of nometaId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNometaId_GreaterEqual(Long nometaId) {
         regNometaId(CK_GE, nometaId);
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaId The value of nometaId as lessEqual. (NullAllowed: if null, no condition)
+     * @param nometaId The value of nometaId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNometaId_LessEqual(Long nometaId) {
         regNometaId(CK_LE, nometaId);

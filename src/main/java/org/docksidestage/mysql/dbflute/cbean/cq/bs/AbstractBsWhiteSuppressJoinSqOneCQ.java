@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as equal. (NullAllowed: if null, no condition)
+     * @param oneId The value of oneId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneId_Equal(Integer oneId) {
         doSetOneId_Equal(oneId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as greaterThan. (NullAllowed: if null, no condition)
+     * @param oneId The value of oneId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneId_GreaterThan(Integer oneId) {
         regOneId(CK_GT, oneId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as lessThan. (NullAllowed: if null, no condition)
+     * @param oneId The value of oneId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneId_LessThan(Integer oneId) {
         regOneId(CK_LT, oneId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param oneId The value of oneId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneId_GreaterEqual(Integer oneId) {
         regOneId(CK_GE, oneId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as lessEqual. (NullAllowed: if null, no condition)
+     * @param oneId The value of oneId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneId_LessEqual(Integer oneId) {
         regOneId(CK_LE, oneId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as equal. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_Equal(Integer suppressJoinSqId) {
         doSetSuppressJoinSqId_Equal(suppressJoinSqId);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_GreaterThan(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_GT, suppressJoinSqId);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as lessThan. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_LessThan(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_LT, suppressJoinSqId);
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_GreaterEqual(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_GE, suppressJoinSqId);
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as lessEqual. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_LessEqual(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_LE, suppressJoinSqId);
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as equal. (NullAllowed: if null, no condition)
+     * @param oneAddiId The value of oneAddiId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneAddiId_Equal(Integer oneAddiId) {
         doSetOneAddiId_Equal(oneAddiId);
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as greaterThan. (NullAllowed: if null, no condition)
+     * @param oneAddiId The value of oneAddiId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneAddiId_GreaterThan(Integer oneAddiId) {
         regOneAddiId(CK_GT, oneAddiId);
@@ -402,7 +402,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as lessThan. (NullAllowed: if null, no condition)
+     * @param oneAddiId The value of oneAddiId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneAddiId_LessThan(Integer oneAddiId) {
         regOneAddiId(CK_LT, oneAddiId);
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param oneAddiId The value of oneAddiId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneAddiId_GreaterEqual(Integer oneAddiId) {
         regOneAddiId(CK_GE, oneAddiId);
@@ -420,7 +420,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as lessEqual. (NullAllowed: if null, no condition)
+     * @param oneAddiId The value of oneAddiId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOneAddiId_LessEqual(Integer oneAddiId) {
         regOneAddiId(CK_LE, oneAddiId);

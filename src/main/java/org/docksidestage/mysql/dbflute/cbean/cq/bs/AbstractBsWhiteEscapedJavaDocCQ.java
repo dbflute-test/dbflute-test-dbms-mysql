@@ -71,7 +71,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * Equal(=). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setEscapedJavaDocCode_Equal_AsEscapedJavaDocCls(CDef.EscapedJavaDocCls cdef) {
         doSetEscapedJavaDocCode_Equal(cdef != null ? cdef.code() : null);
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * NotEqual(&lt;&gt;). As EscapedJavaDocCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setEscapedJavaDocCode_NotEqual_AsEscapedJavaDocCls(CDef.EscapedJavaDocCls cdef) {
         doSetEscapedJavaDocCode_NotEqual(cdef != null ? cdef.code() : null);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstId The value of multipleFirstId as equal. (NullAllowed: if null, no condition)
+     * @param multipleFirstId The value of multipleFirstId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleFirstId_Equal(Integer multipleFirstId) {
         doSetMultipleFirstId_Equal(multipleFirstId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstId The value of multipleFirstId as greaterThan. (NullAllowed: if null, no condition)
+     * @param multipleFirstId The value of multipleFirstId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleFirstId_GreaterThan(Integer multipleFirstId) {
         regMultipleFirstId(CK_GT, multipleFirstId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstId The value of multipleFirstId as lessThan. (NullAllowed: if null, no condition)
+     * @param multipleFirstId The value of multipleFirstId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleFirstId_LessThan(Integer multipleFirstId) {
         regMultipleFirstId(CK_LT, multipleFirstId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstId The value of multipleFirstId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param multipleFirstId The value of multipleFirstId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleFirstId_GreaterEqual(Integer multipleFirstId) {
         regMultipleFirstId(CK_GE, multipleFirstId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstId The value of multipleFirstId as lessEqual. (NullAllowed: if null, no condition)
+     * @param multipleFirstId The value of multipleFirstId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleFirstId_LessEqual(Integer multipleFirstId) {
         regMultipleFirstId(CK_LE, multipleFirstId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondId The value of multipleSecondId as equal. (NullAllowed: if null, no condition)
+     * @param multipleSecondId The value of multipleSecondId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleSecondId_Equal(Integer multipleSecondId) {
         doSetMultipleSecondId_Equal(multipleSecondId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondId The value of multipleSecondId as greaterThan. (NullAllowed: if null, no condition)
+     * @param multipleSecondId The value of multipleSecondId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleSecondId_GreaterThan(Integer multipleSecondId) {
         regMultipleSecondId(CK_GT, multipleSecondId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondId The value of multipleSecondId as lessThan. (NullAllowed: if null, no condition)
+     * @param multipleSecondId The value of multipleSecondId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleSecondId_LessThan(Integer multipleSecondId) {
         regMultipleSecondId(CK_LT, multipleSecondId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondId The value of multipleSecondId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param multipleSecondId The value of multipleSecondId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleSecondId_GreaterEqual(Integer multipleSecondId) {
         regMultipleSecondId(CK_GE, multipleSecondId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondId The value of multipleSecondId as lessEqual. (NullAllowed: if null, no condition)
+     * @param multipleSecondId The value of multipleSecondId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMultipleSecondId_LessEqual(Integer multipleSecondId) {
         regMultipleSecondId(CK_LE, multipleSecondId);
@@ -293,7 +293,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
-     * @param refFirstId The value of refFirstId as equal. (NullAllowed: if null, no condition)
+     * @param refFirstId The value of refFirstId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefFirstId_Equal(Integer refFirstId) {
         doSetRefFirstId_Equal(refFirstId);
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
-     * @param refFirstId The value of refFirstId as greaterThan. (NullAllowed: if null, no condition)
+     * @param refFirstId The value of refFirstId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefFirstId_GreaterThan(Integer refFirstId) {
         regRefFirstId(CK_GT, refFirstId);
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
-     * @param refFirstId The value of refFirstId as lessThan. (NullAllowed: if null, no condition)
+     * @param refFirstId The value of refFirstId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefFirstId_LessThan(Integer refFirstId) {
         regRefFirstId(CK_LT, refFirstId);
@@ -324,7 +324,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
-     * @param refFirstId The value of refFirstId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param refFirstId The value of refFirstId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefFirstId_GreaterEqual(Integer refFirstId) {
         regRefFirstId(CK_GE, refFirstId);
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
-     * @param refFirstId The value of refFirstId as lessEqual. (NullAllowed: if null, no condition)
+     * @param refFirstId The value of refFirstId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefFirstId_LessEqual(Integer refFirstId) {
         regRefFirstId(CK_LE, refFirstId);
@@ -397,7 +397,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
-     * @param refSecondId The value of refSecondId as equal. (NullAllowed: if null, no condition)
+     * @param refSecondId The value of refSecondId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefSecondId_Equal(Integer refSecondId) {
         doSetRefSecondId_Equal(refSecondId);
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
-     * @param refSecondId The value of refSecondId as greaterThan. (NullAllowed: if null, no condition)
+     * @param refSecondId The value of refSecondId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefSecondId_GreaterThan(Integer refSecondId) {
         regRefSecondId(CK_GT, refSecondId);
@@ -419,7 +419,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
-     * @param refSecondId The value of refSecondId as lessThan. (NullAllowed: if null, no condition)
+     * @param refSecondId The value of refSecondId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefSecondId_LessThan(Integer refSecondId) {
         regRefSecondId(CK_LT, refSecondId);
@@ -428,7 +428,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
-     * @param refSecondId The value of refSecondId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param refSecondId The value of refSecondId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefSecondId_GreaterEqual(Integer refSecondId) {
         regRefSecondId(CK_GE, refSecondId);
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
-     * @param refSecondId The value of refSecondId as lessEqual. (NullAllowed: if null, no condition)
+     * @param refSecondId The value of refSecondId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefSecondId_LessEqual(Integer refSecondId) {
         regRefSecondId(CK_LE, refSecondId);

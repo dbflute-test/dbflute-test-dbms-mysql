@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as equal. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_Equal(Integer firstId) {
         doSetFirstId_Equal(firstId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as greaterThan. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_GreaterThan(Integer firstId) {
         regFirstId(CK_GT, firstId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as lessThan. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_LessThan(Integer firstId) {
         regFirstId(CK_LT, firstId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_GreaterEqual(Integer firstId) {
         regFirstId(CK_GE, firstId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as lessEqual. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_LessEqual(Integer firstId) {
         regFirstId(CK_LE, firstId);

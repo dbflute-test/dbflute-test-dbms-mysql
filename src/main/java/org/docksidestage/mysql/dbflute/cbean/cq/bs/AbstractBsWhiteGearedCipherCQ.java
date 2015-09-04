@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as equal. (NullAllowed: if null, no condition)
+     * @param cipherId The value of cipherId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherId_Equal(Long cipherId) {
         doSetCipherId_Equal(cipherId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as greaterThan. (NullAllowed: if null, no condition)
+     * @param cipherId The value of cipherId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherId_GreaterThan(Long cipherId) {
         regCipherId(CK_GT, cipherId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as lessThan. (NullAllowed: if null, no condition)
+     * @param cipherId The value of cipherId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherId_LessThan(Long cipherId) {
         regCipherId(CK_LT, cipherId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param cipherId The value of cipherId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherId_GreaterEqual(Long cipherId) {
         regCipherId(CK_GE, cipherId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as lessEqual. (NullAllowed: if null, no condition)
+     * @param cipherId The value of cipherId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherId_LessEqual(Long cipherId) {
         regCipherId(CK_LE, cipherId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as equal. (NullAllowed: if null, no condition)
+     * @param cipherInteger The value of cipherInteger as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherInteger_Equal(Integer cipherInteger) {
         doSetCipherInteger_Equal(cipherInteger);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as greaterThan. (NullAllowed: if null, no condition)
+     * @param cipherInteger The value of cipherInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherInteger_GreaterThan(Integer cipherInteger) {
         regCipherInteger(CK_GT, cipherInteger);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as lessThan. (NullAllowed: if null, no condition)
+     * @param cipherInteger The value of cipherInteger as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherInteger_LessThan(Integer cipherInteger) {
         regCipherInteger(CK_LT, cipherInteger);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as greaterEqual. (NullAllowed: if null, no condition)
+     * @param cipherInteger The value of cipherInteger as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherInteger_GreaterEqual(Integer cipherInteger) {
         regCipherInteger(CK_GE, cipherInteger);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as lessEqual. (NullAllowed: if null, no condition)
+     * @param cipherInteger The value of cipherInteger as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherInteger_LessEqual(Integer cipherInteger) {
         regCipherInteger(CK_LE, cipherInteger);
@@ -410,7 +410,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATE: {VARCHAR(100)}
-     * @param cipherDate The value of cipherDate as equal. (NullAllowed: if null, no condition)
+     * @param cipherDate The value of cipherDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDate_Equal(java.time.LocalDate cipherDate) {
         regCipherDate(CK_EQ,  cipherDate);
@@ -419,7 +419,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATE: {VARCHAR(100)}
-     * @param cipherDate The value of cipherDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param cipherDate The value of cipherDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDate_GreaterThan(java.time.LocalDate cipherDate) {
         regCipherDate(CK_GT,  cipherDate);
@@ -428,7 +428,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATE: {VARCHAR(100)}
-     * @param cipherDate The value of cipherDate as lessThan. (NullAllowed: if null, no condition)
+     * @param cipherDate The value of cipherDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDate_LessThan(java.time.LocalDate cipherDate) {
         regCipherDate(CK_LT,  cipherDate);
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATE: {VARCHAR(100)}
-     * @param cipherDate The value of cipherDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param cipherDate The value of cipherDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDate_GreaterEqual(java.time.LocalDate cipherDate) {
         regCipherDate(CK_GE,  cipherDate);
@@ -446,7 +446,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATE: {VARCHAR(100)}
-     * @param cipherDate The value of cipherDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param cipherDate The value of cipherDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDate_LessEqual(java.time.LocalDate cipherDate) {
         regCipherDate(CK_LE, cipherDate);
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
-     * @param cipherDatetime The value of cipherDatetime as equal. (NullAllowed: if null, no condition)
+     * @param cipherDatetime The value of cipherDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDatetime_Equal(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_EQ,  cipherDatetime);
@@ -506,7 +506,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
-     * @param cipherDatetime The value of cipherDatetime as greaterThan. (NullAllowed: if null, no condition)
+     * @param cipherDatetime The value of cipherDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDatetime_GreaterThan(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_GT,  cipherDatetime);
@@ -515,7 +515,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
-     * @param cipherDatetime The value of cipherDatetime as lessThan. (NullAllowed: if null, no condition)
+     * @param cipherDatetime The value of cipherDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDatetime_LessThan(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_LT,  cipherDatetime);
@@ -524,7 +524,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
-     * @param cipherDatetime The value of cipherDatetime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param cipherDatetime The value of cipherDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDatetime_GreaterEqual(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_GE,  cipherDatetime);
@@ -533,7 +533,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
-     * @param cipherDatetime The value of cipherDatetime as lessEqual. (NullAllowed: if null, no condition)
+     * @param cipherDatetime The value of cipherDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setCipherDatetime_LessEqual(java.time.LocalDateTime cipherDatetime) {
         regCipherDatetime(CK_LE, cipherDatetime);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as equal. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_Equal(Integer whiteImplicitReverseFkId) {
         doSetWhiteImplicitReverseFkId_Equal(whiteImplicitReverseFkId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_GreaterThan(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_GT, whiteImplicitReverseFkId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_LessThan(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_LT, whiteImplicitReverseFkId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_GreaterEqual(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_GE, whiteImplicitReverseFkId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_LessEqual(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_LE, whiteImplicitReverseFkId);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as equal. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_Equal(Integer refId) {
         doSetRefId_Equal(refId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as greaterThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterThan(Integer refId) {
         regRefId(CK_GT, refId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as lessThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessThan(Integer refId) {
         regRefId(CK_LT, refId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterEqual(Integer refId) {
         regRefId(CK_GE, refId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as lessEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessEqual(Integer refId) {
         regRefId(CK_LE, refId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as equal. (NullAllowed: if null, no condition)
+     * @param classSynonym The value of classSynonym as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setClassSynonym_Equal(Integer classSynonym) {
         doSetClassSynonym_Equal(classSynonym);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as greaterThan. (NullAllowed: if null, no condition)
+     * @param classSynonym The value of classSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setClassSynonym_GreaterThan(Integer classSynonym) {
         regClassSynonym(CK_GT, classSynonym);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as lessThan. (NullAllowed: if null, no condition)
+     * @param classSynonym The value of classSynonym as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setClassSynonym_LessThan(Integer classSynonym) {
         regClassSynonym(CK_LT, classSynonym);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as greaterEqual. (NullAllowed: if null, no condition)
+     * @param classSynonym The value of classSynonym as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setClassSynonym_GreaterEqual(Integer classSynonym) {
         regClassSynonym(CK_GE, classSynonym);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as lessEqual. (NullAllowed: if null, no condition)
+     * @param classSynonym The value of classSynonym as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setClassSynonym_LessEqual(Integer classSynonym) {
         regClassSynonym(CK_LE, classSynonym);

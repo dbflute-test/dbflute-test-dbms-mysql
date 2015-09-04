@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as equal. (NullAllowed: if null, no condition)
+     * @param masterQuxId The value of masterQuxId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterQuxId_Equal(Long masterQuxId) {
         doSetMasterQuxId_Equal(masterQuxId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as greaterThan. (NullAllowed: if null, no condition)
+     * @param masterQuxId The value of masterQuxId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterQuxId_GreaterThan(Long masterQuxId) {
         regMasterQuxId(CK_GT, masterQuxId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as lessThan. (NullAllowed: if null, no condition)
+     * @param masterQuxId The value of masterQuxId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterQuxId_LessThan(Long masterQuxId) {
         regMasterQuxId(CK_LT, masterQuxId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param masterQuxId The value of masterQuxId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterQuxId_GreaterEqual(Long masterQuxId) {
         regMasterQuxId(CK_GE, masterQuxId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as lessEqual. (NullAllowed: if null, no condition)
+     * @param masterQuxId The value of masterQuxId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterQuxId_LessEqual(Long masterQuxId) {
         regMasterQuxId(CK_LE, masterQuxId);
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * Equal(=). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxTypeCode_Equal_AsVariantRelationQuxType(CDef.VariantRelationQuxType cdef) {
         doSetQuxTypeCode_Equal(cdef != null ? cdef.code() : null);
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * NotEqual(&lt;&gt;). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setQuxTypeCode_NotEqual_AsVariantRelationQuxType(CDef.VariantRelationQuxType cdef) {
         doSetQuxTypeCode_NotEqual(cdef != null ? cdef.code() : null);

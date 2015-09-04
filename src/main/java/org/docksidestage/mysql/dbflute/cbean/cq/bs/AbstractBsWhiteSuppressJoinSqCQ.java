@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqId The value of suppressJoinSqId as equal. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_Equal(Integer suppressJoinSqId) {
         doSetSuppressJoinSqId_Equal(suppressJoinSqId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_GreaterThan(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_GT, suppressJoinSqId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqId The value of suppressJoinSqId as lessThan. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_LessThan(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_LT, suppressJoinSqId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqId The value of suppressJoinSqId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_GreaterEqual(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_GE, suppressJoinSqId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqId The value of suppressJoinSqId as lessEqual. (NullAllowed: if null, no condition)
+     * @param suppressJoinSqId The value of suppressJoinSqId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_LessEqual(Integer suppressJoinSqId) {
         regSuppressJoinSqId(CK_LE, suppressJoinSqId);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileId The value of largeTextFileId as equal. (NullAllowed: if null, no condition)
+     * @param largeTextFileId The value of largeTextFileId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeTextFileId_Equal(Long largeTextFileId) {
         doSetLargeTextFileId_Equal(largeTextFileId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileId The value of largeTextFileId as greaterThan. (NullAllowed: if null, no condition)
+     * @param largeTextFileId The value of largeTextFileId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeTextFileId_GreaterThan(Long largeTextFileId) {
         regLargeTextFileId(CK_GT, largeTextFileId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileId The value of largeTextFileId as lessThan. (NullAllowed: if null, no condition)
+     * @param largeTextFileId The value of largeTextFileId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeTextFileId_LessThan(Long largeTextFileId) {
         regLargeTextFileId(CK_LT, largeTextFileId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileId The value of largeTextFileId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param largeTextFileId The value of largeTextFileId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeTextFileId_GreaterEqual(Long largeTextFileId) {
         regLargeTextFileId(CK_GE, largeTextFileId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileId The value of largeTextFileId as lessEqual. (NullAllowed: if null, no condition)
+     * @param largeTextFileId The value of largeTextFileId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeTextFileId_LessEqual(Long largeTextFileId) {
         regLargeTextFileId(CK_LE, largeTextFileId);
