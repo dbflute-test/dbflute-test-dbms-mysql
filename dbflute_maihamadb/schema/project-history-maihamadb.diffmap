@@ -1,4 +1,85 @@
 map:{
+    ; 2015/08/11 18:13:38 = map:{
+        ; diffDate = 2015/08/11 18:13:38
+        ; tableCount = map:{
+            ; next = 115
+            ; previous = 114
+        }
+        ; tableDiff = map:{
+            ; white_uq_classification_flg_bit = map:{
+                ; tableName = white_uq_classification_flg_bit
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/08/11 11:35:07 = map:{
+        ; diffDate = 2015/08/11 11:35:07
+        ; tableDiff = map:{
+            ; white_uq_classification_flg_part = map:{
+                ; tableName = white_uq_classification_flg_part
+                ; diffType = ADD
+            }
+            ; white_uq_classification_part_flg = map:{
+                ; tableName = white_uq_classification_part_flg
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2015/08/11 11:32:13 = map:{
+        ; diffDate = 2015/08/11 11:32:13
+        ; tableDiff = map:{
+            ; white_uq_classification_part_flg = map:{
+                ; tableName = white_uq_classification_part_flg
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; UQ_CLS_NAME = map:{
+                        ; columnName = UQ_CLS_NAME
+                        ; diffType = ADD
+                    }
+                    ; UQ_CLS_CODE = map:{
+                        ; columnName = UQ_CLS_CODE
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; UQ_CLS_NAME = map:{
+                        ; constraintName = UQ_CLS_NAME
+                        ; diffType = ADD
+                    }
+                    ; UQ_CLS_CODE = map:{
+                        ; constraintName = UQ_CLS_CODE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2015/08/11 11:30:28 = map:{
+        ; diffDate = 2015/08/11 11:30:28
+        ; tableCount = map:{
+            ; next = 114
+            ; previous = 113
+        }
+        ; tableDiff = map:{
+            ; white_uq_classification_part_flg = map:{
+                ; tableName = white_uq_classification_part_flg
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2015/08/11 11:27:09 = map:{
+        ; diffDate = 2015/08/11 11:27:09
+        ; tableCount = map:{
+            ; next = 113
+            ; previous = 112
+        }
+        ; tableDiff = map:{
+            ; white_uq_classification_flg = map:{
+                ; tableName = white_uq_classification_flg
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2015/04/02 12:00:50 = map:{
         ; diffDate = 2015/04/02 12:00:50
         ; tableCount = map:{

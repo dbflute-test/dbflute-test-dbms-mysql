@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
-     * @param noPkId The value of noPkId as equal. (NullAllowed: if null, no condition)
+     * @param noPkId The value of noPkId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkId_Equal(Long noPkId) {
         doSetNoPkId_Equal(noPkId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
-     * @param noPkId The value of noPkId as greaterThan. (NullAllowed: if null, no condition)
+     * @param noPkId The value of noPkId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkId_GreaterThan(Long noPkId) {
         regNoPkId(CK_GT, noPkId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
-     * @param noPkId The value of noPkId as lessThan. (NullAllowed: if null, no condition)
+     * @param noPkId The value of noPkId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkId_LessThan(Long noPkId) {
         regNoPkId(CK_LT, noPkId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
-     * @param noPkId The value of noPkId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param noPkId The value of noPkId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkId_GreaterEqual(Long noPkId) {
         regNoPkId(CK_GE, noPkId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
-     * @param noPkId The value of noPkId as lessEqual. (NullAllowed: if null, no condition)
+     * @param noPkId The value of noPkId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkId_LessEqual(Long noPkId) {
         regNoPkId(CK_LE, noPkId);
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_INTEGER: {INT(10)}
-     * @param noPkInteger The value of noPkInteger as equal. (NullAllowed: if null, no condition)
+     * @param noPkInteger The value of noPkInteger as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkInteger_Equal(Integer noPkInteger) {
         doSetNoPkInteger_Equal(noPkInteger);
@@ -295,7 +295,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_INTEGER: {INT(10)}
-     * @param noPkInteger The value of noPkInteger as greaterThan. (NullAllowed: if null, no condition)
+     * @param noPkInteger The value of noPkInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkInteger_GreaterThan(Integer noPkInteger) {
         regNoPkInteger(CK_GT, noPkInteger);
@@ -304,7 +304,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_INTEGER: {INT(10)}
-     * @param noPkInteger The value of noPkInteger as lessThan. (NullAllowed: if null, no condition)
+     * @param noPkInteger The value of noPkInteger as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkInteger_LessThan(Integer noPkInteger) {
         regNoPkInteger(CK_LT, noPkInteger);
@@ -313,7 +313,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_INTEGER: {INT(10)}
-     * @param noPkInteger The value of noPkInteger as greaterEqual. (NullAllowed: if null, no condition)
+     * @param noPkInteger The value of noPkInteger as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkInteger_GreaterEqual(Integer noPkInteger) {
         regNoPkInteger(CK_GE, noPkInteger);
@@ -322,7 +322,7 @@ public abstract class AbstractBsWhiteNoPkCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_INTEGER: {INT(10)}
-     * @param noPkInteger The value of noPkInteger as lessEqual. (NullAllowed: if null, no condition)
+     * @param noPkInteger The value of noPkInteger as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNoPkInteger_LessEqual(Integer noPkInteger) {
         regNoPkInteger(CK_LE, noPkInteger);

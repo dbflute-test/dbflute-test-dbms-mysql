@@ -13,7 +13,6 @@ import java.util.Set;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
-import org.docksidestage.mysql.dbflute.bsentity.dbmeta.NextSchemaProductDbm;
 import org.docksidestage.mysql.dbflute.bsentity.dbmeta.PurchaseDbm;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
@@ -157,26 +156,27 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         assertTrue(exists);
     }
 
-    public void test_DatabaseMetaData_getColumns_nextSchema() throws SQLException {
-        DatabaseMetaData metaData = _conn.getMetaData();
-        String tableDbName = NextSchemaProductDbm.getInstance().getTableDbName();
-        ResultSet rs = metaData.getColumns("newurayasudb", null, tableDbName, null);
-        log("[Column]");
-        boolean exists = false;
-        while (rs.next()) {
-            exists = true;
-            String catalog = rs.getString("TABLE_CAT"); // null
-            String schema = rs.getString("TABLE_SCHEM");
-            String table = rs.getString("TABLE_NAME");
-            String column = rs.getString("COLUMN_NAME");
-            String comment = rs.getString("REMARKS");
-            log(catalog + "." + schema + "." + table + "." + column + ", comment=" + comment);
-            assertNotNull(catalog);
-            assertNull(schema);
-            assertNotNull(column);
-        }
-        assertTrue(exists);
-    }
+    // *needs to adjust connection
+    //public void test_DatabaseMetaData_getColumns_nextSchema() throws SQLException {
+    //    DatabaseMetaData metaData = _conn.getMetaData();
+    //    String tableDbName = NextSchemaProductDbm.getInstance().getTableDbName();
+    //    ResultSet rs = metaData.getColumns("newurayasudb", null, tableDbName, null);
+    //    log("[Column]");
+    //    boolean exists = false;
+    //    while (rs.next()) {
+    //        exists = true;
+    //        String catalog = rs.getString("TABLE_CAT"); // null
+    //        String schema = rs.getString("TABLE_SCHEM");
+    //        String table = rs.getString("TABLE_NAME");
+    //        String column = rs.getString("COLUMN_NAME");
+    //        String comment = rs.getString("REMARKS");
+    //        log(catalog + "." + schema + "." + table + "." + column + ", comment=" + comment);
+    //        assertNotNull(catalog);
+    //        assertNull(schema);
+    //        assertNotNull(column);
+    //    }
+    //    assertTrue(exists);
+    //}
 
     // -----------------------------------------------------
     //                                     getImportedKeys()
@@ -329,8 +329,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
-                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", "
-                        + scale + ") dataType=" + dataType + " // " + remarks);
+                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
+                        + dataType + " // " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refId The value of refId as equal. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_Equal(Long refId) {
         doSetRefId_Equal(refId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refId The value of refId as greaterThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterThan(Long refId) {
         regRefId(CK_GT, refId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refId The value of refId as lessThan. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessThan(Long refId) {
         regRefId(CK_LT, refId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refId The value of refId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_GreaterEqual(Long refId) {
         regRefId(CK_GE, refId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refId The value of refId as lessEqual. (NullAllowed: if null, no condition)
+     * @param refId The value of refId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRefId_LessEqual(Long refId) {
         regRefId(CK_LE, refId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerId The value of referrerId as equal. (NullAllowed: if null, no condition)
+     * @param referrerId The value of referrerId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferrerId_Equal(Long referrerId) {
         doSetReferrerId_Equal(referrerId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerId The value of referrerId as greaterThan. (NullAllowed: if null, no condition)
+     * @param referrerId The value of referrerId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferrerId_GreaterThan(Long referrerId) {
         regReferrerId(CK_GT, referrerId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerId The value of referrerId as lessThan. (NullAllowed: if null, no condition)
+     * @param referrerId The value of referrerId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferrerId_LessThan(Long referrerId) {
         regReferrerId(CK_LT, referrerId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerId The value of referrerId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param referrerId The value of referrerId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferrerId_GreaterEqual(Long referrerId) {
         regReferrerId(CK_GE, referrerId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerId The value of referrerId as lessEqual. (NullAllowed: if null, no condition)
+     * @param referrerId The value of referrerId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferrerId_LessEqual(Long referrerId) {
         regReferrerId(CK_LE, referrerId);

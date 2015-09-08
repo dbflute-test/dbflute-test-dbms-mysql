@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataId The value of loadDataId as equal. (NullAllowed: if null, no condition)
+     * @param loadDataId The value of loadDataId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadDataId_Equal(Long loadDataId) {
         doSetLoadDataId_Equal(loadDataId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataId The value of loadDataId as greaterThan. (NullAllowed: if null, no condition)
+     * @param loadDataId The value of loadDataId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadDataId_GreaterThan(Long loadDataId) {
         regLoadDataId(CK_GT, loadDataId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataId The value of loadDataId as lessThan. (NullAllowed: if null, no condition)
+     * @param loadDataId The value of loadDataId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadDataId_LessThan(Long loadDataId) {
         regLoadDataId(CK_LT, loadDataId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataId The value of loadDataId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param loadDataId The value of loadDataId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadDataId_GreaterEqual(Long loadDataId) {
         regLoadDataId(CK_GE, loadDataId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataId The value of loadDataId as lessEqual. (NullAllowed: if null, no condition)
+     * @param loadDataId The value of loadDataId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLoadDataId_LessEqual(Long loadDataId) {
         regLoadDataId(CK_LE, loadDataId);

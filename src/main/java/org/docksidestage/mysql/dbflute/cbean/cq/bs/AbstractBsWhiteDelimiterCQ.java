@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param delimiterId The value of delimiterId as equal. (NullAllowed: if null, no condition)
+     * @param delimiterId The value of delimiterId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDelimiterId_Equal(Long delimiterId) {
         doSetDelimiterId_Equal(delimiterId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param delimiterId The value of delimiterId as greaterThan. (NullAllowed: if null, no condition)
+     * @param delimiterId The value of delimiterId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDelimiterId_GreaterThan(Long delimiterId) {
         regDelimiterId(CK_GT, delimiterId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param delimiterId The value of delimiterId as lessThan. (NullAllowed: if null, no condition)
+     * @param delimiterId The value of delimiterId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDelimiterId_LessThan(Long delimiterId) {
         regDelimiterId(CK_LT, delimiterId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param delimiterId The value of delimiterId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param delimiterId The value of delimiterId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDelimiterId_GreaterEqual(Long delimiterId) {
         regDelimiterId(CK_GE, delimiterId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param delimiterId The value of delimiterId as lessEqual. (NullAllowed: if null, no condition)
+     * @param delimiterId The value of delimiterId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDelimiterId_LessEqual(Long delimiterId) {
         regDelimiterId(CK_LE, delimiterId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {INT(10)}
-     * @param numberNullable The value of numberNullable as equal. (NullAllowed: if null, no condition)
+     * @param numberNullable The value of numberNullable as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberNullable_Equal(Integer numberNullable) {
         doSetNumberNullable_Equal(numberNullable);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {INT(10)}
-     * @param numberNullable The value of numberNullable as greaterThan. (NullAllowed: if null, no condition)
+     * @param numberNullable The value of numberNullable as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberNullable_GreaterThan(Integer numberNullable) {
         regNumberNullable(CK_GT, numberNullable);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {INT(10)}
-     * @param numberNullable The value of numberNullable as lessThan. (NullAllowed: if null, no condition)
+     * @param numberNullable The value of numberNullable as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberNullable_LessThan(Integer numberNullable) {
         regNumberNullable(CK_LT, numberNullable);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {INT(10)}
-     * @param numberNullable The value of numberNullable as greaterEqual. (NullAllowed: if null, no condition)
+     * @param numberNullable The value of numberNullable as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberNullable_GreaterEqual(Integer numberNullable) {
         regNumberNullable(CK_GE, numberNullable);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMBER_NULLABLE: {INT(10)}
-     * @param numberNullable The value of numberNullable as lessEqual. (NullAllowed: if null, no condition)
+     * @param numberNullable The value of numberNullable as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberNullable_LessEqual(Integer numberNullable) {
         regNumberNullable(CK_LE, numberNullable);
@@ -527,7 +527,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
-     * @param dateDefault The value of dateDefault as equal. (NullAllowed: if null, no condition)
+     * @param dateDefault The value of dateDefault as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateDefault_Equal(java.time.LocalDate dateDefault) {
         regDateDefault(CK_EQ,  dateDefault);
@@ -536,7 +536,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
-     * @param dateDefault The value of dateDefault as greaterThan. (NullAllowed: if null, no condition)
+     * @param dateDefault The value of dateDefault as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateDefault_GreaterThan(java.time.LocalDate dateDefault) {
         regDateDefault(CK_GT,  dateDefault);
@@ -545,7 +545,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
-     * @param dateDefault The value of dateDefault as lessThan. (NullAllowed: if null, no condition)
+     * @param dateDefault The value of dateDefault as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateDefault_LessThan(java.time.LocalDate dateDefault) {
         regDateDefault(CK_LT,  dateDefault);
@@ -554,7 +554,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
-     * @param dateDefault The value of dateDefault as greaterEqual. (NullAllowed: if null, no condition)
+     * @param dateDefault The value of dateDefault as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateDefault_GreaterEqual(java.time.LocalDate dateDefault) {
         regDateDefault(CK_GE,  dateDefault);
@@ -563,7 +563,7 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_DEFAULT: {NotNull, DATE(10)}
-     * @param dateDefault The value of dateDefault as lessEqual. (NullAllowed: if null, no condition)
+     * @param dateDefault The value of dateDefault as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateDefault_LessEqual(java.time.LocalDate dateDefault) {
         regDateDefault(CK_LE, dateDefault);

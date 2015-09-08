@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckId The value of defCheckId as equal. (NullAllowed: if null, no condition)
+     * @param defCheckId The value of defCheckId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDefCheckId_Equal(Long defCheckId) {
         doSetDefCheckId_Equal(defCheckId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckId The value of defCheckId as greaterThan. (NullAllowed: if null, no condition)
+     * @param defCheckId The value of defCheckId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDefCheckId_GreaterThan(Long defCheckId) {
         regDefCheckId(CK_GT, defCheckId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckId The value of defCheckId as lessThan. (NullAllowed: if null, no condition)
+     * @param defCheckId The value of defCheckId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDefCheckId_LessThan(Long defCheckId) {
         regDefCheckId(CK_LT, defCheckId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckId The value of defCheckId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param defCheckId The value of defCheckId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDefCheckId_GreaterEqual(Long defCheckId) {
         regDefCheckId(CK_GE, defCheckId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckId The value of defCheckId as lessEqual. (NullAllowed: if null, no condition)
+     * @param defCheckId The value of defCheckId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDefCheckId_LessEqual(Long defCheckId) {
         regDefCheckId(CK_LE, defCheckId);

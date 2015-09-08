@@ -71,7 +71,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * Equal(=). As LineSepCommentCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_Equal_AsLineSepCommentCls(CDef.LineSepCommentCls cdef) {
         doSetLineSepCommentCode_Equal(cdef != null ? cdef.code() : null);
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * NotEqual(&lt;&gt;). As LineSepCommentCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_NotEqual_AsLineSepCommentCls(CDef.LineSepCommentCls cdef) {
         doSetLineSepCommentCode_NotEqual(cdef != null ? cdef.code() : null);

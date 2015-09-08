@@ -71,7 +71,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * Equal(=). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberInitialCode_Equal_AsEscapedNumberInitialCls(CDef.EscapedNumberInitialCls cdef) {
         doSetNumberInitialCode_Equal(cdef != null ? cdef.code() : null);
@@ -126,7 +126,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NotEqual(&lt;&gt;). As EscapedNumberInitialCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setNumberInitialCode_NotEqual_AsEscapedNumberInitialCls(CDef.EscapedNumberInitialCls cdef) {
         doSetNumberInitialCode_NotEqual(cdef != null ? cdef.code() : null);

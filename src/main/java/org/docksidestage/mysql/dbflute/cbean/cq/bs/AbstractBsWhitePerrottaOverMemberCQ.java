@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberId The value of memberId as equal. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_Equal(Long memberId) {
         doSetMemberId_Equal(memberId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberId The value of memberId as greaterThan. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_GreaterThan(Long memberId) {
         regMemberId(CK_GT, memberId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberId The value of memberId as lessThan. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_LessThan(Long memberId) {
         regMemberId(CK_LT, memberId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberId The value of memberId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_GreaterEqual(Long memberId) {
         regMemberId(CK_GE, memberId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberId The value of memberId as lessEqual. (NullAllowed: if null, no condition)
+     * @param memberId The value of memberId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMemberId_LessEqual(Long memberId) {
         regMemberId(CK_LE, memberId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productId The value of productId as equal. (NullAllowed: if null, no condition)
+     * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_Equal(Long productId) {
         doSetProductId_Equal(productId);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productId The value of productId as greaterThan. (NullAllowed: if null, no condition)
+     * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_GreaterThan(Long productId) {
         regProductId(CK_GT, productId);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productId The value of productId as lessThan. (NullAllowed: if null, no condition)
+     * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_LessThan(Long productId) {
         regProductId(CK_LT, productId);
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productId The value of productId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_GreaterEqual(Long productId) {
         regProductId(CK_GE, productId);
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productId The value of productId as lessEqual. (NullAllowed: if null, no condition)
+     * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_LessEqual(Long productId) {
         regProductId(CK_LE, productId);

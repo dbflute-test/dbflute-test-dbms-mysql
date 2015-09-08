@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as equal. (NullAllowed: if null, no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_Equal(Integer implicitConvIntegerId) {
         doSetImplicitConvIntegerId_Equal(implicitConvIntegerId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as greaterThan. (NullAllowed: if null, no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_GreaterThan(Integer implicitConvIntegerId) {
         regImplicitConvIntegerId(CK_GT, implicitConvIntegerId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as lessThan. (NullAllowed: if null, no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_LessThan(Integer implicitConvIntegerId) {
         regImplicitConvIntegerId(CK_LT, implicitConvIntegerId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_GreaterEqual(Integer implicitConvIntegerId) {
         regImplicitConvIntegerId(CK_GE, implicitConvIntegerId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as lessEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_LessEqual(Integer implicitConvIntegerId) {
         regImplicitConvIntegerId(CK_LE, implicitConvIntegerId);
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as equal. (NullAllowed: if null, no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_Equal(Integer implicitConvNumericId) {
         doSetImplicitConvNumericId_Equal(implicitConvNumericId);
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as greaterThan. (NullAllowed: if null, no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_GreaterThan(Integer implicitConvNumericId) {
         regImplicitConvNumericId(CK_GT, implicitConvNumericId);
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as lessThan. (NullAllowed: if null, no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_LessThan(Integer implicitConvNumericId) {
         regImplicitConvNumericId(CK_LT, implicitConvNumericId);
@@ -354,7 +354,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_GreaterEqual(Integer implicitConvNumericId) {
         regImplicitConvNumericId(CK_GE, implicitConvNumericId);
@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as lessEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_LessEqual(Integer implicitConvNumericId) {
         regImplicitConvNumericId(CK_LE, implicitConvNumericId);
@@ -427,7 +427,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringId The value of implicitConvStringId as equal. (NullAllowed: if null, no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_Equal(Integer implicitConvStringId) {
         doSetImplicitConvStringId_Equal(implicitConvStringId);
@@ -440,7 +440,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringId The value of implicitConvStringId as greaterThan. (NullAllowed: if null, no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_GreaterThan(Integer implicitConvStringId) {
         regImplicitConvStringId(CK_GT, implicitConvStringId);
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringId The value of implicitConvStringId as lessThan. (NullAllowed: if null, no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_LessThan(Integer implicitConvStringId) {
         regImplicitConvStringId(CK_LT, implicitConvStringId);
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringId The value of implicitConvStringId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_GreaterEqual(Integer implicitConvStringId) {
         regImplicitConvStringId(CK_GE, implicitConvStringId);
@@ -467,7 +467,7 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringId The value of implicitConvStringId as lessEqual. (NullAllowed: if null, no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_LessEqual(Integer implicitConvStringId) {
         regImplicitConvStringId(CK_LE, implicitConvStringId);

@@ -71,7 +71,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * Equal(=). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementCode_Equal_AsDeprecatedMapCollaborationType(CDef.DeprecatedMapCollaborationType cdef) {
         doSetDeprecatedClsElementCode_Equal(cdef != null ? cdef.code() : null);
@@ -120,7 +120,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * NotEqual(&lt;&gt;). As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementCode_NotEqual_AsDeprecatedMapCollaborationType(CDef.DeprecatedMapCollaborationType cdef) {
         doSetDeprecatedClsElementCode_NotEqual(cdef != null ? cdef.code() : null);

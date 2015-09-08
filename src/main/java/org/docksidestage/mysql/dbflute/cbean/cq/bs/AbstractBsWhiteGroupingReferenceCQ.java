@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as equal. (NullAllowed: if null, no condition)
+     * @param groupingReferenceId The value of groupingReferenceId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_Equal(Long groupingReferenceId) {
         doSetGroupingReferenceId_Equal(groupingReferenceId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as greaterThan. (NullAllowed: if null, no condition)
+     * @param groupingReferenceId The value of groupingReferenceId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_GreaterThan(Long groupingReferenceId) {
         regGroupingReferenceId(CK_GT, groupingReferenceId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as lessThan. (NullAllowed: if null, no condition)
+     * @param groupingReferenceId The value of groupingReferenceId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_LessThan(Long groupingReferenceId) {
         regGroupingReferenceId(CK_LT, groupingReferenceId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param groupingReferenceId The value of groupingReferenceId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_GreaterEqual(Long groupingReferenceId) {
         regGroupingReferenceId(CK_GE, groupingReferenceId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as lessEqual. (NullAllowed: if null, no condition)
+     * @param groupingReferenceId The value of groupingReferenceId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_LessEqual(Long groupingReferenceId) {
         regGroupingReferenceId(CK_LE, groupingReferenceId);
@@ -187,7 +187,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * Equal(=). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceCode_Equal_AsGroupingReference(CDef.GroupingReference cdef) {
         doSetGroupingReferenceCode_Equal(cdef != null ? cdef.code() : null);
@@ -242,7 +242,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * NotEqual(&lt;&gt;). As GroupingReference. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setGroupingReferenceCode_NotEqual_AsGroupingReference(CDef.GroupingReference cdef) {
         doSetGroupingReferenceCode_NotEqual(cdef != null ? cdef.code() : null);

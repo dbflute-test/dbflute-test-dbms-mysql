@@ -61,7 +61,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataId The value of largeDataId as equal. (NullAllowed: if null, no condition)
+     * @param largeDataId The value of largeDataId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeDataId_Equal(Long largeDataId) {
         doSetLargeDataId_Equal(largeDataId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataId The value of largeDataId as greaterThan. (NullAllowed: if null, no condition)
+     * @param largeDataId The value of largeDataId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeDataId_GreaterThan(Long largeDataId) {
         regLargeDataId(CK_GT, largeDataId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataId The value of largeDataId as lessThan. (NullAllowed: if null, no condition)
+     * @param largeDataId The value of largeDataId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeDataId_LessThan(Long largeDataId) {
         regLargeDataId(CK_LT, largeDataId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataId The value of largeDataId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param largeDataId The value of largeDataId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeDataId_GreaterEqual(Long largeDataId) {
         regLargeDataId(CK_GE, largeDataId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataId The value of largeDataId as lessEqual. (NullAllowed: if null, no condition)
+     * @param largeDataId The value of largeDataId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setLargeDataId_LessEqual(Long largeDataId) {
         regLargeDataId(CK_LE, largeDataId);
@@ -547,7 +547,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndex The value of intflgIndex as equal. (NullAllowed: if null, no condition)
+     * @param intflgIndex The value of intflgIndex as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setIntflgIndex_Equal(Integer intflgIndex) {
         doSetIntflgIndex_Equal(intflgIndex);
@@ -560,7 +560,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndex The value of intflgIndex as greaterThan. (NullAllowed: if null, no condition)
+     * @param intflgIndex The value of intflgIndex as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setIntflgIndex_GreaterThan(Integer intflgIndex) {
         regIntflgIndex(CK_GT, intflgIndex);
@@ -569,7 +569,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndex The value of intflgIndex as lessThan. (NullAllowed: if null, no condition)
+     * @param intflgIndex The value of intflgIndex as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setIntflgIndex_LessThan(Integer intflgIndex) {
         regIntflgIndex(CK_LT, intflgIndex);
@@ -578,7 +578,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndex The value of intflgIndex as greaterEqual. (NullAllowed: if null, no condition)
+     * @param intflgIndex The value of intflgIndex as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setIntflgIndex_GreaterEqual(Integer intflgIndex) {
         regIntflgIndex(CK_GE, intflgIndex);
@@ -587,7 +587,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndex The value of intflgIndex as lessEqual. (NullAllowed: if null, no condition)
+     * @param intflgIndex The value of intflgIndex as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setIntflgIndex_LessEqual(Integer intflgIndex) {
         regIntflgIndex(CK_LE, intflgIndex);
@@ -651,7 +651,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndex The value of numericIntegerIndex as equal. (NullAllowed: if null, no condition)
+     * @param numericIntegerIndex The value of numericIntegerIndex as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_Equal(Integer numericIntegerIndex) {
         doSetNumericIntegerIndex_Equal(numericIntegerIndex);
@@ -664,7 +664,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndex The value of numericIntegerIndex as greaterThan. (NullAllowed: if null, no condition)
+     * @param numericIntegerIndex The value of numericIntegerIndex as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_GreaterThan(Integer numericIntegerIndex) {
         regNumericIntegerIndex(CK_GT, numericIntegerIndex);
@@ -673,7 +673,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndex The value of numericIntegerIndex as lessThan. (NullAllowed: if null, no condition)
+     * @param numericIntegerIndex The value of numericIntegerIndex as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_LessThan(Integer numericIntegerIndex) {
         regNumericIntegerIndex(CK_LT, numericIntegerIndex);
@@ -682,7 +682,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndex The value of numericIntegerIndex as greaterEqual. (NullAllowed: if null, no condition)
+     * @param numericIntegerIndex The value of numericIntegerIndex as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_GreaterEqual(Integer numericIntegerIndex) {
         regNumericIntegerIndex(CK_GE, numericIntegerIndex);
@@ -691,7 +691,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndex The value of numericIntegerIndex as lessEqual. (NullAllowed: if null, no condition)
+     * @param numericIntegerIndex The value of numericIntegerIndex as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_LessEqual(Integer numericIntegerIndex) {
         regNumericIntegerIndex(CK_LE, numericIntegerIndex);
@@ -755,7 +755,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as equal. (NullAllowed: if null, no condition)
+     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_Equal(Integer numericIntegerNoIndex) {
         doSetNumericIntegerNoIndex_Equal(numericIntegerNoIndex);
@@ -768,7 +768,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as greaterThan. (NullAllowed: if null, no condition)
+     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_GreaterThan(Integer numericIntegerNoIndex) {
         regNumericIntegerNoIndex(CK_GT, numericIntegerNoIndex);
@@ -777,7 +777,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as lessThan. (NullAllowed: if null, no condition)
+     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_LessThan(Integer numericIntegerNoIndex) {
         regNumericIntegerNoIndex(CK_LT, numericIntegerNoIndex);
@@ -786,7 +786,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as greaterEqual. (NullAllowed: if null, no condition)
+     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_GreaterEqual(Integer numericIntegerNoIndex) {
         regNumericIntegerNoIndex(CK_GE, numericIntegerNoIndex);
@@ -795,7 +795,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as lessEqual. (NullAllowed: if null, no condition)
+     * @param numericIntegerNoIndex The value of numericIntegerNoIndex as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_LessEqual(Integer numericIntegerNoIndex) {
         regNumericIntegerNoIndex(CK_LE, numericIntegerNoIndex);

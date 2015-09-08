@@ -71,7 +71,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * Equal(=). As EscapedDfpropCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; &amp; endBrace} &amp; path\foo\bar
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setEscapedDfpropCode_Equal_AsEscapedDfpropCls(CDef.EscapedDfpropCls cdef) {
         doSetEscapedDfpropCode_Equal(cdef != null ? cdef.code() : null);
@@ -118,7 +118,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * NotEqual(&lt;&gt;). As EscapedDfpropCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; &amp; endBrace} &amp; path\foo\bar
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setEscapedDfpropCode_NotEqual_AsEscapedDfpropCls(CDef.EscapedDfpropCls cdef) {
         doSetEscapedDfpropCode_NotEqual(cdef != null ? cdef.code() : null);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerId The value of purchaseReferrerId as equal. (NullAllowed: if null, no condition)
+     * @param purchaseReferrerId The value of purchaseReferrerId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_Equal(Long purchaseReferrerId) {
         doSetPurchaseReferrerId_Equal(purchaseReferrerId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerId The value of purchaseReferrerId as greaterThan. (NullAllowed: if null, no condition)
+     * @param purchaseReferrerId The value of purchaseReferrerId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_GreaterThan(Long purchaseReferrerId) {
         regPurchaseReferrerId(CK_GT, purchaseReferrerId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerId The value of purchaseReferrerId as lessThan. (NullAllowed: if null, no condition)
+     * @param purchaseReferrerId The value of purchaseReferrerId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_LessThan(Long purchaseReferrerId) {
         regPurchaseReferrerId(CK_LT, purchaseReferrerId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerId The value of purchaseReferrerId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param purchaseReferrerId The value of purchaseReferrerId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_GreaterEqual(Long purchaseReferrerId) {
         regPurchaseReferrerId(CK_GE, purchaseReferrerId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerId The value of purchaseReferrerId as lessEqual. (NullAllowed: if null, no condition)
+     * @param purchaseReferrerId The value of purchaseReferrerId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_LessEqual(Long purchaseReferrerId) {
         regPurchaseReferrerId(CK_LE, purchaseReferrerId);

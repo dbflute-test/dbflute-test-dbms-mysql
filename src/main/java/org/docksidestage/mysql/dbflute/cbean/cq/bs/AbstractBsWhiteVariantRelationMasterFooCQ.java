@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooId The value of masterFooId as equal. (NullAllowed: if null, no condition)
+     * @param masterFooId The value of masterFooId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterFooId_Equal(Long masterFooId) {
         doSetMasterFooId_Equal(masterFooId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooId The value of masterFooId as greaterThan. (NullAllowed: if null, no condition)
+     * @param masterFooId The value of masterFooId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterFooId_GreaterThan(Long masterFooId) {
         regMasterFooId(CK_GT, masterFooId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooId The value of masterFooId as lessThan. (NullAllowed: if null, no condition)
+     * @param masterFooId The value of masterFooId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterFooId_LessThan(Long masterFooId) {
         regMasterFooId(CK_LT, masterFooId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooId The value of masterFooId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param masterFooId The value of masterFooId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterFooId_GreaterEqual(Long masterFooId) {
         regMasterFooId(CK_GE, masterFooId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooId The value of masterFooId as lessEqual. (NullAllowed: if null, no condition)
+     * @param masterFooId The value of masterFooId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterFooId_LessEqual(Long masterFooId) {
         regMasterFooId(CK_LE, masterFooId);

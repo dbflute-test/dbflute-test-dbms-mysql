@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as equal. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_Equal(Long genOnlyId) {
         doSetGenOnlyId_Equal(genOnlyId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as greaterThan. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_GreaterThan(Long genOnlyId) {
         regGenOnlyId(CK_GT, genOnlyId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as lessThan. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_LessThan(Long genOnlyId) {
         regGenOnlyId(CK_LT, genOnlyId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_GreaterEqual(Long genOnlyId) {
         regGenOnlyId(CK_GE, genOnlyId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyId The value of genOnlyId as lessEqual. (NullAllowed: if null, no condition)
+     * @param genOnlyId The value of genOnlyId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setGenOnlyId_LessEqual(Long genOnlyId) {
         regGenOnlyId(CK_LE, genOnlyId);

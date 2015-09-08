@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as equal. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_Equal(Integer whiteImplicitReverseFkSuppressId) {
         doSetWhiteImplicitReverseFkSuppressId_Equal(whiteImplicitReverseFkSuppressId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as greaterThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_GreaterThan(Integer whiteImplicitReverseFkSuppressId) {
         regWhiteImplicitReverseFkSuppressId(CK_GT, whiteImplicitReverseFkSuppressId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as lessThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_LessThan(Integer whiteImplicitReverseFkSuppressId) {
         regWhiteImplicitReverseFkSuppressId(CK_LT, whiteImplicitReverseFkSuppressId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_GreaterEqual(Integer whiteImplicitReverseFkSuppressId) {
         regWhiteImplicitReverseFkSuppressId(CK_GE, whiteImplicitReverseFkSuppressId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as lessEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_LessEqual(Integer whiteImplicitReverseFkSuppressId) {
         regWhiteImplicitReverseFkSuppressId(CK_LE, whiteImplicitReverseFkSuppressId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as equal. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_Equal(Integer whiteImplicitReverseFkId) {
         doSetWhiteImplicitReverseFkId_Equal(whiteImplicitReverseFkId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_GreaterThan(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_GT, whiteImplicitReverseFkId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessThan. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_LessThan(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_LT, whiteImplicitReverseFkId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_GreaterEqual(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_GE, whiteImplicitReverseFkId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessEqual. (NullAllowed: if null, no condition)
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_LessEqual(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_LE, whiteImplicitReverseFkId);
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * @param validBeginDate The value of validBeginDate as equal. (NullAllowed: if null, no condition)
+     * @param validBeginDate The value of validBeginDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidBeginDate_Equal(java.time.LocalDate validBeginDate) {
         regValidBeginDate(CK_EQ,  validBeginDate);
@@ -290,7 +290,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * @param validBeginDate The value of validBeginDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param validBeginDate The value of validBeginDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidBeginDate_GreaterThan(java.time.LocalDate validBeginDate) {
         regValidBeginDate(CK_GT,  validBeginDate);
@@ -299,7 +299,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * @param validBeginDate The value of validBeginDate as lessThan. (NullAllowed: if null, no condition)
+     * @param validBeginDate The value of validBeginDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidBeginDate_LessThan(java.time.LocalDate validBeginDate) {
         regValidBeginDate(CK_LT,  validBeginDate);
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * @param validBeginDate The value of validBeginDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param validBeginDate The value of validBeginDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidBeginDate_GreaterEqual(java.time.LocalDate validBeginDate) {
         regValidBeginDate(CK_GE,  validBeginDate);
@@ -317,7 +317,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
-     * @param validBeginDate The value of validBeginDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param validBeginDate The value of validBeginDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidBeginDate_LessEqual(java.time.LocalDate validBeginDate) {
         regValidBeginDate(CK_LE, validBeginDate);
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
-     * @param validEndDate The value of validEndDate as equal. (NullAllowed: if null, no condition)
+     * @param validEndDate The value of validEndDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidEndDate_Equal(java.time.LocalDate validEndDate) {
         regValidEndDate(CK_EQ,  validEndDate);
@@ -365,7 +365,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
-     * @param validEndDate The value of validEndDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param validEndDate The value of validEndDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidEndDate_GreaterThan(java.time.LocalDate validEndDate) {
         regValidEndDate(CK_GT,  validEndDate);
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
-     * @param validEndDate The value of validEndDate as lessThan. (NullAllowed: if null, no condition)
+     * @param validEndDate The value of validEndDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidEndDate_LessThan(java.time.LocalDate validEndDate) {
         regValidEndDate(CK_LT,  validEndDate);
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
-     * @param validEndDate The value of validEndDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param validEndDate The value of validEndDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidEndDate_GreaterEqual(java.time.LocalDate validEndDate) {
         regValidEndDate(CK_GE,  validEndDate);
@@ -392,7 +392,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
-     * @param validEndDate The value of validEndDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param validEndDate The value of validEndDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setValidEndDate_LessEqual(java.time.LocalDate validEndDate) {
         regValidEndDate(CK_LE, validEndDate);

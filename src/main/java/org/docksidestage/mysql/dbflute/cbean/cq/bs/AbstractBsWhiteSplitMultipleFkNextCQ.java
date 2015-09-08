@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextId The value of nextId as equal. (NullAllowed: if null, no condition)
+     * @param nextId The value of nextId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextId_Equal(Long nextId) {
         doSetNextId_Equal(nextId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextId The value of nextId as greaterThan. (NullAllowed: if null, no condition)
+     * @param nextId The value of nextId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextId_GreaterThan(Long nextId) {
         regNextId(CK_GT, nextId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextId The value of nextId as lessThan. (NullAllowed: if null, no condition)
+     * @param nextId The value of nextId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextId_LessThan(Long nextId) {
         regNextId(CK_LT, nextId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextId The value of nextId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nextId The value of nextId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextId_GreaterEqual(Long nextId) {
         regNextId(CK_GE, nextId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextId The value of nextId as lessEqual. (NullAllowed: if null, no condition)
+     * @param nextId The value of nextId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextId_LessEqual(Long nextId) {
         regNextId(CK_LE, nextId);

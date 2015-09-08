@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as equal. (NullAllowed: if null, no condition)
+     * @param masterBarId The value of masterBarId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterBarId_Equal(Long masterBarId) {
         doSetMasterBarId_Equal(masterBarId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as greaterThan. (NullAllowed: if null, no condition)
+     * @param masterBarId The value of masterBarId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterBarId_GreaterThan(Long masterBarId) {
         regMasterBarId(CK_GT, masterBarId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as lessThan. (NullAllowed: if null, no condition)
+     * @param masterBarId The value of masterBarId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterBarId_LessThan(Long masterBarId) {
         regMasterBarId(CK_LT, masterBarId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param masterBarId The value of masterBarId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterBarId_GreaterEqual(Long masterBarId) {
         regMasterBarId(CK_GE, masterBarId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as lessEqual. (NullAllowed: if null, no condition)
+     * @param masterBarId The value of masterBarId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterBarId_LessEqual(Long masterBarId) {
         regMasterBarId(CK_LE, masterBarId);

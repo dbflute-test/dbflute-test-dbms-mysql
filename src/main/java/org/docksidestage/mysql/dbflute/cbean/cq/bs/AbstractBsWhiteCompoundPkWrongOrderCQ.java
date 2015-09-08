@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as equal. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_Equal(Integer firstId) {
         doSetFirstId_Equal(firstId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as greaterThan. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_GreaterThan(Integer firstId) {
         regFirstId(CK_GT, firstId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as lessThan. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_LessThan(Integer firstId) {
         regFirstId(CK_LT, firstId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_GreaterEqual(Integer firstId) {
         regFirstId(CK_GE, firstId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as lessEqual. (NullAllowed: if null, no condition)
+     * @param firstId The value of firstId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFirstId_LessEqual(Integer firstId) {
         regFirstId(CK_LE, firstId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as equal. (NullAllowed: if null, no condition)
+     * @param secondId The value of secondId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSecondId_Equal(Integer secondId) {
         doSetSecondId_Equal(secondId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as greaterThan. (NullAllowed: if null, no condition)
+     * @param secondId The value of secondId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSecondId_GreaterThan(Integer secondId) {
         regSecondId(CK_GT, secondId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as lessThan. (NullAllowed: if null, no condition)
+     * @param secondId The value of secondId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSecondId_LessThan(Integer secondId) {
         regSecondId(CK_LT, secondId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param secondId The value of secondId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSecondId_GreaterEqual(Integer secondId) {
         regSecondId(CK_GE, secondId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as lessEqual. (NullAllowed: if null, no condition)
+     * @param secondId The value of secondId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSecondId_LessEqual(Integer secondId) {
         regSecondId(CK_LE, secondId);
@@ -293,7 +293,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as equal. (NullAllowed: if null, no condition)
+     * @param thirdId The value of thirdId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setThirdId_Equal(Integer thirdId) {
         doSetThirdId_Equal(thirdId);
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as greaterThan. (NullAllowed: if null, no condition)
+     * @param thirdId The value of thirdId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setThirdId_GreaterThan(Integer thirdId) {
         regThirdId(CK_GT, thirdId);
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as lessThan. (NullAllowed: if null, no condition)
+     * @param thirdId The value of thirdId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setThirdId_LessThan(Integer thirdId) {
         regThirdId(CK_LT, thirdId);
@@ -324,7 +324,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param thirdId The value of thirdId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setThirdId_GreaterEqual(Integer thirdId) {
         regThirdId(CK_GE, thirdId);
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as lessEqual. (NullAllowed: if null, no condition)
+     * @param thirdId The value of thirdId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setThirdId_LessEqual(Integer thirdId) {
         regThirdId(CK_LE, thirdId);

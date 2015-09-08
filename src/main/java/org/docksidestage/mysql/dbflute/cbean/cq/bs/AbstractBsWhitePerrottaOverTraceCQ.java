@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as equal. (NullAllowed: if null, no condition)
+     * @param traceId The value of traceId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTraceId_Equal(Long traceId) {
         doSetTraceId_Equal(traceId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as greaterThan. (NullAllowed: if null, no condition)
+     * @param traceId The value of traceId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTraceId_GreaterThan(Long traceId) {
         regTraceId(CK_GT, traceId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as lessThan. (NullAllowed: if null, no condition)
+     * @param traceId The value of traceId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTraceId_LessThan(Long traceId) {
         regTraceId(CK_LT, traceId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param traceId The value of traceId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTraceId_GreaterEqual(Long traceId) {
         regTraceId(CK_GE, traceId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as lessEqual. (NullAllowed: if null, no condition)
+     * @param traceId The value of traceId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTraceId_LessEqual(Long traceId) {
         regTraceId(CK_LE, traceId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as equal. (NullAllowed: if null, no condition)
+     * @param previousProductId The value of previousProductId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPreviousProductId_Equal(Long previousProductId) {
         doSetPreviousProductId_Equal(previousProductId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as greaterThan. (NullAllowed: if null, no condition)
+     * @param previousProductId The value of previousProductId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPreviousProductId_GreaterThan(Long previousProductId) {
         regPreviousProductId(CK_GT, previousProductId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as lessThan. (NullAllowed: if null, no condition)
+     * @param previousProductId The value of previousProductId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPreviousProductId_LessThan(Long previousProductId) {
         regPreviousProductId(CK_LT, previousProductId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param previousProductId The value of previousProductId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPreviousProductId_GreaterEqual(Long previousProductId) {
         regPreviousProductId(CK_GE, previousProductId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as lessEqual. (NullAllowed: if null, no condition)
+     * @param previousProductId The value of previousProductId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPreviousProductId_LessEqual(Long previousProductId) {
         regPreviousProductId(CK_LE, previousProductId);
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as equal. (NullAllowed: if null, no condition)
+     * @param nextProductId The value of nextProductId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextProductId_Equal(Long nextProductId) {
         doSetNextProductId_Equal(nextProductId);
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as greaterThan. (NullAllowed: if null, no condition)
+     * @param nextProductId The value of nextProductId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextProductId_GreaterThan(Long nextProductId) {
         regNextProductId(CK_GT, nextProductId);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as lessThan. (NullAllowed: if null, no condition)
+     * @param nextProductId The value of nextProductId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextProductId_LessThan(Long nextProductId) {
         regNextProductId(CK_LT, nextProductId);
@@ -312,7 +312,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nextProductId The value of nextProductId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextProductId_GreaterEqual(Long nextProductId) {
         regNextProductId(CK_GE, nextProductId);
@@ -321,7 +321,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as lessEqual. (NullAllowed: if null, no condition)
+     * @param nextProductId The value of nextProductId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextProductId_LessEqual(Long nextProductId) {
         regNextProductId(CK_LE, nextProductId);

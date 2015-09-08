@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredId The value of referredId as equal. (NullAllowed: if null, no condition)
+     * @param referredId The value of referredId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferredId_Equal(Integer referredId) {
         doSetReferredId_Equal(referredId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredId The value of referredId as greaterThan. (NullAllowed: if null, no condition)
+     * @param referredId The value of referredId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferredId_GreaterThan(Integer referredId) {
         regReferredId(CK_GT, referredId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredId The value of referredId as lessThan. (NullAllowed: if null, no condition)
+     * @param referredId The value of referredId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferredId_LessThan(Integer referredId) {
         regReferredId(CK_LT, referredId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredId The value of referredId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param referredId The value of referredId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferredId_GreaterEqual(Integer referredId) {
         regReferredId(CK_GE, referredId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredId The value of referredId as lessEqual. (NullAllowed: if null, no condition)
+     * @param referredId The value of referredId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setReferredId_LessEqual(Integer referredId) {
         regReferredId(CK_LE, referredId);

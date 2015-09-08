@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as equal. (NullAllowed: if null, no condition)
+     * @param where The value of where as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhere_Equal(Integer where) {
         doSetWhere_Equal(where);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as greaterThan. (NullAllowed: if null, no condition)
+     * @param where The value of where as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhere_GreaterThan(Integer where) {
         regWhere(CK_GT, where);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as lessThan. (NullAllowed: if null, no condition)
+     * @param where The value of where as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhere_LessThan(Integer where) {
         regWhere(CK_LT, where);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as greaterEqual. (NullAllowed: if null, no condition)
+     * @param where The value of where as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhere_GreaterEqual(Integer where) {
         regWhere(CK_GE, where);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as lessEqual. (NullAllowed: if null, no condition)
+     * @param where The value of where as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setWhere_LessEqual(Integer where) {
         regWhere(CK_LE, where);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as equal. (NullAllowed: if null, no condition)
+     * @param order The value of order as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setOrder_Equal(Integer order) {
         doSetOrder_Equal(order);
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as greaterThan. (NullAllowed: if null, no condition)
+     * @param order The value of order as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOrder_GreaterThan(Integer order) {
         regOrder(CK_GT, order);
@@ -199,7 +199,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as lessThan. (NullAllowed: if null, no condition)
+     * @param order The value of order as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setOrder_LessThan(Integer order) {
         regOrder(CK_LT, order);
@@ -208,7 +208,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as greaterEqual. (NullAllowed: if null, no condition)
+     * @param order The value of order as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOrder_GreaterEqual(Integer order) {
         regOrder(CK_GE, order);
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as lessEqual. (NullAllowed: if null, no condition)
+     * @param order The value of order as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setOrder_LessEqual(Integer order) {
         regOrder(CK_LE, order);

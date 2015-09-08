@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as equal. (NullAllowed: if null, no condition)
+     * @param fromId The value of fromId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFromId_Equal(Long fromId) {
         doSetFromId_Equal(fromId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as greaterThan. (NullAllowed: if null, no condition)
+     * @param fromId The value of fromId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFromId_GreaterThan(Long fromId) {
         regFromId(CK_GT, fromId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as lessThan. (NullAllowed: if null, no condition)
+     * @param fromId The value of fromId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFromId_LessThan(Long fromId) {
         regFromId(CK_LT, fromId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param fromId The value of fromId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFromId_GreaterEqual(Long fromId) {
         regFromId(CK_GE, fromId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as lessEqual. (NullAllowed: if null, no condition)
+     * @param fromId The value of fromId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFromId_LessEqual(Long fromId) {
         regFromId(CK_LE, fromId);

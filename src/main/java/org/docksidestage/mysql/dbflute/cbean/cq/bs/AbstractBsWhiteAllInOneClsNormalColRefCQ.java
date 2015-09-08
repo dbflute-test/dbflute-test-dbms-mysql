@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as equal. (NullAllowed: if null, no condition)
+     * @param clsRefId The value of clsRefId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setClsRefId_Equal(Integer clsRefId) {
         doSetClsRefId_Equal(clsRefId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as greaterThan. (NullAllowed: if null, no condition)
+     * @param clsRefId The value of clsRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setClsRefId_GreaterThan(Integer clsRefId) {
         regClsRefId(CK_GT, clsRefId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as lessThan. (NullAllowed: if null, no condition)
+     * @param clsRefId The value of clsRefId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setClsRefId_LessThan(Integer clsRefId) {
         regClsRefId(CK_LT, clsRefId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param clsRefId The value of clsRefId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setClsRefId_GreaterEqual(Integer clsRefId) {
         regClsRefId(CK_GE, clsRefId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as lessEqual. (NullAllowed: if null, no condition)
+     * @param clsRefId The value of clsRefId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setClsRefId_LessEqual(Integer clsRefId) {
         regClsRefId(CK_LE, clsRefId);

@@ -61,7 +61,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_Equal(Long constraintNameAutoRefId) {
         doSetConstraintNameAutoRefId_Equal(constraintNameAutoRefId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_GreaterThan(Long constraintNameAutoRefId) {
         regConstraintNameAutoRefId(CK_GT, constraintNameAutoRefId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_LessThan(Long constraintNameAutoRefId) {
         regConstraintNameAutoRefId(CK_LT, constraintNameAutoRefId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_GreaterEqual(Long constraintNameAutoRefId) {
         regConstraintNameAutoRefId(CK_GE, constraintNameAutoRefId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_LessEqual(Long constraintNameAutoRefId) {
         regConstraintNameAutoRefId(CK_LE, constraintNameAutoRefId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_Equal(Long constraintNameAutoFooId) {
         doSetConstraintNameAutoFooId_Equal(constraintNameAutoFooId);
@@ -190,7 +190,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_GreaterThan(Long constraintNameAutoFooId) {
         regConstraintNameAutoFooId(CK_GT, constraintNameAutoFooId);
@@ -199,7 +199,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_LessThan(Long constraintNameAutoFooId) {
         regConstraintNameAutoFooId(CK_LT, constraintNameAutoFooId);
@@ -208,7 +208,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_GreaterEqual(Long constraintNameAutoFooId) {
         regConstraintNameAutoFooId(CK_GE, constraintNameAutoFooId);
@@ -217,7 +217,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_LessEqual(Long constraintNameAutoFooId) {
         regConstraintNameAutoFooId(CK_LE, constraintNameAutoFooId);
@@ -281,7 +281,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_Equal(Long constraintNameAutoBarId) {
         doSetConstraintNameAutoBarId_Equal(constraintNameAutoBarId);
@@ -294,7 +294,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_GreaterThan(Long constraintNameAutoBarId) {
         regConstraintNameAutoBarId(CK_GT, constraintNameAutoBarId);
@@ -303,7 +303,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_LessThan(Long constraintNameAutoBarId) {
         regConstraintNameAutoBarId(CK_LT, constraintNameAutoBarId);
@@ -312,7 +312,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_GreaterEqual(Long constraintNameAutoBarId) {
         regConstraintNameAutoBarId(CK_GE, constraintNameAutoBarId);
@@ -321,7 +321,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_LessEqual(Long constraintNameAutoBarId) {
         regConstraintNameAutoBarId(CK_LE, constraintNameAutoBarId);
@@ -385,7 +385,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_Equal(Long constraintNameAutoQuxId) {
         doSetConstraintNameAutoQuxId_Equal(constraintNameAutoQuxId);
@@ -398,7 +398,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_GreaterThan(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_GT, constraintNameAutoQuxId);
@@ -407,7 +407,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_LessThan(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_LT, constraintNameAutoQuxId);
@@ -416,7 +416,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_GreaterEqual(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_GE, constraintNameAutoQuxId);
@@ -425,7 +425,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_LessEqual(Long constraintNameAutoQuxId) {
         regConstraintNameAutoQuxId(CK_LE, constraintNameAutoQuxId);
@@ -489,7 +489,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as equal. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_Equal(Long constraintNameAutoCorgeId) {
         doSetConstraintNameAutoCorgeId_Equal(constraintNameAutoCorgeId);
@@ -502,7 +502,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as greaterThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_GreaterThan(Long constraintNameAutoCorgeId) {
         regConstraintNameAutoCorgeId(CK_GT, constraintNameAutoCorgeId);
@@ -511,7 +511,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as lessThan. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_LessThan(Long constraintNameAutoCorgeId) {
         regConstraintNameAutoCorgeId(CK_LT, constraintNameAutoCorgeId);
@@ -520,7 +520,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_GreaterEqual(Long constraintNameAutoCorgeId) {
         regConstraintNameAutoCorgeId(CK_GE, constraintNameAutoCorgeId);
@@ -529,7 +529,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as lessEqual. (NullAllowed: if null, no condition)
+     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_LessEqual(Long constraintNameAutoCorgeId) {
         regConstraintNameAutoCorgeId(CK_LE, constraintNameAutoCorgeId);

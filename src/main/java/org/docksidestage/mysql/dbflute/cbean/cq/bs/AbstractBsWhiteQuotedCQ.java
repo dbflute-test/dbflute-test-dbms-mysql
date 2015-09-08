@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param select The value of select as equal. (NullAllowed: if null, no condition)
+     * @param select The value of select as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSelect_Equal(Integer select) {
         doSetSelect_Equal(select);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param select The value of select as greaterThan. (NullAllowed: if null, no condition)
+     * @param select The value of select as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSelect_GreaterThan(Integer select) {
         regSelect(CK_GT, select);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param select The value of select as lessThan. (NullAllowed: if null, no condition)
+     * @param select The value of select as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSelect_LessThan(Integer select) {
         regSelect(CK_LT, select);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param select The value of select as greaterEqual. (NullAllowed: if null, no condition)
+     * @param select The value of select as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSelect_GreaterEqual(Integer select) {
         regSelect(CK_GE, select);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param select The value of select as lessEqual. (NullAllowed: if null, no condition)
+     * @param select The value of select as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSelect_LessEqual(Integer select) {
         regSelect(CK_LE, select);

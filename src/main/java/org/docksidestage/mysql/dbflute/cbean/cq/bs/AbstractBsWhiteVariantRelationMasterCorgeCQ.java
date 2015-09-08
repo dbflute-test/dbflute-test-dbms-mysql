@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeId The value of masterCorgeId as equal. (NullAllowed: if null, no condition)
+     * @param masterCorgeId The value of masterCorgeId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterCorgeId_Equal(Long masterCorgeId) {
         doSetMasterCorgeId_Equal(masterCorgeId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeId The value of masterCorgeId as greaterThan. (NullAllowed: if null, no condition)
+     * @param masterCorgeId The value of masterCorgeId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterCorgeId_GreaterThan(Long masterCorgeId) {
         regMasterCorgeId(CK_GT, masterCorgeId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeId The value of masterCorgeId as lessThan. (NullAllowed: if null, no condition)
+     * @param masterCorgeId The value of masterCorgeId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterCorgeId_LessThan(Long masterCorgeId) {
         regMasterCorgeId(CK_LT, masterCorgeId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeId The value of masterCorgeId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param masterCorgeId The value of masterCorgeId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterCorgeId_GreaterEqual(Long masterCorgeId) {
         regMasterCorgeId(CK_GE, masterCorgeId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeId The value of masterCorgeId as lessEqual. (NullAllowed: if null, no condition)
+     * @param masterCorgeId The value of masterCorgeId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setMasterCorgeId_LessEqual(Long masterCorgeId) {
         regMasterCorgeId(CK_LE, masterCorgeId);
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * Equal(=). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setCorgeTypeCode_Equal_AsVariantRelationQuxType(CDef.VariantRelationQuxType cdef) {
         doSetCorgeTypeCode_Equal(cdef != null ? cdef.code() : null);
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * NotEqual(&lt;&gt;). As VariantRelationQuxType. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setCorgeTypeCode_NotEqual_AsVariantRelationQuxType(CDef.VariantRelationQuxType cdef) {
         doSetCorgeTypeCode_NotEqual(cdef != null ? cdef.code() : null);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as equal. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_Equal(Integer fooId) {
         doSetFooId_Equal(fooId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as greaterThan. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_GreaterThan(Integer fooId) {
         regFooId(CK_GT, fooId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as lessThan. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_LessThan(Integer fooId) {
         regFooId(CK_LT, fooId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_GreaterEqual(Integer fooId) {
         regFooId(CK_GE, fooId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as lessEqual. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_LessEqual(Integer fooId) {
         regFooId(CK_LE, fooId);
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
-     * @param fooDate The value of fooDate as equal. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_Equal(java.time.LocalDate fooDate) {
         regFooDate(CK_EQ,  fooDate);
@@ -285,7 +285,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
-     * @param fooDate The value of fooDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_GreaterThan(java.time.LocalDate fooDate) {
         regFooDate(CK_GT,  fooDate);
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
-     * @param fooDate The value of fooDate as lessThan. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_LessThan(java.time.LocalDate fooDate) {
         regFooDate(CK_LT,  fooDate);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
-     * @param fooDate The value of fooDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_GreaterEqual(java.time.LocalDate fooDate) {
         regFooDate(CK_GE,  fooDate);
@@ -312,7 +312,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {UnknownType}
-     * @param fooDate The value of fooDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_LessEqual(java.time.LocalDate fooDate) {
         regFooDate(CK_LE, fooDate);
@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
-     * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
+     * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
@@ -372,7 +372,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
-     * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
+     * @param registerDatetime The value of registerDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GT,  registerDatetime);
@@ -381,7 +381,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
-     * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
+     * @param registerDatetime The value of registerDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LT,  registerDatetime);
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
-     * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param registerDatetime The value of registerDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GE,  registerDatetime);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as equal. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingId The value of pointTypeMappingId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_Equal(Long pointTypeMappingId) {
         doSetPointTypeMappingId_Equal(pointTypeMappingId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as greaterThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingId The value of pointTypeMappingId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_GreaterThan(Long pointTypeMappingId) {
         regPointTypeMappingId(CK_GT, pointTypeMappingId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as lessThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingId The value of pointTypeMappingId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_LessThan(Long pointTypeMappingId) {
         regPointTypeMappingId(CK_LT, pointTypeMappingId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingId The value of pointTypeMappingId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_GreaterEqual(Long pointTypeMappingId) {
         regPointTypeMappingId(CK_GE, pointTypeMappingId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as lessEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingId The value of pointTypeMappingId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_LessEqual(Long pointTypeMappingId) {
         regPointTypeMappingId(CK_LE, pointTypeMappingId);
@@ -209,7 +209,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as equal. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingSaleDate_Equal(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
         regPointTypeMappingSaleDate(CK_EQ,  pointTypeMappingSaleDate);
@@ -218,7 +218,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingSaleDate_GreaterThan(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
         regPointTypeMappingSaleDate(CK_GT,  pointTypeMappingSaleDate);
@@ -227,7 +227,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingSaleDate_LessThan(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
         regPointTypeMappingSaleDate(CK_LT,  pointTypeMappingSaleDate);
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingSaleDate_GreaterEqual(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
         regPointTypeMappingSaleDate(CK_GE,  pointTypeMappingSaleDate);
@@ -245,7 +245,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
-     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingSaleDate The value of pointTypeMappingSaleDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingSaleDate_LessEqual(org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate) {
         regPointTypeMappingSaleDate(CK_LE, pointTypeMappingSaleDate);
@@ -295,7 +295,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as equal. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingWantedDatetime_Equal(java.time.LocalDate pointTypeMappingWantedDatetime) {
         regPointTypeMappingWantedDatetime(CK_EQ,  pointTypeMappingWantedDatetime);
@@ -304,7 +304,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingWantedDatetime_GreaterThan(java.time.LocalDate pointTypeMappingWantedDatetime) {
         regPointTypeMappingWantedDatetime(CK_GT,  pointTypeMappingWantedDatetime);
@@ -313,7 +313,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessThan. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingWantedDatetime_LessThan(java.time.LocalDate pointTypeMappingWantedDatetime) {
         regPointTypeMappingWantedDatetime(CK_LT,  pointTypeMappingWantedDatetime);
@@ -322,7 +322,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingWantedDatetime_GreaterEqual(java.time.LocalDate pointTypeMappingWantedDatetime) {
         regPointTypeMappingWantedDatetime(CK_GE,  pointTypeMappingWantedDatetime);
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
-     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessEqual. (NullAllowed: if null, no condition)
+     * @param pointTypeMappingWantedDatetime The value of pointTypeMappingWantedDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPointTypeMappingWantedDatetime_LessEqual(java.time.LocalDate pointTypeMappingWantedDatetime) {
         regPointTypeMappingWantedDatetime(CK_LE, pointTypeMappingWantedDatetime);

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentId The value of dateAdjustmentId as equal. (NullAllowed: if null, no condition)
+     * @param dateAdjustmentId The value of dateAdjustmentId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_Equal(Long dateAdjustmentId) {
         doSetDateAdjustmentId_Equal(dateAdjustmentId);
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentId The value of dateAdjustmentId as greaterThan. (NullAllowed: if null, no condition)
+     * @param dateAdjustmentId The value of dateAdjustmentId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_GreaterThan(Long dateAdjustmentId) {
         regDateAdjustmentId(CK_GT, dateAdjustmentId);
@@ -83,7 +83,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentId The value of dateAdjustmentId as lessThan. (NullAllowed: if null, no condition)
+     * @param dateAdjustmentId The value of dateAdjustmentId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_LessThan(Long dateAdjustmentId) {
         regDateAdjustmentId(CK_LT, dateAdjustmentId);
@@ -92,7 +92,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentId The value of dateAdjustmentId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param dateAdjustmentId The value of dateAdjustmentId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_GreaterEqual(Long dateAdjustmentId) {
         regDateAdjustmentId(CK_GE, dateAdjustmentId);
@@ -101,7 +101,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentId The value of dateAdjustmentId as lessEqual. (NullAllowed: if null, no condition)
+     * @param dateAdjustmentId The value of dateAdjustmentId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_LessEqual(Long dateAdjustmentId) {
         regDateAdjustmentId(CK_LE, dateAdjustmentId);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * @param adjustedDate The value of adjustedDate as equal. (NullAllowed: if null, no condition)
+     * @param adjustedDate The value of adjustedDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_Equal(java.time.LocalDate adjustedDate) {
         regAdjustedDate(CK_EQ,  adjustedDate);
@@ -186,7 +186,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * @param adjustedDate The value of adjustedDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedDate The value of adjustedDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_GreaterThan(java.time.LocalDate adjustedDate) {
         regAdjustedDate(CK_GT,  adjustedDate);
@@ -195,7 +195,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * @param adjustedDate The value of adjustedDate as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedDate The value of adjustedDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_LessThan(java.time.LocalDate adjustedDate) {
         regAdjustedDate(CK_LT,  adjustedDate);
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * @param adjustedDate The value of adjustedDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedDate The value of adjustedDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_GreaterEqual(java.time.LocalDate adjustedDate) {
         regAdjustedDate(CK_GE,  adjustedDate);
@@ -213,7 +213,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
-     * @param adjustedDate The value of adjustedDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedDate The value of adjustedDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDate_LessEqual(java.time.LocalDate adjustedDate) {
         regAdjustedDate(CK_LE, adjustedDate);
@@ -264,7 +264,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
-     * @param adjustedDatetime The value of adjustedDatetime as equal. (NullAllowed: if null, no condition)
+     * @param adjustedDatetime The value of adjustedDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDatetime_Equal(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_EQ,  adjustedDatetime);
@@ -273,7 +273,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
-     * @param adjustedDatetime The value of adjustedDatetime as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedDatetime The value of adjustedDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDatetime_GreaterThan(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_GT,  adjustedDatetime);
@@ -282,7 +282,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
-     * @param adjustedDatetime The value of adjustedDatetime as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedDatetime The value of adjustedDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDatetime_LessThan(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_LT,  adjustedDatetime);
@@ -291,7 +291,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
-     * @param adjustedDatetime The value of adjustedDatetime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedDatetime The value of adjustedDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDatetime_GreaterEqual(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_GE,  adjustedDatetime);
@@ -300,7 +300,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
-     * @param adjustedDatetime The value of adjustedDatetime as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedDatetime The value of adjustedDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedDatetime_LessEqual(java.time.LocalDateTime adjustedDatetime) {
         regAdjustedDatetime(CK_LE, adjustedDatetime);
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
-     * @param adjustedTime The value of adjustedTime as equal. (NullAllowed: if null, no condition)
+     * @param adjustedTime The value of adjustedTime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedTime_Equal(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_EQ,  adjustedTime);
@@ -360,7 +360,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
-     * @param adjustedTime The value of adjustedTime as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedTime The value of adjustedTime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedTime_GreaterThan(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_GT,  adjustedTime);
@@ -369,7 +369,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
-     * @param adjustedTime The value of adjustedTime as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedTime The value of adjustedTime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedTime_LessThan(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_LT,  adjustedTime);
@@ -378,7 +378,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
-     * @param adjustedTime The value of adjustedTime as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedTime The value of adjustedTime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedTime_GreaterEqual(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_GE,  adjustedTime);
@@ -387,7 +387,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_TIME: {TIME(8)}
-     * @param adjustedTime The value of adjustedTime as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedTime The value of adjustedTime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedTime_LessEqual(java.time.LocalTime adjustedTime) {
         regAdjustedTime(CK_LE, adjustedTime);
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedInteger The value of adjustedInteger as equal. (NullAllowed: if null, no condition)
+     * @param adjustedInteger The value of adjustedInteger as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedInteger_Equal(Integer adjustedInteger) {
         doSetAdjustedInteger_Equal(adjustedInteger);
@@ -424,7 +424,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedInteger The value of adjustedInteger as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedInteger The value of adjustedInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedInteger_GreaterThan(Integer adjustedInteger) {
         regAdjustedInteger(CK_GT, adjustedInteger);
@@ -433,7 +433,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedInteger The value of adjustedInteger as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedInteger The value of adjustedInteger as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedInteger_LessThan(Integer adjustedInteger) {
         regAdjustedInteger(CK_LT, adjustedInteger);
@@ -442,7 +442,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedInteger The value of adjustedInteger as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedInteger The value of adjustedInteger as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedInteger_GreaterEqual(Integer adjustedInteger) {
         regAdjustedInteger(CK_GE, adjustedInteger);
@@ -451,7 +451,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedInteger The value of adjustedInteger as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedInteger The value of adjustedInteger as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedInteger_LessEqual(Integer adjustedInteger) {
         regAdjustedInteger(CK_LE, adjustedInteger);
@@ -527,7 +527,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as equal. (NullAllowed: if null, no condition)
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_Equal(Long adjustedNamedStringLong) {
         doSetAdjustedNamedStringLong_Equal(adjustedNamedStringLong);
@@ -540,7 +540,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_GreaterThan(Long adjustedNamedStringLong) {
         regAdjustedNamedStringLong(CK_GT, adjustedNamedStringLong);
@@ -549,7 +549,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_LessThan(Long adjustedNamedStringLong) {
         regAdjustedNamedStringLong(CK_LT, adjustedNamedStringLong);
@@ -558,7 +558,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_GreaterEqual(Long adjustedNamedStringLong) {
         regAdjustedNamedStringLong(CK_GE, adjustedNamedStringLong);
@@ -567,7 +567,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_LessEqual(Long adjustedNamedStringLong) {
         regAdjustedNamedStringLong(CK_LE, adjustedNamedStringLong);
@@ -643,7 +643,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as equal. (NullAllowed: if null, no condition)
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_Equal(Long adjustedNamedTypedLong) {
         doSetAdjustedNamedTypedLong_Equal(adjustedNamedTypedLong);
@@ -656,7 +656,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_GreaterThan(Long adjustedNamedTypedLong) {
         regAdjustedNamedTypedLong(CK_GT, adjustedNamedTypedLong);
@@ -665,7 +665,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_LessThan(Long adjustedNamedTypedLong) {
         regAdjustedNamedTypedLong(CK_LT, adjustedNamedTypedLong);
@@ -674,7 +674,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_GreaterEqual(Long adjustedNamedTypedLong) {
         regAdjustedNamedTypedLong(CK_GE, adjustedNamedTypedLong);
@@ -683,7 +683,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_LessEqual(Long adjustedNamedTypedLong) {
         regAdjustedNamedTypedLong(CK_LE, adjustedNamedTypedLong);
@@ -759,7 +759,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as equal. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_Equal(Long adjustedPinpointStringLong) {
         doSetAdjustedPinpointStringLong_Equal(adjustedPinpointStringLong);
@@ -772,7 +772,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_GreaterThan(Long adjustedPinpointStringLong) {
         regAdjustedPinpointStringLong(CK_GT, adjustedPinpointStringLong);
@@ -781,7 +781,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_LessThan(Long adjustedPinpointStringLong) {
         regAdjustedPinpointStringLong(CK_LT, adjustedPinpointStringLong);
@@ -790,7 +790,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_GreaterEqual(Long adjustedPinpointStringLong) {
         regAdjustedPinpointStringLong(CK_GE, adjustedPinpointStringLong);
@@ -799,7 +799,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_LessEqual(Long adjustedPinpointStringLong) {
         regAdjustedPinpointStringLong(CK_LE, adjustedPinpointStringLong);
@@ -875,7 +875,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as equal. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_Equal(Long adjustedPinpointTypedLong) {
         doSetAdjustedPinpointTypedLong_Equal(adjustedPinpointTypedLong);
@@ -888,7 +888,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_GreaterThan(Long adjustedPinpointTypedLong) {
         regAdjustedPinpointTypedLong(CK_GT, adjustedPinpointTypedLong);
@@ -897,7 +897,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_LessThan(Long adjustedPinpointTypedLong) {
         regAdjustedPinpointTypedLong(CK_LT, adjustedPinpointTypedLong);
@@ -906,7 +906,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_GreaterEqual(Long adjustedPinpointTypedLong) {
         regAdjustedPinpointTypedLong(CK_GE, adjustedPinpointTypedLong);
@@ -915,7 +915,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_LessEqual(Long adjustedPinpointTypedLong) {
         regAdjustedPinpointTypedLong(CK_LE, adjustedPinpointTypedLong);
@@ -991,7 +991,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLong The value of adjustedPlainLong as equal. (NullAllowed: if null, no condition)
+     * @param adjustedPlainLong The value of adjustedPlainLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_Equal(Long adjustedPlainLong) {
         doSetAdjustedPlainLong_Equal(adjustedPlainLong);
@@ -1004,7 +1004,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLong The value of adjustedPlainLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param adjustedPlainLong The value of adjustedPlainLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_GreaterThan(Long adjustedPlainLong) {
         regAdjustedPlainLong(CK_GT, adjustedPlainLong);
@@ -1013,7 +1013,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLong The value of adjustedPlainLong as lessThan. (NullAllowed: if null, no condition)
+     * @param adjustedPlainLong The value of adjustedPlainLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_LessThan(Long adjustedPlainLong) {
         regAdjustedPlainLong(CK_LT, adjustedPlainLong);
@@ -1022,7 +1022,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLong The value of adjustedPlainLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPlainLong The value of adjustedPlainLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_GreaterEqual(Long adjustedPlainLong) {
         regAdjustedPlainLong(CK_GE, adjustedPlainLong);
@@ -1031,7 +1031,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLong The value of adjustedPlainLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param adjustedPlainLong The value of adjustedPlainLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_LessEqual(Long adjustedPlainLong) {
         regAdjustedPlainLong(CK_LE, adjustedPlainLong);
