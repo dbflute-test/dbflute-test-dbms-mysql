@@ -76,7 +76,7 @@ public class ResolaDBFluteConfig {
 
     // environment
     protected StatementConfig _defaultStatementConfig;
-    protected Integer _cursorSelectFetchSize = null;
+    protected Integer _cursorSelectFetchSize = Integer.MIN_VALUE;
     protected Integer _entitySelectFetchSize = Integer.MIN_VALUE;
     protected boolean _usePagingByCursorSkipSynchronizedFetchSize = true;
     protected Integer _fixedPagingByCursorSkipSynchronizedFetchSize = Integer.MIN_VALUE;

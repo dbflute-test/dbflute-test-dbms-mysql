@@ -22,8 +22,9 @@ public class WxCursorByPagingTest extends UnitContainerTestCase {
             @Override
             public void handle(ResolaStation station) {
                 log(index, station.getStationId(), station.getStationName());
-                if (index > 2) {
+                if (index > 1) {
                     cursorBreak = true;
+                    return;
                 }
                 ++index;
             }
@@ -46,6 +47,35 @@ public class WxCursorByPagingTest extends UnitContainerTestCase {
         }, handler);
 
         // ## Assert ##
-        assertEquals("3", handler.toString());
+        assertEquals("2", handler.toString());
+    }
+
+    public void test_customizeCursorSelect_nonBreakCursor() throws Exception {
+        // ## Arrange ##
+        int countAll = resolaStationBhv.selectCount(cb -> {});
+        EntityRowHandler<ResolaStation> handler = new EntityRowHandler<ResolaStation>() {
+
+            private int index;
+
+            @Override
+            public void handle(ResolaStation station) {
+                log(index, station.getStationId(), station.getStationName());
+                ++index;
+            }
+
+            @Override
+            public String toString() {
+                return String.valueOf(index);
+            }
+        };
+
+        // ## Act ##
+        resolaStationBhv.selectCursor(cb -> {
+            cb.customizeCursorSelect(op -> op.byPagingOrderByPK(3));
+            cb.query().addOrderBy_StationId_Asc();
+        }, handler);
+
+        // ## Assert ##
+        assertEquals(String.valueOf(countAll), handler.toString());
     }
 }
