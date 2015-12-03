@@ -75,6 +75,7 @@
     <component name="whiteMyselfBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteMyselfBhv"/>
     <component name="whiteMyselfCheckBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteMyselfCheckBhv"/>
     <component name="whiteNoPkBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkBhv"/>
+    <component name="whiteNoPkCommonColumnBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkCommonColumnBhv"/>
     <component name="whiteNoPkRelationBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkRelationBhv"/>
     <component name="whiteOnlyOneToOneFromBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteOnlyOneToOneFromBhv"/>
     <component name="whiteOnlyOneToOneToBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteOnlyOneToOneToBhv"/>

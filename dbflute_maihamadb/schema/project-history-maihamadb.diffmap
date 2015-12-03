@@ -1,4 +1,17 @@
 map:{
+    ; 2015/11/30 23:32:53 = map:{
+        ; diffDate = 2015/11/30 23:32:53
+        ; tableCount = map:{
+            ; next = 116
+            ; previous = 115
+        }
+        ; tableDiff = map:{
+            ; white_no_pk_common_column = map:{
+                ; tableName = white_no_pk_common_column
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2015/08/11 18:13:38 = map:{
         ; diffDate = 2015/08/11 18:13:38
         ; tableCount = map:{

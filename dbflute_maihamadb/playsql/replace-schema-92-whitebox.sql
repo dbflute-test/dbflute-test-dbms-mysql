@@ -265,6 +265,16 @@ create table WHITE_NO_PK (
 	NO_PK_INTEGER INTEGER
 ) ;
 
+create table WHITE_NO_PK_COMMON_COLUMN (
+	NO_PK_ID NUMERIC(16) NOT NULL,
+	NO_PK_NAME VARCHAR(32),
+	NO_PK_INTEGER INTEGER,
+    REGISTER_DATETIME DATETIME NOT NULL COMMENT '登録日時: レコードが登録された日時。共通カラムの一つ。',
+    REGISTER_USER VARCHAR(200) NOT NULL COMMENT '登録ユーザ: レコードを登録したユーザ。共通カラムの一つ。',
+    UPDATE_DATETIME DATETIME NOT NULL COMMENT '更新日時: レコードが（最後に）更新された日時。共通カラムの一つ。',
+    UPDATE_USER VARCHAR(200) NOT NULL COMMENT '更新ユーザ: レコードを更新したユーザ。'
+) ;
+
 CREATE VIEW WHITE_NO_PK_RELATION as
 select product.PRODUCT_ID
      , product.PRODUCT_NAME

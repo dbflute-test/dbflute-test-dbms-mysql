@@ -13,25 +13,26 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package org.docksidestage.mysql.dbflute.bsentity.customize;
+package org.docksidestage.mysql.dbflute.bsentity;
 
 import java.util.List;
 import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
-import org.dbflute.dbmeta.accessory.CustomizeEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.mysql.dbflute.allcommon.EntityDefinedCommonColumn;
-import org.docksidestage.mysql.dbflute.exentity.customize.*;
+import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
+import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of CommonColumnMember. <br>
+ * The entity of WHITE_NO_PK_COMMON_COLUMN as TABLE. <br>
  * <pre>
  * [primary-key]
  *     
  * 
  * [column]
- *     MEMBER_ID, MEMBER_NAME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  * 
  * [sequence]
  *     
@@ -56,14 +57,16 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * 
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
+ * Long noPkId = entity.getNoPkId();
+ * String noPkName = entity.getNoPkName();
+ * Integer noPkInteger = entity.getNoPkInteger();
  * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
+ * entity.setNoPkId(noPkId);
+ * entity.setNoPkName(noPkName);
+ * entity.setNoPkInteger(noPkInteger);
  * entity.setRegisterDatetime(registerDatetime);
  * entity.setRegisterUser(registerUser);
  * entity.setUpdateDatetime(updateDatetime);
@@ -72,7 +75,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsCommonColumnMember extends AbstractEntity implements CustomizeEntity, EntityDefinedCommonColumn {
+public abstract class BsWhiteNoPkCommonColumn extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -83,22 +86,25 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} */
-    protected Integer _memberId;
+    /** NO_PK_ID: {NotNull, DECIMAL(16)} */
+    protected Long _noPkId;
 
-    /** (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} */
-    protected String _memberName;
+    /** NO_PK_NAME: {VARCHAR(32)} */
+    protected String _noPkName;
 
-    /** (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} */
+    /** NO_PK_INTEGER: {INT(10)} */
+    protected Integer _noPkInteger;
+
+    /** (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} */
+    /** (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} */
+    /** (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
     // ===================================================================================
@@ -106,12 +112,12 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return org.docksidestage.mysql.dbflute.bsentity.customize.dbmeta.CommonColumnMemberDbm.getInstance();
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "CommonColumnMember";
+        return "white_no_pk_common_column";
     }
 
     // ===================================================================================
@@ -137,10 +143,11 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsCommonColumnMember) {
-            BsCommonColumnMember other = (BsCommonColumnMember)obj;
-            if (!xSV(_memberId, other._memberId)) { return false; }
-            if (!xSV(_memberName, other._memberName)) { return false; }
+        if (obj instanceof BsWhiteNoPkCommonColumn) {
+            BsWhiteNoPkCommonColumn other = (BsWhiteNoPkCommonColumn)obj;
+            if (!xSV(_noPkId, other._noPkId)) { return false; }
+            if (!xSV(_noPkName, other._noPkName)) { return false; }
+            if (!xSV(_noPkInteger, other._noPkInteger)) { return false; }
             if (!xSV(_registerDatetime, other._registerDatetime)) { return false; }
             if (!xSV(_registerUser, other._registerUser)) { return false; }
             if (!xSV(_updateDatetime, other._updateDatetime)) { return false; }
@@ -155,8 +162,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     protected int doHashCode(int initial) {
         int hs = initial;
         hs = xCH(hs, asTableDbName());
-        hs = xCH(hs, _memberId);
-        hs = xCH(hs, _memberName);
+        hs = xCH(hs, _noPkId);
+        hs = xCH(hs, _noPkName);
+        hs = xCH(hs, _noPkInteger);
         hs = xCH(hs, _registerDatetime);
         hs = xCH(hs, _registerUser);
         hs = xCH(hs, _updateDatetime);
@@ -172,8 +180,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(xfND(_memberId));
-        sb.append(dm).append(xfND(_memberName));
+        sb.append(dm).append(xfND(_noPkId));
+        sb.append(dm).append(xfND(_noPkName));
+        sb.append(dm).append(xfND(_noPkInteger));
         sb.append(dm).append(xfND(_registerDatetime));
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_updateDatetime));
@@ -191,59 +200,71 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     @Override
-    public CommonColumnMember clone() {
-        return (CommonColumnMember)super.clone();
+    public WhiteNoPkCommonColumn clone() {
+        return (WhiteNoPkCommonColumn)super.clone();
     }
 
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
-     * 会員を識別するID。連番として基本的に自動採番される。<br>
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。
-     * @return The value of the column 'MEMBER_ID'. (NullAllowed even if selected: for no constraint)
+     * [get] NO_PK_ID: {NotNull, DECIMAL(16)} <br>
+     * @return The value of the column 'NO_PK_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Integer getMemberId() {
-        checkSpecifiedProperty("memberId");
-        return _memberId;
+    public Long getNoPkId() {
+        checkSpecifiedProperty("noPkId");
+        return _noPkId;
     }
 
     /**
-     * [set] (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} <br>
-     * 会員を識別するID。連番として基本的に自動採番される。<br>
-     * （会員IDだけに限らず）採番方法はDBMSによって変わる。
-     * @param memberId The value of the column 'MEMBER_ID'. (NullAllowed: null update allowed for no constraint)
+     * [set] NO_PK_ID: {NotNull, DECIMAL(16)} <br>
+     * @param noPkId The value of the column 'NO_PK_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setMemberId(Integer memberId) {
-        registerModifiedProperty("memberId");
-        _memberId = memberId;
+    public void setNoPkId(Long noPkId) {
+        registerModifiedProperty("noPkId");
+        _noPkId = noPkId;
     }
 
     /**
-     * [get] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。
-     * @return The value of the column 'MEMBER_NAME'. (NullAllowed even if selected: for no constraint)
+     * [get] NO_PK_NAME: {VARCHAR(32)} <br>
+     * @return The value of the column 'NO_PK_NAME'. (NullAllowed even if selected: for no constraint)
      */
-    public String getMemberName() {
-        checkSpecifiedProperty("memberName");
-        return _memberName;
+    public String getNoPkName() {
+        checkSpecifiedProperty("noPkName");
+        return _noPkName;
     }
 
     /**
-     * [set] (会員名称)MEMBER_NAME: {VARCHAR(180), refers to member.MEMBER_NAME} <br>
-     * 会員のフルネームの名称。
-     * @param memberName The value of the column 'MEMBER_NAME'. (NullAllowed: null update allowed for no constraint)
+     * [set] NO_PK_NAME: {VARCHAR(32)} <br>
+     * @param noPkName The value of the column 'NO_PK_NAME'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setMemberName(String memberName) {
-        registerModifiedProperty("memberName");
-        _memberName = memberName;
+    public void setNoPkName(String noPkName) {
+        registerModifiedProperty("noPkName");
+        _noPkName = noPkName;
     }
 
     /**
-     * [get] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br>
+     * [get] NO_PK_INTEGER: {INT(10)} <br>
+     * @return The value of the column 'NO_PK_INTEGER'. (NullAllowed even if selected: for no constraint)
+     */
+    public Integer getNoPkInteger() {
+        checkSpecifiedProperty("noPkInteger");
+        return _noPkInteger;
+    }
+
+    /**
+     * [set] NO_PK_INTEGER: {INT(10)} <br>
+     * @param noPkInteger The value of the column 'NO_PK_INTEGER'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setNoPkInteger(Integer noPkInteger) {
+        registerModifiedProperty("noPkInteger");
+        _noPkInteger = noPkInteger;
+    }
+
+    /**
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが登録された日時。共通カラムの一つ。
-     * @return The value of the column 'REGISTER_DATETIME'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
@@ -251,9 +272,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [set] (登録日時)REGISTER_DATETIME: {DATETIME(19), refers to member.REGISTER_DATETIME} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが登録された日時。共通カラムの一つ。
-     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (NullAllowed: null update allowed for no constraint)
+     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
@@ -261,9 +282,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [get] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br>
+     * [get] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
-     * @return The value of the column 'REGISTER_USER'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
         checkSpecifiedProperty("registerUser");
@@ -271,9 +292,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [set] (登録ユーザ)REGISTER_USER: {VARCHAR(200), refers to member.REGISTER_USER} <br>
+     * [set] (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを登録したユーザ。共通カラムの一つ。
-     * @param registerUser The value of the column 'REGISTER_USER'. (NullAllowed: null update allowed for no constraint)
+     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
         registerModifiedProperty("registerUser");
@@ -281,9 +302,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [get] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
-     * @return The value of the column 'UPDATE_DATETIME'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
@@ -291,9 +312,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [set] (更新日時)UPDATE_DATETIME: {DATETIME(19), refers to member.UPDATE_DATETIME} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * レコードが（最後に）更新された日時。共通カラムの一つ。
-     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (NullAllowed: null update allowed for no constraint)
+     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
@@ -301,9 +322,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [get] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br>
+     * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを更新したユーザ。
-     * @return The value of the column 'UPDATE_USER'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
         checkSpecifiedProperty("updateUser");
@@ -311,9 +332,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     }
 
     /**
-     * [set] (更新ユーザ)UPDATE_USER: {VARCHAR(200), refers to member.UPDATE_USER} <br>
+     * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * レコードを更新したユーザ。
-     * @param updateUser The value of the column 'UPDATE_USER'. (NullAllowed: null update allowed for no constraint)
+     * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");

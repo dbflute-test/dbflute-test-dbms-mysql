@@ -109,6 +109,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_myself", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteMyselfDbm");
         tmpMap.put("white_myself_check", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteMyselfCheckDbm");
         tmpMap.put("white_no_pk", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteNoPkDbm");
+        tmpMap.put("white_no_pk_common_column", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteNoPkCommonColumnDbm");
         tmpMap.put("white_no_pk_relation", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteNoPkRelationDbm");
         tmpMap.put("white_only_one_to_one_from", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteOnlyOneToOneFromDbm");
         tmpMap.put("white_only_one_to_one_to", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteOnlyOneToOneToDbm");
