@@ -58,8 +58,8 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
         } catch (EntityDuplicatedException e) { // needs manual test by large data
             log(e.getMessage());
         }
-        assertEquals(Integer.MIN_VALUE, vendorLargeDataRefBhv.getFetchSizeMap().get("selectList"));
-        assertEquals(com.mysql.jdbc.RowDataDynamic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList"));
+        assertEquals(Integer.MIN_VALUE, vendorLargeDataRefBhv.getFetchSizeMap().get("selectEntity"));
+        assertEquals(com.mysql.jdbc.RowDataDynamic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectEntity"));
     }
 
     public void test_entitySelectFetchSize_selectList_static() {

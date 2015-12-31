@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.dbflute.bhv.core.BehaviorCommand;
+import org.dbflute.bhv.core.command.SelectEntityCBCommand;
 import org.dbflute.bhv.core.command.SelectListCBCommand;
 import org.dbflute.bhv.core.execution.SelectCBExecution;
 import org.dbflute.hook.SqlLogInfo.SqlLogDisplaySqlBuilder;
@@ -68,6 +69,59 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
     protected <RESULT> RESULT invoke(BehaviorCommand<RESULT> behaviorCommand) {
         _loggingMarkMap.clear();
         return super.invoke(behaviorCommand);
+    }
+
+    @Override
+    protected <RESULT extends VendorLargeDataRef> SelectEntityCBCommand<RESULT> newSelectEntityCBCommand() {
+        return new SelectEntityCBCommand<RESULT>() {
+            @Override
+            protected SelectCBExecution newSelectCBExecution(Map<String, Class<?>> argNameTypeMap, TnResultSetHandler handler) {
+                return new SelectCBExecution(_dataSource, _statementFactory, argNameTypeMap, handler) {
+                    @Override
+                    protected TnBasicParameterHandler newBasicParameterHandler(String executedSql) {
+                        return new TnBasicSelectHandler(_dataSource, executedSql, _resultSetHandler, _statementFactory) {
+                            @Override
+                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
+                                    boolean hasSqlLog, boolean hasSqlResult) {
+                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult);
+                            };
+
+                            @Override
+                            protected String buildDisplaySql(String sql, Object[] args) {
+                                _loggingMarkMap.put("buildDisplaySql", args);
+                                return super.buildDisplaySql(sql, args);
+                            }
+
+                            @Override
+                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(String alreadyBuiltDisplaySql) {
+                                _loggingMarkMap.put("createSqlLogDisplaySqlBuilder", new Object());
+                                return super.createSqlLogDisplaySqlBuilder(alreadyBuiltDisplaySql);
+                            }
+
+                            @Override
+                            protected PreparedStatement prepareStatement(Connection conn) {
+                                PreparedStatement ps = super.prepareStatement(conn);
+                                try {
+                                    _fetchSizeMap.put("selectEntity", ps.getFetchSize());
+                                } catch (SQLException e) {
+                                    throw new IllegalStateException(e);
+                                }
+                                return ps;
+                            }
+
+                            @Override
+                            protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
+                                ResultSet rs = super.executeQuery(ps);
+                                RowData rowData = extractRowDataOnResutSet((com.mysql.jdbc.ResultSetImpl) rs);
+                                _rowDataClassMap.put("selectEntity", rowData.getClass());
+                                return rs;
+                            }
+                        };
+                    }
+                };
+            }
+        };
     }
 
     @Override
