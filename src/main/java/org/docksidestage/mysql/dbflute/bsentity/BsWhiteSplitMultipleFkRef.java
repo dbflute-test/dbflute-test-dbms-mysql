@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     FIRST_ID, SECOND_CODE
- * 
+ *
  * [column]
  *     FIRST_ID, SECOND_CODE, REF_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer firstId = entity.getFirstId();
@@ -115,7 +115,7 @@ public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity implement
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

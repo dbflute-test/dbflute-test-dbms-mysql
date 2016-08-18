@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     NEXT_ID
- * 
+ *
  * [column]
  *     NEXT_ID, SECOND_CODE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_SPLIT_MULTIPLE_FK_BASE
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whiteSplitMultipleFkBaseList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long nextId = entity.getNextId();
@@ -129,7 +129,7 @@ public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implemen
         _whiteSplitMultipleFkBaseList = whiteSplitMultipleFkBaseList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

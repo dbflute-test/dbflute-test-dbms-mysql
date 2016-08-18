@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     CONSTRAINT_NAME_AUTO_FOO_ID
- * 
+ *
  * [column]
  *     CONSTRAINT_NAME_AUTO_FOO_ID, CONSTRAINT_NAME_AUTO_FOO_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     VENDOR_CONSTRAINT_NAME_AUTO_REF
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     vendorConstraintNameAutoRefList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long constraintNameAutoFooId = entity.getConstraintNameAutoFooId();
@@ -140,7 +140,7 @@ public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity imple
         _vendorConstraintNameAutoRefList = vendorConstraintNameAutoRefList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

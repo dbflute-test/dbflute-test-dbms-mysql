@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
- * 
+ *
  * [column]
  *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID, REF_FIRST_ID, REF_SECOND_ID, REF_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_COMPOUND_PK
- * 
+ *
  * [referrer table]
  *     WHITE_COMPOUND_PK_REF_NEST
- * 
+ *
  * [foreign property]
  *     whiteCompoundPk
- * 
+ *
  * [referrer property]
  *     whiteCompoundPkRefNestByQuxMultipleIdList, whiteCompoundPkRefNestByFooMultipleIdList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer multipleFirstId = entity.getMultipleFirstId();
@@ -188,7 +188,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
         _whiteCompoundPkRefNestByFooMultipleIdList = whiteCompoundPkRefNestByFooMultipleIdList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

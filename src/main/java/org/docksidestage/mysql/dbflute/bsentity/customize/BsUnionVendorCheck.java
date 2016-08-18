@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * <pre>
  * [primary-key]
  *     
- * 
+ *
  * [column]
  *     VENDOR_CHECK_ID, TYPE_OF_TEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_BOOLEAN, TYPE_OF_BLOB
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long vendorCheckId = entity.getVendorCheckId();
@@ -213,7 +213,7 @@ public abstract class BsUnionVendorCheck extends AbstractEntity implements Custo
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

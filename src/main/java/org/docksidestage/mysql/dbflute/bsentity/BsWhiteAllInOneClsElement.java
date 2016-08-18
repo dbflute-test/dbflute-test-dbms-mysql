@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     CLS_CATEGORY_CODE, CLS_ELEMENT_CODE
- * 
+ *
  * [column]
  *     CLS_CATEGORY_CODE, CLS_ELEMENT_CODE, CLS_ELEMENT_NAME, ATTRIBUTE_EXP
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_ALL_IN_ONE_CLS_CATEGORY
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     whiteAllInOneClsCategory
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String clsCategoryCode = entity.getClsCategoryCode();
@@ -143,7 +143,7 @@ public abstract class BsWhiteAllInOneClsElement extends AbstractEntity implement
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

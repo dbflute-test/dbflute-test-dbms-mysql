@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     PRODUCT_NESTED_CODE
- * 
+ *
  * [column]
  *     PRODUCT_NESTED_CODE, PRODUCT_NESTED_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_PERROTTA_OVER_PRODUCT
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whitePerrottaOverProductList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String productNestedCode = entity.getProductNestedCode();
@@ -129,7 +129,7 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
         _whitePerrottaOverProductList = whitePerrottaOverProductList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

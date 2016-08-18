@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     PRODUCT_ID
- * 
+ *
  * [column]
  *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_NESTED_CODE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_PERROTTA_OVER_PRODUCT_NESTED, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
- * 
+ *
  * [referrer table]
  *     WHITE_PERROTTA_OVER_MEMBER, WHITE_PERROTTA_OVER_TRACE
- * 
+ *
  * [foreign property]
  *     whitePerrottaOverProductNested, whitePerrottaOverTraceAsPerrotta
- * 
+ *
  * [referrer property]
  *     whitePerrottaOverMemberList, whitePerrottaOverTraceByNextProductIdList, whitePerrottaOverTraceByPreviousProductIdList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long productId = entity.getProductId();
@@ -218,7 +218,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
         _whitePerrottaOverTraceByPreviousProductIdList = whitePerrottaOverTraceByPreviousProductIdList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

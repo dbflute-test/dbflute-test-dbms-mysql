@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     PURCHASE_REFERRER_ID
- * 
+ *
  * [column]
  *     PURCHASE_REFERRER_ID, PURCHASE_REFERRER_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     PURCHASE_REFERRER_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     PURCHASE
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     purchase
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long purchaseReferrerId = entity.getPurchaseReferrerId();
@@ -132,7 +132,7 @@ public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

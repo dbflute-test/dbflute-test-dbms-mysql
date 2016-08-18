@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     STILETTO_ALIAS_ID
- * 
+ *
  * [column]
  *     STILETTO_ALIAS_ID, FOO, FOO_0, FOO_1, FOO2, FOO_3, FOO4, BAR, QUX
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_STILETTO_ALIAS_REF
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whiteStilettoAliasRefList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer stilettoAliasId = entity.getStilettoAliasId();
@@ -164,7 +164,7 @@ public abstract class BsWhiteStilettoAlias extends AbstractEntity implements Dom
         _whiteStilettoAliasRefList = whiteStilettoAliasRefList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

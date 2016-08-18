@@ -30,31 +30,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     
- * 
+ *
  * [column]
  *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long noPkId = entity.getNoPkId();
@@ -134,7 +134,7 @@ public abstract class BsWhiteNoPkCommonColumn extends AbstractEntity implements 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

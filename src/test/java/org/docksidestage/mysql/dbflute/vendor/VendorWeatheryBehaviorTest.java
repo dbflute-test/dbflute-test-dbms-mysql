@@ -12,6 +12,7 @@ import org.dbflute.bhv.core.context.ConditionBeanContext;
 import org.dbflute.bhv.core.context.ContextStack;
 import org.dbflute.bhv.readable.EntityRowHandler;
 import org.dbflute.cbean.ConditionQuery;
+import org.dbflute.cbean.ckey.ConditionKey;
 import org.dbflute.cbean.result.PagingResultBean;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseMySql;
@@ -229,7 +230,7 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
         assertFalse(ConditionBeanContext.isExistConditionBeanOnThread());
         assertFalse(OutsideSqlContext.isExistOutsideSqlContextOnThread());
         MemberStatusCB statusCB = new MemberStatusCB();
-        statusCB.query().setMemberStatusCode_InScope(codeList);
+        statusCB.query().invokeQuery("memberStatusCode", ConditionKey.CK_IN_SCOPE.getConditionKey(), codeList);
         assertNotSame(0, memberStatusBhv.selectCount(statusCB));
     }
 

@@ -256,8 +256,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * <pre>e.g. setPointTypeMappingSaleDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
     public void setPointTypeMappingSaleDate_FromTo(org.docksidestage.mysql.mytype.MySaleDate fromDatetime, org.docksidestage.mysql.mytype.MySaleDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
@@ -269,8 +269,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * <pre>e.g. setPointTypeMappingSaleDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingSaleDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPointTypeMappingSaleDate_FromTo(org.docksidestage.mysql.mytype.MySaleDate fromDatetime, org.docksidestage.mysql.mytype.MySaleDate toDatetime, FromToOption fromToOption) {
@@ -342,8 +342,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setPointTypeMappingWantedDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
     public void setPointTypeMappingWantedDatetime_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
@@ -355,8 +355,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * <pre>e.g. setPointTypeMappingWantedDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
-     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no from-condition)
-     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (NullAllowed: if null, no to-condition)
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of pointTypeMappingWantedDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPointTypeMappingWantedDatetime_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {

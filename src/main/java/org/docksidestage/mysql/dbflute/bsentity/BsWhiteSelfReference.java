@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     SELF_REFERENCE_ID
- * 
+ *
  * [column]
  *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
- * 
+ *
  * [referrer table]
  *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
- * 
+ *
  * [foreign property]
  *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
- * 
+ *
  * [referrer property]
  *     whiteSelfReferenceSelfList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long selfReferenceId = entity.getSelfReferenceId();
@@ -178,7 +178,7 @@ public abstract class BsWhiteSelfReference extends AbstractEntity implements Dom
         _whiteSelfReferenceSelfList = whiteSelfReferenceSelfList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

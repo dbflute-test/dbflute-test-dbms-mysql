@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     TRACE_ID
- * 
+ *
  * [column]
  *     TRACE_ID, PREVIOUS_PRODUCT_ID, NEXT_PRODUCT_ID, TRACE_TYPE_CODE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_PERROTTA_OVER_PRODUCT
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     whitePerrottaOverProductByNextProductId, whitePerrottaOverProductByPreviousProductId
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long traceId = entity.getTraceId();
@@ -176,7 +176,7 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

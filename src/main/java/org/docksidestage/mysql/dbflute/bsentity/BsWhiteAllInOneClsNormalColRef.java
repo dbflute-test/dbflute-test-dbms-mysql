@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     FOO_CODE, BAR_CODE, QUX_CODE
- * 
+ *
  * [column]
  *     CLS_REF_ID, FOO_CODE, BAR_CODE, QUX_CODE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     whiteAllInOneClsElementAsFoo, whiteAllInOneClsElementAsBar
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer clsRefId = entity.getClsRefId();
@@ -165,7 +165,7 @@ public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity impl
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

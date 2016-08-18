@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     REF_ID
- * 
+ *
  * [column]
  *     REF_ID, REFERRER_ID
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_VARIANT_RELATION_REFERRER
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     whiteVariantRelationReferrer
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long refId = entity.getRefId();
@@ -132,7 +132,7 @@ public abstract class BsWhiteVariantRelationReferrerRef extends AbstractEntity i
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

@@ -114,7 +114,61 @@ map:{
                 ; isSuppressProcedure=true
             }
         }
+
+        # o typeMappingMap: (NotRequired - Default map:{NUMERIC=$$AutoMapping$$ ; DECIMAL=$$AutoMapping$$})
+        #  If you want to change mappings from default mappings, you can specify your original mappings.
+        #  But it is possible that unanticipated problems occurs, so be careful!
+        ; typeMappingMap = map:{
+            # for the test of type-mapping by name 
+            ; $$df:point$$ = map:{
+                ; $$ALL$$ = map:{
+                    ; suffix:PE_MAPPING_MEMBER_NAME = MEMBER_NAME
+                    ; prefix:POINT_TYPE_MAPPING_PRICE_COU = PRICE_COUNT
+                    ; POINT_TYPE_MAPPING_WANTED_DATETIME = DATE
+                }
+                ; WHITE_POINT_TYPE_MAPPING = map:{
+                    ; POINT_TYPE_MAPPING_SALE_DATE = SALE_DATE
+                }
+                ; WHITE_GEARED_CIPHER = map:{
+                    ; CIPHER_INTEGER = INTEGER
+                    ; CIPHER_DATE = DATE
+                    ; CIPHER_DATETIME = TIMESTAMP
+                }
+            }
+            ; MEMBER_NAME = org.docksidestage.mysql.mytype.MyMemberName
+            ; PRICE_COUNT = org.docksidestage.mysql.mytype.MyPriceCount
+            ; SALE_DATE = org.docksidestage.mysql.mytype.MySaleDate
+        }
     }
     # - - - - - - - - - -/
 }
 # ----------------/
+#
+# Default mapping as follows:
+# --------------------------------------------------------
+# | JDBC Type     | Java Native          | CSharp Native |
+# | ------------------------------------------------------
+# | CHAR          | java.lang.String     | String        |
+# | VARCHAR       | java.lang.String     | String        |
+# | LONGVARCHAR   | java.lang.String     | String        |
+# | NUMERIC       | java.math.BigDecimal | decimal?      |
+# | DECIMAL       | java.math.BigDecimal | decimal?      |
+# | TINYINT       | java.lang.Integer    | int?          |
+# | SMALLINT      | java.lang.Integer    | int?          |
+# | INTEGER       | java.lang.Integer    | int?          |
+# | BIGINT        | java.lang.Long       | long?         |
+# | REAL          | java.math.BigDecimal | decimal?      |
+# | FLOAT         | java.math.BigDecimal | decimal?      |
+# | DOUBLE        | java.math.BigDecimal | decimal?      |
+# | DATE          | java.util.Date       | DateTime?     |
+# | TIME          | java.sql.Time        | DateTime?     |
+# | TIMESTAMP     | java.sql.Timestamp   | DateTime?     |
+# | BIT           | java.lang.Boolean    | bool?         |
+# | BOOLEAN       | java.lang.Boolean    | bool?         |
+# | BINARY        | byte[]               | byte[]        |
+# | VARBINARY     | byte[]               | byte[]        |
+# | LONGVARBINARY | byte[]               | byte[]        |
+# | BLOB          | byte[]               | byte[]        |
+# | ARRAY         | *Unsupported         | *Unsupported  |
+# | UUID          | java.util.UUID       | *Unsupported  |
+# --------------------------------------------------------

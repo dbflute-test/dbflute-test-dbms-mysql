@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MACHO_CODE
- * 
+ *
  * [column]
  *     MACHO_CODE, MACHO_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_PERROTTA_OVER_MEMBER
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whitePerrottaOverMemberList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String machoCode = entity.getMachoCode();
@@ -129,7 +129,7 @@ public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity impl
         _whitePerrottaOverMemberList = whitePerrottaOverMemberList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

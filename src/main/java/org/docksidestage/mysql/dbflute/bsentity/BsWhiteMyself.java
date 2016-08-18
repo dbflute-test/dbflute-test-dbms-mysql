@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MYSELF_ID
- * 
+ *
  * [column]
  *     MYSELF_ID, MYSELF_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_MYSELF_CHECK
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whiteMyselfCheckList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer myselfId = entity.getMyselfId();
@@ -129,7 +129,7 @@ public abstract class BsWhiteMyself extends AbstractEntity implements DomainEnti
         _whiteMyselfCheckList = whiteMyselfCheckList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

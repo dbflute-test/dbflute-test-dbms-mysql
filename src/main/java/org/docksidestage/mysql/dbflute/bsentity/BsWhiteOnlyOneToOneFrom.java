@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     FROM_ID
- * 
+ *
  * [column]
  *     FROM_ID, FROM_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     FROM_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_ONLY_ONE_TO_ONE_TO(AsOne)
- * 
+ *
  * [referrer table]
  *     WHITE_ONLY_ONE_TO_ONE_TO
- * 
+ *
  * [foreign property]
  *     whiteOnlyOneToOneToAsOne
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long fromId = entity.getFromId();
@@ -132,7 +132,7 @@ public abstract class BsWhiteOnlyOneToOneFrom extends AbstractEntity implements 
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

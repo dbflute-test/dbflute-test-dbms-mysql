@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     CIPHER_ID
- * 
+ *
  * [column]
  *     CIPHER_ID, CIPHER_INTEGER, CIPHER_VARCHAR, CIPHER_DATE, CIPHER_DATETIME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     CIPHER_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long cipherId = entity.getCipherId();
@@ -124,7 +124,7 @@ public abstract class BsWhiteGearedCipher extends AbstractEntity implements Doma
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

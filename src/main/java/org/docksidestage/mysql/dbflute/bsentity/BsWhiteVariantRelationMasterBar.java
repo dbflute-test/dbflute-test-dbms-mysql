@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MASTER_BAR_ID
- * 
+ *
  * [column]
  *     MASTER_BAR_ID, MASTER_BAR_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     WHITE_VARIANT_RELATION_REFERRER
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     whiteVariantRelationReferrerAsVariantList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long masterBarId = entity.getMasterBarId();
@@ -129,7 +129,7 @@ public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity imp
         _whiteVariantRelationReferrerAsVariantList = whiteVariantRelationReferrerAsVariantList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

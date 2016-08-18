@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     IMPLICIT_CONV_INTEGER_ID
- * 
+ *
  * [column]
  *     IMPLICIT_CONV_INTEGER_ID, IMPLICIT_CONV_NUMERIC_ID, IMPLICIT_CONV_STRING_ID, IMPLICIT_CONV_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
- * 
+ *
  * [referrer table]
  *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
- * 
+ *
  * [foreign property]
  *     whiteImplicitConvNumeric, whiteImplicitConvString
- * 
+ *
  * [referrer property]
  *     whiteImplicitConvNumericList, whiteImplicitConvStringList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer implicitConvIntegerId = entity.getImplicitConvIntegerId();
@@ -203,7 +203,7 @@ public abstract class BsWhiteImplicitConvInteger extends AbstractEntity implemen
         _whiteImplicitConvStringList = whiteImplicitConvStringList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

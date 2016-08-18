@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MANY_ONE_ID
- * 
+ *
  * [column]
  *     MANY_ONE_ID, MANY_ONE_NAME, MANY_ONE_ONE_ID
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE
- * 
+ *
  * [referrer table]
  *     WHITE_SUPPRESS_JOIN_SQ_MANY
- * 
+ *
  * [foreign property]
  *     whiteSuppressJoinSqManyOneOne
- * 
+ *
  * [referrer property]
  *     whiteSuppressJoinSqManyList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer manyOneId = entity.getManyOneId();
@@ -157,7 +157,7 @@ public abstract class BsWhiteSuppressJoinSqManyOne extends AbstractEntity implem
         _whiteSuppressJoinSqManyList = whiteSuppressJoinSqManyList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

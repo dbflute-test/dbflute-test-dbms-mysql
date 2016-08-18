@@ -30,31 +30,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     GROUPING_REFERENCE_ID
- * 
+ *
  * [column]
  *     GROUPING_REFERENCE_ID, GROUPING_REFERENCE_CODE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     GROUPING_REFERENCE_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long groupingReferenceId = entity.getGroupingReferenceId();
@@ -258,7 +258,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity implements
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

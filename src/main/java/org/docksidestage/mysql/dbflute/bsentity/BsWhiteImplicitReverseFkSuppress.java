@@ -29,31 +29,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- * 
+ *
  * [column]
  *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID, WHITE_IMPLICIT_REVERSE_FK_ID, VALID_BEGIN_DATE, VALID_END_DATE
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer whiteImplicitReverseFkSuppressId = entity.getWhiteImplicitReverseFkSuppressId();
@@ -132,7 +132,7 @@ public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity im
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

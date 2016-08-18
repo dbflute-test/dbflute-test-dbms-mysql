@@ -31,31 +31,31 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     MASTER_FOO_ID
- * 
+ *
  * [column]
  *     MASTER_FOO_ID, MASTER_FOO_NAME
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
- * 
+ *
  * [referrer table]
  *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
- * 
+ *
  * [foreign property]
  *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
- * 
+ *
  * [referrer property]
  *     whiteVariantRelationReferrerAsVariantList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long masterFooId = entity.getMasterFooId();
@@ -173,7 +173,7 @@ public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity imp
         _whiteVariantRelationReferrerAsVariantList = whiteVariantRelationReferrerAsVariantList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 
