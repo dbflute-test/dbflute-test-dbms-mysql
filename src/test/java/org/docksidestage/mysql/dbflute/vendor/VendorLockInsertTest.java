@@ -265,7 +265,7 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
         }, new CannonballOption().threadCount(2));
     }
 
-    public void test_insert_ForeignKeyWait_otherRecord_noWait() throws Exception {
+    public void test_insert_ForeignKeyWait_differentRecord_noWait() throws Exception {
         final int memberId1 = 7;
         final int memberId2 = 8;
         cannonball(new CannonballRun() {
@@ -274,7 +274,7 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
                     public void plan(CannonballDragon dragon) {
                         Member member = new Member();
                         member.setMemberId(memberId1);
-                        member.setMemberAccount("lock1");
+                        member.setMemberAccount("lock1"); // unique key
                         memberBhv.updateNonstrict(member);
                     }
                 }, 1);
@@ -282,7 +282,7 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
                     public void plan(CannonballDragon dragon) {
                         Member member = new Member();
                         member.setMemberId(memberId2);
-                        member.setMemberAccount("lock2");
+                        member.setMemberAccount("lock2"); // unique key
                         memberBhv.updateNonstrict(member);
                     }
                 }, 2);
