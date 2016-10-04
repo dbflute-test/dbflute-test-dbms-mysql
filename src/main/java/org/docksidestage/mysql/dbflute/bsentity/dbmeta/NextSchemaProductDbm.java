@@ -75,7 +75,7 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     protected final String _tableDbName = "next_schema_product";
     protected final String _tableDispName = "NEXT_SCHEMA_PRODUCT";
     protected final String _tablePropertyName = "nextSchemaProduct";
-    protected final TableSqlName _tableSqlName = new TableSqlName("nextexampledb.NEXT_SCHEMA_PRODUCT", _tableDbName);
+    protected final TableSqlName _tableSqlName = new TableSqlName("newurayasudb.NEXT_SCHEMA_PRODUCT", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
