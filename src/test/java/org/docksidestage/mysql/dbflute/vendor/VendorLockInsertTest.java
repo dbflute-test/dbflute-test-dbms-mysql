@@ -314,6 +314,60 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
         }, new CannonballOption().threadCount(2));
     }
 
+    public void test_insert_ForeignKeyWait_differentRecord() throws Exception {
+        cannonball(new CannonballRun() {
+            Integer firstMemberId;
+            Integer secondMemberId;
+
+            public void drive(CannonballCar car) {
+                car.projectA(new CannonballProjectA() {
+                    public void plan(CannonballDragon dragon) {
+                        Member member = memberBhv.selectByPK(1).get();
+                        member.setMemberAccount("dummy1"); // unique key
+                        memberBhv.insert(member);
+                        member.setMemberAccount("lock1"); // unique key
+                        memberBhv.updateNonstrict(member);
+                        firstMemberId = member.getMemberId();
+                    }
+                }, 1);
+                car.projectA(new CannonballProjectA() {
+                    public void plan(CannonballDragon dragon) {
+                        Member member = memberBhv.selectByPK(1).get();
+                        member.setMemberAccount("dummy2"); // unique key
+                        memberBhv.insert(member);
+                        member.setMemberAccount("lock2"); // unique key
+                        memberBhv.updateNonstrict(member);
+                        secondMemberId = member.getMemberId();
+                    }
+                }, 2);
+                car.projectA(new CannonballProjectA() {
+                    public void plan(CannonballDragon dragon) {
+                        Purchase purchase = new Purchase();
+                        purchase.setMemberId(firstMemberId);
+                        purchase.setProductId(1);
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
+                        purchase.setPurchasePrice(123);
+                        purchase.setPurchaseCount(9);
+                        purchase.setPaymentCompleteFlg_True();
+                        purchaseBhv.insert(purchase); // wait
+                    }
+                }, 1);
+                car.projectA(new CannonballProjectA() {
+                    public void plan(CannonballDragon dragon) {
+                        Purchase purchase = new Purchase();
+                        purchase.setMemberId(secondMemberId);
+                        purchase.setProductId(1);
+                        purchase.setPurchaseDatetime(currentLocalDateTime());
+                        purchase.setPurchasePrice(123);
+                        purchase.setPurchaseCount(9);
+                        purchase.setPaymentCompleteFlg_True();
+                        purchaseBhv.insert(purchase); // wait
+                    }
+                }, 2);
+            }
+        }, new CannonballOption().threadCount(2));
+    }
+
     // ===================================================================================
     //                                                                 ForeignKey Deadlock
     //                                                                 ===================
