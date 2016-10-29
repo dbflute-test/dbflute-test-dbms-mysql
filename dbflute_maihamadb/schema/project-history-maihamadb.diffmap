@@ -1,4 +1,30 @@
 map:{
+    ; 2016/10/05 00:39:57 = map:{
+        ; diffDate = 2016/10/05 00:39:57
+        ; tableCount = map:{
+            ; next = 116
+            ; previous = 115
+        }
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = ADD
+            }
+        }
+    }
+    ; 2016/10/05 00:00:17 = map:{
+        ; diffDate = 2016/10/05 00:00:17
+        ; tableCount = map:{
+            ; next = 115
+            ; previous = 116
+        }
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2016/08/18 13:37:32 = map:{
         ; diffDate = 2016/08/18 13:37:32
         ; tableCount = map:{

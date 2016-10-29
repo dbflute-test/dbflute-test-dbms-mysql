@@ -46,7 +46,7 @@ map:{
             ; className = unused
         }
         ; tableMap = map:{
-        	; tablePath = map
+            ; tablePath = map
             ; mappingMap = map:{
                 ; type = map:{ numeric = Integer ; varchar = String }
             }

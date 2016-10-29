@@ -100,7 +100,7 @@ map:{
         #    o isSuppressProcedure: (NotRequired - Default false)
         #
         ; additionalSchemaMap = map:{
-            ; nextexampledb.$$NoNameSchema$$ = map:{
+            ; newurayasudb.$$NoNameSchema$$ = map:{
                 ; objectTypeTargetList=list:{TABLE ; VIEW}
                 ; tableExceptList=list:{}
                 ; tableTargetList=list:{}
