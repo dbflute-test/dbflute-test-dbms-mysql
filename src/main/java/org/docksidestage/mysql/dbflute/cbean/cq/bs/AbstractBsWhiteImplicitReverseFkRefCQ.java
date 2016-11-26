@@ -470,7 +470,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteImplicitReverseFkRefCB> scalar_GreaterThan() {
@@ -486,7 +485,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteImplicitReverseFkRefCB> scalar_LessThan() {

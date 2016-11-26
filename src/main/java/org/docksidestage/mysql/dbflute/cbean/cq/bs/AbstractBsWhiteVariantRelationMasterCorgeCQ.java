@@ -458,7 +458,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteVariantRelationMasterCorgeCB> scalar_GreaterThan() {
@@ -474,7 +473,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteVariantRelationMasterCorgeCB> scalar_LessThan() {

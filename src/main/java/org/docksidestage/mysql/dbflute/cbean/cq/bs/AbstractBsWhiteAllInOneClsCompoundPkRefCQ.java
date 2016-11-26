@@ -433,7 +433,6 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteAllInOneClsCompoundPkRefCB> scalar_GreaterThan() {
@@ -449,7 +448,6 @@ public abstract class AbstractBsWhiteAllInOneClsCompoundPkRefCQ extends Abstract
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteAllInOneClsCompoundPkRefCB> scalar_LessThan() {

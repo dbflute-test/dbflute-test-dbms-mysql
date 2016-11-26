@@ -1502,7 +1502,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteStilettoAliasRefCB> scalar_GreaterThan() {
@@ -1518,7 +1517,6 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteStilettoAliasRefCB> scalar_LessThan() {

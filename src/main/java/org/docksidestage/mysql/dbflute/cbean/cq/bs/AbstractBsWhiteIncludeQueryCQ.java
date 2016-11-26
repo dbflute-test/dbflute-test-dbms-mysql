@@ -368,7 +368,6 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteIncludeQueryCB> scalar_GreaterThan() {
@@ -384,7 +383,6 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteIncludeQueryCB> scalar_LessThan() {

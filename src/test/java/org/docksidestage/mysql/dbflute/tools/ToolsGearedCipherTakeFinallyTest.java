@@ -140,7 +140,11 @@ public class ToolsGearedCipherTakeFinallyTest extends UnitContainerTestCase {
         String projectName = refreshMap.get("projectName");
         String requestUrl = refreshMap.get("requestUrl");
         List<String> projectNameList = Srl.splitList(projectName, "/");
+        try {
         new DfRefreshResourceRequest(projectNameList, requestUrl).refreshResources();
+        } catch (RuntimeException continued) {
+            log(continued.getMessage());
+        }
     }
 
     protected String deriveRefreshDfpropPath() throws IOException {

@@ -388,7 +388,6 @@ public abstract class AbstractBsVendorConstraintNameAutoFooCQ extends AbstractCo
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<VendorConstraintNameAutoFooCB> scalar_GreaterThan() {
@@ -404,7 +403,6 @@ public abstract class AbstractBsVendorConstraintNameAutoFooCQ extends AbstractCo
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<VendorConstraintNameAutoFooCB> scalar_LessThan() {

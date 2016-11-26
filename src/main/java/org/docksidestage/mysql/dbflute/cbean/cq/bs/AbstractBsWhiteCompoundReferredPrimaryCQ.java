@@ -388,7 +388,6 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteCompoundReferredPrimaryCB> scalar_GreaterThan() {
@@ -404,7 +403,6 @@ public abstract class AbstractBsWhiteCompoundReferredPrimaryCQ extends AbstractC
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteCompoundReferredPrimaryCB> scalar_LessThan() {

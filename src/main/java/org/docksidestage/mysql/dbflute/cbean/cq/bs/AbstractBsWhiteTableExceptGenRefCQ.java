@@ -431,7 +431,6 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteTableExceptGenRefCB> scalar_GreaterThan() {
@@ -447,7 +446,6 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhiteTableExceptGenRefCB> scalar_LessThan() {

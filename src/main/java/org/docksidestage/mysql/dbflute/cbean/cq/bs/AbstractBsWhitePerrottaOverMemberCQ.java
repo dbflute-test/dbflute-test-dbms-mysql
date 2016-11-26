@@ -617,7 +617,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhitePerrottaOverMemberCB> scalar_GreaterThan() {
@@ -633,7 +632,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<WhitePerrottaOverMemberCB> scalar_LessThan() {
