@@ -157,7 +157,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
      * @param escapedDfpropCodeList The collection of escapedDfpropCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setEscapedDfpropCode_InScope(Collection<String> escapedDfpropCodeList) {
+    protected void setEscapedDfpropCode_InScope(Collection<String> escapedDfpropCodeList) {
         doSetEscapedDfpropCode_InScope(escapedDfpropCodeList);
     }
 

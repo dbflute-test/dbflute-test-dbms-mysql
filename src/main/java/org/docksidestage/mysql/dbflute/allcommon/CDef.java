@@ -17,11 +17,13 @@ package org.docksidestage.mysql.dbflute.allcommon;
 
 import java.util.*;
 
+import org.dbflute.exception.ClassificationNotFoundException;
 import org.dbflute.jdbc.Classification;
 import org.dbflute.jdbc.ClassificationCodeType;
 import org.dbflute.jdbc.ClassificationMeta;
 import org.dbflute.jdbc.ClassificationUndefinedHandlingType;
 import org.dbflute.optional.OptionalThing;
+import static org.dbflute.util.DfTypeUtil.emptyStrings;
 
 /**
  * The definition of classification.
@@ -29,28 +31,25 @@ import org.dbflute.optional.OptionalThing;
  */
 public interface CDef extends Classification {
 
-    /** The empty array for no sisters. */
-    String[] EMPTY_SISTERS = new String[]{};
-
     /**
      * 会員が受けられるサービスのランクを示す
      */
     public enum ServiceRank implements CDef {
         /** PLATINUM: platinum rank */
-        Platinum("PLT", "PLATINUM", EMPTY_SISTERS)
+        Platinum("PLT", "PLATINUM", emptyStrings())
         ,
         /** GOLD: gold rank */
-        Gold("GLD", "GOLD", EMPTY_SISTERS)
+        Gold("GLD", "GOLD", emptyStrings())
         ,
         /** SILVER: silver rank */
-        Silver("SIL", "SILVER", EMPTY_SISTERS)
+        Silver("SIL", "SILVER", emptyStrings())
         ,
         /** BRONZE: bronze rank */
-        Bronze("BRZ", "BRONZE", EMPTY_SISTERS)
+        Bronze("BRZ", "BRONZE", emptyStrings())
         ,
         /** PLASTIC: plastic rank (deprecated: テーブル区分値の非推奨要素指定のテストのため) */
         @Deprecated
-        Plastic("PLS", "PLASTIC", EMPTY_SISTERS)
+        Plastic("PLS", "PLASTIC", emptyStrings())
         ;
         private static final Map<String, ServiceRank> _codeClsMap = new HashMap<String, ServiceRank>();
         private static final Map<String, ServiceRank> _nameClsMap = new HashMap<String, ServiceRank>();
@@ -169,16 +168,16 @@ public interface CDef extends Classification {
      */
     public enum Region implements CDef {
         /** アメリカ */
-        アメリカ("1", "アメリカ", EMPTY_SISTERS)
+        アメリカ("1", "アメリカ", emptyStrings())
         ,
         /** カナダ */
-        カナダ("2", "カナダ", EMPTY_SISTERS)
+        カナダ("2", "カナダ", emptyStrings())
         ,
         /** 中国 */
-        中国("3", "中国", EMPTY_SISTERS)
+        中国("3", "中国", emptyStrings())
         ,
         /** 千葉 */
-        千葉("4", "千葉", EMPTY_SISTERS)
+        千葉("4", "千葉", emptyStrings())
         ;
         private static final Map<String, Region> _codeClsMap = new HashMap<String, Region>();
         private static final Map<String, Region> _nameClsMap = new HashMap<String, Region>();
@@ -297,16 +296,16 @@ public interface CDef extends Classification {
      */
     public enum WithdrawalReason implements CDef {
         /** SIT: サイトが使いにくいから */
-        Sit("SIT", "SIT", EMPTY_SISTERS)
+        Sit("SIT", "SIT", emptyStrings())
         ,
         /** PRD: 商品に魅力がないから */
-        Prd("PRD", "PRD", EMPTY_SISTERS)
+        Prd("PRD", "PRD", emptyStrings())
         ,
         /** FRT: フリテンだから */
-        Frt("FRT", "FRT", EMPTY_SISTERS)
+        Frt("FRT", "FRT", emptyStrings())
         ,
         /** OTH: その他理由 */
-        Oth("OTH", "OTH", EMPTY_SISTERS)
+        Oth("OTH", "OTH", emptyStrings())
         ;
         private static final Map<String, WithdrawalReason> _codeClsMap = new HashMap<String, WithdrawalReason>();
         private static final Map<String, WithdrawalReason> _nameClsMap = new HashMap<String, WithdrawalReason>();
@@ -425,13 +424,13 @@ public interface CDef extends Classification {
      */
     public enum PaymentMethod implements CDef {
         /** 手渡し: Face-to-Faceの手渡しで商品と交換 */
-        ByHand("HAN", "手渡し", EMPTY_SISTERS)
+        ByHand("HAN", "手渡し", emptyStrings())
         ,
         /** 銀行振込: 銀行振込で確認してから商品発送 */
-        BankTransfer("BAK", "銀行振込", EMPTY_SISTERS)
+        BankTransfer("BAK", "銀行振込", emptyStrings())
         ,
         /** クレジットカード: クレジットカードの番号を教えてもらう */
-        CreditCard("CRC", "クレジットカード", EMPTY_SISTERS)
+        CreditCard("CRC", "クレジットカード", emptyStrings())
         ;
         private static final Map<String, PaymentMethod> _codeClsMap = new HashMap<String, PaymentMethod>();
         private static final Map<String, PaymentMethod> _nameClsMap = new HashMap<String, PaymentMethod>();
@@ -573,16 +572,16 @@ public interface CDef extends Classification {
      */
     public enum GroupingReference implements CDef {
         /** LAND_NAME */
-        LAND_NAME("LND", "LAND_NAME", EMPTY_SISTERS)
+        LAND_NAME("LND", "LAND_NAME", emptyStrings())
         ,
         /** SEA_NAME */
-        SEA_NAME("SEA", "SEA_NAME", EMPTY_SISTERS)
+        SEA_NAME("SEA", "SEA_NAME", emptyStrings())
         ,
         /** IKSPIARY_NAME */
-        IKSPIARY_NAME("IKS", "IKSPIARY_NAME", EMPTY_SISTERS)
+        IKSPIARY_NAME("IKS", "IKSPIARY_NAME", emptyStrings())
         ,
         /** AMPHI_NAME */
-        AMPHI_NAME("AMP", "AMPHI_NAME", EMPTY_SISTERS)
+        AMPHI_NAME("AMP", "AMPHI_NAME", emptyStrings())
         ;
         private static final Map<String, GroupingReference> _codeClsMap = new HashMap<String, GroupingReference>();
         private static final Map<String, GroupingReference> _nameClsMap = new HashMap<String, GroupingReference>();
@@ -808,22 +807,22 @@ public interface CDef extends Classification {
      */
     public enum SelfReference implements CDef {
         /** foo801 */
-        Foo801("801", "foo801", EMPTY_SISTERS)
+        Foo801("801", "foo801", emptyStrings())
         ,
         /** foo811 */
-        Foo811("811", "foo811", EMPTY_SISTERS)
+        Foo811("811", "foo811", emptyStrings())
         ,
         /** bar802: of foo801 */
-        Bar802("802", "bar802", EMPTY_SISTERS)
+        Bar802("802", "bar802", emptyStrings())
         ,
         /** baz803: of foo801 */
-        Baz803("803", "baz803", EMPTY_SISTERS)
+        Baz803("803", "baz803", emptyStrings())
         ,
         /** bar812: of foo811 */
-        Bar812("812", "bar812", EMPTY_SISTERS)
+        Bar812("812", "bar812", emptyStrings())
         ,
         /** baz813: of foo811 */
-        Baz813("813", "baz813", EMPTY_SISTERS)
+        Baz813("813", "baz813", emptyStrings())
         ;
         private static final Map<String, SelfReference> _codeClsMap = new HashMap<String, SelfReference>();
         private static final Map<String, SelfReference> _nameClsMap = new HashMap<String, SelfReference>();
@@ -1059,10 +1058,10 @@ public interface CDef extends Classification {
      */
     public enum SubItemImplicit implements CDef {
         /** Aaa: means foo */
-        Foo("FOO", "Aaa", EMPTY_SISTERS)
+        Foo("FOO", "Aaa", emptyStrings())
         ,
         /** Bbb: means bar */
-        Bar("BAR", "Bbb", EMPTY_SISTERS)
+        Bar("BAR", "Bbb", emptyStrings())
         ;
         private static final Map<String, SubItemImplicit> _codeClsMap = new HashMap<String, SubItemImplicit>();
         private static final Map<String, SubItemImplicit> _nameClsMap = new HashMap<String, SubItemImplicit>();
@@ -1213,13 +1212,13 @@ public interface CDef extends Classification {
      */
     public enum SubItemTable implements CDef {
         /** 正式会員: 正式な会員としてサイトサービスが利用可能 */
-        正式会員("FML", "正式会員", EMPTY_SISTERS)
+        正式会員("FML", "正式会員", emptyStrings())
         ,
         /** 退会会員: 退会が確定した会員でサイトサービスはダメ */
-        退会会員("WDL", "退会会員", EMPTY_SISTERS)
+        退会会員("WDL", "退会会員", emptyStrings())
         ,
         /** 仮会員: 入会直後のステータスで一部のサイトサービスが利用可能 */
-        仮会員("PRV", "仮会員", EMPTY_SISTERS)
+        仮会員("PRV", "仮会員", emptyStrings())
         ;
         private static final Map<String, SubItemTable> _codeClsMap = new HashMap<String, SubItemTable>();
         private static final Map<String, SubItemTable> _nameClsMap = new HashMap<String, SubItemTable>();
@@ -1418,10 +1417,10 @@ public interface CDef extends Classification {
      */
     public enum BooleanFlg implements CDef {
         /** Checked: means yes */
-        True("true", "Checked", EMPTY_SISTERS)
+        True("true", "Checked", emptyStrings())
         ,
         /** Unchecked: means no */
-        False("false", "Unchecked", EMPTY_SISTERS)
+        False("false", "Unchecked", emptyStrings())
         ;
         private static final Map<String, BooleanFlg> _codeClsMap = new HashMap<String, BooleanFlg>();
         private static final Map<String, BooleanFlg> _nameClsMap = new HashMap<String, BooleanFlg>();
@@ -1540,16 +1539,16 @@ public interface CDef extends Classification {
      */
     public enum VariantRelationMasterType implements CDef {
         /** FooCls */
-        FooCls("FOO", "FooCls", EMPTY_SISTERS)
+        FooCls("FOO", "FooCls", emptyStrings())
         ,
         /** BarCls */
-        BarCls("BAR", "BarCls", EMPTY_SISTERS)
+        BarCls("BAR", "BarCls", emptyStrings())
         ,
         /** QuxCls */
-        QuxCls("QUX", "QuxCls", EMPTY_SISTERS)
+        QuxCls("QUX", "QuxCls", emptyStrings())
         ,
         /** CorgeCls */
-        CorgeCls("CORGE", "CorgeCls", EMPTY_SISTERS)
+        CorgeCls("CORGE", "CorgeCls", emptyStrings())
         ;
         private static final Map<String, VariantRelationMasterType> _codeClsMap = new HashMap<String, VariantRelationMasterType>();
         private static final Map<String, VariantRelationMasterType> _nameClsMap = new HashMap<String, VariantRelationMasterType>();
@@ -1691,13 +1690,13 @@ public interface CDef extends Classification {
      */
     public enum VariantRelationQuxType implements CDef {
         /** Qua */
-        Qua("Qua", "Qua", EMPTY_SISTERS)
+        Qua("Qua", "Qua", emptyStrings())
         ,
         /** Que */
-        Que("Que", "Que", EMPTY_SISTERS)
+        Que("Que", "Que", emptyStrings())
         ,
         /** Quo */
-        Quo("Quo", "Quo", EMPTY_SISTERS)
+        Quo("Quo", "Quo", emptyStrings())
         ;
         private static final Map<String, VariantRelationQuxType> _codeClsMap = new HashMap<String, VariantRelationQuxType>();
         private static final Map<String, VariantRelationQuxType> _nameClsMap = new HashMap<String, VariantRelationQuxType>();
@@ -1816,16 +1815,16 @@ public interface CDef extends Classification {
      */
     public enum QuxCls implements CDef {
         /** Merged: merged qux element */
-        Merged("MRG", "Merged", EMPTY_SISTERS)
+        Merged("MRG", "Merged", emptyStrings())
         ,
         /** QuxOne: QuxOne */
-        QuxOne("Q01", "QuxOne", EMPTY_SISTERS)
+        QuxOne("Q01", "QuxOne", emptyStrings())
         ,
         /** QuxTwo: QuxTwo */
-        QuxTwo("Q02", "QuxTwo", EMPTY_SISTERS)
+        QuxTwo("Q02", "QuxTwo", emptyStrings())
         ,
         /** QuxThree: QuxThree */
-        QuxThree("Q03", "QuxThree", EMPTY_SISTERS)
+        QuxThree("Q03", "QuxThree", emptyStrings())
         ;
         private static final Map<String, QuxCls> _codeClsMap = new HashMap<String, QuxCls>();
         private static final Map<String, QuxCls> _nameClsMap = new HashMap<String, QuxCls>();
@@ -1944,13 +1943,13 @@ public interface CDef extends Classification {
      */
     public enum EscapedDfpropCls implements CDef {
         /** First: delimiter &amp; rear escape char */
-        First(";@\\", "First", EMPTY_SISTERS)
+        First(";@\\", "First", emptyStrings())
         ,
         /** Second: escape char &amp; endBrace &amp; delimiter */
-        Second("\\};", "Second", EMPTY_SISTERS)
+        Second("\\};", "Second", emptyStrings())
         ,
         /** Third: startBrace &amp; equal &amp; endBrace */
-        Third("{=}", "Third", EMPTY_SISTERS)
+        Third("{=}", "Third", emptyStrings())
         ;
         private static final Map<String, EscapedDfpropCls> _codeClsMap = new HashMap<String, EscapedDfpropCls>();
         private static final Map<String, EscapedDfpropCls> _nameClsMap = new HashMap<String, EscapedDfpropCls>();
@@ -2069,10 +2068,10 @@ public interface CDef extends Classification {
      */
     public enum EscapedJavaDocCls implements CDef {
         /** First: /*IF pmb.yourFooComment&#42;/&gt;&lt;&amp; */
-        First("FOO", "First", EMPTY_SISTERS)
+        First("FOO", "First", emptyStrings())
         ,
         /** Second: /*IF pmb.yourBarComment&#42;/&gt;&lt;&amp; */
-        Second("BAR", "Second", EMPTY_SISTERS)
+        Second("BAR", "Second", emptyStrings())
         ;
         private static final Map<String, EscapedJavaDocCls> _codeClsMap = new HashMap<String, EscapedJavaDocCls>();
         private static final Map<String, EscapedJavaDocCls> _nameClsMap = new HashMap<String, EscapedJavaDocCls>();
@@ -2214,16 +2213,16 @@ public interface CDef extends Classification {
      */
     public enum EscapedNumberInitialCls implements CDef {
         /** 1Foo */
-        N1Foo("1FO", "1Foo", EMPTY_SISTERS)
+        N1Foo("1FO", "1Foo", emptyStrings())
         ,
         /** 3Bar */
-        N3Bar("3BA", "3Bar", EMPTY_SISTERS)
+        N3Bar("3BA", "3Bar", emptyStrings())
         ,
         /** 7Qux */
-        N7Qux("7QU", "7Qux", EMPTY_SISTERS)
+        N7Qux("7QU", "7Qux", emptyStrings())
         ,
         /** Corge9 */
-        Corge9("CO9", "Corge9", EMPTY_SISTERS)
+        Corge9("CO9", "Corge9", emptyStrings())
         ;
         private static final Map<String, EscapedNumberInitialCls> _codeClsMap = new HashMap<String, EscapedNumberInitialCls>();
         private static final Map<String, EscapedNumberInitialCls> _nameClsMap = new HashMap<String, EscapedNumberInitialCls>();
@@ -2342,10 +2341,10 @@ public interface CDef extends Classification {
      */
     public enum LineSepCommentCls implements CDef {
         /** First: foo first line            foo second line */
-        First("FOO", "First", EMPTY_SISTERS)
+        First("FOO", "First", emptyStrings())
         ,
         /** Second: bar first line                        bar second line */
-        Second("BAR", "Second", EMPTY_SISTERS)
+        Second("BAR", "Second", emptyStrings())
         ;
         private static final Map<String, LineSepCommentCls> _codeClsMap = new HashMap<String, LineSepCommentCls>();
         private static final Map<String, LineSepCommentCls> _nameClsMap = new HashMap<String, LineSepCommentCls>();
@@ -2488,13 +2487,13 @@ public interface CDef extends Classification {
     @Deprecated
     public enum DeprecatedTopBasicType implements CDef {
         /** FooName */
-        FooName("FOO", "FooName", EMPTY_SISTERS)
+        FooName("FOO", "FooName", emptyStrings())
         ,
         /** BarName */
-        BarName("BAR", "BarName", EMPTY_SISTERS)
+        BarName("BAR", "BarName", emptyStrings())
         ,
         /** QuxName */
-        QuxName("QUX", "QuxName", EMPTY_SISTERS)
+        QuxName("QUX", "QuxName", emptyStrings())
         ;
         private static final Map<String, DeprecatedTopBasicType> _codeClsMap = new HashMap<String, DeprecatedTopBasicType>();
         private static final Map<String, DeprecatedTopBasicType> _nameClsMap = new HashMap<String, DeprecatedTopBasicType>();
@@ -2613,14 +2612,14 @@ public interface CDef extends Classification {
      */
     public enum DeprecatedMapBasicType implements CDef {
         /** FooName */
-        FooName("FOO", "FooName", EMPTY_SISTERS)
+        FooName("FOO", "FooName", emptyStrings())
         ,
         /** BarName: (deprecated: test of deprecated) */
         @Deprecated
-        BarName("BAR", "BarName", EMPTY_SISTERS)
+        BarName("BAR", "BarName", emptyStrings())
         ,
         /** QuxName */
-        QuxName("QUX", "QuxName", EMPTY_SISTERS)
+        QuxName("QUX", "QuxName", emptyStrings())
         ;
         private static final Map<String, DeprecatedMapBasicType> _codeClsMap = new HashMap<String, DeprecatedMapBasicType>();
         private static final Map<String, DeprecatedMapBasicType> _nameClsMap = new HashMap<String, DeprecatedMapBasicType>();
@@ -2739,15 +2738,15 @@ public interface CDef extends Classification {
      */
     public enum DeprecatedMapCollaborationType implements CDef {
         /** FooName */
-        FooName("FOO", "FooName", EMPTY_SISTERS)
+        FooName("FOO", "FooName", emptyStrings())
         ,
         /** BarBar: here (deprecated: test of deprecated) */
         @Deprecated
-        BarName("BAR", "BarBar", EMPTY_SISTERS)
+        BarName("BAR", "BarBar", emptyStrings())
         ,
         /** QuxQux: (deprecated: no original comment) */
         @Deprecated
-        QuxName("QUX", "QuxQux", EMPTY_SISTERS)
+        QuxName("QUX", "QuxQux", emptyStrings())
         ;
         private static final Map<String, DeprecatedMapCollaborationType> _codeClsMap = new HashMap<String, DeprecatedMapCollaborationType>();
         private static final Map<String, DeprecatedMapCollaborationType> _nameClsMap = new HashMap<String, DeprecatedMapCollaborationType>();
@@ -3006,19 +3005,19 @@ public interface CDef extends Classification {
      */
     public enum BarCls implements CDef {
         /** BarOne: BarOne */
-        BarOne("B01", "BarOne", EMPTY_SISTERS)
+        BarOne("B01", "BarOne", emptyStrings())
         ,
         /** BarTwo: BarTwo */
-        BarTwo("B02", "BarTwo", EMPTY_SISTERS)
+        BarTwo("B02", "BarTwo", emptyStrings())
         ,
         /** BarThree: BarThree */
-        BarThree("B03", "BarThree", EMPTY_SISTERS)
+        BarThree("B03", "BarThree", emptyStrings())
         ,
         /** BarFour: BarFour */
-        BarFour("B04", "BarFour", EMPTY_SISTERS)
+        BarFour("B04", "BarFour", emptyStrings())
         ,
         /** BarFive: BarFive */
-        BarFive("B05", "BarFive", EMPTY_SISTERS)
+        BarFive("B05", "BarFive", emptyStrings())
         ;
         private static final Map<String, BarCls> _codeClsMap = new HashMap<String, BarCls>();
         private static final Map<String, BarCls> _nameClsMap = new HashMap<String, BarCls>();
@@ -3137,16 +3136,16 @@ public interface CDef extends Classification {
      */
     public enum FooCls implements CDef {
         /** FooOne: FooOne */
-        FooOne("F01", "FooOne", EMPTY_SISTERS)
+        FooOne("F01", "FooOne", emptyStrings())
         ,
         /** FooTwo: FooTwo */
-        FooTwo("F02", "FooTwo", EMPTY_SISTERS)
+        FooTwo("F02", "FooTwo", emptyStrings())
         ,
         /** FooThree: FooThree */
-        FooThree("F03", "FooThree", EMPTY_SISTERS)
+        FooThree("F03", "FooThree", emptyStrings())
         ,
         /** FooFour: FooFour */
-        FooFour("F04", "FooFour", EMPTY_SISTERS)
+        FooFour("F04", "FooFour", emptyStrings())
         ;
         private static final Map<String, FooCls> _codeClsMap = new HashMap<String, FooCls>();
         private static final Map<String, FooCls> _nameClsMap = new HashMap<String, FooCls>();
@@ -3265,10 +3264,10 @@ public interface CDef extends Classification {
      */
     public enum Flg implements CDef {
         /** はい: 有効を示す */
-        True("1", "はい", EMPTY_SISTERS)
+        True("1", "はい", emptyStrings())
         ,
         /** いいえ: 無効を示す */
-        False("0", "いいえ", EMPTY_SISTERS)
+        False("0", "いいえ", emptyStrings())
         ;
         private static final Map<String, Flg> _codeClsMap = new HashMap<String, Flg>();
         private static final Map<String, Flg> _nameClsMap = new HashMap<String, Flg>();
@@ -3387,13 +3386,13 @@ public interface CDef extends Classification {
      */
     public enum MemberStatus implements CDef {
         /** 正式会員: 正式な会員を示す */
-        Formalized("FML", "正式会員", EMPTY_SISTERS)
+        Formalized("FML", "正式会員", emptyStrings())
         ,
         /** 仮会員: 仮の会員を示す */
-        Provisional("PRV", "仮会員", EMPTY_SISTERS)
+        Provisional("PRV", "仮会員", emptyStrings())
         ,
         /** 退会会員: 退会した会員を示す */
-        Withdrawal("WDL", "退会会員", EMPTY_SISTERS)
+        Withdrawal("WDL", "退会会員", emptyStrings())
         ;
         private static final Map<String, MemberStatus> _codeClsMap = new HashMap<String, MemberStatus>();
         private static final Map<String, MemberStatus> _nameClsMap = new HashMap<String, MemberStatus>();
@@ -3512,13 +3511,13 @@ public interface CDef extends Classification {
      */
     public enum ProductStatus implements CDef {
         /** 生産販売可能 */
-        OnSale("ONS", "生産販売可能", EMPTY_SISTERS)
+        OnSale("ONS", "生産販売可能", emptyStrings())
         ,
         /** 生産中止 */
-        ProductStop("PST", "生産中止", EMPTY_SISTERS)
+        ProductStop("PST", "生産中止", emptyStrings())
         ,
         /** 販売中止 */
-        SaleStop("SST", "販売中止", EMPTY_SISTERS)
+        SaleStop("SST", "販売中止", emptyStrings())
         ;
         private static final Map<String, ProductStatus> _codeClsMap = new HashMap<String, ProductStatus>();
         private static final Map<String, ProductStatus> _nameClsMap = new HashMap<String, ProductStatus>();
@@ -3836,127 +3835,127 @@ public interface CDef extends Classification {
         }
 
         public List<Classification> listAll() {
-            if (ServiceRank.name().equals(name())) { return toClassificationList(CDef.ServiceRank.listAll()); }
-            if (Region.name().equals(name())) { return toClassificationList(CDef.Region.listAll()); }
-            if (WithdrawalReason.name().equals(name())) { return toClassificationList(CDef.WithdrawalReason.listAll()); }
-            if (PaymentMethod.name().equals(name())) { return toClassificationList(CDef.PaymentMethod.listAll()); }
-            if (GroupingReference.name().equals(name())) { return toClassificationList(CDef.GroupingReference.listAll()); }
-            if (SelfReference.name().equals(name())) { return toClassificationList(CDef.SelfReference.listAll()); }
-            if (TopCommentOnly.name().equals(name())) { return toClassificationList(CDef.TopCommentOnly.listAll()); }
-            if (SubItemImplicit.name().equals(name())) { return toClassificationList(CDef.SubItemImplicit.listAll()); }
-            if (SubItemTable.name().equals(name())) { return toClassificationList(CDef.SubItemTable.listAll()); }
-            if (BooleanFlg.name().equals(name())) { return toClassificationList(CDef.BooleanFlg.listAll()); }
-            if (VariantRelationMasterType.name().equals(name())) { return toClassificationList(CDef.VariantRelationMasterType.listAll()); }
-            if (VariantRelationQuxType.name().equals(name())) { return toClassificationList(CDef.VariantRelationQuxType.listAll()); }
-            if (QuxCls.name().equals(name())) { return toClassificationList(CDef.QuxCls.listAll()); }
-            if (EscapedDfpropCls.name().equals(name())) { return toClassificationList(CDef.EscapedDfpropCls.listAll()); }
-            if (EscapedJavaDocCls.name().equals(name())) { return toClassificationList(CDef.EscapedJavaDocCls.listAll()); }
-            if (EscapedNumberInitialCls.name().equals(name())) { return toClassificationList(CDef.EscapedNumberInitialCls.listAll()); }
-            if (LineSepCommentCls.name().equals(name())) { return toClassificationList(CDef.LineSepCommentCls.listAll()); }
-            if (DeprecatedTopBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedTopBasicType.listAll()); }
-            if (DeprecatedMapBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapBasicType.listAll()); }
-            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapCollaborationType.listAll()); }
-            if (UQClassificationType.name().equals(name())) { return toClassificationList(CDef.UQClassificationType.listAll()); }
-            if (BarCls.name().equals(name())) { return toClassificationList(CDef.BarCls.listAll()); }
-            if (FooCls.name().equals(name())) { return toClassificationList(CDef.FooCls.listAll()); }
-            if (Flg.name().equals(name())) { return toClassificationList(CDef.Flg.listAll()); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(CDef.MemberStatus.listAll()); }
-            if (ProductStatus.name().equals(name())) { return toClassificationList(CDef.ProductStatus.listAll()); }
+            if (ServiceRank.name().equals(name())) { return toClsList(CDef.ServiceRank.listAll()); }
+            if (Region.name().equals(name())) { return toClsList(CDef.Region.listAll()); }
+            if (WithdrawalReason.name().equals(name())) { return toClsList(CDef.WithdrawalReason.listAll()); }
+            if (PaymentMethod.name().equals(name())) { return toClsList(CDef.PaymentMethod.listAll()); }
+            if (GroupingReference.name().equals(name())) { return toClsList(CDef.GroupingReference.listAll()); }
+            if (SelfReference.name().equals(name())) { return toClsList(CDef.SelfReference.listAll()); }
+            if (TopCommentOnly.name().equals(name())) { return toClsList(CDef.TopCommentOnly.listAll()); }
+            if (SubItemImplicit.name().equals(name())) { return toClsList(CDef.SubItemImplicit.listAll()); }
+            if (SubItemTable.name().equals(name())) { return toClsList(CDef.SubItemTable.listAll()); }
+            if (BooleanFlg.name().equals(name())) { return toClsList(CDef.BooleanFlg.listAll()); }
+            if (VariantRelationMasterType.name().equals(name())) { return toClsList(CDef.VariantRelationMasterType.listAll()); }
+            if (VariantRelationQuxType.name().equals(name())) { return toClsList(CDef.VariantRelationQuxType.listAll()); }
+            if (QuxCls.name().equals(name())) { return toClsList(CDef.QuxCls.listAll()); }
+            if (EscapedDfpropCls.name().equals(name())) { return toClsList(CDef.EscapedDfpropCls.listAll()); }
+            if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listAll()); }
+            if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listAll()); }
+            if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listAll()); }
+            if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listAll()); }
+            if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listAll()); }
+            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listAll()); }
+            if (UQClassificationType.name().equals(name())) { return toClsList(CDef.UQClassificationType.listAll()); }
+            if (BarCls.name().equals(name())) { return toClsList(CDef.BarCls.listAll()); }
+            if (FooCls.name().equals(name())) { return toClsList(CDef.FooCls.listAll()); }
+            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listAll()); }
+            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listAll()); }
+            if (ProductStatus.name().equals(name())) { return toClsList(CDef.ProductStatus.listAll()); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> listByGroup(String groupName) { // exception if not found
-            if (ServiceRank.name().equals(name())) { return toClassificationList(CDef.ServiceRank.listByGroup(groupName)); }
-            if (Region.name().equals(name())) { return toClassificationList(CDef.Region.listByGroup(groupName)); }
-            if (WithdrawalReason.name().equals(name())) { return toClassificationList(CDef.WithdrawalReason.listByGroup(groupName)); }
-            if (PaymentMethod.name().equals(name())) { return toClassificationList(CDef.PaymentMethod.listByGroup(groupName)); }
-            if (GroupingReference.name().equals(name())) { return toClassificationList(CDef.GroupingReference.listByGroup(groupName)); }
-            if (SelfReference.name().equals(name())) { return toClassificationList(CDef.SelfReference.listByGroup(groupName)); }
-            if (TopCommentOnly.name().equals(name())) { return toClassificationList(CDef.TopCommentOnly.listByGroup(groupName)); }
-            if (SubItemImplicit.name().equals(name())) { return toClassificationList(CDef.SubItemImplicit.listByGroup(groupName)); }
-            if (SubItemTable.name().equals(name())) { return toClassificationList(CDef.SubItemTable.listByGroup(groupName)); }
-            if (BooleanFlg.name().equals(name())) { return toClassificationList(CDef.BooleanFlg.listByGroup(groupName)); }
-            if (VariantRelationMasterType.name().equals(name())) { return toClassificationList(CDef.VariantRelationMasterType.listByGroup(groupName)); }
-            if (VariantRelationQuxType.name().equals(name())) { return toClassificationList(CDef.VariantRelationQuxType.listByGroup(groupName)); }
-            if (QuxCls.name().equals(name())) { return toClassificationList(CDef.QuxCls.listByGroup(groupName)); }
-            if (EscapedDfpropCls.name().equals(name())) { return toClassificationList(CDef.EscapedDfpropCls.listByGroup(groupName)); }
-            if (EscapedJavaDocCls.name().equals(name())) { return toClassificationList(CDef.EscapedJavaDocCls.listByGroup(groupName)); }
-            if (EscapedNumberInitialCls.name().equals(name())) { return toClassificationList(CDef.EscapedNumberInitialCls.listByGroup(groupName)); }
-            if (LineSepCommentCls.name().equals(name())) { return toClassificationList(CDef.LineSepCommentCls.listByGroup(groupName)); }
-            if (DeprecatedTopBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedTopBasicType.listByGroup(groupName)); }
-            if (DeprecatedMapBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapBasicType.listByGroup(groupName)); }
-            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapCollaborationType.listByGroup(groupName)); }
-            if (UQClassificationType.name().equals(name())) { return toClassificationList(CDef.UQClassificationType.listByGroup(groupName)); }
-            if (BarCls.name().equals(name())) { return toClassificationList(CDef.BarCls.listByGroup(groupName)); }
-            if (FooCls.name().equals(name())) { return toClassificationList(CDef.FooCls.listByGroup(groupName)); }
-            if (Flg.name().equals(name())) { return toClassificationList(CDef.Flg.listByGroup(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(CDef.MemberStatus.listByGroup(groupName)); }
-            if (ProductStatus.name().equals(name())) { return toClassificationList(CDef.ProductStatus.listByGroup(groupName)); }
+            if (ServiceRank.name().equals(name())) { return toClsList(CDef.ServiceRank.listByGroup(groupName)); }
+            if (Region.name().equals(name())) { return toClsList(CDef.Region.listByGroup(groupName)); }
+            if (WithdrawalReason.name().equals(name())) { return toClsList(CDef.WithdrawalReason.listByGroup(groupName)); }
+            if (PaymentMethod.name().equals(name())) { return toClsList(CDef.PaymentMethod.listByGroup(groupName)); }
+            if (GroupingReference.name().equals(name())) { return toClsList(CDef.GroupingReference.listByGroup(groupName)); }
+            if (SelfReference.name().equals(name())) { return toClsList(CDef.SelfReference.listByGroup(groupName)); }
+            if (TopCommentOnly.name().equals(name())) { return toClsList(CDef.TopCommentOnly.listByGroup(groupName)); }
+            if (SubItemImplicit.name().equals(name())) { return toClsList(CDef.SubItemImplicit.listByGroup(groupName)); }
+            if (SubItemTable.name().equals(name())) { return toClsList(CDef.SubItemTable.listByGroup(groupName)); }
+            if (BooleanFlg.name().equals(name())) { return toClsList(CDef.BooleanFlg.listByGroup(groupName)); }
+            if (VariantRelationMasterType.name().equals(name())) { return toClsList(CDef.VariantRelationMasterType.listByGroup(groupName)); }
+            if (VariantRelationQuxType.name().equals(name())) { return toClsList(CDef.VariantRelationQuxType.listByGroup(groupName)); }
+            if (QuxCls.name().equals(name())) { return toClsList(CDef.QuxCls.listByGroup(groupName)); }
+            if (EscapedDfpropCls.name().equals(name())) { return toClsList(CDef.EscapedDfpropCls.listByGroup(groupName)); }
+            if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listByGroup(groupName)); }
+            if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listByGroup(groupName)); }
+            if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listByGroup(groupName)); }
+            if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listByGroup(groupName)); }
+            if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listByGroup(groupName)); }
+            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listByGroup(groupName)); }
+            if (UQClassificationType.name().equals(name())) { return toClsList(CDef.UQClassificationType.listByGroup(groupName)); }
+            if (BarCls.name().equals(name())) { return toClsList(CDef.BarCls.listByGroup(groupName)); }
+            if (FooCls.name().equals(name())) { return toClsList(CDef.FooCls.listByGroup(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listByGroup(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listByGroup(groupName)); }
+            if (ProductStatus.name().equals(name())) { return toClsList(CDef.ProductStatus.listByGroup(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
-        public List<? extends Classification> listOf(Collection<String> codeList) {
-            if (ServiceRank.name().equals(name())) { return CDef.ServiceRank.listOf(codeList); }
-            if (Region.name().equals(name())) { return CDef.Region.listOf(codeList); }
-            if (WithdrawalReason.name().equals(name())) { return CDef.WithdrawalReason.listOf(codeList); }
-            if (PaymentMethod.name().equals(name())) { return CDef.PaymentMethod.listOf(codeList); }
-            if (GroupingReference.name().equals(name())) { return CDef.GroupingReference.listOf(codeList); }
-            if (SelfReference.name().equals(name())) { return CDef.SelfReference.listOf(codeList); }
-            if (TopCommentOnly.name().equals(name())) { return CDef.TopCommentOnly.listOf(codeList); }
-            if (SubItemImplicit.name().equals(name())) { return CDef.SubItemImplicit.listOf(codeList); }
-            if (SubItemTable.name().equals(name())) { return CDef.SubItemTable.listOf(codeList); }
-            if (BooleanFlg.name().equals(name())) { return CDef.BooleanFlg.listOf(codeList); }
-            if (VariantRelationMasterType.name().equals(name())) { return CDef.VariantRelationMasterType.listOf(codeList); }
-            if (VariantRelationQuxType.name().equals(name())) { return CDef.VariantRelationQuxType.listOf(codeList); }
-            if (QuxCls.name().equals(name())) { return CDef.QuxCls.listOf(codeList); }
-            if (EscapedDfpropCls.name().equals(name())) { return CDef.EscapedDfpropCls.listOf(codeList); }
-            if (EscapedJavaDocCls.name().equals(name())) { return CDef.EscapedJavaDocCls.listOf(codeList); }
-            if (EscapedNumberInitialCls.name().equals(name())) { return CDef.EscapedNumberInitialCls.listOf(codeList); }
-            if (LineSepCommentCls.name().equals(name())) { return CDef.LineSepCommentCls.listOf(codeList); }
-            if (DeprecatedTopBasicType.name().equals(name())) { return CDef.DeprecatedTopBasicType.listOf(codeList); }
-            if (DeprecatedMapBasicType.name().equals(name())) { return CDef.DeprecatedMapBasicType.listOf(codeList); }
-            if (DeprecatedMapCollaborationType.name().equals(name())) { return CDef.DeprecatedMapCollaborationType.listOf(codeList); }
-            if (UQClassificationType.name().equals(name())) { return CDef.UQClassificationType.listOf(codeList); }
-            if (BarCls.name().equals(name())) { return CDef.BarCls.listOf(codeList); }
-            if (FooCls.name().equals(name())) { return CDef.FooCls.listOf(codeList); }
-            if (Flg.name().equals(name())) { return CDef.Flg.listOf(codeList); }
-            if (MemberStatus.name().equals(name())) { return CDef.MemberStatus.listOf(codeList); }
-            if (ProductStatus.name().equals(name())) { return CDef.ProductStatus.listOf(codeList); }
+        public List<Classification> listOf(Collection<String> codeList) {
+            if (ServiceRank.name().equals(name())) { return toClsList(CDef.ServiceRank.listOf(codeList)); }
+            if (Region.name().equals(name())) { return toClsList(CDef.Region.listOf(codeList)); }
+            if (WithdrawalReason.name().equals(name())) { return toClsList(CDef.WithdrawalReason.listOf(codeList)); }
+            if (PaymentMethod.name().equals(name())) { return toClsList(CDef.PaymentMethod.listOf(codeList)); }
+            if (GroupingReference.name().equals(name())) { return toClsList(CDef.GroupingReference.listOf(codeList)); }
+            if (SelfReference.name().equals(name())) { return toClsList(CDef.SelfReference.listOf(codeList)); }
+            if (TopCommentOnly.name().equals(name())) { return toClsList(CDef.TopCommentOnly.listOf(codeList)); }
+            if (SubItemImplicit.name().equals(name())) { return toClsList(CDef.SubItemImplicit.listOf(codeList)); }
+            if (SubItemTable.name().equals(name())) { return toClsList(CDef.SubItemTable.listOf(codeList)); }
+            if (BooleanFlg.name().equals(name())) { return toClsList(CDef.BooleanFlg.listOf(codeList)); }
+            if (VariantRelationMasterType.name().equals(name())) { return toClsList(CDef.VariantRelationMasterType.listOf(codeList)); }
+            if (VariantRelationQuxType.name().equals(name())) { return toClsList(CDef.VariantRelationQuxType.listOf(codeList)); }
+            if (QuxCls.name().equals(name())) { return toClsList(CDef.QuxCls.listOf(codeList)); }
+            if (EscapedDfpropCls.name().equals(name())) { return toClsList(CDef.EscapedDfpropCls.listOf(codeList)); }
+            if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listOf(codeList)); }
+            if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listOf(codeList)); }
+            if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listOf(codeList)); }
+            if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listOf(codeList)); }
+            if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listOf(codeList)); }
+            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listOf(codeList)); }
+            if (UQClassificationType.name().equals(name())) { return toClsList(CDef.UQClassificationType.listOf(codeList)); }
+            if (BarCls.name().equals(name())) { return toClsList(CDef.BarCls.listOf(codeList)); }
+            if (FooCls.name().equals(name())) { return toClsList(CDef.FooCls.listOf(codeList)); }
+            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.listOf(codeList)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.listOf(codeList)); }
+            if (ProductStatus.name().equals(name())) { return toClsList(CDef.ProductStatus.listOf(codeList)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         public List<Classification> groupOf(String groupName) { // old style
-            if (ServiceRank.name().equals(name())) { return toClassificationList(CDef.ServiceRank.groupOf(groupName)); }
-            if (Region.name().equals(name())) { return toClassificationList(CDef.Region.groupOf(groupName)); }
-            if (WithdrawalReason.name().equals(name())) { return toClassificationList(CDef.WithdrawalReason.groupOf(groupName)); }
-            if (PaymentMethod.name().equals(name())) { return toClassificationList(CDef.PaymentMethod.groupOf(groupName)); }
-            if (GroupingReference.name().equals(name())) { return toClassificationList(CDef.GroupingReference.groupOf(groupName)); }
-            if (SelfReference.name().equals(name())) { return toClassificationList(CDef.SelfReference.groupOf(groupName)); }
-            if (TopCommentOnly.name().equals(name())) { return toClassificationList(CDef.TopCommentOnly.groupOf(groupName)); }
-            if (SubItemImplicit.name().equals(name())) { return toClassificationList(CDef.SubItemImplicit.groupOf(groupName)); }
-            if (SubItemTable.name().equals(name())) { return toClassificationList(CDef.SubItemTable.groupOf(groupName)); }
-            if (BooleanFlg.name().equals(name())) { return toClassificationList(CDef.BooleanFlg.groupOf(groupName)); }
-            if (VariantRelationMasterType.name().equals(name())) { return toClassificationList(CDef.VariantRelationMasterType.groupOf(groupName)); }
-            if (VariantRelationQuxType.name().equals(name())) { return toClassificationList(CDef.VariantRelationQuxType.groupOf(groupName)); }
-            if (QuxCls.name().equals(name())) { return toClassificationList(CDef.QuxCls.groupOf(groupName)); }
-            if (EscapedDfpropCls.name().equals(name())) { return toClassificationList(CDef.EscapedDfpropCls.groupOf(groupName)); }
-            if (EscapedJavaDocCls.name().equals(name())) { return toClassificationList(CDef.EscapedJavaDocCls.groupOf(groupName)); }
-            if (EscapedNumberInitialCls.name().equals(name())) { return toClassificationList(CDef.EscapedNumberInitialCls.groupOf(groupName)); }
-            if (LineSepCommentCls.name().equals(name())) { return toClassificationList(CDef.LineSepCommentCls.groupOf(groupName)); }
-            if (DeprecatedTopBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedTopBasicType.groupOf(groupName)); }
-            if (DeprecatedMapBasicType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapBasicType.groupOf(groupName)); }
-            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClassificationList(CDef.DeprecatedMapCollaborationType.groupOf(groupName)); }
-            if (UQClassificationType.name().equals(name())) { return toClassificationList(CDef.UQClassificationType.groupOf(groupName)); }
-            if (BarCls.name().equals(name())) { return toClassificationList(CDef.BarCls.groupOf(groupName)); }
-            if (FooCls.name().equals(name())) { return toClassificationList(CDef.FooCls.groupOf(groupName)); }
-            if (Flg.name().equals(name())) { return toClassificationList(CDef.Flg.groupOf(groupName)); }
-            if (MemberStatus.name().equals(name())) { return toClassificationList(CDef.MemberStatus.groupOf(groupName)); }
-            if (ProductStatus.name().equals(name())) { return toClassificationList(CDef.ProductStatus.groupOf(groupName)); }
+            if (ServiceRank.name().equals(name())) { return toClsList(CDef.ServiceRank.groupOf(groupName)); }
+            if (Region.name().equals(name())) { return toClsList(CDef.Region.groupOf(groupName)); }
+            if (WithdrawalReason.name().equals(name())) { return toClsList(CDef.WithdrawalReason.groupOf(groupName)); }
+            if (PaymentMethod.name().equals(name())) { return toClsList(CDef.PaymentMethod.groupOf(groupName)); }
+            if (GroupingReference.name().equals(name())) { return toClsList(CDef.GroupingReference.groupOf(groupName)); }
+            if (SelfReference.name().equals(name())) { return toClsList(CDef.SelfReference.groupOf(groupName)); }
+            if (TopCommentOnly.name().equals(name())) { return toClsList(CDef.TopCommentOnly.groupOf(groupName)); }
+            if (SubItemImplicit.name().equals(name())) { return toClsList(CDef.SubItemImplicit.groupOf(groupName)); }
+            if (SubItemTable.name().equals(name())) { return toClsList(CDef.SubItemTable.groupOf(groupName)); }
+            if (BooleanFlg.name().equals(name())) { return toClsList(CDef.BooleanFlg.groupOf(groupName)); }
+            if (VariantRelationMasterType.name().equals(name())) { return toClsList(CDef.VariantRelationMasterType.groupOf(groupName)); }
+            if (VariantRelationQuxType.name().equals(name())) { return toClsList(CDef.VariantRelationQuxType.groupOf(groupName)); }
+            if (QuxCls.name().equals(name())) { return toClsList(CDef.QuxCls.groupOf(groupName)); }
+            if (EscapedDfpropCls.name().equals(name())) { return toClsList(CDef.EscapedDfpropCls.groupOf(groupName)); }
+            if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.groupOf(groupName)); }
+            if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.groupOf(groupName)); }
+            if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.groupOf(groupName)); }
+            if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.groupOf(groupName)); }
+            if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.groupOf(groupName)); }
+            if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.groupOf(groupName)); }
+            if (UQClassificationType.name().equals(name())) { return toClsList(CDef.UQClassificationType.groupOf(groupName)); }
+            if (BarCls.name().equals(name())) { return toClsList(CDef.BarCls.groupOf(groupName)); }
+            if (FooCls.name().equals(name())) { return toClsList(CDef.FooCls.groupOf(groupName)); }
+            if (Flg.name().equals(name())) { return toClsList(CDef.Flg.groupOf(groupName)); }
+            if (MemberStatus.name().equals(name())) { return toClsList(CDef.MemberStatus.groupOf(groupName)); }
+            if (ProductStatus.name().equals(name())) { return toClsList(CDef.ProductStatus.groupOf(groupName)); }
             throw new IllegalStateException("Unknown definition: " + this); // basically unreachable
         }
 
         @SuppressWarnings("unchecked")
-        private List<Classification> toClassificationList(List<?> clsList) {
+        private List<Classification> toClsList(List<?> clsList) {
             return (List<Classification>)clsList;
         }
 
@@ -4082,13 +4081,6 @@ public interface CDef extends Classification {
             if (MemberStatus.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.MemberStatus; }
             if (ProductStatus.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.ProductStatus; }
             throw new IllegalStateException("Unknown classification: " + classificationName);
-        }
-    }
-
-    public static class ClassificationNotFoundException extends RuntimeException {
-        private static final long serialVersionUID = 1L;
-        public ClassificationNotFoundException(String msg) {
-            super(msg);
         }
     }
 }

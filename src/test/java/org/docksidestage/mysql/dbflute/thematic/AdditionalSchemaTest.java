@@ -58,7 +58,7 @@ public class AdditionalSchemaTest extends UnitContainerTestCase {
         assertNotNull(dbm.getTableSqlName());
         assertTrue(dbm.getTableSqlName().toString().contains("."));
         assertFalse(MemberDbm.getInstance().getTableSqlName().toString().contains(".")); // compare
-        assertEquals("nextexampledb." + dbm.getTableDbName().toUpperCase(), dbm.getTableSqlName().toString());
+        assertEquals("newurayasudb." + dbm.getTableDbName().toUpperCase(), dbm.getTableSqlName().toString());
     }
 
     public void test_DBMeta_columnExcept() throws Exception {

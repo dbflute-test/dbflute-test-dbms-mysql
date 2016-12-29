@@ -173,7 +173,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCodeList The collection of numberInitialCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setNumberInitialCode_InScope(Collection<String> numberInitialCodeList) {
+    protected void setNumberInitialCode_InScope(Collection<String> numberInitialCodeList) {
         doSetNumberInitialCode_InScope(numberInitialCodeList);
     }
 

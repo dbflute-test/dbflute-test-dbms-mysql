@@ -141,7 +141,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setEscapedJavaDocCode_InScope(Collection<String> escapedJavaDocCodeList) {
+    protected void setEscapedJavaDocCode_InScope(Collection<String> escapedJavaDocCodeList) {
         doSetEscapedJavaDocCode_InScope(escapedJavaDocCodeList);
     }
 

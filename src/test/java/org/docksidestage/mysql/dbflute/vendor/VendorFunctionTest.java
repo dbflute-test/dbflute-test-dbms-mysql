@@ -346,7 +346,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             if (latestTime != null) {
                 exists = true;
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(toDate(plainTime));
+                cal.setTime(toUtilDate(plainTime));
                 cal.add(Calendar.YEAR, 10);
                 cal.add(Calendar.MONTH, 3);
                 cal.add(Calendar.DAY_OF_MONTH, 7);
@@ -398,7 +398,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             if (latestTime != null) {
                 exists = true;
                 Calendar cal = Calendar.getInstance();
-                cal.setTime(toDate(plainTime));
+                cal.setTime(toUtilDate(plainTime));
                 cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
                 cal.set(Calendar.HOUR_OF_DAY, 0);
                 cal.set(Calendar.MINUTE, 0);

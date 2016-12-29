@@ -466,7 +466,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @param masterTypeCodeList The collection of masterTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
+    protected void setMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
         doSetMasterTypeCode_InScope(masterTypeCodeList);
     }
 

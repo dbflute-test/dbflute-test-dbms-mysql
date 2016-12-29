@@ -225,7 +225,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @param uqClsCodeList The collection of uqClsCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setUqClsCode_InScope(Collection<String> uqClsCodeList) {
+    protected void setUqClsCode_InScope(Collection<String> uqClsCodeList) {
         doSetUqClsCode_InScope(uqClsCodeList);
     }
 

@@ -455,7 +455,7 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
 
                 Purchase inserted = source.clone();
                 inserted.setMemberId(memberId);
-                long currentTime = currentDate().getTime();
+                long currentTime = currentUtilDate().getTime();
                 long randomMillis = currentTime + (entryNumber * 10000);
                 inserted.setPurchaseDatetime(toLocalDateTime(randomMillis));
 

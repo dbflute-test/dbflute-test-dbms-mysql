@@ -167,7 +167,7 @@ public class VendorLockUpdateTest extends UnitContainerTestCase {
                 Purchase purchase = new Purchase();
                 purchase.setMemberId(3);
                 purchase.setProductId(3);
-                long currentMillis = currentDate().getTime();
+                long currentMillis = currentUtilDate().getTime();
                 long keyMillis = currentMillis - (entryNumber * 10000000);
                 purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchase.setPurchaseCount(1234);
@@ -197,7 +197,7 @@ public class VendorLockUpdateTest extends UnitContainerTestCase {
                 purchase.setMemberId(1);
                 purchase.setProductId(1);
                 long threadId = car.getThreadId();
-                long currentMillis = currentDate().getTime();
+                long currentMillis = currentUtilDate().getTime();
                 long keyMillis = currentMillis - (threadId * 10000000);
                 purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchaseBhv.insert(purchase);
@@ -227,7 +227,7 @@ public class VendorLockUpdateTest extends UnitContainerTestCase {
                 purchase.setMemberId(1);
                 purchase.setProductId(1);
                 int entryNumber = car.getEntryNumber();
-                long currentMillis = currentDate().getTime();
+                long currentMillis = currentUtilDate().getTime();
                 long keyMillis = currentMillis - (entryNumber * 10000000);
                 purchase.setPurchaseDatetime(toLocalDateTime(new Timestamp(keyMillis)));
                 purchase.setPurchaseCount(1234);

@@ -161,7 +161,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setDeprecatedClsElementCode_InScope(Collection<String> deprecatedClsElementCodeList) {
+    protected void setDeprecatedClsElementCode_InScope(Collection<String> deprecatedClsElementCodeList) {
         doSetDeprecatedClsElementCode_InScope(deprecatedClsElementCodeList);
     }
 
