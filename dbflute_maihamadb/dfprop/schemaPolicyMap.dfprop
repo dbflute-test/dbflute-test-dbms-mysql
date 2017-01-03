@@ -9,10 +9,16 @@
 # map:{
 #     ; tableExceptList = list:{}
 #     ; tableTargetList = list:{}
+#     ; columnExceptMap = map:{}
+#     ; isMainSchemaOnly = false
+#     
+#     ; wholeMap = map:{
+#         ; themeList = list:{ uniqueTableAlias ; sameColumnAliasIfSameColumnName }
+#     }
 #     ; tableMap = map:{
 #         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
 #         ; statementList = list:{
-#             ; if tableName is $$ALL$$ then fkName is prefix:FK_
+#             ; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
 #         }
 #     }
 #     ; columnMap = map:{
@@ -30,6 +36,12 @@
 map:{
     ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ ; prefix:REGION }
     ; tableTargetList = list:{}
+    ; columnExceptMap = map:{}
+    ; isMainSchemaOnly = false
+
+    ; wholeMap = map:{
+        ; themeList = list:{ uniqueTableAlias ; sameColumnAliasIfSameColumnName }
+    }
     ; tableMap = map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
         ; statementList = list:{
