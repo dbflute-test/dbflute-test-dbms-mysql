@@ -29,6 +29,9 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # the test of schema policy in replace-schema
+    ; isCheckSchemaPolicyInReps = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o repsEnvType: (NotRequired - Default inherits or 'ut')
     #  The environment type of ReplaceSchema.
