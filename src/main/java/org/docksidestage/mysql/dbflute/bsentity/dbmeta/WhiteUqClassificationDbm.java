@@ -59,9 +59,8 @@ public class WhiteUqClassificationDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsId(), (et, vl) -> ((WhiteUqClassification)et).setUqClsId(ctl(vl)), "uqClsId");
         setupEpg(_epgMap, et -> ((WhiteUqClassification)et).getUqClsCode(), (et, vl) -> {
-            ColumnInfo col = columnUqClsCode();
-            ccls(et, col, vl);
-            CDef.UQClassificationType cls = (CDef.UQClassificationType)gcls(et, col, vl);
+            ccls(et, columnUqClsCode(), vl);
+            CDef.UQClassificationType cls = (CDef.UQClassificationType)gcls(et, columnUqClsCode(), vl);
             if (cls != null) {
                 ((WhiteUqClassification)et).setUqClsCodeAsUQClassificationType(cls);
             } else {

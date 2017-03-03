@@ -58,9 +58,8 @@ public class WhiteEscapedJavaDocDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedJavaDoc)et).getEscapedJavaDocCode(), (et, vl) -> {
-            ColumnInfo col = columnEscapedJavaDocCode();
-            ccls(et, col, vl);
-            CDef.EscapedJavaDocCls cls = (CDef.EscapedJavaDocCls)gcls(et, col, vl);
+            ccls(et, columnEscapedJavaDocCode(), vl);
+            CDef.EscapedJavaDocCls cls = (CDef.EscapedJavaDocCls)gcls(et, columnEscapedJavaDocCode(), vl);
             if (cls != null) {
                 ((WhiteEscapedJavaDoc)et).setEscapedJavaDocCodeAsEscapedJavaDocCls(cls);
             } else {

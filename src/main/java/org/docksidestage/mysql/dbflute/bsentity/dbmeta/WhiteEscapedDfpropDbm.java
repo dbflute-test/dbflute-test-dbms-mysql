@@ -58,9 +58,8 @@ public class WhiteEscapedDfpropDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteEscapedDfprop)et).getEscapedDfpropCode(), (et, vl) -> {
-            ColumnInfo col = columnEscapedDfpropCode();
-            ccls(et, col, vl);
-            CDef.EscapedDfpropCls cls = (CDef.EscapedDfpropCls)gcls(et, col, vl);
+            ccls(et, columnEscapedDfpropCode(), vl);
+            CDef.EscapedDfpropCls cls = (CDef.EscapedDfpropCls)gcls(et, columnEscapedDfpropCode(), vl);
             if (cls != null) {
                 ((WhiteEscapedDfprop)et).setEscapedDfpropCodeAsEscapedDfpropCls(cls);
             } else {

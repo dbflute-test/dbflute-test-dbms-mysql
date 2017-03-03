@@ -63,9 +63,8 @@ public class UnionVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfNumericInteger(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfNumericInteger(cti(vl)), "typeOfNumericInteger");
         setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((UnionVendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
         setupEpg(_epgMap, et -> ((UnionVendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBoolean();
-            ccls(et, col, vl);
-            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, col, vl);
+            ccls(et, columnTypeOfBoolean(), vl);
+            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, columnTypeOfBoolean(), vl);
             if (cls != null) {
                 ((UnionVendorCheck)et).setTypeOfBooleanAsBooleanFlg(cls);
             } else {

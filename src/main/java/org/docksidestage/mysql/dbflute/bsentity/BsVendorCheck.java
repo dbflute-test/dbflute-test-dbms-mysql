@@ -829,7 +829,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [set] TYPE_OF_BOOLEAN: {BIT, classification=BooleanFlg} <br>
      * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
      */
-    protected void setTypeOfBoolean(Boolean typeOfBoolean) {
+    public void setTypeOfBoolean(Boolean typeOfBoolean) {
         registerModifiedProperty("typeOfBoolean");
         _typeOfBoolean = typeOfBoolean;
     }
@@ -976,13 +976,5 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfSet(String typeOfSet) {
         registerModifiedProperty("typeOfSet");
         _typeOfSet = typeOfSet;
-    }
-
-    /**
-     * For framework so basically DON'T use this method.
-     * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void mynativeMappingTypeOfBoolean(Boolean typeOfBoolean) {
-        setTypeOfBoolean(typeOfBoolean);
     }
 }

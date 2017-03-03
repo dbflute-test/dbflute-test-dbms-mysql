@@ -60,14 +60,8 @@ public class WhiteUqClassificationFlgBitDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgBit)et).getUqClsId(), (et, vl) -> ((WhiteUqClassificationFlgBit)et).setUqClsId(ctl(vl)), "uqClsId");
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgBit)et).getUqClsName(), (et, vl) -> ((WhiteUqClassificationFlgBit)et).setUqClsName((String)vl), "uqClsName");
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgBit)et).getUqClsBitFlg(), (et, vl) -> {
-            ColumnInfo col = columnUqClsBitFlg();
-            ccls(et, col, vl);
-            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, col, vl);
-            if (cls != null) {
-                ((WhiteUqClassificationFlgBit)et).setUqClsBitFlgAsBooleanFlg(cls);
-            } else {
-                ((WhiteUqClassificationFlgBit)et).mynativeMappingUqClsBitFlg((Boolean)vl);
-            }
+            ccls(et, columnUqClsBitFlg(), vl);
+            ((WhiteUqClassificationFlgBit)et).setUqClsBitFlg((Boolean)vl);
         }, "uqClsBitFlg");
     }
     public PropertyGateway findPropertyGateway(String prop)

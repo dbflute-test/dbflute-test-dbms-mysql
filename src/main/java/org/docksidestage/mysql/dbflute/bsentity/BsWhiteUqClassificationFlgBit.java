@@ -314,16 +314,8 @@ public abstract class BsWhiteUqClassificationFlgBit extends AbstractEntity imple
      * [set] UQ_CLS_BIT_FLG: {+UQ, NotNull, BIT(1), classification=BooleanFlg} <br>
      * @param uqClsBitFlg The value of the column 'UQ_CLS_BIT_FLG'. (basically NotNull if update: for the constraint)
      */
-    protected void setUqClsBitFlg(Boolean uqClsBitFlg) {
+    public void setUqClsBitFlg(Boolean uqClsBitFlg) {
         registerModifiedProperty("uqClsBitFlg");
         _uqClsBitFlg = uqClsBitFlg;
-    }
-
-    /**
-     * For framework so basically DON'T use this method.
-     * @param uqClsBitFlg The value of the column 'UQ_CLS_BIT_FLG'. (basically NotNull if update: for the constraint)
-     */
-    public void mynativeMappingUqClsBitFlg(Boolean uqClsBitFlg) {
-        setUqClsBitFlg(uqClsBitFlg);
     }
 }

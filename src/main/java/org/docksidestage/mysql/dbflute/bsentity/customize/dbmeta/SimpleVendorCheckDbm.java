@@ -63,14 +63,8 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericInteger(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericInteger(cti(vl)), "typeOfNumericInteger");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBoolean();
-            ccls(et, col, vl);
-            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, col, vl);
-            if (cls != null) {
-                ((SimpleVendorCheck)et).setTypeOfBooleanAsBooleanFlg(cls);
-            } else {
-                ((SimpleVendorCheck)et).mynativeMappingTypeOfBoolean((Boolean)vl);
-            }
+            ccls(et, columnTypeOfBoolean(), vl);
+            ((SimpleVendorCheck)et).setTypeOfBoolean((Boolean)vl);
         }, "typeOfBoolean");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBlob(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBlob((byte[])vl), "typeOfBlob");
     }

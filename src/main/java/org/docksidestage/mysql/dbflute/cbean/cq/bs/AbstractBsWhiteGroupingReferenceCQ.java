@@ -358,7 +358,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @param groupingReferenceCodeList The collection of groupingReferenceCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setGroupingReferenceCode_NotInScope(Collection<String> groupingReferenceCodeList) {
+    protected void setGroupingReferenceCode_NotInScope(Collection<String> groupingReferenceCodeList) {
         doSetGroupingReferenceCode_NotInScope(groupingReferenceCodeList);
     }
 

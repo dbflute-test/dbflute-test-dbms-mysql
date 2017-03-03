@@ -340,7 +340,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg}
      * @param uqClsFlgList The collection of uqClsFlg as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setUqClsFlg_NotInScope(Collection<Integer> uqClsFlgList) {
+    protected void setUqClsFlg_NotInScope(Collection<Integer> uqClsFlgList) {
         doSetUqClsFlg_NotInScope(uqClsFlgList);
     }
 

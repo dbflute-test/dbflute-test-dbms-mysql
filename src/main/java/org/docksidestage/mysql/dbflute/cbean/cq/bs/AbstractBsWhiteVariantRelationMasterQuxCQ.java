@@ -395,7 +395,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param quxTypeCodeList The collection of quxTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setQuxTypeCode_NotInScope(Collection<String> quxTypeCodeList) {
+    protected void setQuxTypeCode_NotInScope(Collection<String> quxTypeCodeList) {
         doSetQuxTypeCode_NotInScope(quxTypeCodeList);
     }
 

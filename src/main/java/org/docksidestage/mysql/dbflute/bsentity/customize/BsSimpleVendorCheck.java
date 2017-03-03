@@ -389,7 +389,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
      * [set] TYPE_OF_BOOLEAN: {TINYINT(1), refers to vendor_check.TYPE_OF_BOOLEAN, classification=BooleanFlg} <br>
      * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
      */
-    protected void setTypeOfBoolean(Boolean typeOfBoolean) {
+    public void setTypeOfBoolean(Boolean typeOfBoolean) {
         registerModifiedProperty("typeOfBoolean");
         _typeOfBoolean = typeOfBoolean;
     }
@@ -410,13 +410,5 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     public void setTypeOfBlob(byte[] typeOfBlob) {
         registerModifiedProperty("typeOfBlob");
         _typeOfBlob = typeOfBlob;
-    }
-
-    /**
-     * For framework so basically DON'T use this method.
-     * @param typeOfBoolean The value of the column 'TYPE_OF_BOOLEAN'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void mynativeMappingTypeOfBoolean(Boolean typeOfBoolean) {
-        setTypeOfBoolean(typeOfBoolean);
     }
 }

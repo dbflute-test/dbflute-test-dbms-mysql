@@ -395,7 +395,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @param corgeTypeCodeList The collection of corgeTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setCorgeTypeCode_NotInScope(Collection<String> corgeTypeCodeList) {
+    protected void setCorgeTypeCode_NotInScope(Collection<String> corgeTypeCodeList) {
         doSetCorgeTypeCode_NotInScope(corgeTypeCodeList);
     }
 

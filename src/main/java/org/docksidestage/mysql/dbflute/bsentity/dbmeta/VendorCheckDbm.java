@@ -80,14 +80,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime(ctlt(vl)), "typeOfTime");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfYear(), (et, vl) -> ((VendorCheck)et).setTypeOfYear(ctld(vl)), "typeOfYear");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBoolean(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBoolean();
-            ccls(et, col, vl);
-            CDef.BooleanFlg cls = (CDef.BooleanFlg)gcls(et, col, vl);
-            if (cls != null) {
-                ((VendorCheck)et).setTypeOfBooleanAsBooleanFlg(cls);
-            } else {
-                ((VendorCheck)et).mynativeMappingTypeOfBoolean((Boolean)vl);
-            }
+            ccls(et, columnTypeOfBoolean(), vl);
+            ((VendorCheck)et).setTypeOfBoolean((Boolean)vl);
         }, "typeOfBoolean");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBlob(), (et, vl) -> ((VendorCheck)et).setTypeOfBlob((byte[])vl), "typeOfBlob");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTinyblob(), (et, vl) -> ((VendorCheck)et).setTypeOfTinyblob((byte[])vl), "typeOfTinyblob");

@@ -196,7 +196,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @param numberInitialCodeList The collection of numberInitialCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setNumberInitialCode_NotInScope(Collection<String> numberInitialCodeList) {
+    protected void setNumberInitialCode_NotInScope(Collection<String> numberInitialCodeList) {
         doSetNumberInitialCode_NotInScope(numberInitialCodeList);
     }
 

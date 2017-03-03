@@ -62,9 +62,8 @@ public class MemberLoginDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMemberId(), (et, vl) -> ((MemberLogin)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginDatetime(), (et, vl) -> ((MemberLogin)et).setLoginDatetime(ctldt(vl)), "loginDatetime");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMobileLoginFlg(), (et, vl) -> {
-            ColumnInfo col = columnMobileLoginFlg();
-            ccls(et, col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
+            ccls(et, columnMobileLoginFlg(), vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, columnMobileLoginFlg(), vl);
             if (cls != null) {
                 ((MemberLogin)et).setMobileLoginFlgAsFlg(cls);
             } else {
@@ -72,9 +71,8 @@ public class MemberLoginDbm extends AbstractDBMeta {
             }
         }, "mobileLoginFlg");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginMemberStatusCode(), (et, vl) -> {
-            ColumnInfo col = columnLoginMemberStatusCode();
-            ccls(et, col, vl);
-            CDef.SubItemTable cls = (CDef.SubItemTable)gcls(et, col, vl);
+            ccls(et, columnLoginMemberStatusCode(), vl);
+            CDef.SubItemTable cls = (CDef.SubItemTable)gcls(et, columnLoginMemberStatusCode(), vl);
             if (cls != null) {
                 ((MemberLogin)et).setLoginMemberStatusCodeAsSubItemTable(cls);
             } else {

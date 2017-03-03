@@ -60,9 +60,8 @@ public class WhiteUqClassificationFlgPartDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgPart)et).getUqClsId(), (et, vl) -> ((WhiteUqClassificationFlgPart)et).setUqClsId(ctl(vl)), "uqClsId");
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgPart)et).getUqClsName(), (et, vl) -> ((WhiteUqClassificationFlgPart)et).setUqClsName((String)vl), "uqClsName");
         setupEpg(_epgMap, et -> ((WhiteUqClassificationFlgPart)et).getUqClsFlg(), (et, vl) -> {
-            ColumnInfo col = columnUqClsFlg();
-            ccls(et, col, vl);
-            CDef.Flg cls = (CDef.Flg)gcls(et, col, vl);
+            ccls(et, columnUqClsFlg(), vl);
+            CDef.Flg cls = (CDef.Flg)gcls(et, columnUqClsFlg(), vl);
             if (cls != null) {
                 ((WhiteUqClassificationFlgPart)et).setUqClsFlgAsFlg(cls);
             } else {

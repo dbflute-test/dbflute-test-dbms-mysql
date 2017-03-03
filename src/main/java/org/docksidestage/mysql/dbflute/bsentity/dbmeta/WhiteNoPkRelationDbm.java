@@ -61,9 +61,8 @@ public class WhiteNoPkRelationDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductName(), (et, vl) -> ((WhiteNoPkRelation)et).setProductName((String)vl), "productName");
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductHandleCode(), (et, vl) -> ((WhiteNoPkRelation)et).setProductHandleCode((String)vl), "productHandleCode");
         setupEpg(_epgMap, et -> ((WhiteNoPkRelation)et).getProductStatusCode(), (et, vl) -> {
-            ColumnInfo col = columnProductStatusCode();
-            ccls(et, col, vl);
-            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(et, col, vl);
+            ccls(et, columnProductStatusCode(), vl);
+            CDef.ProductStatus cls = (CDef.ProductStatus)gcls(et, columnProductStatusCode(), vl);
             if (cls != null) {
                 ((WhiteNoPkRelation)et).setProductStatusCodeAsProductStatus(cls);
             } else {

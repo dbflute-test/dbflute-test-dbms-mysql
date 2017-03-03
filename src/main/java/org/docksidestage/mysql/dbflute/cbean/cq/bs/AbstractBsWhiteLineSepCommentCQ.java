@@ -174,7 +174,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
      * @param lineSepCommentCodeList The collection of lineSepCommentCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setLineSepCommentCode_NotInScope(Collection<String> lineSepCommentCodeList) {
+    protected void setLineSepCommentCode_NotInScope(Collection<String> lineSepCommentCodeList) {
         doSetLineSepCommentCode_NotInScope(lineSepCommentCodeList);
     }
 
