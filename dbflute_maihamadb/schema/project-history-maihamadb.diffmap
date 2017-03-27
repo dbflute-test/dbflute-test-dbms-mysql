@@ -1,4 +1,17 @@
 map:{
+    ; 2017/03/27 15:20:47 = map:{
+        ; diffDate = 2017/03/27 15:20:47
+        ; tableCount = map:{
+            ; next = 117
+            ; previous = 116
+        }
+        ; tableDiff = map:{
+            ; white_cls_no_camelizing = map:{
+                ; tableName = white_cls_no_camelizing
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2016/10/05 00:39:57 = map:{
         ; diffDate = 2016/10/05 00:39:57
         ; tableCount = map:{

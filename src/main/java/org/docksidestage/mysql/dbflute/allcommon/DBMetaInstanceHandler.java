@@ -78,6 +78,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_all_in_one_cls_element", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteAllInOneClsElementDbm");
         tmpMap.put("white_all_in_one_cls_normal_col_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteAllInOneClsNormalColRefDbm");
         tmpMap.put("white_binary", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteBinaryDbm");
+        tmpMap.put("white_cls_no_camelizing", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteClsNoCamelizingDbm");
         tmpMap.put("white_column_except", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteColumnExceptDbm");
         tmpMap.put("white_column_except_gen_only", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteColumnExceptGenOnlyDbm");
         tmpMap.put("white_compound_pk", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteCompoundPkDbm");

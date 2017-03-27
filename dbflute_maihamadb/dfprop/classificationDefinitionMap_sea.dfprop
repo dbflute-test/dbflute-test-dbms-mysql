@@ -31,6 +31,29 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # the test of no camelizing classification
+    ; NamingDefaultCamelizingType = list:{
+        ; map:{
+            ; topComment=no camelizing classification
+            ; codeType=String
+        }
+        ; map:{
+            ; table=WHITE_CLS_NO_CAMELIZING
+            ; code=NO_CAMELIZING_CODE; name=NO_CAMELIZING_NAME
+        }
+    }
+    ; NamingNoCamelizingType = list:{
+        ; map:{
+            ; topComment=no camelizing classification
+            ; codeType=String
+            ; isSuppressNameCamelizing=true
+        }
+        ; map:{
+            ; table=WHITE_CLS_NO_CAMELIZING
+            ; code=NO_CAMELIZING_CODE; name=NO_CAMELIZING_NAME
+        }
+    }
+
     # the test of deprecated element
     ; DeprecatedTopBasicType = list:{
         ; map:{

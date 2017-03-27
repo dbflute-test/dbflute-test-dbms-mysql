@@ -44,6 +44,7 @@
     <component name="whiteAllInOneClsElementBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteAllInOneClsElementBhv"/>
     <component name="whiteAllInOneClsNormalColRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteAllInOneClsNormalColRefBhv"/>
     <component name="whiteBinaryBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteBinaryBhv"/>
+    <component name="whiteClsNoCamelizingBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteClsNoCamelizingBhv"/>
     <component name="whiteColumnExceptBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteColumnExceptBhv"/>
     <component name="whiteColumnExceptGenOnlyBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteColumnExceptGenOnlyBhv"/>
     <component name="whiteCompoundPkBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkBhv"/>

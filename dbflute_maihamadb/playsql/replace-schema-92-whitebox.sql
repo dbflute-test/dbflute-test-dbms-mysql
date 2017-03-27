@@ -779,6 +779,15 @@ create table WHITE_LINE_SEP_COMMENT (
 ) ;
 
 -- /= = = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of no camelzing classification
+-- = = = = = = = = = =/
+create table WHITE_CLS_NO_CAMELIZING (
+	NO_CAMELIZING_CODE VARCHAR(10) NOT NULL,
+	NO_CAMELIZING_NAME VARCHAR(20),
+	PRIMARY KEY (NO_CAMELIZING_CODE)
+) ;
+
+-- /= = = = = = = = = = = = = = = = = = = = = = = = =
 -- for the test of deprecated classification element
 -- = = = = = = = = = =/
 create table WHITE_DEPRECATED_CLS_ELEMENT (

@@ -2482,6 +2482,268 @@ public interface CDef extends Classification {
     }
 
     /**
+     * no camelizing classification
+     */
+    public enum NamingDefaultCamelizingType implements CDef {
+        /** Bonvo */
+        Bonvo("BONVO", "Bonvo", emptyStrings())
+        ,
+        /** dstore */
+        Dstore("DSTORE", "dstore", emptyStrings())
+        ,
+        /** LAND陸oneman */
+        LAND陸oneman("LAND", "LAND陸oneman", emptyStrings())
+        ,
+        /** PI AR-I */
+        PiArI("PIARI", "PI AR-I", emptyStrings())
+        ,
+        /** SEA海MYSTIC */
+        Sea海mystic("SEA", "SEA海MYSTIC", emptyStrings())
+        ;
+        private static final Map<String, NamingDefaultCamelizingType> _codeClsMap = new HashMap<String, NamingDefaultCamelizingType>();
+        private static final Map<String, NamingDefaultCamelizingType> _nameClsMap = new HashMap<String, NamingDefaultCamelizingType>();
+        static {
+            for (NamingDefaultCamelizingType value : values()) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
+                _nameClsMap.put(value.name().toLowerCase(), value);
+            }
+        }
+        private String _code; private String _alias; private Set<String> _sisterSet;
+        private NamingDefaultCamelizingType(String code, String alias, String[] sisters)
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        public String code() { return _code; } public String alias() { return _alias; }
+        public Set<String> sisterSet() { return _sisterSet; }
+        public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
+        public ClassificationMeta meta() { return CDef.DefMeta.NamingDefaultCamelizingType; }
+
+        public boolean inGroup(String groupName) {
+            return false;
+        }
+
+        /**
+         * Get the classification of the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
+         * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<NamingDefaultCamelizingType> of(Object code) {
+            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
+            if (code instanceof NamingDefaultCamelizingType) { return OptionalThing.of((NamingDefaultCamelizingType)code); }
+            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
+            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification code: " + code);
+            });
+        }
+
+        /**
+         * Find the classification by the name. (CaseInsensitive)
+         * @param name The string of name, which is case-insensitive. (NotNull)
+         * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<NamingDefaultCamelizingType> byName(String name) {
+            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
+            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification name: " + name);
+            });
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
+         * Get the classification by the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
+         */
+        public static NamingDefaultCamelizingType codeOf(Object code) {
+            if (code == null) { return null; }
+            if (code instanceof NamingDefaultCamelizingType) { return (NamingDefaultCamelizingType)code; }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
+         * Get the classification by the name (also called 'value' in ENUM world).
+         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
+         */
+        public static NamingDefaultCamelizingType nameOf(String name) {
+            if (name == null) { return null; }
+            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
+        }
+
+        /**
+         * Get the list of all classification elements. (returns new copied list)
+         * @return The snapshot list of all classification elements. (NotNull)
+         */
+        public static List<NamingDefaultCamelizingType> listAll() {
+            return new ArrayList<NamingDefaultCamelizingType>(Arrays.asList(values()));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         */
+        public static List<NamingDefaultCamelizingType> listByGroup(String groupName) {
+            if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            throw new ClassificationNotFoundException("Unknown classification group: NamingDefaultCamelizingType." + groupName);
+        }
+
+        /**
+         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
+         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
+         */
+        public static List<NamingDefaultCamelizingType> listOf(Collection<String> codeList) {
+            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
+            List<NamingDefaultCamelizingType> clsList = new ArrayList<NamingDefaultCamelizingType>(codeList.size());
+            for (String code : codeList) { clsList.add(of(code).get()); }
+            return clsList;
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
+         */
+        public static List<NamingDefaultCamelizingType> groupOf(String groupName) {
+            return new ArrayList<NamingDefaultCamelizingType>(4);
+        }
+
+        @Override public String toString() { return code(); }
+    }
+
+    /**
+     * no camelizing classification
+     */
+    public enum NamingNoCamelizingType implements CDef {
+        /** Bonvo */
+        Bonvo("BONVO", "Bonvo", emptyStrings())
+        ,
+        /** dstore */
+        dstore("DSTORE", "dstore", emptyStrings())
+        ,
+        /** LAND陸oneman */
+        LAND陸oneman("LAND", "LAND陸oneman", emptyStrings())
+        ,
+        /** PI AR-I */
+        PI_ARI("PIARI", "PI AR-I", emptyStrings())
+        ,
+        /** SEA海MYSTIC */
+        SEA海MYSTIC("SEA", "SEA海MYSTIC", emptyStrings())
+        ;
+        private static final Map<String, NamingNoCamelizingType> _codeClsMap = new HashMap<String, NamingNoCamelizingType>();
+        private static final Map<String, NamingNoCamelizingType> _nameClsMap = new HashMap<String, NamingNoCamelizingType>();
+        static {
+            for (NamingNoCamelizingType value : values()) {
+                _codeClsMap.put(value.code().toLowerCase(), value);
+                for (String sister : value.sisterSet()) { _codeClsMap.put(sister.toLowerCase(), value); }
+                _nameClsMap.put(value.name().toLowerCase(), value);
+            }
+        }
+        private String _code; private String _alias; private Set<String> _sisterSet;
+        private NamingNoCamelizingType(String code, String alias, String[] sisters)
+        { _code = code; _alias = alias; _sisterSet = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList(sisters))); }
+        public String code() { return _code; } public String alias() { return _alias; }
+        public Set<String> sisterSet() { return _sisterSet; }
+        public Map<String, Object> subItemMap() { return Collections.emptyMap(); }
+        public ClassificationMeta meta() { return CDef.DefMeta.NamingNoCamelizingType; }
+
+        public boolean inGroup(String groupName) {
+            return false;
+        }
+
+        /**
+         * Get the classification of the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns empty)
+         * @return The optional classification corresponding to the code. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<NamingNoCamelizingType> of(Object code) {
+            if (code == null) { return OptionalThing.ofNullable(null, () -> { throw new ClassificationNotFoundException("null code specified"); }); }
+            if (code instanceof NamingNoCamelizingType) { return OptionalThing.of((NamingNoCamelizingType)code); }
+            if (code instanceof OptionalThing<?>) { return of(((OptionalThing<?>)code).orElse(null)); }
+            return OptionalThing.ofNullable(_codeClsMap.get(code.toString().toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification code: " + code);
+            });
+        }
+
+        /**
+         * Find the classification by the name. (CaseInsensitive)
+         * @param name The string of name, which is case-insensitive. (NotNull)
+         * @return The optional classification corresponding to the name. (NotNull, EmptyAllowed: if not found, returns empty)
+         */
+        public static OptionalThing<NamingNoCamelizingType> byName(String name) {
+            if (name == null) { throw new IllegalArgumentException("The argument 'name' should not be null."); }
+            return OptionalThing.ofNullable(_nameClsMap.get(name.toLowerCase()), () ->{
+                throw new ClassificationNotFoundException("Unknown classification name: " + name);
+            });
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use of(code).</span> <br>
+         * Get the classification by the code. (CaseInsensitive)
+         * @param code The value of code, which is case-insensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the code. (NullAllowed: if not found, returns null)
+         */
+        public static NamingNoCamelizingType codeOf(Object code) {
+            if (code == null) { return null; }
+            if (code instanceof NamingNoCamelizingType) { return (NamingNoCamelizingType)code; }
+            return _codeClsMap.get(code.toString().toLowerCase());
+        }
+
+        /**
+         * <span style="color: #AD4747; font-size: 120%">Old style so use byName(name).</span> <br>
+         * Get the classification by the name (also called 'value' in ENUM world).
+         * @param name The string of name, which is case-sensitive. (NullAllowed: if null, returns null)
+         * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
+         */
+        public static NamingNoCamelizingType nameOf(String name) {
+            if (name == null) { return null; }
+            try { return valueOf(name); } catch (RuntimeException ignored) { return null; }
+        }
+
+        /**
+         * Get the list of all classification elements. (returns new copied list)
+         * @return The snapshot list of all classification elements. (NotNull)
+         */
+        public static List<NamingNoCamelizingType> listAll() {
+            return new ArrayList<NamingNoCamelizingType>(Arrays.asList(values()));
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if not found, throws exception)
+         */
+        public static List<NamingNoCamelizingType> listByGroup(String groupName) {
+            if (groupName == null) { throw new IllegalArgumentException("The argument 'groupName' should not be null."); }
+            throw new ClassificationNotFoundException("Unknown classification group: NamingNoCamelizingType." + groupName);
+        }
+
+        /**
+         * Get the list of classification elements corresponding to the specified codes. (returns new copied list) <br>
+         * @param codeList The list of plain code, which is case-insensitive. (NotNull)
+         * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
+         */
+        public static List<NamingNoCamelizingType> listOf(Collection<String> codeList) {
+            if (codeList == null) { throw new IllegalArgumentException("The argument 'codeList' should not be null."); }
+            List<NamingNoCamelizingType> clsList = new ArrayList<NamingNoCamelizingType>(codeList.size());
+            for (String code : codeList) { clsList.add(of(code).get()); }
+            return clsList;
+        }
+
+        /**
+         * Get the list of classification elements in the specified group. (returns new copied list) <br>
+         * @param groupName The string of group name, which is case-sensitive. (NullAllowed: if null, returns empty list)
+         * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
+         */
+        public static List<NamingNoCamelizingType> groupOf(String groupName) {
+            return new ArrayList<NamingNoCamelizingType>(4);
+        }
+
+        @Override public String toString() { return code(); }
+    }
+
+    /**
      * is deprecated classification
      */
     @Deprecated
@@ -3683,6 +3945,12 @@ public interface CDef extends Classification {
         /** top first line            top second line            top third line */
         LineSepCommentCls
         ,
+        /** no camelizing classification */
+        NamingDefaultCamelizingType
+        ,
+        /** no camelizing classification */
+        NamingNoCamelizingType
+        ,
         /** is deprecated classification */
         DeprecatedTopBasicType
         ,
@@ -3732,6 +4000,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return CDef.EscapedJavaDocCls.of(code); }
             if (EscapedNumberInitialCls.name().equals(name())) { return CDef.EscapedNumberInitialCls.of(code); }
             if (LineSepCommentCls.name().equals(name())) { return CDef.LineSepCommentCls.of(code); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return CDef.NamingDefaultCamelizingType.of(code); }
+            if (NamingNoCamelizingType.name().equals(name())) { return CDef.NamingNoCamelizingType.of(code); }
             if (DeprecatedTopBasicType.name().equals(name())) { return CDef.DeprecatedTopBasicType.of(code); }
             if (DeprecatedMapBasicType.name().equals(name())) { return CDef.DeprecatedMapBasicType.of(code); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return CDef.DeprecatedMapCollaborationType.of(code); }
@@ -3762,6 +4032,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return CDef.EscapedJavaDocCls.byName(name); }
             if (EscapedNumberInitialCls.name().equals(name())) { return CDef.EscapedNumberInitialCls.byName(name); }
             if (LineSepCommentCls.name().equals(name())) { return CDef.LineSepCommentCls.byName(name); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return CDef.NamingDefaultCamelizingType.byName(name); }
+            if (NamingNoCamelizingType.name().equals(name())) { return CDef.NamingNoCamelizingType.byName(name); }
             if (DeprecatedTopBasicType.name().equals(name())) { return CDef.DeprecatedTopBasicType.byName(name); }
             if (DeprecatedMapBasicType.name().equals(name())) { return CDef.DeprecatedMapBasicType.byName(name); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return CDef.DeprecatedMapCollaborationType.byName(name); }
@@ -3792,6 +4064,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return CDef.EscapedJavaDocCls.codeOf(code); }
             if (EscapedNumberInitialCls.name().equals(name())) { return CDef.EscapedNumberInitialCls.codeOf(code); }
             if (LineSepCommentCls.name().equals(name())) { return CDef.LineSepCommentCls.codeOf(code); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return CDef.NamingDefaultCamelizingType.codeOf(code); }
+            if (NamingNoCamelizingType.name().equals(name())) { return CDef.NamingNoCamelizingType.codeOf(code); }
             if (DeprecatedTopBasicType.name().equals(name())) { return CDef.DeprecatedTopBasicType.codeOf(code); }
             if (DeprecatedMapBasicType.name().equals(name())) { return CDef.DeprecatedMapBasicType.codeOf(code); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return CDef.DeprecatedMapCollaborationType.codeOf(code); }
@@ -3822,6 +4096,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return CDef.EscapedJavaDocCls.valueOf(name); }
             if (EscapedNumberInitialCls.name().equals(name())) { return CDef.EscapedNumberInitialCls.valueOf(name); }
             if (LineSepCommentCls.name().equals(name())) { return CDef.LineSepCommentCls.valueOf(name); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return CDef.NamingDefaultCamelizingType.valueOf(name); }
+            if (NamingNoCamelizingType.name().equals(name())) { return CDef.NamingNoCamelizingType.valueOf(name); }
             if (DeprecatedTopBasicType.name().equals(name())) { return CDef.DeprecatedTopBasicType.valueOf(name); }
             if (DeprecatedMapBasicType.name().equals(name())) { return CDef.DeprecatedMapBasicType.valueOf(name); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return CDef.DeprecatedMapCollaborationType.valueOf(name); }
@@ -3852,6 +4128,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listAll()); }
             if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listAll()); }
             if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listAll()); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return toClsList(CDef.NamingDefaultCamelizingType.listAll()); }
+            if (NamingNoCamelizingType.name().equals(name())) { return toClsList(CDef.NamingNoCamelizingType.listAll()); }
             if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listAll()); }
             if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listAll()); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listAll()); }
@@ -3882,6 +4160,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listByGroup(groupName)); }
             if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listByGroup(groupName)); }
             if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listByGroup(groupName)); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return toClsList(CDef.NamingDefaultCamelizingType.listByGroup(groupName)); }
+            if (NamingNoCamelizingType.name().equals(name())) { return toClsList(CDef.NamingNoCamelizingType.listByGroup(groupName)); }
             if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listByGroup(groupName)); }
             if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listByGroup(groupName)); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listByGroup(groupName)); }
@@ -3912,6 +4192,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.listOf(codeList)); }
             if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.listOf(codeList)); }
             if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.listOf(codeList)); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return toClsList(CDef.NamingDefaultCamelizingType.listOf(codeList)); }
+            if (NamingNoCamelizingType.name().equals(name())) { return toClsList(CDef.NamingNoCamelizingType.listOf(codeList)); }
             if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.listOf(codeList)); }
             if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.listOf(codeList)); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.listOf(codeList)); }
@@ -3942,6 +4224,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return toClsList(CDef.EscapedJavaDocCls.groupOf(groupName)); }
             if (EscapedNumberInitialCls.name().equals(name())) { return toClsList(CDef.EscapedNumberInitialCls.groupOf(groupName)); }
             if (LineSepCommentCls.name().equals(name())) { return toClsList(CDef.LineSepCommentCls.groupOf(groupName)); }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return toClsList(CDef.NamingDefaultCamelizingType.groupOf(groupName)); }
+            if (NamingNoCamelizingType.name().equals(name())) { return toClsList(CDef.NamingNoCamelizingType.groupOf(groupName)); }
             if (DeprecatedTopBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedTopBasicType.groupOf(groupName)); }
             if (DeprecatedMapBasicType.name().equals(name())) { return toClsList(CDef.DeprecatedMapBasicType.groupOf(groupName)); }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return toClsList(CDef.DeprecatedMapCollaborationType.groupOf(groupName)); }
@@ -3977,6 +4261,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return ClassificationCodeType.String; }
             if (EscapedNumberInitialCls.name().equals(name())) { return ClassificationCodeType.String; }
             if (LineSepCommentCls.name().equals(name())) { return ClassificationCodeType.String; }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return ClassificationCodeType.String; }
+            if (NamingNoCamelizingType.name().equals(name())) { return ClassificationCodeType.String; }
             if (DeprecatedTopBasicType.name().equals(name())) { return ClassificationCodeType.String; }
             if (DeprecatedMapBasicType.name().equals(name())) { return ClassificationCodeType.String; }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return ClassificationCodeType.String; }
@@ -4007,6 +4293,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
             if (EscapedNumberInitialCls.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
             if (LineSepCommentCls.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
+            if (NamingDefaultCamelizingType.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
+            if (NamingNoCamelizingType.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
             if (DeprecatedTopBasicType.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
             if (DeprecatedMapBasicType.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
             if (DeprecatedMapCollaborationType.name().equals(name())) { return ClassificationUndefinedHandlingType.EXCEPTION; }
@@ -4038,6 +4326,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.EscapedJavaDocCls); }
             if (EscapedNumberInitialCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.EscapedNumberInitialCls); }
             if (LineSepCommentCls.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.LineSepCommentCls); }
+            if (NamingDefaultCamelizingType.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.NamingDefaultCamelizingType); }
+            if (NamingNoCamelizingType.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.NamingNoCamelizingType); }
             if (DeprecatedTopBasicType.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.DeprecatedTopBasicType); }
             if (DeprecatedMapBasicType.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.DeprecatedMapBasicType); }
             if (DeprecatedMapCollaborationType.name().equalsIgnoreCase(classificationName)) { return OptionalThing.of(CDef.DefMeta.DeprecatedMapCollaborationType); }
@@ -4071,6 +4361,8 @@ public interface CDef extends Classification {
             if (EscapedJavaDocCls.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.EscapedJavaDocCls; }
             if (EscapedNumberInitialCls.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.EscapedNumberInitialCls; }
             if (LineSepCommentCls.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.LineSepCommentCls; }
+            if (NamingDefaultCamelizingType.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.NamingDefaultCamelizingType; }
+            if (NamingNoCamelizingType.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.NamingNoCamelizingType; }
             if (DeprecatedTopBasicType.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.DeprecatedTopBasicType; }
             if (DeprecatedMapBasicType.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.DeprecatedMapBasicType; }
             if (DeprecatedMapCollaborationType.name().equalsIgnoreCase(classificationName)) { return CDef.DefMeta.DeprecatedMapCollaborationType; }

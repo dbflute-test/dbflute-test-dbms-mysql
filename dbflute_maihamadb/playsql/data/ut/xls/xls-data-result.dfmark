@@ -28,6 +28,7 @@ data-directory: playsql/data/ut/xls
   WHITE_SELF_REFERENCE (3)
   WHITE_ALL_IN_ONE_CLS_CATEGORY (4)
   WHITE_ALL_IN_ONE_CLS_ELEMENT (13)
+  WHITE_CLS_NO_CAMELIZING (5)
 
 [92-whitebox-dataadjustment.xls]
   WHITE_DATE_ADJUSTMENT (6)
