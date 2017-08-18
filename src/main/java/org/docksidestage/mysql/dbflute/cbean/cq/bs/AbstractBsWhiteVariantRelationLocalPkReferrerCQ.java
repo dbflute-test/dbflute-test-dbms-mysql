@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param minNumber The min number of reversefkSuppressedId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of reversefkSuppressedId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of reversefkSuppressedId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of reversefkSuppressedId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReversefkSuppressedId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param minNumber The min number of reversefkSuppressedId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of reversefkSuppressedId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of reversefkSuppressedId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of reversefkSuppressedId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReversefkSuppressedId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param reversefkSuppressedIdList The collection of reversefkSuppressedId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param reversefkSuppressedIdList The collection of reversefkSuppressedId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReversefkSuppressedId_InScope(Collection<Long> reversefkSuppressedIdList) {
         doSetReversefkSuppressedId_InScope(reversefkSuppressedIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param reversefkSuppressedIdList The collection of reversefkSuppressedId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param reversefkSuppressedIdList The collection of reversefkSuppressedId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReversefkSuppressedId_NotInScope(Collection<Long> reversefkSuppressedIdList) {
         doSetReversefkSuppressedId_NotInScope(reversefkSuppressedIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCode The value of masterTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_Equal(String masterTypeCode) {
         doSetMasterTypeCode_Equal(fRES(masterTypeCode));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCode The value of masterTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_NotEqual(String masterTypeCode) {
         doSetMasterTypeCode_NotEqual(fRES(masterTypeCode));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCodeList The collection of masterTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCodeList The collection of masterTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
         doSetMasterTypeCode_InScope(masterTypeCodeList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCodeList The collection of masterTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCodeList The collection of masterTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_NotInScope(Collection<String> masterTypeCodeList) {
         doSetMasterTypeCode_NotInScope(masterTypeCodeList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setMasterTypeCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param masterTypeCode The value of masterTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterTypeCode_LikeSearch(String masterTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setMasterTypeCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param masterTypeCode The value of masterTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterTypeCode_LikeSearch(String masterTypeCode, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCode The value of masterTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterTypeCode_NotLikeSearch(String masterTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param masterTypeCode The value of masterTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterTypeCode_NotLikeSearch(String masterTypeCode, LikeSearchOption likeSearchOption) {

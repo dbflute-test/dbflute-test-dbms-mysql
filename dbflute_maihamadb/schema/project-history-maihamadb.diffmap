@@ -1,4 +1,23 @@
 map:{
+    ; 2017/08/02 22:10:41 = map:{
+        ; diffDate = 2017/08/02 22:10:41
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_DATETIME_3_MILLIS = map:{
+                        ; columnName = TYPE_OF_DATETIME_3_MILLIS
+                        ; diffType = ADD
+                    }
+                    ; TYPE_OF_DATETIME_6_MICROS = map:{
+                        ; columnName = TYPE_OF_DATETIME_6_MICROS
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2017/03/27 15:20:47 = map:{
         ; diffDate = 2017/03/27 15:20:47
         ; tableCount = map:{

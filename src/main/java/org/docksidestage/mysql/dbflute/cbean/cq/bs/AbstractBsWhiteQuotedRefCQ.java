@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of where. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of where. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of where. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of where. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setWhere_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of where. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of where. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of where. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of where. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhere_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param whereList The collection of where as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param whereList The collection of where as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhere_InScope(Collection<Integer> whereList) {
         doSetWhere_InScope(whereList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
-     * @param whereList The collection of where as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param whereList The collection of where as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhere_NotInScope(Collection<Integer> whereList) {
         doSetWhere_NotInScope(whereList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param minNumber The min number of order. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of order. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of order. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of order. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setOrder_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param minNumber The min number of order. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of order. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of order. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of order. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param orderList The collection of order as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param orderList The collection of order as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOrder_InScope(Collection<Integer> orderList) {
         doSetOrder_InScope(orderList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param orderList The collection of order as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param orderList The collection of order as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOrder_NotInScope(Collection<Integer> orderList) {
         doSetOrder_NotInScope(orderList);

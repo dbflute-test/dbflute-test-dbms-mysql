@@ -95,10 +95,10 @@ public class WhiteSplitMultipleFkBaseDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteSplitMultipleFkChildList", null, false);
-    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSplitMultipleFkRefAsSplitMultipleFkTest", null, null, false);
-    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteSplitMultipleFkNext", null, null, false);
-    protected final ColumnInfo _columnSplitName = cci("SPLIT_NAME", "SPLIT_NAME", null, null, String.class, "splitName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, "whiteSplitMultipleFkChildList", null, false);
+    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteSplitMultipleFkRefAsSplitMultipleFkTest", null, null, false);
+    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteSplitMultipleFkNext", null, null, false);
+    protected final ColumnInfo _columnSplitName = cci("SPLIT_NAME", "SPLIT_NAME", null, null, String.class, "splitName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * BASE_ID: {PK, NotNull, BIGINT(19)}

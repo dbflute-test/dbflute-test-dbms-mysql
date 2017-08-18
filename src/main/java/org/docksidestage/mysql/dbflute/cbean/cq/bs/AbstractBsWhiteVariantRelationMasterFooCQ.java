@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param minNumber The min number of masterFooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterFooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterFooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterFooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMasterFooId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param minNumber The min number of masterFooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterFooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterFooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterFooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterFooId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooIdList The collection of masterFooId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooIdList The collection of masterFooId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooId_InScope(Collection<Long> masterFooIdList) {
         doSetMasterFooId_InScope(masterFooIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}
-     * @param masterFooIdList The collection of masterFooId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooIdList The collection of masterFooId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooId_NotInScope(Collection<Long> masterFooIdList) {
         doSetMasterFooId_NotInScope(masterFooIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooName The value of masterFooName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooName_Equal(String masterFooName) {
         doSetMasterFooName_Equal(fRES(masterFooName));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooName The value of masterFooName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooName_NotEqual(String masterFooName) {
         doSetMasterFooName_NotEqual(fRES(masterFooName));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooNameList The collection of masterFooName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooNameList The collection of masterFooName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooName_InScope(Collection<String> masterFooNameList) {
         doSetMasterFooName_InScope(masterFooNameList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooNameList The collection of masterFooName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooNameList The collection of masterFooName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterFooName_NotInScope(Collection<String> masterFooNameList) {
         doSetMasterFooName_NotInScope(masterFooNameList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param masterFooName The value of masterFooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterFooName_LikeSearch(String masterFooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterFooName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param masterFooName The value of masterFooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterFooName_LikeSearch(String masterFooName, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooName The value of masterFooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterFooName_NotLikeSearch(String masterFooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterFooCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_FOO_NAME: {NotNull, VARCHAR(200)}
-     * @param masterFooName The value of masterFooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterFooName The value of masterFooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterFooName_NotLikeSearch(String masterFooName, LikeSearchOption likeSearchOption) {

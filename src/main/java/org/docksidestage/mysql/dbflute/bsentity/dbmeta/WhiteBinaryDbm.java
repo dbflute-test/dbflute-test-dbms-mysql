@@ -80,9 +80,9 @@ public class WhiteBinaryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBinaryId = cci("BINARY_ID", "BINARY_ID", null, null, Long.class, "binaryId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBinaryData = cci("BINARY_DATA", "BINARY_DATA", null, null, byte[].class, "binaryData", null, false, false, false, "BINARY", 1, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBlobData = cci("BLOB_DATA", "BLOB_DATA", null, null, byte[].class, "blobData", null, false, false, false, "BLOB", 65535, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBinaryId = cci("BINARY_ID", "BINARY_ID", null, null, Long.class, "binaryId", null, true, true, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBinaryData = cci("BINARY_DATA", "BINARY_DATA", null, null, byte[].class, "binaryData", null, false, false, false, "BINARY", 1, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBlobData = cci("BLOB_DATA", "BLOB_DATA", null, null, byte[].class, "blobData", null, false, false, false, "BLOB", 65535, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}

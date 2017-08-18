@@ -112,8 +112,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeDataRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setLargeDataRefId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeDataRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataRefIdList The collection of largeDataRefId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataRefIdList The collection of largeDataRefId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataRefId_InScope(Collection<Long> largeDataRefIdList) {
         doSetLargeDataRefId_InScope(largeDataRefIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataRefIdList The collection of largeDataRefId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataRefIdList The collection of largeDataRefId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataRefId_NotInScope(Collection<Long> largeDataRefIdList) {
         doSetLargeDataRefId_NotInScope(largeDataRefIdList);
@@ -301,8 +301,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
-     * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -314,8 +314,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
-     * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
-     * @param largeDataIdList The collection of largeDataId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataIdList The collection of largeDataId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataId_InScope(Collection<Long> largeDataIdList) {
         doSetLargeDataId_InScope(largeDataIdList);
@@ -338,7 +338,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
-     * @param largeDataIdList The collection of largeDataId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataIdList The collection of largeDataId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataId_NotInScope(Collection<Long> largeDataIdList) {
         doSetLargeDataId_NotInScope(largeDataIdList);
@@ -705,8 +705,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
-     * @param minNumber The min number of nullableDecimalIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nullableDecimalIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nullableDecimalIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nullableDecimalIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNullableDecimalIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -718,8 +718,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
-     * @param minNumber The min number of nullableDecimalIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nullableDecimalIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nullableDecimalIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nullableDecimalIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNullableDecimalIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
@@ -729,7 +729,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
-     * @param nullableDecimalIndexList The collection of nullableDecimalIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nullableDecimalIndexList The collection of nullableDecimalIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNullableDecimalIndex_InScope(Collection<java.math.BigDecimal> nullableDecimalIndexList) {
         doSetNullableDecimalIndex_InScope(nullableDecimalIndexList);
@@ -742,7 +742,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
-     * @param nullableDecimalIndexList The collection of nullableDecimalIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nullableDecimalIndexList The collection of nullableDecimalIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNullableDecimalIndex_NotInScope(Collection<java.math.BigDecimal> nullableDecimalIndexList) {
         doSetNullableDecimalIndex_NotInScope(nullableDecimalIndexList);
@@ -821,8 +821,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
-     * @param minNumber The min number of nullableDecimalNoIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nullableDecimalNoIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nullableDecimalNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nullableDecimalNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNullableDecimalNoIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -834,8 +834,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
-     * @param minNumber The min number of nullableDecimalNoIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nullableDecimalNoIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nullableDecimalNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nullableDecimalNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNullableDecimalNoIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
@@ -845,7 +845,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
-     * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNullableDecimalNoIndex_InScope(Collection<java.math.BigDecimal> nullableDecimalNoIndexList) {
         doSetNullableDecimalNoIndex_InScope(nullableDecimalNoIndexList);
@@ -858,7 +858,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
-     * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNullableDecimalNoIndex_NotInScope(Collection<java.math.BigDecimal> nullableDecimalNoIndexList) {
         doSetNullableDecimalNoIndex_NotInScope(nullableDecimalNoIndexList);
@@ -937,8 +937,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
-     * @param minNumber The min number of selfParentId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of selfParentId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of selfParentId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of selfParentId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSelfParentId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -950,8 +950,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
-     * @param minNumber The min number of selfParentId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of selfParentId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of selfParentId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of selfParentId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelfParentId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -961,7 +961,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
-     * @param selfParentIdList The collection of selfParentId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfParentIdList The collection of selfParentId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfParentId_InScope(Collection<Long> selfParentIdList) {
         doSetSelfParentId_InScope(selfParentIdList);
@@ -974,7 +974,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
-     * @param selfParentIdList The collection of selfParentId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfParentIdList The collection of selfParentId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfParentId_NotInScope(Collection<Long> selfParentIdList) {
         doSetSelfParentId_NotInScope(selfParentIdList);

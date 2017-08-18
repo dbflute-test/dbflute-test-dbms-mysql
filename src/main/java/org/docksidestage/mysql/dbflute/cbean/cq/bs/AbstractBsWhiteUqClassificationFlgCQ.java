@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_InScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_InScope(uqClsIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_NotInScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_NotInScope(uqClsIdList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {UQ, NotNull, INT(10), classification=Flg}
-     * @param uqClsFlgList The collection of uqClsFlg as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsFlgList The collection of uqClsFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsFlg_InScope(Collection<Integer> uqClsFlgList) {
         doSetUqClsFlg_InScope(uqClsFlgList);
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
      * InScope {in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {UQ, NotNull, INT(10), classification=Flg} <br>
      * フラグを示す
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsFlg_InScope_AsFlg(Collection<CDef.Flg> cdefList) {
         doSetUqClsFlg_InScope(cTNumL(cdefList, Integer.class));
@@ -239,7 +239,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {UQ, NotNull, INT(10), classification=Flg}
-     * @param uqClsFlgList The collection of uqClsFlg as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsFlgList The collection of uqClsFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsFlg_NotInScope(Collection<Integer> uqClsFlgList) {
         doSetUqClsFlg_NotInScope(uqClsFlgList);
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgCQ extends AbstractCondi
      * NotInScope {not in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {UQ, NotNull, INT(10), classification=Flg} <br>
      * フラグを示す
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsFlg_NotInScope_AsFlg(Collection<CDef.Flg> cdefList) {
         doSetUqClsFlg_NotInScope(cTNumL(cdefList, Integer.class));

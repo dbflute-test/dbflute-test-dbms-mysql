@@ -95,6 +95,8 @@ public class VendorCheckCIQ extends AbstractBsVendorCheckCQ {
     protected ConditionValue xgetCValueTypeOfDouble() { return _myCQ.xdfgetTypeOfDouble(); }
     protected ConditionValue xgetCValueTypeOfDate() { return _myCQ.xdfgetTypeOfDate(); }
     protected ConditionValue xgetCValueTypeOfDatetime() { return _myCQ.xdfgetTypeOfDatetime(); }
+    protected ConditionValue xgetCValueTypeOfDatetime3Millis() { return _myCQ.xdfgetTypeOfDatetime3Millis(); }
+    protected ConditionValue xgetCValueTypeOfDatetime6Micros() { return _myCQ.xdfgetTypeOfDatetime6Micros(); }
     protected ConditionValue xgetCValueTypeOfTimestamp() { return _myCQ.xdfgetTypeOfTimestamp(); }
     protected ConditionValue xgetCValueTypeOfTime() { return _myCQ.xdfgetTypeOfTime(); }
     protected ConditionValue xgetCValueTypeOfYear() { return _myCQ.xdfgetTypeOfYear(); }

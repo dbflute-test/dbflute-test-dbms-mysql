@@ -95,10 +95,10 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnTraceId = cci("TRACE_ID", "TRACE_ID", null, null, Long.class, "traceId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Long.class, "previousProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null, false);
-    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Long.class, "nextProductId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null, false);
-    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTraceId = cci("TRACE_ID", "TRACE_ID", null, null, Long.class, "traceId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Long.class, "previousProductId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null, false);
+    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Long.class, "nextProductId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null, false);
+    protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * TRACE_ID: {PK, NotNull, BIGINT(19)}

@@ -298,6 +298,15 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
+     * [set as MemberStatus] memberStatusCode:cls(MemberStatus) <br>
+     * 会員ステータス: 会員の状態を示す
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
+     */
+    public void setMemberStatusCodeAsMemberStatus(CDef.MemberStatus cdef) {
+        _memberStatusCode = cdef != null ? cdef.code() : null;
+    }
+
+    /**
      * [set as Formalized] memberStatusCode:cls(MemberStatus) <br>
      * 正式な会員を示す
      */
@@ -359,6 +368,15 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
      */
     public String getStatus() {
         return filterStringParameter(_status);
+    }
+
+    /**
+     * [set as MemberStatus] status:cls(MemberStatus)|ref(Member.MEMBER_STATUS_CODE) :: refers to (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
+     * 会員ステータス: 会員の状態を示す
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
+     */
+    public void setStatusAsMemberStatus(CDef.MemberStatus cdef) {
+        _status = cdef != null ? cdef.code() : null;
     }
 
     /**

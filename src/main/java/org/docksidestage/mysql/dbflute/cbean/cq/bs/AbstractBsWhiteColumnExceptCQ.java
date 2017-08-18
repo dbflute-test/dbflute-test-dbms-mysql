@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of exceptColumnId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of exceptColumnId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of exceptColumnId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of exceptColumnId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setExceptColumnId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of exceptColumnId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of exceptColumnId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of exceptColumnId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of exceptColumnId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setExceptColumnId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
-     * @param exceptColumnIdList The collection of exceptColumnId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param exceptColumnIdList The collection of exceptColumnId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setExceptColumnId_InScope(Collection<Long> exceptColumnIdList) {
         doSetExceptColumnId_InScope(exceptColumnIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
-     * @param exceptColumnIdList The collection of exceptColumnId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param exceptColumnIdList The collection of exceptColumnId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setExceptColumnId_NotInScope(Collection<Long> exceptColumnIdList) {
         doSetExceptColumnId_NotInScope(exceptColumnIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
-     * @param minNumber The min number of columnExceptTest. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of columnExceptTest. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of columnExceptTest. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of columnExceptTest. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setColumnExceptTest_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
-     * @param minNumber The min number of columnExceptTest. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of columnExceptTest. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of columnExceptTest. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of columnExceptTest. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setColumnExceptTest_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
-     * @param columnExceptTestList The collection of columnExceptTest as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param columnExceptTestList The collection of columnExceptTest as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setColumnExceptTest_InScope(Collection<Integer> columnExceptTestList) {
         doSetColumnExceptTest_InScope(columnExceptTestList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
-     * @param columnExceptTestList The collection of columnExceptTest as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param columnExceptTestList The collection of columnExceptTest as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setColumnExceptTest_NotInScope(Collection<Integer> columnExceptTestList) {
         doSetColumnExceptTest_NotInScope(columnExceptTestList);

@@ -79,8 +79,8 @@ public class WhiteSuppressJoinSqManyOneOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyOneList", null, false);
-    protected final ColumnInfo _columnManyOneOneName = cci("MANY_ONE_ONE_NAME", "MANY_ONE_ONE_NAME", null, null, String.class, "manyOneOneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteSuppressJoinSqManyOneList", null, false);
+    protected final ColumnInfo _columnManyOneOneName = cci("MANY_ONE_ONE_NAME", "MANY_ONE_ONE_NAME", null, null, String.class, "manyOneOneName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MANY_ONE_ONE_ID: {PK, NotNull, INT(10)}

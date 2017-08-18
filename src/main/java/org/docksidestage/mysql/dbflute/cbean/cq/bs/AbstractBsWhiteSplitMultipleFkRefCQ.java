@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstIdList The collection of firstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_InScope(Collection<Integer> firstIdList) {
         doSetFirstId_InScope(firstIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstIdList The collection of firstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_NotInScope(Collection<Integer> firstIdList) {
         doSetFirstId_NotInScope(firstIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_Equal(String secondCode) {
         doSetSecondCode_Equal(fRES(secondCode));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_NotEqual(String secondCode) {
         doSetSecondCode_NotEqual(fRES(secondCode));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCodeList The collection of secondCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondCodeList The collection of secondCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_InScope(Collection<String> secondCodeList) {
         doSetSecondCode_InScope(secondCodeList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCodeList The collection of secondCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondCodeList The collection of secondCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_NotInScope(Collection<String> secondCodeList) {
         doSetSecondCode_NotInScope(secondCodeList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setSecondCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param secondCode The value of secondCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setSecondCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param secondCode The value of secondCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
@@ -288,7 +288,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refName The value of refName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefName_Equal(String refName) {
         doSetRefName_Equal(fRES(refName));
@@ -301,7 +301,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refName The value of refName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefName_NotEqual(String refName) {
         doSetRefName_NotEqual(fRES(refName));
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refNameList The collection of refName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refNameList The collection of refName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefName_InScope(Collection<String> refNameList) {
         doSetRefName_InScope(refNameList);
@@ -327,7 +327,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refNameList The collection of refName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refNameList The collection of refName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefName_NotInScope(Collection<String> refNameList) {
         doSetRefName_NotInScope(refNameList);
@@ -341,7 +341,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setRefName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param refName The value of refName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefName_LikeSearch(String refName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -352,7 +352,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setRefName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param refName The value of refName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefName_LikeSearch(String refName, LikeSearchOption likeSearchOption) {
@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refName The value of refName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefName_NotLikeSearch(String refName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
-     * @param refName The value of refName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refName The value of refName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefName_NotLikeSearch(String refName, LikeSearchOption likeSearchOption) {

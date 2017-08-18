@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setGenRefId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefIdList The collection of genRefId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genRefIdList The collection of genRefId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefId_InScope(Collection<Long> genRefIdList) {
         doSetGenRefId_InScope(genRefIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genRefIdList The collection of genRefId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genRefIdList The collection of genRefId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefId_NotInScope(Collection<Long> genRefIdList) {
         doSetGenRefId_NotInScope(genRefIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefName The value of genRefName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefName_Equal(String genRefName) {
         doSetGenRefName_Equal(fRES(genRefName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefName The value of genRefName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefName_NotEqual(String genRefName) {
         doSetGenRefName_NotEqual(fRES(genRefName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefNameList The collection of genRefName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genRefNameList The collection of genRefName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefName_InScope(Collection<String> genRefNameList) {
         doSetGenRefName_InScope(genRefNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefNameList The collection of genRefName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genRefNameList The collection of genRefName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenRefName_NotInScope(Collection<String> genRefNameList) {
         doSetGenRefName_NotInScope(genRefNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenRefName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param genRefName The value of genRefName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenRefName_LikeSearch(String genRefName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenRefName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param genRefName The value of genRefName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenRefName_LikeSearch(String genRefName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefName The value of genRefName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenRefName_NotLikeSearch(String genRefName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_REF_NAME: {NotNull, VARCHAR(200)}
-     * @param genRefName The value of genRefName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genRefName The value of genRefName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenRefName_NotLikeSearch(String genRefName, LikeSearchOption likeSearchOption) {
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param minNumber The min number of genOnlyId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genOnlyId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param minNumber The min number of genOnlyId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genOnlyId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyIdList The collection of genOnlyId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyIdList The collection of genOnlyId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyId_InScope(Collection<Long> genOnlyIdList) {
         doSetGenOnlyId_InScope(genOnlyIdList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_ID: {IX, DECIMAL(16)}
-     * @param genOnlyIdList The collection of genOnlyId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyIdList The collection of genOnlyId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyId_NotInScope(Collection<Long> genOnlyIdList) {
         doSetGenOnlyId_NotInScope(genOnlyIdList);

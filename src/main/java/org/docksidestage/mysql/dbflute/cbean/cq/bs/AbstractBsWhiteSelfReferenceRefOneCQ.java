@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
-     * @param minNumber The min number of selfReferenceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of selfReferenceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of selfReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of selfReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSelfReferenceId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
-     * @param minNumber The min number of selfReferenceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of selfReferenceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of selfReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of selfReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelfReferenceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
-     * @param selfReferenceIdList The collection of selfReferenceId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceIdList The collection of selfReferenceId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceId_InScope(Collection<Long> selfReferenceIdList) {
         doSetSelfReferenceId_InScope(selfReferenceIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
-     * @param selfReferenceIdList The collection of selfReferenceId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceIdList The collection of selfReferenceId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceId_NotInScope(Collection<Long> selfReferenceIdList) {
         doSetSelfReferenceId_NotInScope(selfReferenceIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceRefOneName_Equal(String selfReferenceRefOneName) {
         doSetSelfReferenceRefOneName_Equal(fRES(selfReferenceRefOneName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceRefOneName_NotEqual(String selfReferenceRefOneName) {
         doSetSelfReferenceRefOneName_NotEqual(fRES(selfReferenceRefOneName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneNameList The collection of selfReferenceRefOneName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneNameList The collection of selfReferenceRefOneName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceRefOneName_InScope(Collection<String> selfReferenceRefOneNameList) {
         doSetSelfReferenceRefOneName_InScope(selfReferenceRefOneNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneNameList The collection of selfReferenceRefOneName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneNameList The collection of selfReferenceRefOneName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelfReferenceRefOneName_NotInScope(Collection<String> selfReferenceRefOneNameList) {
         doSetSelfReferenceRefOneName_NotInScope(selfReferenceRefOneNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSelfReferenceRefOneName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_LikeSearch(String selfReferenceRefOneName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSelfReferenceRefOneName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_LikeSearch(String selfReferenceRefOneName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_NotLikeSearch(String selfReferenceRefOneName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param selfReferenceRefOneName The value of selfReferenceRefOneName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSelfReferenceRefOneName_NotLikeSearch(String selfReferenceRefOneName, LikeSearchOption likeSearchOption) {

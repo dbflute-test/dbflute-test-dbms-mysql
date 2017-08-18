@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {PK, NotNull, DECIMAL(20)}
-     * @param minNumber The min number of implicitConvNumericId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvNumericId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvNumericId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvNumericId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setImplicitConvNumericId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {PK, NotNull, DECIMAL(20)}
-     * @param minNumber The min number of implicitConvNumericId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvNumericId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvNumericId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvNumericId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvNumericId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {PK, NotNull, DECIMAL(20)}
-     * @param implicitConvNumericIdList The collection of implicitConvNumericId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericIdList The collection of implicitConvNumericId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_InScope(Collection<java.math.BigDecimal> implicitConvNumericIdList) {
         doSetImplicitConvNumericId_InScope(implicitConvNumericIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {PK, NotNull, DECIMAL(20)}
-     * @param implicitConvNumericIdList The collection of implicitConvNumericId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericIdList The collection of implicitConvNumericId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_NotInScope(Collection<java.math.BigDecimal> implicitConvNumericIdList) {
         doSetImplicitConvNumericId_NotInScope(implicitConvNumericIdList);
@@ -374,8 +374,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param minNumber The min number of implicitConvIntegerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvIntegerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvIntegerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvIntegerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setImplicitConvIntegerId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -387,8 +387,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param minNumber The min number of implicitConvIntegerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvIntegerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvIntegerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvIntegerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvIntegerId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_InScope(Collection<java.math.BigDecimal> implicitConvIntegerIdList) {
         doSetImplicitConvIntegerId_InScope(implicitConvIntegerIdList);
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_NotInScope(Collection<java.math.BigDecimal> implicitConvIntegerIdList) {
         doSetImplicitConvIntegerId_NotInScope(implicitConvIntegerIdList);
@@ -478,8 +478,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param minNumber The min number of implicitConvStringId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvStringId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvStringId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvStringId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setImplicitConvStringId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -491,8 +491,8 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param minNumber The min number of implicitConvStringId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of implicitConvStringId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of implicitConvStringId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of implicitConvStringId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setImplicitConvStringId_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
@@ -502,7 +502,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringIdList The collection of implicitConvStringId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringIdList The collection of implicitConvStringId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_InScope(Collection<java.math.BigDecimal> implicitConvStringIdList) {
         doSetImplicitConvStringId_InScope(implicitConvStringIdList);
@@ -515,7 +515,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, DECIMAL(20), FK to WHITE_IMPLICIT_CONV_STRING}
-     * @param implicitConvStringIdList The collection of implicitConvStringId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringIdList The collection of implicitConvStringId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_NotInScope(Collection<java.math.BigDecimal> implicitConvStringIdList) {
         doSetImplicitConvStringId_NotInScope(implicitConvStringIdList);
@@ -531,7 +531,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_Equal(String implicitConvName) {
         doSetImplicitConvName_Equal(fRES(implicitConvName));
@@ -544,7 +544,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_NotEqual(String implicitConvName) {
         doSetImplicitConvName_NotEqual(fRES(implicitConvName));
@@ -557,7 +557,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvNameList The collection of implicitConvName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNameList The collection of implicitConvName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_InScope(Collection<String> implicitConvNameList) {
         doSetImplicitConvName_InScope(implicitConvNameList);
@@ -570,7 +570,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvNameList The collection of implicitConvName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNameList The collection of implicitConvName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_NotInScope(Collection<String> implicitConvNameList) {
         doSetImplicitConvName_NotInScope(implicitConvNameList);
@@ -584,7 +584,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setImplicitConvName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param implicitConvName The value of implicitConvName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -595,7 +595,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setImplicitConvName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param implicitConvName The value of implicitConvName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
@@ -606,7 +606,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -617,7 +617,7 @@ public abstract class AbstractBsWhiteImplicitConvNumericCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {

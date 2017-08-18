@@ -32,7 +32,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     VENDOR_CHECK_ID
  *
  * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_SET
+ *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_DATETIME_3_MILLIS, TYPE_OF_DATETIME_6_MICROS, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_SET
  *
  * [sequence]
  *     
@@ -76,6 +76,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * java.math.BigDecimal typeOfDouble = entity.getTypeOfDouble();
  * java.time.LocalDate typeOfDate = entity.getTypeOfDate();
  * java.time.LocalDateTime typeOfDatetime = entity.getTypeOfDatetime();
+ * java.time.LocalDateTime typeOfDatetime3Millis = entity.getTypeOfDatetime3Millis();
+ * java.time.LocalDateTime typeOfDatetime6Micros = entity.getTypeOfDatetime6Micros();
  * java.time.LocalDateTime typeOfTimestamp = entity.getTypeOfTimestamp();
  * java.time.LocalTime typeOfTime = entity.getTypeOfTime();
  * java.time.LocalDate typeOfYear = entity.getTypeOfYear();
@@ -107,6 +109,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * entity.setTypeOfDouble(typeOfDouble);
  * entity.setTypeOfDate(typeOfDate);
  * entity.setTypeOfDatetime(typeOfDatetime);
+ * entity.setTypeOfDatetime3Millis(typeOfDatetime3Millis);
+ * entity.setTypeOfDatetime6Micros(typeOfDatetime6Micros);
  * entity.setTypeOfTimestamp(typeOfTimestamp);
  * entity.setTypeOfTime(typeOfTime);
  * entity.setTypeOfYear(typeOfYear);
@@ -190,6 +194,12 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
 
     /** TYPE_OF_DATETIME: {DATETIME(19)} */
     protected java.time.LocalDateTime _typeOfDatetime;
+
+    /** TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime3Millis;
+
+    /** TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime6Micros;
 
     /** TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} */
     protected java.time.LocalDateTime _typeOfTimestamp;
@@ -388,6 +398,8 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfND(_typeOfDouble));
         sb.append(dm).append(xfND(_typeOfDate));
         sb.append(dm).append(xfND(_typeOfDatetime));
+        sb.append(dm).append(xfND(_typeOfDatetime3Millis));
+        sb.append(dm).append(xfND(_typeOfDatetime6Micros));
         sb.append(dm).append(xfND(_typeOfTimestamp));
         sb.append(dm).append(xfND(_typeOfTime));
         sb.append(dm).append(xfND(_typeOfYear));
@@ -760,6 +772,42 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfDatetime(java.time.LocalDateTime typeOfDatetime) {
         registerModifiedProperty("typeOfDatetime");
         _typeOfDatetime = typeOfDatetime;
+    }
+
+    /**
+     * [get] TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_3_MILLIS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime3Millis() {
+        checkSpecifiedProperty("typeOfDatetime3Millis");
+        return _typeOfDatetime3Millis;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)} <br>
+     * @param typeOfDatetime3Millis The value of the column 'TYPE_OF_DATETIME_3_MILLIS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime3Millis(java.time.LocalDateTime typeOfDatetime3Millis) {
+        registerModifiedProperty("typeOfDatetime3Millis");
+        _typeOfDatetime3Millis = typeOfDatetime3Millis;
+    }
+
+    /**
+     * [get] TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_6_MICROS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime6Micros() {
+        checkSpecifiedProperty("typeOfDatetime6Micros");
+        return _typeOfDatetime6Micros;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)} <br>
+     * @param typeOfDatetime6Micros The value of the column 'TYPE_OF_DATETIME_6_MICROS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime6Micros(java.time.LocalDateTime typeOfDatetime6Micros) {
+        registerModifiedProperty("typeOfDatetime6Micros");
+        _typeOfDatetime6Micros = typeOfDatetime6Micros;
     }
 
     /**

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterCorgeId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterCorgeId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMasterCorgeId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterCorgeId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterCorgeId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterCorgeId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeIdList The collection of masterCorgeId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeIdList The collection of masterCorgeId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeId_InScope(Collection<Long> masterCorgeIdList) {
         doSetMasterCorgeId_InScope(masterCorgeIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterCorgeIdList The collection of masterCorgeId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeIdList The collection of masterCorgeId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeId_NotInScope(Collection<Long> masterCorgeIdList) {
         doSetMasterCorgeId_NotInScope(masterCorgeIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeName The value of masterCorgeName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeName_Equal(String masterCorgeName) {
         doSetMasterCorgeName_Equal(fRES(masterCorgeName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeName The value of masterCorgeName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeName_NotEqual(String masterCorgeName) {
         doSetMasterCorgeName_NotEqual(fRES(masterCorgeName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeNameList The collection of masterCorgeName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeNameList The collection of masterCorgeName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeName_InScope(Collection<String> masterCorgeNameList) {
         doSetMasterCorgeName_InScope(masterCorgeNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeNameList The collection of masterCorgeName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeNameList The collection of masterCorgeName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterCorgeName_NotInScope(Collection<String> masterCorgeNameList) {
         doSetMasterCorgeName_NotInScope(masterCorgeNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterCorgeName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param masterCorgeName The value of masterCorgeName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterCorgeName_LikeSearch(String masterCorgeName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterCorgeName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param masterCorgeName The value of masterCorgeName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterCorgeName_LikeSearch(String masterCorgeName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeName The value of masterCorgeName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterCorgeName_NotLikeSearch(String masterCorgeName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
-     * @param masterCorgeName The value of masterCorgeName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterCorgeName The value of masterCorgeName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterCorgeName_NotLikeSearch(String masterCorgeName, LikeSearchOption likeSearchOption) {
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param corgeTypeCode The value of corgeTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param corgeTypeCode The value of corgeTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setCorgeTypeCode_Equal(String corgeTypeCode) {
         doSetCorgeTypeCode_Equal(fRES(corgeTypeCode));
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param corgeTypeCode The value of corgeTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param corgeTypeCode The value of corgeTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setCorgeTypeCode_NotEqual(String corgeTypeCode) {
         doSetCorgeTypeCode_NotEqual(fRES(corgeTypeCode));
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param corgeTypeCodeList The collection of corgeTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param corgeTypeCodeList The collection of corgeTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setCorgeTypeCode_InScope(Collection<String> corgeTypeCodeList) {
         doSetCorgeTypeCode_InScope(corgeTypeCodeList);
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * InScope {in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCorgeTypeCode_InScope_AsVariantRelationQuxType(Collection<CDef.VariantRelationQuxType> cdefList) {
         doSetCorgeTypeCode_InScope(cTStrL(cdefList));
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param corgeTypeCodeList The collection of corgeTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param corgeTypeCodeList The collection of corgeTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setCorgeTypeCode_NotInScope(Collection<String> corgeTypeCodeList) {
         doSetCorgeTypeCode_NotInScope(corgeTypeCodeList);
@@ -403,7 +403,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
      * NotInScope {not in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCorgeTypeCode_NotInScope_AsVariantRelationQuxType(Collection<CDef.VariantRelationQuxType> cdefList) {
         doSetCorgeTypeCode_NotInScope(cTStrL(cdefList));

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCode The value of dbCommentCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentCode_Equal(String dbCommentCode) {
         doSetDbCommentCode_Equal(fRES(dbCommentCode));
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCode The value of dbCommentCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentCode_NotEqual(String dbCommentCode) {
         doSetDbCommentCode_NotEqual(fRES(dbCommentCode));
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCodeList The collection of dbCommentCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCodeList The collection of dbCommentCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentCode_InScope(Collection<String> dbCommentCodeList) {
         doSetDbCommentCode_InScope(dbCommentCodeList);
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCodeList The collection of dbCommentCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCodeList The collection of dbCommentCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentCode_NotInScope(Collection<String> dbCommentCodeList) {
         doSetDbCommentCode_NotInScope(dbCommentCodeList);
@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setDbCommentCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param dbCommentCode The value of dbCommentCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDbCommentCode_LikeSearch(String dbCommentCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -125,7 +125,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setDbCommentCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param dbCommentCode The value of dbCommentCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDbCommentCode_LikeSearch(String dbCommentCode, LikeSearchOption likeSearchOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDbCommentCode_NotLikeSearch(String dbCommentCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
-     * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentCode The value of dbCommentCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDbCommentCode_NotLikeSearch(String dbCommentCode, LikeSearchOption likeSearchOption) {
@@ -172,7 +172,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentName The value of dbCommentName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentName_Equal(String dbCommentName) {
         doSetDbCommentName_Equal(fRES(dbCommentName));
@@ -185,7 +185,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentName The value of dbCommentName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentName_NotEqual(String dbCommentName) {
         doSetDbCommentName_NotEqual(fRES(dbCommentName));
@@ -198,7 +198,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentNameList The collection of dbCommentName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentNameList The collection of dbCommentName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentName_InScope(Collection<String> dbCommentNameList) {
         doSetDbCommentName_InScope(dbCommentNameList);
@@ -211,7 +211,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentNameList The collection of dbCommentName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentNameList The collection of dbCommentName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDbCommentName_NotInScope(Collection<String> dbCommentNameList) {
         doSetDbCommentName_NotInScope(dbCommentNameList);
@@ -225,7 +225,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDbCommentName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param dbCommentName The value of dbCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDbCommentName_LikeSearch(String dbCommentName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDbCommentName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param dbCommentName The value of dbCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDbCommentName_LikeSearch(String dbCommentName, LikeSearchOption likeSearchOption) {
@@ -247,7 +247,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentName The value of dbCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDbCommentName_NotLikeSearch(String dbCommentName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteDbCommentCQ extends AbstractConditionQuery 
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
-     * @param dbCommentName The value of dbCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param dbCommentName The value of dbCommentName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDbCommentName_NotLikeSearch(String dbCommentName, LikeSearchOption likeSearchOption) {

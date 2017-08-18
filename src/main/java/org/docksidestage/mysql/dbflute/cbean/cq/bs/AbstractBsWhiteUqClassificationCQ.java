@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_InScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_InScope(uqClsIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_NotInScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_NotInScope(uqClsIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
-     * @param uqClsCode The value of uqClsCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsCode The value of uqClsCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsCode_Equal(String uqClsCode) {
         doSetUqClsCode_Equal(fRES(uqClsCode));
@@ -200,7 +200,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
-     * @param uqClsCode The value of uqClsCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsCode The value of uqClsCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsCode_NotEqual(String uqClsCode) {
         doSetUqClsCode_NotEqual(fRES(uqClsCode));
@@ -223,7 +223,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
-     * @param uqClsCodeList The collection of uqClsCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsCodeList The collection of uqClsCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsCode_InScope(Collection<String> uqClsCodeList) {
         doSetUqClsCode_InScope(uqClsCodeList);
@@ -233,7 +233,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * InScope {in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsCode_InScope_AsUQClassificationType(Collection<CDef.UQClassificationType> cdefList) {
         doSetUqClsCode_InScope(cTStrL(cdefList));
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
-     * @param uqClsCodeList The collection of uqClsCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsCodeList The collection of uqClsCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsCode_NotInScope(Collection<String> uqClsCodeList) {
         doSetUqClsCode_NotInScope(uqClsCodeList);
@@ -256,7 +256,7 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
      * NotInScope {not in ('a', 'b')}. As UQClassificationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType} <br>
      * unique key as classification
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsCode_NotInScope_AsUQClassificationType(Collection<CDef.UQClassificationType> cdefList) {
         doSetUqClsCode_NotInScope(cTStrL(cdefList));

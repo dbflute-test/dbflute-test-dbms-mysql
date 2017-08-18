@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of includeQueryId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of includeQueryId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of includeQueryId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of includeQueryId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setIncludeQueryId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of includeQueryId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of includeQueryId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of includeQueryId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of includeQueryId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setIncludeQueryId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryIdList The collection of includeQueryId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryIdList The collection of includeQueryId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryId_InScope(Collection<Long> includeQueryIdList) {
         doSetIncludeQueryId_InScope(includeQueryIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param includeQueryIdList The collection of includeQueryId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryIdList The collection of includeQueryId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryId_NotInScope(Collection<Long> includeQueryIdList) {
         doSetIncludeQueryId_NotInScope(includeQueryIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
-     * @param includeQueryVarchar The value of includeQueryVarchar as equal. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryVarchar The value of includeQueryVarchar as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryVarchar_Equal(String includeQueryVarchar) {
         doSetIncludeQueryVarchar_Equal(fRES(includeQueryVarchar));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
-     * @param includeQueryVarchar The value of includeQueryVarchar as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryVarchar The value of includeQueryVarchar as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryVarchar_NotEqual(String includeQueryVarchar) {
         doSetIncludeQueryVarchar_NotEqual(fRES(includeQueryVarchar));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
-     * @param includeQueryVarcharList The collection of includeQueryVarchar as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryVarcharList The collection of includeQueryVarchar as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryVarchar_InScope(Collection<String> includeQueryVarcharList) {
         doSetIncludeQueryVarchar_InScope(includeQueryVarcharList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
-     * @param includeQueryVarcharList The collection of includeQueryVarchar as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param includeQueryVarcharList The collection of includeQueryVarchar as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIncludeQueryVarchar_NotInScope(Collection<String> includeQueryVarcharList) {
         doSetIncludeQueryVarchar_NotInScope(includeQueryVarcharList);

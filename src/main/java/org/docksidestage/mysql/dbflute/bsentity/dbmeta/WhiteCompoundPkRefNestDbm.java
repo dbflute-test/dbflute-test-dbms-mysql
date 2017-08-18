@@ -96,11 +96,11 @@ public class WhiteCompoundPkRefNestDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnCompoundPkRefNestId = cci("COMPOUND_PK_REF_NEST_ID", "COMPOUND_PK_REF_NEST_ID", null, null, Integer.class, "compoundPkRefNestId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFooMultipleId = cci("FOO_MULTIPLE_ID", "FOO_MULTIPLE_ID", null, null, Integer.class, "fooMultipleId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkRefByFooMultipleId", null, null, false);
-    protected final ColumnInfo _columnBarMultipleId = cci("BAR_MULTIPLE_ID", "BAR_MULTIPLE_ID", null, null, Integer.class, "barMultipleId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkRefByQuxMultipleId,whiteCompoundPkRefByFooMultipleId", null, null, false);
-    protected final ColumnInfo _columnQuxMultipleId = cci("QUX_MULTIPLE_ID", "QUX_MULTIPLE_ID", null, null, Integer.class, "quxMultipleId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkRefByQuxMultipleId", null, null, false);
-    protected final ColumnInfo _columnNestName = cci("NEST_NAME", "NEST_NAME", null, null, String.class, "nestName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCompoundPkRefNestId = cci("COMPOUND_PK_REF_NEST_ID", "COMPOUND_PK_REF_NEST_ID", null, null, Integer.class, "compoundPkRefNestId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFooMultipleId = cci("FOO_MULTIPLE_ID", "FOO_MULTIPLE_ID", null, null, Integer.class, "fooMultipleId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkRefByFooMultipleId", null, null, false);
+    protected final ColumnInfo _columnBarMultipleId = cci("BAR_MULTIPLE_ID", "BAR_MULTIPLE_ID", null, null, Integer.class, "barMultipleId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkRefByQuxMultipleId,whiteCompoundPkRefByFooMultipleId", null, null, false);
+    protected final ColumnInfo _columnQuxMultipleId = cci("QUX_MULTIPLE_ID", "QUX_MULTIPLE_ID", null, null, Integer.class, "quxMultipleId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkRefByQuxMultipleId", null, null, false);
+    protected final ColumnInfo _columnNestName = cci("NEST_NAME", "NEST_NAME", null, null, String.class, "nestName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}

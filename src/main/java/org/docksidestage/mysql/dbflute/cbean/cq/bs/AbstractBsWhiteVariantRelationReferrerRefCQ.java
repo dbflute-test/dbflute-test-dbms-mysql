@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refIdList The collection of refId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_InScope(Collection<Long> refIdList) {
         doSetRefId_InScope(refIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
-     * @param refIdList The collection of refId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_NotInScope(Collection<Long> refIdList) {
         doSetRefId_NotInScope(refIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerIdList The collection of referrerId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param referrerIdList The collection of referrerId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferrerId_InScope(Collection<Long> referrerIdList) {
         doSetReferrerId_InScope(referrerIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerRefCQ extends Abstra
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
-     * @param referrerIdList The collection of referrerId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param referrerIdList The collection of referrerId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferrerId_NotInScope(Collection<Long> referrerIdList) {
         doSetReferrerId_NotInScope(referrerIdList);

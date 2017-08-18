@@ -87,8 +87,8 @@ public class WhiteDeprecatedClsElementDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDeprecatedClsElementCode = cci("DEPRECATED_CLS_ELEMENT_CODE", "DEPRECATED_CLS_ELEMENT_CODE", null, null, String.class, "deprecatedClsElementCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.DeprecatedMapCollaborationType, false);
-    protected final ColumnInfo _columnDeprecatedClsElementName = cci("DEPRECATED_CLS_ELEMENT_NAME", "DEPRECATED_CLS_ELEMENT_NAME", null, null, String.class, "deprecatedClsElementName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDeprecatedClsElementCode = cci("DEPRECATED_CLS_ELEMENT_CODE", "DEPRECATED_CLS_ELEMENT_CODE", null, null, String.class, "deprecatedClsElementCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.DeprecatedMapCollaborationType, false);
+    protected final ColumnInfo _columnDeprecatedClsElementName = cci("DEPRECATED_CLS_ELEMENT_NAME", "DEPRECATED_CLS_ELEMENT_NAME", null, null, String.class, "deprecatedClsElementName", null, false, false, false, "VARCHAR", 20, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}

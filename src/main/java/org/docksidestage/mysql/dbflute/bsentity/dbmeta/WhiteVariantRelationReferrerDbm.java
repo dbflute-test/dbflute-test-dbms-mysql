@@ -104,9 +104,9 @@ public class WhiteVariantRelationReferrerDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteVariantRelationReferrerRefList", null, false);
-    protected final ColumnInfo _columnVariantMasterId = cci("VARIANT_MASTER_ID", "VARIANT_MASTER_ID", null, null, Long.class, "variantMasterId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationMasterFooAsVariant,whiteVariantRelationMasterBarAsVariant,whiteVariantRelationMasterQuxAsVariantByQue,whiteVariantRelationMasterCorgeAsVariantByQuxType", null, null, false);
-    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationMasterType, false);
+    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, "whiteVariantRelationReferrerRefList", null, false);
+    protected final ColumnInfo _columnVariantMasterId = cci("VARIANT_MASTER_ID", "VARIANT_MASTER_ID", null, null, Long.class, "variantMasterId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteVariantRelationMasterFooAsVariant,whiteVariantRelationMasterBarAsVariant,whiteVariantRelationMasterQuxAsVariantByQue,whiteVariantRelationMasterCorgeAsVariantByQuxType", null, null, false);
+    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.VariantRelationMasterType, false);
 
     /**
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of referrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
-     * @param referrerIdList The collection of referrerId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param referrerIdList The collection of referrerId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferrerId_InScope(Collection<Long> referrerIdList) {
         doSetReferrerId_InScope(referrerIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
-     * @param referrerIdList The collection of referrerId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param referrerIdList The collection of referrerId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferrerId_NotInScope(Collection<Long> referrerIdList) {
         doSetReferrerId_NotInScope(referrerIdList);
@@ -301,8 +301,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param minNumber The min number of variantMasterId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of variantMasterId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of variantMasterId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of variantMasterId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVariantMasterId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -314,8 +314,8 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param minNumber The min number of variantMasterId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of variantMasterId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of variantMasterId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of variantMasterId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVariantMasterId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param variantMasterIdList The collection of variantMasterId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param variantMasterIdList The collection of variantMasterId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVariantMasterId_InScope(Collection<Long> variantMasterIdList) {
         doSetVariantMasterId_InScope(variantMasterIdList);
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param variantMasterIdList The collection of variantMasterId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param variantMasterIdList The collection of variantMasterId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVariantMasterId_NotInScope(Collection<Long> variantMasterIdList) {
         doSetVariantMasterId_NotInScope(variantMasterIdList);
@@ -354,7 +354,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
-     * @param masterTypeCode The value of masterTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMasterTypeCode_Equal(String masterTypeCode) {
         doSetMasterTypeCode_Equal(fRES(masterTypeCode));
@@ -409,7 +409,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
-     * @param masterTypeCode The value of masterTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCode The value of masterTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMasterTypeCode_NotEqual(String masterTypeCode) {
         doSetMasterTypeCode_NotEqual(fRES(masterTypeCode));
@@ -464,7 +464,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
-     * @param masterTypeCodeList The collection of masterTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCodeList The collection of masterTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMasterTypeCode_InScope(Collection<String> masterTypeCodeList) {
         doSetMasterTypeCode_InScope(masterTypeCodeList);
@@ -474,7 +474,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * InScope {in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_InScope_AsVariantRelationMasterType(Collection<CDef.VariantRelationMasterType> cdefList) {
         doSetMasterTypeCode_InScope(cTStrL(cdefList));
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
-     * @param masterTypeCodeList The collection of masterTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterTypeCodeList The collection of masterTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMasterTypeCode_NotInScope(Collection<String> masterTypeCodeList) {
         doSetMasterTypeCode_NotInScope(masterTypeCodeList);
@@ -507,7 +507,7 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
      * NotInScope {not in ('a', 'b')}. As VariantRelationMasterType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType} <br>
      * master type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterTypeCode_NotInScope_AsVariantRelationMasterType(Collection<CDef.VariantRelationMasterType> cdefList) {
         doSetMasterTypeCode_NotInScope(cTStrL(cdefList));

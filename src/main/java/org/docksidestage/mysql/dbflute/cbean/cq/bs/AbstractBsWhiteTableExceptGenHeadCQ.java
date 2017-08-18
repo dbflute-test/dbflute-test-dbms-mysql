@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genHeadId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genHeadId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genHeadId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genHeadId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setGenHeadId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genHeadId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genHeadId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genHeadId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genHeadId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenHeadId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadIdList The collection of genHeadId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadIdList The collection of genHeadId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadId_InScope(Collection<Long> genHeadIdList) {
         doSetGenHeadId_InScope(genHeadIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genHeadIdList The collection of genHeadId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadIdList The collection of genHeadId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadId_NotInScope(Collection<Long> genHeadIdList) {
         doSetGenHeadId_NotInScope(genHeadIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadName The value of genHeadName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadName_Equal(String genHeadName) {
         doSetGenHeadName_Equal(fRES(genHeadName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadName The value of genHeadName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadName_NotEqual(String genHeadName) {
         doSetGenHeadName_NotEqual(fRES(genHeadName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadNameList The collection of genHeadName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadNameList The collection of genHeadName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadName_InScope(Collection<String> genHeadNameList) {
         doSetGenHeadName_InScope(genHeadNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadNameList The collection of genHeadName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadNameList The collection of genHeadName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenHeadName_NotInScope(Collection<String> genHeadNameList) {
         doSetGenHeadName_NotInScope(genHeadNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenHeadName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param genHeadName The value of genHeadName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenHeadName_LikeSearch(String genHeadName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenHeadName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param genHeadName The value of genHeadName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenHeadName_LikeSearch(String genHeadName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadName The value of genHeadName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenHeadName_NotLikeSearch(String genHeadName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
-     * @param genHeadName The value of genHeadName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genHeadName The value of genHeadName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenHeadName_NotLikeSearch(String genHeadName, LikeSearchOption likeSearchOption) {
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param minNumber The min number of nometaId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nometaId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nometaId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nometaId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNometaId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param minNumber The min number of nometaId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nometaId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nometaId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nometaId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNometaId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaIdList The collection of nometaId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nometaIdList The collection of nometaId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNometaId_InScope(Collection<Long> nometaIdList) {
         doSetNometaId_InScope(nometaIdList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteTableExceptGenHeadCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
-     * @param nometaIdList The collection of nometaId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nometaIdList The collection of nometaId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNometaId_NotInScope(Collection<Long> nometaIdList) {
         doSetNometaId_NotInScope(nometaIdList);

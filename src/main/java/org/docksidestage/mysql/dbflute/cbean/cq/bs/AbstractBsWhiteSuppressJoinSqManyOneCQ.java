@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of manyOneId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of manyOneId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of manyOneId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of manyOneId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setManyOneId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of manyOneId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of manyOneId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of manyOneId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of manyOneId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
-     * @param manyOneIdList The collection of manyOneId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneIdList The collection of manyOneId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneId_InScope(Collection<Integer> manyOneIdList) {
         doSetManyOneId_InScope(manyOneIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
-     * @param manyOneIdList The collection of manyOneId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneIdList The collection of manyOneId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneId_NotInScope(Collection<Integer> manyOneIdList) {
         doSetManyOneId_NotInScope(manyOneIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneName_Equal(String manyOneName) {
         doSetManyOneName_Equal(fRES(manyOneName));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneName_NotEqual(String manyOneName) {
         doSetManyOneName_NotEqual(fRES(manyOneName));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneNameList The collection of manyOneName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneNameList The collection of manyOneName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneName_InScope(Collection<String> manyOneNameList) {
         doSetManyOneName_InScope(manyOneNameList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneNameList The collection of manyOneName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneNameList The collection of manyOneName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneName_NotInScope(Collection<String> manyOneNameList) {
         doSetManyOneName_NotInScope(manyOneNameList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setManyOneName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param manyOneName The value of manyOneName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setManyOneName_LikeSearch(String manyOneName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setManyOneName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param manyOneName The value of manyOneName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setManyOneName_LikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setManyOneName_NotLikeSearch(String manyOneName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
-     * @param manyOneName The value of manyOneName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneName The value of manyOneName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setManyOneName_NotLikeSearch(String manyOneName, LikeSearchOption likeSearchOption) {
@@ -400,8 +400,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
-     * @param minNumber The min number of manyOneOneId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of manyOneOneId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of manyOneOneId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of manyOneOneId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setManyOneOneId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -413,8 +413,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
-     * @param minNumber The min number of manyOneOneId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of manyOneOneId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of manyOneOneId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of manyOneOneId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setManyOneOneId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -424,7 +424,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
-     * @param manyOneOneIdList The collection of manyOneOneId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneOneIdList The collection of manyOneOneId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneOneId_InScope(Collection<Integer> manyOneOneIdList) {
         doSetManyOneOneId_InScope(manyOneOneIdList);
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
-     * @param manyOneOneIdList The collection of manyOneOneId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param manyOneOneIdList The collection of manyOneOneId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setManyOneOneId_NotInScope(Collection<Integer> manyOneOneIdList) {
         doSetManyOneOneId_NotInScope(manyOneOneIdList);

@@ -112,8 +112,8 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoQuxId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoQuxId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_InScope(Collection<Long> constraintNameAutoQuxIdList) {
         doSetConstraintNameAutoQuxId_InScope(constraintNameAutoQuxIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_NotInScope(Collection<Long> constraintNameAutoQuxIdList) {
         doSetConstraintNameAutoQuxId_NotInScope(constraintNameAutoQuxIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxName_Equal(String constraintNameAutoQuxName) {
         doSetConstraintNameAutoQuxName_Equal(fRES(constraintNameAutoQuxName));
@@ -263,7 +263,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxName_NotEqual(String constraintNameAutoQuxName) {
         doSetConstraintNameAutoQuxName_NotEqual(fRES(constraintNameAutoQuxName));
@@ -276,7 +276,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxNameList The collection of constraintNameAutoQuxName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxNameList The collection of constraintNameAutoQuxName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxName_InScope(Collection<String> constraintNameAutoQuxNameList) {
         doSetConstraintNameAutoQuxName_InScope(constraintNameAutoQuxNameList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxNameList The collection of constraintNameAutoQuxName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxNameList The collection of constraintNameAutoQuxName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxName_NotInScope(Collection<String> constraintNameAutoQuxNameList) {
         doSetConstraintNameAutoQuxName_NotInScope(constraintNameAutoQuxNameList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setConstraintNameAutoQuxName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_LikeSearch(String constraintNameAutoQuxName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setConstraintNameAutoQuxName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_LikeSearch(String constraintNameAutoQuxName, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_NotLikeSearch(String constraintNameAutoQuxName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsVendorConstraintNameAutoQuxCQ extends AbstractCo
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxName The value of constraintNameAutoQuxName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setConstraintNameAutoQuxName_NotLikeSearch(String constraintNameAutoQuxName, LikeSearchOption likeSearchOption) {

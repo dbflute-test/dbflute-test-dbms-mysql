@@ -93,8 +93,8 @@ public class WhiteVariantRelationMasterFooDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMasterFooId = cci("MASTER_FOO_ID", "MASTER_FOO_ID", null, null, Long.class, "masterFooId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne,whiteVariantRelationLocalPkReferrerAsOne", "whiteVariantRelationReferrerAsVariantList", null, false);
-    protected final ColumnInfo _columnMasterFooName = cci("MASTER_FOO_NAME", "MASTER_FOO_NAME", null, null, String.class, "masterFooName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMasterFooId = cci("MASTER_FOO_ID", "MASTER_FOO_ID", null, null, Long.class, "masterFooId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne,whiteVariantRelationLocalPkReferrerAsOne", "whiteVariantRelationReferrerAsVariantList", null, false);
+    protected final ColumnInfo _columnMasterFooName = cci("MASTER_FOO_NAME", "MASTER_FOO_NAME", null, null, String.class, "masterFooName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MASTER_FOO_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_REFERRER}

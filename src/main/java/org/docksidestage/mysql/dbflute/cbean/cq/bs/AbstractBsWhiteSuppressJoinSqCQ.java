@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of suppressJoinSqId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of suppressJoinSqId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of suppressJoinSqId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of suppressJoinSqId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSuppressJoinSqId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of suppressJoinSqId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of suppressJoinSqId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of suppressJoinSqId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of suppressJoinSqId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSuppressJoinSqId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqIdList The collection of suppressJoinSqId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqIdList The collection of suppressJoinSqId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_InScope(Collection<Integer> suppressJoinSqIdList) {
         doSetSuppressJoinSqId_InScope(suppressJoinSqIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
-     * @param suppressJoinSqIdList The collection of suppressJoinSqId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqIdList The collection of suppressJoinSqId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqId_NotInScope(Collection<Integer> suppressJoinSqIdList) {
         doSetSuppressJoinSqId_NotInScope(suppressJoinSqIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqName The value of suppressJoinSqName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqName_Equal(String suppressJoinSqName) {
         doSetSuppressJoinSqName_Equal(fRES(suppressJoinSqName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqName The value of suppressJoinSqName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqName_NotEqual(String suppressJoinSqName) {
         doSetSuppressJoinSqName_NotEqual(fRES(suppressJoinSqName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqNameList The collection of suppressJoinSqName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqNameList The collection of suppressJoinSqName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqName_InScope(Collection<String> suppressJoinSqNameList) {
         doSetSuppressJoinSqName_InScope(suppressJoinSqNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqNameList The collection of suppressJoinSqName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqNameList The collection of suppressJoinSqName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSuppressJoinSqName_NotInScope(Collection<String> suppressJoinSqNameList) {
         doSetSuppressJoinSqName_NotInScope(suppressJoinSqNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSuppressJoinSqName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param suppressJoinSqName The value of suppressJoinSqName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSuppressJoinSqName_LikeSearch(String suppressJoinSqName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSuppressJoinSqName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param suppressJoinSqName The value of suppressJoinSqName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSuppressJoinSqName_LikeSearch(String suppressJoinSqName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqName The value of suppressJoinSqName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSuppressJoinSqName_NotLikeSearch(String suppressJoinSqName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
-     * @param suppressJoinSqName The value of suppressJoinSqName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param suppressJoinSqName The value of suppressJoinSqName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSuppressJoinSqName_NotLikeSearch(String suppressJoinSqName, LikeSearchOption likeSearchOption) {

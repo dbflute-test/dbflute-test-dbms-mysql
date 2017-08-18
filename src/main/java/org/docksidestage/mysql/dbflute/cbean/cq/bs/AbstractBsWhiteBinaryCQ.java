@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of binaryId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of binaryId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of binaryId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of binaryId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setBinaryId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of binaryId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of binaryId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of binaryId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of binaryId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBinaryId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryIdList The collection of binaryId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param binaryIdList The collection of binaryId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBinaryId_InScope(Collection<Long> binaryIdList) {
         doSetBinaryId_InScope(binaryIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteBinaryCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param binaryIdList The collection of binaryId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param binaryIdList The collection of binaryId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBinaryId_NotInScope(Collection<Long> binaryIdList) {
         doSetBinaryId_NotInScope(binaryIdList);

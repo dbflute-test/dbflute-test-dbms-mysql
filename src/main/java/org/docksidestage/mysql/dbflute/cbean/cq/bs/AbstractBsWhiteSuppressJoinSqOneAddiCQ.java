@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of oneAddiId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of oneAddiId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of oneAddiId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of oneAddiId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setOneAddiId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of oneAddiId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of oneAddiId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of oneAddiId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of oneAddiId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setOneAddiId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
-     * @param oneAddiIdList The collection of oneAddiId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiIdList The collection of oneAddiId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiId_InScope(Collection<Integer> oneAddiIdList) {
         doSetOneAddiId_InScope(oneAddiIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}
-     * @param oneAddiIdList The collection of oneAddiId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiIdList The collection of oneAddiId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiId_NotInScope(Collection<Integer> oneAddiIdList) {
         doSetOneAddiId_NotInScope(oneAddiIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiName The value of oneAddiName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiName_Equal(String oneAddiName) {
         doSetOneAddiName_Equal(fRES(oneAddiName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiName The value of oneAddiName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiName_NotEqual(String oneAddiName) {
         doSetOneAddiName_NotEqual(fRES(oneAddiName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiNameList The collection of oneAddiName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiNameList The collection of oneAddiName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiName_InScope(Collection<String> oneAddiNameList) {
         doSetOneAddiName_InScope(oneAddiNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiNameList The collection of oneAddiName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiNameList The collection of oneAddiName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setOneAddiName_NotInScope(Collection<String> oneAddiNameList) {
         doSetOneAddiName_NotInScope(oneAddiNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setOneAddiName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param oneAddiName The value of oneAddiName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setOneAddiName_LikeSearch(String oneAddiName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setOneAddiName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param oneAddiName The value of oneAddiName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setOneAddiName_LikeSearch(String oneAddiName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiName The value of oneAddiName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setOneAddiName_NotLikeSearch(String oneAddiName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneAddiCQ extends AbstractCon
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ONE_ADDI_NAME: {NotNull, VARCHAR(200)}
-     * @param oneAddiName The value of oneAddiName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param oneAddiName The value of oneAddiName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setOneAddiName_NotLikeSearch(String oneAddiName, LikeSearchOption likeSearchOption) {

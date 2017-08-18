@@ -156,6 +156,27 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         assertTrue(exists);
     }
 
+    public void test_DatabaseMetaData_getColumns_VendorCheck() throws SQLException {
+        DatabaseMetaData metaData = _conn.getMetaData();
+        ResultSet rs = metaData.getColumns("maihamadb", null, "VENDOR_CHECK", null);
+        log("[Column]");
+        boolean exists = false;
+        while (rs.next()) {
+            exists = true;
+            String catalog = rs.getString("TABLE_CAT"); // null
+            String schema = rs.getString("TABLE_SCHEM");
+            String table = rs.getString("TABLE_NAME");
+            String column = rs.getString("COLUMN_NAME");
+            String dbType = rs.getString("TYPE_NAME");
+            String comment = rs.getString("REMARKS");
+            log(catalog + "." + schema + "." + table + "." + column + ", " + dbType + ", comment=" + comment);
+            assertNotNull(catalog);
+            assertNull(schema);
+            assertNotNull(column);
+        }
+        assertTrue(exists);
+    }
+
     // *needs to adjust connection
     //public void test_DatabaseMetaData_getColumns_nextSchema() throws SQLException {
     //    DatabaseMetaData metaData = _conn.getMetaData();

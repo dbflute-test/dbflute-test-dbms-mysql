@@ -79,8 +79,8 @@ public class WhitePerrottaOverMemberMachoDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMachoCode = cci("MACHO_CODE", "MACHO_CODE", null, null, String.class, "machoCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, "whitePerrottaOverMemberList", null, false);
-    protected final ColumnInfo _columnMachoName = cci("MACHO_NAME", "MACHO_NAME", null, null, String.class, "machoName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMachoCode = cci("MACHO_CODE", "MACHO_CODE", null, null, String.class, "machoCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, null, "whitePerrottaOverMemberList", null, false);
+    protected final ColumnInfo _columnMachoName = cci("MACHO_NAME", "MACHO_NAME", null, null, String.class, "machoName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MACHO_CODE: {PK, NotNull, CHAR(3)}

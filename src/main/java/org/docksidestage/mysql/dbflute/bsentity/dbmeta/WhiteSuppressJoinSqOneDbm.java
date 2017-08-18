@@ -95,10 +95,10 @@ public class WhiteSuppressJoinSqOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnOneId = cci("ONE_ID", "ONE_ID", null, null, Integer.class, "oneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnOneName = cci("ONE_NAME", "ONE_NAME", null, null, String.class, "oneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSq", null, null, false);
-    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqOneAddi", null, null, false);
+    protected final ColumnInfo _columnOneId = cci("ONE_ID", "ONE_ID", null, null, Integer.class, "oneId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOneName = cci("ONE_NAME", "ONE_NAME", null, null, String.class, "oneName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSuppressJoinSqId = cci("SUPPRESS_JOIN_SQ_ID", "SUPPRESS_JOIN_SQ_ID", null, null, Integer.class, "suppressJoinSqId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteSuppressJoinSq", null, null, false);
+    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteSuppressJoinSqOneAddi", null, null, false);
 
     /**
      * ONE_ID: {PK, NotNull, INT(10)}

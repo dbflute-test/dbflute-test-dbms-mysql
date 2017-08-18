@@ -79,8 +79,8 @@ public class WhiteSplitMultipleFkNextDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteSplitMultipleFkBaseList", null, false);
-    protected final ColumnInfo _columnSecondCode = cci("SECOND_CODE", "SECOND_CODE", null, null, String.class, "secondCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNextId = cci("NEXT_ID", "NEXT_ID", null, null, Long.class, "nextId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, "whiteSplitMultipleFkBaseList", null, false);
+    protected final ColumnInfo _columnSecondCode = cci("SECOND_CODE", "SECOND_CODE", null, null, String.class, "secondCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * NEXT_ID: {PK, NotNull, BIGINT(19)}

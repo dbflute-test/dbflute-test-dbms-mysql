@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of nextId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of nextId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextIdList The collection of nextId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextIdList The collection of nextId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextId_InScope(Collection<Long> nextIdList) {
         doSetNextId_InScope(nextIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
-     * @param nextIdList The collection of nextId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextIdList The collection of nextId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextId_NotInScope(Collection<Long> nextIdList) {
         doSetNextId_NotInScope(nextIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_Equal(String secondCode) {
         doSetSecondCode_Equal(fRES(secondCode));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_NotEqual(String secondCode) {
         doSetSecondCode_NotEqual(fRES(secondCode));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCodeList The collection of secondCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondCodeList The collection of secondCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_InScope(Collection<String> secondCodeList) {
         doSetSecondCode_InScope(secondCodeList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCodeList The collection of secondCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondCodeList The collection of secondCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondCode_NotInScope(Collection<String> secondCodeList) {
         doSetSecondCode_NotInScope(secondCodeList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setSecondCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param secondCode The value of secondCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setSecondCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param secondCode The value of secondCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSecondCode_LikeSearch(String secondCode, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
-     * @param secondCode The value of secondCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param secondCode The value of secondCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSecondCode_NotLikeSearch(String secondCode, LikeSearchOption likeSearchOption) {

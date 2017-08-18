@@ -86,15 +86,15 @@ public class WhiteStilettoAliasDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnStilettoAliasId = cci("STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", null, null, Integer.class, "stilettoAliasId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteStilettoAliasRefList", null, false);
-    protected final ColumnInfo _columnFoo = cci("FOO", "FOO", null, null, String.class, "foo", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFoo0 = cci("FOO_0", "FOO_0", null, null, String.class, "foo0", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFoo1 = cci("FOO_1", "FOO_1", null, null, String.class, "foo1", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFoo2 = cci("FOO2", "FOO2", null, null, String.class, "foo2", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFoo3 = cci("FOO_3", "FOO_3", null, null, String.class, "foo3", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFoo4 = cci("FOO4", "FOO4", null, null, String.class, "foo4", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBar = cci("BAR", "BAR", null, null, String.class, "bar", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnQux = cci("QUX", "QUX", null, null, String.class, "qux", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStilettoAliasId = cci("STILETTO_ALIAS_ID", "STILETTO_ALIAS_ID", null, null, Integer.class, "stilettoAliasId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteStilettoAliasRefList", null, false);
+    protected final ColumnInfo _columnFoo = cci("FOO", "FOO", null, null, String.class, "foo", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo0 = cci("FOO_0", "FOO_0", null, null, String.class, "foo0", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo1 = cci("FOO_1", "FOO_1", null, null, String.class, "foo1", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo2 = cci("FOO2", "FOO2", null, null, String.class, "foo2", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo3 = cci("FOO_3", "FOO_3", null, null, String.class, "foo3", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFoo4 = cci("FOO4", "FOO4", null, null, String.class, "foo4", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBar = cci("BAR", "BAR", null, null, String.class, "bar", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnQux = cci("QUX", "QUX", null, null, String.class, "qux", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * STILETTO_ALIAS_ID: {PK, NotNull, INT(10)}

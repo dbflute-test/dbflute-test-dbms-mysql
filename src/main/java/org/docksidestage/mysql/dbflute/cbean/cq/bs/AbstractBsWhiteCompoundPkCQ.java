@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
-     * @param minNumber The min number of pkFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pkFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pkFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pkFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPkFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
-     * @param minNumber The min number of pkFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pkFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pkFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pkFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPkFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
-     * @param pkFirstIdList The collection of pkFirstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkFirstIdList The collection of pkFirstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkFirstId_InScope(Collection<Integer> pkFirstIdList) {
         doSetPkFirstId_InScope(pkFirstIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
-     * @param pkFirstIdList The collection of pkFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkFirstIdList The collection of pkFirstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkFirstId_NotInScope(Collection<Integer> pkFirstIdList) {
         doSetPkFirstId_NotInScope(pkFirstIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
-     * @param minNumber The min number of pkSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pkSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pkSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pkSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPkSecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
-     * @param minNumber The min number of pkSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pkSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pkSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pkSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPkSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
-     * @param pkSecondIdList The collection of pkSecondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkSecondIdList The collection of pkSecondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkSecondId_InScope(Collection<Integer> pkSecondIdList) {
         doSetPkSecondId_InScope(pkSecondIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
-     * @param pkSecondIdList The collection of pkSecondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkSecondIdList The collection of pkSecondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkSecondId_NotInScope(Collection<Integer> pkSecondIdList) {
         doSetPkSecondId_NotInScope(pkSecondIdList);
@@ -293,7 +293,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkName_Equal(String pkName) {
         doSetPkName_Equal(fRES(pkName));
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkName_NotEqual(String pkName) {
         doSetPkName_NotEqual(fRES(pkName));
@@ -319,7 +319,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkNameList The collection of pkName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkNameList The collection of pkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkName_InScope(Collection<String> pkNameList) {
         doSetPkName_InScope(pkNameList);
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkNameList The collection of pkName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param pkNameList The collection of pkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPkName_NotInScope(Collection<String> pkNameList) {
         doSetPkName_NotInScope(pkNameList);
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param pkName The value of pkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPkName_LikeSearch(String pkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param pkName The value of pkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPkName_LikeSearch(String pkName, LikeSearchOption likeSearchOption) {
@@ -368,7 +368,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPkName_NotLikeSearch(String pkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param pkName The value of pkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPkName_NotLikeSearch(String pkName, LikeSearchOption likeSearchOption) {
@@ -443,8 +443,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
-     * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -456,8 +456,8 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
-     * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -467,7 +467,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
-     * @param referredIdList The collection of referredId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredIdList The collection of referredId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredId_InScope(Collection<Integer> referredIdList) {
         doSetReferredId_InScope(referredIdList);
@@ -480,7 +480,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
-     * @param referredIdList The collection of referredId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredIdList The collection of referredId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredId_NotInScope(Collection<Integer> referredIdList) {
         doSetReferredId_NotInScope(referredIdList);

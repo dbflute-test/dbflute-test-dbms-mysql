@@ -88,9 +88,9 @@ public class WhiteVariantRelationMasterCorgeDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMasterCorgeId = cci("MASTER_CORGE_ID", "MASTER_CORGE_ID", null, null, Long.class, "masterCorgeId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMasterCorgeName = cci("MASTER_CORGE_NAME", "MASTER_CORGE_NAME", null, null, String.class, "masterCorgeName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnCorgeTypeCode = cci("CORGE_TYPE_CODE", "CORGE_TYPE_CODE", null, null, String.class, "corgeTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, CDef.DefMeta.VariantRelationQuxType, false);
+    protected final ColumnInfo _columnMasterCorgeId = cci("MASTER_CORGE_ID", "MASTER_CORGE_ID", null, null, Long.class, "masterCorgeId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMasterCorgeName = cci("MASTER_CORGE_NAME", "MASTER_CORGE_NAME", null, null, String.class, "masterCorgeName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCorgeTypeCode = cci("CORGE_TYPE_CODE", "CORGE_TYPE_CODE", null, null, String.class, "corgeTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.VariantRelationQuxType, false);
 
     /**
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}

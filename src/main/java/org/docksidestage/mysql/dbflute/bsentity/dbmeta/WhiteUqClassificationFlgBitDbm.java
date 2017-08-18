@@ -83,9 +83,9 @@ public class WhiteUqClassificationFlgBitDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUqClsName = cci("UQ_CLS_NAME", "UQ_CLS_NAME", null, null, String.class, "uqClsName", null, false, false, true, "VARCHAR", 30, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUqClsBitFlg = cci("UQ_CLS_BIT_FLG", "UQ_CLS_BIT_FLG", null, null, Boolean.class, "uqClsBitFlg", null, false, false, true, "BIT", 1, 0, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg, false);
+    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUqClsName = cci("UQ_CLS_NAME", "UQ_CLS_NAME", null, null, String.class, "uqClsName", null, false, false, true, "VARCHAR", 30, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUqClsBitFlg = cci("UQ_CLS_BIT_FLG", "UQ_CLS_BIT_FLG", null, null, Boolean.class, "uqClsBitFlg", null, false, false, true, "BIT", 1, 0, null, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg, false);
 
     /**
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}

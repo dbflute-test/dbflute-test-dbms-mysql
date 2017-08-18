@@ -93,9 +93,9 @@ public class WhiteSplitMultipleFkChildDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnChildId = cci("CHILD_ID", "CHILD_ID", null, null, Long.class, "childId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteSplitMultipleFkBase", null, null, false);
-    protected final ColumnInfo _columnChildName = cci("CHILD_NAME", "CHILD_NAME", null, null, String.class, "childName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnChildId = cci("CHILD_ID", "CHILD_ID", null, null, Long.class, "childId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBaseId = cci("BASE_ID", "BASE_ID", null, null, Long.class, "baseId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteSplitMultipleFkBase", null, null, false);
+    protected final ColumnInfo _columnChildName = cci("CHILD_NAME", "CHILD_NAME", null, null, String.class, "childName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * CHILD_ID: {PK, NotNull, BIGINT(19)}

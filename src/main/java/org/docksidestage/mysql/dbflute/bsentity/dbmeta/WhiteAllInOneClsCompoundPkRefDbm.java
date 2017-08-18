@@ -94,9 +94,9 @@ public class WhiteAllInOneClsCompoundPkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFooCode = cci("FOO_CODE", "FOO_CODE", null, null, String.class, "fooCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsFoo", null, null, false);
-    protected final ColumnInfo _columnBarCode = cci("BAR_CODE", "BAR_CODE", null, null, String.class, "barCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsElementAsBar", null, null, false);
-    protected final ColumnInfo _columnQuxCode = cci("QUX_CODE", "QUX_CODE", null, null, String.class, "quxCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFooCode = cci("FOO_CODE", "FOO_CODE", null, null, String.class, "fooCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, "whiteAllInOneClsElementAsFoo", null, null, false);
+    protected final ColumnInfo _columnBarCode = cci("BAR_CODE", "BAR_CODE", null, null, String.class, "barCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, "whiteAllInOneClsElementAsBar", null, null, false);
+    protected final ColumnInfo _columnQuxCode = cci("QUX_CODE", "QUX_CODE", null, null, String.class, "quxCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}

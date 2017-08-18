@@ -95,11 +95,11 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
-    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
-    protected final ColumnInfo _columnRefFirstId = cci("REF_FIRST_ID", "REF_FIRST_ID", null, null, Integer.class, "refFirstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
-    protected final ColumnInfo _columnRefSecondId = cci("REF_SECOND_ID", "REF_SECOND_ID", null, null, Integer.class, "refSecondId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
-    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
+    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteCompoundPkRefNestByQuxMultipleIdList,whiteCompoundPkRefNestByFooMultipleIdList", null, false);
+    protected final ColumnInfo _columnRefFirstId = cci("REF_FIRST_ID", "REF_FIRST_ID", null, null, Integer.class, "refFirstId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPk", null, null, false);
+    protected final ColumnInfo _columnRefSecondId = cci("REF_SECOND_ID", "REF_SECOND_ID", null, null, Integer.class, "refSecondId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPk", null, null, false);
+    protected final ColumnInfo _columnRefName = cci("REF_NAME", "REF_NAME", null, null, String.class, "refName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}

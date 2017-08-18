@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeTextFileId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeTextFileId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeTextFileId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeTextFileId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setLargeTextFileId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeTextFileId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeTextFileId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeTextFileId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeTextFileId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeTextFileId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileIdList The collection of largeTextFileId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileIdList The collection of largeTextFileId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileId_InScope(Collection<Long> largeTextFileIdList) {
         doSetLargeTextFileId_InScope(largeTextFileIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeTextFileIdList The collection of largeTextFileId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileIdList The collection of largeTextFileId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileId_NotInScope(Collection<Long> largeTextFileIdList) {
         doSetLargeTextFileId_NotInScope(largeTextFileIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileText The value of largeTextFileText as equal. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileText_Equal(String largeTextFileText) {
         doSetLargeTextFileText_Equal(fRES(largeTextFileText));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileText The value of largeTextFileText as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileText_NotEqual(String largeTextFileText) {
         doSetLargeTextFileText_NotEqual(fRES(largeTextFileText));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileTextList The collection of largeTextFileText as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileTextList The collection of largeTextFileText as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileText_InScope(Collection<String> largeTextFileTextList) {
         doSetLargeTextFileText_InScope(largeTextFileTextList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileTextList The collection of largeTextFileText as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileTextList The collection of largeTextFileText as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeTextFileText_NotInScope(Collection<String> largeTextFileTextList) {
         doSetLargeTextFileText_NotInScope(largeTextFileTextList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)} <br>
      * <pre>e.g. setLargeTextFileText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param largeTextFileText The value of largeTextFileText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLargeTextFileText_LikeSearch(String largeTextFileText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)} <br>
      * <pre>e.g. setLargeTextFileText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param largeTextFileText The value of largeTextFileText as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLargeTextFileText_LikeSearch(String largeTextFileText, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileText The value of largeTextFileText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLargeTextFileText_NotLikeSearch(String largeTextFileText, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteLargeTextFileCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
-     * @param largeTextFileText The value of largeTextFileText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param largeTextFileText The value of largeTextFileText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLargeTextFileText_NotLikeSearch(String largeTextFileText, LikeSearchOption likeSearchOption) {

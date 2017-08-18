@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param minNumber The min number of fooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFooId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param minNumber The min number of fooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFooId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooIdList The collection of fooId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooIdList The collection of fooId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooId_InScope(Collection<Integer> fooIdList) {
         doSetFooId_InScope(fooIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooIdList The collection of fooId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooIdList The collection of fooId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooId_NotInScope(Collection<Integer> fooIdList) {
         doSetFooId_NotInScope(fooIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooName The value of fooName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_Equal(String fooName) {
         doSetFooName_Equal(fRES(fooName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooName The value of fooName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_NotEqual(String fooName) {
         doSetFooName_NotEqual(fRES(fooName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooNameList The collection of fooName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooNameList The collection of fooName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_InScope(Collection<String> fooNameList) {
         doSetFooName_InScope(fooNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooNameList The collection of fooName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooNameList The collection of fooName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_NotInScope(Collection<String> fooNameList) {
         doSetFooName_NotInScope(fooNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
-     * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {

@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}
-     * @param noCamelizingCode The value of noCamelizingCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingCode The value of noCamelizingCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNoCamelizingCode_Equal(String noCamelizingCode) {
         doSetNoCamelizingCode_Equal(fRES(noCamelizingCode));
@@ -124,7 +124,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}
-     * @param noCamelizingCode The value of noCamelizingCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingCode The value of noCamelizingCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNoCamelizingCode_NotEqual(String noCamelizingCode) {
         doSetNoCamelizingCode_NotEqual(fRES(noCamelizingCode));
@@ -187,7 +187,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}
-     * @param noCamelizingCodeList The collection of noCamelizingCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingCodeList The collection of noCamelizingCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNoCamelizingCode_InScope(Collection<String> noCamelizingCodeList) {
         doSetNoCamelizingCode_InScope(noCamelizingCodeList);
@@ -197,7 +197,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * InScope {in ('a', 'b')}. As NamingDefaultCamelizingType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType} <br>
      * no camelizing classification
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingCode_InScope_AsNamingDefaultCamelizingType(Collection<CDef.NamingDefaultCamelizingType> cdefList) {
         doSetNoCamelizingCode_InScope(cTStrL(cdefList));
@@ -210,7 +210,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}
-     * @param noCamelizingCodeList The collection of noCamelizingCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingCodeList The collection of noCamelizingCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNoCamelizingCode_NotInScope(Collection<String> noCamelizingCodeList) {
         doSetNoCamelizingCode_NotInScope(noCamelizingCodeList);
@@ -220,7 +220,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * NotInScope {not in ('a', 'b')}. As NamingDefaultCamelizingType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType} <br>
      * no camelizing classification
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingCode_NotInScope_AsNamingDefaultCamelizingType(Collection<CDef.NamingDefaultCamelizingType> cdefList) {
         doSetNoCamelizingCode_NotInScope(cTStrL(cdefList));
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingName The value of noCamelizingName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingName_Equal(String noCamelizingName) {
         doSetNoCamelizingName_Equal(fRES(noCamelizingName));
@@ -261,7 +261,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingName The value of noCamelizingName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingName_NotEqual(String noCamelizingName) {
         doSetNoCamelizingName_NotEqual(fRES(noCamelizingName));
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingNameList The collection of noCamelizingName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingNameList The collection of noCamelizingName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingName_InScope(Collection<String> noCamelizingNameList) {
         doSetNoCamelizingName_InScope(noCamelizingNameList);
@@ -287,7 +287,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingNameList The collection of noCamelizingName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingNameList The collection of noCamelizingName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNoCamelizingName_NotInScope(Collection<String> noCamelizingNameList) {
         doSetNoCamelizingName_NotInScope(noCamelizingNameList);
@@ -301,7 +301,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNoCamelizingName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param noCamelizingName The value of noCamelizingName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNoCamelizingName_LikeSearch(String noCamelizingName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -312,7 +312,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNoCamelizingName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param noCamelizingName The value of noCamelizingName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNoCamelizingName_LikeSearch(String noCamelizingName, LikeSearchOption likeSearchOption) {
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingName The value of noCamelizingName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNoCamelizingName_NotLikeSearch(String noCamelizingName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -334,7 +334,7 @@ public abstract class AbstractBsWhiteClsNoCamelizingCQ extends AbstractCondition
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
-     * @param noCamelizingName The value of noCamelizingName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param noCamelizingName The value of noCamelizingName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNoCamelizingName_NotLikeSearch(String noCamelizingName, LikeSearchOption likeSearchOption) {

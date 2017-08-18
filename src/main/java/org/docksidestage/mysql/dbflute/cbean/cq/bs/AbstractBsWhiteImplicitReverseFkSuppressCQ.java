@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param minNumber The min number of whiteImplicitReverseFkSuppressId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkSuppressId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkSuppressId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkSuppressId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkSuppressId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param minNumber The min number of whiteImplicitReverseFkSuppressId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkSuppressId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkSuppressId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkSuppressId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkSuppressId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressIdList The collection of whiteImplicitReverseFkSuppressId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkSuppressIdList The collection of whiteImplicitReverseFkSuppressId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_InScope(Collection<Integer> whiteImplicitReverseFkSuppressIdList) {
         doSetWhiteImplicitReverseFkSuppressId_InScope(whiteImplicitReverseFkSuppressIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressIdList The collection of whiteImplicitReverseFkSuppressId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkSuppressIdList The collection of whiteImplicitReverseFkSuppressId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkSuppressId_NotInScope(Collection<Integer> whiteImplicitReverseFkSuppressIdList) {
         doSetWhiteImplicitReverseFkSuppressId_NotInScope(whiteImplicitReverseFkSuppressIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param minNumber The min number of whiteImplicitReverseFkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param minNumber The min number of whiteImplicitReverseFkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_InScope(Collection<Integer> whiteImplicitReverseFkIdList) {
         doSetWhiteImplicitReverseFkId_InScope(whiteImplicitReverseFkIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_NotInScope(Collection<Integer> whiteImplicitReverseFkIdList) {
         doSetWhiteImplicitReverseFkId_NotInScope(whiteImplicitReverseFkIdList);

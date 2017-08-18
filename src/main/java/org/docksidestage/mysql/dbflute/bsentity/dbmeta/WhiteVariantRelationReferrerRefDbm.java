@@ -92,8 +92,8 @@ public class WhiteVariantRelationReferrerRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Long.class, "refId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationReferrer", null, null, false);
+    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Long.class, "refId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReferrerId = cci("REFERRER_ID", "REFERRER_ID", null, null, Long.class, "referrerId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteVariantRelationReferrer", null, null, false);
 
     /**
      * REF_ID: {PK, NotNull, BIGINT(19)}

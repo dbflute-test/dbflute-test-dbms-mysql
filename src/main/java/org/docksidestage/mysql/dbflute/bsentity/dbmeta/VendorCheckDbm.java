@@ -76,6 +76,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDouble(), (et, vl) -> ((VendorCheck)et).setTypeOfDouble(ctb(vl)), "typeOfDouble");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate(ctld(vl)), "typeOfDate");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime(ctldt(vl)), "typeOfDatetime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime3Millis(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime3Millis(ctldt(vl)), "typeOfDatetime3Millis");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime6Micros(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime6Micros(ctldt(vl)), "typeOfDatetime6Micros");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp(ctldt(vl)), "typeOfTimestamp");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime(ctlt(vl)), "typeOfTime");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfYear(), (et, vl) -> ((VendorCheck)et).setTypeOfYear(ctld(vl)), "typeOfYear");
@@ -111,37 +113,39 @@ public class VendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnVendorCheckId = cci("VENDOR_CHECK_ID", "VENDOR_CHECK_ID", null, null, Long.class, "vendorCheckId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfChar = cci("TYPE_OF_CHAR", "TYPE_OF_CHAR", null, null, String.class, "typeOfChar", null, false, false, false, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfVarchar = cci("TYPE_OF_VARCHAR", "TYPE_OF_VARCHAR", null, null, String.class, "typeOfVarchar", null, false, false, false, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfText = cci("TYPE_OF_TEXT", "TYPE_OF_TEXT", null, null, String.class, "typeOfText", null, false, false, false, "TEXT", 65535, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfTinytext = cci("TYPE_OF_TINYTEXT", "TYPE_OF_TINYTEXT", null, null, String.class, "typeOfTinytext", null, false, false, false, "TINYTEXT", 255, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfMediumtext = cci("TYPE_OF_MEDIUMTEXT", "TYPE_OF_MEDIUMTEXT", null, null, String.class, "typeOfMediumtext", null, false, false, false, "MEDIUMTEXT", 16777215, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfLongtext = cci("TYPE_OF_LONGTEXT", "TYPE_OF_LONGTEXT", null, null, String.class, "typeOfLongtext", null, false, false, false, "LONGTEXT", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfNumericDecimal = cci("TYPE_OF_NUMERIC_DECIMAL", "TYPE_OF_NUMERIC_DECIMAL", null, null, java.math.BigDecimal.class, "typeOfNumericDecimal", null, false, false, false, "DECIMAL", 5, 3, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfNumericInteger = cci("TYPE_OF_NUMERIC_INTEGER", "TYPE_OF_NUMERIC_INTEGER", null, null, Integer.class, "typeOfNumericInteger", null, false, false, false, "DECIMAL", 5, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfNumericBigint = cci("TYPE_OF_NUMERIC_BIGINT", "TYPE_OF_NUMERIC_BIGINT", null, null, Long.class, "typeOfNumericBigint", null, false, false, false, "DECIMAL", 12, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDecimalDecimal = cci("TYPE_OF_DECIMAL_DECIMAL", "TYPE_OF_DECIMAL_DECIMAL", null, null, java.math.BigDecimal.class, "typeOfDecimalDecimal", null, false, false, false, "DECIMAL", 5, 3, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDecimalInteger = cci("TYPE_OF_DECIMAL_INTEGER", "TYPE_OF_DECIMAL_INTEGER", null, null, Integer.class, "typeOfDecimalInteger", null, false, false, false, "DECIMAL", 5, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDecimalBigint = cci("TYPE_OF_DECIMAL_BIGINT", "TYPE_OF_DECIMAL_BIGINT", null, null, Long.class, "typeOfDecimalBigint", null, false, false, false, "DECIMAL", 12, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfInteger = cci("TYPE_OF_INTEGER", "TYPE_OF_INTEGER", null, null, Integer.class, "typeOfInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfBigint = cci("TYPE_OF_BIGINT", "TYPE_OF_BIGINT", null, null, Long.class, "typeOfBigint", null, false, false, false, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfFloat = cci("TYPE_OF_FLOAT", "TYPE_OF_FLOAT", null, null, java.math.BigDecimal.class, "typeOfFloat", null, false, false, false, "FLOAT", 12, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDouble = cci("TYPE_OF_DOUBLE", "TYPE_OF_DOUBLE", null, null, java.math.BigDecimal.class, "typeOfDouble", null, false, false, false, "DOUBLE", 22, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDate = cci("TYPE_OF_DATE", "TYPE_OF_DATE", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.time.LocalDateTime.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, true, "TIMESTAMP", 19, 0, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfYear = cci("TYPE_OF_YEAR", "TYPE_OF_YEAR", null, null, java.time.LocalDate.class, "typeOfYear", null, false, false, false, "YEAR", null, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfBoolean = cci("TYPE_OF_BOOLEAN", "TYPE_OF_BOOLEAN", null, null, Boolean.class, "typeOfBoolean", null, false, false, false, "BIT", null, null, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg, false);
-    protected final ColumnInfo _columnTypeOfBlob = cci("TYPE_OF_BLOB", "TYPE_OF_BLOB", null, null, byte[].class, "typeOfBlob", null, false, false, false, "BLOB", 65535, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfTinyblob = cci("TYPE_OF_TINYBLOB", "TYPE_OF_TINYBLOB", null, null, byte[].class, "typeOfTinyblob", null, false, false, false, "TINYBLOB", 255, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfMediumblob = cci("TYPE_OF_MEDIUMBLOB", "TYPE_OF_MEDIUMBLOB", null, null, byte[].class, "typeOfMediumblob", null, false, false, false, "MEDIUMBLOB", 16777215, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfLongblob = cci("TYPE_OF_LONGBLOB", "TYPE_OF_LONGBLOB", null, null, byte[].class, "typeOfLongblob", null, false, false, false, "LONGBLOB", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfBinary = cci("TYPE_OF_BINARY", "TYPE_OF_BINARY", null, null, byte[].class, "typeOfBinary", null, false, false, false, "BINARY", 1, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfVarbinary = cci("TYPE_OF_VARBINARY", "TYPE_OF_VARBINARY", null, null, byte[].class, "typeOfVarbinary", null, false, false, false, "VARBINARY", 1000, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfEnum = cci("TYPE_OF_ENUM", "TYPE_OF_ENUM", null, null, String.class, "typeOfEnum", null, false, false, false, "ENUM", 6, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfSet = cci("TYPE_OF_SET", "TYPE_OF_SET", null, null, String.class, "typeOfSet", null, false, false, false, "SET", 15, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnVendorCheckId = cci("VENDOR_CHECK_ID", "VENDOR_CHECK_ID", null, null, Long.class, "vendorCheckId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfChar = cci("TYPE_OF_CHAR", "TYPE_OF_CHAR", null, null, String.class, "typeOfChar", null, false, false, false, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfVarchar = cci("TYPE_OF_VARCHAR", "TYPE_OF_VARCHAR", null, null, String.class, "typeOfVarchar", null, false, false, false, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfText = cci("TYPE_OF_TEXT", "TYPE_OF_TEXT", null, null, String.class, "typeOfText", null, false, false, false, "TEXT", 65535, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTinytext = cci("TYPE_OF_TINYTEXT", "TYPE_OF_TINYTEXT", null, null, String.class, "typeOfTinytext", null, false, false, false, "TINYTEXT", 255, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfMediumtext = cci("TYPE_OF_MEDIUMTEXT", "TYPE_OF_MEDIUMTEXT", null, null, String.class, "typeOfMediumtext", null, false, false, false, "MEDIUMTEXT", 16777215, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfLongtext = cci("TYPE_OF_LONGTEXT", "TYPE_OF_LONGTEXT", null, null, String.class, "typeOfLongtext", null, false, false, false, "LONGTEXT", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericDecimal = cci("TYPE_OF_NUMERIC_DECIMAL", "TYPE_OF_NUMERIC_DECIMAL", null, null, java.math.BigDecimal.class, "typeOfNumericDecimal", null, false, false, false, "DECIMAL", 5, 3, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericInteger = cci("TYPE_OF_NUMERIC_INTEGER", "TYPE_OF_NUMERIC_INTEGER", null, null, Integer.class, "typeOfNumericInteger", null, false, false, false, "DECIMAL", 5, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericBigint = cci("TYPE_OF_NUMERIC_BIGINT", "TYPE_OF_NUMERIC_BIGINT", null, null, Long.class, "typeOfNumericBigint", null, false, false, false, "DECIMAL", 12, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDecimalDecimal = cci("TYPE_OF_DECIMAL_DECIMAL", "TYPE_OF_DECIMAL_DECIMAL", null, null, java.math.BigDecimal.class, "typeOfDecimalDecimal", null, false, false, false, "DECIMAL", 5, 3, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDecimalInteger = cci("TYPE_OF_DECIMAL_INTEGER", "TYPE_OF_DECIMAL_INTEGER", null, null, Integer.class, "typeOfDecimalInteger", null, false, false, false, "DECIMAL", 5, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDecimalBigint = cci("TYPE_OF_DECIMAL_BIGINT", "TYPE_OF_DECIMAL_BIGINT", null, null, Long.class, "typeOfDecimalBigint", null, false, false, false, "DECIMAL", 12, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInteger = cci("TYPE_OF_INTEGER", "TYPE_OF_INTEGER", null, null, Integer.class, "typeOfInteger", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBigint = cci("TYPE_OF_BIGINT", "TYPE_OF_BIGINT", null, null, Long.class, "typeOfBigint", null, false, false, false, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfFloat = cci("TYPE_OF_FLOAT", "TYPE_OF_FLOAT", null, null, java.math.BigDecimal.class, "typeOfFloat", null, false, false, false, "FLOAT", 12, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDouble = cci("TYPE_OF_DOUBLE", "TYPE_OF_DOUBLE", null, null, java.math.BigDecimal.class, "typeOfDouble", null, false, false, false, "DOUBLE", 22, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDate = cci("TYPE_OF_DATE", "TYPE_OF_DATE", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.time.LocalDateTime.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime3Millis = cci("TYPE_OF_DATETIME_3_MILLIS", "TYPE_OF_DATETIME_3_MILLIS", null, null, java.time.LocalDateTime.class, "typeOfDatetime3Millis", null, false, false, false, "DATETIME", 19, 0, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime6Micros = cci("TYPE_OF_DATETIME_6_MICROS", "TYPE_OF_DATETIME_6_MICROS", null, null, java.time.LocalDateTime.class, "typeOfDatetime6Micros", null, false, false, false, "DATETIME", 19, 0, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, true, "TIMESTAMP", 19, 0, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfYear = cci("TYPE_OF_YEAR", "TYPE_OF_YEAR", null, null, java.time.LocalDate.class, "typeOfYear", null, false, false, false, "YEAR", null, null, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBoolean = cci("TYPE_OF_BOOLEAN", "TYPE_OF_BOOLEAN", null, null, Boolean.class, "typeOfBoolean", null, false, false, false, "BIT", null, null, null, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg, false);
+    protected final ColumnInfo _columnTypeOfBlob = cci("TYPE_OF_BLOB", "TYPE_OF_BLOB", null, null, byte[].class, "typeOfBlob", null, false, false, false, "BLOB", 65535, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTinyblob = cci("TYPE_OF_TINYBLOB", "TYPE_OF_TINYBLOB", null, null, byte[].class, "typeOfTinyblob", null, false, false, false, "TINYBLOB", 255, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfMediumblob = cci("TYPE_OF_MEDIUMBLOB", "TYPE_OF_MEDIUMBLOB", null, null, byte[].class, "typeOfMediumblob", null, false, false, false, "MEDIUMBLOB", 16777215, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfLongblob = cci("TYPE_OF_LONGBLOB", "TYPE_OF_LONGBLOB", null, null, byte[].class, "typeOfLongblob", null, false, false, false, "LONGBLOB", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBinary = cci("TYPE_OF_BINARY", "TYPE_OF_BINARY", null, null, byte[].class, "typeOfBinary", null, false, false, false, "BINARY", 1, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfVarbinary = cci("TYPE_OF_VARBINARY", "TYPE_OF_VARBINARY", null, null, byte[].class, "typeOfVarbinary", null, false, false, false, "VARBINARY", 1000, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfEnum = cci("TYPE_OF_ENUM", "TYPE_OF_ENUM", null, null, String.class, "typeOfEnum", null, false, false, false, "ENUM", 6, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfSet = cci("TYPE_OF_SET", "TYPE_OF_SET", null, null, String.class, "typeOfSet", null, false, false, false, "SET", 15, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)}
@@ -239,6 +243,16 @@ public class VendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfDatetime() { return _columnTypeOfDatetime; }
     /**
+     * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime3Millis() { return _columnTypeOfDatetime3Millis; }
+    /**
+     * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime6Micros() { return _columnTypeOfDatetime6Micros; }
+    /**
      * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @return The information object of specified column. (NotNull)
      */
@@ -320,6 +334,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfDouble());
         ls.add(columnTypeOfDate());
         ls.add(columnTypeOfDatetime());
+        ls.add(columnTypeOfDatetime3Millis());
+        ls.add(columnTypeOfDatetime6Micros());
         ls.add(columnTypeOfTimestamp());
         ls.add(columnTypeOfTime());
         ls.add(columnTypeOfYear());

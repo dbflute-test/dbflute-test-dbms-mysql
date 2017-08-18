@@ -112,8 +112,8 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of vendor$DollarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendor$DollarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendor$DollarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendor$DollarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVendor$DollarId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of vendor$DollarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of vendor$DollarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of vendor$DollarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of vendor$DollarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVendor$DollarId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
-     * @param vendor$DollarIdList The collection of vendor$DollarId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarIdList The collection of vendor$DollarId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarId_InScope(Collection<Integer> vendor$DollarIdList) {
         doSetVendor$DollarId_InScope(vendor$DollarIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
-     * @param vendor$DollarIdList The collection of vendor$DollarId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarIdList The collection of vendor$DollarId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarId_NotInScope(Collection<Integer> vendor$DollarIdList) {
         doSetVendor$DollarId_NotInScope(vendor$DollarIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarName The value of vendor$DollarName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarName_Equal(String vendor$DollarName) {
         doSetVendor$DollarName_Equal(fRES(vendor$DollarName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarName The value of vendor$DollarName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarName_NotEqual(String vendor$DollarName) {
         doSetVendor$DollarName_NotEqual(fRES(vendor$DollarName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarNameList The collection of vendor$DollarName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarNameList The collection of vendor$DollarName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarName_InScope(Collection<String> vendor$DollarNameList) {
         doSetVendor$DollarName_InScope(vendor$DollarNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarNameList The collection of vendor$DollarName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarNameList The collection of vendor$DollarName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVendor$DollarName_NotInScope(Collection<String> vendor$DollarNameList) {
         doSetVendor$DollarName_NotInScope(vendor$DollarNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)} <br>
      * <pre>e.g. setVendor$DollarName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param vendor$DollarName The value of vendor$DollarName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setVendor$DollarName_LikeSearch(String vendor$DollarName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)} <br>
      * <pre>e.g. setVendor$DollarName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param vendor$DollarName The value of vendor$DollarName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setVendor$DollarName_LikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarName The value of vendor$DollarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setVendor$DollarName_NotLikeSearch(String vendor$DollarName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * VENDOR_$_DOLLAR_NAME: {VARCHAR(32)}
-     * @param vendor$DollarName The value of vendor$DollarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param vendor$DollarName The value of vendor$DollarName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setVendor$DollarName_NotLikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {

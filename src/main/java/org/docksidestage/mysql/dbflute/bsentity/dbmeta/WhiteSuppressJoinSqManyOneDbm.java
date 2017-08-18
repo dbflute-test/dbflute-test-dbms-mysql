@@ -93,9 +93,9 @@ public class WhiteSuppressJoinSqManyOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnManyOneId = cci("MANY_ONE_ID", "MANY_ONE_ID", null, null, Integer.class, "manyOneId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqManyList", null, false);
-    protected final ColumnInfo _columnManyOneName = cci("MANY_ONE_NAME", "MANY_ONE_NAME", null, null, String.class, "manyOneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteSuppressJoinSqManyOneOne", null, null, false);
+    protected final ColumnInfo _columnManyOneId = cci("MANY_ONE_ID", "MANY_ONE_ID", null, null, Integer.class, "manyOneId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteSuppressJoinSqManyList", null, false);
+    protected final ColumnInfo _columnManyOneName = cci("MANY_ONE_NAME", "MANY_ONE_NAME", null, null, String.class, "manyOneName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnManyOneOneId = cci("MANY_ONE_ONE_ID", "MANY_ONE_ONE_ID", null, null, Integer.class, "manyOneOneId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteSuppressJoinSqManyOneOne", null, null, false);
 
     /**
      * MANY_ONE_ID: {PK, NotNull, INT(10)}

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of select. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of select. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of select. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of select. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSelect_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of select. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of select. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of select. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of select. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelect_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param selectList The collection of select as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param selectList The collection of select as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelect_InScope(Collection<Integer> selectList) {
         doSetSelect_InScope(selectList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
-     * @param selectList The collection of select as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param selectList The collection of select as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSelect_NotInScope(Collection<Integer> selectList) {
         doSetSelect_NotInScope(selectList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param from The value of from as equal. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFrom_Equal(String from) {
         doSetFrom_Equal(fRES(from));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param from The value of from as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFrom_NotEqual(String from) {
         doSetFrom_NotEqual(fRES(from));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param fromList The collection of from as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromList The collection of from as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFrom_InScope(Collection<String> fromList) {
         doSetFrom_InScope(fromList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param fromList The collection of from as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromList The collection of from as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFrom_NotInScope(Collection<String> fromList) {
         doSetFrom_NotInScope(fromList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)} <br>
      * <pre>e.g. setFrom_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param from The value of from as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFrom_LikeSearch(String from, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)} <br>
      * <pre>e.g. setFrom_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param from The value of from as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFrom_LikeSearch(String from, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param from The value of from as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFrom_NotLikeSearch(String from, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM: {VARCHAR(200)}
-     * @param from The value of from as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param from The value of from as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFrom_NotLikeSearch(String from, LikeSearchOption likeSearchOption) {

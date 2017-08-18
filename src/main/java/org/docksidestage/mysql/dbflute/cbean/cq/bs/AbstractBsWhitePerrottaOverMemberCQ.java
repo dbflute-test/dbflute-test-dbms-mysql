@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of memberId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of memberId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberIdList The collection of memberId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_InScope(Collection<Long> memberIdList) {
         doSetMemberId_InScope(memberIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
-     * @param memberIdList The collection of memberId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberIdList The collection of memberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberId_NotInScope(Collection<Long> memberIdList) {
         doSetMemberId_NotInScope(memberIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_Equal(String memberName) {
         doSetMemberName_Equal(fRES(memberName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotEqual(String memberName) {
         doSetMemberName_NotEqual(fRES(memberName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberNameList The collection of memberName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberNameList The collection of memberName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_InScope(Collection<String> memberNameList) {
         doSetMemberName_InScope(memberNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberNameList The collection of memberName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param memberNameList The collection of memberName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotInScope(Collection<String> memberNameList) {
         doSetMemberName_NotInScope(memberNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberName The value of memberName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMemberName_LikeSearch(String memberName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
-     * @param memberName The value of memberName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMemberName_NotLikeSearch(String memberName, LikeSearchOption likeSearchOption) {
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of productId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of productId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productIdList The collection of productId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_InScope(Collection<Long> productIdList) {
         doSetProductId_InScope(productIdList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param productIdList The collection of productId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_NotInScope(Collection<Long> productIdList) {
         doSetProductId_NotInScope(productIdList);
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_Equal(String traceTypeCode) {
         doSetTraceTypeCode_Equal(fRES(traceTypeCode));
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_NotEqual(String traceTypeCode) {
         doSetTraceTypeCode_NotEqual(fRES(traceTypeCode));
@@ -406,7 +406,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCodeList The collection of traceTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCodeList The collection of traceTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_InScope(Collection<String> traceTypeCodeList) {
         doSetTraceTypeCode_InScope(traceTypeCodeList);
@@ -419,7 +419,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_NotInScope(Collection<String> traceTypeCodeList) {
         doSetTraceTypeCode_NotInScope(traceTypeCodeList);
@@ -433,7 +433,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -444,7 +444,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
@@ -455,7 +455,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -466,7 +466,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
@@ -479,7 +479,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_Equal(String machoCode) {
         doSetMachoCode_Equal(fRES(machoCode));
@@ -492,7 +492,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_NotEqual(String machoCode) {
         doSetMachoCode_NotEqual(fRES(machoCode));
@@ -505,7 +505,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCodeList The collection of machoCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoCodeList The collection of machoCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_InScope(Collection<String> machoCodeList) {
         doSetMachoCode_InScope(machoCodeList);
@@ -518,7 +518,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCodeList The collection of machoCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoCodeList The collection of machoCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_NotInScope(Collection<String> machoCodeList) {
         doSetMachoCode_NotInScope(machoCodeList);
@@ -532,7 +532,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -543,7 +543,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
@@ -554,7 +554,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -565,7 +565,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
-     * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {

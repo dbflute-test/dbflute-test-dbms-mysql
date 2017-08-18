@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringId The value of implicitConvStringId as equal. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_Equal(String implicitConvStringId) {
         doSetImplicitConvStringId_Equal(fRES(implicitConvStringId));
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringId The value of implicitConvStringId as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_NotEqual(String implicitConvStringId) {
         doSetImplicitConvStringId_NotEqual(fRES(implicitConvStringId));
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringIdList The collection of implicitConvStringId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringIdList The collection of implicitConvStringId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_InScope(Collection<String> implicitConvStringIdList) {
         doSetImplicitConvStringId_InScope(implicitConvStringIdList);
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringIdList The collection of implicitConvStringId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringIdList The collection of implicitConvStringId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvStringId_NotInScope(Collection<String> implicitConvStringIdList) {
         doSetImplicitConvStringId_NotInScope(implicitConvStringIdList);
@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br>
      * <pre>e.g. setImplicitConvStringId_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param implicitConvStringId The value of implicitConvStringId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvStringId_LikeSearch(String implicitConvStringId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -125,7 +125,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)} <br>
      * <pre>e.g. setImplicitConvStringId_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param implicitConvStringId The value of implicitConvStringId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvStringId_LikeSearch(String implicitConvStringId, LikeSearchOption likeSearchOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringId The value of implicitConvStringId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvStringId_NotLikeSearch(String implicitConvStringId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_STRING_ID: {PK, NotNull, VARCHAR(10)}
-     * @param implicitConvStringId The value of implicitConvStringId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvStringId The value of implicitConvStringId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvStringId_NotLikeSearch(String implicitConvStringId, LikeSearchOption likeSearchOption) {
@@ -318,7 +318,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as equal. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_Equal(String implicitConvIntegerId) {
         doSetImplicitConvIntegerId_Equal(fRES(implicitConvIntegerId));
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_NotEqual(String implicitConvIntegerId) {
         doSetImplicitConvIntegerId_NotEqual(fRES(implicitConvIntegerId));
@@ -344,7 +344,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_InScope(Collection<String> implicitConvIntegerIdList) {
         doSetImplicitConvIntegerId_InScope(implicitConvIntegerIdList);
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerIdList The collection of implicitConvIntegerId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvIntegerId_NotInScope(Collection<String> implicitConvIntegerIdList) {
         doSetImplicitConvIntegerId_NotInScope(implicitConvIntegerIdList);
@@ -371,7 +371,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br>
      * <pre>e.g. setImplicitConvIntegerId_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_LikeSearch(String implicitConvIntegerId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -382,7 +382,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER} <br>
      * <pre>e.g. setImplicitConvIntegerId_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_LikeSearch(String implicitConvIntegerId, LikeSearchOption likeSearchOption) {
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_NotLikeSearch(String implicitConvIntegerId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -404,7 +404,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_INTEGER}
-     * @param implicitConvIntegerId The value of implicitConvIntegerId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvIntegerId_NotLikeSearch(String implicitConvIntegerId, LikeSearchOption likeSearchOption) {
@@ -417,7 +417,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as equal. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_Equal(String implicitConvNumericId) {
         doSetImplicitConvNumericId_Equal(fRES(implicitConvNumericId));
@@ -430,7 +430,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_NotEqual(String implicitConvNumericId) {
         doSetImplicitConvNumericId_NotEqual(fRES(implicitConvNumericId));
@@ -443,7 +443,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericIdList The collection of implicitConvNumericId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericIdList The collection of implicitConvNumericId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_InScope(Collection<String> implicitConvNumericIdList) {
         doSetImplicitConvNumericId_InScope(implicitConvNumericIdList);
@@ -456,7 +456,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericIdList The collection of implicitConvNumericId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericIdList The collection of implicitConvNumericId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvNumericId_NotInScope(Collection<String> implicitConvNumericIdList) {
         doSetImplicitConvNumericId_NotInScope(implicitConvNumericIdList);
@@ -470,7 +470,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * <pre>e.g. setImplicitConvNumericId_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param implicitConvNumericId The value of implicitConvNumericId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvNumericId_LikeSearch(String implicitConvNumericId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -481,7 +481,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC} <br>
      * <pre>e.g. setImplicitConvNumericId_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param implicitConvNumericId The value of implicitConvNumericId as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvNumericId_LikeSearch(String implicitConvNumericId, LikeSearchOption likeSearchOption) {
@@ -492,7 +492,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvNumericId_NotLikeSearch(String implicitConvNumericId, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -503,7 +503,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, VARCHAR(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
-     * @param implicitConvNumericId The value of implicitConvNumericId as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNumericId The value of implicitConvNumericId as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvNumericId_NotLikeSearch(String implicitConvNumericId, LikeSearchOption likeSearchOption) {
@@ -516,7 +516,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_Equal(String implicitConvName) {
         doSetImplicitConvName_Equal(fRES(implicitConvName));
@@ -529,7 +529,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_NotEqual(String implicitConvName) {
         doSetImplicitConvName_NotEqual(fRES(implicitConvName));
@@ -542,7 +542,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvNameList The collection of implicitConvName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNameList The collection of implicitConvName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_InScope(Collection<String> implicitConvNameList) {
         doSetImplicitConvName_InScope(implicitConvNameList);
@@ -555,7 +555,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvNameList The collection of implicitConvName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvNameList The collection of implicitConvName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setImplicitConvName_NotInScope(Collection<String> implicitConvNameList) {
         doSetImplicitConvName_NotInScope(implicitConvNameList);
@@ -569,7 +569,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setImplicitConvName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param implicitConvName The value of implicitConvName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -580,7 +580,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setImplicitConvName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param implicitConvName The value of implicitConvName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setImplicitConvName_LikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {
@@ -591,7 +591,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -602,7 +602,7 @@ public abstract class AbstractBsWhiteImplicitConvStringCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
-     * @param implicitConvName The value of implicitConvName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param implicitConvName The value of implicitConvName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setImplicitConvName_NotLikeSearch(String implicitConvName, LikeSearchOption likeSearchOption) {

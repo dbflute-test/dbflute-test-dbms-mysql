@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCode The value of clsCategoryCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryCode_Equal(String clsCategoryCode) {
         doSetClsCategoryCode_Equal(fRES(clsCategoryCode));
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCode The value of clsCategoryCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryCode_NotEqual(String clsCategoryCode) {
         doSetClsCategoryCode_NotEqual(fRES(clsCategoryCode));
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCodeList The collection of clsCategoryCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCodeList The collection of clsCategoryCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryCode_InScope(Collection<String> clsCategoryCodeList) {
         doSetClsCategoryCode_InScope(clsCategoryCodeList);
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCodeList The collection of clsCategoryCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCodeList The collection of clsCategoryCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryCode_NotInScope(Collection<String> clsCategoryCodeList) {
         doSetClsCategoryCode_NotInScope(clsCategoryCodeList);
@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setClsCategoryCode_LikeSearch(String clsCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -125,7 +125,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setClsCategoryCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsCategoryCode_LikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
-     * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryCode The value of clsCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsCategoryCode_NotLikeSearch(String clsCategoryCode, LikeSearchOption likeSearchOption) {
@@ -245,7 +245,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryName The value of clsCategoryName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryName_Equal(String clsCategoryName) {
         doSetClsCategoryName_Equal(fRES(clsCategoryName));
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryName The value of clsCategoryName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryName_NotEqual(String clsCategoryName) {
         doSetClsCategoryName_NotEqual(fRES(clsCategoryName));
@@ -271,7 +271,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryNameList The collection of clsCategoryName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryNameList The collection of clsCategoryName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryName_InScope(Collection<String> clsCategoryNameList) {
         doSetClsCategoryName_InScope(clsCategoryNameList);
@@ -284,7 +284,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryNameList The collection of clsCategoryName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryNameList The collection of clsCategoryName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClsCategoryName_NotInScope(Collection<String> clsCategoryNameList) {
         doSetClsCategoryName_NotInScope(clsCategoryNameList);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br>
      * <pre>e.g. setClsCategoryName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param clsCategoryName The value of clsCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setClsCategoryName_LikeSearch(String clsCategoryName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} <br>
      * <pre>e.g. setClsCategoryName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param clsCategoryName The value of clsCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setClsCategoryName_LikeSearch(String clsCategoryName, LikeSearchOption likeSearchOption) {
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryName The value of clsCategoryName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setClsCategoryName_NotLikeSearch(String clsCategoryName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
-     * @param clsCategoryName The value of clsCategoryName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param clsCategoryName The value of clsCategoryName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setClsCategoryName_NotLikeSearch(String clsCategoryName, LikeSearchOption likeSearchOption) {
@@ -344,7 +344,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param description The value of description as equal. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDescription_Equal(String description) {
         doSetDescription_Equal(fRES(description));
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param description The value of description as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDescription_NotEqual(String description) {
         doSetDescription_NotEqual(fRES(description));
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param descriptionList The collection of description as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param descriptionList The collection of description as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDescription_InScope(Collection<String> descriptionList) {
         doSetDescription_InScope(descriptionList);
@@ -383,7 +383,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param descriptionList The collection of description as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param descriptionList The collection of description as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDescription_NotInScope(Collection<String> descriptionList) {
         doSetDescription_NotInScope(descriptionList);
@@ -397,7 +397,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setDescription_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDescription_LikeSearch(String description, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setDescription_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param description The value of description as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
@@ -419,7 +419,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param description The value of description as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDescription_NotLikeSearch(String description, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -430,7 +430,7 @@ public abstract class AbstractBsWhiteAllInOneClsCategoryCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
-     * @param description The value of description as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param description The value of description as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {

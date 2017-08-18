@@ -93,9 +93,9 @@ public class WhiteMyselfCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMyselfCheckId = cci("MYSELF_CHECK_ID", "MYSELF_CHECK_ID", null, null, Integer.class, "myselfCheckId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMyselfCheckName = cci("MYSELF_CHECK_NAME", "MYSELF_CHECK_NAME", null, null, String.class, "myselfCheckName", null, false, false, true, "VARCHAR", 80, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMyselfId = cci("MYSELF_ID", "MYSELF_ID", null, null, Integer.class, "myselfId", null, false, false, false, "INT", 10, 0, null, false, null, null, "whiteMyself", null, null, false);
+    protected final ColumnInfo _columnMyselfCheckId = cci("MYSELF_CHECK_ID", "MYSELF_CHECK_ID", null, null, Integer.class, "myselfCheckId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMyselfCheckName = cci("MYSELF_CHECK_NAME", "MYSELF_CHECK_NAME", null, null, String.class, "myselfCheckName", null, false, false, true, "VARCHAR", 80, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMyselfId = cci("MYSELF_ID", "MYSELF_ID", null, null, Integer.class, "myselfId", null, false, false, false, "INT", 10, 0, null, null, false, null, null, "whiteMyself", null, null, false);
 
     /**
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setBaseId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBaseId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
-     * @param baseIdList The collection of baseId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param baseIdList The collection of baseId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBaseId_InScope(Collection<Long> baseIdList) {
         doSetBaseId_InScope(baseIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
-     * @param baseIdList The collection of baseId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param baseIdList The collection of baseId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBaseId_NotInScope(Collection<Long> baseIdList) {
         doSetBaseId_NotInScope(baseIdList);
@@ -301,8 +301,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -314,8 +314,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
-     * @param firstIdList The collection of firstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_InScope(Collection<Integer> firstIdList) {
         doSetFirstId_InScope(firstIdList);
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
-     * @param firstIdList The collection of firstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_NotInScope(Collection<Integer> firstIdList) {
         doSetFirstId_NotInScope(firstIdList);
@@ -405,8 +405,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
-     * @param minNumber The min number of nextId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -418,8 +418,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
-     * @param minNumber The min number of nextId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -429,7 +429,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
-     * @param nextIdList The collection of nextId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextIdList The collection of nextId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextId_InScope(Collection<Long> nextIdList) {
         doSetNextId_InScope(nextIdList);
@@ -442,7 +442,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
-     * @param nextIdList The collection of nextId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextIdList The collection of nextId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextId_NotInScope(Collection<Long> nextIdList) {
         doSetNextId_NotInScope(nextIdList);
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitName The value of splitName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSplitName_Equal(String splitName) {
         doSetSplitName_Equal(fRES(splitName));
@@ -471,7 +471,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitName The value of splitName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSplitName_NotEqual(String splitName) {
         doSetSplitName_NotEqual(fRES(splitName));
@@ -484,7 +484,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitNameList The collection of splitName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param splitNameList The collection of splitName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSplitName_InScope(Collection<String> splitNameList) {
         doSetSplitName_InScope(splitNameList);
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitNameList The collection of splitName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param splitNameList The collection of splitName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSplitName_NotInScope(Collection<String> splitNameList) {
         doSetSplitName_NotInScope(splitNameList);
@@ -511,7 +511,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSplitName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param splitName The value of splitName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSplitName_LikeSearch(String splitName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -522,7 +522,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setSplitName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param splitName The value of splitName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSplitName_LikeSearch(String splitName, LikeSearchOption likeSearchOption) {
@@ -533,7 +533,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitName The value of splitName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSplitName_NotLikeSearch(String splitName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -544,7 +544,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
-     * @param splitName The value of splitName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param splitName The value of splitName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSplitName_NotLikeSearch(String splitName, LikeSearchOption likeSearchOption) {

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param minNumber The min number of purchaseReferrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseReferrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseReferrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseReferrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPurchaseReferrerId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param minNumber The min number of purchaseReferrerId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of purchaseReferrerId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of purchaseReferrerId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of purchaseReferrerId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPurchaseReferrerId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerIdList The collection of purchaseReferrerId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerIdList The collection of purchaseReferrerId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_InScope(Collection<Long> purchaseReferrerIdList) {
         doSetPurchaseReferrerId_InScope(purchaseReferrerIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
-     * @param purchaseReferrerIdList The collection of purchaseReferrerId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerIdList The collection of purchaseReferrerId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerId_NotInScope(Collection<Long> purchaseReferrerIdList) {
         doSetPurchaseReferrerId_NotInScope(purchaseReferrerIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerName The value of purchaseReferrerName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerName_Equal(String purchaseReferrerName) {
         doSetPurchaseReferrerName_Equal(fRES(purchaseReferrerName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerName The value of purchaseReferrerName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerName_NotEqual(String purchaseReferrerName) {
         doSetPurchaseReferrerName_NotEqual(fRES(purchaseReferrerName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerNameList The collection of purchaseReferrerName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerNameList The collection of purchaseReferrerName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerName_InScope(Collection<String> purchaseReferrerNameList) {
         doSetPurchaseReferrerName_InScope(purchaseReferrerNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerNameList The collection of purchaseReferrerName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerNameList The collection of purchaseReferrerName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchaseReferrerName_NotInScope(Collection<String> purchaseReferrerNameList) {
         doSetPurchaseReferrerName_NotInScope(purchaseReferrerNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPurchaseReferrerName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseReferrerName_LikeSearch(String purchaseReferrerName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setPurchaseReferrerName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPurchaseReferrerName_LikeSearch(String purchaseReferrerName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPurchaseReferrerName_NotLikeSearch(String purchaseReferrerName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
-     * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param purchaseReferrerName The value of purchaseReferrerName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPurchaseReferrerName_NotLikeSearch(String purchaseReferrerName, LikeSearchOption likeSearchOption) {

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of loadDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of loadDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of loadDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of loadDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setLoadDataId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of loadDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of loadDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of loadDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of loadDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLoadDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataIdList The collection of loadDataId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataIdList The collection of loadDataId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataId_InScope(Collection<Long> loadDataIdList) {
         doSetLoadDataId_InScope(loadDataIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param loadDataIdList The collection of loadDataId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataIdList The collection of loadDataId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataId_NotInScope(Collection<Long> loadDataIdList) {
         doSetLoadDataId_NotInScope(loadDataIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataName The value of loadDataName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataName_Equal(String loadDataName) {
         doSetLoadDataName_Equal(fRES(loadDataName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataName The value of loadDataName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataName_NotEqual(String loadDataName) {
         doSetLoadDataName_NotEqual(fRES(loadDataName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataNameList The collection of loadDataName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataNameList The collection of loadDataName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataName_InScope(Collection<String> loadDataNameList) {
         doSetLoadDataName_InScope(loadDataNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataNameList The collection of loadDataName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataNameList The collection of loadDataName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLoadDataName_NotInScope(Collection<String> loadDataNameList) {
         doSetLoadDataName_NotInScope(loadDataNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setLoadDataName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param loadDataName The value of loadDataName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLoadDataName_LikeSearch(String loadDataName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setLoadDataName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param loadDataName The value of loadDataName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLoadDataName_LikeSearch(String loadDataName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataName The value of loadDataName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLoadDataName_NotLikeSearch(String loadDataName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteLoadDataCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
-     * @param loadDataName The value of loadDataName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param loadDataName The value of loadDataName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLoadDataName_NotLikeSearch(String loadDataName, LikeSearchOption likeSearchOption) {

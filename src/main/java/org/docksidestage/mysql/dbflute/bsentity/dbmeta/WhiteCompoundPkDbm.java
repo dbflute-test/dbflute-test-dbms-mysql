@@ -97,10 +97,10 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPkFirstId = cci("PK_FIRST_ID", "PK_FIRST_ID", null, null, Integer.class, "pkFirstId", null, true, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
-    protected final ColumnInfo _columnPkSecondId = cci("PK_SECOND_ID", "PK_SECOND_ID", null, null, Integer.class, "pkSecondId", null, true, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundReferredPrimary,whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
-    protected final ColumnInfo _columnPkName = cci("PK_NAME", "PK_NAME", null, null, String.class, "pkName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundReferredNormally", null, null, false);
+    protected final ColumnInfo _columnPkFirstId = cci("PK_FIRST_ID", "PK_FIRST_ID", null, null, Integer.class, "pkFirstId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
+    protected final ColumnInfo _columnPkSecondId = cci("PK_SECOND_ID", "PK_SECOND_ID", null, null, Integer.class, "pkSecondId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundReferredPrimary,whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
+    protected final ColumnInfo _columnPkName = cci("PK_NAME", "PK_NAME", null, null, String.class, "pkName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundReferredNormally", null, null, false);
 
     /**
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}

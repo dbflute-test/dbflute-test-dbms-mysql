@@ -112,8 +112,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoRefId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefIdList The collection of constraintNameAutoRefId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoRefIdList The collection of constraintNameAutoRefId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_InScope(Collection<Long> constraintNameAutoRefIdList) {
         doSetConstraintNameAutoRefId_InScope(constraintNameAutoRefIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefIdList The collection of constraintNameAutoRefId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoRefIdList The collection of constraintNameAutoRefId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoRefId_NotInScope(Collection<Long> constraintNameAutoRefIdList) {
         doSetConstraintNameAutoRefId_NotInScope(constraintNameAutoRefIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param minNumber The min number of constraintNameAutoFooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoFooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoFooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoFooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoFooId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param minNumber The min number of constraintNameAutoFooId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoFooId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoFooId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoFooId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoFooId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooIdList The collection of constraintNameAutoFooId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoFooIdList The collection of constraintNameAutoFooId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_InScope(Collection<Long> constraintNameAutoFooIdList) {
         doSetConstraintNameAutoFooId_InScope(constraintNameAutoFooIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooIdList The collection of constraintNameAutoFooId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoFooIdList The collection of constraintNameAutoFooId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoFooId_NotInScope(Collection<Long> constraintNameAutoFooIdList) {
         doSetConstraintNameAutoFooId_NotInScope(constraintNameAutoFooIdList);
@@ -332,8 +332,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param minNumber The min number of constraintNameAutoBarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoBarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoBarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoBarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoBarId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -345,8 +345,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param minNumber The min number of constraintNameAutoBarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoBarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoBarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoBarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoBarId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -356,7 +356,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarIdList The collection of constraintNameAutoBarId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoBarIdList The collection of constraintNameAutoBarId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_InScope(Collection<Long> constraintNameAutoBarIdList) {
         doSetConstraintNameAutoBarId_InScope(constraintNameAutoBarIdList);
@@ -369,7 +369,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarIdList The collection of constraintNameAutoBarId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoBarIdList The collection of constraintNameAutoBarId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoBarId_NotInScope(Collection<Long> constraintNameAutoBarIdList) {
         doSetConstraintNameAutoBarId_NotInScope(constraintNameAutoBarIdList);
@@ -436,8 +436,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param minNumber The min number of constraintNameAutoQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoQuxId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -449,8 +449,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param minNumber The min number of constraintNameAutoQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoQuxId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -460,7 +460,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_InScope(Collection<Long> constraintNameAutoQuxIdList) {
         doSetConstraintNameAutoQuxId_InScope(constraintNameAutoQuxIdList);
@@ -473,7 +473,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoQuxIdList The collection of constraintNameAutoQuxId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoQuxId_NotInScope(Collection<Long> constraintNameAutoQuxIdList) {
         doSetConstraintNameAutoQuxId_NotInScope(constraintNameAutoQuxIdList);
@@ -540,8 +540,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoCorgeId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoCorgeId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setConstraintNameAutoCorgeId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -553,8 +553,8 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param minNumber The min number of constraintNameAutoCorgeId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of constraintNameAutoCorgeId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of constraintNameAutoCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of constraintNameAutoCorgeId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setConstraintNameAutoCorgeId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -564,7 +564,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeIdList The collection of constraintNameAutoCorgeId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoCorgeIdList The collection of constraintNameAutoCorgeId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_InScope(Collection<Long> constraintNameAutoCorgeIdList) {
         doSetConstraintNameAutoCorgeId_InScope(constraintNameAutoCorgeIdList);
@@ -577,7 +577,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeIdList The collection of constraintNameAutoCorgeId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoCorgeIdList The collection of constraintNameAutoCorgeId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoCorgeId_NotInScope(Collection<Long> constraintNameAutoCorgeIdList) {
         doSetConstraintNameAutoCorgeId_NotInScope(constraintNameAutoCorgeIdList);
@@ -593,7 +593,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as equal. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoUnique_Equal(String constraintNameAutoUnique) {
         doSetConstraintNameAutoUnique_Equal(fRES(constraintNameAutoUnique));
@@ -606,7 +606,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoUnique_NotEqual(String constraintNameAutoUnique) {
         doSetConstraintNameAutoUnique_NotEqual(fRES(constraintNameAutoUnique));
@@ -619,7 +619,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUniqueList The collection of constraintNameAutoUnique as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUniqueList The collection of constraintNameAutoUnique as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoUnique_InScope(Collection<String> constraintNameAutoUniqueList) {
         doSetConstraintNameAutoUnique_InScope(constraintNameAutoUniqueList);
@@ -632,7 +632,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUniqueList The collection of constraintNameAutoUnique as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUniqueList The collection of constraintNameAutoUnique as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setConstraintNameAutoUnique_NotInScope(Collection<String> constraintNameAutoUniqueList) {
         doSetConstraintNameAutoUnique_NotInScope(constraintNameAutoUniqueList);
@@ -646,7 +646,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setConstraintNameAutoUnique_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setConstraintNameAutoUnique_LikeSearch(String constraintNameAutoUnique, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -657,7 +657,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setConstraintNameAutoUnique_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setConstraintNameAutoUnique_LikeSearch(String constraintNameAutoUnique, LikeSearchOption likeSearchOption) {
@@ -668,7 +668,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setConstraintNameAutoUnique_NotLikeSearch(String constraintNameAutoUnique, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -679,7 +679,7 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
-     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param constraintNameAutoUnique The value of constraintNameAutoUnique as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setConstraintNameAutoUnique_NotLikeSearch(String constraintNameAutoUnique, LikeSearchOption likeSearchOption) {

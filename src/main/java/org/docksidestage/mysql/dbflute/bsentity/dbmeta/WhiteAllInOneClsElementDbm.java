@@ -94,10 +94,10 @@ public class WhiteAllInOneClsElementDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnClsCategoryCode = cci("CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", null, null, String.class, "clsCategoryCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, "whiteAllInOneClsCategory", null, null, false);
-    protected final ColumnInfo _columnClsElementCode = cci("CLS_ELEMENT_CODE", "CLS_ELEMENT_CODE", null, null, String.class, "clsElementCode", null, true, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnClsElementName = cci("CLS_ELEMENT_NAME", "CLS_ELEMENT_NAME", null, null, String.class, "clsElementName", null, false, false, true, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnAttributeExp = cci("ATTRIBUTE_EXP", "ATTRIBUTE_EXP", null, null, String.class, "attributeExp", null, false, false, true, "TEXT", 65535, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnClsCategoryCode = cci("CLS_CATEGORY_CODE", "CLS_CATEGORY_CODE", null, null, String.class, "clsCategoryCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, "whiteAllInOneClsCategory", null, null, false);
+    protected final ColumnInfo _columnClsElementCode = cci("CLS_ELEMENT_CODE", "CLS_ELEMENT_CODE", null, null, String.class, "clsElementCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnClsElementName = cci("CLS_ELEMENT_NAME", "CLS_ELEMENT_NAME", null, null, String.class, "clsElementName", null, false, false, true, "VARCHAR", 20, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnAttributeExp = cci("ATTRIBUTE_EXP", "ATTRIBUTE_EXP", null, null, String.class, "attributeExp", null, false, false, true, "TEXT", 65535, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMasterQuxId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterQuxId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterQuxId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterQuxId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterQuxId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxIdList The collection of masterQuxId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxIdList The collection of masterQuxId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxId_InScope(Collection<Long> masterQuxIdList) {
         doSetMasterQuxId_InScope(masterQuxIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxIdList The collection of masterQuxId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxIdList The collection of masterQuxId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxId_NotInScope(Collection<Long> masterQuxIdList) {
         doSetMasterQuxId_NotInScope(masterQuxIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxName The value of masterQuxName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxName_Equal(String masterQuxName) {
         doSetMasterQuxName_Equal(fRES(masterQuxName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxName The value of masterQuxName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxName_NotEqual(String masterQuxName) {
         doSetMasterQuxName_NotEqual(fRES(masterQuxName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxNameList The collection of masterQuxName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxNameList The collection of masterQuxName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxName_InScope(Collection<String> masterQuxNameList) {
         doSetMasterQuxName_InScope(masterQuxNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxNameList The collection of masterQuxName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxNameList The collection of masterQuxName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterQuxName_NotInScope(Collection<String> masterQuxNameList) {
         doSetMasterQuxName_NotInScope(masterQuxNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterQuxName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param masterQuxName The value of masterQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterQuxName_LikeSearch(String masterQuxName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterQuxName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param masterQuxName The value of masterQuxName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterQuxName_LikeSearch(String masterQuxName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxName The value of masterQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterQuxName_NotLikeSearch(String masterQuxName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
-     * @param masterQuxName The value of masterQuxName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterQuxName The value of masterQuxName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterQuxName_NotLikeSearch(String masterQuxName, LikeSearchOption likeSearchOption) {
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param quxTypeCode The value of quxTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param quxTypeCode The value of quxTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setQuxTypeCode_Equal(String quxTypeCode) {
         doSetQuxTypeCode_Equal(fRES(quxTypeCode));
@@ -323,7 +323,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param quxTypeCode The value of quxTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param quxTypeCode The value of quxTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setQuxTypeCode_NotEqual(String quxTypeCode) {
         doSetQuxTypeCode_NotEqual(fRES(quxTypeCode));
@@ -370,7 +370,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param quxTypeCodeList The collection of quxTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param quxTypeCodeList The collection of quxTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setQuxTypeCode_InScope(Collection<String> quxTypeCodeList) {
         doSetQuxTypeCode_InScope(quxTypeCodeList);
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * InScope {in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQuxTypeCode_InScope_AsVariantRelationQuxType(Collection<CDef.VariantRelationQuxType> cdefList) {
         doSetQuxTypeCode_InScope(cTStrL(cdefList));
@@ -393,7 +393,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
-     * @param quxTypeCodeList The collection of quxTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param quxTypeCodeList The collection of quxTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setQuxTypeCode_NotInScope(Collection<String> quxTypeCodeList) {
         doSetQuxTypeCode_NotInScope(quxTypeCodeList);
@@ -403,7 +403,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
      * NotInScope {not in ('a', 'b')}. As VariantRelationQuxType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType} <br>
      * qux type of variant relation (biz-many-to-one)
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQuxTypeCode_NotInScope_AsVariantRelationQuxType(Collection<CDef.VariantRelationQuxType> cdefList) {
         doSetQuxTypeCode_NotInScope(cTStrL(cdefList));

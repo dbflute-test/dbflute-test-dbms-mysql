@@ -97,13 +97,13 @@ public class WhiteCompoundPkRefManyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRefManyFirstId = cci("REF_MANY_FIRST_ID", "REF_MANY_FIRST_ID", null, null, Integer.class, "refManyFirstId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkToPK", null, null, false);
-    protected final ColumnInfo _columnRefManySecondId = cci("REF_MANY_SECOND_ID", "REF_MANY_SECOND_ID", null, null, Integer.class, "refManySecondId", null, false, false, true, "INT", 10, 0, null, false, null, null, "whiteCompoundPkToPK", null, null, false);
-    protected final ColumnInfo _columnRefManyCode = cci("REF_MANY_CODE", "REF_MANY_CODE", null, null, String.class, "refManyCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRefManyName = cci("REF_MANY_NAME", "REF_MANY_NAME", null, null, String.class, "refManyName", null, false, false, true, "VARCHAR", 50, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRefManyDatetime = cci("REF_MANY_DATETIME", "REF_MANY_DATETIME", null, null, java.time.LocalDateTime.class, "refManyDatetime", null, false, false, true, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMultipleFirstId = cci("MULTIPLE_FIRST_ID", "MULTIPLE_FIRST_ID", null, null, Integer.class, "multipleFirstId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMultipleSecondId = cci("MULTIPLE_SECOND_ID", "MULTIPLE_SECOND_ID", null, null, Integer.class, "multipleSecondId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRefManyFirstId = cci("REF_MANY_FIRST_ID", "REF_MANY_FIRST_ID", null, null, Integer.class, "refManyFirstId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkToPK", null, null, false);
+    protected final ColumnInfo _columnRefManySecondId = cci("REF_MANY_SECOND_ID", "REF_MANY_SECOND_ID", null, null, Integer.class, "refManySecondId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkToPK", null, null, false);
+    protected final ColumnInfo _columnRefManyCode = cci("REF_MANY_CODE", "REF_MANY_CODE", null, null, String.class, "refManyCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRefManyName = cci("REF_MANY_NAME", "REF_MANY_NAME", null, null, String.class, "refManyName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRefManyDatetime = cci("REF_MANY_DATETIME", "REF_MANY_DATETIME", null, null, java.time.LocalDateTime.class, "refManyDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}

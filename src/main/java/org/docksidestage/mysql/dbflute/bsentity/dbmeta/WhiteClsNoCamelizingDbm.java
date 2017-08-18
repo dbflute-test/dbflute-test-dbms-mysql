@@ -87,8 +87,8 @@ public class WhiteClsNoCamelizingDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNoCamelizingCode = cci("NO_CAMELIZING_CODE", "NO_CAMELIZING_CODE", null, null, String.class, "noCamelizingCode", null, true, false, true, "VARCHAR", 10, 0, null, false, null, null, null, null, CDef.DefMeta.NamingDefaultCamelizingType, false);
-    protected final ColumnInfo _columnNoCamelizingName = cci("NO_CAMELIZING_NAME", "NO_CAMELIZING_NAME", null, null, String.class, "noCamelizingName", null, false, false, false, "VARCHAR", 20, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNoCamelizingCode = cci("NO_CAMELIZING_CODE", "NO_CAMELIZING_CODE", null, null, String.class, "noCamelizingCode", null, true, false, true, "VARCHAR", 10, 0, null, null, false, null, null, null, null, CDef.DefMeta.NamingDefaultCamelizingType, false);
+    protected final ColumnInfo _columnNoCamelizingName = cci("NO_CAMELIZING_NAME", "NO_CAMELIZING_NAME", null, null, String.class, "noCamelizingName", null, false, false, false, "VARCHAR", 20, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}

@@ -93,9 +93,9 @@ public class WhiteOnlyOneToOneToDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnToId = cci("TO_ID", "TO_ID", null, null, Long.class, "toId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnToName = cci("TO_NAME", "TO_NAME", null, null, String.class, "toName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFromId = cci("FROM_ID", "FROM_ID", null, null, Long.class, "fromId", null, false, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteOnlyOneToOneFrom", null, null, false);
+    protected final ColumnInfo _columnToId = cci("TO_ID", "TO_ID", null, null, Long.class, "toId", null, true, true, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnToName = cci("TO_NAME", "TO_NAME", null, null, String.class, "toName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFromId = cci("FROM_ID", "FROM_ID", null, null, Long.class, "fromId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteOnlyOneToOneFrom", null, null, false);
 
     /**
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}

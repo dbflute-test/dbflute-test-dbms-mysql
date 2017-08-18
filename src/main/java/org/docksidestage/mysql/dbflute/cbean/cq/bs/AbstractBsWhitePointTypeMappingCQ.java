@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of pointTypeMappingId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pointTypeMappingId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pointTypeMappingId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pointTypeMappingId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPointTypeMappingId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of pointTypeMappingId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of pointTypeMappingId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of pointTypeMappingId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of pointTypeMappingId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPointTypeMappingId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingIdList The collection of pointTypeMappingId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param pointTypeMappingIdList The collection of pointTypeMappingId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_InScope(Collection<Long> pointTypeMappingIdList) {
         doSetPointTypeMappingId_InScope(pointTypeMappingIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingIdList The collection of pointTypeMappingId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param pointTypeMappingIdList The collection of pointTypeMappingId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPointTypeMappingId_NotInScope(Collection<Long> pointTypeMappingIdList) {
         doSetPointTypeMappingId_NotInScope(pointTypeMappingIdList);

@@ -79,8 +79,8 @@ public class WhiteSuppressJoinSqOneAddiDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteSuppressJoinSqOneList", null, false);
-    protected final ColumnInfo _columnOneAddiName = cci("ONE_ADDI_NAME", "ONE_ADDI_NAME", null, null, String.class, "oneAddiName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOneAddiId = cci("ONE_ADDI_ID", "ONE_ADDI_ID", null, null, Integer.class, "oneAddiId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteSuppressJoinSqOneList", null, false);
+    protected final ColumnInfo _columnOneAddiName = cci("ONE_ADDI_NAME", "ONE_ADDI_NAME", null, null, String.class, "oneAddiName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * ONE_ADDI_ID: {PK, NotNull, INT(10)}

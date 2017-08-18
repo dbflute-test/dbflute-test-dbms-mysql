@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
-     * @param deprecatedClsElementCode The value of deprecatedClsElementCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementCode The value of deprecatedClsElementCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setDeprecatedClsElementCode_Equal(String deprecatedClsElementCode) {
         doSetDeprecatedClsElementCode_Equal(fRES(deprecatedClsElementCode));
@@ -110,7 +110,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
-     * @param deprecatedClsElementCode The value of deprecatedClsElementCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementCode The value of deprecatedClsElementCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setDeprecatedClsElementCode_NotEqual(String deprecatedClsElementCode) {
         doSetDeprecatedClsElementCode_NotEqual(fRES(deprecatedClsElementCode));
@@ -159,7 +159,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
-     * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setDeprecatedClsElementCode_InScope(Collection<String> deprecatedClsElementCodeList) {
         doSetDeprecatedClsElementCode_InScope(deprecatedClsElementCodeList);
@@ -169,7 +169,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * InScope {in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementCode_InScope_AsDeprecatedMapCollaborationType(Collection<CDef.DeprecatedMapCollaborationType> cdefList) {
         doSetDeprecatedClsElementCode_InScope(cTStrL(cdefList));
@@ -192,7 +192,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
-     * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementCodeList The collection of deprecatedClsElementCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setDeprecatedClsElementCode_NotInScope(Collection<String> deprecatedClsElementCodeList) {
         doSetDeprecatedClsElementCode_NotInScope(deprecatedClsElementCodeList);
@@ -202,7 +202,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * NotInScope {not in ('a', 'b')}. As DeprecatedMapCollaborationType. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType} <br>
      * has deprecated element
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementCode_NotInScope_AsDeprecatedMapCollaborationType(Collection<CDef.DeprecatedMapCollaborationType> cdefList) {
         doSetDeprecatedClsElementCode_NotInScope(cTStrL(cdefList));
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementName_Equal(String deprecatedClsElementName) {
         doSetDeprecatedClsElementName_Equal(fRES(deprecatedClsElementName));
@@ -243,7 +243,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementName_NotEqual(String deprecatedClsElementName) {
         doSetDeprecatedClsElementName_NotEqual(fRES(deprecatedClsElementName));
@@ -256,7 +256,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementName_InScope(Collection<String> deprecatedClsElementNameList) {
         doSetDeprecatedClsElementName_InScope(deprecatedClsElementNameList);
@@ -269,7 +269,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementNameList The collection of deprecatedClsElementName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDeprecatedClsElementName_NotInScope(Collection<String> deprecatedClsElementNameList) {
         doSetDeprecatedClsElementName_NotInScope(deprecatedClsElementNameList);
@@ -283,7 +283,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDeprecatedClsElementName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_LikeSearch(String deprecatedClsElementName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setDeprecatedClsElementName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_LikeSearch(String deprecatedClsElementName, LikeSearchOption likeSearchOption) {
@@ -305,7 +305,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_NotLikeSearch(String deprecatedClsElementName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhiteDeprecatedClsElementCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
-     * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param deprecatedClsElementName The value of deprecatedClsElementName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDeprecatedClsElementName_NotLikeSearch(String deprecatedClsElementName, LikeSearchOption likeSearchOption) {

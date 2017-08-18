@@ -82,11 +82,11 @@ public class WhiteIncludeQueryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIncludeQueryId = cci("INCLUDE_QUERY_ID", "INCLUDE_QUERY_ID", null, null, Long.class, "includeQueryId", null, true, true, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnIncludeQueryVarchar = cci("INCLUDE_QUERY_VARCHAR", "INCLUDE_QUERY_VARCHAR", null, null, String.class, "includeQueryVarchar", null, false, false, false, "VARCHAR", 100, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnIncludeQueryInteger = cci("INCLUDE_QUERY_INTEGER", "INCLUDE_QUERY_INTEGER", null, null, Integer.class, "includeQueryInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnIncludeQueryDate = cci("INCLUDE_QUERY_DATE", "INCLUDE_QUERY_DATE", null, null, java.time.LocalDate.class, "includeQueryDate", null, false, false, false, "DATE", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnIncludeQueryDatetime = cci("INCLUDE_QUERY_DATETIME", "INCLUDE_QUERY_DATETIME", null, null, java.time.LocalDateTime.class, "includeQueryDatetime", null, false, false, false, "DATETIME", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIncludeQueryId = cci("INCLUDE_QUERY_ID", "INCLUDE_QUERY_ID", null, null, Long.class, "includeQueryId", null, true, true, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIncludeQueryVarchar = cci("INCLUDE_QUERY_VARCHAR", "INCLUDE_QUERY_VARCHAR", null, null, String.class, "includeQueryVarchar", null, false, false, false, "VARCHAR", 100, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIncludeQueryInteger = cci("INCLUDE_QUERY_INTEGER", "INCLUDE_QUERY_INTEGER", null, null, Integer.class, "includeQueryInteger", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIncludeQueryDate = cci("INCLUDE_QUERY_DATE", "INCLUDE_QUERY_DATE", null, null, java.time.LocalDate.class, "includeQueryDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIncludeQueryDatetime = cci("INCLUDE_QUERY_DATETIME", "INCLUDE_QUERY_DATETIME", null, null, java.time.LocalDateTime.class, "includeQueryDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}

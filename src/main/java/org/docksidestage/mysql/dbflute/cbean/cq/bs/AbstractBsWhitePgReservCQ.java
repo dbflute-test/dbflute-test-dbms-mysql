@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
-     * @param classSynonymList The collection of classSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param classSynonymList The collection of classSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClassSynonym_InScope(Collection<Integer> classSynonymList) {
         doSetClassSynonym_InScope(classSynonymList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
-     * @param classSynonymList The collection of classSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param classSynonymList The collection of classSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClassSynonym_NotInScope(Collection<Integer> classSynonymList) {
         doSetClassSynonym_NotInScope(classSynonymList);
@@ -301,8 +301,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
-     * @param minNumber The min number of caseSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of caseSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of caseSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of caseSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setCaseSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -314,8 +314,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
-     * @param minNumber The min number of caseSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of caseSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of caseSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of caseSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCaseSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
-     * @param caseSynonymList The collection of caseSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param caseSynonymList The collection of caseSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCaseSynonym_InScope(Collection<Integer> caseSynonymList) {
         doSetCaseSynonym_InScope(caseSynonymList);
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
-     * @param caseSynonymList The collection of caseSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param caseSynonymList The collection of caseSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCaseSynonym_NotInScope(Collection<Integer> caseSynonymList) {
         doSetCaseSynonym_NotInScope(caseSynonymList);
@@ -417,8 +417,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
-     * @param minNumber The min number of packageSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of packageSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of packageSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of packageSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPackageSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -430,8 +430,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
-     * @param minNumber The min number of packageSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of packageSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of packageSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of packageSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPackageSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -441,7 +441,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
-     * @param packageSynonymList The collection of packageSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param packageSynonymList The collection of packageSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPackageSynonym_InScope(Collection<Integer> packageSynonymList) {
         doSetPackageSynonym_InScope(packageSynonymList);
@@ -454,7 +454,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PACKAGE: {INT(10)}
-     * @param packageSynonymList The collection of packageSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param packageSynonymList The collection of packageSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPackageSynonym_NotInScope(Collection<Integer> packageSynonymList) {
         doSetPackageSynonym_NotInScope(packageSynonymList);
@@ -533,8 +533,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
-     * @param minNumber The min number of defaultSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of defaultSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of defaultSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of defaultSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setDefaultSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -546,8 +546,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
-     * @param minNumber The min number of defaultSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of defaultSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of defaultSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of defaultSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDefaultSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -557,7 +557,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
-     * @param defaultSynonymList The collection of defaultSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param defaultSynonymList The collection of defaultSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefaultSynonym_InScope(Collection<Integer> defaultSynonymList) {
         doSetDefaultSynonym_InScope(defaultSynonymList);
@@ -570,7 +570,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
-     * @param defaultSynonymList The collection of defaultSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param defaultSynonymList The collection of defaultSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefaultSynonym_NotInScope(Collection<Integer> defaultSynonymList) {
         doSetDefaultSynonym_NotInScope(defaultSynonymList);
@@ -649,8 +649,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
-     * @param minNumber The min number of newSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of newSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of newSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of newSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNewSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -662,8 +662,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
-     * @param minNumber The min number of newSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of newSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of newSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of newSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNewSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -673,7 +673,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
-     * @param newSynonymList The collection of newSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param newSynonymList The collection of newSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNewSynonym_InScope(Collection<Integer> newSynonymList) {
         doSetNewSynonym_InScope(newSynonymList);
@@ -686,7 +686,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NEW: {INT(10)}
-     * @param newSynonymList The collection of newSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param newSynonymList The collection of newSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNewSynonym_NotInScope(Collection<Integer> newSynonymList) {
         doSetNewSynonym_NotInScope(newSynonymList);
@@ -765,8 +765,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
-     * @param minNumber The min number of nativeSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nativeSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nativeSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nativeSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNativeSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -778,8 +778,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
-     * @param minNumber The min number of nativeSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nativeSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nativeSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nativeSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNativeSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -789,7 +789,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
-     * @param nativeSynonymList The collection of nativeSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nativeSynonymList The collection of nativeSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNativeSynonym_InScope(Collection<Integer> nativeSynonymList) {
         doSetNativeSynonym_InScope(nativeSynonymList);
@@ -802,7 +802,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
-     * @param nativeSynonymList The collection of nativeSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nativeSynonymList The collection of nativeSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNativeSynonym_NotInScope(Collection<Integer> nativeSynonymList) {
         doSetNativeSynonym_NotInScope(nativeSynonymList);
@@ -881,8 +881,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
-     * @param minNumber The min number of voidSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of voidSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of voidSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of voidSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setVoidSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -894,8 +894,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
-     * @param minNumber The min number of voidSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of voidSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of voidSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of voidSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVoidSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -905,7 +905,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
-     * @param voidSynonymList The collection of voidSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param voidSynonymList The collection of voidSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVoidSynonym_InScope(Collection<Integer> voidSynonymList) {
         doSetVoidSynonym_InScope(voidSynonymList);
@@ -918,7 +918,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))VOID: {INT(10)}
-     * @param voidSynonymList The collection of voidSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param voidSynonymList The collection of voidSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setVoidSynonym_NotInScope(Collection<Integer> voidSynonymList) {
         doSetVoidSynonym_NotInScope(voidSynonymList);
@@ -997,8 +997,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
-     * @param minNumber The min number of publicSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of publicSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of publicSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of publicSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPublicSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1010,8 +1010,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
-     * @param minNumber The min number of publicSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of publicSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of publicSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of publicSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPublicSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1021,7 +1021,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
-     * @param publicSynonymList The collection of publicSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param publicSynonymList The collection of publicSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPublicSynonym_InScope(Collection<Integer> publicSynonymList) {
         doSetPublicSynonym_InScope(publicSynonymList);
@@ -1034,7 +1034,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
-     * @param publicSynonymList The collection of publicSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param publicSynonymList The collection of publicSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPublicSynonym_NotInScope(Collection<Integer> publicSynonymList) {
         doSetPublicSynonym_NotInScope(publicSynonymList);
@@ -1113,8 +1113,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
-     * @param minNumber The min number of protectedSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of protectedSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of protectedSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of protectedSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setProtectedSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1126,8 +1126,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
-     * @param minNumber The min number of protectedSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of protectedSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of protectedSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of protectedSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProtectedSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1137,7 +1137,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
-     * @param protectedSynonymList The collection of protectedSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param protectedSynonymList The collection of protectedSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProtectedSynonym_InScope(Collection<Integer> protectedSynonymList) {
         doSetProtectedSynonym_InScope(protectedSynonymList);
@@ -1150,7 +1150,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PROTECTED: {INT(10)}
-     * @param protectedSynonymList The collection of protectedSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param protectedSynonymList The collection of protectedSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProtectedSynonym_NotInScope(Collection<Integer> protectedSynonymList) {
         doSetProtectedSynonym_NotInScope(protectedSynonymList);
@@ -1229,8 +1229,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
-     * @param minNumber The min number of privateSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of privateSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of privateSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of privateSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPrivateSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1242,8 +1242,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
-     * @param minNumber The min number of privateSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of privateSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of privateSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of privateSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPrivateSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1253,7 +1253,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
-     * @param privateSynonymList The collection of privateSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param privateSynonymList The collection of privateSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrivateSynonym_InScope(Collection<Integer> privateSynonymList) {
         doSetPrivateSynonym_InScope(privateSynonymList);
@@ -1266,7 +1266,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
-     * @param privateSynonymList The collection of privateSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param privateSynonymList The collection of privateSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPrivateSynonym_NotInScope(Collection<Integer> privateSynonymList) {
         doSetPrivateSynonym_NotInScope(privateSynonymList);
@@ -1345,8 +1345,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
-     * @param minNumber The min number of interfaceSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of interfaceSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of interfaceSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of interfaceSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setInterfaceSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1358,8 +1358,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
-     * @param minNumber The min number of interfaceSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of interfaceSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of interfaceSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of interfaceSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setInterfaceSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1369,7 +1369,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
-     * @param interfaceSynonymList The collection of interfaceSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param interfaceSynonymList The collection of interfaceSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInterfaceSynonym_InScope(Collection<Integer> interfaceSynonymList) {
         doSetInterfaceSynonym_InScope(interfaceSynonymList);
@@ -1382,7 +1382,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))INTERFACE: {INT(10)}
-     * @param interfaceSynonymList The collection of interfaceSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param interfaceSynonymList The collection of interfaceSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInterfaceSynonym_NotInScope(Collection<Integer> interfaceSynonymList) {
         doSetInterfaceSynonym_NotInScope(interfaceSynonymList);
@@ -1461,8 +1461,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
-     * @param minNumber The min number of abstractSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of abstractSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of abstractSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of abstractSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAbstractSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1474,8 +1474,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
-     * @param minNumber The min number of abstractSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of abstractSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of abstractSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of abstractSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAbstractSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1485,7 +1485,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
-     * @param abstractSynonymList The collection of abstractSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param abstractSynonymList The collection of abstractSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAbstractSynonym_InScope(Collection<Integer> abstractSynonymList) {
         doSetAbstractSynonym_InScope(abstractSynonymList);
@@ -1498,7 +1498,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
-     * @param abstractSynonymList The collection of abstractSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param abstractSynonymList The collection of abstractSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAbstractSynonym_NotInScope(Collection<Integer> abstractSynonymList) {
         doSetAbstractSynonym_NotInScope(abstractSynonymList);
@@ -1577,8 +1577,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
-     * @param minNumber The min number of finalSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of finalSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of finalSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of finalSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFinalSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1590,8 +1590,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
-     * @param minNumber The min number of finalSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of finalSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of finalSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of finalSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFinalSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1601,7 +1601,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
-     * @param finalSynonymList The collection of finalSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param finalSynonymList The collection of finalSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFinalSynonym_InScope(Collection<Integer> finalSynonymList) {
         doSetFinalSynonym_InScope(finalSynonymList);
@@ -1614,7 +1614,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINAL: {INT(10)}
-     * @param finalSynonymList The collection of finalSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param finalSynonymList The collection of finalSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFinalSynonym_NotInScope(Collection<Integer> finalSynonymList) {
         doSetFinalSynonym_NotInScope(finalSynonymList);
@@ -1693,8 +1693,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
-     * @param minNumber The min number of finallySynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of finallySynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of finallySynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of finallySynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFinallySynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1706,8 +1706,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
-     * @param minNumber The min number of finallySynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of finallySynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of finallySynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of finallySynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFinallySynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1717,7 +1717,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
-     * @param finallySynonymList The collection of finallySynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param finallySynonymList The collection of finallySynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFinallySynonym_InScope(Collection<Integer> finallySynonymList) {
         doSetFinallySynonym_InScope(finallySynonymList);
@@ -1730,7 +1730,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
-     * @param finallySynonymList The collection of finallySynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param finallySynonymList The collection of finallySynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFinallySynonym_NotInScope(Collection<Integer> finallySynonymList) {
         doSetFinallySynonym_NotInScope(finallySynonymList);
@@ -1809,8 +1809,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
-     * @param minNumber The min number of returnSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of returnSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of returnSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of returnSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReturnSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1822,8 +1822,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
-     * @param minNumber The min number of returnSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of returnSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of returnSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of returnSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReturnSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1833,7 +1833,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
-     * @param returnSynonymList The collection of returnSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param returnSynonymList The collection of returnSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReturnSynonym_InScope(Collection<Integer> returnSynonymList) {
         doSetReturnSynonym_InScope(returnSynonymList);
@@ -1846,7 +1846,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))RETURN: {INT(10)}
-     * @param returnSynonymList The collection of returnSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param returnSynonymList The collection of returnSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReturnSynonym_NotInScope(Collection<Integer> returnSynonymList) {
         doSetReturnSynonym_NotInScope(returnSynonymList);
@@ -1925,8 +1925,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
-     * @param minNumber The min number of doubleSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of doubleSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of doubleSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of doubleSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setDoubleSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1938,8 +1938,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
-     * @param minNumber The min number of doubleSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of doubleSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of doubleSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of doubleSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDoubleSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1949,7 +1949,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
-     * @param doubleSynonymList The collection of doubleSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param doubleSynonymList The collection of doubleSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDoubleSynonym_InScope(Collection<Integer> doubleSynonymList) {
         doSetDoubleSynonym_InScope(doubleSynonymList);
@@ -1962,7 +1962,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
-     * @param doubleSynonymList The collection of doubleSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param doubleSynonymList The collection of doubleSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDoubleSynonym_NotInScope(Collection<Integer> doubleSynonymList) {
         doSetDoubleSynonym_NotInScope(doubleSynonymList);
@@ -2041,8 +2041,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
-     * @param minNumber The min number of floatSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of floatSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of floatSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of floatSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFloatSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -2054,8 +2054,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
-     * @param minNumber The min number of floatSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of floatSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of floatSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of floatSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFloatSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -2065,7 +2065,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
-     * @param floatSynonymList The collection of floatSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param floatSynonymList The collection of floatSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFloatSynonym_InScope(Collection<Integer> floatSynonymList) {
         doSetFloatSynonym_InScope(floatSynonymList);
@@ -2078,7 +2078,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
-     * @param floatSynonymList The collection of floatSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param floatSynonymList The collection of floatSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFloatSynonym_NotInScope(Collection<Integer> floatSynonymList) {
         doSetFloatSynonym_NotInScope(floatSynonymList);
@@ -2157,8 +2157,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
-     * @param minNumber The min number of shortSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of shortSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of shortSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of shortSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setShortSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -2170,8 +2170,8 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
-     * @param minNumber The min number of shortSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of shortSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of shortSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of shortSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setShortSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -2181,7 +2181,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
-     * @param shortSynonymList The collection of shortSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param shortSynonymList The collection of shortSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setShortSynonym_InScope(Collection<Integer> shortSynonymList) {
         doSetShortSynonym_InScope(shortSynonymList);
@@ -2194,7 +2194,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))SHORT: {INT(10)}
-     * @param shortSynonymList The collection of shortSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param shortSynonymList The collection of shortSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setShortSynonym_NotInScope(Collection<Integer> shortSynonymList) {
         doSetShortSynonym_NotInScope(shortSynonymList);
@@ -2222,7 +2222,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param type The value of type as equal. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setType_Equal(String type) {
         doSetType_Equal(fRES(type));
@@ -2235,7 +2235,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param type The value of type as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setType_NotEqual(String type) {
         doSetType_NotEqual(fRES(type));
@@ -2248,7 +2248,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param typeList The collection of type as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeList The collection of type as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setType_InScope(Collection<String> typeList) {
         doSetType_InScope(typeList);
@@ -2261,7 +2261,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param typeList The collection of type as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param typeList The collection of type as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setType_NotInScope(Collection<String> typeList) {
         doSetType_NotInScope(typeList);
@@ -2275,7 +2275,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)} <br>
      * <pre>e.g. setType_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setType_LikeSearch(String type, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -2286,7 +2286,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)} <br>
      * <pre>e.g. setType_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param type The value of type as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setType_LikeSearch(String type, LikeSearchOption likeSearchOption) {
@@ -2297,7 +2297,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param type The value of type as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setType_NotLikeSearch(String type, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -2308,7 +2308,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TYPE: {CHAR(3)}
-     * @param type The value of type as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param type The value of type as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setType_NotLikeSearch(String type, LikeSearchOption likeSearchOption) {
@@ -2339,7 +2339,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservName The value of reservName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReservName_Equal(String reservName) {
         doSetReservName_Equal(fRES(reservName));
@@ -2352,7 +2352,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservName The value of reservName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReservName_NotEqual(String reservName) {
         doSetReservName_NotEqual(fRES(reservName));
@@ -2365,7 +2365,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservNameList The collection of reservName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param reservNameList The collection of reservName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReservName_InScope(Collection<String> reservNameList) {
         doSetReservName_InScope(reservNameList);
@@ -2378,7 +2378,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservNameList The collection of reservName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param reservNameList The collection of reservName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReservName_NotInScope(Collection<String> reservNameList) {
         doSetReservName_NotInScope(reservNameList);
@@ -2392,7 +2392,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * <pre>e.g. setReservName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setReservName_LikeSearch(String reservName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -2403,7 +2403,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)} <br>
      * <pre>e.g. setReservName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param reservName The value of reservName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setReservName_LikeSearch(String reservName, LikeSearchOption likeSearchOption) {
@@ -2414,7 +2414,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservName The value of reservName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setReservName_NotLikeSearch(String reservName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -2425,7 +2425,7 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * RESERV_NAME: {NotNull, VARCHAR(32)}
-     * @param reservName The value of reservName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param reservName The value of reservName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setReservName_NotLikeSearch(String reservName, LikeSearchOption likeSearchOption) {

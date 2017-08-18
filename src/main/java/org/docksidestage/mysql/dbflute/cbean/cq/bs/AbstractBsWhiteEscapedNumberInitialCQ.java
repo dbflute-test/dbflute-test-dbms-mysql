@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
-     * @param numberInitialCode The value of numberInitialCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialCode The value of numberInitialCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNumberInitialCode_Equal(String numberInitialCode) {
         doSetNumberInitialCode_Equal(fRES(numberInitialCode));
@@ -116,7 +116,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
-     * @param numberInitialCode The value of numberInitialCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialCode The value of numberInitialCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNumberInitialCode_NotEqual(String numberInitialCode) {
         doSetNumberInitialCode_NotEqual(fRES(numberInitialCode));
@@ -171,7 +171,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
-     * @param numberInitialCodeList The collection of numberInitialCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialCodeList The collection of numberInitialCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNumberInitialCode_InScope(Collection<String> numberInitialCodeList) {
         doSetNumberInitialCode_InScope(numberInitialCodeList);
@@ -181,7 +181,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * InScope {in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialCode_InScope_AsEscapedNumberInitialCls(Collection<CDef.EscapedNumberInitialCls> cdefList) {
         doSetNumberInitialCode_InScope(cTStrL(cdefList));
@@ -194,7 +194,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
-     * @param numberInitialCodeList The collection of numberInitialCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialCodeList The collection of numberInitialCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setNumberInitialCode_NotInScope(Collection<String> numberInitialCodeList) {
         doSetNumberInitialCode_NotInScope(numberInitialCodeList);
@@ -204,7 +204,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NotInScope {not in ('a', 'b')}. As EscapedNumberInitialCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls} <br>
      * 6
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialCode_NotInScope_AsEscapedNumberInitialCls(Collection<CDef.EscapedNumberInitialCls> cdefList) {
         doSetNumberInitialCode_NotInScope(cTStrL(cdefList));
@@ -232,7 +232,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialName The value of numberInitialName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialName_Equal(String numberInitialName) {
         doSetNumberInitialName_Equal(fRES(numberInitialName));
@@ -245,7 +245,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialName The value of numberInitialName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialName_NotEqual(String numberInitialName) {
         doSetNumberInitialName_NotEqual(fRES(numberInitialName));
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialNameList The collection of numberInitialName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialNameList The collection of numberInitialName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialName_InScope(Collection<String> numberInitialNameList) {
         doSetNumberInitialName_InScope(numberInitialNameList);
@@ -271,7 +271,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialNameList The collection of numberInitialName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialNameList The collection of numberInitialName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumberInitialName_NotInScope(Collection<String> numberInitialNameList) {
         doSetNumberInitialName_NotInScope(numberInitialNameList);
@@ -285,7 +285,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNumberInitialName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param numberInitialName The value of numberInitialName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNumberInitialName_LikeSearch(String numberInitialName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setNumberInitialName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param numberInitialName The value of numberInitialName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNumberInitialName_LikeSearch(String numberInitialName, LikeSearchOption likeSearchOption) {
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialName The value of numberInitialName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNumberInitialName_NotLikeSearch(String numberInitialName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -318,7 +318,7 @@ public abstract class AbstractBsWhiteEscapedNumberInitialCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
-     * @param numberInitialName The value of numberInitialName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param numberInitialName The value of numberInitialName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNumberInitialName_NotLikeSearch(String numberInitialName, LikeSearchOption likeSearchOption) {

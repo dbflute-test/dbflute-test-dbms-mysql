@@ -81,10 +81,10 @@ public class WhiteCompoundPkWrongOrderDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnSecondId = cci("SECOND_ID", "SECOND_ID", null, null, Integer.class, "secondId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnThirdId = cci("THIRD_ID", "THIRD_ID", null, null, Integer.class, "thirdId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnWrongName = cci("WRONG_NAME", "WRONG_NAME", null, null, String.class, "wrongName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFirstId = cci("FIRST_ID", "FIRST_ID", null, null, Integer.class, "firstId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSecondId = cci("SECOND_ID", "SECOND_ID", null, null, Integer.class, "secondId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnThirdId = cci("THIRD_ID", "THIRD_ID", null, null, Integer.class, "thirdId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnWrongName = cci("WRONG_NAME", "WRONG_NAME", null, null, String.class, "wrongName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * FIRST_ID: {PK, NotNull, INT(10)}

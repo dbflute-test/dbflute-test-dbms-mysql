@@ -61,7 +61,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCode The value of machoCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_Equal(String machoCode) {
         doSetMachoCode_Equal(fRES(machoCode));
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCode The value of machoCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_NotEqual(String machoCode) {
         doSetMachoCode_NotEqual(fRES(machoCode));
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCodeList The collection of machoCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoCodeList The collection of machoCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_InScope(Collection<String> machoCodeList) {
         doSetMachoCode_InScope(machoCodeList);
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCodeList The collection of machoCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoCodeList The collection of machoCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoCode_NotInScope(Collection<String> machoCodeList) {
         doSetMachoCode_NotInScope(machoCodeList);
@@ -114,7 +114,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -125,7 +125,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)} <br>
      * <pre>e.g. setMachoCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param machoCode The value of machoCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoCode_LikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
-     * @param machoCode The value of machoCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoCode The value of machoCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoCode_NotLikeSearch(String machoCode, LikeSearchOption likeSearchOption) {
@@ -245,7 +245,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoName The value of machoName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoName_Equal(String machoName) {
         doSetMachoName_Equal(fRES(machoName));
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoName The value of machoName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoName_NotEqual(String machoName) {
         doSetMachoName_NotEqual(fRES(machoName));
@@ -271,7 +271,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoNameList The collection of machoName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoNameList The collection of machoName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoName_InScope(Collection<String> machoNameList) {
         doSetMachoName_InScope(machoNameList);
@@ -284,7 +284,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoNameList The collection of machoName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param machoNameList The collection of machoName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMachoName_NotInScope(Collection<String> machoNameList) {
         doSetMachoName_NotInScope(machoNameList);
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMachoName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param machoName The value of machoName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoName_LikeSearch(String machoName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -309,7 +309,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMachoName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param machoName The value of machoName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMachoName_LikeSearch(String machoName, LikeSearchOption likeSearchOption) {
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoName The value of machoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMachoName_NotLikeSearch(String machoName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -331,7 +331,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberMachoCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
-     * @param machoName The value of machoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param machoName The value of machoName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMachoName_NotLikeSearch(String machoName, LikeSearchOption likeSearchOption) {

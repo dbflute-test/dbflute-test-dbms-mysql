@@ -94,9 +94,9 @@ public class WhiteSelfReferenceDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, "whiteSelfReferenceSelfList", null, false);
-    protected final ColumnInfo _columnSelfReferenceName = cci("SELF_REFERENCE_NAME", "SELF_REFERENCE_NAME", null, null, String.class, "selfReferenceName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnParentId = cci("PARENT_ID", "PARENT_ID", null, null, Long.class, "parentId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, "whiteSelfReferenceSelf", null, null, false);
+    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, "whiteSelfReferenceSelfList", null, false);
+    protected final ColumnInfo _columnSelfReferenceName = cci("SELF_REFERENCE_NAME", "SELF_REFERENCE_NAME", null, null, String.class, "selfReferenceName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParentId = cci("PARENT_ID", "PARENT_ID", null, null, Long.class, "parentId", null, false, false, false, "DECIMAL", 16, 0, null, null, false, null, null, "whiteSelfReferenceSelf", null, null, false);
 
     /**
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}

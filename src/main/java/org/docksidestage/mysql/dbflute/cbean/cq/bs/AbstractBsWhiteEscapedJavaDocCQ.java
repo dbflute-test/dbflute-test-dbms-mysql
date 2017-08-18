@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
-     * @param escapedJavaDocCode The value of escapedJavaDocCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocCode The value of escapedJavaDocCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedJavaDocCode_Equal(String escapedJavaDocCode) {
         doSetEscapedJavaDocCode_Equal(fRES(escapedJavaDocCode));
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
-     * @param escapedJavaDocCode The value of escapedJavaDocCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocCode The value of escapedJavaDocCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedJavaDocCode_NotEqual(String escapedJavaDocCode) {
         doSetEscapedJavaDocCode_NotEqual(fRES(escapedJavaDocCode));
@@ -139,7 +139,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
-     * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedJavaDocCode_InScope(Collection<String> escapedJavaDocCodeList) {
         doSetEscapedJavaDocCode_InScope(escapedJavaDocCodeList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * InScope {in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocCode_InScope_AsEscapedJavaDocCls(Collection<CDef.EscapedJavaDocCls> cdefList) {
         doSetEscapedJavaDocCode_InScope(cTStrL(cdefList));
@@ -172,7 +172,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
-     * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocCodeList The collection of escapedJavaDocCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedJavaDocCode_NotInScope(Collection<String> escapedJavaDocCodeList) {
         doSetEscapedJavaDocCode_NotInScope(escapedJavaDocCodeList);
@@ -182,7 +182,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * NotInScope {not in ('a', 'b')}. As EscapedJavaDocCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls} <br>
      * /*IF pmb.yourTop&#42;/&gt;&lt;&amp;
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocCode_NotInScope_AsEscapedJavaDocCls(Collection<CDef.EscapedJavaDocCls> cdefList) {
         doSetEscapedJavaDocCode_NotInScope(cTStrL(cdefList));
@@ -210,7 +210,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocName The value of escapedJavaDocName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocName_Equal(String escapedJavaDocName) {
         doSetEscapedJavaDocName_Equal(fRES(escapedJavaDocName));
@@ -223,7 +223,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocName The value of escapedJavaDocName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocName_NotEqual(String escapedJavaDocName) {
         doSetEscapedJavaDocName_NotEqual(fRES(escapedJavaDocName));
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocNameList The collection of escapedJavaDocName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocNameList The collection of escapedJavaDocName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocName_InScope(Collection<String> escapedJavaDocNameList) {
         doSetEscapedJavaDocName_InScope(escapedJavaDocNameList);
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocNameList The collection of escapedJavaDocName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocNameList The collection of escapedJavaDocName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedJavaDocName_NotInScope(Collection<String> escapedJavaDocNameList) {
         doSetEscapedJavaDocName_NotInScope(escapedJavaDocNameList);
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedJavaDocName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEscapedJavaDocName_LikeSearch(String escapedJavaDocName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedJavaDocName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setEscapedJavaDocName_LikeSearch(String escapedJavaDocName, LikeSearchOption likeSearchOption) {
@@ -285,7 +285,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEscapedJavaDocName_NotLikeSearch(String escapedJavaDocName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteEscapedJavaDocCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
-     * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedJavaDocName The value of escapedJavaDocName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setEscapedJavaDocName_NotLikeSearch(String escapedJavaDocName, LikeSearchOption likeSearchOption) {

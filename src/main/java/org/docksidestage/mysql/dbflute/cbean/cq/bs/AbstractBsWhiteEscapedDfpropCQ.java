@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
-     * @param escapedDfpropCode The value of escapedDfpropCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropCode The value of escapedDfpropCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedDfpropCode_Equal(String escapedDfpropCode) {
         doSetEscapedDfpropCode_Equal(fRES(escapedDfpropCode));
@@ -108,7 +108,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
-     * @param escapedDfpropCode The value of escapedDfpropCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropCode The value of escapedDfpropCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedDfpropCode_NotEqual(String escapedDfpropCode) {
         doSetEscapedDfpropCode_NotEqual(fRES(escapedDfpropCode));
@@ -155,7 +155,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
-     * @param escapedDfpropCodeList The collection of escapedDfpropCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropCodeList The collection of escapedDfpropCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedDfpropCode_InScope(Collection<String> escapedDfpropCodeList) {
         doSetEscapedDfpropCode_InScope(escapedDfpropCodeList);
@@ -165,7 +165,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * InScope {in ('a', 'b')}. As EscapedDfpropCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; &amp; endBrace} &amp; path\foo\bar
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropCode_InScope_AsEscapedDfpropCls(Collection<CDef.EscapedDfpropCls> cdefList) {
         doSetEscapedDfpropCode_InScope(cTStrL(cdefList));
@@ -178,7 +178,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
-     * @param escapedDfpropCodeList The collection of escapedDfpropCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropCodeList The collection of escapedDfpropCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setEscapedDfpropCode_NotInScope(Collection<String> escapedDfpropCodeList) {
         doSetEscapedDfpropCode_NotInScope(escapedDfpropCodeList);
@@ -188,7 +188,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * NotInScope {not in ('a', 'b')}. As EscapedDfpropCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls} <br>
      * delimiter; &amp; endBrace} &amp; path\foo\bar
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropCode_NotInScope_AsEscapedDfpropCls(Collection<CDef.EscapedDfpropCls> cdefList) {
         doSetEscapedDfpropCode_NotInScope(cTStrL(cdefList));
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropName The value of escapedDfpropName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropName_Equal(String escapedDfpropName) {
         doSetEscapedDfpropName_Equal(fRES(escapedDfpropName));
@@ -229,7 +229,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropName The value of escapedDfpropName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropName_NotEqual(String escapedDfpropName) {
         doSetEscapedDfpropName_NotEqual(fRES(escapedDfpropName));
@@ -242,7 +242,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropNameList The collection of escapedDfpropName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropNameList The collection of escapedDfpropName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropName_InScope(Collection<String> escapedDfpropNameList) {
         doSetEscapedDfpropName_InScope(escapedDfpropNameList);
@@ -255,7 +255,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropNameList The collection of escapedDfpropName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropNameList The collection of escapedDfpropName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setEscapedDfpropName_NotInScope(Collection<String> escapedDfpropNameList) {
         doSetEscapedDfpropName_NotInScope(escapedDfpropNameList);
@@ -269,7 +269,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedDfpropName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param escapedDfpropName The value of escapedDfpropName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEscapedDfpropName_LikeSearch(String escapedDfpropName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -280,7 +280,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setEscapedDfpropName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param escapedDfpropName The value of escapedDfpropName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setEscapedDfpropName_LikeSearch(String escapedDfpropName, LikeSearchOption likeSearchOption) {
@@ -291,7 +291,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropName The value of escapedDfpropName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setEscapedDfpropName_NotLikeSearch(String escapedDfpropName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -302,7 +302,7 @@ public abstract class AbstractBsWhiteEscapedDfpropCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
-     * @param escapedDfpropName The value of escapedDfpropName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param escapedDfpropName The value of escapedDfpropName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setEscapedDfpropName_NotLikeSearch(String escapedDfpropName, LikeSearchOption likeSearchOption) {

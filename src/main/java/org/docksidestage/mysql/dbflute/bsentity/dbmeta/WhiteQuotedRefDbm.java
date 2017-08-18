@@ -92,8 +92,8 @@ public class WhiteQuotedRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnWhere = cci("WHERE", "`WHERE`", null, null, Integer.class, "where", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnOrder = cci("ORDER", "`ORDER`", null, null, Integer.class, "order", null, false, false, false, "INT", 10, 0, null, false, null, null, "whiteQuoted", null, null, false);
+    protected final ColumnInfo _columnWhere = cci("WHERE", "`WHERE`", null, null, Integer.class, "where", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnOrder = cci("ORDER", "`ORDER`", null, null, Integer.class, "order", null, false, false, false, "INT", 10, 0, null, null, false, null, null, "whiteQuoted", null, null, false);
 
     /**
      * WHERE: {PK, NotNull, INT(10)}

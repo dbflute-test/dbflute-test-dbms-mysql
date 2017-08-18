@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of defCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of defCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of defCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of defCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setDefCheckId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of defCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of defCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of defCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of defCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDefCheckId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckIdList The collection of defCheckId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckIdList The collection of defCheckId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckId_InScope(Collection<Long> defCheckIdList) {
         doSetDefCheckId_InScope(defCheckIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
-     * @param defCheckIdList The collection of defCheckId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckIdList The collection of defCheckId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckId_NotInScope(Collection<Long> defCheckIdList) {
         doSetDefCheckId_NotInScope(defCheckIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckName The value of defCheckName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckName_Equal(String defCheckName) {
         doSetDefCheckName_Equal(fRES(defCheckName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckName The value of defCheckName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckName_NotEqual(String defCheckName) {
         doSetDefCheckName_NotEqual(fRES(defCheckName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckNameList The collection of defCheckName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckNameList The collection of defCheckName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckName_InScope(Collection<String> defCheckNameList) {
         doSetDefCheckName_InScope(defCheckNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckNameList The collection of defCheckName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckNameList The collection of defCheckName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDefCheckName_NotInScope(Collection<String> defCheckNameList) {
         doSetDefCheckName_NotInScope(defCheckNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setDefCheckName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param defCheckName The value of defCheckName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDefCheckName_LikeSearch(String defCheckName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setDefCheckName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param defCheckName The value of defCheckName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setDefCheckName_LikeSearch(String defCheckName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckName The value of defCheckName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setDefCheckName_NotLikeSearch(String defCheckName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteSuppressDefCheckCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
-     * @param defCheckName The value of defCheckName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param defCheckName The value of defCheckName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setDefCheckName_NotLikeSearch(String defCheckName, LikeSearchOption likeSearchOption) {

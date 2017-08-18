@@ -92,8 +92,8 @@ public class WhiteVariantRelationLocalPkReferrerDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnReversefkSuppressedId = cci("REVERSEFK_SUPPRESSED_ID", "REVERSEFK_SUPPRESSED_ID", null, null, Long.class, "reversefkSuppressedId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne", null, null, false);
-    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReversefkSuppressedId = cci("REVERSEFK_SUPPRESSED_ID", "REVERSEFK_SUPPRESSED_ID", null, null, Long.class, "reversefkSuppressedId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne", null, null, false);
+    protected final ColumnInfo _columnMasterTypeCode = cci("MASTER_TYPE_CODE", "MASTER_TYPE_CODE", null, null, String.class, "masterTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}

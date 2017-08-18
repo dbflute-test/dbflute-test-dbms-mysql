@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of dateAdjustmentId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of dateAdjustmentId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of dateAdjustmentId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of dateAdjustmentId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setDateAdjustmentId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of dateAdjustmentId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of dateAdjustmentId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of dateAdjustmentId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of dateAdjustmentId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setDateAdjustmentId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentIdList The collection of dateAdjustmentId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param dateAdjustmentIdList The collection of dateAdjustmentId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_InScope(Collection<Long> dateAdjustmentIdList) {
         doSetDateAdjustmentId_InScope(dateAdjustmentIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
-     * @param dateAdjustmentIdList The collection of dateAdjustmentId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param dateAdjustmentIdList The collection of dateAdjustmentId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setDateAdjustmentId_NotInScope(Collection<Long> dateAdjustmentIdList) {
         doSetDateAdjustmentId_NotInScope(dateAdjustmentIdList);
@@ -462,8 +462,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param minNumber The min number of adjustedInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedInteger_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -475,8 +475,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param minNumber The min number of adjustedInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -486,7 +486,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedIntegerList The collection of adjustedInteger as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedIntegerList The collection of adjustedInteger as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedInteger_InScope(Collection<Integer> adjustedIntegerList) {
         doSetAdjustedInteger_InScope(adjustedIntegerList);
@@ -499,7 +499,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
-     * @param adjustedIntegerList The collection of adjustedInteger as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedIntegerList The collection of adjustedInteger as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedInteger_NotInScope(Collection<Integer> adjustedIntegerList) {
         doSetAdjustedInteger_NotInScope(adjustedIntegerList);
@@ -578,8 +578,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedNamedStringLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedNamedStringLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedNamedStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedNamedStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedNamedStringLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -591,8 +591,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedNamedStringLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedNamedStringLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedNamedStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedNamedStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedNamedStringLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -602,7 +602,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_InScope(Collection<Long> adjustedNamedStringLongList) {
         doSetAdjustedNamedStringLong_InScope(adjustedNamedStringLongList);
@@ -615,7 +615,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
-     * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedNamedStringLongList The collection of adjustedNamedStringLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedNamedStringLong_NotInScope(Collection<Long> adjustedNamedStringLongList) {
         doSetAdjustedNamedStringLong_NotInScope(adjustedNamedStringLongList);
@@ -694,8 +694,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedNamedTypedLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedNamedTypedLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedNamedTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedNamedTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedNamedTypedLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -707,8 +707,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedNamedTypedLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedNamedTypedLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedNamedTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedNamedTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedNamedTypedLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -718,7 +718,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_InScope(Collection<Long> adjustedNamedTypedLongList) {
         doSetAdjustedNamedTypedLong_InScope(adjustedNamedTypedLongList);
@@ -731,7 +731,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedNamedTypedLongList The collection of adjustedNamedTypedLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedNamedTypedLong_NotInScope(Collection<Long> adjustedNamedTypedLongList) {
         doSetAdjustedNamedTypedLong_NotInScope(adjustedNamedTypedLongList);
@@ -810,8 +810,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPinpointStringLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPinpointStringLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPinpointStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPinpointStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedPinpointStringLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -823,8 +823,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPinpointStringLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPinpointStringLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPinpointStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPinpointStringLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPinpointStringLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -834,7 +834,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_InScope(Collection<Long> adjustedPinpointStringLongList) {
         doSetAdjustedPinpointStringLong_InScope(adjustedPinpointStringLongList);
@@ -847,7 +847,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
-     * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPinpointStringLongList The collection of adjustedPinpointStringLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPinpointStringLong_NotInScope(Collection<Long> adjustedPinpointStringLongList) {
         doSetAdjustedPinpointStringLong_NotInScope(adjustedPinpointStringLongList);
@@ -926,8 +926,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPinpointTypedLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPinpointTypedLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPinpointTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPinpointTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedPinpointTypedLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -939,8 +939,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPinpointTypedLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPinpointTypedLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPinpointTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPinpointTypedLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPinpointTypedLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -950,7 +950,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_InScope(Collection<Long> adjustedPinpointTypedLongList) {
         doSetAdjustedPinpointTypedLong_InScope(adjustedPinpointTypedLongList);
@@ -963,7 +963,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
-     * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPinpointTypedLongList The collection of adjustedPinpointTypedLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPinpointTypedLong_NotInScope(Collection<Long> adjustedPinpointTypedLongList) {
         doSetAdjustedPinpointTypedLong_NotInScope(adjustedPinpointTypedLongList);
@@ -1042,8 +1042,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPlainLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPlainLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPlainLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPlainLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setAdjustedPlainLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1055,8 +1055,8 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param minNumber The min number of adjustedPlainLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of adjustedPlainLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of adjustedPlainLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of adjustedPlainLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setAdjustedPlainLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -1066,7 +1066,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLongList The collection of adjustedPlainLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPlainLongList The collection of adjustedPlainLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_InScope(Collection<Long> adjustedPlainLongList) {
         doSetAdjustedPlainLong_InScope(adjustedPlainLongList);
@@ -1079,7 +1079,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
-     * @param adjustedPlainLongList The collection of adjustedPlainLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedPlainLongList The collection of adjustedPlainLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedPlainLong_NotInScope(Collection<Long> adjustedPlainLongList) {
         doSetAdjustedPlainLong_NotInScope(adjustedPlainLongList);
@@ -1107,7 +1107,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedString The value of adjustedString as equal. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedString_Equal(String adjustedString) {
         doSetAdjustedString_Equal(fRES(adjustedString));
@@ -1120,7 +1120,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedString The value of adjustedString as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedString_NotEqual(String adjustedString) {
         doSetAdjustedString_NotEqual(fRES(adjustedString));
@@ -1133,7 +1133,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedStringList The collection of adjustedString as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedStringList The collection of adjustedString as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedString_InScope(Collection<String> adjustedStringList) {
         doSetAdjustedString_InScope(adjustedStringList);
@@ -1146,7 +1146,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedStringList The collection of adjustedString as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedStringList The collection of adjustedString as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setAdjustedString_NotInScope(Collection<String> adjustedStringList) {
         doSetAdjustedString_NotInScope(adjustedStringList);
@@ -1160,7 +1160,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)} <br>
      * <pre>e.g. setAdjustedString_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param adjustedString The value of adjustedString as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setAdjustedString_LikeSearch(String adjustedString, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1171,7 +1171,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)} <br>
      * <pre>e.g. setAdjustedString_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param adjustedString The value of adjustedString as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setAdjustedString_LikeSearch(String adjustedString, LikeSearchOption likeSearchOption) {
@@ -1182,7 +1182,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedString The value of adjustedString as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setAdjustedString_NotLikeSearch(String adjustedString, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1193,7 +1193,7 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
-     * @param adjustedString The value of adjustedString as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param adjustedString The value of adjustedString as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setAdjustedString_NotLikeSearch(String adjustedString, LikeSearchOption likeSearchOption) {

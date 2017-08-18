@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refIdList The collection of refId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_InScope(Collection<Integer> refIdList) {
         doSetRefId_InScope(refIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refIdList The collection of refId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_NotInScope(Collection<Integer> refIdList) {
         doSetRefId_NotInScope(refIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo0_Equal(String foo0) {
         doSetFoo0_Equal(fRES(foo0));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo0_NotEqual(String foo0) {
         doSetFoo0_NotEqual(fRES(foo0));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0List The collection of foo0 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo0List The collection of foo0 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo0_InScope(Collection<String> foo0List) {
         doSetFoo0_InScope(foo0List);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0List The collection of foo0 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo0List The collection of foo0 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo0_NotInScope(Collection<String> foo0List) {
         doSetFoo0_NotInScope(foo0List);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo0_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param foo0 The value of foo0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo0_LikeSearch(String foo0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param foo0 The value of foo0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo0_LikeSearch(String foo0, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo0_NotLikeSearch(String foo0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO0: {VARCHAR(200)}
-     * @param foo0 The value of foo0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo0 The value of foo0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo0_NotLikeSearch(String foo0, LikeSearchOption likeSearchOption) {
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo1_Equal(String foo1) {
         doSetFoo1_Equal(fRES(foo1));
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo1_NotEqual(String foo1) {
         doSetFoo1_NotEqual(fRES(foo1));
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1List The collection of foo1 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo1List The collection of foo1 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo1_InScope(Collection<String> foo1List) {
         doSetFoo1_InScope(foo1List);
@@ -333,7 +333,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1List The collection of foo1 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo1List The collection of foo1 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo1_NotInScope(Collection<String> foo1List) {
         doSetFoo1_NotInScope(foo1List);
@@ -347,7 +347,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo1_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param foo1 The value of foo1 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo1_LikeSearch(String foo1, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -358,7 +358,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo1_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param foo1 The value of foo1 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo1_LikeSearch(String foo1, LikeSearchOption likeSearchOption) {
@@ -369,7 +369,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo1_NotLikeSearch(String foo1, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_1: {VARCHAR(200)}
-     * @param foo1 The value of foo1 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo1 The value of foo1 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo1_NotLikeSearch(String foo1, LikeSearchOption likeSearchOption) {
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo2_Equal(String foo2) {
         doSetFoo2_Equal(fRES(foo2));
@@ -424,7 +424,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo2_NotEqual(String foo2) {
         doSetFoo2_NotEqual(fRES(foo2));
@@ -437,7 +437,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2List The collection of foo2 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo2List The collection of foo2 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo2_InScope(Collection<String> foo2List) {
         doSetFoo2_InScope(foo2List);
@@ -450,7 +450,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2List The collection of foo2 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo2List The collection of foo2 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo2_NotInScope(Collection<String> foo2List) {
         doSetFoo2_NotInScope(foo2List);
@@ -464,7 +464,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo2_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param foo2 The value of foo2 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo2_LikeSearch(String foo2, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -475,7 +475,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo2_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param foo2 The value of foo2 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo2_LikeSearch(String foo2, LikeSearchOption likeSearchOption) {
@@ -486,7 +486,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo2_NotLikeSearch(String foo2, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -497,7 +497,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO2: {VARCHAR(200)}
-     * @param foo2 The value of foo2 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo2 The value of foo2 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo2_NotLikeSearch(String foo2, LikeSearchOption likeSearchOption) {
@@ -528,7 +528,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo3_Equal(String foo3) {
         doSetFoo3_Equal(fRES(foo3));
@@ -541,7 +541,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo3_NotEqual(String foo3) {
         doSetFoo3_NotEqual(fRES(foo3));
@@ -554,7 +554,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3List The collection of foo3 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo3List The collection of foo3 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo3_InScope(Collection<String> foo3List) {
         doSetFoo3_InScope(foo3List);
@@ -567,7 +567,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3List The collection of foo3 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo3List The collection of foo3 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo3_NotInScope(Collection<String> foo3List) {
         doSetFoo3_NotInScope(foo3List);
@@ -581,7 +581,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo3_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param foo3 The value of foo3 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo3_LikeSearch(String foo3, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -592,7 +592,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo3_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param foo3 The value of foo3 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo3_LikeSearch(String foo3, LikeSearchOption likeSearchOption) {
@@ -603,7 +603,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo3_NotLikeSearch(String foo3, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -614,7 +614,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO3: {VARCHAR(200)}
-     * @param foo3 The value of foo3 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo3 The value of foo3 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo3_NotLikeSearch(String foo3, LikeSearchOption likeSearchOption) {
@@ -645,7 +645,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo4_Equal(String foo4) {
         doSetFoo4_Equal(fRES(foo4));
@@ -658,7 +658,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo4_NotEqual(String foo4) {
         doSetFoo4_NotEqual(fRES(foo4));
@@ -671,7 +671,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4List The collection of foo4 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo4List The collection of foo4 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo4_InScope(Collection<String> foo4List) {
         doSetFoo4_InScope(foo4List);
@@ -684,7 +684,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4List The collection of foo4 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param foo4List The collection of foo4 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFoo4_NotInScope(Collection<String> foo4List) {
         doSetFoo4_NotInScope(foo4List);
@@ -698,7 +698,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo4_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param foo4 The value of foo4 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo4_LikeSearch(String foo4, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -709,7 +709,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)} <br>
      * <pre>e.g. setFoo4_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param foo4 The value of foo4 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFoo4_LikeSearch(String foo4, LikeSearchOption likeSearchOption) {
@@ -720,7 +720,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFoo4_NotLikeSearch(String foo4, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -731,7 +731,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FOO_4: {VARCHAR(200)}
-     * @param foo4 The value of foo4 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param foo4 The value of foo4 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFoo4_NotLikeSearch(String foo4, LikeSearchOption likeSearchOption) {
@@ -762,7 +762,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0 The value of bar0 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBar0_Equal(String bar0) {
         doSetBar0_Equal(fRES(bar0));
@@ -775,7 +775,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0 The value of bar0 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBar0_NotEqual(String bar0) {
         doSetBar0_NotEqual(fRES(bar0));
@@ -788,7 +788,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0List The collection of bar0 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param bar0List The collection of bar0 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBar0_InScope(Collection<String> bar0List) {
         doSetBar0_InScope(bar0List);
@@ -801,7 +801,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0List The collection of bar0 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param bar0List The collection of bar0 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBar0_NotInScope(Collection<String> bar0List) {
         doSetBar0_NotInScope(bar0List);
@@ -815,7 +815,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)} <br>
      * <pre>e.g. setBar0_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param bar0 The value of bar0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setBar0_LikeSearch(String bar0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -826,7 +826,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)} <br>
      * <pre>e.g. setBar0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param bar0 The value of bar0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setBar0_LikeSearch(String bar0, LikeSearchOption likeSearchOption) {
@@ -837,7 +837,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0 The value of bar0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setBar0_NotLikeSearch(String bar0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -848,7 +848,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * BAR_0: {VARCHAR(200)}
-     * @param bar0 The value of bar0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param bar0 The value of bar0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setBar0_NotLikeSearch(String bar0, LikeSearchOption likeSearchOption) {
@@ -879,7 +879,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0 The value of qux0 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQux0_Equal(String qux0) {
         doSetQux0_Equal(fRES(qux0));
@@ -892,7 +892,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0 The value of qux0 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQux0_NotEqual(String qux0) {
         doSetQux0_NotEqual(fRES(qux0));
@@ -905,7 +905,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0List The collection of qux0 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param qux0List The collection of qux0 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQux0_InScope(Collection<String> qux0List) {
         doSetQux0_InScope(qux0List);
@@ -918,7 +918,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0List The collection of qux0 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param qux0List The collection of qux0 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQux0_NotInScope(Collection<String> qux0List) {
         doSetQux0_NotInScope(qux0List);
@@ -932,7 +932,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)} <br>
      * <pre>e.g. setQux0_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param qux0 The value of qux0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setQux0_LikeSearch(String qux0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -943,7 +943,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)} <br>
      * <pre>e.g. setQux0_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param qux0 The value of qux0 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setQux0_LikeSearch(String qux0, LikeSearchOption likeSearchOption) {
@@ -954,7 +954,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0 The value of qux0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setQux0_NotLikeSearch(String qux0, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -965,7 +965,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * QUX_0: {VARCHAR(200)}
-     * @param qux0 The value of qux0 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param qux0 The value of qux0 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setQux0_NotLikeSearch(String qux0, LikeSearchOption likeSearchOption) {
@@ -996,7 +996,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21 The value of c21 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC21_Equal(String c21) {
         doSetC21_Equal(fRES(c21));
@@ -1009,7 +1009,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21 The value of c21 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC21_NotEqual(String c21) {
         doSetC21_NotEqual(fRES(c21));
@@ -1022,7 +1022,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21List The collection of c21 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param c21List The collection of c21 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC21_InScope(Collection<String> c21List) {
         doSetC21_InScope(c21List);
@@ -1035,7 +1035,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21List The collection of c21 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param c21List The collection of c21 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC21_NotInScope(Collection<String> c21List) {
         doSetC21_NotInScope(c21List);
@@ -1049,7 +1049,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)} <br>
      * <pre>e.g. setC21_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param c21 The value of c21 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC21_LikeSearch(String c21, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1060,7 +1060,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)} <br>
      * <pre>e.g. setC21_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param c21 The value of c21 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setC21_LikeSearch(String c21, LikeSearchOption likeSearchOption) {
@@ -1071,7 +1071,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21 The value of c21 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC21_NotLikeSearch(String c21, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1082,7 +1082,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c21: {VARCHAR(200)}
-     * @param c21 The value of c21 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c21 The value of c21 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setC21_NotLikeSearch(String c21, LikeSearchOption likeSearchOption) {
@@ -1113,7 +1113,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22 The value of c22 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC22_Equal(String c22) {
         doSetC22_Equal(fRES(c22));
@@ -1126,7 +1126,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22 The value of c22 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC22_NotEqual(String c22) {
         doSetC22_NotEqual(fRES(c22));
@@ -1139,7 +1139,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22List The collection of c22 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param c22List The collection of c22 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC22_InScope(Collection<String> c22List) {
         doSetC22_InScope(c22List);
@@ -1152,7 +1152,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22List The collection of c22 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param c22List The collection of c22 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC22_NotInScope(Collection<String> c22List) {
         doSetC22_NotInScope(c22List);
@@ -1166,7 +1166,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)} <br>
      * <pre>e.g. setC22_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param c22 The value of c22 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC22_LikeSearch(String c22, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1177,7 +1177,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)} <br>
      * <pre>e.g. setC22_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param c22 The value of c22 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setC22_LikeSearch(String c22, LikeSearchOption likeSearchOption) {
@@ -1188,7 +1188,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22 The value of c22 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC22_NotLikeSearch(String c22, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1199,7 +1199,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c22: {VARCHAR(200)}
-     * @param c22 The value of c22 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c22 The value of c22 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setC22_NotLikeSearch(String c22, LikeSearchOption likeSearchOption) {
@@ -1230,7 +1230,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23 The value of c23 as equal. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC23_Equal(String c23) {
         doSetC23_Equal(fRES(c23));
@@ -1243,7 +1243,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23 The value of c23 as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC23_NotEqual(String c23) {
         doSetC23_NotEqual(fRES(c23));
@@ -1256,7 +1256,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23List The collection of c23 as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param c23List The collection of c23 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC23_InScope(Collection<String> c23List) {
         doSetC23_InScope(c23List);
@@ -1269,7 +1269,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23List The collection of c23 as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param c23List The collection of c23 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setC23_NotInScope(Collection<String> c23List) {
         doSetC23_NotInScope(c23List);
@@ -1283,7 +1283,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)} <br>
      * <pre>e.g. setC23_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param c23 The value of c23 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC23_LikeSearch(String c23, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1294,7 +1294,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)} <br>
      * <pre>e.g. setC23_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param c23 The value of c23 as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setC23_LikeSearch(String c23, LikeSearchOption likeSearchOption) {
@@ -1305,7 +1305,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23 The value of c23 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setC23_NotLikeSearch(String c23, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -1316,7 +1316,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * c23: {VARCHAR(200)}
-     * @param c23 The value of c23 as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param c23 The value of c23 as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setC23_NotLikeSearch(String c23, LikeSearchOption likeSearchOption) {
@@ -1398,8 +1398,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param minNumber The min number of stilettoAliasId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of stilettoAliasId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of stilettoAliasId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of stilettoAliasId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setStilettoAliasId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -1411,8 +1411,8 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param minNumber The min number of stilettoAliasId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of stilettoAliasId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of stilettoAliasId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of stilettoAliasId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setStilettoAliasId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -1422,7 +1422,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasIdList The collection of stilettoAliasId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stilettoAliasIdList The collection of stilettoAliasId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStilettoAliasId_InScope(Collection<Integer> stilettoAliasIdList) {
         doSetStilettoAliasId_InScope(stilettoAliasIdList);
@@ -1435,7 +1435,7 @@ public abstract class AbstractBsWhiteStilettoAliasRefCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * STILETTO_ALIAS_ID: {IX, INT(10), FK to white_stiletto_alias}
-     * @param stilettoAliasIdList The collection of stilettoAliasId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stilettoAliasIdList The collection of stilettoAliasId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStilettoAliasId_NotInScope(Collection<Integer> stilettoAliasIdList) {
         doSetStilettoAliasId_NotInScope(stilettoAliasIdList);

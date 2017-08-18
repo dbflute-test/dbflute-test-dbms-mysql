@@ -393,6 +393,16 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTypeOfDatetime() { return doColumn("TYPE_OF_DATETIME"); }
         /**
+         * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime3Millis() { return doColumn("TYPE_OF_DATETIME_3_MILLIS"); }
+        /**
+         * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime6Micros() { return doColumn("TYPE_OF_DATETIME_6_MICROS"); }
+        /**
          * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
          * @return The information object of specified column. (NotNull)
          */

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterBarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterBarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterBarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterBarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMasterBarId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of masterBarId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of masterBarId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of masterBarId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of masterBarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMasterBarId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarIdList The collection of masterBarId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarIdList The collection of masterBarId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarId_InScope(Collection<Long> masterBarIdList) {
         doSetMasterBarId_InScope(masterBarIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarIdList The collection of masterBarId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarIdList The collection of masterBarId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarId_NotInScope(Collection<Long> masterBarIdList) {
         doSetMasterBarId_NotInScope(masterBarIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarName The value of masterBarName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarName_Equal(String masterBarName) {
         doSetMasterBarName_Equal(fRES(masterBarName));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarName The value of masterBarName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarName_NotEqual(String masterBarName) {
         doSetMasterBarName_NotEqual(fRES(masterBarName));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarNameList The collection of masterBarName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarNameList The collection of masterBarName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarName_InScope(Collection<String> masterBarNameList) {
         doSetMasterBarName_InScope(masterBarNameList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarNameList The collection of masterBarName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarNameList The collection of masterBarName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMasterBarName_NotInScope(Collection<String> masterBarNameList) {
         doSetMasterBarName_NotInScope(masterBarNameList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterBarName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param masterBarName The value of masterBarName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterBarName_LikeSearch(String masterBarName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setMasterBarName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param masterBarName The value of masterBarName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMasterBarName_LikeSearch(String masterBarName, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarName The value of masterBarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMasterBarName_NotLikeSearch(String masterBarName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MASTER_BAR_NAME: {NotNull, VARCHAR(200)}
-     * @param masterBarName The value of masterBarName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param masterBarName The value of masterBarName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMasterBarName_NotLikeSearch(String masterBarName, LikeSearchOption likeSearchOption) {

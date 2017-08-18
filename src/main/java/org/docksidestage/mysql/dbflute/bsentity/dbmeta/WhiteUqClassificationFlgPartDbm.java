@@ -88,9 +88,9 @@ public class WhiteUqClassificationFlgPartDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUqClsName = cci("UQ_CLS_NAME", "UQ_CLS_NAME", null, null, String.class, "uqClsName", null, false, false, true, "VARCHAR", 30, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnUqClsFlg = cci("UQ_CLS_FLG", "UQ_CLS_FLG", null, null, Integer.class, "uqClsFlg", null, false, false, true, "INT", 10, 0, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnUqClsId = cci("UQ_CLS_ID", "UQ_CLS_ID", null, null, Long.class, "uqClsId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUqClsName = cci("UQ_CLS_NAME", "UQ_CLS_NAME", null, null, String.class, "uqClsName", null, false, false, true, "VARCHAR", 30, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUqClsFlg = cci("UQ_CLS_FLG", "UQ_CLS_FLG", null, null, Integer.class, "uqClsFlg", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
 
     /**
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param minNumber The min number of whiteImplicitReverseFkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param minNumber The min number of whiteImplicitReverseFkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of whiteImplicitReverseFkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of whiteImplicitReverseFkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setWhiteImplicitReverseFkId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_InScope(Collection<Integer> whiteImplicitReverseFkIdList) {
         doSetWhiteImplicitReverseFkId_InScope(whiteImplicitReverseFkIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
-     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkIdList The collection of whiteImplicitReverseFkId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkId_NotInScope(Collection<Integer> whiteImplicitReverseFkIdList) {
         doSetWhiteImplicitReverseFkId_NotInScope(whiteImplicitReverseFkIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkName_Equal(String whiteImplicitReverseFkName) {
         doSetWhiteImplicitReverseFkName_Equal(fRES(whiteImplicitReverseFkName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkName_NotEqual(String whiteImplicitReverseFkName) {
         doSetWhiteImplicitReverseFkName_NotEqual(fRES(whiteImplicitReverseFkName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkNameList The collection of whiteImplicitReverseFkName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkNameList The collection of whiteImplicitReverseFkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkName_InScope(Collection<String> whiteImplicitReverseFkNameList) {
         doSetWhiteImplicitReverseFkName_InScope(whiteImplicitReverseFkNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkNameList The collection of whiteImplicitReverseFkName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkNameList The collection of whiteImplicitReverseFkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWhiteImplicitReverseFkName_NotInScope(Collection<String> whiteImplicitReverseFkNameList) {
         doSetWhiteImplicitReverseFkName_NotInScope(whiteImplicitReverseFkNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setWhiteImplicitReverseFkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_LikeSearch(String whiteImplicitReverseFkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setWhiteImplicitReverseFkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_LikeSearch(String whiteImplicitReverseFkName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_NotLikeSearch(String whiteImplicitReverseFkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteImplicitReverseFkCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
-     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param whiteImplicitReverseFkName The value of whiteImplicitReverseFkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setWhiteImplicitReverseFkName_NotLikeSearch(String whiteImplicitReverseFkName, LikeSearchOption likeSearchOption) {

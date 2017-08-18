@@ -112,8 +112,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataIdList The collection of largeDataId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataIdList The collection of largeDataId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataId_InScope(Collection<Long> largeDataIdList) {
         doSetLargeDataId_InScope(largeDataIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * LARGE_DATA_ID: {PK, NotNull, BIGINT(19)}
-     * @param largeDataIdList The collection of largeDataId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param largeDataIdList The collection of largeDataId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLargeDataId_NotInScope(Collection<Long> largeDataIdList) {
         doSetLargeDataId_NotInScope(largeDataIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndex The value of stringIndex as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringIndex_Equal(String stringIndex) {
         doSetStringIndex_Equal(fRES(stringIndex));
@@ -263,7 +263,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndex The value of stringIndex as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringIndex_NotEqual(String stringIndex) {
         doSetStringIndex_NotEqual(fRES(stringIndex));
@@ -276,7 +276,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndexList The collection of stringIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndexList The collection of stringIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringIndex_InScope(Collection<String> stringIndexList) {
         doSetStringIndex_InScope(stringIndexList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndexList The collection of stringIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndexList The collection of stringIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringIndex_NotInScope(Collection<String> stringIndexList) {
         doSetStringIndex_NotInScope(stringIndexList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringIndex The value of stringIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringIndex_LikeSearch(String stringIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringIndex_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringIndex The value of stringIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringIndex_LikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndex The value of stringIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringIndex_NotLikeSearch(String stringIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_INDEX: {IX, NotNull, VARCHAR(180)}
-     * @param stringIndex The value of stringIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringIndex The value of stringIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringIndex_NotLikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
@@ -349,7 +349,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndex The value of stringNoIndex as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNoIndex_Equal(String stringNoIndex) {
         doSetStringNoIndex_Equal(fRES(stringNoIndex));
@@ -362,7 +362,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndex The value of stringNoIndex as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNoIndex_NotEqual(String stringNoIndex) {
         doSetStringNoIndex_NotEqual(fRES(stringNoIndex));
@@ -375,7 +375,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndexList The collection of stringNoIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndexList The collection of stringNoIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNoIndex_InScope(Collection<String> stringNoIndexList) {
         doSetStringNoIndex_InScope(stringNoIndexList);
@@ -388,7 +388,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndexList The collection of stringNoIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndexList The collection of stringNoIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringNoIndex_NotInScope(Collection<String> stringNoIndexList) {
         doSetStringNoIndex_NotInScope(stringNoIndexList);
@@ -402,7 +402,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringNoIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringNoIndex The value of stringNoIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringNoIndex_LikeSearch(String stringNoIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -413,7 +413,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringNoIndex_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringNoIndex The value of stringNoIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringNoIndex_LikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
@@ -424,7 +424,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndex The value of stringNoIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringNoIndex_NotLikeSearch(String stringNoIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -435,7 +435,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_NO_INDEX: {NotNull, VARCHAR(180)}
-     * @param stringNoIndex The value of stringNoIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringNoIndex The value of stringNoIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringNoIndex_NotLikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
@@ -448,7 +448,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndex The value of stringUniqueIndex as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringUniqueIndex_Equal(String stringUniqueIndex) {
         doSetStringUniqueIndex_Equal(fRES(stringUniqueIndex));
@@ -461,7 +461,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndex The value of stringUniqueIndex as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringUniqueIndex_NotEqual(String stringUniqueIndex) {
         doSetStringUniqueIndex_NotEqual(fRES(stringUniqueIndex));
@@ -474,7 +474,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndexList The collection of stringUniqueIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndexList The collection of stringUniqueIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringUniqueIndex_InScope(Collection<String> stringUniqueIndexList) {
         doSetStringUniqueIndex_InScope(stringUniqueIndexList);
@@ -487,7 +487,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndexList The collection of stringUniqueIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndexList The collection of stringUniqueIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringUniqueIndex_NotInScope(Collection<String> stringUniqueIndexList) {
         doSetStringUniqueIndex_NotInScope(stringUniqueIndexList);
@@ -501,7 +501,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringUniqueIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringUniqueIndex_LikeSearch(String stringUniqueIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -512,7 +512,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setStringUniqueIndex_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringUniqueIndex_LikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
@@ -523,7 +523,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndex The value of stringUniqueIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -534,7 +534,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * STRING_UNIQUE_INDEX: {UQ, NotNull, VARCHAR(180)}
-     * @param stringUniqueIndex The value of stringUniqueIndex as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringUniqueIndex The value of stringUniqueIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
@@ -598,8 +598,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param minNumber The min number of intflgIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of intflgIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of intflgIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of intflgIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setIntflgIndex_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -611,8 +611,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param minNumber The min number of intflgIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of intflgIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of intflgIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of intflgIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setIntflgIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -622,7 +622,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndexList The collection of intflgIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param intflgIndexList The collection of intflgIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIntflgIndex_InScope(Collection<Integer> intflgIndexList) {
         doSetIntflgIndex_InScope(intflgIndexList);
@@ -635,7 +635,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * INTFLG_INDEX: {NotNull, INT(10)}
-     * @param intflgIndexList The collection of intflgIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param intflgIndexList The collection of intflgIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setIntflgIndex_NotInScope(Collection<Integer> intflgIndexList) {
         doSetIntflgIndex_NotInScope(intflgIndexList);
@@ -702,8 +702,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param minNumber The min number of numericIntegerIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numericIntegerIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numericIntegerIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numericIntegerIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNumericIntegerIndex_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -715,8 +715,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param minNumber The min number of numericIntegerIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numericIntegerIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numericIntegerIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numericIntegerIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumericIntegerIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -726,7 +726,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndexList The collection of numericIntegerIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param numericIntegerIndexList The collection of numericIntegerIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_InScope(Collection<Integer> numericIntegerIndexList) {
         doSetNumericIntegerIndex_InScope(numericIntegerIndexList);
@@ -739,7 +739,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMERIC_INTEGER_INDEX: {IX, NotNull, DECIMAL(8)}
-     * @param numericIntegerIndexList The collection of numericIntegerIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param numericIntegerIndexList The collection of numericIntegerIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumericIntegerIndex_NotInScope(Collection<Integer> numericIntegerIndexList) {
         doSetNumericIntegerIndex_NotInScope(numericIntegerIndexList);
@@ -806,8 +806,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param minNumber The min number of numericIntegerNoIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numericIntegerNoIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numericIntegerNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numericIntegerNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNumericIntegerNoIndex_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -819,8 +819,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param minNumber The min number of numericIntegerNoIndex. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of numericIntegerNoIndex. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of numericIntegerNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of numericIntegerNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumericIntegerNoIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -830,7 +830,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndexList The collection of numericIntegerNoIndex as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param numericIntegerNoIndexList The collection of numericIntegerNoIndex as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_InScope(Collection<Integer> numericIntegerNoIndexList) {
         doSetNumericIntegerNoIndex_InScope(numericIntegerNoIndexList);
@@ -843,7 +843,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NUMERIC_INTEGER_NO_INDEX: {NotNull, DECIMAL(8)}
-     * @param numericIntegerNoIndexList The collection of numericIntegerNoIndex as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param numericIntegerNoIndexList The collection of numericIntegerNoIndex as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNumericIntegerNoIndex_NotInScope(Collection<Integer> numericIntegerNoIndexList) {
         doSetNumericIntegerNoIndex_NotInScope(numericIntegerNoIndexList);

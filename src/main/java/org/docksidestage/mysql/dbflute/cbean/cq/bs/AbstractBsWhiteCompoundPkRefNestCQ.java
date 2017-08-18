@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of compoundPkRefNestId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of compoundPkRefNestId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of compoundPkRefNestId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of compoundPkRefNestId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setCompoundPkRefNestId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of compoundPkRefNestId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of compoundPkRefNestId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of compoundPkRefNestId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of compoundPkRefNestId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCompoundPkRefNestId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestIdList The collection of compoundPkRefNestId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param compoundPkRefNestIdList The collection of compoundPkRefNestId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_InScope(Collection<Integer> compoundPkRefNestIdList) {
         doSetCompoundPkRefNestId_InScope(compoundPkRefNestIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
-     * @param compoundPkRefNestIdList The collection of compoundPkRefNestId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param compoundPkRefNestIdList The collection of compoundPkRefNestId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCompoundPkRefNestId_NotInScope(Collection<Integer> compoundPkRefNestIdList) {
         doSetCompoundPkRefNestId_NotInScope(compoundPkRefNestIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of fooMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fooMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fooMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fooMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFooMultipleId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of fooMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fooMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fooMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fooMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFooMultipleId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleIdList The collection of fooMultipleId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooMultipleIdList The collection of fooMultipleId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooMultipleId_InScope(Collection<Integer> fooMultipleIdList) {
         doSetFooMultipleId_InScope(fooMultipleIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param fooMultipleIdList The collection of fooMultipleId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooMultipleIdList The collection of fooMultipleId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooMultipleId_NotInScope(Collection<Integer> fooMultipleIdList) {
         doSetFooMultipleId_NotInScope(fooMultipleIdList);
@@ -332,8 +332,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of barMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of barMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of barMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of barMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setBarMultipleId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -345,8 +345,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of barMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of barMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of barMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of barMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBarMultipleId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleIdList The collection of barMultipleId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param barMultipleIdList The collection of barMultipleId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarMultipleId_InScope(Collection<Integer> barMultipleIdList) {
         doSetBarMultipleId_InScope(barMultipleIdList);
@@ -369,7 +369,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param barMultipleIdList The collection of barMultipleId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param barMultipleIdList The collection of barMultipleId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarMultipleId_NotInScope(Collection<Integer> barMultipleIdList) {
         doSetBarMultipleId_NotInScope(barMultipleIdList);
@@ -436,8 +436,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of quxMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of quxMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of quxMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of quxMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setQuxMultipleId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -449,8 +449,8 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param minNumber The min number of quxMultipleId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of quxMultipleId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of quxMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of quxMultipleId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setQuxMultipleId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -460,7 +460,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleIdList The collection of quxMultipleId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param quxMultipleIdList The collection of quxMultipleId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQuxMultipleId_InScope(Collection<Integer> quxMultipleIdList) {
         doSetQuxMultipleId_InScope(quxMultipleIdList);
@@ -473,7 +473,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
-     * @param quxMultipleIdList The collection of quxMultipleId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param quxMultipleIdList The collection of quxMultipleId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setQuxMultipleId_NotInScope(Collection<Integer> quxMultipleIdList) {
         doSetQuxMultipleId_NotInScope(quxMultipleIdList);
@@ -489,7 +489,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestName The value of nestName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNestName_Equal(String nestName) {
         doSetNestName_Equal(fRES(nestName));
@@ -502,7 +502,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestName The value of nestName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNestName_NotEqual(String nestName) {
         doSetNestName_NotEqual(fRES(nestName));
@@ -515,7 +515,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestNameList The collection of nestName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nestNameList The collection of nestName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNestName_InScope(Collection<String> nestNameList) {
         doSetNestName_InScope(nestNameList);
@@ -528,7 +528,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestNameList The collection of nestName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nestNameList The collection of nestName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNestName_NotInScope(Collection<String> nestNameList) {
         doSetNestName_NotInScope(nestNameList);
@@ -542,7 +542,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setNestName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param nestName The value of nestName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNestName_LikeSearch(String nestName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -553,7 +553,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setNestName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param nestName The value of nestName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNestName_LikeSearch(String nestName, LikeSearchOption likeSearchOption) {
@@ -564,7 +564,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestName The value of nestName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNestName_NotLikeSearch(String nestName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -575,7 +575,7 @@ public abstract class AbstractBsWhiteCompoundPkRefNestCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
-     * @param nestName The value of nestName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param nestName The value of nestName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNestName_NotLikeSearch(String nestName, LikeSearchOption likeSearchOption) {

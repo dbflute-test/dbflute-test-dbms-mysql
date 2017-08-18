@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of fromId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fromId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of fromId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fromId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromIdList The collection of fromId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromIdList The collection of fromId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromId_InScope(Collection<Long> fromIdList) {
         doSetFromId_InScope(fromIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromIdList The collection of fromId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromIdList The collection of fromId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromId_NotInScope(Collection<Long> fromIdList) {
         doSetFromId_NotInScope(fromIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromName The value of fromName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromName_Equal(String fromName) {
         doSetFromName_Equal(fRES(fromName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromName The value of fromName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromName_NotEqual(String fromName) {
         doSetFromName_NotEqual(fRES(fromName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromNameList The collection of fromName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromNameList The collection of fromName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromName_InScope(Collection<String> fromNameList) {
         doSetFromName_InScope(fromNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromNameList The collection of fromName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromNameList The collection of fromName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromName_NotInScope(Collection<String> fromNameList) {
         doSetFromName_NotInScope(fromNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setFromName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param fromName The value of fromName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFromName_LikeSearch(String fromName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setFromName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param fromName The value of fromName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFromName_LikeSearch(String fromName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromName The value of fromName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFromName_NotLikeSearch(String fromName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * FROM_NAME: {NotNull, VARCHAR(200)}
-     * @param fromName The value of fromName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fromName The value of fromName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFromName_NotLikeSearch(String fromName, LikeSearchOption likeSearchOption) {

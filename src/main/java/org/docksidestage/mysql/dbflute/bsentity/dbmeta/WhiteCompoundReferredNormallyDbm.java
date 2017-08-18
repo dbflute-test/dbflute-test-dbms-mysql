@@ -79,8 +79,8 @@ public class WhiteCompoundReferredNormallyDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, "whiteCompoundPkList", null, false);
-    protected final ColumnInfo _columnReferredName = cci("REFERRED_NAME", "REFERRED_NAME", null, null, String.class, "referredName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, "whiteCompoundPkList", null, false);
+    protected final ColumnInfo _columnReferredName = cci("REFERRED_NAME", "REFERRED_NAME", null, null, String.class, "referredName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * REFERRED_ID: {PK, NotNull, INT(10)}

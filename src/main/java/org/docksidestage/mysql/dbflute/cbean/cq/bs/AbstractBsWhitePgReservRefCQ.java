@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of refId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refIdList The collection of refId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_InScope(Collection<Integer> refIdList) {
         doSetRefId_InScope(refIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
-     * @param refIdList The collection of refId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refIdList The collection of refId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefId_NotInScope(Collection<Integer> refIdList) {
         doSetRefId_NotInScope(refIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param minNumber The min number of classSynonym. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of classSynonym. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of classSynonym. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setClassSynonym_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonymList The collection of classSynonym as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param classSynonymList The collection of classSynonym as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClassSynonym_InScope(Collection<Integer> classSynonymList) {
         doSetClassSynonym_InScope(classSynonymList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonymList The collection of classSynonym as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param classSynonymList The collection of classSynonym as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setClassSynonym_NotInScope(Collection<Integer> classSynonymList) {
         doSetClassSynonym_NotInScope(classSynonymList);

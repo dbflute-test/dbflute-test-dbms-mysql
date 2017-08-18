@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of myselfCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of myselfCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of myselfCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of myselfCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMyselfCheckId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of myselfCheckId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of myselfCheckId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of myselfCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of myselfCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMyselfCheckId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
-     * @param myselfCheckIdList The collection of myselfCheckId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckIdList The collection of myselfCheckId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckId_InScope(Collection<Integer> myselfCheckIdList) {
         doSetMyselfCheckId_InScope(myselfCheckIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
-     * @param myselfCheckIdList The collection of myselfCheckId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckIdList The collection of myselfCheckId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckId_NotInScope(Collection<Integer> myselfCheckIdList) {
         doSetMyselfCheckId_NotInScope(myselfCheckIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckName The value of myselfCheckName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckName_Equal(String myselfCheckName) {
         doSetMyselfCheckName_Equal(fRES(myselfCheckName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckName The value of myselfCheckName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckName_NotEqual(String myselfCheckName) {
         doSetMyselfCheckName_NotEqual(fRES(myselfCheckName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckNameList The collection of myselfCheckName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckNameList The collection of myselfCheckName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckName_InScope(Collection<String> myselfCheckNameList) {
         doSetMyselfCheckName_InScope(myselfCheckNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckNameList The collection of myselfCheckName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckNameList The collection of myselfCheckName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfCheckName_NotInScope(Collection<String> myselfCheckNameList) {
         doSetMyselfCheckName_NotInScope(myselfCheckNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br>
      * <pre>e.g. setMyselfCheckName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param myselfCheckName The value of myselfCheckName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMyselfCheckName_LikeSearch(String myselfCheckName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)} <br>
      * <pre>e.g. setMyselfCheckName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param myselfCheckName The value of myselfCheckName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setMyselfCheckName_LikeSearch(String myselfCheckName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckName The value of myselfCheckName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setMyselfCheckName_NotLikeSearch(String myselfCheckName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
-     * @param myselfCheckName The value of myselfCheckName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param myselfCheckName The value of myselfCheckName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setMyselfCheckName_NotLikeSearch(String myselfCheckName, LikeSearchOption likeSearchOption) {
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
-     * @param minNumber The min number of myselfId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of myselfId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of myselfId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of myselfId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMyselfId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
-     * @param minNumber The min number of myselfId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of myselfId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of myselfId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of myselfId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMyselfId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
-     * @param myselfIdList The collection of myselfId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfIdList The collection of myselfId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfId_InScope(Collection<Integer> myselfIdList) {
         doSetMyselfId_InScope(myselfIdList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
-     * @param myselfIdList The collection of myselfId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param myselfIdList The collection of myselfId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMyselfId_NotInScope(Collection<Integer> myselfIdList) {
         doSetMyselfId_NotInScope(myselfIdList);

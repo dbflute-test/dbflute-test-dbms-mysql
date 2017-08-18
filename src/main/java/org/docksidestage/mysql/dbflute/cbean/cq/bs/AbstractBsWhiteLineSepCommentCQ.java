@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
-     * @param lineSepCommentCode The value of lineSepCommentCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentCode The value of lineSepCommentCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setLineSepCommentCode_Equal(String lineSepCommentCode) {
         doSetLineSepCommentCode_Equal(fRES(lineSepCommentCode));
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
-     * @param lineSepCommentCode The value of lineSepCommentCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentCode The value of lineSepCommentCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setLineSepCommentCode_NotEqual(String lineSepCommentCode) {
         doSetLineSepCommentCode_NotEqual(fRES(lineSepCommentCode));
@@ -139,7 +139,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
-     * @param lineSepCommentCodeList The collection of lineSepCommentCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentCodeList The collection of lineSepCommentCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setLineSepCommentCode_InScope(Collection<String> lineSepCommentCodeList) {
         doSetLineSepCommentCode_InScope(lineSepCommentCodeList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * InScope {in ('a', 'b')}. As LineSepCommentCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_InScope_AsLineSepCommentCls(Collection<CDef.LineSepCommentCls> cdefList) {
         doSetLineSepCommentCode_InScope(cTStrL(cdefList));
@@ -172,7 +172,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
-     * @param lineSepCommentCodeList The collection of lineSepCommentCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentCodeList The collection of lineSepCommentCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setLineSepCommentCode_NotInScope(Collection<String> lineSepCommentCodeList) {
         doSetLineSepCommentCode_NotInScope(lineSepCommentCodeList);
@@ -182,7 +182,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * NotInScope {not in ('a', 'b')}. As LineSepCommentCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
      * top first line            top second line            top third line
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_NotInScope_AsLineSepCommentCls(Collection<CDef.LineSepCommentCls> cdefList) {
         doSetLineSepCommentCode_NotInScope(cTStrL(cdefList));
@@ -210,7 +210,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentName The value of lineSepCommentName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentName_Equal(String lineSepCommentName) {
         doSetLineSepCommentName_Equal(fRES(lineSepCommentName));
@@ -223,7 +223,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentName The value of lineSepCommentName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentName_NotEqual(String lineSepCommentName) {
         doSetLineSepCommentName_NotEqual(fRES(lineSepCommentName));
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentNameList The collection of lineSepCommentName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentNameList The collection of lineSepCommentName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentName_InScope(Collection<String> lineSepCommentNameList) {
         doSetLineSepCommentName_InScope(lineSepCommentNameList);
@@ -249,7 +249,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentNameList The collection of lineSepCommentName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentNameList The collection of lineSepCommentName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentName_NotInScope(Collection<String> lineSepCommentNameList) {
         doSetLineSepCommentName_NotInScope(lineSepCommentNameList);
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setLineSepCommentName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param lineSepCommentName The value of lineSepCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLineSepCommentName_LikeSearch(String lineSepCommentName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -274,7 +274,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)} <br>
      * <pre>e.g. setLineSepCommentName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param lineSepCommentName The value of lineSepCommentName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setLineSepCommentName_LikeSearch(String lineSepCommentName, LikeSearchOption likeSearchOption) {
@@ -285,7 +285,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentName The value of lineSepCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setLineSepCommentName_NotLikeSearch(String lineSepCommentName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
-     * @param lineSepCommentName The value of lineSepCommentName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param lineSepCommentName The value of lineSepCommentName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setLineSepCommentName_NotLikeSearch(String lineSepCommentName, LikeSearchOption likeSearchOption) {

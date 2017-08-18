@@ -79,8 +79,8 @@ public class WhiteColumnExceptDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnExceptColumnId = cci("EXCEPT_COLUMN_ID", "EXCEPT_COLUMN_ID", null, null, Long.class, "exceptColumnId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnColumnExceptTest = cci("COLUMN_EXCEPT_TEST", "COLUMN_EXCEPT_TEST", null, null, Integer.class, "columnExceptTest", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnExceptColumnId = cci("EXCEPT_COLUMN_ID", "EXCEPT_COLUMN_ID", null, null, Long.class, "exceptColumnId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnColumnExceptTest = cci("COLUMN_EXCEPT_TEST", "COLUMN_EXCEPT_TEST", null, null, Integer.class, "columnExceptTest", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}

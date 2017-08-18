@@ -84,13 +84,13 @@ public class WhiteNoPkCommonColumnDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNoPkId = cci("NO_PK_ID", "NO_PK_ID", null, null, Long.class, "noPkId", null, false, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNoPkName = cci("NO_PK_NAME", "NO_PK_NAME", null, null, String.class, "noPkName", null, false, false, false, "VARCHAR", 32, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNoPkInteger = cci("NO_PK_INTEGER", "NO_PK_INTEGER", null, null, Integer.class, "noPkInteger", null, false, false, false, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, "レコードが登録された日時。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, "登録ユーザ", String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, "レコードを登録したユーザ。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, true, null, "レコードが（最後に）更新された日時。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, true, null, "レコードを更新したユーザ。", null, null, null, false);
+    protected final ColumnInfo _columnNoPkId = cci("NO_PK_ID", "NO_PK_ID", null, null, Long.class, "noPkId", null, false, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNoPkName = cci("NO_PK_NAME", "NO_PK_NAME", null, null, String.class, "noPkName", null, false, false, false, "VARCHAR", 32, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNoPkInteger = cci("NO_PK_INTEGER", "NO_PK_INTEGER", null, null, Integer.class, "noPkInteger", null, false, false, false, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, "レコードが登録された日時。共通カラムの一つ。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, "登録ユーザ", String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "レコードを登録したユーザ。共通カラムの一つ。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, "レコードが（最後に）更新された日時。共通カラムの一つ。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "レコードを更新したユーザ。", null, null, null, false);
 
     /**
      * NO_PK_ID: {NotNull, DECIMAL(16)}

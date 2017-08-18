@@ -61,7 +61,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCode The value of uqFkCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkCode_Equal(String uqFkCode) {
         doSetUqFkCode_Equal(fRES(uqFkCode));
@@ -74,7 +74,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCode The value of uqFkCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkCode_NotEqual(String uqFkCode) {
         doSetUqFkCode_NotEqual(fRES(uqFkCode));
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCodeList The collection of uqFkCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCodeList The collection of uqFkCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkCode_InScope(Collection<String> uqFkCodeList) {
         doSetUqFkCode_InScope(uqFkCodeList);
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCodeList The collection of uqFkCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCodeList The collection of uqFkCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkCode_NotInScope(Collection<String> uqFkCodeList) {
         doSetUqFkCode_NotInScope(uqFkCodeList);
@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br>
      * <pre>e.g. setUqFkCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param uqFkCode The value of uqFkCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqFkCode_LikeSearch(String uqFkCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -125,7 +125,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)} <br>
      * <pre>e.g. setUqFkCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param uqFkCode The value of uqFkCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUqFkCode_LikeSearch(String uqFkCode, LikeSearchOption likeSearchOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCode The value of uqFkCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqFkCode_NotLikeSearch(String uqFkCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -147,7 +147,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
-     * @param uqFkCode The value of uqFkCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkCode The value of uqFkCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUqFkCode_NotLikeSearch(String uqFkCode, LikeSearchOption likeSearchOption) {
@@ -233,7 +233,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkName The value of uqFkName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkName_Equal(String uqFkName) {
         doSetUqFkName_Equal(fRES(uqFkName));
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkName The value of uqFkName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkName_NotEqual(String uqFkName) {
         doSetUqFkName_NotEqual(fRES(uqFkName));
@@ -259,7 +259,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkNameList The collection of uqFkName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkNameList The collection of uqFkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkName_InScope(Collection<String> uqFkNameList) {
         doSetUqFkName_InScope(uqFkNameList);
@@ -272,7 +272,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkNameList The collection of uqFkName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkNameList The collection of uqFkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqFkName_NotInScope(Collection<String> uqFkNameList) {
         doSetUqFkName_NotInScope(uqFkNameList);
@@ -286,7 +286,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)} <br>
      * <pre>e.g. setUqFkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param uqFkName The value of uqFkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqFkName_LikeSearch(String uqFkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -297,7 +297,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)} <br>
      * <pre>e.g. setUqFkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param uqFkName The value of uqFkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUqFkName_LikeSearch(String uqFkName, LikeSearchOption likeSearchOption) {
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkName The value of uqFkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqFkName_NotLikeSearch(String uqFkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -319,7 +319,7 @@ public abstract class AbstractBsWhiteUqFkWithoutPkCQ extends AbstractConditionQu
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_FK_NAME: {NotNull, VARCHAR(64)}
-     * @param uqFkName The value of uqFkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqFkName The value of uqFkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUqFkName_NotLikeSearch(String uqFkName, LikeSearchOption likeSearchOption) {

@@ -79,8 +79,8 @@ public class WhiteLargeTextFileDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnLargeTextFileId = cci("LARGE_TEXT_FILE_ID", "LARGE_TEXT_FILE_ID", null, null, Long.class, "largeTextFileId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnLargeTextFileText = cci("LARGE_TEXT_FILE_TEXT", "LARGE_TEXT_FILE_TEXT", null, null, String.class, "largeTextFileText", null, false, false, false, "TEXT", 65535, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLargeTextFileId = cci("LARGE_TEXT_FILE_ID", "LARGE_TEXT_FILE_ID", null, null, Long.class, "largeTextFileId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLargeTextFileText = cci("LARGE_TEXT_FILE_TEXT", "LARGE_TEXT_FILE_TEXT", null, null, String.class, "largeTextFileText", null, false, false, false, "TEXT", 65535, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}

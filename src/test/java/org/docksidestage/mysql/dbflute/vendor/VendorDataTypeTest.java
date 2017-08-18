@@ -12,9 +12,11 @@ import java.util.List;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.exception.UndefinedClassificationCodeException;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.allcommon.CDef.BooleanFlg;
+import org.docksidestage.mysql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberWithdrawalCB;
 import org.docksidestage.mysql.dbflute.cbean.VendorCheckCB;
@@ -402,6 +404,87 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         assertFalse(DfTypeUtil.isDateBC(toUtilDate(formalizedDatetime))); // cannot handle BC date
         String formatted = toString(formalizedDatetime, "yyyy/MM/dd");
         assertEquals("1233/01/12", formatted);
+    }
+
+    // -----------------------------------------------------
+    //                                              DATETIME
+    //                                              --------
+    public void test_DATETIME_select_millis_headache_nonTruncated() {
+        // ## Arrange ##
+        VendorCheck inserted = new VendorCheck();
+        inserted.setVendorCheckId(99999L);
+        LocalDateTime time = LocalDateTime.of(2017, 8, 2, 22, 26, 56, 000);
+        inserted.setTypeOfDatetime(time);
+        vendorCheckBhv.insert(inserted);
+
+        // ## Act ##
+        OptionalEntity<VendorCheck> opt = vendorCheckBhv.selectEntity(cb -> {
+            cb.query().setVendorCheckId_Equal(inserted.getVendorCheckId());
+            cb.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(999999999)); // non-truncated
+        });
+
+        // ## Assert ##
+        assertFalse(opt.isPresent());
+    }
+
+    public void test_DATETIME_select_millis_headache_truncated() {
+        // ## Arrange ##
+        DBFluteConfig.getInstance().unlock();
+        boolean original = DBFluteConfig.getInstance().isDatetimePrecisionTruncationOfCondition();
+        DBFluteConfig.getInstance().setDatetimePrecisionTruncationOfCondition(true);
+        try {
+            VendorCheck inserted = new VendorCheck();
+            inserted.setVendorCheckId(99999L);
+            LocalDateTime time = LocalDateTime.of(2017, 8, 2, 22, 26, 56, 000);
+            inserted.setTypeOfDatetime(time);
+            inserted.setTypeOfDatetime3Millis(time.plusNanos(888000000));
+            vendorCheckBhv.insert(inserted);
+
+            // ## Act ##
+            OptionalEntity<VendorCheck> opt = vendorCheckBhv.selectEntity(cb -> {
+                cb.query().setVendorCheckId_Equal(inserted.getVendorCheckId());
+                cb.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(999999999)); // truncated
+                cb.query().setTypeOfDatetime3Millis_LessEqual(time.plusNanos(999999999)); // non-truncated
+                cb.query().myselfExists(myselfCB -> {
+                    myselfCB.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(999999999)); // truncated
+                });
+            });
+
+            // ## Assert ##
+            assertTrue(opt.isPresent());
+            VendorCheck selected = opt.get();
+            assertEquals(time, selected.getTypeOfDatetime());
+            assertEquals(time.plusNanos(888000000), selected.getTypeOfDatetime3Millis());
+        } finally {
+            DBFluteConfig.getInstance().unlock();
+            DBFluteConfig.getInstance().setDatetimePrecisionTruncationOfCondition(original);
+            DBFluteConfig.getInstance().lock();
+        }
+    }
+
+    public void test_DATETIME_insert_millis_micros() {
+        // ## Arrange ##
+        VendorCheck inserted = new VendorCheck();
+        inserted.setVendorCheckId(99999L);
+        LocalDateTime time = LocalDateTime.of(2017, 8, 2, 22, 26, 56, 987654321);
+        inserted.setTypeOfDatetime(time);
+        inserted.setTypeOfDatetime3Millis(time);
+        inserted.setTypeOfDatetime6Micros(time);
+
+        // ## Act ##
+        vendorCheckBhv.insert(inserted);
+
+        // ## Assert ##
+        VendorCheck selected = vendorCheckBhv.selectEntity(cb -> {
+            cb.query().setVendorCheckId_Equal(inserted.getVendorCheckId());
+        }).get();
+        LocalDateTime plain = selected.getTypeOfDatetime();
+        LocalDateTime millis = selected.getTypeOfDatetime3Millis();
+        LocalDateTime micros = selected.getTypeOfDatetime6Micros();
+        log(plain, millis, micros);
+        assertEquals(0, plain.getNano()); // completely truncated
+        assertEquals(988000000, millis.getNano()); // round when insert
+        assertEquals(987000000, micros.getNano()); // DBFlute supports millisecond only so truncated
     }
 
     // ===================================================================================

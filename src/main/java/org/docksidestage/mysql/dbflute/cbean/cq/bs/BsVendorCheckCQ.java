@@ -468,6 +468,46 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      */
     public BsVendorCheckCQ addOrderBy_TypeOfDatetime_Desc() { regOBD("TYPE_OF_DATETIME"); return this; }
 
+    protected ConditionValue _typeOfDatetime3Millis;
+    public ConditionValue xdfgetTypeOfDatetime3Millis()
+    { if (_typeOfDatetime3Millis == null) { _typeOfDatetime3Millis = nCV(); }
+      return _typeOfDatetime3Millis; }
+    protected ConditionValue xgetCValueTypeOfDatetime3Millis() { return xdfgetTypeOfDatetime3Millis(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime3Millis_Asc() { regOBA("TYPE_OF_DATETIME_3_MILLIS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime3Millis_Desc() { regOBD("TYPE_OF_DATETIME_3_MILLIS"); return this; }
+
+    protected ConditionValue _typeOfDatetime6Micros;
+    public ConditionValue xdfgetTypeOfDatetime6Micros()
+    { if (_typeOfDatetime6Micros == null) { _typeOfDatetime6Micros = nCV(); }
+      return _typeOfDatetime6Micros; }
+    protected ConditionValue xgetCValueTypeOfDatetime6Micros() { return xdfgetTypeOfDatetime6Micros(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime6Micros_Asc() { regOBA("TYPE_OF_DATETIME_6_MICROS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime6Micros_Desc() { regOBD("TYPE_OF_DATETIME_6_MICROS"); return this; }
+
     protected ConditionValue _typeOfTimestamp;
     public ConditionValue xdfgetTypeOfTimestamp()
     { if (_typeOfTimestamp == null) { _typeOfTimestamp = nCV(); }

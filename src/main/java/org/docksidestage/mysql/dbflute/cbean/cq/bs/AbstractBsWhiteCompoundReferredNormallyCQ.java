@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of referredId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of referredId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of referredId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setReferredId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredIdList The collection of referredId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredIdList The collection of referredId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredId_InScope(Collection<Integer> referredIdList) {
         doSetReferredId_InScope(referredIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
-     * @param referredIdList The collection of referredId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredIdList The collection of referredId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredId_NotInScope(Collection<Integer> referredIdList) {
         doSetReferredId_NotInScope(referredIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredName_Equal(String referredName) {
         doSetReferredName_Equal(fRES(referredName));
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredName_NotEqual(String referredName) {
         doSetReferredName_NotEqual(fRES(referredName));
@@ -276,7 +276,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredNameList The collection of referredName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredNameList The collection of referredName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredName_InScope(Collection<String> referredNameList) {
         doSetReferredName_InScope(referredNameList);
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredNameList The collection of referredName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param referredNameList The collection of referredName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setReferredName_NotInScope(Collection<String> referredNameList) {
         doSetReferredName_NotInScope(referredNameList);
@@ -303,7 +303,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setReferredName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param referredName The value of referredName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setReferredName_LikeSearch(String referredName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -314,7 +314,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setReferredName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param referredName The value of referredName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setReferredName_LikeSearch(String referredName, LikeSearchOption likeSearchOption) {
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setReferredName_NotLikeSearch(String referredName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -336,7 +336,7 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
-     * @param referredName The value of referredName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param referredName The value of referredName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setReferredName_NotLikeSearch(String referredName, LikeSearchOption likeSearchOption) {

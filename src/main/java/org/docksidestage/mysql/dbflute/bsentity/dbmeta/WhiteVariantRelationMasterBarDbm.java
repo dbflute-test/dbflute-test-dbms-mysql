@@ -79,8 +79,8 @@ public class WhiteVariantRelationMasterBarDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMasterBarId = cci("MASTER_BAR_ID", "MASTER_BAR_ID", null, null, Long.class, "masterBarId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, null, "whiteVariantRelationReferrerAsVariantList", null, false);
-    protected final ColumnInfo _columnMasterBarName = cci("MASTER_BAR_NAME", "MASTER_BAR_NAME", null, null, String.class, "masterBarName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMasterBarId = cci("MASTER_BAR_ID", "MASTER_BAR_ID", null, null, Long.class, "masterBarId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, "whiteVariantRelationReferrerAsVariantList", null, false);
+    protected final ColumnInfo _columnMasterBarName = cci("MASTER_BAR_NAME", "MASTER_BAR_NAME", null, null, String.class, "masterBarName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}

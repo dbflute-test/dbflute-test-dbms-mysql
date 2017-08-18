@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genOnlyId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genOnlyId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of genOnlyId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of genOnlyId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of genOnlyId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGenOnlyId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyIdList The collection of genOnlyId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyIdList The collection of genOnlyId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyId_InScope(Collection<Long> genOnlyIdList) {
         doSetGenOnlyId_InScope(genOnlyIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
-     * @param genOnlyIdList The collection of genOnlyId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyIdList The collection of genOnlyId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyId_NotInScope(Collection<Long> genOnlyIdList) {
         doSetGenOnlyId_NotInScope(genOnlyIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyName The value of genOnlyName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyName_Equal(String genOnlyName) {
         doSetGenOnlyName_Equal(fRES(genOnlyName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyName The value of genOnlyName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyName_NotEqual(String genOnlyName) {
         doSetGenOnlyName_NotEqual(fRES(genOnlyName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyNameList The collection of genOnlyName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyNameList The collection of genOnlyName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyName_InScope(Collection<String> genOnlyNameList) {
         doSetGenOnlyName_InScope(genOnlyNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyNameList The collection of genOnlyName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyNameList The collection of genOnlyName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGenOnlyName_NotInScope(Collection<String> genOnlyNameList) {
         doSetGenOnlyName_NotInScope(genOnlyNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenOnlyName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param genOnlyName The value of genOnlyName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenOnlyName_LikeSearch(String genOnlyName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setGenOnlyName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param genOnlyName The value of genOnlyName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setGenOnlyName_LikeSearch(String genOnlyName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyName The value of genOnlyName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setGenOnlyName_NotLikeSearch(String genOnlyName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
-     * @param genOnlyName The value of genOnlyName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param genOnlyName The value of genOnlyName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setGenOnlyName_NotLikeSearch(String genOnlyName, LikeSearchOption likeSearchOption) {

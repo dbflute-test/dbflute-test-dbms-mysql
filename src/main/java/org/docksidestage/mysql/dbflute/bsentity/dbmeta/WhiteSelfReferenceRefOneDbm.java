@@ -93,8 +93,8 @@ public class WhiteSelfReferenceRefOneDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, "whiteSelfReference,whiteSelfReferenceAsDirectParent", null, null, false);
-    protected final ColumnInfo _columnSelfReferenceRefOneName = cci("SELF_REFERENCE_REF_ONE_NAME", "SELF_REFERENCE_REF_ONE_NAME", null, null, String.class, "selfReferenceRefOneName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSelfReferenceId = cci("SELF_REFERENCE_ID", "SELF_REFERENCE_ID", null, null, Long.class, "selfReferenceId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, "whiteSelfReference,whiteSelfReferenceAsDirectParent", null, null, false);
+    protected final ColumnInfo _columnSelfReferenceRefOneName = cci("SELF_REFERENCE_REF_ONE_NAME", "SELF_REFERENCE_REF_ONE_NAME", null, null, String.class, "selfReferenceRefOneName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}

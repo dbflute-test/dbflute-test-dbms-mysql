@@ -92,8 +92,8 @@ public class WhitePgReservRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnClassSynonym = cci("CLASS", "CLASS", "CLASS_SYNONYM", "(using DBFlute synonym)", Integer.class, "classSynonym", null, false, false, false, "INT", 10, 0, null, false, null, null, "whitePgReserv", null, null, false);
+    protected final ColumnInfo _columnRefId = cci("REF_ID", "REF_ID", null, null, Integer.class, "refId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnClassSynonym = cci("CLASS", "CLASS", "CLASS_SYNONYM", "(using DBFlute synonym)", Integer.class, "classSynonym", null, false, false, false, "INT", 10, 0, null, null, false, null, null, "whitePgReserv", null, null, false);
 
     /**
      * REF_ID: {PK, NotNull, INT(10)}

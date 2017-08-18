@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of toId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of toId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of toId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of toId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setToId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of toId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of toId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of toId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of toId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setToId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param toIdList The collection of toId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param toIdList The collection of toId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToId_InScope(Collection<Long> toIdList) {
         doSetToId_InScope(toIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param toIdList The collection of toId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param toIdList The collection of toId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToId_NotInScope(Collection<Long> toIdList) {
         doSetToId_NotInScope(toIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toName The value of toName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToName_Equal(String toName) {
         doSetToName_Equal(fRES(toName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toName The value of toName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToName_NotEqual(String toName) {
         doSetToName_NotEqual(fRES(toName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toNameList The collection of toName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param toNameList The collection of toName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToName_InScope(Collection<String> toNameList) {
         doSetToName_InScope(toNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toNameList The collection of toName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param toNameList The collection of toName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setToName_NotInScope(Collection<String> toNameList) {
         doSetToName_NotInScope(toNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setToName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param toName The value of toName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setToName_LikeSearch(String toName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setToName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param toName The value of toName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setToName_LikeSearch(String toName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toName The value of toName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setToName_NotLikeSearch(String toName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
-     * @param toName The value of toName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param toName The value of toName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setToName_NotLikeSearch(String toName, LikeSearchOption likeSearchOption) {
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
-     * @param minNumber The min number of fromId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fromId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
-     * @param minNumber The min number of fromId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of fromId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of fromId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFromId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
-     * @param fromIdList The collection of fromId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromIdList The collection of fromId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromId_InScope(Collection<Long> fromIdList) {
         doSetFromId_InScope(fromIdList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
-     * @param fromIdList The collection of fromId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fromIdList The collection of fromId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFromId_NotInScope(Collection<Long> fromIdList) {
         doSetFromId_NotInScope(fromIdList);

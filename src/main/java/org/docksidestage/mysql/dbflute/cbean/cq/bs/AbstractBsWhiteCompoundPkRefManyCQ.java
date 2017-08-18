@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of multipleFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of multipleFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstIdList The collection of multipleFirstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleFirstIdList The collection of multipleFirstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleFirstId_InScope(Collection<Integer> multipleFirstIdList) {
         doSetMultipleFirstId_InScope(multipleFirstIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
-     * @param multipleFirstIdList The collection of multipleFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleFirstIdList The collection of multipleFirstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleFirstId_NotInScope(Collection<Integer> multipleFirstIdList) {
         doSetMultipleFirstId_NotInScope(multipleFirstIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of multipleSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param minNumber The min number of multipleSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondIdList The collection of multipleSecondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleSecondIdList The collection of multipleSecondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleSecondId_InScope(Collection<Integer> multipleSecondIdList) {
         doSetMultipleSecondId_InScope(multipleSecondIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
-     * @param multipleSecondIdList The collection of multipleSecondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleSecondIdList The collection of multipleSecondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleSecondId_NotInScope(Collection<Integer> multipleSecondIdList) {
         doSetMultipleSecondId_NotInScope(multipleSecondIdList);
@@ -344,8 +344,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param minNumber The min number of refManyFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refManyFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refManyFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refManyFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefManyFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -357,8 +357,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param minNumber The min number of refManyFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refManyFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refManyFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refManyFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefManyFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -368,7 +368,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param refManyFirstIdList The collection of refManyFirstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyFirstIdList The collection of refManyFirstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyFirstId_InScope(Collection<Integer> refManyFirstIdList) {
         doSetRefManyFirstId_InScope(refManyFirstIdList);
@@ -381,7 +381,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param refManyFirstIdList The collection of refManyFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyFirstIdList The collection of refManyFirstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyFirstId_NotInScope(Collection<Integer> refManyFirstIdList) {
         doSetRefManyFirstId_NotInScope(refManyFirstIdList);
@@ -448,8 +448,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param minNumber The min number of refManySecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refManySecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refManySecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refManySecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefManySecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -461,8 +461,8 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param minNumber The min number of refManySecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refManySecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refManySecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refManySecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefManySecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -472,7 +472,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param refManySecondIdList The collection of refManySecondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManySecondIdList The collection of refManySecondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManySecondId_InScope(Collection<Integer> refManySecondIdList) {
         doSetRefManySecondId_InScope(refManySecondIdList);
@@ -485,7 +485,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
-     * @param refManySecondIdList The collection of refManySecondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManySecondIdList The collection of refManySecondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManySecondId_NotInScope(Collection<Integer> refManySecondIdList) {
         doSetRefManySecondId_NotInScope(refManySecondIdList);
@@ -501,7 +501,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCode The value of refManyCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyCode_Equal(String refManyCode) {
         doSetRefManyCode_Equal(fRES(refManyCode));
@@ -514,7 +514,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCode The value of refManyCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyCode_NotEqual(String refManyCode) {
         doSetRefManyCode_NotEqual(fRES(refManyCode));
@@ -527,7 +527,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCodeList The collection of refManyCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCodeList The collection of refManyCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyCode_InScope(Collection<String> refManyCodeList) {
         doSetRefManyCode_InScope(refManyCodeList);
@@ -540,7 +540,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCodeList The collection of refManyCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCodeList The collection of refManyCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyCode_NotInScope(Collection<String> refManyCodeList) {
         doSetRefManyCode_NotInScope(refManyCodeList);
@@ -554,7 +554,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setRefManyCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param refManyCode The value of refManyCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefManyCode_LikeSearch(String refManyCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -565,7 +565,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setRefManyCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param refManyCode The value of refManyCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefManyCode_LikeSearch(String refManyCode, LikeSearchOption likeSearchOption) {
@@ -576,7 +576,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCode The value of refManyCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefManyCode_NotLikeSearch(String refManyCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -587,7 +587,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
-     * @param refManyCode The value of refManyCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyCode The value of refManyCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefManyCode_NotLikeSearch(String refManyCode, LikeSearchOption likeSearchOption) {
@@ -600,7 +600,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyName The value of refManyName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyName_Equal(String refManyName) {
         doSetRefManyName_Equal(fRES(refManyName));
@@ -613,7 +613,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyName The value of refManyName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyName_NotEqual(String refManyName) {
         doSetRefManyName_NotEqual(fRES(refManyName));
@@ -626,7 +626,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyNameList The collection of refManyName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyNameList The collection of refManyName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyName_InScope(Collection<String> refManyNameList) {
         doSetRefManyName_InScope(refManyNameList);
@@ -639,7 +639,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyNameList The collection of refManyName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refManyNameList The collection of refManyName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefManyName_NotInScope(Collection<String> refManyNameList) {
         doSetRefManyName_NotInScope(refManyNameList);
@@ -653,7 +653,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setRefManyName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param refManyName The value of refManyName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefManyName_LikeSearch(String refManyName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -664,7 +664,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setRefManyName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param refManyName The value of refManyName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRefManyName_LikeSearch(String refManyName, LikeSearchOption likeSearchOption) {
@@ -675,7 +675,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyName The value of refManyName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRefManyName_NotLikeSearch(String refManyName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -686,7 +686,7 @@ public abstract class AbstractBsWhiteCompoundPkRefManyCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
-     * @param refManyName The value of refManyName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param refManyName The value of refManyName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRefManyName_NotLikeSearch(String refManyName, LikeSearchOption likeSearchOption) {

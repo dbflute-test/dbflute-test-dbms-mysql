@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of groupingReferenceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of groupingReferenceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of groupingReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of groupingReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setGroupingReferenceId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of groupingReferenceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of groupingReferenceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of groupingReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of groupingReferenceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setGroupingReferenceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceIdList The collection of groupingReferenceId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceIdList The collection of groupingReferenceId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_InScope(Collection<Long> groupingReferenceIdList) {
         doSetGroupingReferenceId_InScope(groupingReferenceIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceIdList The collection of groupingReferenceId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceIdList The collection of groupingReferenceId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGroupingReferenceId_NotInScope(Collection<Long> groupingReferenceIdList) {
         doSetGroupingReferenceId_NotInScope(groupingReferenceIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
-     * @param groupingReferenceCode The value of groupingReferenceCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceCode The value of groupingReferenceCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setGroupingReferenceCode_Equal(String groupingReferenceCode) {
         doSetGroupingReferenceCode_Equal(fRES(groupingReferenceCode));
@@ -232,7 +232,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
-     * @param groupingReferenceCode The value of groupingReferenceCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceCode The value of groupingReferenceCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setGroupingReferenceCode_NotEqual(String groupingReferenceCode) {
         doSetGroupingReferenceCode_NotEqual(fRES(groupingReferenceCode));
@@ -287,7 +287,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
-     * @param groupingReferenceCodeList The collection of groupingReferenceCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceCodeList The collection of groupingReferenceCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setGroupingReferenceCode_InScope(Collection<String> groupingReferenceCodeList) {
         doSetGroupingReferenceCode_InScope(groupingReferenceCodeList);
@@ -297,7 +297,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * InScope {in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGroupingReferenceCode_InScope_AsGroupingReference(Collection<CDef.GroupingReference> cdefList) {
         doSetGroupingReferenceCode_InScope(cTStrL(cdefList));
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
-     * @param groupingReferenceCodeList The collection of groupingReferenceCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param groupingReferenceCodeList The collection of groupingReferenceCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setGroupingReferenceCode_NotInScope(Collection<String> groupingReferenceCodeList) {
         doSetGroupingReferenceCode_NotInScope(groupingReferenceCodeList);
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
      * NotInScope {not in ('a', 'b')}. As GroupingReference. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference} <br>
      * the test of reference variable in grouping map
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setGroupingReferenceCode_NotInScope_AsGroupingReference(Collection<CDef.GroupingReference> cdefList) {
         doSetGroupingReferenceCode_NotInScope(cTStrL(cdefList));

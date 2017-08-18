@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param minNumber The min number of uqClsId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of uqClsId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of uqClsId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setUqClsId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_InScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_InScope(uqClsIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsIdList The collection of uqClsId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsIdList The collection of uqClsId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsId_NotInScope(Collection<Long> uqClsIdList) {
         doSetUqClsId_NotInScope(uqClsIdList);
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsName The value of uqClsName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsName_Equal(String uqClsName) {
         doSetUqClsName_Equal(fRES(uqClsName));
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsName The value of uqClsName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsName_NotEqual(String uqClsName) {
         doSetUqClsName_NotEqual(fRES(uqClsName));
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsNameList The collection of uqClsName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsNameList The collection of uqClsName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsName_InScope(Collection<String> uqClsNameList) {
         doSetUqClsName_InScope(uqClsNameList);
@@ -216,7 +216,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsNameList The collection of uqClsName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsNameList The collection of uqClsName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsName_NotInScope(Collection<String> uqClsNameList) {
         doSetUqClsName_NotInScope(uqClsNameList);
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)} <br>
      * <pre>e.g. setUqClsName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param uqClsName The value of uqClsName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqClsName_LikeSearch(String uqClsName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -241,7 +241,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)} <br>
      * <pre>e.g. setUqClsName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param uqClsName The value of uqClsName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUqClsName_LikeSearch(String uqClsName, LikeSearchOption likeSearchOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsName The value of uqClsName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setUqClsName_NotLikeSearch(String uqClsName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -263,7 +263,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * UQ_CLS_NAME: {UQ+, NotNull, VARCHAR(30)}
-     * @param uqClsName The value of uqClsName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsName The value of uqClsName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUqClsName_NotLikeSearch(String uqClsName, LikeSearchOption likeSearchOption) {
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg}
-     * @param uqClsFlgList The collection of uqClsFlg as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsFlgList The collection of uqClsFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsFlg_InScope(Collection<Integer> uqClsFlgList) {
         doSetUqClsFlg_InScope(uqClsFlgList);
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * InScope {in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg} <br>
      * フラグを示す
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsFlg_InScope_AsFlg(Collection<CDef.Flg> cdefList) {
         doSetUqClsFlg_InScope(cTNumL(cdefList, Integer.class));
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg}
-     * @param uqClsFlgList The collection of uqClsFlg as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param uqClsFlgList The collection of uqClsFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setUqClsFlg_NotInScope(Collection<Integer> uqClsFlgList) {
         doSetUqClsFlg_NotInScope(uqClsFlgList);
@@ -348,7 +348,7 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
      * NotInScope {not in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg} <br>
      * フラグを示す
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUqClsFlg_NotInScope_AsFlg(Collection<CDef.Flg> cdefList) {
         doSetUqClsFlg_NotInScope(cTNumL(cdefList, Integer.class));

@@ -94,9 +94,9 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, true, false, true, "BIGINT", 19, 0, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null, false);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, false, false, true, "CHAR", 3, 0, null, false, null, null, "whitePerrottaOverProductNested", null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, "whitePerrottaOverProductNested", null, null, false);
 
     /**
      * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}

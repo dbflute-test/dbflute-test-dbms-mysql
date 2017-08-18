@@ -80,9 +80,9 @@ public class WhiteTableExceptGenRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnGenRefId = cci("GEN_REF_ID", "GEN_REF_ID", null, null, Long.class, "genRefId", null, true, false, true, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnGenRefName = cci("GEN_REF_NAME", "GEN_REF_NAME", null, null, String.class, "genRefName", null, false, false, true, "VARCHAR", 200, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnGenOnlyId = cci("GEN_ONLY_ID", "GEN_ONLY_ID", null, null, Long.class, "genOnlyId", null, false, false, false, "DECIMAL", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGenRefId = cci("GEN_REF_ID", "GEN_REF_ID", null, null, Long.class, "genRefId", null, true, false, true, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGenRefName = cci("GEN_REF_NAME", "GEN_REF_NAME", null, null, String.class, "genRefName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnGenOnlyId = cci("GEN_ONLY_ID", "GEN_ONLY_ID", null, null, Long.class, "genOnlyId", null, false, false, false, "DECIMAL", 16, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}

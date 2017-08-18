@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of childId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of childId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of childId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of childId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setChildId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of childId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of childId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of childId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of childId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setChildId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
-     * @param childIdList The collection of childId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param childIdList The collection of childId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildId_InScope(Collection<Long> childIdList) {
         doSetChildId_InScope(childIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
-     * @param childIdList The collection of childId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param childIdList The collection of childId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildId_NotInScope(Collection<Long> childIdList) {
         doSetChildId_NotInScope(childIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
-     * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setBaseId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
-     * @param minNumber The min number of baseId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of baseId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of baseId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBaseId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
-     * @param baseIdList The collection of baseId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param baseIdList The collection of baseId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBaseId_InScope(Collection<Long> baseIdList) {
         doSetBaseId_InScope(baseIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
-     * @param baseIdList The collection of baseId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param baseIdList The collection of baseId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBaseId_NotInScope(Collection<Long> baseIdList) {
         doSetBaseId_NotInScope(baseIdList);
@@ -281,7 +281,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childName The value of childName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildName_Equal(String childName) {
         doSetChildName_Equal(fRES(childName));
@@ -294,7 +294,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childName The value of childName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildName_NotEqual(String childName) {
         doSetChildName_NotEqual(fRES(childName));
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childNameList The collection of childName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param childNameList The collection of childName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildName_InScope(Collection<String> childNameList) {
         doSetChildName_InScope(childNameList);
@@ -320,7 +320,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childNameList The collection of childName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param childNameList The collection of childName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setChildName_NotInScope(Collection<String> childNameList) {
         doSetChildName_NotInScope(childNameList);
@@ -334,7 +334,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setChildName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param childName The value of childName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setChildName_LikeSearch(String childName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setChildName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param childName The value of childName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setChildName_LikeSearch(String childName, LikeSearchOption likeSearchOption) {
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childName The value of childName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setChildName_NotLikeSearch(String childName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -367,7 +367,7 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
-     * @param childName The value of childName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param childName The value of childName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setChildName_NotLikeSearch(String childName, LikeSearchOption likeSearchOption) {

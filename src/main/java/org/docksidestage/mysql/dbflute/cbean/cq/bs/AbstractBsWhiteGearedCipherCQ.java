@@ -112,8 +112,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of cipherId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of cipherId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of cipherId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of cipherId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setCipherId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param minNumber The min number of cipherId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of cipherId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of cipherId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of cipherId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCipherId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherIdList The collection of cipherId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherIdList The collection of cipherId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherId_InScope(Collection<Long> cipherIdList) {
         doSetCipherId_InScope(cipherIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherIdList The collection of cipherId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherIdList The collection of cipherId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherId_NotInScope(Collection<Long> cipherIdList) {
         doSetCipherId_NotInScope(cipherIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param minNumber The min number of cipherInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of cipherInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of cipherInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of cipherInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setCipherInteger_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param minNumber The min number of cipherInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of cipherInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of cipherInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of cipherInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setCipherInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherIntegerList The collection of cipherInteger as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherIntegerList The collection of cipherInteger as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherInteger_InScope(Collection<Integer> cipherIntegerList) {
         doSetCipherInteger_InScope(cipherIntegerList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherIntegerList The collection of cipherInteger as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherIntegerList The collection of cipherInteger as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherInteger_NotInScope(Collection<Integer> cipherIntegerList) {
         doSetCipherInteger_NotInScope(cipherIntegerList);
@@ -293,7 +293,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarchar The value of cipherVarchar as equal. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherVarchar_Equal(String cipherVarchar) {
         doSetCipherVarchar_Equal(fRES(cipherVarchar));
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarchar The value of cipherVarchar as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherVarchar_NotEqual(String cipherVarchar) {
         doSetCipherVarchar_NotEqual(fRES(cipherVarchar));
@@ -319,7 +319,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarcharList The collection of cipherVarchar as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarcharList The collection of cipherVarchar as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherVarchar_InScope(Collection<String> cipherVarcharList) {
         doSetCipherVarchar_InScope(cipherVarcharList);
@@ -332,7 +332,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarcharList The collection of cipherVarchar as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarcharList The collection of cipherVarchar as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setCipherVarchar_NotInScope(Collection<String> cipherVarcharList) {
         doSetCipherVarchar_NotInScope(cipherVarcharList);
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)} <br>
      * <pre>e.g. setCipherVarchar_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param cipherVarchar The value of cipherVarchar as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setCipherVarchar_LikeSearch(String cipherVarchar, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -357,7 +357,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)} <br>
      * <pre>e.g. setCipherVarchar_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param cipherVarchar The value of cipherVarchar as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setCipherVarchar_LikeSearch(String cipherVarchar, LikeSearchOption likeSearchOption) {
@@ -368,7 +368,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarchar The value of cipherVarchar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setCipherVarchar_NotLikeSearch(String cipherVarchar, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -379,7 +379,7 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
-     * @param cipherVarchar The value of cipherVarchar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param cipherVarchar The value of cipherVarchar as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setCipherVarchar_NotLikeSearch(String cipherVarchar, LikeSearchOption likeSearchOption) {

@@ -112,8 +112,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of traceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of traceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of traceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of traceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setTraceId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -125,8 +125,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param minNumber The min number of traceId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of traceId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of traceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of traceId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setTraceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -136,7 +136,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceIdList The collection of traceId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceIdList The collection of traceId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceId_InScope(Collection<Long> traceIdList) {
         doSetTraceId_InScope(traceIdList);
@@ -149,7 +149,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceIdList The collection of traceId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceIdList The collection of traceId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceId_NotInScope(Collection<Long> traceIdList) {
         doSetTraceId_NotInScope(traceIdList);
@@ -228,8 +228,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of previousProductId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of previousProductId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPreviousProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -241,8 +241,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of previousProductId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of previousProductId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPreviousProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -252,7 +252,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductIdList The collection of previousProductId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param previousProductIdList The collection of previousProductId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPreviousProductId_InScope(Collection<Long> previousProductIdList) {
         doSetPreviousProductId_InScope(previousProductIdList);
@@ -265,7 +265,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param previousProductIdList The collection of previousProductId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param previousProductIdList The collection of previousProductId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPreviousProductId_NotInScope(Collection<Long> previousProductIdList) {
         doSetPreviousProductId_NotInScope(previousProductIdList);
@@ -332,8 +332,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of nextProductId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextProductId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNextProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -345,8 +345,8 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param minNumber The min number of nextProductId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextProductId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductIdList The collection of nextProductId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextProductIdList The collection of nextProductId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextProductId_InScope(Collection<Long> nextProductIdList) {
         doSetNextProductId_InScope(nextProductIdList);
@@ -369,7 +369,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
-     * @param nextProductIdList The collection of nextProductId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextProductIdList The collection of nextProductId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextProductId_NotInScope(Collection<Long> nextProductIdList) {
         doSetNextProductId_NotInScope(nextProductIdList);
@@ -385,7 +385,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as equal. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_Equal(String traceTypeCode) {
         doSetTraceTypeCode_Equal(fRES(traceTypeCode));
@@ -398,7 +398,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_NotEqual(String traceTypeCode) {
         doSetTraceTypeCode_NotEqual(fRES(traceTypeCode));
@@ -411,7 +411,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCodeList The collection of traceTypeCode as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCodeList The collection of traceTypeCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_InScope(Collection<String> traceTypeCodeList) {
         doSetTraceTypeCode_InScope(traceTypeCodeList);
@@ -424,7 +424,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCodeList The collection of traceTypeCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setTraceTypeCode_NotInScope(Collection<String> traceTypeCodeList) {
         doSetTraceTypeCode_NotInScope(traceTypeCodeList);
@@ -438,7 +438,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -449,7 +449,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)} <br>
      * <pre>e.g. setTraceTypeCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param traceTypeCode The value of traceTypeCode as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setTraceTypeCode_LikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
@@ -460,7 +460,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -471,7 +471,7 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
-     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param traceTypeCode The value of traceTypeCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setTraceTypeCode_NotLikeSearch(String traceTypeCode, LikeSearchOption likeSearchOption) {
