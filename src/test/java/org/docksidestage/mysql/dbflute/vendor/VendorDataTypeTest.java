@@ -409,7 +409,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                              DATETIME
     //                                              --------
-    public void test_DATETIME_select_millis_headache_nonTruncated() {
+    public void test_DATETIME_select_millis_headache_nonTruncated_basic() {
         // ## Arrange ##
         VendorCheck inserted = new VendorCheck();
         inserted.setVendorCheckId(99999L);
@@ -420,7 +420,34 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         // ## Act ##
         OptionalEntity<VendorCheck> opt = vendorCheckBhv.selectEntity(cb -> {
             cb.query().setVendorCheckId_Equal(inserted.getVendorCheckId());
-            cb.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(999999999)); // non-truncated
+
+            cb.orScopeQuery(orCB -> {
+                // dfloc.TYPE_OF_DATETIME (2017-08-02 22:26:56) >= '2017-08-02 22:26:56.999'
+                cb.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(999999999)); // non-truncated
+
+                // dfloc.TYPE_OF_DATETIME (2017-08-02 22:26:56) >= '2017-08-02 22:26:56.001'
+                cb.query().setTypeOfDatetime_GreaterEqual(time.plusNanos(1000000)); // non-truncated
+            });
+        });
+
+        // ## Assert ##
+        assertFalse(opt.isPresent());
+    }
+
+    public void test_DATETIME_select_millis_headache_nonTruncated_nonRound() {
+        // ## Arrange ##
+        VendorCheck inserted = new VendorCheck();
+        inserted.setVendorCheckId(99999L);
+        LocalDateTime time = LocalDateTime.of(2017, 8, 2, 22, 26, 56, 000);
+        inserted.setTypeOfDatetime(time);
+        vendorCheckBhv.insert(inserted);
+
+        // ## Act ##
+        OptionalEntity<VendorCheck> opt = vendorCheckBhv.selectEntity(cb -> {
+            cb.query().setVendorCheckId_Equal(inserted.getVendorCheckId());
+
+            // dfloc.TYPE_OF_DATETIME (2017-08-02 22:26:56) <= '2017-08-02 22:26:55.999'
+            cb.query().setTypeOfDatetime_LessEqual(time.minusSeconds(1).plusNanos(999999999));
         });
 
         // ## Assert ##
