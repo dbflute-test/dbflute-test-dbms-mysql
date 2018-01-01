@@ -94,7 +94,7 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
       return _dbCommentCode; }
     protected ConditionValue xgetCValueDbCommentCode() { return xdfgetDbCommentCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (Normal)DB_COMMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteDbCommentCQ extends AbstractBsWhiteDbCommentCQ {
       return _dbCommentName; }
     protected ConditionValue xgetCValueDbCommentName() { return xdfgetDbCommentName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (JavaDocHeadache)DB_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

@@ -94,7 +94,7 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
       return _escapedJavaDocCode; }
     protected ConditionValue xgetCValueEscapedJavaDocCode() { return xdfgetEscapedJavaDocCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ESCAPED_JAVA_DOC_CODE: {PK, NotNull, CHAR(3), classification=EscapedJavaDocCls}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteEscapedJavaDocCQ extends AbstractBsWhiteEscapedJavaDocCQ {
       return _escapedJavaDocName; }
     protected ConditionValue xgetCValueEscapedJavaDocName() { return xdfgetEscapedJavaDocName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ESCAPED_JAVA_DOC_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

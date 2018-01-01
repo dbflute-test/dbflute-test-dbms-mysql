@@ -94,7 +94,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
       return _clsRefId; }
     protected ConditionValue xgetCValueClsRefId() { return xdfgetClsRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
       return _fooCode; }
     protected ConditionValue xgetCValueFooCode() { return xdfgetFooCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
       return _barCode; }
     protected ConditionValue xgetCValueBarCode() { return xdfgetBarCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BAR_CODE: {PK, NotNull, CHAR(3), FK to WHITE_ALL_IN_ONE_CLS_ELEMENT}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteAllInOneClsNormalColRefCQ extends AbstractBsWhiteAllInOneCls
       return _quxCode; }
     protected ConditionValue xgetCValueQuxCode() { return xdfgetQuxCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * QUX_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)

@@ -137,7 +137,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRefBhv extends AbstractBehavio
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteAllInOneClsCompoundPkRef</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteAllInOneClsCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteAllInOneClsCompoundPkRefBhv extends AbstractBehavio
      * <pre>
      * WhiteAllInOneClsCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteAllInOneClsCompoundPkRefCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteAllInOneClsCompoundPkRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteAllInOneClsCompoundPkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteAllInOneClsCompoundPkRef.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteAllInOneClsCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteAllInOneClsCompoundPkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1035,8 +1035,8 @@ public abstract class BsWhiteAllInOneClsCompoundPkRefBhv extends AbstractBehavio
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteAllInOneClsCompoundPkRefBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteAllInOneClsCompoundPkRefBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1044,7 +1044,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRefBhv extends AbstractBehavio
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1052,7 +1052,7 @@ public abstract class BsWhiteAllInOneClsCompoundPkRefBhv extends AbstractBehavio
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().removeBlockComment().selectList()
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().removeLineComment().selectList()
      * whiteAllInOneClsCompoundPkRefBhv.outideSql().formatSql().selectList()

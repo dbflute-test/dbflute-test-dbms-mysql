@@ -94,7 +94,7 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
       return _whiteImplicitReverseFkId; }
     protected ConditionValue xgetCValueWhiteImplicitReverseFkId() { return xdfgetWhiteImplicitReverseFkId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {PK, ID, NotNull, INT(10), FK to WHITE_IMPLICIT_REVERSE_FK_REF}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteImplicitReverseFkCQ extends AbstractBsWhiteImplicitReverseFk
       return _whiteImplicitReverseFkName; }
     protected ConditionValue xgetCValueWhiteImplicitReverseFkName() { return xdfgetWhiteImplicitReverseFkName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

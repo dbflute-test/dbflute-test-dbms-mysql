@@ -94,7 +94,7 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
       return _deprecatedClsElementCode; }
     protected ConditionValue xgetCValueDeprecatedClsElementCode() { return xdfgetDeprecatedClsElementCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DEPRECATED_CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3), classification=DeprecatedMapCollaborationType}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteDeprecatedClsElementCQ extends AbstractBsWhiteDeprecatedClsE
       return _deprecatedClsElementName; }
     protected ConditionValue xgetCValueDeprecatedClsElementName() { return xdfgetDeprecatedClsElementName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DEPRECATED_CLS_ELEMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

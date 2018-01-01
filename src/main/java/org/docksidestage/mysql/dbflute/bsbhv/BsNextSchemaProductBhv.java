@@ -122,7 +122,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">nextSchemaProduct</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -811,8 +811,8 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * nextSchemaProductBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * nextSchemaProductBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * nextSchemaProductBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * nextSchemaProductBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * nextSchemaProductBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -820,7 +820,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * nextSchemaProductBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * nextSchemaProductBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * nextSchemaProductBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * nextSchemaProductBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * nextSchemaProductBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -828,7 +828,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * nextSchemaProductBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * nextSchemaProductBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * nextSchemaProductBhv.outideSql().removeBlockComment().selectList()
      * nextSchemaProductBhv.outideSql().removeLineComment().selectList()
      * nextSchemaProductBhv.outideSql().formatSql().selectList()

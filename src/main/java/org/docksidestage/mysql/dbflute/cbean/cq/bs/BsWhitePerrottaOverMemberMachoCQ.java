@@ -108,7 +108,7 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
     public Map<String, Object> xdfgetMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter() { return xgetSQuePmMap("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList"); }
     public String keepMachoCode_QueryDerivedReferrer_WhitePerrottaOverMemberListParameter(Object pm) { return xkeepSQuePm("machoCode_QueryDerivedReferrer_WhitePerrottaOverMemberList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MACHO_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhitePerrottaOverMemberMachoCQ extends AbstractBsWhitePerrottaOve
       return _machoName; }
     protected ConditionValue xgetCValueMachoName() { return xdfgetMachoName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MACHO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

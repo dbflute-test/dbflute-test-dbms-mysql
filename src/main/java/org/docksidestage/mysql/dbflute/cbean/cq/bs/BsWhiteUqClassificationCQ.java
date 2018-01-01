@@ -94,7 +94,7 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
       return _uqClsId; }
     protected ConditionValue xgetCValueUqClsId() { return xdfgetUqClsId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteUqClassificationCQ extends AbstractBsWhiteUqClassificationCQ
       return _uqClsCode; }
     protected ConditionValue xgetCValueUqClsCode() { return xdfgetUqClsCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UQ_CLS_CODE: {UQ, NotNull, CHAR(3), classification=UQClassificationType}
      * @return this. (NotNull)

@@ -94,7 +94,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
       return _refId; }
     protected ConditionValue xgetCValueRefId() { return xdfgetRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteVariantRelationReferrerRefCQ extends AbstractBsWhiteVariantR
       return _referrerId; }
     protected ConditionValue xgetCValueReferrerId() { return xdfgetReferrerId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REFERRER_ID: {IX, NotNull, BIGINT(19), FK to white_variant_relation_referrer}
      * @return this. (NotNull)

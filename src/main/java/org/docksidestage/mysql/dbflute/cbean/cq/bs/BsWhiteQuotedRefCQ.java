@@ -94,7 +94,7 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
       return _where; }
     protected ConditionValue xgetCValueWhere() { return xdfgetWhere(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WHERE: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteQuotedRefCQ extends AbstractBsWhiteQuotedRefCQ {
       return _order; }
     protected ConditionValue xgetCValueOrder() { return xdfgetOrder(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ORDER: {IX, INT(10), FK to white_quoted}
      * @return this. (NotNull)

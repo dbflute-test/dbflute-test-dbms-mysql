@@ -108,7 +108,7 @@ public class BsVendorConstraintNameAutoQuxCQ extends AbstractBsVendorConstraintN
     public Map<String, Object> xdfgetConstraintNameAutoQuxId_QueryDerivedReferrer_VendorConstraintNameAutoRefListParameter() { return xgetSQuePmMap("constraintNameAutoQuxId_QueryDerivedReferrer_VendorConstraintNameAutoRefList"); }
     public String keepConstraintNameAutoQuxId_QueryDerivedReferrer_VendorConstraintNameAutoRefListParameter(Object pm) { return xkeepSQuePm("constraintNameAutoQuxId_QueryDerivedReferrer_VendorConstraintNameAutoRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsVendorConstraintNameAutoQuxCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoQuxName; }
     protected ConditionValue xgetCValueConstraintNameAutoQuxName() { return xdfgetConstraintNameAutoQuxName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_QUX_NAME: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)

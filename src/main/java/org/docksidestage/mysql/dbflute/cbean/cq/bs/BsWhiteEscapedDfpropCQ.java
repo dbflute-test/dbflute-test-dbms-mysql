@@ -94,7 +94,7 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
       return _escapedDfpropCode; }
     protected ConditionValue xgetCValueEscapedDfpropCode() { return xdfgetEscapedDfpropCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ESCAPED_DFPROP_CODE: {PK, NotNull, CHAR(3), classification=EscapedDfpropCls}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteEscapedDfpropCQ extends AbstractBsWhiteEscapedDfpropCQ {
       return _escapedDfpropName; }
     protected ConditionValue xgetCValueEscapedDfpropName() { return xdfgetEscapedDfpropName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ESCAPED_DFPROP_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

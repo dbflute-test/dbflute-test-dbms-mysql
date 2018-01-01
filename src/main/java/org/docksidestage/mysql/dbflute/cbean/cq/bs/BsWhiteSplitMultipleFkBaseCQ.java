@@ -108,7 +108,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
     public Map<String, Object> xdfgetBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildListParameter() { return xgetSQuePmMap("baseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildList"); }
     public String keepBaseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildListParameter(Object pm) { return xkeepSQuePm("baseId_QueryDerivedReferrer_WhiteSplitMultipleFkChildList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
       return _firstId; }
     protected ConditionValue xgetCValueFirstId() { return xdfgetFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
       return _nextId; }
     protected ConditionValue xgetCValueNextId() { return xdfgetNextId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
      * @return this. (NotNull)
@@ -168,7 +168,7 @@ public class BsWhiteSplitMultipleFkBaseCQ extends AbstractBsWhiteSplitMultipleFk
       return _splitName; }
     protected ConditionValue xgetCValueSplitName() { return xdfgetSplitName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SPLIT_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

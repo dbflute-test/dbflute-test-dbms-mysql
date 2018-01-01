@@ -108,7 +108,7 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     public Map<String, Object> xdfgetUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter() { return xgetSQuePmMap("uqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList"); }
     public String keepUqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdListParameter(Object pm) { return xkeepSQuePm("uqFkId_QueryDerivedReferrer_WhiteUqFkRefByFkToPkIdList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UQ_FK_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -142,7 +142,7 @@ public class BsWhiteUqFkCQ extends AbstractBsWhiteUqFkCQ {
     public Map<String, Object> xdfgetUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeListParameter() { return xgetSQuePmMap("uqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList"); }
     public String keepUqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeListParameter(Object pm) { return xkeepSQuePm("uqFkCode_QueryDerivedReferrer_WhiteUqFkRefByFkToUqCodeList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UQ_FK_CODE: {UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)

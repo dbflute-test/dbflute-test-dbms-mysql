@@ -94,7 +94,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
       return _traceId; }
     protected ConditionValue xgetCValueTraceId() { return xdfgetTraceId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
       return _previousProductId; }
     protected ConditionValue xgetCValuePreviousProductId() { return xdfgetPreviousProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
       return _nextProductId; }
     protected ConditionValue xgetCValueNextProductId() { return xdfgetNextProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
       return _traceTypeCode; }
     protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)

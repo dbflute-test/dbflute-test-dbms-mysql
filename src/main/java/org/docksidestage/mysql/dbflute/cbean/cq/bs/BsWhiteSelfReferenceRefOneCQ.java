@@ -94,7 +94,7 @@ public class BsWhiteSelfReferenceRefOneCQ extends AbstractBsWhiteSelfReferenceRe
       return _selfReferenceId; }
     protected ConditionValue xgetCValueSelfReferenceId() { return xdfgetSelfReferenceId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSelfReferenceRefOneCQ extends AbstractBsWhiteSelfReferenceRe
       return _selfReferenceRefOneName; }
     protected ConditionValue xgetCValueSelfReferenceRefOneName() { return xdfgetSelfReferenceRefOneName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELF_REFERENCE_REF_ONE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

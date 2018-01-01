@@ -137,7 +137,7 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteCompoundPkRefMany</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteCompoundPkRefManyBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
      * <pre>
      * WhiteCompoundPkRefManyCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefManyCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteCompoundPkRefManyBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteCompoundPkRefMany <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteCompoundPkRefMany.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteCompoundPkRefManyBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteCompoundPkRefMany <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1026,8 +1026,8 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteCompoundPkRefManyBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteCompoundPkRefManyBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteCompoundPkRefManyBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteCompoundPkRefManyBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteCompoundPkRefManyBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1035,7 +1035,7 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
      * whiteCompoundPkRefManyBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteCompoundPkRefManyBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteCompoundPkRefManyBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteCompoundPkRefManyBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteCompoundPkRefManyBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1043,7 +1043,7 @@ public abstract class BsWhiteCompoundPkRefManyBhv extends AbstractBehaviorWritab
      * whiteCompoundPkRefManyBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteCompoundPkRefManyBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteCompoundPkRefManyBhv.outideSql().removeBlockComment().selectList()
      * whiteCompoundPkRefManyBhv.outideSql().removeLineComment().selectList()
      * whiteCompoundPkRefManyBhv.outideSql().formatSql().selectList()

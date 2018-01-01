@@ -137,7 +137,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteGearedCipher</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteGearedCipherBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * <pre>
      * WhiteGearedCipherCB cb = <span style="color: #70226C">new</span> WhiteGearedCipherCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteGearedCipherBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteGearedCipher <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteGearedCipher.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteGearedCipherBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteGearedCipher <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1025,8 +1025,8 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteGearedCipherBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteGearedCipherBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteGearedCipherBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteGearedCipherBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteGearedCipherBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1034,7 +1034,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * whiteGearedCipherBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteGearedCipherBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteGearedCipherBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteGearedCipherBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteGearedCipherBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1042,7 +1042,7 @@ public abstract class BsWhiteGearedCipherBhv extends AbstractBehaviorWritable<Wh
      * whiteGearedCipherBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteGearedCipherBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteGearedCipherBhv.outideSql().removeBlockComment().selectList()
      * whiteGearedCipherBhv.outideSql().removeLineComment().selectList()
      * whiteGearedCipherBhv.outideSql().formatSql().selectList()

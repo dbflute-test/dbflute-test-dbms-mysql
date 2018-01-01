@@ -108,7 +108,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
     public Map<String, Object> xdfgetSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter() { return xgetSQuePmMap("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList"); }
     public String keepSelfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfListParameter(Object pm) { return xkeepSQuePm("selfReferenceId_QueryDerivedReferrer_WhiteSelfReferenceSelfList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
       return _selfReferenceName; }
     protected ConditionValue xgetCValueSelfReferenceName() { return xdfgetSelfReferenceName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELF_REFERENCE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteSelfReferenceCQ extends AbstractBsWhiteSelfReferenceCQ {
       return _parentId; }
     protected ConditionValue xgetCValueParentId() { return xdfgetParentId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
      * @return this. (NotNull)

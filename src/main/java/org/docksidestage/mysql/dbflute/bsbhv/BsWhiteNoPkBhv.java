@@ -136,7 +136,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteNoPk</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -165,13 +165,13 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * <pre>
      * WhiteNoPkCB cb = <span style="color: #70226C">new</span> WhiteNoPkCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteNoPk <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteNoPk.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteNoPkBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteNoPk <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -485,8 +485,8 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteNoPkBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteNoPkBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteNoPkBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteNoPkBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteNoPkBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -494,7 +494,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * whiteNoPkBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteNoPkBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteNoPkBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteNoPkBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteNoPkBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -502,7 +502,7 @@ public abstract class BsWhiteNoPkBhv extends AbstractBehaviorReadable<WhiteNoPk,
      * whiteNoPkBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteNoPkBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteNoPkBhv.outideSql().removeBlockComment().selectList()
      * whiteNoPkBhv.outideSql().removeLineComment().selectList()
      * whiteNoPkBhv.outideSql().formatSql().selectList()

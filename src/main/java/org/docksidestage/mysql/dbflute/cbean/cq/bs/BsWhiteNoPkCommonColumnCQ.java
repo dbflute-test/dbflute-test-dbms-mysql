@@ -94,7 +94,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _noPkId; }
     protected ConditionValue xgetCValueNoPkId() { return xdfgetNoPkId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _noPkName; }
     protected ConditionValue xgetCValueNoPkName() { return xdfgetNoPkName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_NAME: {VARCHAR(32)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _noPkInteger; }
     protected ConditionValue xgetCValueNoPkInteger() { return xdfgetNoPkInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_INTEGER: {INT(10)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -194,7 +194,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
@@ -214,7 +214,7 @@ public class BsWhiteNoPkCommonColumnCQ extends AbstractBsWhiteNoPkCommonColumnCQ
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

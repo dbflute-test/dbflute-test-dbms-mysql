@@ -108,7 +108,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
     public Map<String, Object> xdfgetClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter() { return xgetSQuePmMap("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList"); }
     public String keepClsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementListParameter(Object pm) { return xkeepSQuePm("clsCategoryCode_QueryDerivedReferrer_WhiteAllInOneClsElementList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
       return _clsCategoryName; }
     protected ConditionValue xgetCValueClsCategoryName() { return xdfgetClsCategoryName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
       return _description; }
     protected ConditionValue xgetCValueDescription() { return xdfgetDescription(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DESCRIPTION: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)

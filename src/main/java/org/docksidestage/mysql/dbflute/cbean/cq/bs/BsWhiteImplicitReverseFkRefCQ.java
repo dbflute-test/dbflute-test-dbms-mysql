@@ -94,7 +94,7 @@ public class BsWhiteImplicitReverseFkRefCQ extends AbstractBsWhiteImplicitRevers
       return _whiteImplicitReverseFkRefId; }
     protected ConditionValue xgetCValueWhiteImplicitReverseFkRefId() { return xdfgetWhiteImplicitReverseFkRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteImplicitReverseFkRefCQ extends AbstractBsWhiteImplicitRevers
       return _whiteImplicitReverseFkId; }
     protected ConditionValue xgetCValueWhiteImplicitReverseFkId() { return xdfgetWhiteImplicitReverseFkId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteImplicitReverseFkRefCQ extends AbstractBsWhiteImplicitRevers
       return _validBeginDate; }
     protected ConditionValue xgetCValueValidBeginDate() { return xdfgetValidBeginDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VALID_BEGIN_DATE: {+UQ, NotNull, DATE(10)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteImplicitReverseFkRefCQ extends AbstractBsWhiteImplicitRevers
       return _validEndDate; }
     protected ConditionValue xgetCValueValidEndDate() { return xdfgetValidEndDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VALID_END_DATE: {NotNull, DATE(10)}
      * @return this. (NotNull)

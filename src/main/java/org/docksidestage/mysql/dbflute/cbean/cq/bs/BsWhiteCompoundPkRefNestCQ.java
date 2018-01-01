@@ -94,7 +94,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
       return _compoundPkRefNestId; }
     protected ConditionValue xgetCValueCompoundPkRefNestId() { return xdfgetCompoundPkRefNestId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * COMPOUND_PK_REF_NEST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
       return _fooMultipleId; }
     protected ConditionValue xgetCValueFooMultipleId() { return xdfgetFooMultipleId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
       return _barMultipleId; }
     protected ConditionValue xgetCValueBarMultipleId() { return xdfgetBarMultipleId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BAR_MULTIPLE_ID: {IX+, NotNull, INT(10), FK to white_compound_pk_ref}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
       return _quxMultipleId; }
     protected ConditionValue xgetCValueQuxMultipleId() { return xdfgetQuxMultipleId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * QUX_MULTIPLE_ID: {NotNull, INT(10), FK to white_compound_pk_ref}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhiteCompoundPkRefNestCQ extends AbstractBsWhiteCompoundPkRefNest
       return _nestName; }
     protected ConditionValue xgetCValueNestName() { return xdfgetNestName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NEST_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)

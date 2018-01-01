@@ -108,7 +108,7 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
     public Map<String, Object> xdfgetMyselfId_QueryDerivedReferrer_WhiteMyselfCheckListParameter() { return xgetSQuePmMap("myselfId_QueryDerivedReferrer_WhiteMyselfCheckList"); }
     public String keepMyselfId_QueryDerivedReferrer_WhiteMyselfCheckListParameter(Object pm) { return xkeepSQuePm("myselfId_QueryDerivedReferrer_WhiteMyselfCheckList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteMyselfCQ extends AbstractBsWhiteMyselfCQ {
       return _myselfName; }
     protected ConditionValue xgetCValueMyselfName() { return xdfgetMyselfName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MYSELF_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)

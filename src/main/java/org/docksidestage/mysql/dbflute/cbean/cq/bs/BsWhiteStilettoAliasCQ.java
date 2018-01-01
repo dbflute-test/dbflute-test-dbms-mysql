@@ -108,7 +108,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
     public Map<String, Object> xdfgetStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter() { return xgetSQuePmMap("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList"); }
     public String keepStilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefListParameter(Object pm) { return xkeepSQuePm("stilettoAliasId_QueryDerivedReferrer_WhiteStilettoAliasRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * STILETTO_ALIAS_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo; }
     protected ConditionValue xgetCValueFoo() { return xdfgetFoo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo0; }
     protected ConditionValue xgetCValueFoo0() { return xdfgetFoo0(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO_0: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -168,7 +168,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo1; }
     protected ConditionValue xgetCValueFoo1() { return xdfgetFoo1(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO_1: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -188,7 +188,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo2; }
     protected ConditionValue xgetCValueFoo2() { return xdfgetFoo2(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO2: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -208,7 +208,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo3; }
     protected ConditionValue xgetCValueFoo3() { return xdfgetFoo3(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO_3: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -228,7 +228,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _foo4; }
     protected ConditionValue xgetCValueFoo4() { return xdfgetFoo4(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FOO4: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -248,7 +248,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _bar; }
     protected ConditionValue xgetCValueBar() { return xdfgetBar(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BAR: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -268,7 +268,7 @@ public class BsWhiteStilettoAliasCQ extends AbstractBsWhiteStilettoAliasCQ {
       return _qux; }
     protected ConditionValue xgetCValueQux() { return xdfgetQux(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * QUX: {VARCHAR(200)}
      * @return this. (NotNull)

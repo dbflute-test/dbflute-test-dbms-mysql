@@ -94,7 +94,7 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
       return _defCheckId; }
     protected ConditionValue xgetCValueDefCheckId() { return xdfgetDefCheckId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DEF_CHECK_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSuppressDefCheckCQ extends AbstractBsWhiteSuppressDefCheckCQ
       return _defCheckName; }
     protected ConditionValue xgetCValueDefCheckName() { return xdfgetDefCheckName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DEF_CHECK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

@@ -94,7 +94,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
       return _reversefkSuppressedId; }
     protected ConditionValue xgetCValueReversefkSuppressedId() { return xdfgetReversefkSuppressedId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteVariantRelationLocalPkReferrerCQ extends AbstractBsWhiteVari
       return _masterTypeCode; }
     protected ConditionValue xgetCValueMasterTypeCode() { return xdfgetMasterTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)

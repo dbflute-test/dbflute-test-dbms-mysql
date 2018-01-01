@@ -108,7 +108,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     public Map<String, Object> xdfgetLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter() { return xgetSQuePmMap("largeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList"); }
     public String keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(Object pm) { return xkeepSQuePm("largeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _largeDataId; }
     protected ConditionValue xgetCValueLargeDataId() { return xdfgetLargeDataId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _dateIndex; }
     protected ConditionValue xgetCValueDateIndex() { return xdfgetDateIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_INDEX: {IX, NotNull, DATE(10)}
      * @return this. (NotNull)
@@ -168,7 +168,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _dateNoIndex; }
     protected ConditionValue xgetCValueDateNoIndex() { return xdfgetDateNoIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_NO_INDEX: {NotNull, DATE(10)}
      * @return this. (NotNull)
@@ -188,7 +188,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _timestampIndex; }
     protected ConditionValue xgetCValueTimestampIndex() { return xdfgetTimestampIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TIMESTAMP_INDEX: {IX, NotNull, DATETIME(19)}
      * @return this. (NotNull)
@@ -208,7 +208,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _timestampNoIndex; }
     protected ConditionValue xgetCValueTimestampNoIndex() { return xdfgetTimestampNoIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TIMESTAMP_NO_INDEX: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
@@ -228,7 +228,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _nullableDecimalIndex; }
     protected ConditionValue xgetCValueNullableDecimalIndex() { return xdfgetNullableDecimalIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
      * @return this. (NotNull)
@@ -248,7 +248,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _nullableDecimalNoIndex; }
     protected ConditionValue xgetCValueNullableDecimalNoIndex() { return xdfgetNullableDecimalNoIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
      * @return this. (NotNull)
@@ -268,7 +268,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
       return _selfParentId; }
     protected ConditionValue xgetCValueSelfParentId() { return xdfgetSelfParentId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
      * @return this. (NotNull)

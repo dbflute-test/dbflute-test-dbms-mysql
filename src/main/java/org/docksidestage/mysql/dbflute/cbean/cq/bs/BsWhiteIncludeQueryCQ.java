@@ -94,7 +94,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
       return _includeQueryId; }
     protected ConditionValue xgetCValueIncludeQueryId() { return xdfgetIncludeQueryId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
       return _includeQueryVarchar; }
     protected ConditionValue xgetCValueIncludeQueryVarchar() { return xdfgetIncludeQueryVarchar(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * INCLUDE_QUERY_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
@@ -140,7 +140,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
       return _includeQueryDate; }
     protected ConditionValue xgetCValueIncludeQueryDate() { return xdfgetIncludeQueryDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * INCLUDE_QUERY_DATE: {DATE(10)}
      * @return this. (NotNull)
@@ -160,7 +160,7 @@ public class BsWhiteIncludeQueryCQ extends AbstractBsWhiteIncludeQueryCQ {
       return _includeQueryDatetime; }
     protected ConditionValue xgetCValueIncludeQueryDatetime() { return xdfgetIncludeQueryDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * INCLUDE_QUERY_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)

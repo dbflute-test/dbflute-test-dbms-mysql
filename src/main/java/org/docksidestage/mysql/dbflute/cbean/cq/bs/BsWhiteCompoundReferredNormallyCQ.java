@@ -108,7 +108,7 @@ public class BsWhiteCompoundReferredNormallyCQ extends AbstractBsWhiteCompoundRe
     public Map<String, Object> xdfgetReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter() { return xgetSQuePmMap("referredId_QueryDerivedReferrer_WhiteCompoundPkList"); }
     public String keepReferredId_QueryDerivedReferrer_WhiteCompoundPkListParameter(Object pm) { return xkeepSQuePm("referredId_QueryDerivedReferrer_WhiteCompoundPkList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteCompoundReferredNormallyCQ extends AbstractBsWhiteCompoundRe
       return _referredName; }
     protected ConditionValue xgetCValueReferredName() { return xdfgetReferredName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REFERRED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

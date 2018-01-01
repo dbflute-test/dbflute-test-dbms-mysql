@@ -94,7 +94,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
       return _firstId; }
     protected ConditionValue xgetCValueFirstId() { return xdfgetFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
       return _secondCode; }
     protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SECOND_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteSplitMultipleFkRefCQ extends AbstractBsWhiteSplitMultipleFkR
       return _refName; }
     protected ConditionValue xgetCValueRefName() { return xdfgetRefName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

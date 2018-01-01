@@ -137,7 +137,7 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteVariantRelationMasterCorge</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteVariantRelationMasterCorgeBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
      * <pre>
      * WhiteVariantRelationMasterCorgeCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationMasterCorgeCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteVariantRelationMasterCorgeBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationMasterCorge <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteVariantRelationMasterCorge.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteVariantRelationMasterCorgeBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationMasterCorge <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1025,8 +1025,8 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteVariantRelationMasterCorgeBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteVariantRelationMasterCorgeBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1034,7 +1034,7 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
      * whiteVariantRelationMasterCorgeBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteVariantRelationMasterCorgeBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteVariantRelationMasterCorgeBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1042,7 +1042,7 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
      * whiteVariantRelationMasterCorgeBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteVariantRelationMasterCorgeBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteVariantRelationMasterCorgeBhv.outideSql().removeBlockComment().selectList()
      * whiteVariantRelationMasterCorgeBhv.outideSql().removeLineComment().selectList()
      * whiteVariantRelationMasterCorgeBhv.outideSql().formatSql().selectList()

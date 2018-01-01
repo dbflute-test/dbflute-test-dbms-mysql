@@ -94,7 +94,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
       return _purchaseReferrerId; }
     protected ConditionValue xgetCValuePurchaseReferrerId() { return xdfgetPurchaseReferrerId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhitePurchaseReferrerCQ extends AbstractBsWhitePurchaseReferrerCQ
       return _purchaseReferrerName; }
     protected ConditionValue xgetCValuePurchaseReferrerName() { return xdfgetPurchaseReferrerName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PURCHASE_REFERRER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

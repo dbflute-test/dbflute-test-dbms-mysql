@@ -137,7 +137,7 @@ public abstract class BsVendorConstraintNameAutoFooBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">vendorConstraintNameAutoFoo</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendorConstraintNameAutoFooBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsVendorConstraintNameAutoFooBhv extends AbstractBehaviorW
      * <pre>
      * VendorConstraintNameAutoFooCB cb = <span style="color: #70226C">new</span> VendorConstraintNameAutoFooCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">vendorConstraintNameAutoFooBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorConstraintNameAutoFoo <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = vendorConstraintNameAutoFoo.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendorConstraintNameAutoFooBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorConstraintNameAutoFoo <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1146,8 +1146,8 @@ public abstract class BsVendorConstraintNameAutoFooBhv extends AbstractBehaviorW
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * vendorConstraintNameAutoFooBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * vendorConstraintNameAutoFooBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * vendorConstraintNameAutoFooBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * vendorConstraintNameAutoFooBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * vendorConstraintNameAutoFooBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1155,7 +1155,7 @@ public abstract class BsVendorConstraintNameAutoFooBhv extends AbstractBehaviorW
      * vendorConstraintNameAutoFooBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * vendorConstraintNameAutoFooBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * vendorConstraintNameAutoFooBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * vendorConstraintNameAutoFooBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * vendorConstraintNameAutoFooBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1163,7 +1163,7 @@ public abstract class BsVendorConstraintNameAutoFooBhv extends AbstractBehaviorW
      * vendorConstraintNameAutoFooBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * vendorConstraintNameAutoFooBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * vendorConstraintNameAutoFooBhv.outideSql().removeBlockComment().selectList()
      * vendorConstraintNameAutoFooBhv.outideSql().removeLineComment().selectList()
      * vendorConstraintNameAutoFooBhv.outideSql().formatSql().selectList()

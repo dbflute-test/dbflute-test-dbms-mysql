@@ -108,7 +108,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
     public Map<String, Object> xdfgetReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter() { return xgetSQuePmMap("referrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList"); }
     public String keepReferrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefListParameter(Object pm) { return xkeepSQuePm("referrerId_QueryDerivedReferrer_WhiteVariantRelationReferrerRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
       return _variantMasterId; }
     protected ConditionValue xgetCValueVariantMasterId() { return xdfgetVariantMasterId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteVariantRelationReferrerCQ extends AbstractBsWhiteVariantRela
       return _masterTypeCode; }
     protected ConditionValue xgetCValueMasterTypeCode() { return xdfgetMasterTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationMasterType}
      * @return this. (NotNull)

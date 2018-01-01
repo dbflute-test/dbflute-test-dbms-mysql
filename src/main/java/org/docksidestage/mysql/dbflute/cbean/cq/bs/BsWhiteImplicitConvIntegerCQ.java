@@ -122,7 +122,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
     public Map<String, Object> xdfgetImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter() { return xgetSQuePmMap("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList"); }
     public String keepImplicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringListParameter(Object pm) { return xkeepSQuePm("implicitConvIntegerId_QueryDerivedReferrer_WhiteImplicitConvStringList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -142,7 +142,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
       return _implicitConvNumericId; }
     protected ConditionValue xgetCValueImplicitConvNumericId() { return xdfgetImplicitConvNumericId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
      * @return this. (NotNull)
@@ -162,7 +162,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
       return _implicitConvStringId; }
     protected ConditionValue xgetCValueImplicitConvStringId() { return xdfgetImplicitConvStringId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
      * @return this. (NotNull)
@@ -182,7 +182,7 @@ public class BsWhiteImplicitConvIntegerCQ extends AbstractBsWhiteImplicitConvInt
       return _implicitConvName; }
     protected ConditionValue xgetCValueImplicitConvName() { return xdfgetImplicitConvName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * IMPLICIT_CONV_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

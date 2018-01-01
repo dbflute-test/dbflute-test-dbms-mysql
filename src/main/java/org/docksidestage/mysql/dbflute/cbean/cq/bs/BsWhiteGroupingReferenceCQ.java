@@ -94,7 +94,7 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
       return _groupingReferenceId; }
     protected ConditionValue xgetCValueGroupingReferenceId() { return xdfgetGroupingReferenceId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteGroupingReferenceCQ extends AbstractBsWhiteGroupingReference
       return _groupingReferenceCode; }
     protected ConditionValue xgetCValueGroupingReferenceCode() { return xdfgetGroupingReferenceCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GROUPING_REFERENCE_CODE: {NotNull, CHAR(3), classification=GroupingReference}
      * @return this. (NotNull)

@@ -137,7 +137,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteVariantRelationLocalPkReferrer</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * <pre>
      * WhiteVariantRelationLocalPkReferrerCB cb = <span style="color: #70226C">new</span> WhiteVariantRelationLocalPkReferrerCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteVariantRelationLocalPkReferrer <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteVariantRelationLocalPkReferrer.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteVariantRelationLocalPkReferrer <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1033,8 +1033,8 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteVariantRelationLocalPkReferrerBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteVariantRelationLocalPkReferrerBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1042,7 +1042,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1050,7 +1050,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().removeBlockComment().selectList()
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().removeLineComment().selectList()
      * whiteVariantRelationLocalPkReferrerBhv.outideSql().formatSql().selectList()

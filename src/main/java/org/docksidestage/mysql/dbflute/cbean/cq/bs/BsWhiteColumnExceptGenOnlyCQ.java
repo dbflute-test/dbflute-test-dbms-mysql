@@ -94,7 +94,7 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
       return _genOnlyId; }
     protected ConditionValue xgetCValueGenOnlyId() { return xdfgetGenOnlyId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteColumnExceptGenOnlyCQ extends AbstractBsWhiteColumnExceptGen
       return _genOnlyName; }
     protected ConditionValue xgetCValueGenOnlyName() { return xdfgetGenOnlyName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GEN_ONLY_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

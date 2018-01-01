@@ -137,7 +137,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteDateAdjustment</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * <pre>
      * WhiteDateAdjustmentCB cb = <span style="color: #70226C">new</span> WhiteDateAdjustmentCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteDateAdjustment <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteDateAdjustment.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteDateAdjustmentBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteDateAdjustment <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1025,8 +1025,8 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteDateAdjustmentBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteDateAdjustmentBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteDateAdjustmentBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteDateAdjustmentBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteDateAdjustmentBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1034,7 +1034,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * whiteDateAdjustmentBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteDateAdjustmentBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteDateAdjustmentBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteDateAdjustmentBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteDateAdjustmentBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1042,7 +1042,7 @@ public abstract class BsWhiteDateAdjustmentBhv extends AbstractBehaviorWritable<
      * whiteDateAdjustmentBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteDateAdjustmentBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteDateAdjustmentBhv.outideSql().removeBlockComment().selectList()
      * whiteDateAdjustmentBhv.outideSql().removeLineComment().selectList()
      * whiteDateAdjustmentBhv.outideSql().formatSql().selectList()

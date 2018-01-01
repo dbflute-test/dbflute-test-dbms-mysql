@@ -94,7 +94,7 @@ public class BsWhiteSuppressJoinSqManyOneOneCQ extends AbstractBsWhiteSuppressJo
       return _manyOneOneId; }
     protected ConditionValue xgetCValueManyOneOneId() { return xdfgetManyOneOneId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_ONE_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSuppressJoinSqManyOneOneCQ extends AbstractBsWhiteSuppressJo
       return _manyOneOneName; }
     protected ConditionValue xgetCValueManyOneOneName() { return xdfgetManyOneOneName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_ONE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

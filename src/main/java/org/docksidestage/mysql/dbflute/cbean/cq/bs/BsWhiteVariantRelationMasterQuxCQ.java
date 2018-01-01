@@ -94,7 +94,7 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
       return _masterQuxId; }
     protected ConditionValue xgetCValueMasterQuxId() { return xdfgetMasterQuxId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
       return _masterQuxName; }
     protected ConditionValue xgetCValueMasterQuxName() { return xdfgetMasterQuxName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_QUX_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteVariantRelationMasterQuxCQ extends AbstractBsWhiteVariantRel
       return _quxTypeCode; }
     protected ConditionValue xgetCValueQuxTypeCode() { return xdfgetQuxTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * QUX_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)

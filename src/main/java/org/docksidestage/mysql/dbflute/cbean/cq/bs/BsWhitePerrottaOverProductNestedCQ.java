@@ -108,7 +108,7 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
     public Map<String, Object> xdfgetProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter() { return xgetSQuePmMap("productNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList"); }
     public String keepProductNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductListParameter(Object pm) { return xkeepSQuePm("productNestedCode_QueryDerivedReferrer_WhitePerrottaOverProductList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
       return _productNestedName; }
     protected ConditionValue xgetCValueProductNestedName() { return xdfgetProductNestedName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

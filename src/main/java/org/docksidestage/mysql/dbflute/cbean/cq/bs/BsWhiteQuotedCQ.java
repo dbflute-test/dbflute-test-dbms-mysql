@@ -108,7 +108,7 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
     public Map<String, Object> xdfgetSelect_QueryDerivedReferrer_WhiteQuotedRefListParameter() { return xgetSQuePmMap("select_QueryDerivedReferrer_WhiteQuotedRefList"); }
     public String keepSelect_QueryDerivedReferrer_WhiteQuotedRefListParameter(Object pm) { return xkeepSQuePm("select_QueryDerivedReferrer_WhiteQuotedRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SELECT: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteQuotedCQ extends AbstractBsWhiteQuotedCQ {
       return _from; }
     protected ConditionValue xgetCValueFrom() { return xdfgetFrom(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FROM: {VARCHAR(200)}
      * @return this. (NotNull)

@@ -137,7 +137,7 @@ public abstract class BsWhiteImplicitConvNumericBhv extends AbstractBehaviorWrit
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteImplicitConvNumeric</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteImplicitConvNumericBhv extends AbstractBehaviorWrit
      * <pre>
      * WhiteImplicitConvNumericCB cb = <span style="color: #70226C">new</span> WhiteImplicitConvNumericCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteImplicitConvNumeric <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteImplicitConvNumeric.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteImplicitConvNumericBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteImplicitConvNumeric <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1217,8 +1217,8 @@ public abstract class BsWhiteImplicitConvNumericBhv extends AbstractBehaviorWrit
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteImplicitConvNumericBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteImplicitConvNumericBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteImplicitConvNumericBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteImplicitConvNumericBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteImplicitConvNumericBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1226,7 +1226,7 @@ public abstract class BsWhiteImplicitConvNumericBhv extends AbstractBehaviorWrit
      * whiteImplicitConvNumericBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteImplicitConvNumericBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteImplicitConvNumericBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteImplicitConvNumericBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteImplicitConvNumericBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1234,7 +1234,7 @@ public abstract class BsWhiteImplicitConvNumericBhv extends AbstractBehaviorWrit
      * whiteImplicitConvNumericBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteImplicitConvNumericBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteImplicitConvNumericBhv.outideSql().removeBlockComment().selectList()
      * whiteImplicitConvNumericBhv.outideSql().removeLineComment().selectList()
      * whiteImplicitConvNumericBhv.outideSql().formatSql().selectList()

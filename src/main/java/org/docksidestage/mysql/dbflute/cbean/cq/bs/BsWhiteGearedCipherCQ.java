@@ -94,7 +94,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
       return _cipherId; }
     protected ConditionValue xgetCValueCipherId() { return xdfgetCipherId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
       return _cipherInteger; }
     protected ConditionValue xgetCValueCipherInteger() { return xdfgetCipherInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CIPHER_INTEGER: {VARCHAR(100)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
       return _cipherVarchar; }
     protected ConditionValue xgetCValueCipherVarchar() { return xdfgetCipherVarchar(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CIPHER_VARCHAR: {VARCHAR(100)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
       return _cipherDate; }
     protected ConditionValue xgetCValueCipherDate() { return xdfgetCipherDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CIPHER_DATE: {VARCHAR(100)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhiteGearedCipherCQ extends AbstractBsWhiteGearedCipherCQ {
       return _cipherDatetime; }
     protected ConditionValue xgetCValueCipherDatetime() { return xdfgetCipherDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CIPHER_DATETIME: {VARCHAR(100)}
      * @return this. (NotNull)

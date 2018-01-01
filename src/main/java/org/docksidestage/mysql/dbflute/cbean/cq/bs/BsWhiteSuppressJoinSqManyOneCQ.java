@@ -108,7 +108,7 @@ public class BsWhiteSuppressJoinSqManyOneCQ extends AbstractBsWhiteSuppressJoinS
     public Map<String, Object> xdfgetManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyListParameter() { return xgetSQuePmMap("manyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyList"); }
     public String keepManyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyListParameter(Object pm) { return xkeepSQuePm("manyOneId_QueryDerivedReferrer_WhiteSuppressJoinSqManyList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteSuppressJoinSqManyOneCQ extends AbstractBsWhiteSuppressJoinS
       return _manyOneName; }
     protected ConditionValue xgetCValueManyOneName() { return xdfgetManyOneName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -148,7 +148,7 @@ public class BsWhiteSuppressJoinSqManyOneCQ extends AbstractBsWhiteSuppressJoinS
       return _manyOneOneId; }
     protected ConditionValue xgetCValueManyOneOneId() { return xdfgetManyOneOneId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
      * @return this. (NotNull)

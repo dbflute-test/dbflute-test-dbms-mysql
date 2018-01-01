@@ -137,7 +137,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whitePerrottaOverMember</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * <pre>
      * WhitePerrottaOverMemberCB cb = <span style="color: #70226C">new</span> WhitePerrottaOverMemberCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whitePerrottaOverMember <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whitePerrottaOverMember.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whitePerrottaOverMemberBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whitePerrottaOverMember <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1041,8 +1041,8 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whitePerrottaOverMemberBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whitePerrottaOverMemberBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whitePerrottaOverMemberBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whitePerrottaOverMemberBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whitePerrottaOverMemberBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1050,7 +1050,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * whitePerrottaOverMemberBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whitePerrottaOverMemberBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whitePerrottaOverMemberBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whitePerrottaOverMemberBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whitePerrottaOverMemberBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1058,7 +1058,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * whitePerrottaOverMemberBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whitePerrottaOverMemberBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whitePerrottaOverMemberBhv.outideSql().removeBlockComment().selectList()
      * whitePerrottaOverMemberBhv.outideSql().removeLineComment().selectList()
      * whitePerrottaOverMemberBhv.outideSql().formatSql().selectList()

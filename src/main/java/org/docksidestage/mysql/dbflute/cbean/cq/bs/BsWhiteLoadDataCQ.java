@@ -94,7 +94,7 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
       return _loadDataId; }
     protected ConditionValue xgetCValueLoadDataId() { return xdfgetLoadDataId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOAD_DATA_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteLoadDataCQ extends AbstractBsWhiteLoadDataCQ {
       return _loadDataName; }
     protected ConditionValue xgetCValueLoadDataName() { return xdfgetLoadDataName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LOAD_DATA_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

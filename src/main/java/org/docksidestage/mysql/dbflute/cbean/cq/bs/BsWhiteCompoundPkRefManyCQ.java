@@ -94,7 +94,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _multipleFirstId; }
     protected ConditionValue xgetCValueMultipleFirstId() { return xdfgetMultipleFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _multipleSecondId; }
     protected ConditionValue xgetCValueMultipleSecondId() { return xdfgetMultipleSecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _refManyFirstId; }
     protected ConditionValue xgetCValueRefManyFirstId() { return xdfgetRefManyFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_MANY_FIRST_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _refManySecondId; }
     protected ConditionValue xgetCValueRefManySecondId() { return xdfgetRefManySecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_MANY_SECOND_ID: {NotNull, INT(10), FK to WHITE_COMPOUND_PK}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _refManyCode; }
     protected ConditionValue xgetCValueRefManyCode() { return xdfgetRefManyCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_MANY_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -194,7 +194,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _refManyName; }
     protected ConditionValue xgetCValueRefManyName() { return xdfgetRefManyName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_MANY_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
@@ -214,7 +214,7 @@ public class BsWhiteCompoundPkRefManyCQ extends AbstractBsWhiteCompoundPkRefMany
       return _refManyDatetime; }
     protected ConditionValue xgetCValueRefManyDatetime() { return xdfgetRefManyDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_MANY_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)

@@ -94,7 +94,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoRefId; }
     protected ConditionValue xgetCValueConstraintNameAutoRefId() { return xdfgetConstraintNameAutoRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoFooId; }
     protected ConditionValue xgetCValueConstraintNameAutoFooId() { return xdfgetConstraintNameAutoFooId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoBarId; }
     protected ConditionValue xgetCValueConstraintNameAutoBarId() { return xdfgetConstraintNameAutoBarId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoQuxId; }
     protected ConditionValue xgetCValueConstraintNameAutoQuxId() { return xdfgetConstraintNameAutoQuxId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoCorgeId; }
     protected ConditionValue xgetCValueConstraintNameAutoCorgeId() { return xdfgetConstraintNameAutoCorgeId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -194,7 +194,7 @@ public class BsVendorConstraintNameAutoRefCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoUnique; }
     protected ConditionValue xgetCValueConstraintNameAutoUnique() { return xdfgetConstraintNameAutoUnique(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_UNIQUE: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)

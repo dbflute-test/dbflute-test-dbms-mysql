@@ -95,7 +95,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
       return _multipleFirstId; }
     protected ConditionValue xgetCValueMultipleFirstId() { return xdfgetMultipleFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MULTIPLE_FIRST_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -115,7 +115,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
       return _multipleSecondId; }
     protected ConditionValue xgetCValueMultipleSecondId() { return xdfgetMultipleSecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MULTIPLE_SECOND_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -135,7 +135,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
       return _refFirstId; }
     protected ConditionValue xgetCValueRefFirstId() { return xdfgetRefFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_FIRST_ID: {IX+, NotNull, INT(10), FK to white_compound_pk}
      * @return this. (NotNull)
@@ -155,7 +155,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
       return _refSecondId; }
     protected ConditionValue xgetCValueRefSecondId() { return xdfgetRefSecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_SECOND_ID: {NotNull, INT(10), FK to white_compound_pk}
      * @return this. (NotNull)
@@ -175,7 +175,7 @@ public class BsWhiteCompoundPkRefCQ extends AbstractBsWhiteCompoundPkRefCQ {
       return _refName; }
     protected ConditionValue xgetCValueRefName() { return xdfgetRefName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)

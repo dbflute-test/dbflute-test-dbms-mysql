@@ -94,7 +94,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
       return _myselfCheckId; }
     protected ConditionValue xgetCValueMyselfCheckId() { return xdfgetMyselfCheckId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
       return _myselfCheckName; }
     protected ConditionValue xgetCValueMyselfCheckName() { return xdfgetMyselfCheckName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MYSELF_CHECK_NAME: {NotNull, VARCHAR(80)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteMyselfCheckCQ extends AbstractBsWhiteMyselfCheckCQ {
       return _myselfId; }
     protected ConditionValue xgetCValueMyselfId() { return xdfgetMyselfId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MYSELF_ID: {IX, INT(10), FK to white_myself}
      * @return this. (NotNull)

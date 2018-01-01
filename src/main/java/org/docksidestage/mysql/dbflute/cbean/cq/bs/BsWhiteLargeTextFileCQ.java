@@ -94,7 +94,7 @@ public class BsWhiteLargeTextFileCQ extends AbstractBsWhiteLargeTextFileCQ {
       return _largeTextFileId; }
     protected ConditionValue xgetCValueLargeTextFileId() { return xdfgetLargeTextFileId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LARGE_TEXT_FILE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteLargeTextFileCQ extends AbstractBsWhiteLargeTextFileCQ {
       return _largeTextFileText; }
     protected ConditionValue xgetCValueLargeTextFileText() { return xdfgetLargeTextFileText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LARGE_TEXT_FILE_TEXT: {TEXT(65535)}
      * @return this. (NotNull)

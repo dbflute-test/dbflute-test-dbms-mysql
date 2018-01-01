@@ -137,7 +137,7 @@ public abstract class BsWhiteSuppressJoinSqBhv extends AbstractBehaviorWritable<
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteSuppressJoinSq</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteSuppressJoinSqBhv extends AbstractBehaviorWritable<
      * <pre>
      * WhiteSuppressJoinSqCB cb = <span style="color: #70226C">new</span> WhiteSuppressJoinSqCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSuppressJoinSq <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteSuppressJoinSq.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteSuppressJoinSqBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSuppressJoinSq <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1121,8 +1121,8 @@ public abstract class BsWhiteSuppressJoinSqBhv extends AbstractBehaviorWritable<
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteSuppressJoinSqBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteSuppressJoinSqBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteSuppressJoinSqBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteSuppressJoinSqBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteSuppressJoinSqBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1130,7 +1130,7 @@ public abstract class BsWhiteSuppressJoinSqBhv extends AbstractBehaviorWritable<
      * whiteSuppressJoinSqBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteSuppressJoinSqBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteSuppressJoinSqBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteSuppressJoinSqBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteSuppressJoinSqBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1138,7 +1138,7 @@ public abstract class BsWhiteSuppressJoinSqBhv extends AbstractBehaviorWritable<
      * whiteSuppressJoinSqBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteSuppressJoinSqBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteSuppressJoinSqBhv.outideSql().removeBlockComment().selectList()
      * whiteSuppressJoinSqBhv.outideSql().removeLineComment().selectList()
      * whiteSuppressJoinSqBhv.outideSql().formatSql().selectList()

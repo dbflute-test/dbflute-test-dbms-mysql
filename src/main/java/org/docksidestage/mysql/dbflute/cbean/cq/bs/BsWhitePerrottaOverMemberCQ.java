@@ -94,7 +94,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
       return _memberId; }
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
       return _memberName; }
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MEMBER_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
       return _productId; }
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
       return _traceTypeCode; }
     protected ConditionValue xgetCValueTraceTypeCode() { return xdfgetTraceTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TRACE_TYPE_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
       return _machoCode; }
     protected ConditionValue xgetCValueMachoCode() { return xdfgetMachoCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MACHO_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_member_macho}
      * @return this. (NotNull)

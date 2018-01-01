@@ -94,7 +94,7 @@ public class BsWhiteSuppressJoinSqOneCQ extends AbstractBsWhiteSuppressJoinSqOne
       return _oneId; }
     protected ConditionValue xgetCValueOneId() { return xdfgetOneId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSuppressJoinSqOneCQ extends AbstractBsWhiteSuppressJoinSqOne
       return _oneName; }
     protected ConditionValue xgetCValueOneName() { return xdfgetOneName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ONE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteSuppressJoinSqOneCQ extends AbstractBsWhiteSuppressJoinSqOne
       return _suppressJoinSqId; }
     protected ConditionValue xgetCValueSuppressJoinSqId() { return xdfgetSuppressJoinSqId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteSuppressJoinSqOneCQ extends AbstractBsWhiteSuppressJoinSqOne
       return _oneAddiId; }
     protected ConditionValue xgetCValueOneAddiId() { return xdfgetOneAddiId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
      * @return this. (NotNull)

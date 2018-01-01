@@ -94,7 +94,7 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
       return _manyId; }
     protected ConditionValue xgetCValueManyId() { return xdfgetManyId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
       return _manyName; }
     protected ConditionValue xgetCValueManyName() { return xdfgetManyName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
       return _suppressJoinSqId; }
     protected ConditionValue xgetCValueSuppressJoinSqId() { return xdfgetSuppressJoinSqId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SUPPRESS_JOIN_SQ_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteSuppressJoinSqManyCQ extends AbstractBsWhiteSuppressJoinSqMa
       return _manyOneId; }
     protected ConditionValue xgetCValueManyOneId() { return xdfgetManyOneId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MANY_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one}
      * @return this. (NotNull)

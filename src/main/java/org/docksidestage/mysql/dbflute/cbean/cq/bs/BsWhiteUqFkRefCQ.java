@@ -95,7 +95,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
       return _uqFkRefId; }
     protected ConditionValue xgetCValueUqFkRefId() { return xdfgetUqFkRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -115,7 +115,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
       return _fkToPkId; }
     protected ConditionValue xgetCValueFkToPkId() { return xdfgetFkToPkId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk}
      * @return this. (NotNull)
@@ -135,7 +135,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
       return _fkToUqCode; }
     protected ConditionValue xgetCValueFkToUqCode() { return xdfgetFkToUqCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FK_TO_UQ_CODE: {IX, NotNull, CHAR(3), FK to white_uq_fk}
      * @return this. (NotNull)
@@ -155,7 +155,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
       return _compoundUqFirstCode; }
     protected ConditionValue xgetCValueCompoundUqFirstCode() { return xdfgetCompoundUqFirstCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * COMPOUND_UQ_FIRST_CODE: {UQ+, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -175,7 +175,7 @@ public class BsWhiteUqFkRefCQ extends AbstractBsWhiteUqFkRefCQ {
       return _compoundUqSecondCode; }
     protected ConditionValue xgetCValueCompoundUqSecondCode() { return xdfgetCompoundUqSecondCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * COMPOUND_UQ_SECOND_CODE: {+UQ, NotNull, CHAR(3)}
      * @return this. (NotNull)

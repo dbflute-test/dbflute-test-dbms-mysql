@@ -94,7 +94,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
       return _masterCorgeId; }
     protected ConditionValue xgetCValueMasterCorgeId() { return xdfgetMasterCorgeId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
       return _masterCorgeName; }
     protected ConditionValue xgetCValueMasterCorgeName() { return xdfgetMasterCorgeName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * MASTER_CORGE_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteVariantRelationMasterCorgeCQ extends AbstractBsWhiteVariantR
       return _corgeTypeCode; }
     protected ConditionValue xgetCValueCorgeTypeCode() { return xdfgetCorgeTypeCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CORGE_TYPE_CODE: {NotNull, CHAR(3), classification=VariantRelationQuxType}
      * @return this. (NotNull)

@@ -94,7 +94,7 @@ public class BsWhiteSuppressJoinSqCQ extends AbstractBsWhiteSuppressJoinSqCQ {
       return _suppressJoinSqId; }
     protected ConditionValue xgetCValueSuppressJoinSqId() { return xdfgetSuppressJoinSqId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SUPPRESS_JOIN_SQ_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSuppressJoinSqCQ extends AbstractBsWhiteSuppressJoinSqCQ {
       return _suppressJoinSqName; }
     protected ConditionValue xgetCValueSuppressJoinSqName() { return xdfgetSuppressJoinSqName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SUPPRESS_JOIN_SQ_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

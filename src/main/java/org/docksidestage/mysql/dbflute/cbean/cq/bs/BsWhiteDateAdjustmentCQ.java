@@ -94,7 +94,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _dateAdjustmentId; }
     protected ConditionValue xgetCValueDateAdjustmentId() { return xdfgetDateAdjustmentId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedDate; }
     protected ConditionValue xgetCValueAdjustedDate() { return xdfgetAdjustedDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_DATE: {DATE(10)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedDatetime; }
     protected ConditionValue xgetCValueAdjustedDatetime() { return xdfgetAdjustedDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ADJUSTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedTime; }
     protected ConditionValue xgetCValueAdjustedTime() { return xdfgetAdjustedTime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ADJUSTED_TIME: {TIME(8)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedInteger; }
     protected ConditionValue xgetCValueAdjustedInteger() { return xdfgetAdjustedInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @return this. (NotNull)
@@ -194,7 +194,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedNamedStringLong; }
     protected ConditionValue xgetCValueAdjustedNamedStringLong() { return xdfgetAdjustedNamedStringLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
@@ -214,7 +214,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedNamedTypedLong; }
     protected ConditionValue xgetCValueAdjustedNamedTypedLong() { return xdfgetAdjustedNamedTypedLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
@@ -234,7 +234,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedPinpointStringLong; }
     protected ConditionValue xgetCValueAdjustedPinpointStringLong() { return xdfgetAdjustedPinpointStringLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
      * @return this. (NotNull)
@@ -254,7 +254,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedPinpointTypedLong; }
     protected ConditionValue xgetCValueAdjustedPinpointTypedLong() { return xdfgetAdjustedPinpointTypedLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @return this. (NotNull)
@@ -274,7 +274,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedPlainLong; }
     protected ConditionValue xgetCValueAdjustedPlainLong() { return xdfgetAdjustedPlainLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
      * @return this. (NotNull)
@@ -294,7 +294,7 @@ public class BsWhiteDateAdjustmentCQ extends AbstractBsWhiteDateAdjustmentCQ {
       return _adjustedString; }
     protected ConditionValue xgetCValueAdjustedString() { return xdfgetAdjustedString(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ADJUSTED_STRING: {VARCHAR(32)}
      * @return this. (NotNull)

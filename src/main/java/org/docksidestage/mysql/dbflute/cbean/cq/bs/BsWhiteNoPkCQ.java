@@ -94,7 +94,7 @@ public class BsWhiteNoPkCQ extends AbstractBsWhiteNoPkCQ {
       return _noPkId; }
     protected ConditionValue xgetCValueNoPkId() { return xdfgetNoPkId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteNoPkCQ extends AbstractBsWhiteNoPkCQ {
       return _noPkName; }
     protected ConditionValue xgetCValueNoPkName() { return xdfgetNoPkName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_NAME: {VARCHAR(32)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteNoPkCQ extends AbstractBsWhiteNoPkCQ {
       return _noPkInteger; }
     protected ConditionValue xgetCValueNoPkInteger() { return xdfgetNoPkInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_PK_INTEGER: {INT(10)}
      * @return this. (NotNull)

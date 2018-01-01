@@ -138,7 +138,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteUqClassification</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -167,13 +167,13 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * <pre>
      * WhiteUqClassificationCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteUqClassification <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteUqClassification.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteUqClassification <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1059,8 +1059,8 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteUqClassificationBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteUqClassificationBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteUqClassificationBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteUqClassificationBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteUqClassificationBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1068,7 +1068,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * whiteUqClassificationBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteUqClassificationBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteUqClassificationBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteUqClassificationBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteUqClassificationBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1076,7 +1076,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
      * whiteUqClassificationBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteUqClassificationBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteUqClassificationBhv.outideSql().removeBlockComment().selectList()
      * whiteUqClassificationBhv.outideSql().removeLineComment().selectList()
      * whiteUqClassificationBhv.outideSql().formatSql().selectList()

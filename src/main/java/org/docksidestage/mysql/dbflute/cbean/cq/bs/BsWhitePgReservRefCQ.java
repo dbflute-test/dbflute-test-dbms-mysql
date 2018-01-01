@@ -94,7 +94,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
       return _refId; }
     protected ConditionValue xgetCValueRefId() { return xdfgetRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * REF_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhitePgReservRefCQ extends AbstractBsWhitePgReservRefCQ {
       return _classSynonym; }
     protected ConditionValue xgetCValueClassSynonym() { return xdfgetClassSynonym(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
      * @return this. (NotNull)

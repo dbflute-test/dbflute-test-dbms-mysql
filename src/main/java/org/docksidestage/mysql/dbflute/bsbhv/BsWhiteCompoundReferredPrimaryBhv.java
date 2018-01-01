@@ -137,7 +137,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteCompoundReferredPrimary</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -166,13 +166,13 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * <pre>
      * WhiteCompoundReferredPrimaryCB cb = <span style="color: #70226C">new</span> WhiteCompoundReferredPrimaryCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteCompoundReferredPrimary <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteCompoundReferredPrimary.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteCompoundReferredPrimaryBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteCompoundReferredPrimary <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1113,8 +1113,8 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteCompoundReferredPrimaryBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteCompoundReferredPrimaryBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1122,7 +1122,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * whiteCompoundReferredPrimaryBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteCompoundReferredPrimaryBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteCompoundReferredPrimaryBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1130,7 +1130,7 @@ public abstract class BsWhiteCompoundReferredPrimaryBhv extends AbstractBehavior
      * whiteCompoundReferredPrimaryBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteCompoundReferredPrimaryBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteCompoundReferredPrimaryBhv.outideSql().removeBlockComment().selectList()
      * whiteCompoundReferredPrimaryBhv.outideSql().removeLineComment().selectList()
      * whiteCompoundReferredPrimaryBhv.outideSql().formatSql().selectList()

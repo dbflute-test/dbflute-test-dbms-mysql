@@ -94,7 +94,7 @@ public class BsWhiteClsNoCamelizingCQ extends AbstractBsWhiteClsNoCamelizingCQ {
       return _noCamelizingCode; }
     protected ConditionValue xgetCValueNoCamelizingCode() { return xdfgetNoCamelizingCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_CAMELIZING_CODE: {PK, NotNull, VARCHAR(10), classification=NamingDefaultCamelizingType}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteClsNoCamelizingCQ extends AbstractBsWhiteClsNoCamelizingCQ {
       return _noCamelizingName; }
     protected ConditionValue xgetCValueNoCamelizingName() { return xdfgetNoCamelizingName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NO_CAMELIZING_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

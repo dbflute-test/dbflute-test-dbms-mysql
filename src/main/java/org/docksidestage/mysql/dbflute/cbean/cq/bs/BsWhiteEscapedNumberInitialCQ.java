@@ -94,7 +94,7 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
       return _numberInitialCode; }
     protected ConditionValue xgetCValueNumberInitialCode() { return xdfgetNumberInitialCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NUMBER_INITIAL_CODE: {PK, NotNull, CHAR(3), classification=EscapedNumberInitialCls}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteEscapedNumberInitialCQ extends AbstractBsWhiteEscapedNumberI
       return _numberInitialName; }
     protected ConditionValue xgetCValueNumberInitialName() { return xdfgetNumberInitialName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NUMBER_INITIAL_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

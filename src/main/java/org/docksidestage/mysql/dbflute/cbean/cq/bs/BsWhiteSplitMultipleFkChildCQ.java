@@ -94,7 +94,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
       return _childId; }
     protected ConditionValue xgetCValueChildId() { return xdfgetChildId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
       return _baseId; }
     protected ConditionValue xgetCValueBaseId() { return xdfgetBaseId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteSplitMultipleFkChildCQ extends AbstractBsWhiteSplitMultipleF
       return _childName; }
     protected ConditionValue xgetCValueChildName() { return xdfgetChildName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CHILD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)

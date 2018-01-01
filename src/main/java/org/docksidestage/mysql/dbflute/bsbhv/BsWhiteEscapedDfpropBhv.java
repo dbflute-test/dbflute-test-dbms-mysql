@@ -138,7 +138,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteEscapedDfprop</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -167,13 +167,13 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * <pre>
      * WhiteEscapedDfpropCB cb = <span style="color: #70226C">new</span> WhiteEscapedDfpropCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteEscapedDfprop <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteEscapedDfprop.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteEscapedDfprop <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1026,8 +1026,8 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteEscapedDfpropBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteEscapedDfpropBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteEscapedDfpropBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteEscapedDfpropBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteEscapedDfpropBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1035,7 +1035,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * whiteEscapedDfpropBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteEscapedDfpropBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteEscapedDfpropBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteEscapedDfpropBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteEscapedDfpropBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1043,7 +1043,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
      * whiteEscapedDfpropBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteEscapedDfpropBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteEscapedDfpropBhv.outideSql().removeBlockComment().selectList()
      * whiteEscapedDfpropBhv.outideSql().removeLineComment().selectList()
      * whiteEscapedDfpropBhv.outideSql().formatSql().selectList()

@@ -94,7 +94,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _xlsManId; }
     protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _stringConverted; }
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * STRING_CONVERTED: {VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _timestampConverted; }
     protected ConditionValue xgetCValueTimestampConverted() { return xdfgetTimestampConverted(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TIMESTAMP_CONVERTED: {DATETIME(19)}
      * @return this. (NotNull)

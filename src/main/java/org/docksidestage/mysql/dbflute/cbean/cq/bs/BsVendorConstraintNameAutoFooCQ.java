@@ -108,7 +108,7 @@ public class BsVendorConstraintNameAutoFooCQ extends AbstractBsVendorConstraintN
     public Map<String, Object> xdfgetConstraintNameAutoFooId_QueryDerivedReferrer_VendorConstraintNameAutoRefListParameter() { return xgetSQuePmMap("constraintNameAutoFooId_QueryDerivedReferrer_VendorConstraintNameAutoRefList"); }
     public String keepConstraintNameAutoFooId_QueryDerivedReferrer_VendorConstraintNameAutoRefListParameter(Object pm) { return xkeepSQuePm("constraintNameAutoFooId_QueryDerivedReferrer_VendorConstraintNameAutoRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsVendorConstraintNameAutoFooCQ extends AbstractBsVendorConstraintN
       return _constraintNameAutoFooName; }
     protected ConditionValue xgetCValueConstraintNameAutoFooName() { return xdfgetConstraintNameAutoFooName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CONSTRAINT_NAME_AUTO_FOO_NAME: {UQ, NotNull, VARCHAR(50)}
      * @return this. (NotNull)

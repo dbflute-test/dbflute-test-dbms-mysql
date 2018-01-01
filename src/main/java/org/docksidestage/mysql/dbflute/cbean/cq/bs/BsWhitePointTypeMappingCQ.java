@@ -94,7 +94,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
       return _pointTypeMappingId; }
     protected ConditionValue xgetCValuePointTypeMappingId() { return xdfgetPointTypeMappingId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
       return _pointTypeMappingMemberName; }
     protected ConditionValue xgetCValuePointTypeMappingMemberName() { return xdfgetPointTypeMappingMemberName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_MEMBER_NAME: {VARCHAR(32)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
       return _pointTypeMappingPriceCount; }
     protected ConditionValue xgetCValuePointTypeMappingPriceCount() { return xdfgetPointTypeMappingPriceCount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_PRICE_COUNT: {INT(10)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
       return _pointTypeMappingSaleDate; }
     protected ConditionValue xgetCValuePointTypeMappingSaleDate() { return xdfgetPointTypeMappingSaleDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_SALE_DATE: {BIGINT(19)}
      * @return this. (NotNull)
@@ -174,7 +174,7 @@ public class BsWhitePointTypeMappingCQ extends AbstractBsWhitePointTypeMappingCQ
       return _pointTypeMappingWantedDatetime; }
     protected ConditionValue xgetCValuePointTypeMappingWantedDatetime() { return xdfgetPointTypeMappingWantedDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * POINT_TYPE_MAPPING_WANTED_DATETIME: {DATETIME(19)}
      * @return this. (NotNull)

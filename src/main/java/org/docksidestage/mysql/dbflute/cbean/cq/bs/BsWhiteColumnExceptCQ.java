@@ -94,7 +94,7 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
       return _exceptColumnId; }
     protected ConditionValue xgetCValueExceptColumnId() { return xdfgetExceptColumnId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteColumnExceptCQ extends AbstractBsWhiteColumnExceptCQ {
       return _columnExceptTest; }
     protected ConditionValue xgetCValueColumnExceptTest() { return xdfgetColumnExceptTest(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * COLUMN_EXCEPT_TEST: {INT(10)}
      * @return this. (NotNull)

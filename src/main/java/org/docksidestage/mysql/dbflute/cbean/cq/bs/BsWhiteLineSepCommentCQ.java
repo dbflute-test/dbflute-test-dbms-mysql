@@ -94,7 +94,7 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
       return _lineSepCommentCode; }
     protected ConditionValue xgetCValueLineSepCommentCode() { return xdfgetLineSepCommentCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteLineSepCommentCQ extends AbstractBsWhiteLineSepCommentCQ {
       return _lineSepCommentName; }
     protected ConditionValue xgetCValueLineSepCommentName() { return xdfgetLineSepCommentName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * LINE_SEP_COMMENT_NAME: {VARCHAR(20)}
      * @return this. (NotNull)

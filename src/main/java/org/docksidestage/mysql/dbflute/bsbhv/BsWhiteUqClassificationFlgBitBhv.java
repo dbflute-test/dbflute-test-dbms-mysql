@@ -138,7 +138,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">whiteUqClassificationFlgBit</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteUqClassificationFlgBitBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -167,13 +167,13 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * <pre>
      * WhiteUqClassificationFlgBitCB cb = <span style="color: #70226C">new</span> WhiteUqClassificationFlgBitCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">whiteUqClassificationFlgBitBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteUqClassificationFlgBit <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = whiteUqClassificationFlgBit.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">whiteUqClassificationFlgBitBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteUqClassificationFlgBit <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1052,8 +1052,8 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * whiteUqClassificationFlgBitBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * whiteUqClassificationFlgBitBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * whiteUqClassificationFlgBitBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * whiteUqClassificationFlgBitBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * whiteUqClassificationFlgBitBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1061,7 +1061,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * whiteUqClassificationFlgBitBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * whiteUqClassificationFlgBitBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * whiteUqClassificationFlgBitBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * whiteUqClassificationFlgBitBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * whiteUqClassificationFlgBitBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1069,7 +1069,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * whiteUqClassificationFlgBitBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * whiteUqClassificationFlgBitBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * whiteUqClassificationFlgBitBhv.outideSql().removeBlockComment().selectList()
      * whiteUqClassificationFlgBitBhv.outideSql().removeLineComment().selectList()
      * whiteUqClassificationFlgBitBhv.outideSql().formatSql().selectList()

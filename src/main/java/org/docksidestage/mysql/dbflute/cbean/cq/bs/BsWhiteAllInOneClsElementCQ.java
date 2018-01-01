@@ -94,7 +94,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
       return _clsCategoryCode; }
     protected ConditionValue xgetCValueClsCategoryCode() { return xdfgetClsCategoryCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_CATEGORY_CODE: {PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
       return _clsElementCode; }
     protected ConditionValue xgetCValueClsElementCode() { return xdfgetClsElementCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_ELEMENT_CODE: {PK, NotNull, CHAR(3)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
       return _clsElementName; }
     protected ConditionValue xgetCValueClsElementName() { return xdfgetClsElementName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * CLS_ELEMENT_NAME: {NotNull, VARCHAR(20)}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteAllInOneClsElementCQ extends AbstractBsWhiteAllInOneClsEleme
       return _attributeExp; }
     protected ConditionValue xgetCValueAttributeExp() { return xdfgetAttributeExp(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * ATTRIBUTE_EXP: {NotNull, TEXT(65535)}
      * @return this. (NotNull)

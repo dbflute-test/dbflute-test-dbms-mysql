@@ -94,7 +94,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
       return _toId; }
     protected ConditionValue xgetCValueToId() { return xdfgetToId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
       return _toName; }
     protected ConditionValue xgetCValueToName() { return xdfgetToName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * TO_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteOnlyOneToOneToCQ extends AbstractBsWhiteOnlyOneToOneToCQ {
       return _fromId; }
     protected ConditionValue xgetCValueFromId() { return xdfgetFromId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
      * @return this. (NotNull)

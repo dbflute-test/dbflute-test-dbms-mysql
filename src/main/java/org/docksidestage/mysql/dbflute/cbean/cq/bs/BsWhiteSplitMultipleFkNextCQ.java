@@ -108,7 +108,7 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
     public Map<String, Object> xdfgetNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter() { return xgetSQuePmMap("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList"); }
     public String keepNextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseListParameter(Object pm) { return xkeepSQuePm("nextId_QueryDerivedReferrer_WhiteSplitMultipleFkBaseList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -128,7 +128,7 @@ public class BsWhiteSplitMultipleFkNextCQ extends AbstractBsWhiteSplitMultipleFk
       return _secondCode; }
     protected ConditionValue xgetCValueSecondCode() { return xdfgetSecondCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * SECOND_CODE: {NotNull, CHAR(3)}
      * @return this. (NotNull)

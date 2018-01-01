@@ -94,7 +94,7 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
       return _genHeadId; }
     protected ConditionValue xgetCValueGenHeadId() { return xdfgetGenHeadId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GEN_HEAD_ID: {PK, NotNull, DECIMAL(16)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
       return _genHeadName; }
     protected ConditionValue xgetCValueGenHeadName() { return xdfgetGenHeadName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * GEN_HEAD_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteTableExceptGenHeadCQ extends AbstractBsWhiteTableExceptGenHe
       return _nometaId; }
     protected ConditionValue xgetCValueNometaId() { return xdfgetNometaId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NOMETA_ID: {IX, DECIMAL(16)}
      * @return this. (NotNull)

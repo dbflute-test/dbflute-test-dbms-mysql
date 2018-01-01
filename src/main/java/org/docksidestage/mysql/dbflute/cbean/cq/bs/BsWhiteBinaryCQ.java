@@ -94,7 +94,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
       return _binaryId; }
     protected ConditionValue xgetCValueBinaryId() { return xdfgetBinaryId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BINARY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
       return _binaryData; }
     protected ConditionValue xgetCValueBinaryData() { return xdfgetBinaryData(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BINARY_DATA: {BINARY(1)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteBinaryCQ extends AbstractBsWhiteBinaryCQ {
       return _blobData; }
     protected ConditionValue xgetCValueBlobData() { return xdfgetBlobData(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * BLOB_DATA: {BLOB(65535)}
      * @return this. (NotNull)

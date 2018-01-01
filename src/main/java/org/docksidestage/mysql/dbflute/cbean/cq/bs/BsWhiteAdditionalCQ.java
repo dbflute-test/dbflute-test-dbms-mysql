@@ -94,7 +94,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
       return _fooId; }
     protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @return this. (NotNull)
@@ -114,7 +114,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
       return _fooName; }
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)}
      * @return this. (NotNull)
@@ -134,7 +134,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
       return _fooDate; }
     protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_date: {UnknownType}
      * @return this. (NotNull)
@@ -154,7 +154,7 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
