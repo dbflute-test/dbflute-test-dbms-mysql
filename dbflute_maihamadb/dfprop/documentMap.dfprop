@@ -106,9 +106,6 @@ map:{
     #; schemaHtmlFileName = xxx.html
     # - - - - - - - - - -/
 
-    # for the test of original style sheet as embedded
-    ; schemaHtmlStyleSheet = ./style-schema.css
-
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isSuppressSchemaHtmlOutsideSql (NotRequired - Default false)
     #  Does it remove outsideSql information from schemaHtml?
@@ -126,9 +123,6 @@ map:{
     # 
     #; historyHtmlFileName = xxx.html
     # - - - - - - - - - -/
-
-    # for the test of sister link suppressing
-    ; isSuppressSchemaHtmlToSisterLink = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isCheckColumnDefOrderDiff (NotRequired - Default false)
@@ -151,12 +145,6 @@ map:{
     #
     ; isCheckProcedureDiff = true
     # - - - - - - - - - -/
-
-    # for the test of original style sheet as embedded
-    ; historyHtmlStyleSheet = ./style-history.css
-
-    # for the test of sister link suppressing
-    ; isSuppressHistoryHtmlToSisterLink = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o loadDataReverseMap: (NotRequired - Default map:{})
