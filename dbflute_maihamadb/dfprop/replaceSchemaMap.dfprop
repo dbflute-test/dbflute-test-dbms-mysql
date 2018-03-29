@@ -1,5 +1,5 @@
 # /---------------------------------------------------------------------------
-# replaceSchemaDefinitionMap: (NotRequired - Default map:{})
+# replaceSchemaMap: (NotRequired - Default map:{})
 #
 # The various settings about replace-schema.
 #
@@ -9,6 +9,7 @@
 # o isErrorSqlContinue: (NotRequired - Default false)
 # o sqlFileEncoding: (NotRequired - Default 'UTF-8')
 # o skipSheet: (NotRequired - Default '')
+# o conventionalTakeAssertMap: (NotRequired - Default map:{})
 # o isIncrementSequenceToDataMax: (NotRequired - Default false)
 # o isSuppressBatchUpdate: (NotRequired - Default false)
 # o objectTypeTargetList: (NotRequired - Default databaseInfoMap's)
@@ -29,9 +30,6 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    # the test of schema policy in replace-schema
-    ; isCheckSchemaPolicyInReps = true
-
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o repsEnvType: (NotRequired - Default inherits or 'ut')
     #  The environment type of ReplaceSchema.
@@ -75,6 +73,30 @@ map:{
     #  You can specify the skip sheet by regular expression
     #
     #; skipSheet = P.+
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isCheckSchemaPolicyInReps: (NotRequired - Default false)
+    #  Does it check schema policy in ReplaceSchema?
+    #  Normally the check is executed in Doc task but it may be late
+    #  so you can check here.
+    #
+    ; isCheckSchemaPolicyInReps = true
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o conventionalTakeAssertMap: (NotRequired - Default map:{})
+    #  Does it assert data by conventional rule in take-finally
+    #  For example, you can check empty table (no-data).
+    #
+    ; conventionalTakeAssertMap = map:{
+        ; emptyTableMap = map:{
+            ; isFailure = true
+            ; workableRepsEnvTypeList = list:{$$ALL$$}
+            ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ }
+            ; tableTargetList = list:{}
+        }
+    }
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
