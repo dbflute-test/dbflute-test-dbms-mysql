@@ -80,7 +80,7 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, true, false, true, "CHAR", 3, 0, null, null, false, null, null, null, "whitePerrottaOverProductList", null, false);
-    protected final ColumnInfo _columnProductNestedName = cci("PRODUCT_NESTED_NAME", "PRODUCT_NESTED_NAME", null, null, String.class, "productNestedName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductNestedName = cci("PRODUCT_NESTED_NAME", "PRODUCT_NESTED_NAME", null, null, String.class, "productNestedName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)}
@@ -88,7 +88,7 @@ public class WhitePerrottaOverProductNestedDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnProductNestedCode() { return _columnProductNestedCode; }
     /**
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductNestedName() { return _columnProductNestedName; }

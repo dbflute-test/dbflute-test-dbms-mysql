@@ -58,7 +58,7 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductId(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductId(ctl(vl)), "productId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductId(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductName(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductName((String)vl), "productName");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverProduct)et).getProductNestedCode(), (et, vl) -> ((WhitePerrottaOverProduct)et).setProductNestedCode((String)vl), "productNestedCode");
     }
@@ -94,17 +94,17 @@ public class WhitePerrottaOverProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null, false);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, "whitePerrottaOverTraceAsPerrotta", "whitePerrottaOverMemberList,whitePerrottaOverTraceByNextProductIdList,whitePerrottaOverTraceByPreviousProductIdList", null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, null, String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnProductNestedCode = cci("PRODUCT_NESTED_CODE", "PRODUCT_NESTED_CODE", null, null, String.class, "productNestedCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, "whitePerrottaOverProductNested", null, null, false);
 
     /**
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductId() { return _columnProductId; }
     /**
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductName() { return _columnProductName; }

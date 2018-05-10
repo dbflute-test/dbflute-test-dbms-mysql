@@ -59,8 +59,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long traceId = entity.getTraceId();
- * Long previousProductId = entity.getPreviousProductId();
- * Long nextProductId = entity.getNextProductId();
+ * Integer previousProductId = entity.getPreviousProductId();
+ * Integer nextProductId = entity.getNextProductId();
  * String traceTypeCode = entity.getTraceTypeCode();
  * entity.setTraceId(traceId);
  * entity.setPreviousProductId(previousProductId);
@@ -84,11 +84,11 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     /** TRACE_ID: {PK, NotNull, BIGINT(19)} */
     protected Long _traceId;
 
-    /** PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} */
-    protected Long _previousProductId;
+    /** PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product} */
+    protected Integer _previousProductId;
 
-    /** NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} */
-    protected Long _nextProductId;
+    /** NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product} */
+    protected Integer _nextProductId;
 
     /** TRACE_TYPE_CODE: {NotNull, CHAR(3)} */
     protected String _traceTypeCode;
@@ -118,10 +118,10 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param previousProductId : UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
-     * @param nextProductId : +UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
+     * @param previousProductId : UQ+, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
+     * @param nextProductId : +UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
      */
-    public void uniqueBy(Long previousProductId, Long nextProductId) {
+    public void uniqueBy(Integer previousProductId, Integer nextProductId) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("previousProductId");
         __uniqueDrivenProperties.addPropertyName("nextProductId");
@@ -269,37 +269,37 @@ public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements
     }
 
     /**
-     * [get] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [get] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'PREVIOUS_PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getPreviousProductId() {
+    public Integer getPreviousProductId() {
         checkSpecifiedProperty("previousProductId");
         return _previousProductId;
     }
 
     /**
-     * [set] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [set] PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @param previousProductId The value of the column 'PREVIOUS_PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setPreviousProductId(Long previousProductId) {
+    public void setPreviousProductId(Integer previousProductId) {
         registerModifiedProperty("previousProductId");
         _previousProductId = previousProductId;
     }
 
     /**
-     * [get] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [get] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'NEXT_PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getNextProductId() {
+    public Integer getNextProductId() {
         checkSpecifiedProperty("nextProductId");
         return _nextProductId;
     }
 
     /**
-     * [set] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [set] NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @param nextProductId The value of the column 'NEXT_PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setNextProductId(Long nextProductId) {
+    public void setNextProductId(Integer nextProductId) {
         registerModifiedProperty("nextProductId");
         _nextProductId = nextProductId;
     }

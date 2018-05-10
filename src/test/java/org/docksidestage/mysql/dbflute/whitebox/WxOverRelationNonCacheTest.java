@@ -54,11 +54,11 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         // iks (3) -> Coffee  (21) -(over)-> null
         for (WhitePerrottaOverMember member : memberList) {
             WhitePerrottaOverProduct product = member.getWhitePerrottaOverProduct().get();
-            Long productId = product.getProductId();
+            Integer productId = product.getProductId();
             String productName = product.getProductName();
             WhitePerrottaOverTrace trace = product.getWhitePerrottaOverTraceAsPerrotta().orElse(null);
-            Long previousProductId = trace != null ? trace.getPreviousProductId() : null;
-            Long nextProductId = trace != null ? trace.getNextProductId() : null;
+            Integer previousProductId = trace != null ? trace.getPreviousProductId() : null;
+            Integer nextProductId = trace != null ? trace.getNextProductId() : null;
             String traceType = trace != null ? trace.getTraceTypeCode() : null;
             Integer traceHash = trace != null ? trace.instanceHash() : null;
             log(member.getMemberName(), productId, productName, previousProductId, nextProductId, traceType, traceHash);
@@ -232,16 +232,16 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
     protected void registerTestData() {
         registerNested("DOC", "DockSideStage");
         registerNested("HUN", "HungerStage");
-        registerProduct(21L, "CupRamen", "HUN");
-        registerProduct(22L, "Uchiwa", "HUN");
-        registerProduct(23L, "Coffee", "DOC");
+        registerProduct(21, "CupRamen", "HUN");
+        registerProduct(22, "Uchiwa", "HUN");
+        registerProduct(23, "Coffee", "DOC");
         registerMacho("AAA", "Foo");
         registerMacho("BBB", "Bar");
-        registerMember(1L, "sea", 21L, "FOO", "AAA");
-        registerMember(2L, "land", 21L, "BAR", "BBB");
-        registerMember(3L, "iks", 23L, "BAR", "AAA");
-        registerTrace(301L, 21L, 22L, "FOO");
-        registerTrace(302L, 21L, 23L, "BAR");
+        registerMember(1, "sea", 21, "FOO", "AAA");
+        registerMember(2, "land", 21, "BAR", "BBB");
+        registerMember(3, "iks", 23, "BAR", "AAA");
+        registerTrace(301L, 21, 22, "FOO");
+        registerTrace(302L, 21, 23, "BAR");
     }
 
     protected void registerNested(String code, String name) {
@@ -251,7 +251,7 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         whitePerrottaOverProductNestedBhv.insert(nested);
     }
 
-    protected void registerProduct(Long id, String name, String nested) {
+    protected void registerProduct(Integer id, String name, String nested) {
         WhitePerrottaOverProduct product = new WhitePerrottaOverProduct();
         product.setProductId(id);
         product.setProductName(name);
@@ -266,7 +266,7 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         whitePerrottaOverMemberMachoBhv.insert(nested);
     }
 
-    protected void registerMember(Long memberId, String name, Long productId, String traceType, String machoCode) {
+    protected void registerMember(Integer memberId, String name, Integer productId, String traceType, String machoCode) {
         WhitePerrottaOverMember member = new WhitePerrottaOverMember();
         member.setMemberId(memberId);
         member.setMemberName(name);
@@ -276,7 +276,7 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         whitePerrottaOverMemberBhv.insert(member);
     }
 
-    protected void registerTrace(Long traceId, Long previousId, Long nextId, String traceType) {
+    protected void registerTrace(Long traceId, Integer previousId, Integer nextId, String traceType) {
         WhitePerrottaOverTrace trace = new WhitePerrottaOverTrace();
         trace.setTraceId(traceId);
         trace.setPreviousProductId(previousId);

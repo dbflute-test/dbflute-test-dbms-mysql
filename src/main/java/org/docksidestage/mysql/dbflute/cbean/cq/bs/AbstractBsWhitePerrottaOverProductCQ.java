@@ -60,50 +60,50 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_Equal(Long productId) {
+    public void setProductId_Equal(Integer productId) {
         doSetProductId_Equal(productId);
     }
 
-    protected void doSetProductId_Equal(Long productId) {
+    protected void doSetProductId_Equal(Integer productId) {
         regProductId(CK_EQ, productId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterThan(Long productId) {
+    public void setProductId_GreaterThan(Integer productId) {
         regProductId(CK_GT, productId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessThan(Long productId) {
+    public void setProductId_LessThan(Integer productId) {
         regProductId(CK_LT, productId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterEqual(Long productId) {
+    public void setProductId_GreaterEqual(Integer productId) {
         regProductId(CK_GE, productId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessEqual(Long productId) {
+    public void setProductId_LessEqual(Integer productId) {
         regProductId(CK_LE, productId);
     }
 
@@ -111,12 +111,12 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -124,38 +124,38 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_InScope(Collection<Long> productIdList) {
+    public void setProductId_InScope(Collection<Integer> productIdList) {
         doSetProductId_InScope(productIdList);
     }
 
-    protected void doSetProductId_InScope(Collection<Long> productIdList) {
+    protected void doSetProductId_InScope(Collection<Integer> productIdList) {
         regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_NotInScope(Collection<Long> productIdList) {
+    public void setProductId_NotInScope(Collection<Integer> productIdList) {
         doSetProductId_NotInScope(productIdList);
     }
 
-    protected void doSetProductId_NotInScope(Collection<Long> productIdList) {
+    protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
         regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
@@ -380,13 +380,13 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      */
     public void setProductId_IsNull() { regProductId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      */
     public void setProductId_IsNotNull() { regProductId(CK_ISNN, DOBJ); }
 
@@ -395,7 +395,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_Equal(String productName) {
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotEqual(String productName) {
@@ -421,7 +421,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productNameList The collection of productName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_InScope(Collection<String> productNameList) {
@@ -434,7 +434,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productNameList The collection of productName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotInScope(Collection<String> productNameList) {
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -470,7 +470,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -481,7 +481,7 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */

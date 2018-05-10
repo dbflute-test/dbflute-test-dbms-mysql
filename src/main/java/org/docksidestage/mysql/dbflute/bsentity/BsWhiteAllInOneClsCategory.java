@@ -83,7 +83,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implemen
     /** CLS_CATEGORY_NAME: {NotNull, VARCHAR(20)} */
     protected String _clsCategoryName;
 
-    /** DESCRIPTION: {NotNull, VARCHAR(50)} */
+    /** DESCRIPTION: {NotNull, VARCHAR(200)} */
     protected String _description;
 
     // ===================================================================================
@@ -237,7 +237,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implemen
     }
 
     /**
-     * [get] DESCRIPTION: {NotNull, VARCHAR(50)} <br>
+     * [get] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'DESCRIPTION'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
@@ -246,7 +246,7 @@ public abstract class BsWhiteAllInOneClsCategory extends AbstractEntity implemen
     }
 
     /**
-     * [set] DESCRIPTION: {NotNull, VARCHAR(50)} <br>
+     * [set] DESCRIPTION: {NotNull, VARCHAR(200)} <br>
      * @param description The value of the column 'DESCRIPTION'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {

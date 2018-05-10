@@ -362,7 +362,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
@@ -371,7 +371,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
@@ -380,7 +380,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
@@ -389,7 +389,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -412,7 +412,7 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -425,13 +425,13 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      */
     public void setRegisterDatetime_IsNull() { regRegisterDatetime(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      */
     public void setRegisterDatetime_IsNotNull() { regRegisterDatetime(CK_ISNN, DOBJ); }
 

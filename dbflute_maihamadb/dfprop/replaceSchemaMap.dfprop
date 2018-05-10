@@ -81,7 +81,7 @@ map:{
     #  Normally the check is executed in Doc task but it may be late
     #  so you can check here.
     #
-    ; isCheckSchemaPolicyInReps = true
+    #; isCheckSchemaPolicyInReps = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

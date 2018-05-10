@@ -96,14 +96,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
 
     /**
      * Add order-by as ascend. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
@@ -116,14 +116,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
 
     /**
      * Add order-by as ascend. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberName_Asc() { regOBA("MEMBER_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_MemberName_Desc() { regOBD("MEMBER_NAME"); return this; }
@@ -136,14 +136,14 @@ public class BsWhitePerrottaOverMemberCQ extends AbstractBsWhitePerrottaOverMemb
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverMemberCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }

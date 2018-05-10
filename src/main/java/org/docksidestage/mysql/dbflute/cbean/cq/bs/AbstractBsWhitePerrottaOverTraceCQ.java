@@ -176,50 +176,50 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPreviousProductId_Equal(Long previousProductId) {
+    public void setPreviousProductId_Equal(Integer previousProductId) {
         doSetPreviousProductId_Equal(previousProductId);
     }
 
-    protected void doSetPreviousProductId_Equal(Long previousProductId) {
+    protected void doSetPreviousProductId_Equal(Integer previousProductId) {
         regPreviousProductId(CK_EQ, previousProductId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPreviousProductId_GreaterThan(Long previousProductId) {
+    public void setPreviousProductId_GreaterThan(Integer previousProductId) {
         regPreviousProductId(CK_GT, previousProductId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPreviousProductId_LessThan(Long previousProductId) {
+    public void setPreviousProductId_LessThan(Integer previousProductId) {
         regPreviousProductId(CK_LT, previousProductId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPreviousProductId_GreaterEqual(Long previousProductId) {
+    public void setPreviousProductId_GreaterEqual(Integer previousProductId) {
         regPreviousProductId(CK_GE, previousProductId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setPreviousProductId_LessEqual(Long previousProductId) {
+    public void setPreviousProductId_LessEqual(Integer previousProductId) {
         regPreviousProductId(CK_LE, previousProductId);
     }
 
@@ -227,12 +227,12 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setPreviousProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+    public void setPreviousProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setPreviousProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -240,38 +240,38 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of previousProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setPreviousProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    public void setPreviousProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductIdList The collection of previousProductId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPreviousProductId_InScope(Collection<Long> previousProductIdList) {
+    public void setPreviousProductId_InScope(Collection<Integer> previousProductIdList) {
         doSetPreviousProductId_InScope(previousProductIdList);
     }
 
-    protected void doSetPreviousProductId_InScope(Collection<Long> previousProductIdList) {
+    protected void doSetPreviousProductId_InScope(Collection<Integer> previousProductIdList) {
         regINS(CK_INS, cTL(previousProductIdList), xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductIdList The collection of previousProductId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPreviousProductId_NotInScope(Collection<Long> previousProductIdList) {
+    public void setPreviousProductId_NotInScope(Collection<Integer> previousProductIdList) {
         doSetPreviousProductId_NotInScope(previousProductIdList);
     }
 
-    protected void doSetPreviousProductId_NotInScope(Collection<Long> previousProductIdList) {
+    protected void doSetPreviousProductId_NotInScope(Collection<Integer> previousProductIdList) {
         regINS(CK_NINS, cTL(previousProductIdList), xgetCValuePreviousProductId(), "PREVIOUS_PRODUCT_ID");
     }
 
@@ -280,50 +280,50 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setNextProductId_Equal(Long nextProductId) {
+    public void setNextProductId_Equal(Integer nextProductId) {
         doSetNextProductId_Equal(nextProductId);
     }
 
-    protected void doSetNextProductId_Equal(Long nextProductId) {
+    protected void doSetNextProductId_Equal(Integer nextProductId) {
         regNextProductId(CK_EQ, nextProductId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setNextProductId_GreaterThan(Long nextProductId) {
+    public void setNextProductId_GreaterThan(Integer nextProductId) {
         regNextProductId(CK_GT, nextProductId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setNextProductId_LessThan(Long nextProductId) {
+    public void setNextProductId_LessThan(Integer nextProductId) {
         regNextProductId(CK_LT, nextProductId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setNextProductId_GreaterEqual(Long nextProductId) {
+    public void setNextProductId_GreaterEqual(Integer nextProductId) {
         regNextProductId(CK_GE, nextProductId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductId The value of nextProductId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setNextProductId_LessEqual(Long nextProductId) {
+    public void setNextProductId_LessEqual(Integer nextProductId) {
         regNextProductId(CK_LE, nextProductId);
     }
 
@@ -331,12 +331,12 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setNextProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+    public void setNextProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setNextProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -344,38 +344,38 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of nextProductId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNextProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    public void setNextProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNextProductId(), "NEXT_PRODUCT_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductIdList The collection of nextProductId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setNextProductId_InScope(Collection<Long> nextProductIdList) {
+    public void setNextProductId_InScope(Collection<Integer> nextProductIdList) {
         doSetNextProductId_InScope(nextProductIdList);
     }
 
-    protected void doSetNextProductId_InScope(Collection<Long> nextProductIdList) {
+    protected void doSetNextProductId_InScope(Collection<Integer> nextProductIdList) {
         regINS(CK_INS, cTL(nextProductIdList), xgetCValueNextProductId(), "NEXT_PRODUCT_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param nextProductIdList The collection of nextProductId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setNextProductId_NotInScope(Collection<Long> nextProductIdList) {
+    public void setNextProductId_NotInScope(Collection<Integer> nextProductIdList) {
         doSetNextProductId_NotInScope(nextProductIdList);
     }
 
-    protected void doSetNextProductId_NotInScope(Collection<Long> nextProductIdList) {
+    protected void doSetNextProductId_NotInScope(Collection<Integer> nextProductIdList) {
         regINS(CK_NINS, cTL(nextProductIdList), xgetCValueNextProductId(), "NEXT_PRODUCT_ID");
     }
 

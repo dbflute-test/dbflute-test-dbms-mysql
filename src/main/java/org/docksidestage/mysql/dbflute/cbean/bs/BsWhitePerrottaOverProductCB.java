@@ -97,10 +97,10 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param productId : PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE. (NotNull)
+     * @param productId : PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE. (NotNull)
      * @return this. (NotNull)
      */
-    public WhitePerrottaOverProductCB acceptPK(Long productId) {
+    public WhitePerrottaOverProductCB acceptPK(Integer productId) {
         assertObjectNotNull("productId", productId);
         BsWhitePerrottaOverProductCB cb = this;
         cb.query().setProductId_Equal(productId);
@@ -348,12 +348,12 @@ public class BsWhitePerrottaOverProductCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+         * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+         * PRODUCT_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }

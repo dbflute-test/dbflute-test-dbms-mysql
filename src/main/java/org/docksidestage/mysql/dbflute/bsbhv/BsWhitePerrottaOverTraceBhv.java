@@ -268,26 +268,26 @@ public abstract class BsWhitePerrottaOverTraceBhv extends AbstractBehaviorWritab
 
     /**
      * Select the entity by the unique-key value.
-     * @param previousProductId : UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
-     * @param nextProductId : +UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
+     * @param previousProductId : UQ+, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
+     * @param nextProductId : +UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhitePerrottaOverTrace> selectByUniqueOf(Long previousProductId, Long nextProductId) {
+    public OptionalEntity<WhitePerrottaOverTrace> selectByUniqueOf(Integer previousProductId, Integer nextProductId) {
         return facadeSelectByUniqueOf(previousProductId, nextProductId);
     }
 
-    protected OptionalEntity<WhitePerrottaOverTrace> facadeSelectByUniqueOf(Long previousProductId, Long nextProductId) {
+    protected OptionalEntity<WhitePerrottaOverTrace> facadeSelectByUniqueOf(Integer previousProductId, Integer nextProductId) {
         return doSelectByUniqueOf(previousProductId, nextProductId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhitePerrottaOverTrace> OptionalEntity<ENTITY> doSelectByUniqueOf(Long previousProductId, Long nextProductId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhitePerrottaOverTrace> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer previousProductId, Integer nextProductId, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(previousProductId, nextProductId), tp), previousProductId, nextProductId);
     }
 
-    protected WhitePerrottaOverTraceCB xprepareCBAsUniqueOf(Long previousProductId, Long nextProductId) {
+    protected WhitePerrottaOverTraceCB xprepareCBAsUniqueOf(Integer previousProductId, Integer nextProductId) {
         assertObjectNotNull("previousProductId", previousProductId);assertObjectNotNull("nextProductId", nextProductId);
         return newConditionBean().acceptUniqueOf(previousProductId, nextProductId);
     }

@@ -60,50 +60,50 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberId_Equal(Long memberId) {
+    public void setMemberId_Equal(Integer memberId) {
         doSetMemberId_Equal(memberId);
     }
 
-    protected void doSetMemberId_Equal(Long memberId) {
+    protected void doSetMemberId_Equal(Integer memberId) {
         regMemberId(CK_EQ, memberId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberId_GreaterThan(Long memberId) {
+    public void setMemberId_GreaterThan(Integer memberId) {
         regMemberId(CK_GT, memberId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberId_LessThan(Long memberId) {
+    public void setMemberId_LessThan(Integer memberId) {
         regMemberId(CK_LT, memberId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberId_GreaterEqual(Long memberId) {
+    public void setMemberId_GreaterEqual(Integer memberId) {
         regMemberId(CK_GE, memberId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setMemberId_LessEqual(Long memberId) {
+    public void setMemberId_LessEqual(Integer memberId) {
         regMemberId(CK_LE, memberId);
     }
 
@@ -111,12 +111,12 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setMemberId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+    public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setMemberId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -124,50 +124,50 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setMemberId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberIdList The collection of memberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setMemberId_InScope(Collection<Long> memberIdList) {
+    public void setMemberId_InScope(Collection<Integer> memberIdList) {
         doSetMemberId_InScope(memberIdList);
     }
 
-    protected void doSetMemberId_InScope(Collection<Long> memberIdList) {
+    protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
         regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberIdList The collection of memberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setMemberId_NotInScope(Collection<Long> memberIdList) {
+    public void setMemberId_NotInScope(Collection<Integer> memberIdList) {
         doSetMemberId_NotInScope(memberIdList);
     }
 
-    protected void doSetMemberId_NotInScope(Collection<Long> memberIdList) {
+    protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
         regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
     }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      */
     public void setMemberId_IsNull() { regMemberId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      */
     public void setMemberId_IsNotNull() { regMemberId(CK_ISNN, DOBJ); }
 
@@ -176,7 +176,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberName The value of memberName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_Equal(String memberName) {
@@ -189,7 +189,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberName The value of memberName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotEqual(String memberName) {
@@ -202,7 +202,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberNameList The collection of memberName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_InScope(Collection<String> memberNameList) {
@@ -215,7 +215,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberNameList The collection of memberName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMemberName_NotInScope(Collection<String> memberNameList) {
@@ -228,7 +228,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
+     * MEMBER_NAME: {NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -239,7 +239,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
+     * MEMBER_NAME: {NotNull, VARCHAR(180)} <br>
      * <pre>e.g. setMemberName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param memberName The value of memberName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -262,7 +262,7 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @param memberName The value of memberName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -275,50 +275,50 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_Equal(Long productId) {
+    public void setProductId_Equal(Integer productId) {
         doSetProductId_Equal(productId);
     }
 
-    protected void doSetProductId_Equal(Long productId) {
+    protected void doSetProductId_Equal(Integer productId) {
         regProductId(CK_EQ, productId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterThan(Long productId) {
+    public void setProductId_GreaterThan(Integer productId) {
         regProductId(CK_GT, productId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessThan(Long productId) {
+    public void setProductId_LessThan(Integer productId) {
         regProductId(CK_LT, productId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterEqual(Long productId) {
+    public void setProductId_GreaterEqual(Integer productId) {
         regProductId(CK_GE, productId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessEqual(Long productId) {
+    public void setProductId_LessEqual(Integer productId) {
         regProductId(CK_LE, productId);
     }
 
@@ -326,12 +326,12 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -339,38 +339,38 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_InScope(Collection<Long> productIdList) {
+    public void setProductId_InScope(Collection<Integer> productIdList) {
         doSetProductId_InScope(productIdList);
     }
 
-    protected void doSetProductId_InScope(Collection<Long> productIdList) {
+    protected void doSetProductId_InScope(Collection<Integer> productIdList) {
         regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_NotInScope(Collection<Long> productIdList) {
+    public void setProductId_NotInScope(Collection<Integer> productIdList) {
         doSetProductId_NotInScope(productIdList);
     }
 
-    protected void doSetProductId_NotInScope(Collection<Long> productIdList) {
+    protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
         regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 

@@ -88,7 +88,7 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnFooId = cci("foo_id", "foo_id", null, null, Integer.class, "fooId", null, true, true, true, "INTEGER", null, null, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, "Mr.FOO's name", String.class, "fooName", null, false, false, true, "UnknownType", 123, 0, null, null, false, null, "It's joke!", null, null, null, false);
     protected final ColumnInfo _columnFooDate = cci("foo_date", "foo_date", null, null, java.time.LocalDate.class, "fooDate", null, false, false, false, "UnknownType", null, null, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, false, "DATETIME", null, null, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, false, "DATETIME", 19, 0, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
 
     /**
      * foo_id: {PK, ID, NotNull, INTEGER}
@@ -106,7 +106,7 @@ public class WhiteAdditionalDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnFooDate() { return _columnFooDate; }
     /**
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegisterDatetime() { return _columnRegisterDatetime; }

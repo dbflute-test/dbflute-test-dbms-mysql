@@ -314,7 +314,7 @@ public class BsWhiteAdditionalCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnFooDate() { return doColumn("foo_date"); }
         /**
-         * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+         * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }

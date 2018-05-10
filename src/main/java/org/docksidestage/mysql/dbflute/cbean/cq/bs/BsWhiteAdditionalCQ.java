@@ -156,14 +156,14 @@ public class BsWhiteAdditionalCQ extends AbstractBsWhiteAdditionalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_RegisterDatetime_Asc() { regOBA("register_datetime"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]}
+     * register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */
     public BsWhiteAdditionalCQ addOrderBy_RegisterDatetime_Desc() { regOBD("register_datetime"); return this; }

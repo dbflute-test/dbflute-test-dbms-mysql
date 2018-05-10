@@ -150,14 +150,14 @@ public class BsWhiteAllInOneClsCategoryCQ extends AbstractBsWhiteAllInOneClsCate
 
     /**
      * Add order-by as ascend. <br>
-     * DESCRIPTION: {NotNull, VARCHAR(50)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_Description_Asc() { regOBA("DESCRIPTION"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * DESCRIPTION: {NotNull, VARCHAR(50)}
+     * DESCRIPTION: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public BsWhiteAllInOneClsCategoryCQ addOrderBy_Description_Desc() { regOBD("DESCRIPTION"); return this; }

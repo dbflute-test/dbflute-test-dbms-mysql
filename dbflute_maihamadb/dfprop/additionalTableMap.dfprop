@@ -29,14 +29,14 @@
 map:{
     ; white_additional = map:{
         ; columnMap = map:{
-            foo_id = map:{
-                type = INTEGER ; dbType = INTEGER ; required = true
+            ; foo_id = map:{
+                ; type = INTEGER ; dbType = INTEGER ; required = true
                 ; primaryKey = true ; pkName = PK_WHITE_ADDITIONAL
                 ; autoIncrement = true
             }
-            foo_name = map:{ type = VARCHAR ; required = true ; size = 123 ; comment = Mr.FOO's name: It's joke! }
-            foo_date = map:{ type = DATE }
-            register_datetime = map:{ type = TIMESTAMP ; dbType = DATETIME ; default = CURRENT_TIMESTAMP }
+            ; foo_name = map:{ type = VARCHAR ; required = true ; size = 123 ; comment = Mr.FOO's name: It's joke! }
+            ; foo_date = map:{ type = DATE }
+            ; register_datetime = map:{ type = TIMESTAMP ; dbType = DATETIME ; size = 19 ; default = CURRENT_TIMESTAMP }
         }
         ; comment = WXADD: test table for additionalTable
     }

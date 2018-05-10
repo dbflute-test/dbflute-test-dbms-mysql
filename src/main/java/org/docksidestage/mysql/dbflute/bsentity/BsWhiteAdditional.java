@@ -89,7 +89,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
     /** foo_date: {UnknownType} */
     protected java.time.LocalDate _fooDate;
 
-    /** register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} */
+    /** register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]} */
     protected java.time.LocalDateTime _registerDatetime;
 
     // ===================================================================================
@@ -235,7 +235,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
+     * [get] register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]} <br>
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -244,7 +244,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] register_datetime: {DATETIME, default=[CURRENT_TIMESTAMP]} <br>
+     * [set] register_datetime: {DATETIME(19), default=[CURRENT_TIMESTAMP]} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {

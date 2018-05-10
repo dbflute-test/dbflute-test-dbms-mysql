@@ -239,29 +239,29 @@ public abstract class BsWhitePerrottaOverProductBhv extends AbstractBehaviorWrit
 
     /**
      * Select the entity by the primary-key value.
-     * @param productId : PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE. (NotNull)
+     * @param productId : PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhitePerrottaOverProduct> selectByPK(Long productId) {
+    public OptionalEntity<WhitePerrottaOverProduct> selectByPK(Integer productId) {
         return facadeSelectByPK(productId);
     }
 
-    protected OptionalEntity<WhitePerrottaOverProduct> facadeSelectByPK(Long productId) {
+    protected OptionalEntity<WhitePerrottaOverProduct> facadeSelectByPK(Integer productId) {
         return doSelectOptionalByPK(productId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhitePerrottaOverProduct> ENTITY doSelectByPK(Long productId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhitePerrottaOverProduct> ENTITY doSelectByPK(Integer productId, Class<? extends ENTITY> tp) {
         return doSelectEntity(xprepareCBAsPK(productId), tp);
     }
 
-    protected <ENTITY extends WhitePerrottaOverProduct> OptionalEntity<ENTITY> doSelectOptionalByPK(Long productId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhitePerrottaOverProduct> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer productId, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectByPK(productId, tp), productId);
     }
 
-    protected WhitePerrottaOverProductCB xprepareCBAsPK(Long productId) {
+    protected WhitePerrottaOverProductCB xprepareCBAsPK(Integer productId) {
         assertObjectNotNull("productId", productId);
         return newConditionBean().acceptPK(productId);
     }
@@ -793,7 +793,7 @@ public abstract class BsWhitePerrottaOverProductBhv extends AbstractBehaviorWrit
      * @param whitePerrottaOverProductList The list of whitePerrottaOverProduct. (NotNull, EmptyAllowed)
      * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<Long> extractProductIdList(List<WhitePerrottaOverProduct> whitePerrottaOverProductList)
+    public List<Integer> extractProductIdList(List<WhitePerrottaOverProduct> whitePerrottaOverProductList)
     { return helpExtractListInternally(whitePerrottaOverProductList, "productId"); }
 
     // ===================================================================================

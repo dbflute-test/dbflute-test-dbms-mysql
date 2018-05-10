@@ -58,9 +58,9 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberId(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberId(ctl(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberId(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMemberName(), (et, vl) -> ((WhitePerrottaOverMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getProductId(), (et, vl) -> ((WhitePerrottaOverMember)et).setProductId(ctl(vl)), "productId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getProductId(), (et, vl) -> ((WhitePerrottaOverMember)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getTraceTypeCode(), (et, vl) -> ((WhitePerrottaOverMember)et).setTraceTypeCode((String)vl), "traceTypeCode");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverMember)et).getMachoCode(), (et, vl) -> ((WhitePerrottaOverMember)et).setMachoCode((String)vl), "machoCode");
     }
@@ -96,24 +96,24 @@ public class WhitePerrottaOverMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Long.class, "memberId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, String.class, "memberName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Long.class, "productId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverProduct", null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, null, Integer.class, "memberId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, null, String.class, "memberName", null, false, false, true, "VARCHAR", 180, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, null, Integer.class, "productId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whitePerrottaOverProduct", null, null, false);
     protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMachoCode = cci("MACHO_CODE", "MACHO_CODE", null, null, String.class, "machoCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, "whitePerrottaOverMemberMacho", null, null, false);
 
     /**
-     * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+     * MEMBER_ID: {PK, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnMemberId() { return _columnMemberId; }
     /**
-     * MEMBER_NAME: {NotNull, VARCHAR(200)}
+     * MEMBER_NAME: {NotNull, VARCHAR(180)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnMemberName() { return _columnMemberName; }
     /**
-     * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductId() { return _columnProductId; }

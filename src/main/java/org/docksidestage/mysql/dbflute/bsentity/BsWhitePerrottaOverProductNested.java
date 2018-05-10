@@ -78,7 +78,7 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
     /** PRODUCT_NESTED_CODE: {PK, NotNull, CHAR(3)} */
     protected String _productNestedCode;
 
-    /** PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} */
+    /** PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)} */
     protected String _productNestedName;
 
     // ===================================================================================
@@ -213,7 +213,7 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
     }
 
     /**
-     * [get] PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
+     * [get] PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NESTED_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductNestedName() {
@@ -222,7 +222,7 @@ public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity im
     }
 
     /**
-     * [set] PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
+     * [set] PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)} <br>
      * @param productNestedName The value of the column 'PRODUCT_NESTED_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductNestedName(String productNestedName) {

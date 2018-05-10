@@ -97,10 +97,10 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberId : PK, NotNull, BIGINT(19). (NotNull)
+     * @param memberId : PK, NotNull, INT(10). (NotNull)
      * @return this. (NotNull)
      */
-    public WhitePerrottaOverMemberCB acceptPK(Long memberId) {
+    public WhitePerrottaOverMemberCB acceptPK(Integer memberId) {
         assertObjectNotNull("memberId", memberId);
         BsWhitePerrottaOverMemberCB cb = this;
         cb.query().setMemberId_Equal(memberId);
@@ -351,17 +351,17 @@ public class BsWhitePerrottaOverMemberCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * MEMBER_ID: {PK, NotNull, BIGINT(19)}
+         * MEMBER_ID: {PK, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * MEMBER_NAME: {NotNull, VARCHAR(200)}
+         * MEMBER_NAME: {NotNull, VARCHAR(180)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberName() { return doColumn("MEMBER_NAME"); }
         /**
-         * PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+         * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }

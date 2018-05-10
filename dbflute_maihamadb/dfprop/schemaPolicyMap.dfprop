@@ -38,10 +38,16 @@ map:{
     ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ ; prefix:REGION }
     ; tableTargetList = list:{}
     ; columnExceptMap = map:{}
-    ; isMainSchemaOnly = false
+    ; isMainSchemaOnly = true
 
     ; wholeMap = map:{
-        ; themeList = list:{ uniqueTableAlias ; sameColumnAliasIfSameColumnName }
+        ; themeList = list:{
+            ; uniqueTableAlias
+            ; sameColumnAliasIfSameColumnName
+            ; sameColumnDbTypeIfSameColumnName
+            ; sameColumnSizeIfSameColumnName
+            ; sameColumnNameIfSameColumnAlias
+        }
     }
     ; tableMap = map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
@@ -56,6 +62,14 @@ map:{
             ; if columnName is suffix:_FLG then notNull
             ; if columnName is suffix:_FLG then dbType is INT
             ; if columnName is suffix:_FLG then classification
+
+            # monkey test (also for performance check)
+            ; if columnName is suffix:_ID then sameColumnDbTypeIfSameColumnName
+            ; if columnName is suffix:_CODE then sameColumnDbTypeIfSameColumnName
+            ; if columnName is suffix:_NAME then sameColumnDbTypeIfSameColumnName
+            ; if tableColumnName is contain:BER.MEM then tableColumnName is contain:ER.ME
+            ; if firstDate is after:2014/05/01 and tableName is MEMBER then sameColumnAliasIfSameColumnName
+            ; if tableName is PURCHASE and firstDate is after:2014/06/01 then sameColumnNameIfSameColumnAlias
         }
     }
 }

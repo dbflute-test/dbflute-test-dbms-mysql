@@ -304,7 +304,7 @@ public class BsWhitePerrottaOverProductNestedCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnProductNestedCode() { return doColumn("PRODUCT_NESTED_CODE"); }
         /**
-         * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+         * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductNestedName() { return doColumn("PRODUCT_NESTED_NAME"); }

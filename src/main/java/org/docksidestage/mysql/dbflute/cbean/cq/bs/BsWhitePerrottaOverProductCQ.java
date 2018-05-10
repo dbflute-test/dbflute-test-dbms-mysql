@@ -138,14 +138,14 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE}
+     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
@@ -158,14 +158,14 @@ public class BsWhitePerrottaOverProductCQ extends AbstractBsWhitePerrottaOverPro
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }

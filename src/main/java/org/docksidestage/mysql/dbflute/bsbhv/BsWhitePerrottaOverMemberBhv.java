@@ -239,29 +239,29 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberId : PK, NotNull, BIGINT(19). (NotNull)
+     * @param memberId : PK, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<WhitePerrottaOverMember> selectByPK(Long memberId) {
+    public OptionalEntity<WhitePerrottaOverMember> selectByPK(Integer memberId) {
         return facadeSelectByPK(memberId);
     }
 
-    protected OptionalEntity<WhitePerrottaOverMember> facadeSelectByPK(Long memberId) {
+    protected OptionalEntity<WhitePerrottaOverMember> facadeSelectByPK(Integer memberId) {
         return doSelectOptionalByPK(memberId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WhitePerrottaOverMember> ENTITY doSelectByPK(Long memberId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhitePerrottaOverMember> ENTITY doSelectByPK(Integer memberId, Class<? extends ENTITY> tp) {
         return doSelectEntity(xprepareCBAsPK(memberId), tp);
     }
 
-    protected <ENTITY extends WhitePerrottaOverMember> OptionalEntity<ENTITY> doSelectOptionalByPK(Long memberId, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WhitePerrottaOverMember> OptionalEntity<ENTITY> doSelectOptionalByPK(Integer memberId, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectByPK(memberId, tp), memberId);
     }
 
-    protected WhitePerrottaOverMemberCB xprepareCBAsPK(Long memberId) {
+    protected WhitePerrottaOverMemberCB xprepareCBAsPK(Integer memberId) {
         assertObjectNotNull("memberId", memberId);
         return newConditionBean().acceptPK(memberId);
     }
@@ -529,7 +529,7 @@ public abstract class BsWhitePerrottaOverMemberBhv extends AbstractBehaviorWrita
      * @param whitePerrottaOverMemberList The list of whitePerrottaOverMember. (NotNull, EmptyAllowed)
      * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<Long> extractMemberIdList(List<WhitePerrottaOverMember> whitePerrottaOverMemberList)
+    public List<Integer> extractMemberIdList(List<WhitePerrottaOverMember> whitePerrottaOverMemberList)
     { return helpExtractListInternally(whitePerrottaOverMemberList, "memberId"); }
 
     // ===================================================================================

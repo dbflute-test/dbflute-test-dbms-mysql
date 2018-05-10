@@ -244,7 +244,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedName The value of productNestedName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductNestedName_Equal(String productNestedName) {
@@ -257,7 +257,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedName The value of productNestedName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductNestedName_NotEqual(String productNestedName) {
@@ -270,7 +270,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedNameList The collection of productNestedName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductNestedName_InScope(Collection<String> productNestedNameList) {
@@ -283,7 +283,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedNameList The collection of productNestedName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductNestedName_NotInScope(Collection<String> productNestedNameList) {
@@ -296,7 +296,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductNestedName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productNestedName The value of productNestedName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)} <br>
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)} <br>
      * <pre>e.g. setProductNestedName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productNestedName The value of productNestedName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -319,7 +319,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedName The value of productNestedName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -330,7 +330,7 @@ public abstract class AbstractBsWhitePerrottaOverProductNestedCQ extends Abstrac
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @param productNestedName The value of productNestedName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */

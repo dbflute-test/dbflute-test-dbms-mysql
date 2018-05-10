@@ -109,11 +109,11 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param previousProductId : UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
-     * @param nextProductId : +UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product. (NotNull)
+     * @param previousProductId : UQ+, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
+     * @param nextProductId : +UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product. (NotNull)
      * @return this. (NotNull)
      */
-    public WhitePerrottaOverTraceCB acceptUniqueOf(Long previousProductId, Long nextProductId) {
+    public WhitePerrottaOverTraceCB acceptUniqueOf(Integer previousProductId, Integer nextProductId) {
         assertObjectNotNull("previousProductId", previousProductId);assertObjectNotNull("nextProductId", nextProductId);
         BsWhitePerrottaOverTraceCB cb = this;
         cb.query().setPreviousProductId_Equal(previousProductId);cb.query().setNextProductId_Equal(nextProductId);
@@ -378,12 +378,12 @@ public class BsWhitePerrottaOverTraceCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTraceId() { return doColumn("TRACE_ID"); }
         /**
-         * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+         * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPreviousProductId() { return doColumn("PREVIOUS_PRODUCT_ID"); }
         /**
-         * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+         * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnNextProductId() { return doColumn("NEXT_PRODUCT_ID"); }

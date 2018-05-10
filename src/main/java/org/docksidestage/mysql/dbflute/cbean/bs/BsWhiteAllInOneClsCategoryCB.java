@@ -309,7 +309,7 @@ public class BsWhiteAllInOneClsCategoryCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnClsCategoryName() { return doColumn("CLS_CATEGORY_NAME"); }
         /**
-         * DESCRIPTION: {NotNull, VARCHAR(50)}
+         * DESCRIPTION: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }

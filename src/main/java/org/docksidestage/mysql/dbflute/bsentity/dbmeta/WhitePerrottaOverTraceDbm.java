@@ -59,8 +59,8 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getTraceId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setTraceId(ctl(vl)), "traceId");
-        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setPreviousProductId(ctl(vl)), "previousProductId");
-        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setNextProductId(ctl(vl)), "nextProductId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getPreviousProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setPreviousProductId(cti(vl)), "previousProductId");
+        setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getNextProductId(), (et, vl) -> ((WhitePerrottaOverTrace)et).setNextProductId(cti(vl)), "nextProductId");
         setupEpg(_epgMap, et -> ((WhitePerrottaOverTrace)et).getTraceTypeCode(), (et, vl) -> ((WhitePerrottaOverTrace)et).setTraceTypeCode((String)vl), "traceTypeCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -96,8 +96,8 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnTraceId = cci("TRACE_ID", "TRACE_ID", null, null, Long.class, "traceId", null, true, false, true, "BIGINT", 19, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Long.class, "previousProductId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null, false);
-    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Long.class, "nextProductId", null, false, false, true, "BIGINT", 19, 0, null, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null, false);
+    protected final ColumnInfo _columnPreviousProductId = cci("PREVIOUS_PRODUCT_ID", "PREVIOUS_PRODUCT_ID", null, null, Integer.class, "previousProductId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whitePerrottaOverProductByPreviousProductId", null, null, false);
+    protected final ColumnInfo _columnNextProductId = cci("NEXT_PRODUCT_ID", "NEXT_PRODUCT_ID", null, null, Integer.class, "nextProductId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whitePerrottaOverProductByNextProductId", null, null, false);
     protected final ColumnInfo _columnTraceTypeCode = cci("TRACE_TYPE_CODE", "TRACE_TYPE_CODE", null, null, String.class, "traceTypeCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, null, false);
 
     /**
@@ -106,12 +106,12 @@ public class WhitePerrottaOverTraceDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTraceId() { return _columnTraceId; }
     /**
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPreviousProductId() { return _columnPreviousProductId; }
     /**
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnNextProductId() { return _columnNextProductId; }

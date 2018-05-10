@@ -116,14 +116,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
 
     /**
      * Add order-by as ascend. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_PreviousProductId_Asc() { regOBA("PREVIOUS_PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_PreviousProductId_Desc() { regOBD("PREVIOUS_PRODUCT_ID"); return this; }
@@ -136,14 +136,14 @@ public class BsWhitePerrottaOverTraceCQ extends AbstractBsWhitePerrottaOverTrace
 
     /**
      * Add order-by as ascend. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_NextProductId_Asc() { regOBA("NEXT_PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, BIGINT(19), FK to white_perrotta_over_product}
+     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverTraceCQ addOrderBy_NextProductId_Desc() { regOBD("NEXT_PRODUCT_ID"); return this; }

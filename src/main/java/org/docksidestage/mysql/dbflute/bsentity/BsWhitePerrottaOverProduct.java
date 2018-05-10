@@ -58,7 +58,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long productId = entity.getProductId();
+ * Integer productId = entity.getProductId();
  * String productName = entity.getProductName();
  * String productNestedCode = entity.getProductNestedCode();
  * entity.setProductId(productId);
@@ -79,10 +79,10 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} */
-    protected Long _productId;
+    /** PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE} */
+    protected Integer _productId;
 
-    /** PRODUCT_NAME: {NotNull, VARCHAR(200)} */
+    /** PRODUCT_NAME: {NotNull, VARCHAR(50)} */
     protected String _productName;
 
     /** PRODUCT_NESTED_CODE: {IX, NotNull, CHAR(3), FK to white_perrotta_over_product_nested} */
@@ -304,25 +304,25 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br>
+     * [get] PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getProductId() {
+    public Integer getProductId() {
         checkSpecifiedProperty("productId");
         return _productId;
     }
 
     /**
-     * [set] PRODUCT_ID: {PK, NotNull, BIGINT(19), FK to WHITE_PERROTTA_OVER_TRACE} <br>
+     * [set] PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setProductId(Long productId) {
+    public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
         _productId = productId;
     }
 
     /**
-     * [get] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [get] PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -331,7 +331,7 @@ public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implemen
     }
 
     /**
-     * [set] PRODUCT_NAME: {NotNull, VARCHAR(200)} <br>
+     * [set] PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
      * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {

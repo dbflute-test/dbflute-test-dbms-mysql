@@ -58,9 +58,9 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long memberId = entity.getMemberId();
+ * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * Long productId = entity.getProductId();
+ * Integer productId = entity.getProductId();
  * String traceTypeCode = entity.getTraceTypeCode();
  * String machoCode = entity.getMachoCode();
  * entity.setMemberId(memberId);
@@ -83,14 +83,14 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_ID: {PK, NotNull, BIGINT(19)} */
-    protected Long _memberId;
+    /** MEMBER_ID: {PK, NotNull, INT(10)} */
+    protected Integer _memberId;
 
-    /** MEMBER_NAME: {NotNull, VARCHAR(200)} */
+    /** MEMBER_NAME: {NotNull, VARCHAR(180)} */
     protected String _memberName;
 
-    /** PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} */
-    protected Long _productId;
+    /** PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product} */
+    protected Integer _productId;
 
     /** TRACE_TYPE_CODE: {NotNull, CHAR(3)} */
     protected String _traceTypeCode;
@@ -244,25 +244,25 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br>
+     * [get] MEMBER_ID: {PK, NotNull, INT(10)} <br>
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getMemberId() {
+    public Integer getMemberId() {
         checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
     /**
-     * [set] MEMBER_ID: {PK, NotNull, BIGINT(19)} <br>
+     * [set] MEMBER_ID: {PK, NotNull, INT(10)} <br>
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setMemberId(Long memberId) {
+    public void setMemberId(Integer memberId) {
         registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
     /**
-     * [get] MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
+     * [get] MEMBER_NAME: {NotNull, VARCHAR(180)} <br>
      * @return The value of the column 'MEMBER_NAME'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberName() {
@@ -271,7 +271,7 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     }
 
     /**
-     * [set] MEMBER_NAME: {NotNull, VARCHAR(200)} <br>
+     * [set] MEMBER_NAME: {NotNull, VARCHAR(180)} <br>
      * @param memberName The value of the column 'MEMBER_NAME'. (basically NotNull if update: for the constraint)
      */
     public void setMemberName(String memberName) {
@@ -280,19 +280,19 @@ public abstract class BsWhitePerrottaOverMember extends AbstractEntity implement
     }
 
     /**
-     * [get] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [get] PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
      */
-    public Long getProductId() {
+    public Integer getProductId() {
         checkSpecifiedProperty("productId");
         return _productId;
     }
 
     /**
-     * [set] PRODUCT_ID: {IX, NotNull, BIGINT(19), FK to white_perrotta_over_product} <br>
+     * [set] PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product} <br>
      * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
      */
-    public void setProductId(Long productId) {
+    public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
         _productId = productId;
     }

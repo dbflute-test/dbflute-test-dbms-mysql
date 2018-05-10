@@ -130,14 +130,14 @@ public class BsWhitePerrottaOverProductNestedCQ extends AbstractBsWhitePerrottaO
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductNestedCQ addOrderBy_ProductNestedName_Asc() { regOBA("PRODUCT_NESTED_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(200)}
+     * PRODUCT_NESTED_NAME: {NotNull, VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsWhitePerrottaOverProductNestedCQ addOrderBy_ProductNestedName_Desc() { regOBD("PRODUCT_NESTED_NAME"); return this; }
