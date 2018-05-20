@@ -68,9 +68,9 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         WhitePerrottaOverMember firstMember = memberList.get(0);
         WhitePerrottaOverMember secondMember = memberList.get(1);
         WhitePerrottaOverMember thirdMember = memberList.get(2);
-        assertEquals(Long.valueOf(1), firstMember.getMemberId());
-        assertEquals(Long.valueOf(2), secondMember.getMemberId());
-        assertEquals(Long.valueOf(3), thirdMember.getMemberId());
+        assertEquals(1, firstMember.getMemberId());
+        assertEquals(2, secondMember.getMemberId());
+        assertEquals(3, thirdMember.getMemberId());
         assertEquals("sea", firstMember.getMemberName());
         assertEquals("land", secondMember.getMemberName());
         assertEquals("iks", thirdMember.getMemberName());
@@ -80,10 +80,10 @@ public class WxOverRelationNonCacheTest extends UnitContainerTestCase {
         WhitePerrottaOverProduct firstProduct = firstMember.getWhitePerrottaOverProduct().get();
         WhitePerrottaOverProduct secondProduct = secondMember.getWhitePerrottaOverProduct().get();
         WhitePerrottaOverProduct thirdProduct = thirdMember.getWhitePerrottaOverProduct().get();
-        assertEquals(Long.valueOf(21), firstProduct.getProductId());
+        assertEquals(21, firstProduct.getProductId());
         assertEquals(firstProduct.getProductId(), secondProduct.getProductId());
         assertEquals("CupRamen", firstProduct.getProductName());
-        assertEquals(Long.valueOf(23), thirdProduct.getProductId());
+        assertEquals(23, thirdProduct.getProductId());
         assertNotSame(firstProduct, secondProduct);
         assertNotSame(firstProduct.instanceHash(), secondProduct.instanceHash());
 

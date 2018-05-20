@@ -32,7 +32,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     VENDOR_CHECK_ID
  *
  * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_DATETIME_3_MILLIS, TYPE_OF_DATETIME_6_MICROS, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_SET
+ *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_DATETIME_3_MILLIS, TYPE_OF_DATETIME_6_MICROS, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_ENUM_INT, TYPE_OF_SET
  *
  * [sequence]
  *     
@@ -89,6 +89,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * byte[] typeOfBinary = entity.getTypeOfBinary();
  * byte[] typeOfVarbinary = entity.getTypeOfVarbinary();
  * String typeOfEnum = entity.getTypeOfEnum();
+ * String typeOfEnumInt = entity.getTypeOfEnumInt();
  * String typeOfSet = entity.getTypeOfSet();
  * entity.setVendorCheckId(vendorCheckId);
  * entity.setTypeOfChar(typeOfChar);
@@ -122,6 +123,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * entity.setTypeOfBinary(typeOfBinary);
  * entity.setTypeOfVarbinary(typeOfVarbinary);
  * entity.setTypeOfEnum(typeOfEnum);
+ * entity.setTypeOfEnumInt(typeOfEnumInt);
  * entity.setTypeOfSet(typeOfSet);
  * = = = = = = = = = =/
  * </pre>
@@ -233,6 +235,9 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
 
     /** TYPE_OF_ENUM: {ENUM(6)} */
     protected String _typeOfEnum;
+
+    /** TYPE_OF_ENUM_INT: {ENUM(2)} */
+    protected String _typeOfEnumInt;
 
     /** TYPE_OF_SET: {SET(15)} */
     protected String _typeOfSet;
@@ -411,6 +416,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfBA(_typeOfBinary));
         sb.append(dm).append(xfBA(_typeOfVarbinary));
         sb.append(dm).append(xfND(_typeOfEnum));
+        sb.append(dm).append(xfND(_typeOfEnumInt));
         sb.append(dm).append(xfND(_typeOfSet));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -1006,6 +1012,24 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfEnum(String typeOfEnum) {
         registerModifiedProperty("typeOfEnum");
         _typeOfEnum = typeOfEnum;
+    }
+
+    /**
+     * [get] TYPE_OF_ENUM_INT: {ENUM(2)} <br>
+     * @return The value of the column 'TYPE_OF_ENUM_INT'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getTypeOfEnumInt() {
+        checkSpecifiedProperty("typeOfEnumInt");
+        return _typeOfEnumInt;
+    }
+
+    /**
+     * [set] TYPE_OF_ENUM_INT: {ENUM(2)} <br>
+     * @param typeOfEnumInt The value of the column 'TYPE_OF_ENUM_INT'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfEnumInt(String typeOfEnumInt) {
+        registerModifiedProperty("typeOfEnumInt");
+        _typeOfEnumInt = typeOfEnumInt;
     }
 
     /**

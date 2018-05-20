@@ -108,6 +108,7 @@ public class VendorCheckCIQ extends AbstractBsVendorCheckCQ {
     protected ConditionValue xgetCValueTypeOfBinary() { return _myCQ.xdfgetTypeOfBinary(); }
     protected ConditionValue xgetCValueTypeOfVarbinary() { return _myCQ.xdfgetTypeOfVarbinary(); }
     protected ConditionValue xgetCValueTypeOfEnum() { return _myCQ.xdfgetTypeOfEnum(); }
+    protected ConditionValue xgetCValueTypeOfEnumInt() { return _myCQ.xdfgetTypeOfEnumInt(); }
     protected ConditionValue xgetCValueTypeOfSet() { return _myCQ.xdfgetTypeOfSet(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorCheckCQ sq)

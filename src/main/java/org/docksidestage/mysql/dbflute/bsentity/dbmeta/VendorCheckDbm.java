@@ -92,6 +92,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBinary(), (et, vl) -> ((VendorCheck)et).setTypeOfBinary((byte[])vl), "typeOfBinary");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfVarbinary(), (et, vl) -> ((VendorCheck)et).setTypeOfVarbinary((byte[])vl), "typeOfVarbinary");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfEnum(), (et, vl) -> ((VendorCheck)et).setTypeOfEnum((String)vl), "typeOfEnum");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfEnumInt(), (et, vl) -> ((VendorCheck)et).setTypeOfEnumInt((String)vl), "typeOfEnumInt");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfSet(), (et, vl) -> ((VendorCheck)et).setTypeOfSet((String)vl), "typeOfSet");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -145,6 +146,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfBinary = cci("TYPE_OF_BINARY", "TYPE_OF_BINARY", null, null, byte[].class, "typeOfBinary", null, false, false, false, "BINARY", 1, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfVarbinary = cci("TYPE_OF_VARBINARY", "TYPE_OF_VARBINARY", null, null, byte[].class, "typeOfVarbinary", null, false, false, false, "VARBINARY", 1000, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfEnum = cci("TYPE_OF_ENUM", "TYPE_OF_ENUM", null, null, String.class, "typeOfEnum", null, false, false, false, "ENUM", 6, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfEnumInt = cci("TYPE_OF_ENUM_INT", "TYPE_OF_ENUM_INT", null, null, String.class, "typeOfEnumInt", null, false, false, false, "ENUM", 2, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfSet = cci("TYPE_OF_SET", "TYPE_OF_SET", null, null, String.class, "typeOfSet", null, false, false, false, "SET", 15, 0, null, null, false, null, null, null, null, null, false);
 
     /**
@@ -308,6 +310,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfEnum() { return _columnTypeOfEnum; }
     /**
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfEnumInt() { return _columnTypeOfEnumInt; }
+    /**
      * TYPE_OF_SET: {SET(15)}
      * @return The information object of specified column. (NotNull)
      */
@@ -347,6 +354,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfBinary());
         ls.add(columnTypeOfVarbinary());
         ls.add(columnTypeOfEnum());
+        ls.add(columnTypeOfEnumInt());
         ls.add(columnTypeOfSet());
         return ls;
     }

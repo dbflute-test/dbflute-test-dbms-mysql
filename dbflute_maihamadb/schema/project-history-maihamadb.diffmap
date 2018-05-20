@@ -1,4 +1,19 @@
 map:{
+    ; 2018/05/17 19:10:33 = map:{
+        ; diffDate = 2018/05/17 19:10:33
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_ENUM_INT = map:{
+                        ; columnName = TYPE_OF_ENUM_INT
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2018/05/04 14:09:49 = map:{
         ; diffDate = 2018/05/04 14:09:49
         ; tableDiff = map:{

@@ -2875,6 +2875,123 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumInt The value of typeOfEnumInt as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfEnumInt_Equal(String typeOfEnumInt) {
+        doSetTypeOfEnumInt_Equal(fRES(typeOfEnumInt));
+    }
+
+    protected void doSetTypeOfEnumInt_Equal(String typeOfEnumInt) {
+        regTypeOfEnumInt(CK_EQ, typeOfEnumInt);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumInt The value of typeOfEnumInt as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfEnumInt_NotEqual(String typeOfEnumInt) {
+        doSetTypeOfEnumInt_NotEqual(fRES(typeOfEnumInt));
+    }
+
+    protected void doSetTypeOfEnumInt_NotEqual(String typeOfEnumInt) {
+        regTypeOfEnumInt(CK_NES, typeOfEnumInt);
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumIntList The collection of typeOfEnumInt as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfEnumInt_InScope(Collection<String> typeOfEnumIntList) {
+        doSetTypeOfEnumInt_InScope(typeOfEnumIntList);
+    }
+
+    protected void doSetTypeOfEnumInt_InScope(Collection<String> typeOfEnumIntList) {
+        regINS(CK_INS, cTL(typeOfEnumIntList), xgetCValueTypeOfEnumInt(), "TYPE_OF_ENUM_INT");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumIntList The collection of typeOfEnumInt as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfEnumInt_NotInScope(Collection<String> typeOfEnumIntList) {
+        doSetTypeOfEnumInt_NotInScope(typeOfEnumIntList);
+    }
+
+    protected void doSetTypeOfEnumInt_NotInScope(Collection<String> typeOfEnumIntList) {
+        regINS(CK_NINS, cTL(typeOfEnumIntList), xgetCValueTypeOfEnumInt(), "TYPE_OF_ENUM_INT");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)} <br>
+     * <pre>e.g. setTypeOfEnumInt_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param typeOfEnumInt The value of typeOfEnumInt as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTypeOfEnumInt_LikeSearch(String typeOfEnumInt, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTypeOfEnumInt_LikeSearch(typeOfEnumInt, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)} <br>
+     * <pre>e.g. setTypeOfEnumInt_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param typeOfEnumInt The value of typeOfEnumInt as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    public void setTypeOfEnumInt_LikeSearch(String typeOfEnumInt, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(typeOfEnumInt), xgetCValueTypeOfEnumInt(), "TYPE_OF_ENUM_INT", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumInt The value of typeOfEnumInt as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTypeOfEnumInt_NotLikeSearch(String typeOfEnumInt, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTypeOfEnumInt_NotLikeSearch(typeOfEnumInt, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @param typeOfEnumInt The value of typeOfEnumInt as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    public void setTypeOfEnumInt_NotLikeSearch(String typeOfEnumInt, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(typeOfEnumInt), xgetCValueTypeOfEnumInt(), "TYPE_OF_ENUM_INT", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     */
+    public void setTypeOfEnumInt_IsNull() { regTypeOfEnumInt(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     */
+    public void setTypeOfEnumInt_IsNullOrEmpty() { regTypeOfEnumInt(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     */
+    public void setTypeOfEnumInt_IsNotNull() { regTypeOfEnumInt(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfEnumInt(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfEnumInt(), "TYPE_OF_ENUM_INT"); }
+    protected abstract ConditionValue xgetCValueTypeOfEnumInt();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_SET: {SET(15)}
      * @param typeOfSet The value of typeOfSet as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */

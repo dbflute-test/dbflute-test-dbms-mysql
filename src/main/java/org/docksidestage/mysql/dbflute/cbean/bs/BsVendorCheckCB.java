@@ -459,6 +459,11 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTypeOfEnum() { return doColumn("TYPE_OF_ENUM"); }
         /**
+         * TYPE_OF_ENUM_INT: {ENUM(2)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfEnumInt() { return doColumn("TYPE_OF_ENUM_INT"); }
+        /**
          * TYPE_OF_SET: {SET(15)}
          * @return The information object of specified column. (NotNull)
          */

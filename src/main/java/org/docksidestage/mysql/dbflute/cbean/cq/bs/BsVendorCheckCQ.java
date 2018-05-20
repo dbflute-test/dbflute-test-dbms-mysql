@@ -728,6 +728,26 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      */
     public BsVendorCheckCQ addOrderBy_TypeOfEnum_Desc() { regOBD("TYPE_OF_ENUM"); return this; }
 
+    protected ConditionValue _typeOfEnumInt;
+    public ConditionValue xdfgetTypeOfEnumInt()
+    { if (_typeOfEnumInt == null) { _typeOfEnumInt = nCV(); }
+      return _typeOfEnumInt; }
+    protected ConditionValue xgetCValueTypeOfEnumInt() { return xdfgetTypeOfEnumInt(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfEnumInt_Asc() { regOBA("TYPE_OF_ENUM_INT"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_ENUM_INT: {ENUM(2)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfEnumInt_Desc() { regOBD("TYPE_OF_ENUM_INT"); return this; }
+
     protected ConditionValue _typeOfSet;
     public ConditionValue xdfgetTypeOfSet()
     { if (_typeOfSet == null) { _typeOfSet = nCV(); }
