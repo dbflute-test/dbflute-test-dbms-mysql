@@ -530,7 +530,8 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
-        LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> option = new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>();
+        LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef> option =
+                new LoadReferrerOption<WhiteCompoundPkRefCB, WhiteCompoundPkRef>();
         option.setConditionBeanSetupper(new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
             public void setup(WhiteCompoundPkRefCB cb) {
             }
@@ -693,7 +694,7 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
         WhiteCompoundPk main = new WhiteCompoundPk();
         main.setPkFirstId(first);
         main.setPkSecondId(second);
-        main.setPkName(pkName);
+        main.setCompoundPkName(pkName);
         main.setReferredId(first * second);
         whiteCompoundPkBhv.insert(main);
         return main;

@@ -292,102 +292,102 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkName The value of compoundPkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPkName_Equal(String pkName) {
-        doSetPkName_Equal(fRES(pkName));
+    public void setCompoundPkName_Equal(String compoundPkName) {
+        doSetCompoundPkName_Equal(fRES(compoundPkName));
     }
 
-    protected void doSetPkName_Equal(String pkName) {
-        regPkName(CK_EQ, pkName);
+    protected void doSetCompoundPkName_Equal(String compoundPkName) {
+        regCompoundPkName(CK_EQ, compoundPkName);
     }
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkName The value of compoundPkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPkName_NotEqual(String pkName) {
-        doSetPkName_NotEqual(fRES(pkName));
+    public void setCompoundPkName_NotEqual(String compoundPkName) {
+        doSetCompoundPkName_NotEqual(fRES(compoundPkName));
     }
 
-    protected void doSetPkName_NotEqual(String pkName) {
-        regPkName(CK_NES, pkName);
+    protected void doSetCompoundPkName_NotEqual(String compoundPkName) {
+        regCompoundPkName(CK_NES, compoundPkName);
     }
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkNameList The collection of pkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkNameList The collection of compoundPkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPkName_InScope(Collection<String> pkNameList) {
-        doSetPkName_InScope(pkNameList);
+    public void setCompoundPkName_InScope(Collection<String> compoundPkNameList) {
+        doSetCompoundPkName_InScope(compoundPkNameList);
     }
 
-    protected void doSetPkName_InScope(Collection<String> pkNameList) {
-        regINS(CK_INS, cTL(pkNameList), xgetCValuePkName(), "PK_NAME");
+    protected void doSetCompoundPkName_InScope(Collection<String> compoundPkNameList) {
+        regINS(CK_INS, cTL(compoundPkNameList), xgetCValueCompoundPkName(), "COMPOUND_PK_NAME");
     }
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkNameList The collection of pkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkNameList The collection of compoundPkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setPkName_NotInScope(Collection<String> pkNameList) {
-        doSetPkName_NotInScope(pkNameList);
+    public void setCompoundPkName_NotInScope(Collection<String> compoundPkNameList) {
+        doSetCompoundPkName_NotInScope(compoundPkNameList);
     }
 
-    protected void doSetPkName_NotInScope(Collection<String> pkNameList) {
-        regINS(CK_NINS, cTL(pkNameList), xgetCValuePkName(), "PK_NAME");
+    protected void doSetCompoundPkName_NotInScope(Collection<String> compoundPkNameList) {
+        regINS(CK_NINS, cTL(compoundPkNameList), xgetCValueCompoundPkName(), "COMPOUND_PK_NAME");
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)} <br>
-     * <pre>e.g. setPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param pkName The value of pkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setCompoundPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param compoundPkName The value of compoundPkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setPkName_LikeSearch(String pkName, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setPkName_LikeSearch(pkName, xcLSOP(opLambda));
+    public void setCompoundPkName_LikeSearch(String compoundPkName, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setCompoundPkName_LikeSearch(compoundPkName, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)} <br>
-     * <pre>e.g. setPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param pkName The value of pkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setCompoundPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param compoundPkName The value of compoundPkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPkName_LikeSearch(String pkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(pkName), xgetCValuePkName(), "PK_NAME", likeSearchOption);
+    public void setCompoundPkName_LikeSearch(String compoundPkName, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(compoundPkName), xgetCValueCompoundPkName(), "COMPOUND_PK_NAME", likeSearchOption);
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkName The value of compoundPkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setPkName_NotLikeSearch(String pkName, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setPkName_NotLikeSearch(pkName, xcLSOP(opLambda));
+    public void setCompoundPkName_NotLikeSearch(String compoundPkName, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setCompoundPkName_NotLikeSearch(compoundPkName, xcLSOP(opLambda));
     }
 
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
-     * @param pkName The value of pkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
+     * @param compoundPkName The value of compoundPkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPkName_NotLikeSearch(String pkName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(pkName), xgetCValuePkName(), "PK_NAME", likeSearchOption);
+    public void setCompoundPkName_NotLikeSearch(String compoundPkName, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(compoundPkName), xgetCValueCompoundPkName(), "COMPOUND_PK_NAME", likeSearchOption);
     }
 
-    protected void regPkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePkName(), "PK_NAME"); }
-    protected abstract ConditionValue xgetCValuePkName();
+    protected void regCompoundPkName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueCompoundPkName(), "COMPOUND_PK_NAME"); }
+    protected abstract ConditionValue xgetCValueCompoundPkName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

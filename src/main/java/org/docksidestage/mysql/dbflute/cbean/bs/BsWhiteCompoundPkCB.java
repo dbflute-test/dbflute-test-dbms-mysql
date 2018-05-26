@@ -432,10 +432,10 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnPkSecondId() { return doColumn("PK_SECOND_ID"); }
         /**
-         * PK_NAME: {NotNull, VARCHAR(200)}
+         * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnPkName() { return doColumn("PK_NAME"); }
+        public SpecifiedColumn columnCompoundPkName() { return doColumn("COMPOUND_PK_NAME"); }
         /**
          * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
          * @return The information object of specified column. (NotNull)

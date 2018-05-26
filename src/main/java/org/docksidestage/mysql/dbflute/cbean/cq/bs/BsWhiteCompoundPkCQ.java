@@ -129,25 +129,25 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
      */
     public BsWhiteCompoundPkCQ addOrderBy_PkSecondId_Desc() { regOBD("PK_SECOND_ID"); return this; }
 
-    protected ConditionValue _pkName;
-    public ConditionValue xdfgetPkName()
-    { if (_pkName == null) { _pkName = nCV(); }
-      return _pkName; }
-    protected ConditionValue xgetCValuePkName() { return xdfgetPkName(); }
+    protected ConditionValue _compoundPkName;
+    public ConditionValue xdfgetCompoundPkName()
+    { if (_compoundPkName == null) { _compoundPkName = nCV(); }
+      return _compoundPkName; }
+    protected ConditionValue xgetCValueCompoundPkName() { return xdfgetCompoundPkName(); }
 
     /**
      * Add order-by as ascend. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsWhiteCompoundPkCQ addOrderBy_PkName_Asc() { regOBA("PK_NAME"); return this; }
+    public BsWhiteCompoundPkCQ addOrderBy_CompoundPkName_Asc() { regOBA("COMPOUND_PK_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PK_NAME: {NotNull, VARCHAR(200)}
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public BsWhiteCompoundPkCQ addOrderBy_PkName_Desc() { regOBD("PK_NAME"); return this; }
+    public BsWhiteCompoundPkCQ addOrderBy_CompoundPkName_Desc() { regOBD("COMPOUND_PK_NAME"); return this; }
 
     protected ConditionValue _referredId;
     public ConditionValue xdfgetReferredId()

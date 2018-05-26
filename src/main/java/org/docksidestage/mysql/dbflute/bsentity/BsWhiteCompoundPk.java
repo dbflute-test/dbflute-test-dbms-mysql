@@ -33,7 +33,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     PK_FIRST_ID, PK_SECOND_ID
  *
  * [column]
- *     PK_FIRST_ID, PK_SECOND_ID, PK_NAME, REFERRED_ID
+ *     PK_FIRST_ID, PK_SECOND_ID, COMPOUND_PK_NAME, REFERRED_ID
  *
  * [sequence]
  *     
@@ -60,11 +60,11 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer pkFirstId = entity.getPkFirstId();
  * Integer pkSecondId = entity.getPkSecondId();
- * String pkName = entity.getPkName();
+ * String compoundPkName = entity.getCompoundPkName();
  * Integer referredId = entity.getReferredId();
  * entity.setPkFirstId(pkFirstId);
  * entity.setPkSecondId(pkSecondId);
- * entity.setPkName(pkName);
+ * entity.setCompoundPkName(compoundPkName);
  * entity.setReferredId(referredId);
  * = = = = = = = = = =/
  * </pre>
@@ -87,8 +87,8 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     /** PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY} */
     protected Integer _pkSecondId;
 
-    /** PK_NAME: {NotNull, VARCHAR(200)} */
-    protected String _pkName;
+    /** COMPOUND_PK_NAME: {NotNull, VARCHAR(200)} */
+    protected String _compoundPkName;
 
     /** REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY} */
     protected Integer _referredId;
@@ -326,7 +326,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_pkFirstId));
         sb.append(dm).append(xfND(_pkSecondId));
-        sb.append(dm).append(xfND(_pkName));
+        sb.append(dm).append(xfND(_compoundPkName));
         sb.append(dm).append(xfND(_referredId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -401,21 +401,21 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] PK_NAME: {NotNull, VARCHAR(200)} <br>
-     * @return The value of the column 'PK_NAME'. (basically NotNull if selected: for the constraint)
+     * [get] COMPOUND_PK_NAME: {NotNull, VARCHAR(200)} <br>
+     * @return The value of the column 'COMPOUND_PK_NAME'. (basically NotNull if selected: for the constraint)
      */
-    public String getPkName() {
-        checkSpecifiedProperty("pkName");
-        return _pkName;
+    public String getCompoundPkName() {
+        checkSpecifiedProperty("compoundPkName");
+        return _compoundPkName;
     }
 
     /**
-     * [set] PK_NAME: {NotNull, VARCHAR(200)} <br>
-     * @param pkName The value of the column 'PK_NAME'. (basically NotNull if update: for the constraint)
+     * [set] COMPOUND_PK_NAME: {NotNull, VARCHAR(200)} <br>
+     * @param compoundPkName The value of the column 'COMPOUND_PK_NAME'. (basically NotNull if update: for the constraint)
      */
-    public void setPkName(String pkName) {
-        registerModifiedProperty("pkName");
-        _pkName = pkName;
+    public void setCompoundPkName(String compoundPkName) {
+        registerModifiedProperty("compoundPkName");
+        _compoundPkName = compoundPkName;
     }
 
     /**

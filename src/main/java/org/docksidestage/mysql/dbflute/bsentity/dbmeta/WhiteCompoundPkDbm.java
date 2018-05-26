@@ -60,7 +60,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkFirstId(), (et, vl) -> ((WhiteCompoundPk)et).setPkFirstId(cti(vl)), "pkFirstId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkSecondId(), (et, vl) -> ((WhiteCompoundPk)et).setPkSecondId(cti(vl)), "pkSecondId");
-        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkName(), (et, vl) -> ((WhiteCompoundPk)et).setPkName((String)vl), "pkName");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getCompoundPkName(), (et, vl) -> ((WhiteCompoundPk)et).setCompoundPkName((String)vl), "compoundPkName");
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getReferredId(), (et, vl) -> ((WhiteCompoundPk)et).setReferredId(cti(vl)), "referredId");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -99,7 +99,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnPkFirstId = cci("PK_FIRST_ID", "PK_FIRST_ID", null, null, Integer.class, "pkFirstId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
     protected final ColumnInfo _columnPkSecondId = cci("PK_SECOND_ID", "PK_SECOND_ID", null, null, Integer.class, "pkSecondId", null, true, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundReferredPrimary,whiteCompoundPkRefManyAsMax,whiteCompoundPkRefManyAsMin", "whiteCompoundPkRefList,whiteCompoundPkRefManyToPKList", null, false);
-    protected final ColumnInfo _columnPkName = cci("PK_NAME", "PK_NAME", null, null, String.class, "pkName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnCompoundPkName = cci("COMPOUND_PK_NAME", "COMPOUND_PK_NAME", null, null, String.class, "compoundPkName", null, false, false, true, "VARCHAR", 200, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnReferredId = cci("REFERRED_ID", "REFERRED_ID", null, null, Integer.class, "referredId", null, false, false, true, "INT", 10, 0, null, null, false, null, null, "whiteCompoundReferredNormally", null, null, false);
 
     /**
@@ -113,10 +113,10 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnPkSecondId() { return _columnPkSecondId; }
     /**
-     * PK_NAME: {NotNull, VARCHAR(200)}
+     * COMPOUND_PK_NAME: {NotNull, VARCHAR(200)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnPkName() { return _columnPkName; }
+    public ColumnInfo columnCompoundPkName() { return _columnCompoundPkName; }
     /**
      * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
      * @return The information object of specified column. (NotNull)
@@ -127,7 +127,7 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnPkFirstId());
         ls.add(columnPkSecondId());
-        ls.add(columnPkName());
+        ls.add(columnCompoundPkName());
         ls.add(columnReferredId());
         return ls;
     }

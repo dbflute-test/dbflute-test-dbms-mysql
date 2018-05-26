@@ -30,7 +30,7 @@ import org.docksidestage.mysql.dbflute.cbean.*;
  *     PK_FIRST_ID, PK_SECOND_ID
  *
  * [column]
- *     PK_FIRST_ID, PK_SECOND_ID, PK_NAME, REFERRED_ID
+ *     PK_FIRST_ID, PK_SECOND_ID, COMPOUND_PK_NAME, REFERRED_ID
  *
  * [sequence]
  *     
