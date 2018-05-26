@@ -1,3 +1,4 @@
 map:{
     ; playSqlDirectory = playsql/syncdb
+    ; conventionalTakeAssertMap = map:{}
 }

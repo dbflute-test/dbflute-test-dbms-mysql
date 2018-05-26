@@ -141,7 +141,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
 
     /**
      * Set the value of lineSepCommentCode as Second (BAR). <br>
-     * Second: bar first line                        bar second line
+     * Second: bar first line            bar second line
      */
     public void setLineSepCommentCode_Second() {
         setLineSepCommentCodeAsLineSepCommentCls(CDef.LineSepCommentCls.Second);
@@ -163,7 +163,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
 
     /**
      * Is the value of lineSepCommentCode Second? <br>
-     * Second: bar first line                        bar second line
+     * Second: bar first line            bar second line
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
      */

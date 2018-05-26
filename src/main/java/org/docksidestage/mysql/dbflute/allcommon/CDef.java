@@ -2343,7 +2343,7 @@ public interface CDef extends Classification {
         /** First: foo first line            foo second line */
         First("FOO", "First", emptyStrings())
         ,
-        /** Second: bar first line                        bar second line */
+        /** Second: bar first line            bar second line */
         Second("BAR", "Second", emptyStrings())
         ;
         private static final Map<String, LineSepCommentCls> _codeClsMap = new HashMap<String, LineSepCommentCls>();

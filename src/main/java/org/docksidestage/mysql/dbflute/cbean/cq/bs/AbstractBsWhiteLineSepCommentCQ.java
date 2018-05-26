@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
 
     /**
      * Equal(=). As Second (BAR). And OnlyOnceRegistered. <br>
-     * Second: bar first line                        bar second line
+     * Second: bar first line            bar second line
      */
     public void setLineSepCommentCode_Equal_Second() {
         setLineSepCommentCode_Equal_AsLineSepCommentCls(CDef.LineSepCommentCls.Second);
@@ -126,7 +126,7 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
 
     /**
      * NotEqual(&lt;&gt;). As Second (BAR). And OnlyOnceRegistered. <br>
-     * Second: bar first line                        bar second line
+     * Second: bar first line            bar second line
      */
     public void setLineSepCommentCode_NotEqual_Second() {
         setLineSepCommentCode_NotEqual_AsLineSepCommentCls(CDef.LineSepCommentCls.Second);

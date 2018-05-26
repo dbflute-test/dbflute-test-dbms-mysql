@@ -72,44 +72,44 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
-    /** The example for selecting scalar value */
-    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
-    /** The example for scalar select */
-    public static final String PATH_selectMemberName = "selectMemberName";
-    /** Option Member Select */
-    public static final String PATH_selectOptionMember = "selectOptionMember";
+    /** Unpaid Summary Member Select */
+    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
     /** Manual Paging Example for MySQL */
     public static final String PATH_selectPurchaseMaxPriceMember = "selectPurchaseMaxPriceMember";
     /** Purchase Summary Member Select */
     public static final String PATH_selectPurchaseSummaryMember = "selectPurchaseSummaryMember";
-    /** Simple Member Select */
-    public static final String PATH_selectSimpleMember = "selectSimpleMember";
-    /** Unpaid Summary Member Select */
-    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
+    /** Option Member Select */
+    public static final String PATH_selectOptionMember = "selectOptionMember";
+    /** The example for selecting scalar value */
+    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
     /** Force Withdrawal Update */
     public static final String PATH_updateMemberChangedToWithdrawalForcedly = "updateMemberChangedToWithdrawalForcedly";
+    /** Simple Member Select */
+    public static final String PATH_selectSimpleMember = "selectSimpleMember";
+    /** The example for scalar select */
+    public static final String PATH_selectMemberName = "selectMemberName";
     /** SubDirectory Check Select */
     public static final String PATH_subdirectory_selectSubDirectoryCheck = "subdirectory:selectSubDirectoryCheck";
-    /** CommonColumn Member Select */
-    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
-    /** Forced Type Select */
-    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
-    /** using Classification Hint */
-    public static final String PATH_whitebox_cmentity_selectUndetectableClassificationHint = "whitebox:cmentity:selectUndetectableClassificationHint";
-    /** Compare Date Select */
-    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
-    /** Map LikeSearch Select */
-    public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
-    /** Resolved Package Name Select */
-    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
     /** Bind Variable NotFound Property Select */
     public static final String PATH_whitebox_wrongexample_selectBindVariableNotFoundProperty = "whitebox:wrongexample:selectBindVariableNotFoundProperty";
-    /** EndComment NotFound Select */
-    public static final String PATH_whitebox_wrongexample_selectEndCommentNotFound = "whitebox:wrongexample:selectEndCommentNotFound";
     /** IfComment NotBoolean Result Select */
     public static final String PATH_whitebox_wrongexample_selectIfCommentNotBooleanResult = "whitebox:wrongexample:selectIfCommentNotBooleanResult";
     /** IfComment Wrong Expression Select */
     public static final String PATH_whitebox_wrongexample_selectIfCommentWrongExpression = "whitebox:wrongexample:selectIfCommentWrongExpression";
+    /** EndComment NotFound Select */
+    public static final String PATH_whitebox_wrongexample_selectEndCommentNotFound = "whitebox:wrongexample:selectEndCommentNotFound";
+    /** Map LikeSearch Select */
+    public static final String PATH_whitebox_pmbean_selectMapLikeSearch = "whitebox:pmbean:selectMapLikeSearch";
+    /** Compare Date Select */
+    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
+    /** Resolved Package Name Select */
+    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
+    /** using Classification Hint */
+    public static final String PATH_whitebox_cmentity_selectUndetectableClassificationHint = "whitebox:cmentity:selectUndetectableClassificationHint";
+    /** CommonColumn Member Select */
+    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
+    /** Forced Type Select */
+    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
     /*df:endQueryPath*/
 
     // ===================================================================================

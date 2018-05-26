@@ -1,4 +1,25 @@
 map:{
+    ; 2018/05/27 00:37:25 = map:{
+        ; diffDate = 2018/05/27 00:37:25
+        ; diffAuthor = p1us2er0
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_compound_pk = map:{
+                ; tableName = white_compound_pk
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; COMPOUND_PK_NAME = map:{
+                        ; columnName = COMPOUND_PK_NAME
+                        ; diffType = ADD
+                    }
+                    ; PK_NAME = map:{
+                        ; columnName = PK_NAME
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
     ; 2018/05/23 01:46:18 = map:{
         ; diffDate = 2018/05/23 01:46:18
         ; diffAuthor = jflute

@@ -1,4 +1,25 @@
 map:{
+    ; 2018/05/26 15:26:42 = map:{
+        ; diffDate = 2018/05/26 15:26:42
+        ; diffAuthor = p1us2er0
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_additional = map:{
+                ; tableName = white_additional
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; register_datetime = map:{
+                        ; columnName = register_datetime
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = null
+                        }
+                    }
+                }
+            }
+        }
+    }
     ; 2018/05/04 11:47:14 = map:{
         ; diffDate = 2018/05/04 11:47:14
         ; tableDiff = map:{
