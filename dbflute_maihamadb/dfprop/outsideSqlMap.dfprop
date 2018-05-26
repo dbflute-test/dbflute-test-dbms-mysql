@@ -1,8 +1,8 @@
 # /---------------------------------------------------------------------------
 # outsideSqlDefinitionMap: (NotRequired - Default 'map:{}')
 #
-# The various settings about outsideSql. 
-# 
+# The various settings about outsideSql.
+#
 # o isGenerateProcedureParameterBean: (NotRequired - Default false)
 # o isGenerateProcedureCustomizeEntity: (NotRequired - Default false)
 # o targetProcedureCatalogList: (NotRequired - Default list:{})
@@ -17,7 +17,7 @@
 # o sql2EntityOutputDirectory: (NotRequired - Default generateOutputDirectory)
 # o applicationOutsideSqlMap: (NotRequired - Default map:{})
 # o sqlPackage: (NotRequired - Default all packages)
-# 
+#
 # *The line that starts with '#' means comment-out.
 #
 map:{
@@ -148,7 +148,7 @@ map:{
     #  You can set additional users.
     #  Elements of this map are as below:
     #   o key of map: a relative path to the application project from DBFlute client
-    #   o sqlDirectory: SQL directory as a relative path from the application directory 
+    #   o sqlDirectory: SQL directory as a relative path from the application directory
     #     (NotRequired - Default Java:'src/main/java' & 'src/main/resources' CSharp:'source')
     #   o sql2EntityOutputDirectory: source output directory from as a relative path from the application directory
     #     (NotRequired - Default Java:'src/main/java' CSharp:'source')

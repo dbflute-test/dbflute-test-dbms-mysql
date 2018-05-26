@@ -4,7 +4,7 @@
 # If foreign key does not exist in your database,
 # you can set up here as virtual foreign key for DBFlute.
 #
-# And it's one-to-one relation if you add one fixed condition to referrer table, 
+# And it's one-to-one relation if you add one fixed condition to referrer table,
 # you can set virtual foreign key with fixedCondition and fixedSuffix.
 # And you can use it to view objects too.
 #
@@ -24,13 +24,13 @@
 #     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
 #         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
 #         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-#         ; fixedCondition = 
+#         ; fixedCondition =
 #          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
-#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null 
+#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
 #         ; fixedSuffix = AsValid
 #     }
 # }
-# 
+#
 # *The line that starts with '#' means comment-out.
 #
 map:{
@@ -68,7 +68,7 @@ map:{
     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
         ; fixedSuffix = AsValid
@@ -77,7 +77,7 @@ map:{
     ; FK_MEMBER_MEMBER_ADDRESS_VALID_BEFORE = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
         ; fixedSuffix = AsValidBefore
@@ -107,7 +107,7 @@ map:{
     ; FK_MEMBER_MEMBER_ADDRESS_IF_COMMENT = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
      /*IF $$parameterBase$$.region != null*/and $$foreignAlias$$.REGION_ID = /*region($$CDef$$.Region)*/null/*END*/
@@ -121,7 +121,7 @@ map:{
     ; FK_MEMBER_MEMBER_ADDRESS_ONLY_ONE_DATE  = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition  = 
+        ; fixedCondition  =
 $$foreignAlias$$.VALID_BEGIN_DATE = ($$sqbegin$$
 select max(address.VALID_BEGIN_DATE)
   from MEMBER_ADDRESS address
@@ -138,7 +138,7 @@ select max(address.VALID_BEGIN_DATE)
     ; FK_PURCHASE_MEMBER_ADDRESS_VALID = map:{
         ; localTableName  = PURCHASE    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
         ; fixedSuffix = AsSkipRelation
@@ -157,7 +157,7 @@ select max(address.VALID_BEGIN_DATE)
     ; FK_MEMBER_MEMBER_LOGIN_LOCAL_BIND_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*displayOrder(Integer)*/
         ; fixedSuffix = AsLocalBindOverTest
     }
@@ -167,7 +167,7 @@ $$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*displayOrder(Integer)*/
     ; FK_MEMBER_MEMBER_LOGIN_LOCAL_FOREIGN_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.MEMBER_STATUS_NAME
         ; fixedSuffix = AsLocalForeignOverTest
     }
@@ -186,7 +186,7 @@ $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over($localTable.memberStatus)$$.M
     ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_EACH_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER
         ; fixedSuffix = AsForeignForeignEachOverTest
     }
@@ -196,14 +196,14 @@ $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberSt
     ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_BASIC_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3
         ; fixedSuffix = AsForeignForeignOptimizedBasicOverTest
     }
     ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_MARK_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER
 and $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = 3
 $$inline$$
@@ -216,7 +216,7 @@ and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_O
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
         # auto formatting does not work because of sub-query
-        ; fixedCondition = 
+        ; fixedCondition =
          $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*displayOrder(Integer)*/
      and $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER
      and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null
@@ -234,7 +234,7 @@ and $$foreignAlias$$.MEMBER_ID >= $$over($foreignTable.memberStatus)$$.DISPLAY_O
     ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_OPTIMIZED_WHOLE_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($foreignTable.memberStatus)$$.DISPLAY_ORDER = /*displayOrder(Integer)*/
 and $$over($foreignTable.memberStatus, DESCRIPTION)$$.STATUS_DESC is not null
 and $$foreignAlias$$.MOBILE_LOGIN_FLG = /*$cls(Flg.True)*/
@@ -257,7 +257,7 @@ select min(login.LOGIN_DATETIME)
     ; FK_MEMBER_MEMBER_LOGIN_FOREIGN_FOREIGN_PARAMETER_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$over($localTable.memberStatus)$$.DISPLAY_ORDER = $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER
      and $$over($foreignTable.memberStatus, MEMBER_STATUS_CODE)$$.MEMBER_STATUS_CODE is not null
      and $$over($foreignTable.memberStatus, MEMBER_STATUS_NAME)$$.MEMBER_STATUS_NAME is not null
@@ -271,7 +271,7 @@ select min(login.LOGIN_DATETIME)
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
         # empty in-line to suppress optimization
-        ; fixedCondition = 
+        ; fixedCondition =
          $$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null
      and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null
      and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null
@@ -287,14 +287,14 @@ select min(login.LOGIN_DATETIME)
     ; FK_MEMBER_MEMBER_LOGIN_REFERRER_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.LOGIN_DATETIME > $$over(PURCHASE)$$.PURCHASE_DATETIME
         ; fixedSuffix = AsReferrerOverTest
     }
     ; FK_MEMBER_MEMBER_LOGIN_REFERRER_FOREIGN_OVER_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatus)$$.PRODUCT_STATUS_NAME
         ; fixedSuffix = AsReferrerForeignOverTest
     }
@@ -304,7 +304,7 @@ $$foreignAlias$$.LOGIN_MEMBER_STATUS_CODE = $$over(PURCHASE.product.productStatu
     ; FK_OVER_RELATION_CACHE_TEST = map:{
         ; localTableName  = WHITE_PERROTTA_OVER_PRODUCT    ; foreignTableName  = WHITE_PERROTTA_OVER_TRACE
         ; localColumnName = PRODUCT_ID ; foreignColumnName = PREVIOUS_PRODUCT_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.TRACE_TYPE_CODE = $$over(WHITE_PERROTTA_OVER_MEMBER)$$.TRACE_TYPE_CODE
         ; fixedSuffix = AsPerrotta
     }
@@ -318,7 +318,7 @@ $$foreignAlias$$.TRACE_TYPE_CODE = $$over(WHITE_PERROTTA_OVER_MEMBER)$$.TRACE_TY
     ; FK_MEMBER_MEMBER_LOGIN_LATEST  = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition  = 
+        ; fixedCondition  =
 $$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$
 select max(login.LOGIN_DATETIME)
   from MEMBER_LOGIN login
@@ -329,7 +329,7 @@ select max(login.LOGIN_DATETIME)
     ; FK_MEMBER_MEMBER_LOGIN_OLDEST  = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition  = 
+        ; fixedCondition  =
 $$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$
 select min(login.LOGIN_DATETIME)
   from MEMBER_LOGIN login

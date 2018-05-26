@@ -29,7 +29,7 @@
 #     ; Number = map:{
 #         ; !NotEqual = map:{ $$ALL$$ = list:{ $$VersionNo$$ } }
 #     }
-#     # This means that Date does not includes NotEqual at all tables.  
+#     # This means that Date does not includes NotEqual at all tables.
 #     ; Date = map:{
 #         ; NotEqual = map:{}
 #     }

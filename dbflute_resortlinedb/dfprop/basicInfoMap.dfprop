@@ -65,7 +65,7 @@ map:{
     #  The class package is 'this property value + detail package value'.
     #  However, detail packages have default value so basically
     #  you only have to specify the property 'packageBase'.
-    #  If this property is specified and detail package properties is not specified, 
+    #  If this property is specified and detail package properties is not specified,
     #  Then the packages of generated class are as follows:
     #
     #  e.g. packageBase = org.docksidestage.dbflute
@@ -197,7 +197,7 @@ map:{
     #
     #; applicationBehaviorMap = map:{
     #    ; isApplicationBehaviorProject = false
-    #    ; libraryProjectPackageBase = 
+    #    ; libraryProjectPackageBase =
     #}
     # - - - - - - - - - -/
 

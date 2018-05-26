@@ -4,7 +4,7 @@
 # If foreign key does not exist in your database,
 # you can set up here as virtual foreign key for DBFlute.
 #
-# And it's one-to-one relation if you add one fixed condition to referrer table, 
+# And it's one-to-one relation if you add one fixed condition to referrer table,
 # you can set virtual foreign key with fixedCondition and fixedSuffix.
 # And you can use it to view objects too.
 #
@@ -24,13 +24,13 @@
 #     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
 #         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
 #         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-#         ; fixedCondition = 
+#         ; fixedCondition =
 #          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
-#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null 
+#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
 #         ; fixedSuffix = AsValid
 #     }
 # }
-# 
+#
 # *The line that starts with '#' means comment-out.
 #
 map:{
@@ -130,7 +130,7 @@ map:{
         # both FIRST_ID and SECOND_CODE are keys for the relation
         # but SECOND_CODE is not defined at local table
         ; localColumnName = FIRST_ID ; foreignColumnName = FIRST_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($localTable.whiteSplitMultipleFkNext)$$.SECOND_CODE = $$foreignAlias$$.SECOND_CODE
         ; fixedSuffix = AsSplitMultipleFkTest
     }
@@ -142,10 +142,10 @@ $$over($localTable.whiteSplitMultipleFkNext)$$.SECOND_CODE = $$foreignAlias$$.SE
     ; FK_MEMBER_MEMBER_ADDRESS_FORMATTED_BASIC = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
                $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/
 and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/
-    
+
         ; fixedSuffix = AsFormattedBasic
     }
     ; FK_MEMBER_MEMBER_ADDRESS_FORMATTED_LONG = map:{
@@ -159,7 +159,7 @@ and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/
     ; FK_MEMBER_MEMBER_LOGIN_FORMATTED_MANY = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
          $$over($foreignTable.member.memberStatus)$$.DISPLAY_ORDER is not null
 and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is not null
  and $$over($foreignTable.memberStatus, DISPLAY_ORDER)$$.STATUS_ORDER is not null
@@ -188,7 +188,7 @@ and $$over($foreignTable.member.memberWithdrawalAsOne)$$.WITHDRAWAL_DATETIME is 
     ; FK_MEMBER_MEMBER_LOGIN_DEPRECATED_TEST = map:{
         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_LOGIN
         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$over($localTable.memberStatus)$$.DISPLAY_ORDER = /*displayOrder(Integer)*/
         ; fixedSuffix = AsLocalBindOverTest
         ; deprecated = the test of dep

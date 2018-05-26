@@ -17,7 +17,7 @@
 map:{
 	; driver		= com.mysql.jdbc.Driver
 	; url			= jdbc:mysql://localhost:43306/resortlinedb?characterEncoding=UTF-8
-	; schema		= 
+	; schema		=
 	; user			= resortlinedb
 	; password		= resortlinedb
 
@@ -86,7 +86,7 @@ map:{
         #  The settings are objectTypeTargetList, tableExceptList,
         #  tableTargetList, and columnExceptMap.
         #  They have the same specification as ones of the main schema.
-        #  Elements of this map are as below: 
+        #  Elements of this map are as below:
         #    o objectTypeTargetList: (NotRequired - Default 'map:{TABLE;VIEW}')
         #    o tableExceptList: (NotRequired - Default list:{})
         #    o tableTargetList: (NotRequired - Default list:{})

@@ -3,7 +3,7 @@
 #
 # The database information for the tasks of DBFlute.
 # You should specify before your first generating.
-# 
+#
 # o driver   -- The class name of JDBC-Driver.
 # o url      -- The URL for connecting database.
 # o schema   -- The schema name.
@@ -17,14 +17,14 @@
 map:{
     ; driver   = com.mysql.jdbc.Driver
     ; url      = jdbc:mysql://localhost:43306/newurayasudb
-    ; schema   = 
+    ; schema   =
     ; user     = newurayasudb
     ; password = newurayasudb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default 'map:{}')
     #  The properties that depends on the database.
-    # 
+    #
     ; propertiesMap = map:{
         # If you use Oracle and its Synonym, specify this property.
         #; includeSynonyms=true
@@ -34,7 +34,7 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o variousMap: (NotRequired - Default 'map:{}')
     #  The various settings about JDBC task mainly.
-    # 
+    #
     ; variousMap = map:{
         # o objectTypeTargetList: (NotRequired - Default 'list:{TABLE;VIEW}')
         #  If you want to include other object types in generating target,
@@ -85,7 +85,7 @@ map:{
         #  Additional schemas have original settings apart from the main schema.
         #  The settings are objectTypeTargetList, tableExceptList, and tableTargetList.
         #  They have the same specification as ones of the main schema.
-        #  Elements of this map are as below: 
+        #  Elements of this map are as below:
         #    o objectTypeTargetList: (NotRequired - Default 'map:{TABLE;VIEW}')
         #    o tableExceptList: (NotRequired - Default 'list:{}')
         #    o tableTargetList: (NotRequired - Default 'list:{}')

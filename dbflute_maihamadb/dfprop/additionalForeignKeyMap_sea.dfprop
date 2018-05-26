@@ -4,7 +4,7 @@
 # If foreign key does not exist in your database,
 # you can set up here as virtual foreign key for DBFlute.
 #
-# And it's one-to-one relation if you add one fixed condition to referrer table, 
+# And it's one-to-one relation if you add one fixed condition to referrer table,
 # you can set virtual foreign key with fixedCondition and fixedSuffix.
 # And you can use it to view objects too.
 #
@@ -24,13 +24,13 @@
 #     ; FK_MEMBER_MEMBER_ADDRESS_VALID = map:{
 #         ; localTableName  = MEMBER    ; foreignTableName  = MEMBER_ADDRESS
 #         ; localColumnName = MEMBER_ID ; foreignColumnName = MEMBER_ID
-#         ; fixedCondition = 
+#         ; fixedCondition =
 #          $$foreignAlias$$.VALID_BEGIN_DATE <= /*targetDate(Date)*/null
-#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null 
+#      and $$foreignAlias$$.VALID_END_DATE >= /*targetDate(Date)*/null
 #         ; fixedSuffix = AsValid
 #     }
 # }
-# 
+#
 # *The line that starts with '#' means comment-out.
 #
 map:{
@@ -155,7 +155,7 @@ map:{
     ; FK_WHITE_COMPOUND_PK_REF_MANY_DERIVED_ONE_MAX_TEST = map:{
         ; localTableName  = WHITE_COMPOUND_PK ; foreignTableName  = WHITE_COMPOUND_PK_REF_MANY
         ; localColumnName = PK_FIRST_ID/PK_SECOND_ID ; foreignColumnName = REF_MANY_FIRST_ID/REF_MANY_SECOND_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.REF_MANY_DATETIME = ($$sqbegin$$
 select max(many.REF_MANY_DATETIME)
   from WHITE_COMPOUND_PK_REF_MANY many
@@ -168,7 +168,7 @@ select max(many.REF_MANY_DATETIME)
     ; FK_WHITE_COMPOUND_PK_REF_MANY_DERIVED_ONE_MIN_TEST = map:{
         ; localTableName  = WHITE_COMPOUND_PK ; foreignTableName  = WHITE_COMPOUND_PK_REF_MANY
         ; localColumnName = PK_FIRST_ID/PK_SECOND_ID ; foreignColumnName = REF_MANY_FIRST_ID/REF_MANY_SECOND_ID
-        ; fixedCondition = 
+        ; fixedCondition =
 $$foreignAlias$$.REF_MANY_DATETIME = ($$sqbegin$$
 select min(many.REF_MANY_DATETIME)
   from WHITE_COMPOUND_PK_REF_MANY many

@@ -1,7 +1,7 @@
 # /---------------------------------------------------------------------------
 # dependencyInjectionMap: (NotRequired - Default map:{})
 #
-# The various settings about dependency injection(DI Container). 
+# The various settings about dependency injection(DI Container).
 #
 # {Java} Seasar Only:
 # o dbfluteDiconNamespace: (NotRequired - Default 'dbflute')

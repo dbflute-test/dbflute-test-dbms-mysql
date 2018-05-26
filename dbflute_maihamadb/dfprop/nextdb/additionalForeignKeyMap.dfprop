@@ -4,7 +4,7 @@
 #
 #   If foreign key does not exist in your database,
 #   you can set up here as virtual foreign key for DBFlute.
-# 
+#
 #    ex) map:{
 #            ; FK_BOOK_AUTHOR = map:{
 #                ; localTableName  = BOOK      ; foreignTableName  = AUTHOR

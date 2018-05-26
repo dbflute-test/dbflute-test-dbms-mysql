@@ -190,7 +190,7 @@ select category.CLS_CATEGORY_NAME as classificationName
      , element.CLS_ELEMENT_NAME as name
      , element.CLS_ELEMENT_NAME as alias
      , element.CLS_ELEMENT_NAME as comment
-  from WHITE_ALL_IN_ONE_CLS_ELEMENT element 
+  from WHITE_ALL_IN_ONE_CLS_ELEMENT element
     left outer join WHITE_ALL_IN_ONE_CLS_CATEGORY category
       on element.CLS_CATEGORY_CODE = category.CLS_CATEGORY_CODE
  order by classificationName, code
@@ -267,12 +267,12 @@ select category.CLS_CATEGORY_NAME as classificationName
         ; map:{code=FOO ; name=First
             ; comment=foo first line
             foo second line
-            
+
         }
         ; map:{code=BAR; name=Second
             ; comment=bar first line
 
-            
+
             bar second line
         }
     }

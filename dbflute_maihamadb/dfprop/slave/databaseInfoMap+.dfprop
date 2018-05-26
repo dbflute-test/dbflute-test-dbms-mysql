@@ -1,7 +1,7 @@
 map:{
 	; driver		= com.mysql.jdbc.Driver
 	; url			= jdbc:mysql://localhost:43306/maihamadb_slave
-	; schema		= 
+	; schema		=
 	; user			= maihamadb_slave
 	; password		= maihamadb_slave
 }

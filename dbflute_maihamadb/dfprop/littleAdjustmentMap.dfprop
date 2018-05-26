@@ -39,7 +39,7 @@ map:{
     ; isCompatibleOutsideSqlSqlCommentCheckDefault = true
 
     # the test of check count for next-key-lock of MySQL
-    # set this property if you test it  
+    # set this property if you test it
     ; isCheckCountBeforeQueryUpdate = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
