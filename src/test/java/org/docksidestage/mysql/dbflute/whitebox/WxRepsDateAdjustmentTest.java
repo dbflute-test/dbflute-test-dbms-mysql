@@ -142,10 +142,11 @@ public class WxRepsDateAdjustmentTest extends UnitContainerTestCase {
         // ## Assert ##
         assertHasAnyElement(memberList);
         for (Member member : memberList) {
-            LocalDateTime latestDate = member.getLatestLoginDatetime();
+            LocalDateTime latestDateTime = member.getLatestLoginDatetime();
             log(member.getMemberName() + ", " + toString(member.getLatestLoginDatetime()));
-            assertTrue(fromDate.equals(latestDate) || fromDate.isBefore(latestDate.toLocalDate()));
-            assertTrue(toDate.equals(latestDate) || toDate.isAfter(latestDate.toLocalDate()));
+            LocalDate latestDate = latestDateTime.toLocalDate();
+            assertTrue(fromDate.equals(latestDate) || fromDate.isBefore(latestDate));
+            assertTrue(toDate.equals(latestDate) || toDate.isAfter(latestDate));
         }
     }
 

@@ -584,10 +584,8 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchase().groupConcat(new SubQuery<PurchaseCB>() {
-            public void query(PurchaseCB subCB) {
-                subCB.specify().columnPurchasePrice();
-            }
+        cb.specify().derivedPurchase().groupConcat(purchaseCB -> {
+            purchaseCB.specify().columnPurchasePrice();
         }, Member.ALIAS_groupExpression);
 
         // ## Act ##
