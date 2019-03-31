@@ -1,4 +1,4 @@
-package org.docksidestage.mysql.dbflute.whitebox.dfprop;
+package org.docksidestage.mysql.dbflute.whitebox.dfprop.addifk;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;

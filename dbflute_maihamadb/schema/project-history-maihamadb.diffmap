@@ -1,4 +1,73 @@
 map:{
+    ; 2019/03/31 15:32:32 = map:{
+        ; diffDate = 2019/03/31 15:32:32
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_non_unique_many_to_one_from = map:{
+                ; tableName = white_non_unique_many_to_one_from
+                ; diffType = ADD
+            }
+            ; white_non_unique_many_to_one_to = map:{
+                ; tableName = white_non_unique_many_to_one_to
+                ; diffType = ADD
+            }
+            ; white_non_unique_one_to_one_from = map:{
+                ; tableName = white_non_unique_one_to_one_from
+                ; diffType = DELETE
+            }
+            ; white_non_unique_one_to_one_to = map:{
+                ; tableName = white_non_unique_one_to_one_to
+                ; diffType = DELETE
+            }
+        }
+    }
+    ; 2019/03/31 15:25:04 = map:{
+        ; diffDate = 2019/03/31 15:25:04
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_non_unique_one_to_one_from = map:{
+                ; tableName = white_non_unique_one_to_one_from
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MANY_POINT = map:{
+                        ; columnName = MANY_POINT
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; white_non_unique_one_to_one_to = map:{
+                ; tableName = white_non_unique_one_to_one_to
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MANY_POINT = map:{
+                        ; columnName = MANY_POINT
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+    ; 2019/03/31 14:53:10 = map:{
+        ; diffDate = 2019/03/31 14:53:10
+        ; tableCount = map:{
+            ; next = 119
+            ; previous = 117
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_non_unique_one_to_one_from = map:{
+                ; tableName = white_non_unique_one_to_one_from
+                ; diffType = ADD
+            }
+            ; white_non_unique_one_to_one_to = map:{
+                ; tableName = white_non_unique_one_to_one_to
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/05/27 00:37:25 = map:{
         ; diffDate = 2018/05/27 00:37:25
         ; diffAuthor = p1us2er0

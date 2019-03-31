@@ -35,8 +35,8 @@
 #
 map:{
     ; $$split$$ = map:{
-        ; land = dummy
-        ; sea = dummy
+        ; manytoone = dummy
+        ; optional = dummy
     }
 
     # ====================================================================================

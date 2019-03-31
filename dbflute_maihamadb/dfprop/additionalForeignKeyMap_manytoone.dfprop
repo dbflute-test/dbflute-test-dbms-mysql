@@ -35,8 +35,8 @@
 #
 map:{
     # ====================================================================================
-    #                                                                      Biz-Many-to-One
-    #                                                                      ===============
+    #                                                                basic Biz-Many-to-One
+    #                                                                =====================
     #
     # for test of split multiple FK of biz-many-to-one
     #
@@ -177,6 +177,18 @@ select min(many.REF_MANY_DATETIME)
    and many.REF_MANY_CODE = 'TPK'
 )$$sqend$$
         ; fixedSuffix = AsMin
+    }
+
+    # ====================================================================================
+    #                                                            NonUnique Biz-Many-to-One
+    #                                                            =========================
+    ; FK_WHITE_NON_UNIQUE_MANY_TO_ONE_FROM_TO = map:{
+        ; localTableName  = WHITE_NON_UNIQUE_MANY_TO_ONE_FROM ; foreignTableName  = WHITE_NON_UNIQUE_MANY_TO_ONE_TO
+        ; localColumnName = NON_UNIQUE_CODE ; foreignColumnName  = NON_UNIQUE_CODE
+        ; fixedCondition =
+         $$foreignAlias$$.BEGIN_DATE <= $$localAlias$$.BEGIN_DATE
+     and $$foreignAlias$$.END_DATE >= $$localAlias$$.BEGIN_DATE
+        ; fixedSuffix = AsNonUniqueManyToOne
     }
 }
 # ----------------/

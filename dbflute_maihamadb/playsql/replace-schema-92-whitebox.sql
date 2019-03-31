@@ -23,6 +23,30 @@ alter table WHITE_ONLY_ONE_TO_ONE_TO add constraint FK_WHITE_ONLY_ONE_TO_ONE_TO_
 	foreign key (FROM_ID)
 	REFERENCES WHITE_ONLY_ONE_TO_ONE_FROM (FROM_ID);
 
+
+-- /= = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of non-unique relationship
+-- = = = = = = = = = =/
+create table WHITE_NON_UNIQUE_MANY_TO_ONE_FROM(
+    FROM_ID BIGINT AUTO_INCREMENT NOT NULL,
+    FROM_NAME VARCHAR(200) NOT NULL,
+    NON_UNIQUE_CODE CHAR(3) NOT NULL,
+    BEGIN_DATE DATE NOT NULL,
+    END_DATE DATE NOT NULL,
+    MANY_POINT INTEGER NOT NULL,
+    PRIMARY KEY (FROM_ID)
+);
+
+create table WHITE_NON_UNIQUE_MANY_TO_ONE_TO(
+    TO_ID BIGINT AUTO_INCREMENT NOT NULL,
+    TO_NAME VARCHAR(200) NOT NULL,
+    NON_UNIQUE_CODE CHAR(3) NOT NULL,
+    BEGIN_DATE DATE NOT NULL,
+    END_DATE DATE NOT NULL,
+    PRIMARY KEY (TO_ID)
+);
+
+
 -- /= = = = = = = = = = = = = = = = = = = = = =
 -- for the test of over relation, referrer over
 -- = = = = = = = = = =/

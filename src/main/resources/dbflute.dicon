@@ -78,6 +78,8 @@
     <component name="whiteNoPkBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkBhv"/>
     <component name="whiteNoPkCommonColumnBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkCommonColumnBhv"/>
     <component name="whiteNoPkRelationBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNoPkRelationBhv"/>
+    <component name="whiteNonUniqueManyToOneFromBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNonUniqueManyToOneFromBhv"/>
+    <component name="whiteNonUniqueManyToOneToBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteNonUniqueManyToOneToBhv"/>
     <component name="whiteOnlyOneToOneFromBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteOnlyOneToOneFromBhv"/>
     <component name="whiteOnlyOneToOneToBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteOnlyOneToOneToBhv"/>
     <component name="whitePerrottaOverMemberBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhitePerrottaOverMemberBhv"/>

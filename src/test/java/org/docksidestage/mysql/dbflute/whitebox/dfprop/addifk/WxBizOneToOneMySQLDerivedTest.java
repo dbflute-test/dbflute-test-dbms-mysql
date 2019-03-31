@@ -1,4 +1,4 @@
-package org.docksidestage.mysql.dbflute.whitebox.dfprop;
+package org.docksidestage.mysql.dbflute.whitebox.dfprop.addifk;
 
 import java.util.List;
 import java.util.Map;

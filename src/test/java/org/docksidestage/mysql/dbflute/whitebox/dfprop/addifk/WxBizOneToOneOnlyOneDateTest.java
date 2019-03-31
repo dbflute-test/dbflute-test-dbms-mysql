@@ -1,4 +1,4 @@
-package org.docksidestage.mysql.dbflute.whitebox.dfprop;
+package org.docksidestage.mysql.dbflute.whitebox.dfprop.addifk;
 
 import java.time.LocalDate;
 
