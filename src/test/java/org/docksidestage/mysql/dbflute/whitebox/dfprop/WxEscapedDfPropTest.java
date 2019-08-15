@@ -1,5 +1,8 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.dbflute.cbean.result.ListResultBean;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.cbean.WhiteEscapedDfpropCB;
@@ -18,6 +21,7 @@ public class WxEscapedDfPropTest extends UnitContainerTestCase {
     public void test_LoadData_basic() {
         // ## Arrange ##
         WhiteEscapedDfpropCB cb = new WhiteEscapedDfpropCB();
+        cb.query().addOrderBy_EscapedDfpropCode_Asc();
 
         // ## Act ##
         ListResultBean<WhiteEscapedDfprop> dfpropList = whiteEscapedDfpropBhv.selectList(cb);
@@ -27,15 +31,12 @@ public class WxEscapedDfPropTest extends UnitContainerTestCase {
         for (WhiteEscapedDfprop dfprop : dfpropList) {
             log(dfprop.getEscapedDfpropCode(), dfprop.getEscapedDfpropName());
         }
-        WhiteEscapedDfprop first = dfpropList.get(0);
-        assertEquals(";@\\", first.getEscapedDfpropCode());
-        assertEquals("ab=cd", first.getEscapedDfpropName());
-        WhiteEscapedDfprop second = dfpropList.get(1);
-        assertEquals("\\};", second.getEscapedDfpropCode());
-        assertEquals("}}{", second.getEscapedDfpropName());
-        WhiteEscapedDfprop third = dfpropList.get(2);
-        assertEquals("{=}", third.getEscapedDfpropCode());
-        assertEquals(";\\\\", third.getEscapedDfpropName());
+        Map<String, WhiteEscapedDfprop> resultMap =
+                dfpropList.stream().collect(Collectors.toMap(bean -> bean.getEscapedDfpropCode(), bean -> bean));
+
+        assertEquals("ab=cd", resultMap.get(";@\\").getEscapedDfpropName());
+        assertEquals("}}{", resultMap.get("\\};").getEscapedDfpropName());
+        assertEquals(";\\\\", resultMap.get("{=}").getEscapedDfpropName());
     }
 
     public void test_dfprop_hardcode() throws Exception {

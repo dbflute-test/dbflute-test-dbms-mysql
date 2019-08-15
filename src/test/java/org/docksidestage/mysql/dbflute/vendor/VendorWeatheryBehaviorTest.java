@@ -113,7 +113,7 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         // ## Act ##
         {
-            String sql = "update MEMBER set MEMBER_NAME = ? where MEMBER_ID = ?";
+            String sql = "update `MEMBER` set MEMBER_NAME = ? where MEMBER_ID = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "testName");
             ps.setInt(2, 3);
@@ -123,7 +123,7 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
         // ## Assert ##
         // Repeat the member as same local table
         {
-            String sql = "select * from MEMBER where MEMBER_ID = ?";
+            String sql = "select * from `MEMBER` where MEMBER_ID = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, 3);
             ResultSet rs = ps.executeQuery();
@@ -134,8 +134,8 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
         }
         // Repeat the member as joined table
         {
-            String select = "select PURCHASE.PURCHASE_ID, MEMBER.MEMBER_NAME";
-            String from = " from PURCHASE left outer join MEMBER on PURCHASE.MEMBER_ID = MEMBER.MEMBER_ID";
+            String select = "select PURCHASE.PURCHASE_ID, `MEMBER`.MEMBER_NAME";
+            String from = " from PURCHASE left outer join `MEMBER` on PURCHASE.MEMBER_ID = `MEMBER`.MEMBER_ID";
             String where = " where PURCHASE.MEMBER_ID = ?";
             PreparedStatement ps = conn.prepareStatement(select + from + where);
             ps.setInt(1, 3);

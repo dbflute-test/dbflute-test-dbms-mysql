@@ -358,7 +358,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
             // ## Assert ##
             assertEquals(0, deleted);
             String sql = infoList.get(0).getDisplaySql();
-            assertTrue(sql.contains("delete dfloc from MEMBER"));
+            assertTrue(sql.contains("delete dfloc from `MEMBER`"));
             assertTrue(sql.contains("where exists (select"));
             assertFalse(sql.contains(" join "));
         } finally {
@@ -391,7 +391,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
             // ## Assert ##
             assertEquals(countAll, deleted);
             String sql = infoList.get(0).getDisplaySql();
-            assertTrue(sql.contains("delete dfloc from MEMBER"));
+            assertTrue(sql.contains("delete dfloc from `MEMBER`"));
             assertTrue(sql.contains("where not exists (select"));
             assertFalse(sql.contains(" join "));
         } finally {
@@ -425,7 +425,7 @@ public class WxBhvQueryUpdateMySQLTest extends UnitContainerTestCase {
             // ## Assert ##
             assertEquals(0, deleted);
             String sql = infoList.get(0).getDisplaySql();
-            assertTrue(sql.contains("delete dfloc from MEMBER"));
+            assertTrue(sql.contains("delete dfloc from `MEMBER`"));
             assertTrue(sql.contains("where dfloc.MEMBER_ID in (select"));
             assertFalse(sql.contains(" join "));
         } finally {

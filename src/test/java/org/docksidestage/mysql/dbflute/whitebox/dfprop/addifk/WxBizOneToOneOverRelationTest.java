@@ -101,7 +101,7 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
 
         // ## Assert ##
         String displaySql = cb.toDisplaySql();
-        assertTrue(Srl.containsAllIgnoreCase(displaySql, "inner join member sub1rel"));
+        assertTrue(Srl.containsAllIgnoreCase(displaySql, "inner join `member` sub1rel"));
         assertTrue(Srl.containsAllIgnoreCase(displaySql, "left outer join member_status sub1rel"));
         assertTrue(Srl.containsAllIgnoreCase(displaySql, "inner join member_login sub1rel"));
         assertTrue(displaySql.contains("exists (select"));
@@ -459,9 +459,9 @@ public class WxBizOneToOneOverRelationTest extends UnitContainerTestCase {
         String rear = inlineIndex.substringRear();
         assertEquals(1, Srl.countIgnoreCase(front, "left outer join product "));
         assertEquals(1, Srl.countIgnoreCase(front, "left outer join product_status "));
-        assertEquals(1, Srl.countIgnoreCase(front, "left outer join member "));
+        assertEquals(1, Srl.countIgnoreCase(front, "left outer join `member` "));
         assertEquals(2, Srl.countIgnoreCase(rear, "left outer join member_status "));
-        assertEquals(1, Srl.countIgnoreCase(rear, "left outer join member "));
+        assertEquals(1, Srl.countIgnoreCase(rear, "left outer join `member` "));
         assertEquals(1, Srl.countIgnoreCase(rear, "left outer join member_withdrawal "));
         assertEquals(1, Srl.countIgnoreCase(rear, "left outer join withdrawal_reason "));
         assertTrue(rear.contains(".STATUS_ORDER is not null"));

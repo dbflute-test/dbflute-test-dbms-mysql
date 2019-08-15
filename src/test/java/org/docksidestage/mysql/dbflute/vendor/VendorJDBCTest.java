@@ -357,7 +357,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
         ResultSet rs = null;
         try {
             conn = ds.getConnection();
-            String sql = "select * from MEMBER where MEMBER_STATUS_CODE = ?";
+            String sql = "select * from `MEMBER` where MEMBER_STATUS_CODE = ?";
             log(sql);
             ps = conn.prepareStatement(sql);
             ps.setObject(1, value);

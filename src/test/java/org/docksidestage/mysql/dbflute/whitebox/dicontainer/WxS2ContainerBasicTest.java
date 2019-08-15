@@ -104,7 +104,7 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
 
         conn = dataSource.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from MEMBER");
+            PreparedStatement ps = conn.prepareStatement("select * from `MEMBER`");
             ps.execute();
             ps.close();
         } finally {
@@ -112,7 +112,7 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
         }
         conn = dataSource.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("update MEMBER set MEMBER_NAME = ? where MEMBER_ID = 3");
+            PreparedStatement ps = conn.prepareStatement("update `MEMBER` set MEMBER_NAME = ? where MEMBER_ID = 3");
             ps.setString(1, "aaa");
             ps.execute();
             ps.close();
@@ -121,7 +121,7 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
         }
         conn = dataSource.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("select * from MEMBER");
+            PreparedStatement ps = conn.prepareStatement("select * from `MEMBER`");
             ps.execute();
             ps.close();
         } finally {
@@ -136,14 +136,14 @@ public class WxS2ContainerBasicTest extends UnitContainerTestCase {
         conn = dataSource.getConnection();
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement("select * from MEMBER");
+            ps = conn.prepareStatement("select * from `MEMBER`");
             ps.execute();
             ps.close();
-            ps = conn.prepareStatement("update MEMBER set MEMBER_NAME = ? where MEMBER_ID = 3");
+            ps = conn.prepareStatement("update `MEMBER` set MEMBER_NAME = ? where MEMBER_ID = 3");
             ps.setString(1, "aaa");
             ps.execute();
             ps.close();
-            ps = conn.prepareStatement("select * from MEMBER");
+            ps = conn.prepareStatement("select * from `MEMBER`");
             ps.execute();
             ps.close();
         } finally {
