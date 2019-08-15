@@ -812,16 +812,16 @@ public interface CDef extends Classification {
         /** foo811 */
         Foo811("811", "foo811", emptyStrings())
         ,
-        /** bar802: of foo801 */
+        /** bar802: 0 */
         Bar802("802", "bar802", emptyStrings())
         ,
-        /** baz803: of foo801 */
+        /** baz803: 0 */
         Baz803("803", "baz803", emptyStrings())
         ,
-        /** bar812: of foo811 */
+        /** bar812: 0 */
         Bar812("812", "bar812", emptyStrings())
         ,
-        /** baz813: of foo811 */
+        /** baz813: 0 */
         Baz813("813", "baz813", emptyStrings())
         ;
         private static final Map<String, SelfReference> _codeClsMap = new HashMap<String, SelfReference>();
