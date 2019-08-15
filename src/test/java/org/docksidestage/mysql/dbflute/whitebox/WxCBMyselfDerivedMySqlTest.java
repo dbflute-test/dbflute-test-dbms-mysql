@@ -1,5 +1,7 @@
 package org.docksidestage.mysql.dbflute.whitebox;
 
+import java.sql.SQLException;
+
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
@@ -164,8 +166,7 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
                             }
                         }).greaterThan(new SpecifyQuery<MemberCB>() {
                             public void specify(MemberCB cb) {
-                                cb.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne()
-                                        .columnServicePointCount());
+                                cb.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
                             }
                         });
                     }
@@ -175,14 +176,17 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
         cb.query().queryMemberServiceAsOne().addOrderBy_ServicePointCount_Desc();
 
         // ## Act ##
-        try {
-            memberBhv.selectList(cb);
-
-            // ## Assert ##
-            fail(); // because of inline-view
-        } catch (SQLFailureException e) {
-            // OK
-            log(e.getMessage());
+        int majorVersion = getDatabaseMajorVersion();
+        if (majorVersion < 8) { // e.g. 5.7
+            assertException(SQLFailureException.class, () -> memberBhv.selectList(cb)).handle(cause -> {
+                log(cause.getMessage());
+            });
+        } else { // since 8.0
+            ListResultBean<Member> memberList = memberBhv.selectList(cb);
+            assertHasAnyElement(memberList);
+            for (Member member : memberList) {
+                log(member.getMemberName(), member.getLoginCount());
+            }
         }
     }
 
@@ -243,5 +247,18 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
             previousRank = pointRank;
         }
         assertEquals(3, memberList.size());
+    }
+
+    // ===================================================================================
+    //                                                                      General Helper
+    //                                                                      ==============
+    protected int getDatabaseMajorVersion() {
+        int majorVersion;
+        try {
+            majorVersion = getDataSource().getConnection().getMetaData().getDatabaseMajorVersion();
+        } catch (SQLException e) {
+            throw new IllegalStateException("Failed to get major version", e);
+        }
+        return majorVersion;
     }
 }
