@@ -56,7 +56,7 @@ import org.docksidestage.mysql.dbflute.exentity.customize.*;
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
- * String memberNameWithSpace = entity.getMemberNameWithSpace();
+ * Long memberNameWithSpace = entity.getMemberNameWithSpace();
  * String memberStatusName = entity.getMemberStatusName();
  * entity.setMemberId(memberId);
  * entity.setMemberNameWithSpace(memberNameWithSpace);
@@ -79,8 +79,8 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     /** (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID} */
     protected Integer _memberId;
 
-    /** MEMBER_NAME_WITH_SPACE: {VARCHAR(181)} */
-    protected String _memberNameWithSpace;
+    /** MEMBER_NAME_WITH_SPACE: {BIGINT(1)} */
+    protected Long _memberNameWithSpace;
 
     /** (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} */
     protected String _memberStatusName;
@@ -196,19 +196,19 @@ public abstract class BsDoubleByteOnSql extends AbstractEntity implements Custom
     }
 
     /**
-     * [get] MEMBER_NAME_WITH_SPACE: {VARCHAR(181)} <br>
+     * [get] MEMBER_NAME_WITH_SPACE: {BIGINT(1)} <br>
      * @return The value of the column 'MEMBER_NAME_WITH_SPACE'. (NullAllowed even if selected: for no constraint)
      */
-    public String getMemberNameWithSpace() {
+    public Long getMemberNameWithSpace() {
         checkSpecifiedProperty("memberNameWithSpace");
         return _memberNameWithSpace;
     }
 
     /**
-     * [set] MEMBER_NAME_WITH_SPACE: {VARCHAR(181)} <br>
+     * [set] MEMBER_NAME_WITH_SPACE: {BIGINT(1)} <br>
      * @param memberNameWithSpace The value of the column 'MEMBER_NAME_WITH_SPACE'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setMemberNameWithSpace(String memberNameWithSpace) {
+    public void setMemberNameWithSpace(Long memberNameWithSpace) {
         registerModifiedProperty("memberNameWithSpace");
         _memberNameWithSpace = memberNameWithSpace;
     }

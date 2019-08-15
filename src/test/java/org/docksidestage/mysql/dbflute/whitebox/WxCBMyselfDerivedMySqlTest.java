@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
-import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.exception.SQLFailureException;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.PurchaseCB;
@@ -144,34 +143,18 @@ public class WxCBMyselfDerivedMySqlTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberServiceAsOne();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.specify().myselfDerived().count(new SubQuery<MemberCB>() {
-            public void query(MemberCB subCB) {
-                subCB.specify().columnMemberId();
-                subCB.query().setMemberStatusCode_Equal_Formalized();
-                subCB.columnQuery(new SpecifyQuery<MemberCB>() {
-                    public void specify(MemberCB cb) {
-                        cb.specify().specifyMemberServiceAsOne().columnServicePointCount();
-                    }
-                }).greaterThan(new SpecifyQuery<MemberCB>() {
-                    public void specify(MemberCB cb) {
-                        cb.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-                    }
-                });
-                subCB.union(new UnionQuery<MemberCB>() {
-                    public void query(MemberCB unionCB) {
-                        unionCB.query().setMemberStatusCode_Equal_Provisional();
-                        unionCB.columnQuery(new SpecifyQuery<MemberCB>() {
-                            public void specify(MemberCB cb) {
-                                cb.specify().specifyMemberServiceAsOne().columnServicePointCount();
-                            }
-                        }).greaterThan(new SpecifyQuery<MemberCB>() {
-                            public void specify(MemberCB cb) {
-                                cb.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount());
-                            }
-                        });
-                    }
-                });
-            }
+        cb.specify().myselfDerived().count(myselfCB -> {
+            myselfCB.specify().columnMemberId();
+            myselfCB.query().setMemberStatusCode_Equal_Formalized();
+            myselfCB.columnQuery(colCB -> colCB.specify().specifyMemberServiceAsOne().columnServicePointCount())
+                    .greaterThan(
+                            colCB -> colCB.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()));
+            myselfCB.union(unionCB -> {
+                unionCB.query().setMemberStatusCode_Equal_Provisional();
+                unionCB.columnQuery(colCB -> colCB.specify().specifyMemberServiceAsOne().columnServicePointCount())
+                        .greaterThan(
+                                colCB -> colCB.overTheWaves(dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount()));
+            });
         }, Member.ALIAS_loginCount, op -> op.plus(1));
         cb.query().queryMemberServiceAsOne().addOrderBy_ServicePointCount_Desc();
 

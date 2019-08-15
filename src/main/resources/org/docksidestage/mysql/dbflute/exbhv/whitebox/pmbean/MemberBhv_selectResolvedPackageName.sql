@@ -25,11 +25,11 @@
 -- !!$$CDef$$.Flg cdefFlg!!
 -- !!byte[] bytes!!
 
-select member.MEMBER_ID
-     , member.MEMBER_NAME
-  from MEMBER member
+select mb.MEMBER_ID
+     , mb.MEMBER_NAME
+  from `MEMBER` mb
  /*BEGIN*/where
-   /*IF pmb.date1 != null*/member.BIRTHDATE <= /*pmb.date1*/'2000-12-12'/*END*/
-   /*IF pmb.list1 != null*/and member.MEMBER_STATUS_CODE in /*pmb.list1*/('FML', 'PVS')/*END*/
+   /*IF pmb.date1 != null*/mb.BIRTHDATE <= /*pmb.date1*/'2000-12-12'/*END*/
+   /*IF pmb.list1 != null*/and mb.MEMBER_STATUS_CODE in /*pmb.list1*/('FML', 'PVS')/*END*/
  /*END*/
- order by member.MEMBER_ID asc
+ order by mb.MEMBER_ID asc

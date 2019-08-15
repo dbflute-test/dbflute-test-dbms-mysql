@@ -1,5 +1,6 @@
 package org.docksidestage.mysql.dbflute.vendor;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import org.dbflute.cbean.sqlclause.SqlClauseMySql.CollateUTF8MB4UnicodeArranger;
 import org.dbflute.cbean.sqlclause.query.QueryClauseArranger;
 import org.dbflute.dbway.DBWay;
 import org.dbflute.helper.HandyDate;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.mysql.dbflute.allcommon.DBCurrent;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberWithdrawalCB;
@@ -167,10 +169,20 @@ public class VendorQueryTest extends UnitContainerTestCase {
         member.setMemberName("あ");
         memberBhv.updateNonstrict(member);
         {
+            // confirm precondition
             MemberCB cb = new MemberCB();
             cb.query().setMemberId_Equal(3);
             cb.query().setMemberName_LikeSearch("ア", new LikeSearchOption().likeContain());
-            assertFalse(memberBhv.selectEntity(cb).isPresent());
+
+            OptionalEntity<Member> optMember = memberBhv.selectEntity(cb);
+            int majorVersion = getDatabaseMajorVersion();
+            if (majorVersion < 8) { // e.g. 5.7
+                assertFalse(optMember.isPresent());
+            } else { // since 8.0
+                assertTrue(optMember.isPresent()); // is あ ア in MySQL-8.0?
+                Member actual = optMember.get();
+                assertEquals("あ", actual.getMemberName());
+            }
         }
 
         MemberCB cb = new MemberCB();
@@ -324,5 +336,18 @@ public class VendorQueryTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertNull(withdrawal);
+    }
+
+    // ===================================================================================
+    //                                                                      General Helper
+    //                                                                      ==============
+    protected int getDatabaseMajorVersion() {
+        int majorVersion;
+        try {
+            majorVersion = getDataSource().getConnection().getMetaData().getDatabaseMajorVersion();
+        } catch (SQLException e) {
+            throw new IllegalStateException("Failed to get major version", e);
+        }
+        return majorVersion;
     }
 }

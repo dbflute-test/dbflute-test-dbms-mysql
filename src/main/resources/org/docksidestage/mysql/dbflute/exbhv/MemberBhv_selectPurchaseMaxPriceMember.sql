@@ -13,26 +13,26 @@
 
 /*IF pmb.isPaging()*/
 select sql_calc_found_rows
-       member.MEMBER_ID -- // unique key of this result
-     , member.MEMBER_NAME
+       mb.MEMBER_ID -- // unique key of this result
+     , mb.MEMBER_NAME
      , (select max(purchase.PURCHASE_PRICE)
           from PURCHASE purchase
-         where purchase.MEMBER_ID = member.MEMBER_ID
+         where purchase.MEMBER_ID = mb.MEMBER_ID
        ) as PURCHASE_MAX_PRICE -- // max of purchase price
      , memberStatus.MEMBER_STATUS_NAME
-  from MEMBER member
+  from `MEMBER` mb
     left outer join MEMBER_STATUS memberStatus
-      on member.MEMBER_STATUS_CODE = memberStatus.MEMBER_STATUS_CODE
+      on mb.MEMBER_STATUS_CODE = memberStatus.MEMBER_STATUS_CODE
  /*BEGIN*/
  where
    /*IF pmb.memberId != null*/
-   member.MEMBER_ID = /*pmb.memberId*/3
+   mb.MEMBER_ID = /*pmb.memberId*/3
    /*END*/
    /*FOR pmb.memberNameList*//*FIRST*/and (/*END*/
-     /*NEXT 'or '*/member.MEMBER_NAME like /*#current*/'S%'
+     /*NEXT 'or '*/mb.MEMBER_NAME like /*#current*/'S%'
    /*LAST*/)/*END*//*END*/
  /*END*/
- order by PURCHASE_MAX_PRICE desc, member.MEMBER_ID asc
+ order by PURCHASE_MAX_PRICE desc, mb.MEMBER_ID asc
  limit /*pmb.pageStartIndex*/80, /*pmb.fetchSize*/20
 -- ELSE select found_rows()
 /*END*/

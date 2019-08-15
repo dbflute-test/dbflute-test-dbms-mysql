@@ -11,10 +11,10 @@
 select base.*
   from (select mb.MEMBER_ID
              , mb.MEMBER_STATUS_CODE
-          from MEMBER mb
+          from `MEMBER` mb
          union
         select mb.MEMBER_ID
              , stat.MEMBER_STATUS_CODE
-          from MEMBER mb
+          from `MEMBER` mb
             left outer join MEMBER_STATUS stat on mb.MEMBER_STATUS_CODE = stat.MEMBER_STATUS_CODE
        ) base

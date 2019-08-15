@@ -10,11 +10,11 @@
 -- !df:pmb!
 -- !!Map<String, Object> conditionMap:like!!
 
-select member.MEMBER_ID
-     , member.MEMBER_NAME
-  from MEMBER member
+select mb.MEMBER_ID
+     , mb.MEMBER_NAME
+  from `MEMBER` mb
  /*BEGIN*/where
-   /*IF pmb.conditionMap.memberId != null*/member.MEMBER_ID = /*pmb.conditionMap.memberId*/3/*END*/
-   /*IF pmb.conditionMap.memberName != null*/and member.MEMBER_NAME like /*pmb.conditionMap.memberName*/'S%'/*END*/
+   /*IF pmb.conditionMap.memberId != null*/mb.MEMBER_ID = /*pmb.conditionMap.memberId*/3/*END*/
+   /*IF pmb.conditionMap.memberName != null*/and mb.MEMBER_NAME like /*pmb.conditionMap.memberName*/'S%'/*END*/
  /*END*/
- order by member.MEMBER_ID asc
+ order by mb.MEMBER_ID asc

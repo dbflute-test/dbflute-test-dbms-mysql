@@ -58,7 +58,7 @@ public class DoubleByteOnSqlDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberId(), (et, vl) -> ((DoubleByteOnSql)et).setMemberId(cti(vl)), "memberId");
-        setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberNameWithSpace(), (et, vl) -> ((DoubleByteOnSql)et).setMemberNameWithSpace((String)vl), "memberNameWithSpace");
+        setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberNameWithSpace(), (et, vl) -> ((DoubleByteOnSql)et).setMemberNameWithSpace(ctl(vl)), "memberNameWithSpace");
         setupEpg(_epgMap, et -> ((DoubleByteOnSql)et).getMemberStatusName(), (et, vl) -> ((DoubleByteOnSql)et).setMemberStatusName((String)vl), "memberStatusName");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -81,7 +81,7 @@ public class DoubleByteOnSqlDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, false, "INT", 11, 0, null, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", null, null, null, false);
-    protected final ColumnInfo _columnMemberNameWithSpace = cci("MEMBER_NAME_WITH_SPACE", "MEMBER_NAME_WITH_SPACE", null, null, String.class, "memberNameWithSpace", null, false, false, false, "VARCHAR", 181, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberNameWithSpace = cci("MEMBER_NAME_WITH_SPACE", "MEMBER_NAME_WITH_SPACE", null, null, Long.class, "memberNameWithSpace", null, false, false, false, "BIGINT", 1, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
 
     /**
@@ -90,7 +90,7 @@ public class DoubleByteOnSqlDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnMemberId() { return _columnMemberId; }
     /**
-     * MEMBER_NAME_WITH_SPACE: {VARCHAR(181)}
+     * MEMBER_NAME_WITH_SPACE: {BIGINT(1)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnMemberNameWithSpace() { return _columnMemberNameWithSpace; }
