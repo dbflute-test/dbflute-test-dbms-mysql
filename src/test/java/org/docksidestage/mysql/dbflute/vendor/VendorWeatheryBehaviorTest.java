@@ -3,6 +3,7 @@ package org.docksidestage.mysql.dbflute.vendor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.dbflute.cbean.ckey.ConditionKey;
 import org.dbflute.cbean.result.PagingResultBean;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseMySql;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.OutsideSqlContext;
 import org.docksidestage.mysql.dbflute.cbean.MemberCB;
 import org.docksidestage.mysql.dbflute.cbean.MemberStatusCB;
@@ -290,17 +292,25 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         VendorCheckCB cb = new VendorCheckCB();
         cb.query().setVendorCheckId_Equal(99999L);
-        cb.query().setTypeOfChar_Equal(code + " "); // where ... = 'AB ' => hit
+        cb.query().setTypeOfChar_Equal(code + " "); // where ... = 'AB ' => 5.7: hit, 8.0: none
 
         // ## Act ##
-        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        OptionalEntity<VendorCheck> optEntity = vendorCheckBhv.selectEntity(cb);
 
         // ## Assert ##
-        assertEquals(code, actual.getTypeOfChar()); // DB trims it
+        int majorVersion = getDatabaseMajorVersion();
+        if (majorVersion < 8) { // e.g. 5.7
+            assertTrue(optEntity.isPresent());
+            assertEquals(code, optEntity.get().getTypeOfChar()); // DB trims it
+        } else { // since 8.0
+            assertFalse(optEntity.isPresent());
+        }
         cb.enableOverridingQuery(() -> {
-            cb.query().setTypeOfChar_Equal(code); // where ... = 'AB' => hit
+            cb.query().setTypeOfChar_Equal(code); // where ... = 'AB' => 5.7: hit, 8.0: hit
         });
-        vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        vendorCheckBhv.selectEntity(cb).alwaysPresent(actual -> {
+            assertEquals(code, actual.getTypeOfChar()); // DB trims it
+        });
     }
 
     public void test_shortChar_inout_filled_value() {
@@ -315,17 +325,25 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         VendorCheckCB cb = new VendorCheckCB();
         cb.query().setVendorCheckId_Equal(99999L);
-        cb.query().setTypeOfChar_Equal(code); // where ... = 'AB ' => hit
+        cb.query().setTypeOfChar_Equal(code); // where ... = 'AB ' => 5.7: hit, 8.0: none
 
         // ## Act ##
-        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        OptionalEntity<VendorCheck> optEntity = vendorCheckBhv.selectEntity(cb);
 
         // ## Assert ##
-        assertEquals(code.trim(), actual.getTypeOfChar()); // DB trims it
+        int majorVersion = getDatabaseMajorVersion();
+        if (majorVersion < 8) { // e.g. 5.7
+            assertTrue(optEntity.isPresent());
+            assertEquals(code.trim(), optEntity.get().getTypeOfChar()); // DB trims it
+        } else { // since 8.0
+            assertFalse(optEntity.isPresent());
+        }
         cb.enableOverridingQuery(() -> {
-            cb.query().setTypeOfChar_Equal(code.trim()); // where ... = 'AB' => hit
+            cb.query().setTypeOfChar_Equal(code.trim()); // where ... = 'AB' => 5.7: hit, 8.0: hit
         });
-        vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        vendorCheckBhv.selectEntity(cb).alwaysPresent(actual -> {
+            assertEquals(code.trim(), actual.getTypeOfChar()); // DB trims it
+        });
     }
 
     public void test_shortChar_condition() {
@@ -359,5 +377,18 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertEquals(code.trim(), actual.getTypeOfChar());
+    }
+
+    // ===================================================================================
+    //                                                                      General Helper
+    //                                                                      ==============
+    protected int getDatabaseMajorVersion() {
+        int majorVersion;
+        try {
+            majorVersion = getDataSource().getConnection().getMetaData().getDatabaseMajorVersion();
+        } catch (SQLException e) {
+            throw new IllegalStateException("Failed to get major version", e);
+        }
+        return majorVersion;
     }
 }
