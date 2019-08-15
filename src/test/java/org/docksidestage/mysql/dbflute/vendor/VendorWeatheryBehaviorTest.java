@@ -290,13 +290,17 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         VendorCheckCB cb = new VendorCheckCB();
         cb.query().setVendorCheckId_Equal(99999L);
-        cb.query().setTypeOfChar_Equal(code + " ");
+        cb.query().setTypeOfChar_Equal(code + " "); // where ... = 'AB ' => hit
 
         // ## Act ##
         VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
 
         // ## Assert ##
         assertEquals(code, actual.getTypeOfChar()); // DB trims it
+        cb.enableOverridingQuery(() -> {
+            cb.query().setTypeOfChar_Equal(code); // where ... = 'AB' => hit
+        });
+        vendorCheckBhv.selectEntityWithDeletedCheck(cb);
     }
 
     public void test_shortChar_inout_filled_value() {
@@ -311,13 +315,17 @@ public class VendorWeatheryBehaviorTest extends UnitContainerTestCase {
 
         VendorCheckCB cb = new VendorCheckCB();
         cb.query().setVendorCheckId_Equal(99999L);
-        cb.query().setTypeOfChar_Equal(code);
+        cb.query().setTypeOfChar_Equal(code); // where ... = 'AB ' => hit
 
         // ## Act ##
         VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
 
         // ## Assert ##
         assertEquals(code.trim(), actual.getTypeOfChar()); // DB trims it
+        cb.enableOverridingQuery(() -> {
+            cb.query().setTypeOfChar_Equal(code.trim()); // where ... = 'AB' => hit
+        });
+        vendorCheckBhv.selectEntityWithDeletedCheck(cb);
     }
 
     public void test_shortChar_condition() {
