@@ -104,6 +104,8 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
     /** Resolved Package Name Select */
     public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
+    /** parameter auto-detect */
+    public static final String PATH_whitebox_pmbean_selectParameterAutoDetect = "whitebox:pmbean:selectParameterAutoDetect";
     /** using Classification Hint */
     public static final String PATH_whitebox_cmentity_selectUndetectableClassificationHint = "whitebox:cmentity:selectUndetectableClassificationHint";
     /** CommonColumn Member Select */

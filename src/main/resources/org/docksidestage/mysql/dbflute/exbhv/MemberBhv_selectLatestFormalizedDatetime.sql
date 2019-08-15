@@ -11,4 +11,4 @@
 
 -- !df:pmb!
 
-select max(mb.FORMALIZED_DATETIME) as MAX_VALUE from MEMBER mb
+select max(mb.FORMALIZED_DATETIME) as MAX_VALUE from `MEMBER` mb

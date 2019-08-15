@@ -866,26 +866,26 @@ alter table WHITE_STILETTO_ALIAS_REF add constraint FK_WHITE_STILETTO_ALIAS_REF
 -- for the test of quoted table name
 -- = = = = = = = = = =/
 create table WHITE_QUOTED (
-	"SELECT" INTEGER NOT NULL PRIMARY KEY,
-	"FROM" VARCHAR(200)
+	`SELECT` INTEGER NOT NULL PRIMARY KEY,
+	`FROM` VARCHAR(200)
 ) ;
 
 create table WHITE_QUOTED_REF (
-	"WHERE" INTEGER NOT NULL PRIMARY KEY,
-	"ORDER" INTEGER
+	`WHERE` INTEGER NOT NULL PRIMARY KEY,
+	`ORDER` INTEGER
 ) ;
 
 alter table WHITE_QUOTED_REF add constraint FK_WHITE_QUOTED_REF
-	foreign key ("ORDER") references WHITE_QUOTED ("SELECT") ;
+	foreign key (`ORDER`) references WHITE_QUOTED (`SELECT`) ;
 
 -- /= = = = = = = = = = = = = = = = = = = =
 -- for the test of program reservation word
 -- = = = = = = = = = =/
 create table WHITE_PG_RESERV (
 	CLASS integer NOT NULL PRIMARY KEY,
-	"CASE" integer,
+	`CASE` integer,
 	PACKAGE integer,
-	"DEFAULT" integer,
+	`DEFAULT` integer,
 	NEW integer,
 	NATIVE integer,
 	VOID integer,
@@ -896,9 +896,9 @@ create table WHITE_PG_RESERV (
 	ABSTRACT integer,
 	FINAL integer,
 	FINALLY integer,
-	"RETURN" integer,
-	"DOUBLE" integer,
-	"FLOAT" integer,
+	`RETURN` integer,
+	`DOUBLE` integer,
+	`FLOAT` integer,
 	SHORT integer,
 	TYPE char(3),
 	RESERV_NAME varchar(32) NOT NULL
