@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.dbflute.helper.mapstring.MapListFile;
+import org.dbflute.helper.dfmap.DfMapFile;
 import org.dbflute.utflute.core.PlainTestCase;
 
 /**
@@ -21,7 +21,7 @@ public class WxLReverseTableNameMapTest extends PlainTestCase {
         }
 
         // ## Act ##
-        Map<String, Object> map = new MapListFile().readMap(new FileInputStream(mapFile));
+        Map<String, Object> map = new DfMapFile().readMap(new FileInputStream(mapFile));
 
         // ## Assert ##
         assertFalse(map.isEmpty());
