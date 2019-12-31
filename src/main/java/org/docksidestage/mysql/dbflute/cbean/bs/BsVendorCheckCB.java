@@ -407,7 +407,7 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTypeOfDatetime6Micros() { return doColumn("TYPE_OF_DATETIME_6_MICROS"); }
         /**
-         * TYPE_OF_TIMESTAMP: {TIMESTAMP(19)}
+         * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTypeOfTimestamp() { return doColumn("TYPE_OF_TIMESTAMP"); }

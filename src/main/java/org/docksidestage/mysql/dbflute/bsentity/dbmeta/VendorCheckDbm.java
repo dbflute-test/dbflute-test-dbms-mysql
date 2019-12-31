@@ -135,7 +135,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.time.LocalDateTime.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDatetime3Millis = cci("TYPE_OF_DATETIME_3_MILLIS", "TYPE_OF_DATETIME_3_MILLIS", null, null, java.time.LocalDateTime.class, "typeOfDatetime3Millis", null, false, false, false, "DATETIME", 19, 0, 3, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDatetime6Micros = cci("TYPE_OF_DATETIME_6_MICROS", "TYPE_OF_DATETIME_6_MICROS", null, null, java.time.LocalDateTime.class, "typeOfDatetime6Micros", null, false, false, false, "DATETIME", 19, 0, 6, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, false, "TIMESTAMP", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, true, "TIMESTAMP", 19, 0, null, "CURRENT_TIMESTAMP", false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfYear = cci("TYPE_OF_YEAR", "TYPE_OF_YEAR", null, null, java.time.LocalDate.class, "typeOfYear", null, false, false, false, "YEAR", null, null, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfBoolean = cci("TYPE_OF_BOOLEAN", "TYPE_OF_BOOLEAN", null, null, Boolean.class, "typeOfBoolean", null, false, false, false, "BIT", null, null, null, null, false, null, null, null, null, CDef.DefMeta.BooleanFlg, false);
@@ -255,7 +255,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfDatetime6Micros() { return _columnTypeOfDatetime6Micros; }
     /**
-     * TYPE_OF_TIMESTAMP: {TIMESTAMP(19)}
+     * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfTimestamp() { return _columnTypeOfTimestamp; }

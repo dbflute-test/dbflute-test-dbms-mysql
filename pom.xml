@@ -15,9 +15,9 @@
 	<properties>
 		<seasar.version>2.4.46</seasar.version>
 		<javassist.version>3.20.0-GA</javassist.version> <!-- java8 needs newer version -->
-		<dbflute.version>1.2.1</dbflute.version>
+		<dbflute.version>1.2.2</dbflute.version>
 		<mysql.jdbc.version>5.1.46</mysql.jdbc.version>
-		<utflute.version>0.8.9</utflute.version>
+		<utflute.version>0.9.0</utflute.version>
 	</properties>
 
 	<licenses>

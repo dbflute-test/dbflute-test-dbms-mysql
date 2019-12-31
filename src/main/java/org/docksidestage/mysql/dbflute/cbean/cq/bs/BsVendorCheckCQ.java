@@ -516,14 +516,14 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * TYPE_OF_TIMESTAMP: {TIMESTAMP(19)}
+     * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfTimestamp_Asc() { regOBA("TYPE_OF_TIMESTAMP"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * TYPE_OF_TIMESTAMP: {TIMESTAMP(19)}
+     * TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]}
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfTimestamp_Desc() { regOBD("TYPE_OF_TIMESTAMP"); return this; }
