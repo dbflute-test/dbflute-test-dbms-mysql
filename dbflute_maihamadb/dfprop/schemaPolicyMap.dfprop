@@ -53,6 +53,7 @@ map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
         ; statementList = list:{
             ; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
+            ; if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$ or $$first_columnName$$
         }
     }
     ; columnMap = map:{
