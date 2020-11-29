@@ -47,9 +47,6 @@ map:{
     #   [true]
     #     Add schema to table SQL name. (The table name on query is SCHEMA.TABLE)
     #
-    #   [false]
-    #     Non.
-    #
     #; isAvailableAddingSchemaToTableSqlName = false
     # - - - - - - - - - -/
 
@@ -57,10 +54,6 @@ map:{
     # o isAvailableAddingCatalogToTableSqlName: (NotRequired - Default false)
     #   [true]
     #     Add catalog to table SQL name. (The table name on query is CATALOG.SCHEMA.TABLE)
-    #     This property works only when isAvailableAddingSchemaToTableSqlName is true.
-    #
-    #   [false]
-    #     Non.
     #
     #; isAvailableAddingCatalogToTableSqlName = false
     # - - - - - - - - - -/
@@ -68,11 +61,7 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableDatabaseDependency: (NotRequired - Default false)
     #   [true]
-    #     Generate the method that depends on the database.
-    #     For example: cb.lockWithRR() at DB2.
-    #
-    #   [false]
-    #     Non.
+    #     Generate the method that depends on the database. e.g. cb.lockWithRR() at DB2.
     #
     ; isAvailableDatabaseDependency = true
     # - - - - - - - - - -/
@@ -80,14 +69,9 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableDatabaseNativeJDBC: (NotRequired - Default false)
     #   [true]
-    #     Use classes of database native JDBC on generated classes
-    #     to get best performances of DB access.
+    #     Use classes of database native JDBC on generated classes to get best performances of DB access.
     #     Your project needs to refer to database native JDBC.
     #
-    #   [false]
-    #     Non.
-    #
-    # for the test of no dependency on MySQL
     ; isAvailableDatabaseNativeJDBC = true
     # - - - - - - - - - -/
 
@@ -205,9 +189,6 @@ map:{
     #     Table names for display, e.g. on documents,
     #     are forcedly treated as upper case.
     #
-    #   [false]
-    #     Non.
-    #
     ; isTableDispNameUpperCase = true
     # - - - - - - - - - -/
 
@@ -228,9 +209,6 @@ map:{
     #   [true]
     #     Column names on SQL executed by condition-bean or behavior
     #     are forcedly treated as upper case. (except outside-SQL)
-    #
-    #   [false]
-    #     Non.
     #
     #; isColumnSqlNameUpperCase = false
     # - - - - - - - - - -/
@@ -316,16 +294,14 @@ map:{
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o quoteTableNameList: (NotRequired - Default list:{})
-    #  The list of table DB names that need to be quoted.
-    #  Specified tables is quoted on auto-generated SQL.
+    #  The list of table DB names that need to be quoted. Specified tables is quoted on auto-generated SQL.
     #
     ; quoteTableNameList = list:{MEMBER ; WHITE_QUOTED ; WHITE_QUOTED_REF}
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o quoteColumnNameList: (NotRequired - Default list:{})
-    #  The list of column DB names that need to be quoted.
-    #  Specified columns is quoted on auto-generated SQL.
+    #  The list of column DB names that need to be quoted. Specified columns is quoted on auto-generated SQL.
     #
     ; quoteColumnNameList = list:{
         # DB reservation
@@ -333,6 +309,25 @@ map:{
         # both Program and DB reservation
         ; CASE ; DEFAULT ; RETURN ; DOUBLE; FLOAT
     }
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o columnNullObjectMap: (NotRequired - Default map:{})
+    #  You can get a null object when the column is null.
+    #
+    #; columnNullObjectMap = map:{
+    #    ; providerPackage = $$packageBase$$.nogen.cache
+    #    ; isGearedToSpecify = true
+    #    ; columnMap = map:{
+    #        ; MEMBER_STATUS = map:{
+    #            ; DESCRIPTION = CachedMemberStatus.get(this, "$$columnName$$", $$primaryKey$$)
+    #        }
+    #        ; MEMBER_SECURITY = map:{
+    #            ; REMINDER_ANSWER = CachedMemberSecurity.get(this, "$$columnName$$", $$primaryKey$$)
+    #            ; REMINDER_QUESTION = CachedMemberSecurity.get(this, "$$columnName$$", $$primaryKey$$)
+    #        }
+    #    }
+    #}
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

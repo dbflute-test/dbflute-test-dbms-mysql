@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+	"http://www.seasar.org/dtd/components24.dtd">
+<components namespace="dbflute">
+    <include path="j2ee.dicon"/>
+
+    <!-- The components of DBFlute Runtime. -->
+    <component name="introduction" class="org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuDBFluteInitializer"/>
+    <component name="invokerAssistant" class="org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedInvokerAssistant"/>
+    <component name="commonColumnAutoSetupper" class="org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedCommonColumnAutoSetupper"/>
+    <component name="behaviorSelector" class="org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedBehaviorSelector"/>
+    <component name="behaviorCommandInvoker" class="org.dbflute.bhv.core.BehaviorCommandInvoker"/>
+
+    <!-- The components of Behavior. -->
+    <component name="immuMemberBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberBhv"/>
+    <component name="immuMemberAddressBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberAddressBhv"/>
+    <component name="immuMemberFollowingBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberFollowingBhv"/>
+    <component name="immuMemberLoginBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberLoginBhv"/>
+    <component name="immuMemberSecurityBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberSecurityBhv"/>
+    <component name="immuMemberServiceBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberServiceBhv"/>
+    <component name="immuMemberStatusBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberStatusBhv"/>
+    <component name="immuMemberWithdrawalBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuMemberWithdrawalBhv"/>
+    <component name="immuProductBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuProductBhv"/>
+    <component name="immuProductCategoryBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuProductCategoryBhv"/>
+    <component name="immuProductStatusBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuProductStatusBhv"/>
+    <component name="immuPurchaseBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuPurchaseBhv"/>
+    <component name="immuPurchasePaymentBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuPurchasePaymentBhv"/>
+    <component name="immuRegionBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuRegionBhv"/>
+    <component name="immuServiceRankBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuServiceRankBhv"/>
+    <component name="immuWithdrawalReasonBhv" class="org.docksidestage.mysql.dbflute.immuhama.exbhv.ImmuWithdrawalReasonBhv"/>
+</components>

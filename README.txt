@@ -9,6 +9,21 @@ The test project for MySQL and DBFlute.
 #                                                                              Environment
 #                                                                              ===========
 
+```
+docker-compose up -d
+export answer=y
+cd dbflute_resortlinedb
+sh manage.sh 0
+cd -
+cd dbflute_maihamadb
+sh manage.sh 0
+cd -
+cd dbflute_immuhamadb
+sh manage.sh 0
+cd -
+
+```
+
 
 # ========================================================================================
 #                                                                            Demo Resource

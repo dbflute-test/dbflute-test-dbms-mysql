@@ -15,11 +15,11 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-	; driver   = com.mysql.jdbc.Driver
-	; url      = jdbc:mysql://localhost:43306/maihamadb?characterEncoding=UTF-8
-	; schema   =
-	; user     = maihamadb
-	; password = maihamadb
+    ; driver   = com.mysql.jdbc.Driver
+    ; url      = jdbc:mysql://localhost:43306/maihamadb?characterEncoding=UTF-8
+    ; schema   =
+    ; user     = maihamadb
+    ; password = maihamadb
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o propertiesMap: (NotRequired - Default map:{})
@@ -91,7 +91,7 @@ map:{
         #  The settings are objectTypeTargetList, tableExceptList,
         #  tableTargetList, and columnExceptMap.
         #  They have the same specification as ones of the main schema.
-        #  Elements of this map are as below:
+        #  Elements of this map are as below: 
         #    o objectTypeTargetList: (NotRequired - Default map:{TABLE;VIEW})
         #    o tableExceptList: (NotRequired - Default list:{})
         #    o tableTargetList: (NotRequired - Default list:{})
@@ -118,6 +118,10 @@ map:{
         # o typeMappingMap: (NotRequired - Default map:{NUMERIC=$$AutoMapping$$ ; DECIMAL=$$AutoMapping$$})
         #  If you want to change mappings from default mappings, you can specify your original mappings.
         #  But it is possible that unanticipated problems occurs, so be careful!
+        #; typeMappingMap = map:{
+        #    # AutoMapping for Numeric and Decimal, (1-9,0): INTEGER, (10-18,0): BIGINT, else: NUMERIC
+        #    ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
+        #}
         ; typeMappingMap = map:{
             # for the test of type-mapping by name
             ; $$df:point$$ = map:{

@@ -33,8 +33,8 @@ map:{
     #  the SQL for your DBFlute project.
     #  Your possible choices are:
     #
-    #    mysql, postgresql, oracle, db2, mssql,
-    #    h2, derby, (sqlite, msaccess)
+    #    mysql, postgresql, oracle, db2, sqlserver,
+    #    h2, derby, (sqlite, firebird, msaccess)
     #
     ; database = mysql
     # - - - - - - - - - -/
@@ -44,7 +44,7 @@ map:{
     #  The target language.
     #  Your possible choices are:
     #
-    #       java, csharp
+    #       java, csharp, scala
     #
     ; targetLanguage = java
     # - - - - - - - - - -/
@@ -52,10 +52,9 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o targetContainer: (Required)
     #  The target DI container.
-    #  If your target language is 'csharp', you can specify 'seasar' only.
     #  Your possible choices are:
     #
-    #       spring, guice, seasar, cdi
+    #       spring, guice, seasar, cdi, lasta_di
     #
     ; targetContainer = seasar
     # - - - - - - - - - -/
@@ -69,7 +68,7 @@ map:{
     #  If this property is specified and detail package properties is not specified,
     #  Then the packages of generated class are as follows:
     #
-    #  ex) packageBase = org.docksidestage.dbflute
+    #  e.g. packageBase = org.docksidestage.dbflute
     #      --> org.docksidestage.dbflute.allcommon
     #      --> org.docksidestage.dbflute.bsbhv
     #      --> org.docksidestage.dbflute.bsentity
@@ -125,11 +124,11 @@ map:{
     #  Basically you don't need this if the style of table name is like 'FOO_STATUS'.
     #    [true]
     #      The table name is camel case.
-    #      ex) If the table name is 'OrderDetail', the class name is 'OrderDetail'.
+    #      e.g. If the table name is 'OrderDetail', the class name is 'OrderDetail'.
     #
     #    [false]
-    #      ex) If the table name is 'ORDER_DETAIL', the class name is 'OrderDetail'.
-    #      ex) If the table name is 'OrderDetail', the class name is 'Orderdetail'.
+    #      e.g. If the table name is 'ORDER_DETAIL', the class name is 'OrderDetail'.
+    #      e.g. If the table name is 'OrderDetail', the class name is 'Orderdetail'.
     #
     #; isTableNameCamelCase = false
     # - - - - - - - - - -/
@@ -140,11 +139,11 @@ map:{
     #  Basically you don't need this if the style of column name is like 'FOO_NAME'.
     #    [true]
     #      The column name is camel case.
-    #      ex) If the column name is 'OrderDetailId', the class name is 'OrderDetailId'.
+    #      e.g. If the column name is 'OrderDetailId', the class name is 'OrderDetailId'.
     #
     #    [false]
-    #      ex) If the column name is 'ORDER_DETAIL_ID', the class name is 'OrderDetailId'.
-    #      ex) If the column name is 'OrderDetailId',  the class name is 'Orderdetailid'.
+    #      e.g. If the column name is 'ORDER_DETAIL_ID', the class name is 'OrderDetailId'.
+    #      e.g. If the column name is 'OrderDetailId',  the class name is 'Orderdetailid'.
     #
     #; isColumnNameCamelCase = false
     # - - - - - - - - - -/
@@ -152,7 +151,7 @@ map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o projectPrefix: (NotRequired - Default '')
     #  If the value is 'Ld', all class names are 'LdXxx'.
-    #  Basically you don't need this if you don't want the common prefix of class name.
+    #  It may be needed if multiple DB structure, to identify allcommon and same-name entities.
     #
     #; projectPrefix = Ld
     # - - - - - - - - - -/
@@ -171,7 +170,6 @@ map:{
     #  The value of the author tag in java-doc of generated classes.
     #  All classes are target.
     #
-    # @JavaOnly
     #; classAuthor = DBFlute(AutoGenerator)
     # - - - - - - - - - -/
 

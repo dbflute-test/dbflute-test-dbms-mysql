@@ -1,4 +1,19 @@
 map:{
+    ; 2020/12/30 00:15:56 = map:{
+        ; diffDate = 2020/12/30 00:15:56
+        ; tableCount = map:{
+            ; next = 119
+            ; previous = 118
+        }
+        ; diffAuthor = p1us2er0
+        ; diffGitBranch = feature/immuhama
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2020/01/01 00:01:11 = map:{
         ; diffDate = 2020/01/01 00:01:11
         ; diffAuthor = jflute

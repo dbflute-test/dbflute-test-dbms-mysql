@@ -96,6 +96,7 @@ map:{
             ; workableRepsEnvTypeList = list:{$$ALL$$}
             ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ }
             ; tableTargetList = list:{}
+            ; errorIfFirstDateAfter = null
         }
     }
     # - - - - - - - - - -/
@@ -127,7 +128,7 @@ map:{
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # o filterVariablesMap: (NotRequired - Default 'map:{}')
+    # o filterVariablesMap: (NotRequired - Default map:{})
     #  You can specify the filter variables for DDL.
     #
     ; filterVariablesMap = map:{
@@ -192,7 +193,8 @@ map:{
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o applicationPlaySqlDirectory: (NotRequired - Default '')
-    #  This property is relative path to Application PlaySql directory.
+    #  This property is relative path to Application PlaySql directory,
+    #  which is basically used with ApplicationBehavior.
     #
     #; applicationPlaySqlDirectory = ../../foo-project/dbflute_apbranch/playsql
     # - - - - - - - - - -/
@@ -255,5 +257,6 @@ map:{
     #  You can execute the SQL statements before initializing schema.
     #
     #; initializeFirstSqlList = list:{}
+    # - - - - - - - - - -/
 }
 # ----------------/
