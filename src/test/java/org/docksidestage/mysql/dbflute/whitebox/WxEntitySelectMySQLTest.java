@@ -59,7 +59,7 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
             log(e.getMessage());
         }
         assertEquals(Integer.MIN_VALUE, vendorLargeDataRefBhv.getFetchSizeMap().get("selectEntity"));
-        assertEquals(com.mysql.jdbc.RowDataDynamic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectEntity"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStreaming.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectEntity"));
     }
 
     public void test_entitySelectFetchSize_selectList_static() {
@@ -75,6 +75,6 @@ public class WxEntitySelectMySQLTest extends UnitContainerTestCase {
         assertHasAnyElement(memberList);
         assertEquals(countAll, memberList.size());
         assertEquals(0, vendorLargeDataRefBhv.getFetchSizeMap().get("selectList"));
-        assertEquals(com.mysql.jdbc.RowDataStatic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList"));
     }
 }

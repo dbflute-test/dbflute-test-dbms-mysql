@@ -74,10 +74,10 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
                 ResultSet rs = cursor.cursor();
                 log("ResultSet   = " + rs.getClass());
                 rs.next(); // select first row
-                com.mysql.jdbc.ResultSetImpl rsImpl = (com.mysql.jdbc.ResultSetImpl) rs;
-                com.mysql.jdbc.RowData rowData = extractRowDataOnResutSet(rsImpl);
+                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
+                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
                 log("rowData     = " + rowData.getClass());
-                assertTrue(rowData instanceof com.mysql.jdbc.RowDataDynamic);
+                assertTrue(rowData instanceof com.mysql.cj.protocol.a.result.ResultsetRowsStreaming);
                 assertDbAccess();
                 return null;
             }
@@ -101,10 +101,10 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
                 ResultSet rs = cursor.cursor();
                 log("ResultSet   = " + rs.getClass());
                 rs.next(); // select first row
-                com.mysql.jdbc.ResultSetImpl rsImpl = (com.mysql.jdbc.ResultSetImpl) rs;
-                com.mysql.jdbc.RowData rowData = extractRowDataOnResutSet(rsImpl);
+                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
+                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
                 log("rowData     = " + rowData.getClass());
-                assertTrue(rowData instanceof com.mysql.jdbc.RowDataStatic);
+                assertTrue(rowData instanceof com.mysql.cj.protocol.a.result.ResultsetRowsStatic);
                 memberBhv.selectCount(new MemberCB()); // you can select
                 return null;
             }
@@ -137,8 +137,8 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
                 ResultSet rs = cursor.cursor();
                 log("ResultSet   = " + rs.getClass());
                 rs.next(); // select first row
-                com.mysql.jdbc.ResultSetImpl rsImpl = (com.mysql.jdbc.ResultSetImpl) rs;
-                com.mysql.jdbc.RowData rowData = extractRowDataOnResutSet(rsImpl);
+                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
+                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
                 log("rowData     = " + rowData.getClass());
                 List<?> rows = extractRowsOnRowData(rowData);
                 log("rows.size() = " + rows.size());
@@ -146,7 +146,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
                 memberBhv.selectCount(new MemberCB()); // no exception
                 memberBhv.selectList(new MemberCB()); // no exception
                 assertEquals(0, memberBhv.getFetchSizeMap().get("selectList"));
-                assertEquals(com.mysql.jdbc.RowDataStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
+                assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
                 return null;
             }
         };
@@ -167,19 +167,19 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         assertHasAnyElement(memberList);
         assertEquals(countAll, memberList.size());
         assertEquals(0, memberBhv.getFetchSizeMap().get("selectList"));
-        assertEquals(com.mysql.jdbc.RowDataStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
     }
 
     // ===================================================================================
     //                                                                   Reflection Helper
     //                                                                   =================
-    protected com.mysql.jdbc.RowData extractRowDataOnResutSet(com.mysql.jdbc.ResultSetImpl rsImpl) {
-        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.jdbc.ResultSetImpl.class, "rowData");
-        return (com.mysql.jdbc.RowData) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
+    protected com.mysql.cj.protocol.ResultsetRows extractRowDataOnResutSet(com.mysql.cj.jdbc.result.ResultSetImpl rsImpl) {
+        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.cj.jdbc.result.ResultSetImpl.class, "rowData");
+        return (com.mysql.cj.protocol.ResultsetRows) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
     }
 
-    protected List<?> extractRowsOnRowData(com.mysql.jdbc.RowData rowData) {
-        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.jdbc.RowDataStatic.class, "rows");
+    protected List<?> extractRowsOnRowData(com.mysql.cj.protocol.ResultsetRows rowData) {
+        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, "rows");
         return (List<?>) DfReflectionUtil.getValueForcedly(rowsField, rowData);
     }
 }

@@ -33,13 +33,12 @@ import org.docksidestage.mysql.dbflute.exbhv.cursor.PurchaseSummaryMemberCursorH
 import org.docksidestage.mysql.dbflute.exbhv.pmbean.PurchaseSummaryMemberPmb;
 import org.docksidestage.mysql.dbflute.exentity.Member;
 
-import com.mysql.jdbc.RowData;
-
 /**
  * The behavior of member. <br>
  * You can implement your original methods here. <br>
  * This class is NOT overridden when re-generating. <br>
  * @author DBFlute(AutoGenerator)
+ * @author jflute
  */
 public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv {
 
@@ -73,7 +72,7 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                     final String c = ", ";
                     _log.debug(memberId + c + memberName + c + birthdate + c + formalizedDatetime + c + purchaseSummary);
 
-                }// ResultSetのCloseはFrameworkが行うので必要なし
+                } // ResultSetのCloseはFrameworkが行うので必要なし
                 return null;// ここで処理が完結してるので戻り値は不要
             }
         };
@@ -156,7 +155,8 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
                             @Override
                             protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
                                 ResultSet rs = super.executeQuery(ps);
-                                RowData rowData = extractRowDataOnResutSet((com.mysql.jdbc.ResultSetImpl) rs);
+                                com.mysql.cj.protocol.ResultsetRows rowData =
+                                        extractRowDataOnResutSet((com.mysql.cj.jdbc.result.ResultSetImpl) rs);
                                 _rowDataClassMap.put("selectList", rowData.getClass());
                                 return rs;
                             }
@@ -204,13 +204,13 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
     // ===================================================================================
     //                                                                   Reflection Helper
     //                                                                   =================
-    protected com.mysql.jdbc.RowData extractRowDataOnResutSet(com.mysql.jdbc.ResultSetImpl rsImpl) {
-        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.jdbc.ResultSetImpl.class, "rowData");
-        return (com.mysql.jdbc.RowData) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
+    protected com.mysql.cj.protocol.ResultsetRows extractRowDataOnResutSet(com.mysql.cj.jdbc.result.ResultSetImpl rsImpl) {
+        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.cj.jdbc.result.ResultSetImpl.class, "rowData");
+        return (com.mysql.cj.protocol.ResultsetRows) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
     }
 
-    protected List<?> extractRowsOnRowData(com.mysql.jdbc.RowData rowData) {
-        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.jdbc.RowDataStatic.class, "rows");
+    protected List<?> extractRowsOnRowData(com.mysql.cj.protocol.ResultsetRows rowData) {
+        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, "rows");
         return (List<?>) DfReflectionUtil.getValueForcedly(rowsField, rowData);
     }
 }

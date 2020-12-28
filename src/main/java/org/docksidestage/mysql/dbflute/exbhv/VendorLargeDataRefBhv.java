@@ -24,8 +24,6 @@ import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.mysql.dbflute.bsbhv.BsVendorLargeDataRefBhv;
 import org.docksidestage.mysql.dbflute.exentity.VendorLargeDataRef;
 
-import com.mysql.jdbc.RowData;
-
 /**
  * The behavior of vendor_large_data_ref.
  * <p>
@@ -113,7 +111,8 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
                             @Override
                             protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
                                 ResultSet rs = super.executeQuery(ps);
-                                RowData rowData = extractRowDataOnResutSet((com.mysql.jdbc.ResultSetImpl) rs);
+                                com.mysql.cj.protocol.ResultsetRows rowData =
+                                        extractRowDataOnResutSet((com.mysql.cj.jdbc.result.ResultSetImpl) rs);
                                 _rowDataClassMap.put("selectEntity", rowData.getClass());
                                 return rs;
                             }
@@ -166,7 +165,8 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
                             @Override
                             protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
                                 ResultSet rs = super.executeQuery(ps);
-                                RowData rowData = extractRowDataOnResutSet((com.mysql.jdbc.ResultSetImpl) rs);
+                                com.mysql.cj.protocol.ResultsetRows rowData =
+                                        extractRowDataOnResutSet((com.mysql.cj.jdbc.result.ResultSetImpl) rs);
                                 _rowDataClassMap.put("selectList", rowData.getClass());
                                 return rs;
                             }
@@ -180,13 +180,13 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
     // ===================================================================================
     //                                                                   Reflection Helper
     //                                                                   =================
-    protected com.mysql.jdbc.RowData extractRowDataOnResutSet(com.mysql.jdbc.ResultSetImpl rsImpl) {
-        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.jdbc.ResultSetImpl.class, "rowData");
-        return (com.mysql.jdbc.RowData) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
+    protected com.mysql.cj.protocol.ResultsetRows extractRowDataOnResutSet(com.mysql.cj.jdbc.result.ResultSetImpl rsImpl) {
+        Field rowDataField = DfReflectionUtil.getWholeField(com.mysql.cj.jdbc.result.ResultSetImpl.class, "rowData");
+        return (com.mysql.cj.protocol.ResultsetRows) DfReflectionUtil.getValueForcedly(rowDataField, rsImpl);
     }
 
-    protected List<?> extractRowsOnRowData(com.mysql.jdbc.RowData rowData) {
-        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.jdbc.RowDataStatic.class, "rows");
+    protected List<?> extractRowsOnRowData(com.mysql.cj.protocol.ResultsetRows rowData) {
+        Field rowsField = DfReflectionUtil.getWholeField(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, "rows");
         return (List<?>) DfReflectionUtil.getValueForcedly(rowsField, rowData);
     }
 }
