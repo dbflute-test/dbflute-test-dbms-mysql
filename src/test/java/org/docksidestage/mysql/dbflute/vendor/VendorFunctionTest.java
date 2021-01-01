@@ -150,11 +150,11 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_SpecifyDerivedReferrer_option_trunc_date() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.specify().columnPurchaseDatetime();
+                subCB.specify().columnPurchasePrice();
             }
-        }, Member.ALIAS_latestLoginDatetime, op -> op.trunc("df:yyyyMMdd"));
+        }, Member.ALIAS_averagePurchasePrice, op -> op.trunc(1));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);

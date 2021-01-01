@@ -434,7 +434,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         assertFalse(opt.isPresent());
     }
 
-    public void test_DATETIME_select_millis_headache_nonTruncated_nonRound() {
+    public void test_DATETIME_select_millis_headache_nonTruncated_autoRound() {
         // ## Arrange ##
         VendorCheck inserted = new VendorCheck();
         inserted.setVendorCheckId(99999L);
@@ -451,7 +451,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         });
 
         // ## Assert ##
-        assertFalse(opt.isPresent());
+        assertTrue(opt.isPresent()); // true since MySQL JDBC driver 8.x, auto-rounded?
     }
 
     public void test_DATETIME_select_millis_headache_truncated() {

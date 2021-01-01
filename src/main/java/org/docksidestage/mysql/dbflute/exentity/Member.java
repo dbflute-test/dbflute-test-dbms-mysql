@@ -3,6 +3,7 @@
  */
 package org.docksidestage.mysql.dbflute.exentity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.dbflute.jdbc.ClassificationMeta;
@@ -27,6 +28,15 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
     public static final String ALIAS_productKindCount = "PRODUCT_KIND_COUNT";
     public static final String ALIAS_groupExpression = "GROUP_EXPRESSION";
 
+    /** AVERAGE_PURCHASE_PRICE: Derived Referrer Alias. */
+    public static final String ALIAS_averagePurchasePrice = "AVERAGE_PURCHASE_PRICE";
+
+    /** FIRST: Derived Referrer Alias. */
+    public static final String ALIAS_first = "FIRST";
+
+    /** SECOND: Derived Referrer Alias. */
+    public static final String ALIAS_second = "SECOND";
+
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
@@ -36,14 +46,11 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
     protected Integer _productKindCount;
     protected String _groupExpression;
 
-    /** FIRST: Derived Referrer Alias. */
-    public static final String ALIAS_first = "FIRST";
+    /** AVERAGE_PURCHASE_PRICE: (Derived Referrer) */
+    protected BigDecimal _averagePurchasePrice;
 
     /** FIRST: (Derived Referrer) */
     protected Integer _first;
-
-    /** SECOND: Derived Referrer Alias. */
-    public static final String ALIAS_second = "SECOND";
 
     /** SECOND: (Derived Referrer) */
     protected Integer _second;
@@ -138,5 +145,21 @@ public class Member extends org.docksidestage.mysql.dbflute.bsentity.BsMember {
         if (!_nocheckClassification) {
             super.checkClassificationCode(columnDbName, meta, value);
         }
+    }
+
+    /**
+     * [get] AVERAGE_PURCHASE_PRICE: (Derived Referrer)
+     * @return The value of the column 'AVERAGE_PURCHASE_PRICE'. (NullAllowed)
+     */
+    public BigDecimal getAveragePurchasePrice() {
+        return _averagePurchasePrice;
+    }
+
+    /**
+     * [set] AVERAGE_PURCHASE_PRICE: (Derived Referrer)
+     * @param averagePurchasePrice The value of the column 'AVERAGE_PURCHASE_PRICE'. (NullAllowed)
+     */
+    public void setAveragePurchasePrice(BigDecimal averagePurchasePrice) {
+        _averagePurchasePrice = averagePurchasePrice;
     }
 }
