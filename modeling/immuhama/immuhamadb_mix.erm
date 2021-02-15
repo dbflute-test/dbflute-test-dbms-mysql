@@ -118,54 +118,68 @@
 	</tablespace_set>
 	<diagram_walkers>
 		<table>
-			<physical_name>CDEF_MEMBER_STATUS</physical_name>
-			<logical_name>[区分値]会員ステータス</logical_name>
-			<description>会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！&#x0D;業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。&#x0D;&#x0D;こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。</description>
+			<physical_name>EVENT_MEMBER</physical_name>
+			<logical_name>[イベント]会員</logical_name>
+			<description>会員のプロフィールやアカウントなどの基本情報を保持する。&#x0D;基本的に物理削除はなく、退会したらステータスが退会会員になる。&#x0D;ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>16</x>
-			<y>16</y>
+			<x>781</x>
+			<y>1</y>
 			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
+				<r>128</r>
+				<g>128</g>
+				<b>192</b>
 			</color>
 			<connections>
+				<relationship>
+					<name>FK_EVENT_MEMBER_MEMBER</name>
+					<source>table.MEMBER</source>
+					<target>table.EVENT_MEMBER</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>MEMBER_ID</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>1..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
-					<physical_name>MEMBER_STATUS_CODE</physical_name>
-					<logical_name>会員ステータスコード</logical_name>
-					<type>character(n)</type>
-					<length>3</length>
-					<description>会員ステータスを識別するコード。&#x0D;固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば &quot;FML&quot; とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)&#x0D;</description>
+					<physical_name>EVENT_MEMBER_ID</physical_name>
+					<logical_name>イベント会員ID</logical_name>
+					<type>bigint</type>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
+					<auto_increment>true</auto_increment>
 				</normal_column>
 				<normal_column>
-					<physical_name>MEMBER_STATUS_NAME</physical_name>
-					<logical_name>会員ステータス名称</logical_name>
+					<physical_name>MEMBER_ID</physical_name>
+					<referred_column>table.MEMBER.MEMBER_ID</referred_column>
+					<relationship>FK_EVENT_MEMBER_MEMBER</relationship>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>MEMBER_NAME</physical_name>
+					<logical_name>会員名称</logical_name>
+					<type>varchar(n)</type>
+					<length>100</length>
+					<description>会員のフルネームの名称。&#x0D;苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>MEMBER_ACCOUNT</physical_name>
+					<logical_name>会員アカウント</logical_name>
 					<type>varchar(n)</type>
 					<length>50</length>
-					<description>表示用の名称。&#x0D;国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>DESCRIPTION</physical_name>
-					<logical_name>説明</logical_name>
-					<type>varchar(n)</type>
-					<length>200</length>
-					<description>会員ステータスそれぞれの説明。&#x0D;区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>DISPLAY_ORDER</physical_name>
-					<logical_name>表示順</logical_name>
-					<type>integer</type>
-					<description>UI上のステータスの表示順を示すNO。&#x0D;並べるときは、このカラムに対して昇順のソート条件にする。</description>
+					<description>ログインIDとして利用する。&#x0D;昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?</description>
 					<not_null>true</not_null>
 					<unique_key>true</unique_key>
 				</normal_column>
+				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 			</indexes>
@@ -175,66 +189,72 @@
 			</table_properties>
 		</table>
 		<table>
-			<physical_name>CDEF_PRODUCT_CATEGORY</physical_name>
-			<logical_name>[区分値]商品カテゴリ</logical_name>
-			<description>商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。</description>
+			<physical_name>EVENT_MEMBER_STATUS</physical_name>
+			<logical_name>[イベント]会員ステータス</logical_name>
+			<description>会員のプロフィールやアカウントなどの基本情報を保持する。&#x0D;基本的に物理削除はなく、退会したらステータスが退会会員になる。&#x0D;ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>862</x>
-			<y>1160</y>
+			<x>385</x>
+			<y>-12</y>
 			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
+				<r>128</r>
+				<g>128</g>
+				<b>192</b>
 			</color>
 			<connections>
 				<relationship>
-					<name>FK_PRODUCT_CATEGORY_PARENT</name>
-					<source>table.CDEF_PRODUCT_CATEGORY</source>
-					<target>table.CDEF_PRODUCT_CATEGORY</target>
-					<bendpoint>
-						<relative>true</relative>
-						<x>100</x>
-						<y>100</y>
-					</bendpoint>
+					<name>FK_MEMBER_STATUS_XX_MEMBER_STATUS</name>
+					<source>table.MEMBER_STATUS</source>
+					<target>table.EVENT_MEMBER_STATUS</target>
 					<fk_columns>
 						<fk_column>
-							<fk_column_name>PARENT_CATEGORY_CODE</fk_column_name>
+							<fk_column_name>MEMBER_STATUS_CODE</fk_column_name>
 						</fk_column>
 					</fk_columns>
 					<parent_cardinality>1</parent_cardinality>
 					<child_cardinality>0..n</child_cardinality>
 					<reference_for_pk>true</reference_for_pk>
-					<source_xp>100</source_xp>
-					<source_yp>50</source_yp>
-					<target_xp>50</target_xp>
-					<target_yp>100</target_yp>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
+				<relationship>
+					<name>FK_MEMBER_STATUS_XX_MEMBER</name>
+					<source>table.MEMBER</source>
+					<target>table.EVENT_MEMBER_STATUS</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>MEMBER_ID</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>1..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
 				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
-					<physical_name>PRODUCT_CATEGORY_CODE</physical_name>
-					<logical_name>商品カテゴリコード</logical_name>
-					<type>character(n)</type>
-					<length>3</length>
-					<description>自分のテーブルの別のレコードからも参照される。</description>
+					<physical_name>MEMBER_STATUS_ID</physical_name>
+					<logical_name>会員ステータスID</logical_name>
+					<type>bigint</type>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
+					<auto_increment>true</auto_increment>
 				</normal_column>
 				<normal_column>
-					<physical_name>PRODUCT_CATEGORY_NAME</physical_name>
-					<logical_name>商品カテゴリ名称</logical_name>
-					<type>varchar(n)</type>
-					<length>50</length>
+					<physical_name>MEMBER_ID</physical_name>
+					<referred_column>table.MEMBER.MEMBER_ID</referred_column>
+					<relationship>FK_MEMBER_STATUS_XX_MEMBER</relationship>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>PARENT_CATEGORY_CODE</physical_name>
-					<logical_name>親カテゴリコード</logical_name>
-					<referred_column>table.CDEF_PRODUCT_CATEGORY.PRODUCT_CATEGORY_CODE</referred_column>
-					<relationship>FK_PRODUCT_CATEGORY_PARENT</relationship>
-					<description>最上位の場合はデータなし。まさひく自己参照FKカラム！</description>
+					<physical_name>MEMBER_STATUS_CODE</physical_name>
+					<referred_column>table.MEMBER_STATUS.MEMBER_STATUS_CODE</referred_column>
+					<relationship>FK_MEMBER_STATUS_XX_MEMBER_STATUS</relationship>
+					<not_null>true</not_null>
 				</normal_column>
+				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 			</indexes>
@@ -244,208 +264,129 @@
 			</table_properties>
 		</table>
 		<table>
-			<physical_name>CDEF_PRODUCT_STATUS</physical_name>
-			<logical_name>[区分値]商品ステータス</logical_name>
-			<description>商品のステータスを表現する固定的なマスタ。</description>
+			<physical_name>EVENT_PRODUCT</physical_name>
+			<logical_name>[イベント]商品</logical_name>
+			<description></description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>854</x>
-			<y>1400</y>
+			<x>428</x>
+			<y>1393</y>
 			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
+				<r>128</r>
+				<g>128</g>
+				<b>192</b>
 			</color>
 			<connections>
+				<relationship>
+					<name>FK_EVENT_PRODUCT_PRODUCT</name>
+					<source>table.PRODUCT</source>
+					<target>table.EVENT_PRODUCT</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>PRODUCT_ID</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
+				<relationship>
+					<name>FK_EVENT_PRODUCT_PRODUCT_STATUS</name>
+					<source>table.PRODUCT_STATUS</source>
+					<target>table.EVENT_PRODUCT</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>PRODUCT_STATUS_CODE</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
+				<relationship>
+					<name>FK_EVENT_PRODUCT_PRODUCT_CATEGORY</name>
+					<source>table.PRODUCT_CATEGORY</source>
+					<target>table.EVENT_PRODUCT</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>PRODUCT_CATEGORY_CODE</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
 			</connections>
 			<columns>
+				<normal_column>
+					<physical_name>EVENT_PRODUCT_ID</physical_name>
+					<logical_name>イベント商品ID</logical_name>
+					<type>bigint</type>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+					<auto_increment>true</auto_increment>
+				</normal_column>
+				<normal_column>
+					<physical_name>PRODUCT_ID</physical_name>
+					<referred_column>table.PRODUCT.PRODUCT_ID</referred_column>
+					<relationship>FK_EVENT_PRODUCT_PRODUCT</relationship>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>PRODUCT_NAME</physical_name>
+					<logical_name>商品名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。&#x0D;実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>PRODUCT_HANDLE_CODE</physical_name>
+					<logical_name>商品ハンドルコード</logical_name>
+					<type>varchar(n)</type>
+					<length>100</length>
+					<description>これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...</description>
+					<not_null>true</not_null>
+					<unique_key>true</unique_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>PRODUCT_CATEGORY_CODE</physical_name>
+					<referred_column>table.PRODUCT_CATEGORY.PRODUCT_CATEGORY_CODE</referred_column>
+					<relationship>FK_EVENT_PRODUCT_PRODUCT_CATEGORY</relationship>
+					<not_null>true</not_null>
+				</normal_column>
 				<normal_column>
 					<physical_name>PRODUCT_STATUS_CODE</physical_name>
-					<logical_name>商品ステータスコード</logical_name>
-					<type>character(n)</type>
-					<length>3</length>
-					<description>商品ステータスを識別するコード。</description>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-				</normal_column>
-				<normal_column>
-					<physical_name>PRODUCT_STATUS_NAME</physical_name>
-					<logical_name>商品ステータス名称</logical_name>
-					<type>varchar(n)</type>
-					<length>50</length>
-					<description>表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。</description>
+					<referred_column>table.PRODUCT_STATUS.PRODUCT_STATUS_CODE</referred_column>
+					<relationship>FK_EVENT_PRODUCT_PRODUCT_STATUS</relationship>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>DISPLAY_ORDER</physical_name>
-					<logical_name>表示順</logical_name>
+					<physical_name>REGULAR_PRICE</physical_name>
+					<logical_name>定価</logical_name>
 					<type>integer</type>
-					<description>もう、ご想像の通りです。</description>
 					<not_null>true</not_null>
-					<unique_key>true</unique_key>
 				</normal_column>
+				<column_group>共通カラム</column_group>
+				<column_group>排他制御カラム</column_group>
 			</columns>
 			<indexes>
-			</indexes>
-			<compound_unique_key_list>
-			</compound_unique_key_list>
-			<table_properties>
-			</table_properties>
-		</table>
-		<table>
-			<physical_name>CDEF_REGION</physical_name>
-			<logical_name>[区分値]地域</logical_name>
-			<description>主に会員の住所に対応する漠然とした地域。&#x0D;かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。</description>
-			<font_name>Lucida Grande</font_name>
-			<font_size>9</font_size>
-			<x>1435</x>
-			<y>20</y>
-			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
-			</color>
-			<connections>
-			</connections>
-			<columns>
-				<normal_column>
-					<physical_name>REGION_ID</physical_name>
-					<logical_name>地域ID</logical_name>
-					<type>integer</type>
-					<description>地域をしっかりと識別するID。&#x0D;珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。</description>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-				</normal_column>
-				<normal_column>
-					<physical_name>REGION_NAME</physical_name>
-					<logical_name>地域名称</logical_name>
-					<type>varchar(n)</type>
-					<length>50</length>
-					<description>地域を漠然と表す名称。</description>
-					<not_null>true</not_null>
-				</normal_column>
-			</columns>
-			<indexes>
-			</indexes>
-			<compound_unique_key_list>
-			</compound_unique_key_list>
-			<table_properties>
-			</table_properties>
-		</table>
-		<table>
-			<physical_name>CDEF_SERVICE_RANK</physical_name>
-			<logical_name>[区分値]サービスランク</logical_name>
-			<description>会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)</description>
-			<font_name>Lucida Grande</font_name>
-			<font_size>9</font_size>
-			<x>1679</x>
-			<y>681</y>
-			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
-			</color>
-			<connections>
-			</connections>
-			<columns>
-				<normal_column>
-					<physical_name>SERVICE_RANK_CODE</physical_name>
-					<logical_name>サービスランクコード</logical_name>
-					<type>character(n)</type>
-					<length>3</length>
-					<description>サービスランクを識別するコード。</description>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-				</normal_column>
-				<normal_column>
-					<physical_name>SERVICE_RANK_NAME</physical_name>
-					<logical_name>サービスランク名称</logical_name>
-					<type>varchar(n)</type>
-					<length>50</length>
-					<description>サービスランクの名称。&#x0D;ゴールドとかプラチナとか基本的には威厳のある名前</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>SERVICE_POINT_INCIDENCE</physical_name>
-					<logical_name>サービスポイント発生率</logical_name>
-					<type>decimal(p,s)</type>
-					<length>5</length>
-					<decimal>3</decimal>
-					<description>購入ごとのサービスポイントの発生率。&#x0D;購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>NEW_ACCEPTABLE_FLG</physical_name>
-					<logical_name>新規受け入れ可能フラグ</logical_name>
-					<type>integer</type>
-					<description>このランクへの新規受け入れができるかどうか。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>DESCRIPTION</physical_name>
-					<logical_name>説明</logical_name>
-					<type>varchar(n)</type>
-					<length>200</length>
-					<description>ランクに関する業務的な説明。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>DISPLAY_ORDER</physical_name>
-					<logical_name>表示順</logical_name>
-					<type>integer</type>
-					<description>UI上の表示順を表現する番号。</description>
-					<not_null>true</not_null>
-					<unique_key>true</unique_key>
-				</normal_column>
-			</columns>
-			<indexes>
-			</indexes>
-			<compound_unique_key_list>
-			</compound_unique_key_list>
-			<table_properties>
-			</table_properties>
-		</table>
-		<table>
-			<physical_name>CDEF_WITHDRAWAL_REASON</physical_name>
-			<logical_name>[区分値]退会理由</logical_name>
-			<description>会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...</description>
-			<font_name>Lucida Grande</font_name>
-			<font_size>9</font_size>
-			<x>881</x>
-			<y>960</y>
-			<color>
-				<r>255</r>
-				<g>251</g>
-				<b>143</b>
-			</color>
-			<connections>
-			</connections>
-			<columns>
-				<normal_column>
-					<physical_name>WITHDRAWAL_REASON_CODE</physical_name>
-					<logical_name>退会理由コード</logical_name>
-					<type>character(n)</type>
-					<length>3</length>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-				</normal_column>
-				<normal_column>
-					<physical_name>WITHDRAWAL_REASON_TEXT</physical_name>
-					<logical_name>退会理由テキスト</logical_name>
-					<type>text</type>
-					<description>退会理由の内容。&#x0D;テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>DISPLAY_ORDER</physical_name>
-					<logical_name>表示順</logical_name>
-					<type>integer</type>
-					<description>もう、ご想像の通りです。</description>
-					<not_null>true</not_null>
-					<unique_key>true</unique_key>
-				</normal_column>
-			</columns>
-			<indexes>
+				<index>
+					<name>IX_PRODUCT_PRODUCT_NAME</name>
+					<type>BTREE</type>
+					<non_unique>true</non_unique>
+					<columns>
+						<column>
+							<column_id>table.EVENT_PRODUCT.PRODUCT_NAME</column_id>
+						</column>
+					</columns>
+				</index>
 			</indexes>
 			<compound_unique_key_list>
 			</compound_unique_key_list>
@@ -466,6 +407,21 @@
 				<b>192</b>
 			</color>
 			<connections>
+				<relationship>
+					<name>FK_MEMBER_MEMBER_STATUS</name>
+					<source>table.MEMBER_STATUS</source>
+					<target>table.MEMBER</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>MEMBER_STATUS_CODE</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
@@ -478,14 +434,40 @@
 					<auto_increment>true</auto_increment>
 				</normal_column>
 				<normal_column>
-					<physical_name>MEMBER_REGISTER_DATETIME</physical_name>
-					<logical_name>会員登録日時</logical_name>
-					<type>datetime</type>
+					<physical_name>MEMBER_NAME</physical_name>
+					<logical_name>会員名称</logical_name>
+					<type>varchar(n)</type>
+					<length>100</length>
+					<description>会員のフルネームの名称。&#x0D;苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。</description>
 					<not_null>true</not_null>
 				</normal_column>
-				<column_group>共通カラム</column_group>
+				<normal_column>
+					<physical_name>MEMBER_ACCOUNT</physical_name>
+					<logical_name>会員アカウント</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>ログインIDとして利用する。&#x0D;昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?</description>
+					<not_null>true</not_null>
+					<unique_key>true</unique_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>MEMBER_STATUS_CODE</physical_name>
+					<referred_column>table.MEMBER_STATUS.MEMBER_STATUS_CODE</referred_column>
+					<relationship>FK_MEMBER_MEMBER_STATUS</relationship>
+					<not_null>true</not_null>
+				</normal_column>
 			</columns>
 			<indexes>
+				<index>
+					<name>IX_MEMBER_MEMBER_NAME</name>
+					<type>BTREE</type>
+					<non_unique>true</non_unique>
+					<columns>
+						<column>
+							<column_id>table.MEMBER.MEMBER_NAME</column_id>
+						</column>
+					</columns>
+				</index>
 			</indexes>
 			<compound_unique_key_list>
 			</compound_unique_key_list>
@@ -494,7 +476,7 @@
 		</table>
 		<table>
 			<physical_name>MEMBER_ADDRESS</physical_name>
-			<logical_name>会員住所</logical_name>
+			<logical_name>会員住所情報</logical_name>
 			<description>会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。&#x0D;会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！&#x0D;有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) &quot;1 : 0..1&quot; である。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
@@ -508,7 +490,7 @@
 			<connections>
 				<relationship>
 					<name>FK_MEMBER_ADDRESS_REGION</name>
-					<source>table.CDEF_REGION</source>
+					<source>table.REGION</source>
 					<target>table.MEMBER_ADDRESS</target>
 					<fk_columns>
 						<fk_column>
@@ -558,6 +540,13 @@
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
+					<physical_name>VALID_END_DATE</physical_name>
+					<logical_name>有効終了日</logical_name>
+					<type>date</type>
+					<description>有効期間の終了日。&#x0D;期間の最後の日が格納される。基本的に、次の有効開始日の一日前の値となるが、次の有効期間がない場合は 9999/12/31 となる。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
 					<physical_name>ADDRESS</physical_name>
 					<logical_name>住所</logical_name>
 					<type>varchar(n)</type>
@@ -567,12 +556,13 @@
 				</normal_column>
 				<normal_column>
 					<physical_name>REGION_ID</physical_name>
-					<referred_column>table.CDEF_REGION.REGION_ID</referred_column>
+					<referred_column>table.REGION.REGION_ID</referred_column>
 					<relationship>FK_MEMBER_ADDRESS_REGION</relationship>
 					<description>地域を参照するID。かなり漠然とした地域。</description>
 					<not_null>true</not_null>
 				</normal_column>
 				<column_group>共通カラム</column_group>
+				<column_group>排他制御カラム</column_group>
 			</columns>
 			<indexes>
 			</indexes>
@@ -600,8 +590,8 @@
 			<width>311</width>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>364</x>
-			<y>684</y>
+			<x>418</x>
+			<y>654</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -612,6 +602,11 @@
 					<name>FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID</name>
 					<source>table.MEMBER</source>
 					<target>table.MEMBER_FOLLOWING</target>
+					<bendpoint>
+						<relative>false</relative>
+						<x>613</x>
+						<y>606</y>
+					</bendpoint>
 					<fk_columns>
 						<fk_column>
 							<fk_column_name>YOUR_MEMBER_ID</fk_column_name>
@@ -629,8 +624,8 @@
 					<target>table.MEMBER_FOLLOWING</target>
 					<bendpoint>
 						<relative>false</relative>
-						<x>590</x>
-						<y>568</y>
+						<x>556</x>
+						<y>571</y>
 					</bendpoint>
 					<fk_columns>
 						<fk_column>
@@ -642,8 +637,6 @@
 					<reference_for_pk>true</reference_for_pk>
 					<on_delete_action>RESTRICT</on_delete_action>
 					<on_update_action>RESTRICT</on_update_action>
-					<source_xp>16</source_xp>
-					<source_yp>100</source_yp>
 				</relationship>
 			</connections>
 			<columns>
@@ -747,7 +740,7 @@
 				</relationship>
 				<relationship>
 					<name>FK_MEMBER_LOGIN_MEMBER_STATUS</name>
-					<source>table.CDEF_MEMBER_STATUS</source>
+					<source>table.MEMBER_STATUS</source>
 					<target>table.MEMBER_LOGIN</target>
 					<fk_columns>
 						<fk_column>
@@ -791,7 +784,7 @@
 				<normal_column>
 					<physical_name>LOGIN_MEMBER_STATUS_CODE</physical_name>
 					<logical_name>ログイン会員ステータスコード</logical_name>
-					<referred_column>table.CDEF_MEMBER_STATUS.MEMBER_STATUS_CODE</referred_column>
+					<referred_column>table.MEMBER_STATUS.MEMBER_STATUS_CODE</referred_column>
 					<relationship>FK_MEMBER_LOGIN_MEMBER_STATUS</relationship>
 					<description>ログイン時の会員ステータス</description>
 					<not_null>true</not_null>
@@ -831,8 +824,8 @@
 			<description>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>1376</x>
-			<y>477</y>
+			<x>1374</x>
+			<y>432</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -965,90 +958,13 @@
 			</table_properties>
 		</table>
 		<table>
-			<physical_name>MEMBER_PROFILE</physical_name>
-			<logical_name>会員プロフィール</logical_name>
-			<description>会員のプロフィールやアカウントなどの基本情報を保持する。&#x0D;基本的に物理削除はなく、退会したらステータスが退会会員になる。&#x0D;ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</description>
-			<font_name>Lucida Grande</font_name>
-			<font_size>9</font_size>
-			<x>781</x>
-			<y>1</y>
-			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
-			</color>
-			<connections>
-				<relationship>
-					<name>FK_EVENT_MEMBER_MEMBER</name>
-					<source>table.MEMBER</source>
-					<target>table.MEMBER_PROFILE</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>MEMBER_ID</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>1..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-			</connections>
-			<columns>
-				<normal_column>
-					<physical_name>MEMBER_PROFILE_ID</physical_name>
-					<logical_name>会員プロフィールID</logical_name>
-					<type>bigint</type>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-					<auto_increment>true</auto_increment>
-				</normal_column>
-				<normal_column>
-					<physical_name>MEMBER_ID</physical_name>
-					<referred_column>table.MEMBER.MEMBER_ID</referred_column>
-					<relationship>FK_EVENT_MEMBER_MEMBER</relationship>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>MEMBER_NAME</physical_name>
-					<logical_name>会員名称</logical_name>
-					<type>varchar(n)</type>
-					<length>100</length>
-					<description>会員のフルネームの名称。&#x0D;苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。</description>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>MEMBER_ACCOUNT</physical_name>
-					<logical_name>会員アカウント</logical_name>
-					<type>varchar(n)</type>
-					<length>50</length>
-					<description>ログインIDとして利用する。&#x0D;昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?</description>
-					<not_null>true</not_null>
-					<unique_key>true</unique_key>
-				</normal_column>
-				<normal_column>
-					<physical_name>BIRTHDATE</physical_name>
-					<logical_name>生年月日</logical_name>
-					<type>date</type>
-					<not_null>true</not_null>
-				</normal_column>
-				<column_group>共通カラム</column_group>
-			</columns>
-			<indexes>
-			</indexes>
-			<compound_unique_key_list>
-			</compound_unique_key_list>
-			<table_properties>
-			</table_properties>
-		</table>
-		<table>
 			<physical_name>MEMBER_SERVICE</physical_name>
 			<logical_name>会員サービス</logical_name>
 			<description>会員のサービス情報（ポイントサービスなど）。&#x0D;テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>1372</x>
-			<y>688</y>
+			<x>1366</x>
+			<y>582</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -1057,7 +973,7 @@
 			<connections>
 				<relationship>
 					<name>FK_MEMBER_SERVICE_SERVICE_RANK_CODE</name>
-					<source>table.CDEF_SERVICE_RANK</source>
+					<source>table.SERVICE_RANK</source>
 					<target>table.MEMBER_SERVICE</target>
 					<fk_columns>
 						<fk_column>
@@ -1109,12 +1025,13 @@
 				</normal_column>
 				<normal_column>
 					<physical_name>SERVICE_RANK_CODE</physical_name>
-					<referred_column>table.CDEF_SERVICE_RANK.SERVICE_RANK_CODE</referred_column>
+					<referred_column>table.SERVICE_RANK.SERVICE_RANK_CODE</referred_column>
 					<relationship>FK_MEMBER_SERVICE_SERVICE_RANK_CODE</relationship>
 					<description>どんなランクがあるのかドキドキですね。</description>
 					<not_null>true</not_null>
 				</normal_column>
 				<column_group>共通カラム</column_group>
+				<column_group>排他制御カラム</column_group>
 			</columns>
 			<indexes>
 				<index>
@@ -1136,76 +1053,52 @@
 		<table>
 			<physical_name>MEMBER_STATUS</physical_name>
 			<logical_name>会員ステータス</logical_name>
-			<description>会員のプロフィールやアカウントなどの基本情報を保持する。&#x0D;基本的に物理削除はなく、退会したらステータスが退会会員になる。&#x0D;ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</description>
+			<description>会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！&#x0D;業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。&#x0D;&#x0D;こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>385</x>
-			<y>-12</y>
+			<x>47</x>
+			<y>16</y>
 			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
 			</color>
 			<connections>
-				<relationship>
-					<name>FK_MEMBER_STATUS_XX_MEMBER_STATUS</name>
-					<source>table.CDEF_MEMBER_STATUS</source>
-					<target>table.MEMBER_STATUS</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>MEMBER_STATUS_CODE</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>0..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-				<relationship>
-					<name>FK_MEMBER_STATUS_XX_MEMBER</name>
-					<source>table.MEMBER</source>
-					<target>table.MEMBER_STATUS</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>MEMBER_ID</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>1..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
-					<physical_name>MEMBER_STATUS_ID</physical_name>
-					<logical_name>会員ステータスID</logical_name>
-					<type>bigint</type>
+					<physical_name>MEMBER_STATUS_CODE</physical_name>
+					<logical_name>会員ステータスコード</logical_name>
+					<type>character(n)</type>
+					<length>3</length>
+					<description>会員ステータスを識別するコード。&#x0D;固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば &quot;FML&quot; とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)&#x0D;</description>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
-					<auto_increment>true</auto_increment>
 				</normal_column>
 				<normal_column>
-					<physical_name>MEMBER_ID</physical_name>
-					<referred_column>table.MEMBER.MEMBER_ID</referred_column>
-					<relationship>FK_MEMBER_STATUS_XX_MEMBER</relationship>
+					<physical_name>MEMBER_STATUS_NAME</physical_name>
+					<logical_name>会員ステータス名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>表示用の名称。&#x0D;国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。</description>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>MEMBER_STATUS_CODE</physical_name>
-					<referred_column>table.CDEF_MEMBER_STATUS.MEMBER_STATUS_CODE</referred_column>
-					<relationship>FK_MEMBER_STATUS_XX_MEMBER_STATUS</relationship>
+					<physical_name>DESCRIPTION</physical_name>
+					<logical_name>説明</logical_name>
+					<type>varchar(n)</type>
+					<length>200</length>
+					<description>会員ステータスそれぞれの説明。&#x0D;区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。</description>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>MEMBER_STATUS_UPDATE_DATETIME</physical_name>
-					<logical_name>会員ステータス更新日時</logical_name>
-					<type>datetime</type>
+					<physical_name>DISPLAY_ORDER</physical_name>
+					<logical_name>表示順</logical_name>
+					<type>integer</type>
+					<description>UI上のステータスの表示順を示すNO。&#x0D;並べるときは、このカラムに対して昇順のソート条件にする。</description>
 					<not_null>true</not_null>
+					<unique_key>true</unique_key>
 				</normal_column>
-				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 			</indexes>
@@ -1243,8 +1136,13 @@
 				</relationship>
 				<relationship>
 					<name>FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON</name>
-					<source>table.CDEF_WITHDRAWAL_REASON</source>
+					<source>table.WITHDRAWAL_REASON</source>
 					<target>table.MEMBER_WITHDRAWAL</target>
+					<bendpoint>
+						<relative>false</relative>
+						<x>1127</x>
+						<y>832</y>
+					</bendpoint>
 					<fk_columns>
 						<fk_column>
 							<fk_column_name>WITHDRAWAL_REASON_CODE</fk_column_name>
@@ -1267,10 +1165,9 @@
 				</normal_column>
 				<normal_column>
 					<physical_name>WITHDRAWAL_REASON_CODE</physical_name>
-					<referred_column>table.CDEF_WITHDRAWAL_REASON.WITHDRAWAL_REASON_CODE</referred_column>
+					<referred_column>table.WITHDRAWAL_REASON.WITHDRAWAL_REASON_CODE</referred_column>
 					<relationship>FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON</relationship>
 					<description>定型的な退会した理由を参照するコード。&#x0D;何も言わずに退会する会員もいるので必須項目ではない。</description>
-					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
 					<physical_name>WITHDRAWAL_REASON_INPUT_TEXT</physical_name>
@@ -1285,7 +1182,6 @@
 					<description>退会した瞬間の日時。&#x0D;正式会員日時と違い、こっちは one-to-one の別テーブルで管理されている。</description>
 					<not_null>true</not_null>
 				</normal_column>
-				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 				<index>
@@ -1310,14 +1206,40 @@
 			<description></description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>30</x>
-			<y>1417</y>
+			<x>426</x>
+			<y>1154</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
 				<b>192</b>
 			</color>
 			<connections>
+				<relationship>
+					<name>FK_PRODUCT_PRODUCT_CATEGORY</name>
+					<source>table.PRODUCT_CATEGORY</source>
+					<target>table.PRODUCT</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>PRODUCT_CATEGORY_CODE</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+				</relationship>
+				<relationship>
+					<name>FK_PRODUCT_PRODUCT_STATUS</name>
+					<source>table.PRODUCT_STATUS</source>
+					<target>table.PRODUCT</target>
+					<fk_columns>
+						<fk_column>
+							<fk_column_name>PRODUCT_STATUS_CODE</fk_column_name>
+						</fk_column>
+					</fk_columns>
+					<parent_cardinality>1</parent_cardinality>
+					<child_cardinality>0..n</child_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
@@ -1327,90 +1249,6 @@
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
 					<auto_increment>true</auto_increment>
-				</normal_column>
-				<column_group>共通カラム</column_group>
-			</columns>
-			<indexes>
-			</indexes>
-			<compound_unique_key_list>
-			</compound_unique_key_list>
-			<table_properties>
-			</table_properties>
-		</table>
-		<table>
-			<physical_name>PRODUCT_DETAIL</physical_name>
-			<logical_name>商品詳細</logical_name>
-			<description></description>
-			<font_name>Lucida Grande</font_name>
-			<font_size>9</font_size>
-			<x>428</x>
-			<y>1393</y>
-			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
-			</color>
-			<connections>
-				<relationship>
-					<name>FK_EVENT_PRODUCT_PRODUCT</name>
-					<source>table.PRODUCT</source>
-					<target>table.PRODUCT_DETAIL</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>PRODUCT_ID</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>0..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-				<relationship>
-					<name>FK_EVENT_PRODUCT_PRODUCT_STATUS</name>
-					<source>table.CDEF_PRODUCT_STATUS</source>
-					<target>table.PRODUCT_DETAIL</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>PRODUCT_STATUS_CODE</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>0..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-				<relationship>
-					<name>FK_EVENT_PRODUCT_PRODUCT_CATEGORY</name>
-					<source>table.CDEF_PRODUCT_CATEGORY</source>
-					<target>table.PRODUCT_DETAIL</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>PRODUCT_CATEGORY_CODE</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>0..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-			</connections>
-			<columns>
-				<normal_column>
-					<physical_name>PRODUCT_DETAIL_ID</physical_name>
-					<logical_name>商品詳細ID</logical_name>
-					<type>bigint</type>
-					<not_null>true</not_null>
-					<primary_key>true</primary_key>
-					<auto_increment>true</auto_increment>
-				</normal_column>
-				<normal_column>
-					<physical_name>PRODUCT_ID</physical_name>
-					<referred_column>table.PRODUCT.PRODUCT_ID</referred_column>
-					<relationship>FK_EVENT_PRODUCT_PRODUCT</relationship>
-					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
 					<physical_name>PRODUCT_NAME</physical_name>
@@ -1431,17 +1269,22 @@
 				</normal_column>
 				<normal_column>
 					<physical_name>PRODUCT_CATEGORY_CODE</physical_name>
-					<referred_column>table.CDEF_PRODUCT_CATEGORY.PRODUCT_CATEGORY_CODE</referred_column>
-					<relationship>FK_EVENT_PRODUCT_PRODUCT_CATEGORY</relationship>
+					<referred_column>table.PRODUCT_CATEGORY.PRODUCT_CATEGORY_CODE</referred_column>
+					<relationship>FK_PRODUCT_PRODUCT_CATEGORY</relationship>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
 					<physical_name>PRODUCT_STATUS_CODE</physical_name>
-					<referred_column>table.CDEF_PRODUCT_STATUS.PRODUCT_STATUS_CODE</referred_column>
-					<relationship>FK_EVENT_PRODUCT_PRODUCT_STATUS</relationship>
+					<referred_column>table.PRODUCT_STATUS.PRODUCT_STATUS_CODE</referred_column>
+					<relationship>FK_PRODUCT_PRODUCT_STATUS</relationship>
 					<not_null>true</not_null>
 				</normal_column>
-				<column_group>共通カラム</column_group>
+				<normal_column>
+					<physical_name>REGULAR_PRICE</physical_name>
+					<logical_name>定価</logical_name>
+					<type>integer</type>
+					<not_null>true</not_null>
+				</normal_column>
 			</columns>
 			<indexes>
 				<index>
@@ -1450,7 +1293,7 @@
 					<non_unique>true</non_unique>
 					<columns>
 						<column>
-							<column_id>table.PRODUCT_DETAIL.PRODUCT_NAME</column_id>
+							<column_id>table.PRODUCT.PRODUCT_NAME</column_id>
 						</column>
 					</columns>
 				</index>
@@ -1461,57 +1304,115 @@
 			</table_properties>
 		</table>
 		<table>
-			<physical_name>PRODUCT_PRICE</physical_name>
-			<logical_name>商品価格</logical_name>
-			<description></description>
+			<physical_name>PRODUCT_CATEGORY</physical_name>
+			<logical_name>商品カテゴリ</logical_name>
+			<description>商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>30</x>
-			<y>1128</y>
+			<x>862</x>
+			<y>1160</y>
 			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
 			</color>
 			<connections>
 				<relationship>
-					<name>FK_PRODUCT_PRICE_PRODUCT</name>
-					<source>table.PRODUCT</source>
-					<target>table.PRODUCT_PRICE</target>
+					<name>FK_PRODUCT_CATEGORY_PARENT</name>
+					<source>table.PRODUCT_CATEGORY</source>
+					<target>table.PRODUCT_CATEGORY</target>
+					<bendpoint>
+						<relative>true</relative>
+						<x>100</x>
+						<y>100</y>
+					</bendpoint>
 					<fk_columns>
 						<fk_column>
-							<fk_column_name>PRODUCT_ID</fk_column_name>
+							<fk_column_name>PARENT_CATEGORY_CODE</fk_column_name>
 						</fk_column>
 					</fk_columns>
 					<parent_cardinality>1</parent_cardinality>
 					<child_cardinality>0..n</child_cardinality>
 					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
+					<source_xp>100</source_xp>
+					<source_yp>50</source_yp>
+					<target_xp>50</target_xp>
+					<target_yp>100</target_yp>
 				</relationship>
 			</connections>
 			<columns>
 				<normal_column>
-					<physical_name>PRODUCT_PRICE_ID</physical_name>
-					<logical_name>商品価格ID</logical_name>
-					<type>bigint</type>
+					<physical_name>PRODUCT_CATEGORY_CODE</physical_name>
+					<logical_name>商品カテゴリコード</logical_name>
+					<type>character(n)</type>
+					<length>3</length>
+					<description>自分のテーブルの別のレコードからも参照される。</description>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
-					<auto_increment>true</auto_increment>
 				</normal_column>
 				<normal_column>
-					<physical_name>PRODUCT_ID</physical_name>
-					<referred_column>table.PRODUCT.PRODUCT_ID</referred_column>
-					<relationship>FK_PRODUCT_PRICE_PRODUCT</relationship>
+					<physical_name>PRODUCT_CATEGORY_NAME</physical_name>
+					<logical_name>商品カテゴリ名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>REGULAR_PRICE</physical_name>
-					<logical_name>定価</logical_name>
+					<physical_name>PARENT_CATEGORY_CODE</physical_name>
+					<logical_name>親カテゴリコード</logical_name>
+					<referred_column>table.PRODUCT_CATEGORY.PRODUCT_CATEGORY_CODE</referred_column>
+					<relationship>FK_PRODUCT_CATEGORY_PARENT</relationship>
+					<description>最上位の場合はデータなし。まさひく自己参照FKカラム！</description>
+				</normal_column>
+			</columns>
+			<indexes>
+			</indexes>
+			<compound_unique_key_list>
+			</compound_unique_key_list>
+			<table_properties>
+			</table_properties>
+		</table>
+		<table>
+			<physical_name>PRODUCT_STATUS</physical_name>
+			<logical_name>商品ステータス</logical_name>
+			<description>商品のステータスを表現する固定的なマスタ。</description>
+			<font_name>Lucida Grande</font_name>
+			<font_size>9</font_size>
+			<x>45</x>
+			<y>1154</y>
+			<color>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
+			</color>
+			<connections>
+			</connections>
+			<columns>
+				<normal_column>
+					<physical_name>PRODUCT_STATUS_CODE</physical_name>
+					<logical_name>商品ステータスコード</logical_name>
+					<type>character(n)</type>
+					<length>3</length>
+					<description>商品ステータスを識別するコード。</description>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>PRODUCT_STATUS_NAME</physical_name>
+					<logical_name>商品ステータス名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>DISPLAY_ORDER</physical_name>
+					<logical_name>表示順</logical_name>
 					<type>integer</type>
+					<description>もう、ご想像の通りです。</description>
 					<not_null>true</not_null>
+					<unique_key>true</unique_key>
 				</normal_column>
-				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 			</indexes>
@@ -1548,34 +1449,27 @@
 					<reference_for_pk>true</reference_for_pk>
 				</relationship>
 				<relationship>
-					<name>FK_PURCHASE_PRODUCT_DETAIL</name>
-					<source>table.PRODUCT_DETAIL</source>
+					<name>FK_PURCHASE_PRODUCT</name>
+					<source>table.PRODUCT</source>
 					<target>table.PURCHASE</target>
+					<bendpoint>
+						<relative>false</relative>
+						<x>410</x>
+						<y>879</y>
+					</bendpoint>
+					<bendpoint>
+						<relative>false</relative>
+						<x>357</x>
+						<y>770</y>
+					</bendpoint>
 					<fk_columns>
 						<fk_column>
-							<fk_column_name>PRODUCT_DETAIL_ID</fk_column_name>
+							<fk_column_name>PRODUCT_ID</fk_column_name>
 						</fk_column>
 					</fk_columns>
 					<parent_cardinality>1</parent_cardinality>
 					<child_cardinality>0..n</child_cardinality>
 					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-				</relationship>
-				<relationship>
-					<name>FK_PURCHASE_PRODUCT_PRICE</name>
-					<source>table.PRODUCT_PRICE</source>
-					<target>table.PURCHASE</target>
-					<fk_columns>
-						<fk_column>
-							<fk_column_name>PRODUCT_PRICE_ID</fk_column_name>
-						</fk_column>
-					</fk_columns>
-					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>0..n</child_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
 				</relationship>
 			</connections>
 			<columns>
@@ -1596,15 +1490,10 @@
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
-					<physical_name>PRODUCT_DETAIL_ID</physical_name>
-					<referred_column>table.PRODUCT_DETAIL.PRODUCT_DETAIL_ID</referred_column>
-					<relationship>FK_PURCHASE_PRODUCT_DETAIL</relationship>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>PRODUCT_PRICE_ID</physical_name>
-					<referred_column>table.PRODUCT_PRICE.PRODUCT_PRICE_ID</referred_column>
-					<relationship>FK_PURCHASE_PRODUCT_PRICE</relationship>
+					<physical_name>PRODUCT_ID</physical_name>
+					<referred_column>table.PRODUCT.PRODUCT_ID</referred_column>
+					<relationship>FK_PURCHASE_PRODUCT</relationship>
+					<description>あなたは何を買ったのか？</description>
 					<not_null>true</not_null>
 				</normal_column>
 				<normal_column>
@@ -1628,7 +1517,6 @@
 					<description>購入によって実際に会員が支払った（支払う予定の）価格。&#x0D;基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。</description>
 					<not_null>true</not_null>
 				</normal_column>
-				<column_group>共通カラム</column_group>
 			</columns>
 			<indexes>
 				<index>
@@ -1647,7 +1535,7 @@
 					<non_unique>true</non_unique>
 					<columns>
 						<column>
-							<column_id>table.PURCHASE.PRODUCT_DETAIL_ID</column_id>
+							<column_id>table.PURCHASE.PRODUCT_ID</column_id>
 						</column>
 					</columns>
 				</index>
@@ -1656,6 +1544,9 @@
 					<type>BTREE</type>
 					<non_unique>true</non_unique>
 					<columns>
+						<column>
+							<column_id>table.PURCHASE.PRODUCT_ID</column_id>
+						</column>
 						<column>
 							<column_id>table.PURCHASE.PURCHASE_DATETIME</column_id>
 						</column>
@@ -1693,6 +1584,9 @@
 							<column_id>table.PURCHASE.MEMBER_ID</column_id>
 						</column>
 						<column>
+							<column_id>table.PURCHASE.PRODUCT_ID</column_id>
+						</column>
+						<column>
 							<column_id>table.PURCHASE.PURCHASE_DATETIME</column_id>
 						</column>
 					</columns>
@@ -1705,12 +1599,12 @@
 			<physical_name>PURCHASE_PAYMENT</physical_name>
 			<logical_name>購入支払</logical_name>
 			<description>購入に対する支払。&#x0A;分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。</description>
-			<height>164</height>
+			<height>230</height>
 			<width>271</width>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>-289</x>
-			<y>807</y>
+			<x>18</x>
+			<y>881</y>
 			<color>
 				<r>143</r>
 				<g>132</g>
@@ -1801,8 +1695,8 @@
 			<description>一つの商品に対する購入を表現する(購入履歴とも言える)。&#x0D;実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。</description>
 			<font_name>Lucida Grande</font_name>
 			<font_size>9</font_size>
-			<x>-303</x>
-			<y>519</y>
+			<x>-275</x>
+			<y>878</y>
 			<color>
 				<r>143</r>
 				<g>132</g>
@@ -1819,7 +1713,7 @@
 						</fk_column>
 					</fk_columns>
 					<parent_cardinality>1</parent_cardinality>
-					<child_cardinality>1..n</child_cardinality>
+					<child_cardinality>0..n</child_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<on_delete_action>RESTRICT</on_delete_action>
 					<on_update_action>RESTRICT</on_update_action>
@@ -1850,6 +1744,166 @@
 			<table_properties>
 			</table_properties>
 		</table>
+		<table>
+			<physical_name>REGION</physical_name>
+			<logical_name>地域</logical_name>
+			<description>主に会員の住所に対応する漠然とした地域。&#x0D;かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。</description>
+			<font_name>Lucida Grande</font_name>
+			<font_size>9</font_size>
+			<x>1435</x>
+			<y>20</y>
+			<color>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
+			</color>
+			<connections>
+			</connections>
+			<columns>
+				<normal_column>
+					<physical_name>REGION_ID</physical_name>
+					<logical_name>地域ID</logical_name>
+					<type>integer</type>
+					<description>地域をしっかりと識別するID。&#x0D;珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。</description>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>REGION_NAME</physical_name>
+					<logical_name>地域名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>地域を漠然と表す名称。</description>
+					<not_null>true</not_null>
+				</normal_column>
+			</columns>
+			<indexes>
+			</indexes>
+			<compound_unique_key_list>
+			</compound_unique_key_list>
+			<table_properties>
+			</table_properties>
+		</table>
+		<table>
+			<physical_name>SERVICE_RANK</physical_name>
+			<logical_name>サービスランク</logical_name>
+			<description>会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)</description>
+			<font_name>Lucida Grande</font_name>
+			<font_size>9</font_size>
+			<x>1678</x>
+			<y>581</y>
+			<color>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
+			</color>
+			<connections>
+			</connections>
+			<columns>
+				<normal_column>
+					<physical_name>SERVICE_RANK_CODE</physical_name>
+					<logical_name>サービスランクコード</logical_name>
+					<type>character(n)</type>
+					<length>3</length>
+					<description>サービスランクを識別するコード。</description>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>SERVICE_RANK_NAME</physical_name>
+					<logical_name>サービスランク名称</logical_name>
+					<type>varchar(n)</type>
+					<length>50</length>
+					<description>サービスランクの名称。&#x0D;ゴールドとかプラチナとか基本的には威厳のある名前</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>SERVICE_POINT_INCIDENCE</physical_name>
+					<logical_name>サービスポイント発生率</logical_name>
+					<type>decimal(p,s)</type>
+					<length>5</length>
+					<decimal>3</decimal>
+					<description>購入ごとのサービスポイントの発生率。&#x0D;購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>NEW_ACCEPTABLE_FLG</physical_name>
+					<logical_name>新規受け入れ可能フラグ</logical_name>
+					<type>integer</type>
+					<description>このランクへの新規受け入れができるかどうか。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>DESCRIPTION</physical_name>
+					<logical_name>説明</logical_name>
+					<type>varchar(n)</type>
+					<length>200</length>
+					<description>ランクに関する業務的な説明。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>DISPLAY_ORDER</physical_name>
+					<logical_name>表示順</logical_name>
+					<type>integer</type>
+					<description>UI上の表示順を表現する番号。</description>
+					<not_null>true</not_null>
+					<unique_key>true</unique_key>
+				</normal_column>
+			</columns>
+			<indexes>
+			</indexes>
+			<compound_unique_key_list>
+			</compound_unique_key_list>
+			<table_properties>
+			</table_properties>
+		</table>
+		<table>
+			<physical_name>WITHDRAWAL_REASON</physical_name>
+			<logical_name>退会理由</logical_name>
+			<description>会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...</description>
+			<font_name>Lucida Grande</font_name>
+			<font_size>9</font_size>
+			<x>1138</x>
+			<y>869</y>
+			<color>
+				<r>255</r>
+				<g>251</g>
+				<b>143</b>
+			</color>
+			<connections>
+			</connections>
+			<columns>
+				<normal_column>
+					<physical_name>WITHDRAWAL_REASON_CODE</physical_name>
+					<logical_name>退会理由コード</logical_name>
+					<type>character(n)</type>
+					<length>3</length>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+				</normal_column>
+				<normal_column>
+					<physical_name>WITHDRAWAL_REASON_TEXT</physical_name>
+					<logical_name>退会理由テキスト</logical_name>
+					<type>text</type>
+					<description>退会理由の内容。&#x0D;テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。</description>
+					<not_null>true</not_null>
+				</normal_column>
+				<normal_column>
+					<physical_name>DISPLAY_ORDER</physical_name>
+					<logical_name>表示順</logical_name>
+					<type>integer</type>
+					<description>もう、ご想像の通りです。</description>
+					<not_null>true</not_null>
+					<unique_key>true</unique_key>
+				</normal_column>
+			</columns>
+			<indexes>
+			</indexes>
+			<compound_unique_key_list>
+			</compound_unique_key_list>
+			<table_properties>
+			</table_properties>
+		</table>
 	</diagram_walkers>
 	<vdiagrams>
 		<vdiagram>
@@ -1860,6 +1914,20 @@
 				<b>255</b>
 			</color>
 			<vtables>
+				<vtable>
+					<table_id>table.EVENT_MEMBER</table_id>
+					<x>49</x>
+					<y>29</y>
+					<font_name>.AppleSystemUIFont</font_name>
+					<font_size>9</font_size>
+				</vtable>
+				<vtable>
+					<table_id>table.EVENT_MEMBER_STATUS</table_id>
+					<x>45</x>
+					<y>240</y>
+					<font_name>.AppleSystemUIFont</font_name>
+					<font_size>9</font_size>
+				</vtable>
 				<vtable>
 					<table_id>table.MEMBER</table_id>
 					<x>490</x>
@@ -1875,13 +1943,6 @@
 					<font_size>9</font_size>
 				</vtable>
 				<vtable>
-					<table_id>table.MEMBER_FOLLOWING</table_id>
-					<x>20</x>
-					<y>742</y>
-					<font_name>.AppleSystemUIFont</font_name>
-					<font_size>9</font_size>
-				</vtable>
-				<vtable>
 					<table_id>table.MEMBER_LOGIN</table_id>
 					<x>45</x>
 					<y>473</y>
@@ -1890,68 +1951,27 @@
 				</vtable>
 				<vtable>
 					<table_id>table.MEMBER_LOGIN_PASSWORD</table_id>
-					<x>850</x>
-					<y>242</y>
+					<x>847</x>
+					<y>280</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
 				<vtable>
 					<table_id>table.MEMBER_PASSWORD_REMINDER</table_id>
-					<x>843</x>
-					<y>461</y>
-					<font_name>.AppleSystemUIFont</font_name>
-					<font_size>9</font_size>
-				</vtable>
-				<vtable>
-					<table_id>table.MEMBER_PROFILE</table_id>
-					<x>49</x>
-					<y>29</y>
+					<x>842</x>
+					<y>476</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
 				<vtable>
 					<table_id>table.MEMBER_SERVICE</table_id>
-					<x>820</x>
-					<y>777</y>
-					<font_name>.AppleSystemUIFont</font_name>
-					<font_size>9</font_size>
-				</vtable>
-				<vtable>
-					<table_id>table.MEMBER_STATUS</table_id>
-					<x>45</x>
-					<y>240</y>
-					<font_name>.AppleSystemUIFont</font_name>
-					<font_size>9</font_size>
-				</vtable>
-				<vtable>
-					<table_id>table.MEMBER_WITHDRAWAL</table_id>
-					<x>469</x>
-					<y>745</y>
+					<x>492</x>
+					<y>456</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
 			</vtables>
 			<walker_notes>
-				<walker_note>
-					<height>49</height>
-					<width>210</width>
-					<font_name>Al Bayan</font_name>
-					<font_size>9</font_size>
-					<x>20</x>
-					<y>912</y>
-					<color>
-						<r>255</r>
-						<g>255</g>
-						<b>128</b>
-					</color>
-					<connections>
-						<comment_connection>
-							<source>$$owner$$</source>
-							<target>table.MEMBER_FOLLOWING</target>
-						</comment_connection>
-					</connections>
-					<note_text>マッピングテーブルはDelete、Insertする。</note_text>
-				</walker_note>
 			</walker_notes>
 			<walker_groups>
 			</walker_groups>
@@ -1965,16 +1985,16 @@
 			</color>
 			<vtables>
 				<vtable>
-					<table_id>table.PRODUCT</table_id>
-					<x>48</x>
-					<y>36</y>
+					<table_id>table.EVENT_PRODUCT</table_id>
+					<x>50</x>
+					<y>305</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
 				<vtable>
-					<table_id>table.PRODUCT_DETAIL</table_id>
-					<x>36</x>
-					<y>275</y>
+					<table_id>table.PRODUCT</table_id>
+					<x>48</x>
+					<y>36</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
@@ -2001,8 +2021,8 @@
 				</vtable>
 				<vtable>
 					<table_id>table.PURCHASE_PAYMENT</table_id>
-					<x>62</x>
-					<y>433</y>
+					<x>54</x>
+					<y>327</y>
 					<font_name>.AppleSystemUIFont</font_name>
 					<font_size>9</font_size>
 				</vtable>
@@ -2039,17 +2059,16 @@
 					<description>レコードを登録したユーザー</description>
 					<not_null>true</not_null>
 				</normal_column>
+			</columns>
+		</column_group>
+		<column_group>
+			<column_group_name>排他制御カラム</column_group_name>
+			<columns>
 				<normal_column>
-					<physical_name>UPDATE_DATETIME</physical_name>
-					<logical_name>更新日時</logical_name>
-					<type>datetime</type>
-					<not_null>true</not_null>
-				</normal_column>
-				<normal_column>
-					<physical_name>UPDATE_USER</physical_name>
-					<logical_name>更新ユーザ</logical_name>
-					<type>varchar(n)</type>
-					<length>200</length>
+					<physical_name>VERSION_NO</physical_name>
+					<logical_name>バージョン番号</logical_name>
+					<type>bigint</type>
+					<description>排他制御用、更新されるごとにインクリメントされる</description>
 					<not_null>true</not_null>
 				</normal_column>
 			</columns>
