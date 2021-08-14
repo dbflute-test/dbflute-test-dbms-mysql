@@ -104,8 +104,7 @@ public class ToolsGearedCipherTakeFinallyTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                        Write Clause
     //                                                                        ============
-    protected void writeClause(List<String> clauseList) throws IOException, UnsupportedEncodingException,
-            FileNotFoundException {
+    protected void writeClause(List<String> clauseList) throws IOException, UnsupportedEncodingException, FileNotFoundException {
         StringBuilder sb = new StringBuilder();
         for (String clause : clauseList) {
             sb.append(clause).append(";").append("\n");
@@ -141,8 +140,8 @@ public class ToolsGearedCipherTakeFinallyTest extends UnitContainerTestCase {
         String requestUrl = refreshMap.get("requestUrl");
         List<String> projectNameList = Srl.splitList(projectName, "/");
         try {
-        new DfRefreshResourceRequest(projectNameList, requestUrl).refreshResources();
-        } catch (RuntimeException continued) {
+            new DfRefreshResourceRequest(projectNameList, requestUrl).refreshResources();
+        } catch (RuntimeException | IOException continued) {
             log(continued.getMessage());
         }
     }
