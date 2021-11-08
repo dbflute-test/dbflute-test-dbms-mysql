@@ -40,7 +40,7 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     protected boolean isUseTestCaseLooseBinding() {
         return true;
     }
-    
+
     // ===================================================================================
     //                                                                         Data Helper
     //                                                                         ===========
@@ -81,16 +81,28 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
      * This method depends on the MySQL. (you cannot use for other DBMSs)
      */
     protected void adjustTransactionIsolationLevel_ReadCommitted() {
-        final DataSource dataSource = getDataSource();
+        doAdjustTransactionIsolationLevelCommitted("READ COMMITTED");
+    }
+
+    /**
+     * Adjust transaction isolation level to REPEATABLE READ on this session. <br>
+     * This method depends on the MySQL. (you cannot use for other DBMSs)
+     */
+    protected void adjustTransactionIsolationLevel_RepeatableRead() {
+        doAdjustTransactionIsolationLevelCommitted("REPEATABLE READ");
+    }
+
+    private void doAdjustTransactionIsolationLevelCommitted(String isolationExp) {
+        String sql = "set SESSION transaction isolation level " + isolationExp;
+        DataSource dataSource = getDataSource();
         Connection conn = null;
         Statement st = null;
-        final String sql = "set SESSION transaction isolation level READ COMMITTED";
         try {
             conn = dataSource.getConnection();
             st = conn.createStatement();
             st.execute(sql);
         } catch (SQLException e) {
-            throw new IllegalStateException("Failed to set isolation level: " + sql, e);
+            throw new IllegalStateException("Failed to execute the SQL: " + sql, e);
         } finally {
             if (st != null) {
                 try {
