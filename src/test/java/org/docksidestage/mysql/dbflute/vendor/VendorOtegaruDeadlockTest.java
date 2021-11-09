@@ -120,7 +120,7 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                                 by PK
     //                                                 -----
-    public void test_insertOrUpdateNonstrict_updateEmptyByPK_insert() {
+    public void test_insertOrUpdateNonstrict_updateEmptyByPK_insert_byTwoThread() {
         cannonball(car -> {
             adjustTransactionIsolationLevel_RepeatableRead();
             Member memberFirst = memberBhv.selectByPK(1).get();
@@ -157,7 +157,16 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                             Unique By
     //                                             ---------
-    public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert() {
+    public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_byManyThread() {
+        Member member = memberBhv.selectByPK(1).get();
+        member.uniqueBy("sea");
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            memberBhv.insertOrUpdateNonstrict(member); // deadlock here
+        }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    }
+
+    public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_byTwoThread() {
         cannonball(car -> {
             adjustTransactionIsolationLevel_RepeatableRead();
             Member memberFirst = memberBhv.selectByPK(1).get();
@@ -235,4 +244,14 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
             memberBhv.insert(inserted);
         }, new CannonballOption().threadCount(5));
     }
+
+    // #hope jflute test after InsertOrUpdateCountPreCheck (2021/11/09)
+    //public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_solutionByPreCheck() {
+    //    Member member = memberBhv.selectByPK(1).get();
+    //    member.uniqueBy("sea");
+    //    cannonball(car -> {
+    //        adjustTransactionIsolationLevel_RepeatableRead();
+    //        memberBhv.insertOrUpdateNonstrict(member); // deadlock here
+    //    }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    //}
 }
