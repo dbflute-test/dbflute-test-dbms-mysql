@@ -62,6 +62,19 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     }
 
     // ===================================================================================
+    //                                                                   Insert SameUnique
+    //                                                                   =================
+    public void test_insert_sameUniqueKey_byManyThread() {
+        Member member = memberBhv.selectByPK(1).get();
+        member.setMemberId(null);
+        member.uniqueBy("sea"); // same unique key insert
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            memberBhv.insert(member);
+        }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    }
+
+    // ===================================================================================
     //                                                                        Delete Empty
     //                                                                        ============
     public void test_queryDeleteEmpty_insert_byManyThread() { // standard pattern
@@ -120,6 +133,26 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                                 by PK
     //                                                 -----
+    public void test_insertOrUpdate_updateEmptyByPK_insert_byManyThread() {
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            Member member = memberBhv.selectByPK(car.getEntryNumber()).get();
+            member.setMemberId(car.getEntryNumber() * 10000); // new PK
+            member.setMemberName("sea");
+            memberBhv.insertOrUpdate(member); // deadlock here
+        }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    }
+
+    public void test_insertOrUpdateNonstrict_updateEmptyByPK_insert_byManyThread() {
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            Member member = memberBhv.selectByPK(car.getEntryNumber()).get();
+            member.setMemberId(car.getEntryNumber() * 10000); // new PK
+            member.setMemberName("sea");
+            memberBhv.insertOrUpdateNonstrict(member); // deadlock here
+        }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    }
+
     public void test_insertOrUpdateNonstrict_updateEmptyByPK_insert_byTwoThread() {
         cannonball(car -> {
             adjustTransactionIsolationLevel_RepeatableRead();
@@ -157,8 +190,19 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                             Unique By
     //                                             ---------
+    public void test_insertOrUpdate_updateEmptyUniqueBy_insert_byManyThread() {
+        Member member = memberBhv.selectByPK(1).get();
+        member.setMemberId(null);
+        member.uniqueBy("sea");
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            memberBhv.insertOrUpdate(member); // deadlock here
+        }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    }
+
     public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_byManyThread() {
         Member member = memberBhv.selectByPK(1).get();
+        member.setMemberId(null);
         member.uniqueBy("sea");
         cannonball(car -> {
             adjustTransactionIsolationLevel_RepeatableRead();
@@ -225,6 +269,9 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                Solution by PreCheck
     //                                                                ====================
+    // -----------------------------------------------------
+    //                                           QueryDelete
+    //                                           -----------
     public void test_queryDeleteEmpty_insert_solutionByPreCheck() { // standard pattern
         Member source = memberBhv.selectByPK(3).get();
         cannonball(car -> {
@@ -245,13 +292,52 @@ public class VendorOtegaruDeadlockTest extends UnitContainerTestCase {
         }, new CannonballOption().threadCount(5));
     }
 
-    // #hope jflute test after InsertOrUpdateCountPreCheck (2021/11/09)
-    //public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_solutionByPreCheck() {
+    // -----------------------------------------------------
+    //                                        InsertOrUpdate
+    //                                        --------------
+    public void test_insertOrUpdate_updateEmptyByPK_insert_solutionByPreCheck() {
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            Member member = memberBhv.selectByPK(car.getEntryNumber()).get();
+            member.setMemberId(car.getEntryNumber() * 10000); // new PK
+            member.setMemberName("sea");
+            member.setMemberAccount("mystic" + car.getEntryNumber());
+            memberBhv.varyingInsertOrUpdate(member, op -> {}, op -> op.precheckInsertOrUpdateCount());
+        }, new CannonballOption().threadCount(5));
+    }
+
+    public void test_insertOrUpdateNonstrict_updateEmptyByPK_insert_solutionByPreCheck() {
+        cannonball(car -> {
+            adjustTransactionIsolationLevel_RepeatableRead();
+            Member member = memberBhv.selectByPK(car.getEntryNumber()).get();
+            member.setMemberId(car.getEntryNumber() * 10000); // new PK
+            member.setMemberName("sea");
+            member.setMemberAccount("mystic" + car.getEntryNumber());
+            memberBhv.varyingInsertOrUpdateNonstrict(member, op -> {}, op -> op.precheckInsertOrUpdateCount());
+        }, new CannonballOption().threadCount(5));
+    }
+
+    // -----------------------------------------------------
+    //                                        Cannot Resolve
+    //                                        --------------
+    // unstable e.g. no deadlock if whole running by jflute (2021/11/20)
+    //public void test_insertOrUpdate_updateEmptyUniqueBy_insert_cannotResolve() {
     //    Member member = memberBhv.selectByPK(1).get();
-    //    member.uniqueBy("sea");
+    //    member.setMemberId(null);
+    //    member.uniqueBy("sea"); // same unique key insert
     //    cannonball(car -> {
     //        adjustTransactionIsolationLevel_RepeatableRead();
-    //        memberBhv.insertOrUpdateNonstrict(member); // deadlock here
+    //        memberBhv.varyingInsertOrUpdate(member, op -> {}, op -> op.precheckInsertOrUpdateCount());
+    //    }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
+    //}
+    //
+    //public void test_insertOrUpdateNonstrict_updateEmptyUniqueBy_insert_cannotResolve() {
+    //    Member member = memberBhv.selectByPK(1).get();
+    //    member.setMemberId(null);
+    //    member.uniqueBy("sea"); // same unique key insert
+    //    cannonball(car -> {
+    //        adjustTransactionIsolationLevel_RepeatableRead();
+    //        memberBhv.varyingInsertOrUpdateNonstrict(member, op -> {}, op -> op.precheckInsertOrUpdateCount());
     //    }, new CannonballOption().threadCount(5).expectExceptionAny("Deadlock found"));
     //}
 }

@@ -40,7 +40,9 @@ map:{
 
     # the test of check count for next-key-lock of MySQL
     # set this property if you test it
-    ; isCheckCountBeforeQueryUpdate = true
+    ; isQueryUpdateCountPreCheck = true
+    # comment out if you test
+    #; isInsertOrUpdateCountPreCheck = true
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
