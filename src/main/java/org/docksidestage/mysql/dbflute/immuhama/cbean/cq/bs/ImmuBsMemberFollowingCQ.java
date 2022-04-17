@@ -136,14 +136,14 @@ public class ImmuBsMemberFollowingCQ extends ImmuAbstractBsMemberFollowingCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
     public ImmuBsMemberFollowingCQ addOrderBy_YourMemberId_Asc() { regOBA("YOUR_MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
     public ImmuBsMemberFollowingCQ addOrderBy_YourMemberId_Desc() { regOBD("YOUR_MEMBER_ID"); return this; }

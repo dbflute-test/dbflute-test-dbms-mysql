@@ -94,19 +94,33 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
       return _productId; }
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    public Map<String, ImmuPurchaseCQ> xdfgetProductId_ExistsReferrer_PurchaseList() { return xgetSQueMap("productId_ExistsReferrer_PurchaseList"); }
-    public String keepProductId_ExistsReferrer_PurchaseList(ImmuPurchaseCQ sq) { return xkeepSQue("productId_ExistsReferrer_PurchaseList", sq); }
+    public Map<String, ImmuProductDetailCQ> xdfgetProductId_ExistsReferrer_ProductDetailList() { return xgetSQueMap("productId_ExistsReferrer_ProductDetailList"); }
+    public String keepProductId_ExistsReferrer_ProductDetailList(ImmuProductDetailCQ sq) { return xkeepSQue("productId_ExistsReferrer_ProductDetailList", sq); }
 
-    public Map<String, ImmuPurchaseCQ> xdfgetProductId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("productId_NotExistsReferrer_PurchaseList"); }
-    public String keepProductId_NotExistsReferrer_PurchaseList(ImmuPurchaseCQ sq) { return xkeepSQue("productId_NotExistsReferrer_PurchaseList", sq); }
+    public Map<String, ImmuProductPriceCQ> xdfgetProductId_ExistsReferrer_ProductPriceList() { return xgetSQueMap("productId_ExistsReferrer_ProductPriceList"); }
+    public String keepProductId_ExistsReferrer_ProductPriceList(ImmuProductPriceCQ sq) { return xkeepSQue("productId_ExistsReferrer_ProductPriceList", sq); }
 
-    public Map<String, ImmuPurchaseCQ> xdfgetProductId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_PurchaseList"); }
-    public String keepProductId_SpecifyDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_PurchaseList", sq); }
+    public Map<String, ImmuProductDetailCQ> xdfgetProductId_NotExistsReferrer_ProductDetailList() { return xgetSQueMap("productId_NotExistsReferrer_ProductDetailList"); }
+    public String keepProductId_NotExistsReferrer_ProductDetailList(ImmuProductDetailCQ sq) { return xkeepSQue("productId_NotExistsReferrer_ProductDetailList", sq); }
 
-    public Map<String, ImmuPurchaseCQ> xdfgetProductId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_QueryDerivedReferrer_PurchaseList"); }
-    public String keepProductId_QueryDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_PurchaseList", sq); }
-    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_PurchaseList"); }
-    public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_PurchaseList", pm); }
+    public Map<String, ImmuProductPriceCQ> xdfgetProductId_NotExistsReferrer_ProductPriceList() { return xgetSQueMap("productId_NotExistsReferrer_ProductPriceList"); }
+    public String keepProductId_NotExistsReferrer_ProductPriceList(ImmuProductPriceCQ sq) { return xkeepSQue("productId_NotExistsReferrer_ProductPriceList", sq); }
+
+    public Map<String, ImmuProductDetailCQ> xdfgetProductId_SpecifyDerivedReferrer_ProductDetailList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_ProductDetailList"); }
+    public String keepProductId_SpecifyDerivedReferrer_ProductDetailList(ImmuProductDetailCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_ProductDetailList", sq); }
+
+    public Map<String, ImmuProductPriceCQ> xdfgetProductId_SpecifyDerivedReferrer_ProductPriceList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_ProductPriceList"); }
+    public String keepProductId_SpecifyDerivedReferrer_ProductPriceList(ImmuProductPriceCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_ProductPriceList", sq); }
+
+    public Map<String, ImmuProductDetailCQ> xdfgetProductId_QueryDerivedReferrer_ProductDetailList() { return xgetSQueMap("productId_QueryDerivedReferrer_ProductDetailList"); }
+    public String keepProductId_QueryDerivedReferrer_ProductDetailList(ImmuProductDetailCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_ProductDetailList", sq); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_ProductDetailListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_ProductDetailList"); }
+    public String keepProductId_QueryDerivedReferrer_ProductDetailListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_ProductDetailList", pm); }
+
+    public Map<String, ImmuProductPriceCQ> xdfgetProductId_QueryDerivedReferrer_ProductPriceList() { return xgetSQueMap("productId_QueryDerivedReferrer_ProductPriceList"); }
+    public String keepProductId_QueryDerivedReferrer_ProductPriceList(ImmuProductPriceCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_ProductPriceList", sq); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_ProductPriceListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_ProductPriceList"); }
+    public String keepProductId_QueryDerivedReferrer_ProductPriceListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_ProductPriceList", pm); }
 
     /**
      * Add order-by as ascend. <br>
@@ -122,106 +136,6 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
      */
     public ImmuBsProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
 
-    protected ConditionValue _productName;
-    public ConditionValue xdfgetProductName()
-    { if (_productName == null) { _productName = nCV(); }
-      return _productName; }
-    protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
-
-    protected ConditionValue _productHandleCode;
-    public ConditionValue xdfgetProductHandleCode()
-    { if (_productHandleCode == null) { _productHandleCode = nCV(); }
-      return _productHandleCode; }
-    protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
-
-    protected ConditionValue _productCategoryCode;
-    public ConditionValue xdfgetProductCategoryCode()
-    { if (_productCategoryCode == null) { _productCategoryCode = nCV(); }
-      return _productCategoryCode; }
-    protected ConditionValue xgetCValueProductCategoryCode() { return xdfgetProductCategoryCode(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("PRODUCT_CATEGORY_CODE"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("PRODUCT_CATEGORY_CODE"); return this; }
-
-    protected ConditionValue _productStatusCode;
-    public ConditionValue xdfgetProductStatusCode()
-    { if (_productStatusCode == null) { _productStatusCode = nCV(); }
-      return _productStatusCode; }
-    protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }
-
-    protected ConditionValue _regularPrice;
-    public ConditionValue xdfgetRegularPrice()
-    { if (_regularPrice == null) { _regularPrice = nCV(); }
-      return _regularPrice; }
-    protected ConditionValue xgetCValueRegularPrice() { return xdfgetRegularPrice(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INT(10)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_RegularPrice_Asc() { regOBA("REGULAR_PRICE"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (定価)REGULAR_PRICE: {NotNull, INT(10)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_RegularPrice_Desc() { regOBD("REGULAR_PRICE"); return this; }
-
     protected ConditionValue _registerDatetime;
     public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
@@ -230,14 +144,14 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -250,14 +164,14 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
@@ -270,14 +184,14 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -290,37 +204,17 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsProductCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
-
-    protected ConditionValue _versionNo;
-    public ConditionValue xdfgetVersionNo()
-    { if (_versionNo == null) { _versionNo = nCV(); }
-      return _versionNo; }
-    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsProductCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -361,59 +255,11 @@ public class ImmuBsProductCQ extends ImmuAbstractBsProductCQ {
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
-        ImmuProductCQ bq = (ImmuProductCQ)bqs;
-        ImmuProductCQ uq = (ImmuProductCQ)uqs;
-        if (bq.hasConditionQueryProductCategory()) {
-            uq.queryProductCategory().reflectRelationOnUnionQuery(bq.queryProductCategory(), uq.queryProductCategory());
-        }
-        if (bq.hasConditionQueryProductStatus()) {
-            uq.queryProductStatus().reflectRelationOnUnionQuery(bq.queryProductStatus(), uq.queryProductStatus());
-        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
-    /**
-     * Get the condition-query for relation table. <br>
-     * (商品カテゴリ)PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
-     * @return The instance of condition-query. (NotNull)
-     */
-    public ImmuProductCategoryCQ queryProductCategory() {
-        return xdfgetConditionQueryProductCategory();
-    }
-    public ImmuProductCategoryCQ xdfgetConditionQueryProductCategory() {
-        String prop = "productCategory";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductCategory()); xsetupOuterJoinProductCategory(); }
-        return xgetQueRlMap(prop);
-    }
-    protected ImmuProductCategoryCQ xcreateQueryProductCategory() {
-        String nrp = xresolveNRP("product", "productCategory"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuProductCategoryCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productCategory", nrp);
-    }
-    protected void xsetupOuterJoinProductCategory() { xregOutJo("productCategory"); }
-    public boolean hasConditionQueryProductCategory() { return xhasQueRlMap("productCategory"); }
-
-    /**
-     * Get the condition-query for relation table. <br>
-     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
-     * @return The instance of condition-query. (NotNull)
-     */
-    public ImmuProductStatusCQ queryProductStatus() {
-        return xdfgetConditionQueryProductStatus();
-    }
-    public ImmuProductStatusCQ xdfgetConditionQueryProductStatus() {
-        String prop = "productStatus";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductStatus()); xsetupOuterJoinProductStatus(); }
-        return xgetQueRlMap(prop);
-    }
-    protected ImmuProductStatusCQ xcreateQueryProductStatus() {
-        String nrp = xresolveNRP("product", "productStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuProductStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productStatus", nrp);
-    }
-    protected void xsetupOuterJoinProductStatus() { xregOutJo("productStatus"); }
-    public boolean hasConditionQueryProductStatus() { return xhasQueRlMap("productStatus"); }
-
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }

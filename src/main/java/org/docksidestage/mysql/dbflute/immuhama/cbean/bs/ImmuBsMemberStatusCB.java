@@ -27,13 +27,13 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
-import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuCDef;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuDBFluteConfig;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuDBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedInvokerAssistant;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedSqlClauseCreator;
 import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
 import org.docksidestage.mysql.dbflute.immuhama.cbean.cq.*;
+import org.docksidestage.mysql.dbflute.immuhama.cbean.nss.*;
 
 /**
  * The base condition-bean of member_status.
@@ -100,35 +100,23 @@ public class ImmuBsMemberStatusCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberStatusCode (会員ステータスコード): PK, NotNull, CHAR(3), classification=MemberStatus. (NotNull)
+     * @param memberStatusId (会員ステータスID): PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return this. (NotNull)
      */
-    public ImmuMemberStatusCB acceptPK(ImmuCDef.MemberStatus memberStatusCode) {
-        assertObjectNotNull("memberStatusCode", memberStatusCode);
+    public ImmuMemberStatusCB acceptPK(Long memberStatusId) {
+        assertObjectNotNull("memberStatusId", memberStatusId);
         ImmuBsMemberStatusCB cb = this;
-        cb.query().setMemberStatusCode_Equal_AsMemberStatus(memberStatusCode);
-        return (ImmuMemberStatusCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param displayOrder (表示順): UQ, NotNull, INT(10). (NotNull)
-     * @return this. (NotNull)
-     */
-    public ImmuMemberStatusCB acceptUniqueOf(Integer displayOrder) {
-        assertObjectNotNull("displayOrder", displayOrder);
-        ImmuBsMemberStatusCB cb = this;
-        cb.query().setDisplayOrder_Equal(displayOrder);
+        cb.query().setMemberStatusId_Equal(memberStatusId);
         return (ImmuMemberStatusCB)this;
     }
 
     public ConditionBean addOrderBy_PK_Asc() {
-        query().addOrderBy_MemberStatusCode_Asc();
+        query().addOrderBy_MemberStatusId_Asc();
         return this;
     }
 
     public ConditionBean addOrderBy_PK_Desc() {
-        query().addOrderBy_MemberStatusCode_Desc();
+        query().addOrderBy_MemberStatusId_Desc();
         return this;
     }
 
@@ -269,6 +257,55 @@ public class ImmuBsMemberStatusCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
+    protected ImmuMemberNss _nssMember;
+    public ImmuMemberNss xdfgetNssMember() {
+        if (_nssMember == null) { _nssMember = new ImmuMemberNss(null); }
+        return _nssMember;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * <pre>
+     * <span style="color: #0000C0">memberStatusBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Member()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">memberStatus</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getMember()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public ImmuMemberNss setupSelect_Member() {
+        assertSetupSelectPurpose("member");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnMemberId();
+        }
+        doSetupSelect(() -> query().queryMember());
+        if (_nssMember == null || !_nssMember.hasConditionQuery())
+        { _nssMember = new ImmuMemberNss(query().queryMember()); }
+        return _nssMember;
+    }
+
+    /**
+     * Set up relation columns to select clause. <br>
+     * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
+     * <pre>
+     * <span style="color: #0000C0">memberStatusBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_CdefMemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">memberStatus</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getCdefMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     */
+    public void setupSelect_CdefMemberStatus() {
+        assertSetupSelectPurpose("cdefMemberStatus");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnMemberStatusCode();
+        }
+        doSetupSelect(() -> query().queryCdefMemberStatus());
+    }
+
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -310,71 +347,107 @@ public class ImmuBsMemberStatusCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuMemberStatusCQ> {
+        protected ImmuMemberCB.HpSpecification _member;
+        protected ImmuCdefMemberStatusCB.HpSpecification _cdefMemberStatus;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuMemberStatusCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+         * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnMemberStatusId() { return doColumn("MEMBER_STATUS_ID"); }
+        /**
+         * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
+        /**
+         * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberStatusCode() { return doColumn("MEMBER_STATUS_CODE"); }
         /**
-         * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
+         * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnMemberStatusName() { return doColumn("MEMBER_STATUS_NAME"); }
+        public SpecifiedColumn columnMemberStatusUpdateDatetime() { return doColumn("MEMBER_STATUS_UPDATE_DATETIME"); }
         /**
-         * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnDescription() { return doColumn("DESCRIPTION"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnDisplayOrder() { return doColumn("DISPLAY_ORDER"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
+        /**
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
+        /**
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
-            columnMemberStatusCode(); // PK
+            columnMemberStatusId(); // PK
+            if (qyCall().qy().hasConditionQueryMember()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuMemberCQ) {
+                columnMemberId(); // FK or one-to-one referrer
+            }
+            if (qyCall().qy().hasConditionQueryCdefMemberStatus()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuCdefMemberStatusCQ) {
+                columnMemberStatusCode(); // FK or one-to-one referrer
+            }
         }
         @Override
         protected String getTableDbName() { return "member_status"; }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from member where ...) as FOO_MAX} <br>
-         * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
-         * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     memberCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     memberCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, ImmuMember.<span style="color: #CC4747">ALIAS_foo...</span>);
-         * </pre>
-         * @return The object to set up a function for referrer table. (NotNull)
+         * Prepare to specify functions about relation table. <br>
+         * (会員)MEMBER by my MEMBER_ID, named 'member'.
+         * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public HpSDRFunction<ImmuMemberCB, ImmuMemberStatusCQ> derivedMember() {
-            assertDerived("memberList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ImmuMemberCB> sq, ImmuMemberStatusCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderiveMemberList(fn, sq, al, op), _dbmetaProvider);
+        public ImmuMemberCB.HpSpecification specifyMember() {
+            assertRelation("member");
+            if (_member == null) {
+                _member = new ImmuMemberCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMember()
+                                    , () -> _qyCall.qy().queryMember())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _member.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMember()
+                      , () -> xsyncQyCall().qy().queryMember()));
+                }
+            }
+            return _member;
         }
         /**
-         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from member_login where ...) as FOO_MAX} <br>
-         * (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
-         * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     loginCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     loginCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, ImmuMemberLogin.<span style="color: #CC4747">ALIAS_foo...</span>);
-         * </pre>
-         * @return The object to set up a function for referrer table. (NotNull)
+         * Prepare to specify functions about relation table. <br>
+         * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
+         * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public HpSDRFunction<ImmuMemberLoginCB, ImmuMemberStatusCQ> derivedMemberLogin() {
-            assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ImmuMemberLoginCB> sq, ImmuMemberStatusCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
+        public ImmuCdefMemberStatusCB.HpSpecification specifyCdefMemberStatus() {
+            assertRelation("cdefMemberStatus");
+            if (_cdefMemberStatus == null) {
+                _cdefMemberStatus = new ImmuCdefMemberStatusCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryCdefMemberStatus()
+                                    , () -> _qyCall.qy().queryCdefMemberStatus())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _cdefMemberStatus.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryCdefMemberStatus()
+                      , () -> xsyncQyCall().qy().queryCdefMemberStatus()));
+                }
+            }
+            return _cdefMemberStatus;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

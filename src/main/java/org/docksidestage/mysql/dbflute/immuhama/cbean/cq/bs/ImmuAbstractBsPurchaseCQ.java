@@ -379,120 +379,237 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_Equal(Integer productId) {
-        doSetProductId_Equal(productId);
+    public void setProductDetailId_Equal(Long productDetailId) {
+        doSetProductDetailId_Equal(productDetailId);
     }
 
-    protected void doSetProductId_Equal(Integer productId) {
-        regProductId(CK_EQ, productId);
+    protected void doSetProductDetailId_Equal(Long productDetailId) {
+        regProductDetailId(CK_EQ, productDetailId);
     }
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_NotEqual(Integer productId) {
-        doSetProductId_NotEqual(productId);
+    public void setProductDetailId_NotEqual(Long productDetailId) {
+        doSetProductDetailId_NotEqual(productDetailId);
     }
 
-    protected void doSetProductId_NotEqual(Integer productId) {
-        regProductId(CK_NES, productId);
+    protected void doSetProductDetailId_NotEqual(Long productDetailId) {
+        regProductDetailId(CK_NES, productDetailId);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterThan(Integer productId) {
-        regProductId(CK_GT, productId);
+    public void setProductDetailId_GreaterThan(Long productDetailId) {
+        regProductDetailId(CK_GT, productDetailId);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessThan(Integer productId) {
-        regProductId(CK_LT, productId);
+    public void setProductDetailId_LessThan(Long productDetailId) {
+        regProductDetailId(CK_LT, productDetailId);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_GreaterEqual(Integer productId) {
-        regProductId(CK_GE, productId);
+    public void setProductDetailId_GreaterEqual(Long productDetailId) {
+        regProductDetailId(CK_GE, productDetailId);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailId The value of productDetailId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setProductId_LessEqual(Integer productId) {
-        regProductId(CK_LE, productId);
+    public void setProductDetailId_LessEqual(Long productDetailId) {
+        regProductDetailId(CK_LE, productDetailId);
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param minNumber The min number of productDetailId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productDetailId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setProductId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    public void setProductDetailId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setProductDetailId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param minNumber The min number of productDetailId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productDetailId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    protected void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueProductId(), "PRODUCT_ID", rangeOfOption);
+    protected void setProductDetailId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueProductDetailId(), "PRODUCT_DETAIL_ID", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailIdList The collection of productDetailId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_InScope(Collection<Integer> productIdList) {
-        doSetProductId_InScope(productIdList);
+    public void setProductDetailId_InScope(Collection<Long> productDetailIdList) {
+        doSetProductDetailId_InScope(productDetailIdList);
     }
 
-    protected void doSetProductId_InScope(Collection<Integer> productIdList) {
-        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
+    protected void doSetProductDetailId_InScope(Collection<Long> productDetailIdList) {
+        regINS(CK_INS, cTL(productDetailIdList), xgetCValueProductDetailId(), "PRODUCT_DETAIL_ID");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
-     * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
+     * @param productDetailIdList The collection of productDetailId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setProductId_NotInScope(Collection<Integer> productIdList) {
-        doSetProductId_NotInScope(productIdList);
+    public void setProductDetailId_NotInScope(Collection<Long> productDetailIdList) {
+        doSetProductDetailId_NotInScope(productDetailIdList);
     }
 
-    protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
+    protected void doSetProductDetailId_NotInScope(Collection<Long> productDetailIdList) {
+        regINS(CK_NINS, cTL(productDetailIdList), xgetCValueProductDetailId(), "PRODUCT_DETAIL_ID");
     }
 
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
-    protected abstract ConditionValue xgetCValueProductId();
+    protected void regProductDetailId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductDetailId(), "PRODUCT_DETAIL_ID"); }
+    protected abstract ConditionValue xgetCValueProductDetailId();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_Equal(Long productPriceId) {
+        doSetProductPriceId_Equal(productPriceId);
+    }
+
+    protected void doSetProductPriceId_Equal(Long productPriceId) {
+        regProductPriceId(CK_EQ, productPriceId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_NotEqual(Long productPriceId) {
+        doSetProductPriceId_NotEqual(productPriceId);
+    }
+
+    protected void doSetProductPriceId_NotEqual(Long productPriceId) {
+        regProductPriceId(CK_NES, productPriceId);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_GreaterThan(Long productPriceId) {
+        regProductPriceId(CK_GT, productPriceId);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_LessThan(Long productPriceId) {
+        regProductPriceId(CK_LT, productPriceId);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_GreaterEqual(Long productPriceId) {
+        regProductPriceId(CK_GE, productPriceId);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceId The value of productPriceId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductPriceId_LessEqual(Long productPriceId) {
+        regProductPriceId(CK_LE, productPriceId);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param minNumber The min number of productPriceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productPriceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setProductPriceId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setProductPriceId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param minNumber The min number of productPriceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of productPriceId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setProductPriceId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueProductPriceId(), "PRODUCT_PRICE_ID", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceIdList The collection of productPriceId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setProductPriceId_InScope(Collection<Long> productPriceIdList) {
+        doSetProductPriceId_InScope(productPriceIdList);
+    }
+
+    protected void doSetProductPriceId_InScope(Collection<Long> productPriceIdList) {
+        regINS(CK_INS, cTL(productPriceIdList), xgetCValueProductPriceId(), "PRODUCT_PRICE_ID");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @param productPriceIdList The collection of productPriceId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setProductPriceId_NotInScope(Collection<Long> productPriceIdList) {
+        doSetProductPriceId_NotInScope(productPriceIdList);
+    }
+
+    protected void doSetProductPriceId_NotInScope(Collection<Long> productPriceIdList) {
+        regINS(CK_NINS, cTL(productPriceIdList), xgetCValueProductPriceId(), "PRODUCT_PRICE_ID");
+    }
+
+    protected void regProductPriceId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductPriceId(), "PRODUCT_PRICE_ID"); }
+    protected abstract ConditionValue xgetCValueProductPriceId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
@@ -805,134 +922,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @param paymentCompleteFlg The value of paymentCompleteFlg as equal. (basically NotNull: error as default, or no condition as option)
-     */
-    protected void setPaymentCompleteFlg_Equal(Integer paymentCompleteFlg) {
-        doSetPaymentCompleteFlg_Equal(paymentCompleteFlg);
-    }
-
-    /**
-     * Equal(=). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} <br>
-     * general boolean classification for every flg-column
-     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPaymentCompleteFlg_Equal_AsFlg(ImmuCDef.Flg cdef) {
-        doSetPaymentCompleteFlg_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
-    }
-
-    /**
-     * Equal(=). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
-     * Yes: means valid
-     */
-    public void setPaymentCompleteFlg_Equal_True() {
-        setPaymentCompleteFlg_Equal_AsFlg(ImmuCDef.Flg.True);
-    }
-
-    /**
-     * Equal(=). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
-     * No: means invalid
-     */
-    public void setPaymentCompleteFlg_Equal_False() {
-        setPaymentCompleteFlg_Equal_AsFlg(ImmuCDef.Flg.False);
-    }
-
-    protected void doSetPaymentCompleteFlg_Equal(Integer paymentCompleteFlg) {
-        regPaymentCompleteFlg(CK_EQ, paymentCompleteFlg);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @param paymentCompleteFlg The value of paymentCompleteFlg as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    protected void setPaymentCompleteFlg_NotEqual(Integer paymentCompleteFlg) {
-        doSetPaymentCompleteFlg_NotEqual(paymentCompleteFlg);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} <br>
-     * general boolean classification for every flg-column
-     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPaymentCompleteFlg_NotEqual_AsFlg(ImmuCDef.Flg cdef) {
-        doSetPaymentCompleteFlg_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
-     * Yes: means valid
-     */
-    public void setPaymentCompleteFlg_NotEqual_True() {
-        setPaymentCompleteFlg_NotEqual_AsFlg(ImmuCDef.Flg.True);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
-     * No: means invalid
-     */
-    public void setPaymentCompleteFlg_NotEqual_False() {
-        setPaymentCompleteFlg_NotEqual_AsFlg(ImmuCDef.Flg.False);
-    }
-
-    protected void doSetPaymentCompleteFlg_NotEqual(Integer paymentCompleteFlg) {
-        regPaymentCompleteFlg(CK_NES, paymentCompleteFlg);
-    }
-
-    /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    protected void setPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
-        doSetPaymentCompleteFlg_InScope(paymentCompleteFlgList);
-    }
-
-    /**
-     * InScope {in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} <br>
-     * general boolean classification for every flg-column
-     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setPaymentCompleteFlg_InScope_AsFlg(Collection<ImmuCDef.Flg> cdefList) {
-        doSetPaymentCompleteFlg_InScope(cTNumL(cdefList, Integer.class));
-    }
-
-    protected void doSetPaymentCompleteFlg_InScope(Collection<Integer> paymentCompleteFlgList) {
-        regINS(CK_INS, cTL(paymentCompleteFlgList), xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
-    }
-
-    /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @param paymentCompleteFlgList The collection of paymentCompleteFlg as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    protected void setPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
-        doSetPaymentCompleteFlg_NotInScope(paymentCompleteFlgList);
-    }
-
-    /**
-     * NotInScope {not in (1, 2)}. As Flg. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} <br>
-     * general boolean classification for every flg-column
-     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setPaymentCompleteFlg_NotInScope_AsFlg(Collection<ImmuCDef.Flg> cdefList) {
-        doSetPaymentCompleteFlg_NotInScope(cTNumL(cdefList, Integer.class));
-    }
-
-    protected void doSetPaymentCompleteFlg_NotInScope(Collection<Integer> paymentCompleteFlgList) {
-        regINS(CK_NINS, cTL(paymentCompleteFlgList), xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG");
-    }
-
-    protected void regPaymentCompleteFlg(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePaymentCompleteFlg(), "PAYMENT_COMPLETE_FLG"); }
-    protected abstract ConditionValue xgetCValuePaymentCompleteFlg();
-
-    /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
@@ -941,7 +931,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
@@ -950,7 +940,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
@@ -959,7 +949,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
@@ -968,7 +958,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @param registerDatetime The value of registerDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
@@ -978,7 +968,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -991,7 +981,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -1007,7 +997,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_Equal(String registerUser) {
@@ -1020,7 +1010,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_NotEqual(String registerUser) {
@@ -1033,7 +1023,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_GreaterThan(String registerUser) {
@@ -1042,7 +1032,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_LessThan(String registerUser) {
@@ -1051,7 +1041,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_GreaterEqual(String registerUser) {
@@ -1060,7 +1050,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_LessEqual(String registerUser) {
@@ -1069,7 +1059,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUserList The collection of registerUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_InScope(Collection<String> registerUserList) {
@@ -1082,7 +1072,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUserList The collection of registerUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegisterUser_NotInScope(Collection<String> registerUserList) {
@@ -1095,7 +1085,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setRegisterUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param registerUser The value of registerUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1106,7 +1096,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setRegisterUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param registerUser The value of registerUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1118,7 +1108,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1129,7 +1119,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @param registerUser The value of registerUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -1142,7 +1132,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
@@ -1151,7 +1141,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_GreaterThan(java.time.LocalDateTime updateDatetime) {
@@ -1160,7 +1150,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_LessThan(java.time.LocalDateTime updateDatetime) {
@@ -1169,7 +1159,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_GreaterEqual(java.time.LocalDateTime updateDatetime) {
@@ -1178,7 +1168,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @param updateDatetime The value of updateDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setUpdateDatetime_LessEqual(java.time.LocalDateTime updateDatetime) {
@@ -1188,7 +1178,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setUpdateDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -1201,7 +1191,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * <pre>e.g. setUpdateDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -1217,7 +1207,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_Equal(String updateUser) {
@@ -1230,7 +1220,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_NotEqual(String updateUser) {
@@ -1243,7 +1233,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_GreaterThan(String updateUser) {
@@ -1252,7 +1242,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_LessThan(String updateUser) {
@@ -1261,7 +1251,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_GreaterEqual(String updateUser) {
@@ -1270,7 +1260,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_LessEqual(String updateUser) {
@@ -1279,7 +1269,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUserList The collection of updateUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_InScope(Collection<String> updateUserList) {
@@ -1292,7 +1282,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUserList The collection of updateUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setUpdateUser_NotInScope(Collection<String> updateUserList) {
@@ -1305,7 +1295,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setUpdateUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param updateUser The value of updateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -1316,7 +1306,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * <pre>e.g. setUpdateUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param updateUser The value of updateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -1328,7 +1318,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1339,7 +1329,7 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @param updateUser The value of updateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -1349,123 +1339,6 @@ public abstract class ImmuAbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "UPDATE_USER"); }
     protected abstract ConditionValue xgetCValueUpdateUser();
-
-    /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as equal. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_Equal(Long versionNo) {
-        doSetVersionNo_Equal(versionNo);
-    }
-
-    protected void doSetVersionNo_Equal(Long versionNo) {
-        regVersionNo(CK_EQ, versionNo);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_NotEqual(Long versionNo) {
-        doSetVersionNo_NotEqual(versionNo);
-    }
-
-    protected void doSetVersionNo_NotEqual(Long versionNo) {
-        regVersionNo(CK_NES, versionNo);
-    }
-
-    /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as greaterThan. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_GreaterThan(Long versionNo) {
-        regVersionNo(CK_GT, versionNo);
-    }
-
-    /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as lessThan. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_LessThan(Long versionNo) {
-        regVersionNo(CK_LT, versionNo);
-    }
-
-    /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as greaterEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_GreaterEqual(Long versionNo) {
-        regVersionNo(CK_GE, versionNo);
-    }
-
-    /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as lessEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_LessEqual(Long versionNo) {
-        regVersionNo(CK_LE, versionNo);
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param opLambda The callback for option of range-of. (NotNull)
-     */
-    public void setVersionNo_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setVersionNo_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param minNumber The min number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of versionNo. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param rangeOfOption The option of range-of. (NotNull)
-     */
-    protected void setVersionNo_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueVersionNo(), "VERSION_NO", rangeOfOption);
-    }
-
-    /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNoList The collection of versionNo as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setVersionNo_InScope(Collection<Long> versionNoList) {
-        doSetVersionNo_InScope(versionNoList);
-    }
-
-    protected void doSetVersionNo_InScope(Collection<Long> versionNoList) {
-        regINS(CK_INS, cTL(versionNoList), xgetCValueVersionNo(), "VERSION_NO");
-    }
-
-    /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNoList The collection of versionNo as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setVersionNo_NotInScope(Collection<Long> versionNoList) {
-        doSetVersionNo_NotInScope(versionNoList);
-    }
-
-    protected void doSetVersionNo_NotInScope(Collection<Long> versionNoList) {
-        regINS(CK_NINS, cTL(versionNoList), xgetCValueVersionNo(), "VERSION_NO");
-    }
-
-    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVersionNo(), "VERSION_NO"); }
-    protected abstract ConditionValue xgetCValueVersionNo();
 
     // ===================================================================================
     //                                                                     ScalarCondition

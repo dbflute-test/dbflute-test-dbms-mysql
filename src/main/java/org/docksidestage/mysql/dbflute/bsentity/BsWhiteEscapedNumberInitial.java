@@ -115,7 +115,7 @@ public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity impleme
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.EscapedNumberInitialCls getNumberInitialCodeAsEscapedNumberInitialCls() {
-        return CDef.EscapedNumberInitialCls.codeOf(getNumberInitialCode());
+        return CDef.EscapedNumberInitialCls.of(getNumberInitialCode()).orElse(null);
     }
 
     /**

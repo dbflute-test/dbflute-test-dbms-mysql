@@ -35,7 +35,7 @@ import org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
 
 /**
- * The behavior of (会員ログイン情報)MEMBER_LOGIN as TABLE. <br>
+ * The behavior of (会員ログイン)MEMBER_LOGIN as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_LOGIN_ID
@@ -53,13 +53,13 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER
+ *     CDEF_MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     memberStatus, member
+ *     cdefMemberStatus, member
  *
  * [referrer property]
  *     
@@ -404,12 +404,12 @@ public abstract class ImmuBsMemberLoginBhv extends AbstractBehaviorWritable<Immu
     //                                                                   Pull out Relation
     //                                                                   =================
     /**
-     * Pull out the list of foreign table 'ImmuMemberStatus'.
+     * Pull out the list of foreign table 'ImmuCdefMemberStatus'.
      * @param memberLoginList The list of memberLogin. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<ImmuMemberStatus> pulloutMemberStatus(List<ImmuMemberLogin> memberLoginList)
-    { return helpPulloutInternally(memberLoginList, "memberStatus"); }
+    public List<ImmuCdefMemberStatus> pulloutCdefMemberStatus(List<ImmuMemberLogin> memberLoginList)
+    { return helpPulloutInternally(memberLoginList, "cdefMemberStatus"); }
 
     /**
      * Pull out the list of foreign table 'ImmuMember'.

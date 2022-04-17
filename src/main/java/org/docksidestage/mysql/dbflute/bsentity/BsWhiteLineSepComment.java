@@ -115,7 +115,7 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.LineSepCommentCls getLineSepCommentCodeAsLineSepCommentCls() {
-        return CDef.LineSepCommentCls.codeOf(getLineSepCommentCode());
+        return CDef.LineSepCommentCls.of(getLineSepCommentCode()).orElse(null);
     }
 
     /**

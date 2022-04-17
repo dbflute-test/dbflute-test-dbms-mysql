@@ -156,14 +156,14 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank}
+     * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_ServiceRankCode_Asc() { regOBA("SERVICE_RANK_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank}
+     * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_ServiceRankCode_Desc() { regOBD("SERVICE_RANK_CODE"); return this; }
@@ -176,14 +176,14 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -196,14 +196,14 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
@@ -216,14 +216,14 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -236,37 +236,17 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberServiceCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
-
-    protected ConditionValue _versionNo;
-    public ConditionValue xdfgetVersionNo()
-    { if (_versionNo == null) { _versionNo = nCV(); }
-      return _versionNo; }
-    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberServiceCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberServiceCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -312,8 +292,8 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
         if (bq.hasConditionQueryMember()) {
             uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
         }
-        if (bq.hasConditionQueryServiceRank()) {
-            uq.queryServiceRank().reflectRelationOnUnionQuery(bq.queryServiceRank(), uq.queryServiceRank());
+        if (bq.hasConditionQueryCdefServiceRank()) {
+            uq.queryCdefServiceRank().reflectRelationOnUnionQuery(bq.queryCdefServiceRank(), uq.queryCdefServiceRank());
         }
     }
 
@@ -342,23 +322,23 @@ public class ImmuBsMemberServiceCQ extends ImmuAbstractBsMemberServiceCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'.
      * @return The instance of condition-query. (NotNull)
      */
-    public ImmuServiceRankCQ queryServiceRank() {
-        return xdfgetConditionQueryServiceRank();
+    public ImmuCdefServiceRankCQ queryCdefServiceRank() {
+        return xdfgetConditionQueryCdefServiceRank();
     }
-    public ImmuServiceRankCQ xdfgetConditionQueryServiceRank() {
-        String prop = "serviceRank";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryServiceRank()); xsetupOuterJoinServiceRank(); }
+    public ImmuCdefServiceRankCQ xdfgetConditionQueryCdefServiceRank() {
+        String prop = "cdefServiceRank";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryCdefServiceRank()); xsetupOuterJoinCdefServiceRank(); }
         return xgetQueRlMap(prop);
     }
-    protected ImmuServiceRankCQ xcreateQueryServiceRank() {
-        String nrp = xresolveNRP("member_service", "serviceRank"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuServiceRankCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "serviceRank", nrp);
+    protected ImmuCdefServiceRankCQ xcreateQueryCdefServiceRank() {
+        String nrp = xresolveNRP("member_service", "cdefServiceRank"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuCdefServiceRankCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "cdefServiceRank", nrp);
     }
-    protected void xsetupOuterJoinServiceRank() { xregOutJo("serviceRank"); }
-    public boolean hasConditionQueryServiceRank() { return xhasQueRlMap("serviceRank"); }
+    protected void xsetupOuterJoinCdefServiceRank() { xregOutJo("cdefServiceRank"); }
+    public boolean hasConditionQueryCdefServiceRank() { return xhasQueRlMap("cdefServiceRank"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

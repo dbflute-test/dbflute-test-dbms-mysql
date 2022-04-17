@@ -79,14 +79,12 @@ public class ImmuMemberAddressCIQ extends ImmuAbstractBsMemberAddressCQ {
     protected ConditionValue xgetCValueMemberAddressId() { return _myCQ.xdfgetMemberAddressId(); }
     protected ConditionValue xgetCValueMemberId() { return _myCQ.xdfgetMemberId(); }
     protected ConditionValue xgetCValueValidBeginDate() { return _myCQ.xdfgetValidBeginDate(); }
-    protected ConditionValue xgetCValueValidEndDate() { return _myCQ.xdfgetValidEndDate(); }
     protected ConditionValue xgetCValueAddress() { return _myCQ.xdfgetAddress(); }
     protected ConditionValue xgetCValueRegionId() { return _myCQ.xdfgetRegionId(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
-    protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ImmuMemberAddressCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

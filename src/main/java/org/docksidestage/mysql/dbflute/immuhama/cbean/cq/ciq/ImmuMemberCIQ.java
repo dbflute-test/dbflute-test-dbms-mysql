@@ -85,6 +85,14 @@ public class ImmuMemberCIQ extends ImmuAbstractBsMemberCQ {
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepMemberId_ExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepMemberId_ExistsReferrer_MemberLoginPasswordList(ImmuMemberLoginPasswordCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepMemberId_ExistsReferrer_MemberPasswordReminderList(ImmuMemberPasswordReminderCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepMemberId_ExistsReferrer_MemberProfileList(ImmuMemberProfileCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepMemberId_ExistsReferrer_MemberStatusList(ImmuMemberStatusCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
     public String keepMemberId_ExistsReferrer_PurchaseList(ImmuPurchaseCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepMemberId_NotExistsReferrer_MemberAddressList(ImmuMemberAddressCQ sq)
@@ -95,6 +103,14 @@ public class ImmuMemberCIQ extends ImmuAbstractBsMemberCQ {
     { throwIICBOE("NotExistsReferrer"); return null; }
     public String keepMemberId_NotExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
     { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepMemberId_NotExistsReferrer_MemberLoginPasswordList(ImmuMemberLoginPasswordCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepMemberId_NotExistsReferrer_MemberPasswordReminderList(ImmuMemberPasswordReminderCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepMemberId_NotExistsReferrer_MemberProfileList(ImmuMemberProfileCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepMemberId_NotExistsReferrer_MemberStatusList(ImmuMemberStatusCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
     public String keepMemberId_NotExistsReferrer_PurchaseList(ImmuPurchaseCQ sq)
     { throwIICBOE("NotExistsReferrer"); return null; }
     public String keepMemberId_SpecifyDerivedReferrer_MemberAddressList(ImmuMemberAddressCQ sq)
@@ -104,6 +120,14 @@ public class ImmuMemberCIQ extends ImmuAbstractBsMemberCQ {
     public String keepMemberId_SpecifyDerivedReferrer_MemberFollowingByYourMemberIdList(ImmuMemberFollowingCQ sq)
     { throwIICBOE("(Specify)DerivedReferrer"); return null; }
     public String keepMemberId_SpecifyDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepMemberId_SpecifyDerivedReferrer_MemberLoginPasswordList(ImmuMemberLoginPasswordCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepMemberId_SpecifyDerivedReferrer_MemberPasswordReminderList(ImmuMemberPasswordReminderCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepMemberId_SpecifyDerivedReferrer_MemberProfileList(ImmuMemberProfileCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepMemberId_SpecifyDerivedReferrer_MemberStatusList(ImmuMemberStatusCQ sq)
     { throwIICBOE("(Specify)DerivedReferrer"); return null; }
     public String keepMemberId_SpecifyDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq)
     { throwIICBOE("(Specify)DerivedReferrer"); return null; }
@@ -123,20 +147,31 @@ public class ImmuMemberCIQ extends ImmuAbstractBsMemberCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepMemberId_QueryDerivedReferrer_MemberLoginListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberLoginPasswordList(ImmuMemberLoginPasswordCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberLoginPasswordListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberPasswordReminderList(ImmuMemberPasswordReminderCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberPasswordReminderListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberProfileList(ImmuMemberProfileCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberProfileListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberStatusList(ImmuMemberStatusCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepMemberId_QueryDerivedReferrer_MemberStatusListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepMemberId_QueryDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepMemberId_QueryDerivedReferrer_PurchaseListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue xgetCValueMemberName() { return _myCQ.xdfgetMemberName(); }
-    protected ConditionValue xgetCValueMemberAccount() { return _myCQ.xdfgetMemberAccount(); }
-    protected ConditionValue xgetCValueMemberStatusCode() { return _myCQ.xdfgetMemberStatusCode(); }
-    protected ConditionValue xgetCValueFormalizedDatetime() { return _myCQ.xdfgetFormalizedDatetime(); }
-    protected ConditionValue xgetCValueBirthdate() { return _myCQ.xdfgetBirthdate(); }
+    protected ConditionValue xgetCValueMemberRegisterDatetime() { return _myCQ.xdfgetMemberRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
-    protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ImmuMemberCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

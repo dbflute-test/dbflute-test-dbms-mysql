@@ -301,22 +301,22 @@ public class ImmuBsMemberAddressCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (地域)REGION by my REGION_ID, named 'region'.
+     * ([区分値]地域)CDEF_REGION by my REGION_ID, named 'cdefRegion'.
      * <pre>
      * <span style="color: #0000C0">memberAddressBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Region()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_CdefRegion()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">memberAddress</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">memberAddress</span>.<span style="color: #CC4747">getRegion()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     *     ... = <span style="color: #553000">memberAddress</span>.<span style="color: #CC4747">getCdefRegion()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      */
-    public void setupSelect_Region() {
-        assertSetupSelectPurpose("region");
+    public void setupSelect_CdefRegion() {
+        assertSetupSelectPurpose("cdefRegion");
         if (hasSpecifiedLocalColumn()) {
             specify().columnRegionId();
         }
-        doSetupSelect(() -> query().queryRegion());
+        doSetupSelect(() -> query().queryCdefRegion());
     }
 
     // [DBFlute-0.7.4]
@@ -361,7 +361,7 @@ public class ImmuBsMemberAddressCB extends AbstractConditionBean {
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuMemberAddressCQ> {
         protected ImmuMemberCB.HpSpecification _member;
-        protected ImmuRegionCB.HpSpecification _region;
+        protected ImmuCdefRegionCB.HpSpecification _cdefRegion;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuMemberAddressCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -382,45 +382,35 @@ public class ImmuBsMemberAddressCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnValidBeginDate() { return doColumn("VALID_BEGIN_DATE"); }
         /**
-         * (有効終了日)VALID_END_DATE: {NotNull, DATE(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnValidEndDate() { return doColumn("VALID_END_DATE"); }
-        /**
          * (住所)ADDRESS: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnAddress() { return doColumn("ADDRESS"); }
         /**
-         * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to region, classification=Region}
+         * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to cdef_region, classification=Region}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionId() { return doColumn("REGION_ID"); }
         /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
-        /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -430,8 +420,8 @@ public class ImmuBsMemberAddressCB extends AbstractConditionBean {
                     || qyCall().qy().xgetReferrerQuery() instanceof ImmuMemberCQ) {
                 columnMemberId(); // FK or one-to-one referrer
             }
-            if (qyCall().qy().hasConditionQueryRegion()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuRegionCQ) {
+            if (qyCall().qy().hasConditionQueryCdefRegion()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuCdefRegionCQ) {
                 columnRegionId(); // FK or one-to-one referrer
             }
         }
@@ -459,23 +449,23 @@ public class ImmuBsMemberAddressCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (地域)REGION by my REGION_ID, named 'region'.
+         * ([区分値]地域)CDEF_REGION by my REGION_ID, named 'cdefRegion'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public ImmuRegionCB.HpSpecification specifyRegion() {
-            assertRelation("region");
-            if (_region == null) {
-                _region = new ImmuRegionCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryRegion()
-                                    , () -> _qyCall.qy().queryRegion())
+        public ImmuCdefRegionCB.HpSpecification specifyCdefRegion() {
+            assertRelation("cdefRegion");
+            if (_cdefRegion == null) {
+                _cdefRegion = new ImmuCdefRegionCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryCdefRegion()
+                                    , () -> _qyCall.qy().queryCdefRegion())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _region.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryRegion()
-                      , () -> xsyncQyCall().qy().queryRegion()));
+                    _cdefRegion.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryCdefRegion()
+                      , () -> xsyncQyCall().qy().queryCdefRegion()));
                 }
             }
-            return _region;
+            return _cdefRegion;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

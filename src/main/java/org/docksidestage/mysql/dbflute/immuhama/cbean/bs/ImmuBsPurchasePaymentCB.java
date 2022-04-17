@@ -357,26 +357,6 @@ public class ImmuBsPurchasePaymentCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPaymentMethodCode() { return doColumn("PAYMENT_METHOD_CODE"); }
-        /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
-        /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
-        /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
-        /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

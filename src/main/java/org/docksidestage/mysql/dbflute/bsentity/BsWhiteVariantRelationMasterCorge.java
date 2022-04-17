@@ -120,7 +120,7 @@ public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity i
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.VariantRelationQuxType getCorgeTypeCodeAsVariantRelationQuxType() {
-        return CDef.VariantRelationQuxType.codeOf(getCorgeTypeCode());
+        return CDef.VariantRelationQuxType.of(getCorgeTypeCode()).orElse(null);
     }
 
     /**

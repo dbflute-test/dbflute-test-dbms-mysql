@@ -113,14 +113,13 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
     /**
      * Accept the query condition of unique key as equal.
      * @param memberId (会員ID): UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
-     * @param productId (商品ID): +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
      * @param purchaseDatetime (購入日時): +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      * @return this. (NotNull)
      */
-    public ImmuPurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
+    public ImmuPurchaseCB acceptUniqueOf(Integer memberId, java.time.LocalDateTime purchaseDatetime) {
+        assertObjectNotNull("memberId", memberId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
         ImmuBsPurchaseCB cb = this;
-        cb.query().setMemberId_Equal(memberId);cb.query().setProductId_Equal(productId);cb.query().setPurchaseDatetime_Equal(purchaseDatetime);
+        cb.query().setMemberId_Equal(memberId);cb.query().setPurchaseDatetime_Equal(purchaseDatetime);
         return (ImmuPurchaseCB)this;
     }
 
@@ -300,33 +299,88 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
         return _nssMember;
     }
 
-    protected ImmuProductNss _nssProduct;
-    public ImmuProductNss xdfgetNssProduct() {
-        if (_nssProduct == null) { _nssProduct = new ImmuProductNss(null); }
-        return _nssProduct;
+    protected ImmuProductDetailNss _nssProductDetail;
+    public ImmuProductDetailNss xdfgetNssProductDetail() {
+        if (_nssProductDetail == null) { _nssProductDetail = new ImmuProductDetailNss(null); }
+        return _nssProductDetail;
     }
     /**
      * Set up relation columns to select clause. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (商品詳細)PRODUCT_DETAIL by my PRODUCT_DETAIL_ID, named 'productDetail'.
      * <pre>
      * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_Product()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ProductDetail()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getProduct()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getProductDetail()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public ImmuProductNss setupSelect_Product() {
-        assertSetupSelectPurpose("product");
+    public ImmuProductDetailNss setupSelect_ProductDetail() {
+        assertSetupSelectPurpose("productDetail");
         if (hasSpecifiedLocalColumn()) {
-            specify().columnProductId();
+            specify().columnProductDetailId();
         }
-        doSetupSelect(() -> query().queryProduct());
-        if (_nssProduct == null || !_nssProduct.hasConditionQuery())
-        { _nssProduct = new ImmuProductNss(query().queryProduct()); }
-        return _nssProduct;
+        doSetupSelect(() -> query().queryProductDetail());
+        if (_nssProductDetail == null || !_nssProductDetail.hasConditionQuery())
+        { _nssProductDetail = new ImmuProductDetailNss(query().queryProductDetail()); }
+        return _nssProductDetail;
+    }
+
+    protected ImmuProductPriceNss _nssProductPrice;
+    public ImmuProductPriceNss xdfgetNssProductPrice() {
+        if (_nssProductPrice == null) { _nssProductPrice = new ImmuProductPriceNss(null); }
+        return _nssProductPrice;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (商品価格)PRODUCT_PRICE by my PRODUCT_PRICE_ID, named 'productPrice'.
+     * <pre>
+     * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ProductPrice()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getProductPrice()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public ImmuProductPriceNss setupSelect_ProductPrice() {
+        assertSetupSelectPurpose("productPrice");
+        if (hasSpecifiedLocalColumn()) {
+            specify().columnProductPriceId();
+        }
+        doSetupSelect(() -> query().queryProductPrice());
+        if (_nssProductPrice == null || !_nssProductPrice.hasConditionQuery())
+        { _nssProductPrice = new ImmuProductPriceNss(query().queryProductPrice()); }
+        return _nssProductPrice;
+    }
+
+    protected ImmuPurchaseStatusNss _nssPurchaseStatusAsOne;
+    public ImmuPurchaseStatusNss xdfgetNssPurchaseStatusAsOne() {
+        if (_nssPurchaseStatusAsOne == null) { _nssPurchaseStatusAsOne = new ImmuPurchaseStatusNss(null); }
+        return _nssPurchaseStatusAsOne;
+    }
+    /**
+     * Set up relation columns to select clause. <br>
+     * (購入ステータス)purchase_status by PURCHASE_ID, named 'purchaseStatusAsOne'.
+     * <pre>
+     * <span style="color: #0000C0">purchaseBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_PurchaseStatusAsOne()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).alwaysPresent(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">purchase</span>.<span style="color: #CC4747">getPurchaseStatusAsOne()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * });
+     * </pre>
+     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
+     */
+    public ImmuPurchaseStatusNss setupSelect_PurchaseStatusAsOne() {
+        assertSetupSelectPurpose("purchaseStatusAsOne");
+        doSetupSelect(() -> query().queryPurchaseStatusAsOne());
+        if (_nssPurchaseStatusAsOne == null || !_nssPurchaseStatusAsOne.hasConditionQuery())
+        { _nssPurchaseStatusAsOne = new ImmuPurchaseStatusNss(query().queryPurchaseStatusAsOne()); }
+        return _nssPurchaseStatusAsOne;
     }
 
     // [DBFlute-0.7.4]
@@ -371,7 +425,9 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuPurchaseCQ> {
         protected ImmuMemberCB.HpSpecification _member;
-        protected ImmuProductCB.HpSpecification _product;
+        protected ImmuProductDetailCB.HpSpecification _productDetail;
+        protected ImmuProductPriceCB.HpSpecification _productPrice;
+        protected ImmuPurchaseStatusCB.HpSpecification _purchaseStatusAsOne;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuPurchaseCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -387,10 +443,15 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
+         * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
+        public SpecifiedColumn columnProductDetailId() { return doColumn("PRODUCT_DETAIL_ID"); }
+        /**
+         * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnProductPriceId() { return doColumn("PRODUCT_PRICE_ID"); }
         /**
          * (購入日時)PURCHASE_DATETIME: {+UQ, IX+, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
@@ -407,35 +468,25 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }
         /**
-         * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnPaymentCompleteFlg() { return doColumn("PAYMENT_COMPLETE_FLG"); }
-        /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
-        /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -445,9 +496,13 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
                     || qyCall().qy().xgetReferrerQuery() instanceof ImmuMemberCQ) {
                 columnMemberId(); // FK or one-to-one referrer
             }
-            if (qyCall().qy().hasConditionQueryProduct()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuProductCQ) {
-                columnProductId(); // FK or one-to-one referrer
+            if (qyCall().qy().hasConditionQueryProductDetail()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuProductDetailCQ) {
+                columnProductDetailId(); // FK or one-to-one referrer
+            }
+            if (qyCall().qy().hasConditionQueryProductPrice()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuProductPriceCQ) {
+                columnProductPriceId(); // FK or one-to-one referrer
             }
         }
         @Override
@@ -474,23 +529,63 @@ public class ImmuBsPurchaseCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+         * (商品詳細)PRODUCT_DETAIL by my PRODUCT_DETAIL_ID, named 'productDetail'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public ImmuProductCB.HpSpecification specifyProduct() {
-            assertRelation("product");
-            if (_product == null) {
-                _product = new ImmuProductCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProduct()
-                                    , () -> _qyCall.qy().queryProduct())
+        public ImmuProductDetailCB.HpSpecification specifyProductDetail() {
+            assertRelation("productDetail");
+            if (_productDetail == null) {
+                _productDetail = new ImmuProductDetailCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProductDetail()
+                                    , () -> _qyCall.qy().queryProductDetail())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _product.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProduct()
-                      , () -> xsyncQyCall().qy().queryProduct()));
+                    _productDetail.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProductDetail()
+                      , () -> xsyncQyCall().qy().queryProductDetail()));
                 }
             }
-            return _product;
+            return _productDetail;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (商品価格)PRODUCT_PRICE by my PRODUCT_PRICE_ID, named 'productPrice'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public ImmuProductPriceCB.HpSpecification specifyProductPrice() {
+            assertRelation("productPrice");
+            if (_productPrice == null) {
+                _productPrice = new ImmuProductPriceCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProductPrice()
+                                    , () -> _qyCall.qy().queryProductPrice())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _productPrice.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProductPrice()
+                      , () -> xsyncQyCall().qy().queryProductPrice()));
+                }
+            }
+            return _productPrice;
+        }
+        /**
+         * Prepare to specify functions about relation table. <br>
+         * (購入ステータス)purchase_status by PURCHASE_ID, named 'purchaseStatusAsOne'.
+         * @return The instance for specification for relation table to specify. (NotNull)
+         */
+        public ImmuPurchaseStatusCB.HpSpecification specifyPurchaseStatusAsOne() {
+            assertRelation("purchaseStatusAsOne");
+            if (_purchaseStatusAsOne == null) {
+                _purchaseStatusAsOne = new ImmuPurchaseStatusCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryPurchaseStatusAsOne()
+                                    , () -> _qyCall.qy().queryPurchaseStatusAsOne())
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
+                if (xhasSyncQyCall()) { // inherits it
+                    _purchaseStatusAsOne.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryPurchaseStatusAsOne()
+                      , () -> xsyncQyCall().qy().queryPurchaseStatusAsOne()));
+                }
+            }
+            return _purchaseStatusAsOne;
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>

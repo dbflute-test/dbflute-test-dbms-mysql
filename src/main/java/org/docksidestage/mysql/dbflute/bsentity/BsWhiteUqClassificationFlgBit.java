@@ -133,7 +133,7 @@ public abstract class BsWhiteUqClassificationFlgBit extends AbstractEntity imple
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.BooleanFlg getUqClsBitFlgAsBooleanFlg() {
-        return CDef.BooleanFlg.codeOf(getUqClsBitFlg());
+        return CDef.BooleanFlg.of(getUqClsBitFlg()).orElse(null);
     }
 
     /**

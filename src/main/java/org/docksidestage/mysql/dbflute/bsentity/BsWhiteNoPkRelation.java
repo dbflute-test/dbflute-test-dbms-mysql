@@ -129,7 +129,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.ProductStatus getProductStatusCodeAsProductStatus() {
-        return CDef.ProductStatus.codeOf(getProductStatusCode());
+        return CDef.ProductStatus.of(getProductStatusCode()).orElse(null);
     }
 
     /**

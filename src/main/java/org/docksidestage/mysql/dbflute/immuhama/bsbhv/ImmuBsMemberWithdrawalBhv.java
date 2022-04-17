@@ -53,13 +53,13 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     
  *
  * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
+ *     MEMBER, CDEF_WITHDRAWAL_REASON
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, withdrawalReason
+ *     member, cdefWithdrawalReason
  *
  * [referrer property]
  *     
@@ -172,7 +172,7 @@ public abstract class ImmuBsMemberWithdrawalBhv extends AbstractBehaviorWritable
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
+     * @param memberId (会員ID): PK, NotNull, INT(10), FK to member. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -386,12 +386,12 @@ public abstract class ImmuBsMemberWithdrawalBhv extends AbstractBehaviorWritable
     { return helpPulloutInternally(memberWithdrawalList, "member"); }
 
     /**
-     * Pull out the list of foreign table 'ImmuWithdrawalReason'.
+     * Pull out the list of foreign table 'ImmuCdefWithdrawalReason'.
      * @param memberWithdrawalList The list of memberWithdrawal. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<ImmuWithdrawalReason> pulloutWithdrawalReason(List<ImmuMemberWithdrawal> memberWithdrawalList)
-    { return helpPulloutInternally(memberWithdrawalList, "withdrawalReason"); }
+    public List<ImmuCdefWithdrawalReason> pulloutCdefWithdrawalReason(List<ImmuMemberWithdrawal> memberWithdrawalList)
+    { return helpPulloutInternally(memberWithdrawalList, "cdefWithdrawalReason"); }
 
     // ===================================================================================
     //                                                                      Extract Column

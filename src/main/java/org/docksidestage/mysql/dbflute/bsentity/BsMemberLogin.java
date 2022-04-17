@@ -147,7 +147,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.Flg getMobileLoginFlgAsFlg() {
-        return CDef.Flg.codeOf(getMobileLoginFlg());
+        return CDef.Flg.of(getMobileLoginFlg()).orElse(null);
     }
 
     /**
@@ -168,7 +168,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.SubItemTable getLoginMemberStatusCodeAsSubItemTable() {
-        return CDef.SubItemTable.codeOf(getLoginMemberStatusCode());
+        return CDef.SubItemTable.of(getLoginMemberStatusCode()).orElse(null);
     }
 
     /**

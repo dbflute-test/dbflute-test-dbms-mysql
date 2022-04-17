@@ -148,7 +148,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.ServiceRank getServiceRankCodeAsServiceRank() {
-        return CDef.ServiceRank.codeOf(getServiceRankCode());
+        return CDef.ServiceRank.of(getServiceRankCode()).orElse(null);
     }
 
     /**
@@ -169,7 +169,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.Flg getNewAcceptableFlgAsFlg() {
-        return CDef.Flg.codeOf(getNewAcceptableFlg());
+        return CDef.Flg.of(getNewAcceptableFlg()).orElse(null);
     }
 
     /**

@@ -148,26 +148,6 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
      */
     public ImmuBsMemberAddressCQ addOrderBy_ValidBeginDate_Desc() { regOBD("VALID_BEGIN_DATE"); return this; }
 
-    protected ConditionValue _validEndDate;
-    public ConditionValue xdfgetValidEndDate()
-    { if (_validEndDate == null) { _validEndDate = nCV(); }
-      return _validEndDate; }
-    protected ConditionValue xgetCValueValidEndDate() { return xdfgetValidEndDate(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * (有効終了日)VALID_END_DATE: {NotNull, DATE(10)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberAddressCQ addOrderBy_ValidEndDate_Asc() { regOBA("VALID_END_DATE"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (有効終了日)VALID_END_DATE: {NotNull, DATE(10)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberAddressCQ addOrderBy_ValidEndDate_Desc() { regOBD("VALID_END_DATE"); return this; }
-
     protected ConditionValue _address;
     public ConditionValue xdfgetAddress()
     { if (_address == null) { _address = nCV(); }
@@ -196,14 +176,14 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to region, classification=Region}
+     * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to cdef_region, classification=Region}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegionId_Asc() { regOBA("REGION_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to region, classification=Region}
+     * (地域ID)REGION_ID: {IX, NotNull, INT(10), FK to cdef_region, classification=Region}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegionId_Desc() { regOBD("REGION_ID"); return this; }
@@ -216,14 +196,14 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -236,14 +216,14 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
@@ -256,14 +236,14 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -276,37 +256,17 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberAddressCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
-
-    protected ConditionValue _versionNo;
-    public ConditionValue xdfgetVersionNo()
-    { if (_versionNo == null) { _versionNo = nCV(); }
-      return _versionNo; }
-    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberAddressCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsMemberAddressCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -352,8 +312,8 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
         if (bq.hasConditionQueryMember()) {
             uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
         }
-        if (bq.hasConditionQueryRegion()) {
-            uq.queryRegion().reflectRelationOnUnionQuery(bq.queryRegion(), uq.queryRegion());
+        if (bq.hasConditionQueryCdefRegion()) {
+            uq.queryCdefRegion().reflectRelationOnUnionQuery(bq.queryCdefRegion(), uq.queryCdefRegion());
         }
     }
 
@@ -382,23 +342,23 @@ public class ImmuBsMemberAddressCQ extends ImmuAbstractBsMemberAddressCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (地域)REGION by my REGION_ID, named 'region'.
+     * ([区分値]地域)CDEF_REGION by my REGION_ID, named 'cdefRegion'.
      * @return The instance of condition-query. (NotNull)
      */
-    public ImmuRegionCQ queryRegion() {
-        return xdfgetConditionQueryRegion();
+    public ImmuCdefRegionCQ queryCdefRegion() {
+        return xdfgetConditionQueryCdefRegion();
     }
-    public ImmuRegionCQ xdfgetConditionQueryRegion() {
-        String prop = "region";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryRegion()); xsetupOuterJoinRegion(); }
+    public ImmuCdefRegionCQ xdfgetConditionQueryCdefRegion() {
+        String prop = "cdefRegion";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryCdefRegion()); xsetupOuterJoinCdefRegion(); }
         return xgetQueRlMap(prop);
     }
-    protected ImmuRegionCQ xcreateQueryRegion() {
-        String nrp = xresolveNRP("member_address", "region"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuRegionCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "region", nrp);
+    protected ImmuCdefRegionCQ xcreateQueryCdefRegion() {
+        String nrp = xresolveNRP("member_address", "cdefRegion"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuCdefRegionCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "cdefRegion", nrp);
     }
-    protected void xsetupOuterJoinRegion() { xregOutJo("region"); }
-    public boolean hasConditionQueryRegion() { return xhasQueRlMap("region"); }
+    protected void xsetupOuterJoinCdefRegion() { xregOutJo("cdefRegion"); }
+    public boolean hasConditionQueryCdefRegion() { return xhasQueRlMap("cdefRegion"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

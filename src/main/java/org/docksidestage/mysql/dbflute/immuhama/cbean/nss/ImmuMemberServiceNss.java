@@ -44,9 +44,9 @@ public class ImmuMemberServiceNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'.
      */
-    public void withServiceRank() {
-        _query.xdoNss(() -> _query.queryServiceRank());
+    public void withCdefServiceRank() {
+        _query.xdoNss(() -> _query.queryCdefServiceRank());
     }
 }

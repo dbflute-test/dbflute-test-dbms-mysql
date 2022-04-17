@@ -22,13 +22,13 @@ import org.docksidestage.mysql.dbflute.immuhama.exbhv.*;
 import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
 
 /**
- * The referrer loader of (会員住所情報)MEMBER_ADDRESS as TABLE. <br>
+ * The referrer loader of (会員住所)MEMBER_ADDRESS as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_ADDRESS_ID
  *
  * [column]
- *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, VALID_END_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ADDRESS_ID, MEMBER_ID, VALID_BEGIN_DATE, ADDRESS, REGION_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -37,16 +37,16 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     MEMBER_ADDRESS_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, REGION
+ *     MEMBER, CDEF_REGION
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, region
+ *     member, cdefRegion
  *
  * [referrer property]
  *     
@@ -81,11 +81,11 @@ public class ImmuLoaderOfMemberAddress {
         return _foreignMemberLoader;
     }
 
-    protected ImmuLoaderOfRegion _foreignRegionLoader;
-    public ImmuLoaderOfRegion pulloutRegion() {
-        if (_foreignRegionLoader == null)
-        { _foreignRegionLoader = new ImmuLoaderOfRegion().ready(myBhv().pulloutRegion(_selectedList), _selector); }
-        return _foreignRegionLoader;
+    protected ImmuLoaderOfCdefRegion _foreignCdefRegionLoader;
+    public ImmuLoaderOfCdefRegion pulloutCdefRegion() {
+        if (_foreignCdefRegionLoader == null)
+        { _foreignCdefRegionLoader = new ImmuLoaderOfCdefRegion().ready(myBhv().pulloutCdefRegion(_selectedList), _selector); }
+        return _foreignCdefRegionLoader;
     }
 
     // ===================================================================================

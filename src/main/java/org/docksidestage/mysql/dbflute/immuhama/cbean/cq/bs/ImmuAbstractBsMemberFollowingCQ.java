@@ -306,7 +306,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_Equal(Integer yourMemberId) {
@@ -319,7 +319,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as notEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_NotEqual(Integer yourMemberId) {
@@ -332,7 +332,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_GreaterThan(Integer yourMemberId) {
@@ -341,7 +341,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_LessThan(Integer yourMemberId) {
@@ -350,7 +350,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_GreaterEqual(Integer yourMemberId) {
@@ -359,7 +359,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberId The value of yourMemberId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setYourMemberId_LessEqual(Integer yourMemberId) {
@@ -370,7 +370,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param minNumber The min number of yourMemberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of yourMemberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -383,7 +383,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param minNumber The min number of yourMemberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of yourMemberId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -394,7 +394,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberIdList The collection of yourMemberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setYourMemberId_InScope(Collection<Integer> yourMemberIdList) {
@@ -407,7 +407,7 @@ public abstract class ImmuAbstractBsMemberFollowingCQ extends AbstractConditionQ
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @param yourMemberIdList The collection of yourMemberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setYourMemberId_NotInScope(Collection<Integer> yourMemberIdList) {

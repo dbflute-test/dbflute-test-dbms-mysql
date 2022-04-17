@@ -40,13 +40,13 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     
  *
  * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
+ *     MEMBER, CDEF_WITHDRAWAL_REASON
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, withdrawalReason
+ *     member, cdefWithdrawalReason
  *
  * [referrer property]
  *     
@@ -81,11 +81,11 @@ public class ImmuLoaderOfMemberWithdrawal {
         return _foreignMemberLoader;
     }
 
-    protected ImmuLoaderOfWithdrawalReason _foreignWithdrawalReasonLoader;
-    public ImmuLoaderOfWithdrawalReason pulloutWithdrawalReason() {
-        if (_foreignWithdrawalReasonLoader == null)
-        { _foreignWithdrawalReasonLoader = new ImmuLoaderOfWithdrawalReason().ready(myBhv().pulloutWithdrawalReason(_selectedList), _selector); }
-        return _foreignWithdrawalReasonLoader;
+    protected ImmuLoaderOfCdefWithdrawalReason _foreignCdefWithdrawalReasonLoader;
+    public ImmuLoaderOfCdefWithdrawalReason pulloutCdefWithdrawalReason() {
+        if (_foreignCdefWithdrawalReasonLoader == null)
+        { _foreignCdefWithdrawalReasonLoader = new ImmuLoaderOfCdefWithdrawalReason().ready(myBhv().pulloutCdefWithdrawalReason(_selectedList), _selector); }
+        return _foreignCdefWithdrawalReasonLoader;
     }
 
     // ===================================================================================

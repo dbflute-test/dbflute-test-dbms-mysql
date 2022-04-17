@@ -88,7 +88,7 @@ public abstract class ImmuBsMemberFollowing extends AbstractEntity implements Do
     /** (わたし)MY_MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} */
     protected Integer _myMemberId;
 
-    /** (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member} */
+    /** (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member} */
     protected Integer _yourMemberId;
 
     /** (その瞬間)FOLLOW_DATETIME: {IX, NotNull, DATETIME(19)} */
@@ -120,7 +120,7 @@ public abstract class ImmuBsMemberFollowing extends AbstractEntity implements Do
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param myMemberId (わたし): UQ+, NotNull, INT(10), FK to member. (NotNull)
-     * @param yourMemberId (あなた): +UQ, IX+, NotNull, INT(10), FK to member. (NotNull)
+     * @param yourMemberId (あなた): +UQ, IX, NotNull, INT(10), FK to member. (NotNull)
      */
     public void uniqueBy(Integer myMemberId, Integer yourMemberId) {
         __uniqueDrivenProperties.clear();
@@ -292,7 +292,7 @@ public abstract class ImmuBsMemberFollowing extends AbstractEntity implements Do
     }
 
     /**
-     * [get] (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member} <br>
+     * [get] (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member} <br>
      * いきなりのアクションに...ちょっと心揺らいだ会員のID。
      * @return The value of the column 'YOUR_MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
@@ -302,7 +302,7 @@ public abstract class ImmuBsMemberFollowing extends AbstractEntity implements Do
     }
 
     /**
-     * [set] (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member} <br>
+     * [set] (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member} <br>
      * いきなりのアクションに...ちょっと心揺らいだ会員のID。
      * @param yourMemberId The value of the column 'YOUR_MEMBER_ID'. (basically NotNull if update: for the constraint)
      */

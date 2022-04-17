@@ -28,7 +28,6 @@ import org.dbflute.cbean.result.*;
 import org.dbflute.exception.*;
 import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.executor.*;
-import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuCDef;
 import org.docksidestage.mysql.dbflute.immuhama.exbhv.*;
 import org.docksidestage.mysql.dbflute.immuhama.bsbhv.loader.*;
 import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
@@ -39,31 +38,31 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  * The behavior of (会員ステータス)MEMBER_STATUS as TABLE. <br>
  * <pre>
  * [primary key]
- *     MEMBER_STATUS_CODE
+ *     MEMBER_STATUS_ID
  *
  * [column]
- *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
+ *     MEMBER_STATUS_ID, MEMBER_ID, MEMBER_STATUS_CODE, MEMBER_STATUS_UPDATE_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
  *
  * [identity]
- *     
+ *     MEMBER_STATUS_ID
  *
  * [version-no]
  *     
  *
  * [foreign table]
- *     
+ *     MEMBER, CDEF_MEMBER_STATUS
  *
  * [referrer table]
- *     MEMBER, MEMBER_LOGIN
- *
- * [foreign property]
  *     
  *
+ * [foreign property]
+ *     member, cdefMemberStatus
+ *
  * [referrer property]
- *     memberList, memberLoginList
+ *     
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -173,56 +172,31 @@ public abstract class ImmuBsMemberStatusBhv extends AbstractBehaviorWritable<Imm
 
     /**
      * Select the entity by the primary-key value.
-     * @param memberStatusCode (会員ステータスコード): PK, NotNull, CHAR(3), classification=MemberStatus. (NotNull)
+     * @param memberStatusId (会員ステータスID): PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<ImmuMemberStatus> selectByPK(ImmuCDef.MemberStatus memberStatusCode) {
-        return facadeSelectByPK(memberStatusCode);
+    public OptionalEntity<ImmuMemberStatus> selectByPK(Long memberStatusId) {
+        return facadeSelectByPK(memberStatusId);
     }
 
-    protected OptionalEntity<ImmuMemberStatus> facadeSelectByPK(ImmuCDef.MemberStatus memberStatusCode) {
-        return doSelectOptionalByPK(memberStatusCode, typeOfSelectedEntity());
+    protected OptionalEntity<ImmuMemberStatus> facadeSelectByPK(Long memberStatusId) {
+        return doSelectOptionalByPK(memberStatusId, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends ImmuMemberStatus> ENTITY doSelectByPK(ImmuCDef.MemberStatus memberStatusCode, Class<? extends ENTITY> tp) {
-        return doSelectEntity(xprepareCBAsPK(memberStatusCode), tp);
+    protected <ENTITY extends ImmuMemberStatus> ENTITY doSelectByPK(Long memberStatusId, Class<? extends ENTITY> tp) {
+        return doSelectEntity(xprepareCBAsPK(memberStatusId), tp);
     }
 
-    protected <ENTITY extends ImmuMemberStatus> OptionalEntity<ENTITY> doSelectOptionalByPK(ImmuCDef.MemberStatus memberStatusCode, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectByPK(memberStatusCode, tp), memberStatusCode);
+    protected <ENTITY extends ImmuMemberStatus> OptionalEntity<ENTITY> doSelectOptionalByPK(Long memberStatusId, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectByPK(memberStatusId, tp), memberStatusId);
     }
 
-    protected ImmuMemberStatusCB xprepareCBAsPK(ImmuCDef.MemberStatus memberStatusCode) {
-        assertObjectNotNull("memberStatusCode", memberStatusCode);
-        return newConditionBean().acceptPK(memberStatusCode);
-    }
-
-    /**
-     * Select the entity by the unique-key value.
-     * @param displayOrder (表示順): UQ, NotNull, INT(10). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<ImmuMemberStatus> selectByUniqueOf(Integer displayOrder) {
-        return facadeSelectByUniqueOf(displayOrder);
-    }
-
-    protected OptionalEntity<ImmuMemberStatus> facadeSelectByUniqueOf(Integer displayOrder) {
-        return doSelectByUniqueOf(displayOrder, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends ImmuMemberStatus> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer displayOrder, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(displayOrder), tp), displayOrder);
-    }
-
-    protected ImmuMemberStatusCB xprepareCBAsUniqueOf(Integer displayOrder) {
-        assertObjectNotNull("displayOrder", displayOrder);
-        return newConditionBean().acceptUniqueOf(displayOrder);
+    protected ImmuMemberStatusCB xprepareCBAsPK(Long memberStatusId) {
+        assertObjectNotNull("memberStatusId", memberStatusId);
+        return newConditionBean().acceptPK(memberStatusId);
     }
 
     // ===================================================================================
@@ -400,155 +374,35 @@ public abstract class ImmuBsMemberStatusBhv extends AbstractBehaviorWritable<Imm
         loaderLambda.handle(new ImmuLoaderOfMemberStatus().ready(xnewLRAryLs(memberStatus), _behaviorSelector));
     }
 
-    /**
-     * Load referrer of memberList by the set-upper of referrer. <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
-     * <pre>
-     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">memberCB</span>.setupSelect...
-     *     <span style="color: #553000">memberCB</span>.query().set...
-     *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * <span style="color: #70226C">for</span> (ImmuMemberStatus memberStatus : <span style="color: #553000">memberStatusList</span>) {
-     *     ... = memberStatus.<span style="color: #CC4747">getMemberList()</span>;
-     * }
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setMemberStatusCode_InScope(pkList);
-     * cb.query().addOrderBy_MemberStatusCode_Asc();
-     * </pre>
-     * @param memberStatusList The entity list of memberStatus. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<ImmuMember> loadMember(List<ImmuMemberStatus> memberStatusList, ReferrerConditionSetupper<ImmuMemberCB> refCBLambda) {
-        xassLRArg(memberStatusList, refCBLambda);
-        return doLoadMember(memberStatusList, new LoadReferrerOption<ImmuMemberCB, ImmuMember>().xinit(refCBLambda));
-    }
-
-    /**
-     * Load referrer of memberList by the set-upper of referrer. <br>
-     * (会員)MEMBER by MEMBER_STATUS_CODE, named 'memberList'.
-     * <pre>
-     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMember</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">memberCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">memberCB</span>.setupSelect...
-     *     <span style="color: #553000">memberCB</span>.query().set...
-     *     <span style="color: #553000">memberCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getMemberList()</span>;
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setMemberStatusCode_InScope(pkList);
-     * cb.query().addOrderBy_MemberStatusCode_Asc();
-     * </pre>
-     * @param memberStatus The entity of memberStatus. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<ImmuMember> loadMember(ImmuMemberStatus memberStatus, ReferrerConditionSetupper<ImmuMemberCB> refCBLambda) {
-        xassLRArg(memberStatus, refCBLambda);
-        return doLoadMember(xnewLRLs(memberStatus), new LoadReferrerOption<ImmuMemberCB, ImmuMember>().xinit(refCBLambda));
-    }
-
-    protected NestedReferrerListGateway<ImmuMember> doLoadMember(List<ImmuMemberStatus> memberStatusList, LoadReferrerOption<ImmuMemberCB, ImmuMember> option) {
-        return helpLoadReferrerInternally(memberStatusList, option, "memberList");
-    }
-
-    /**
-     * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
-     * <pre>
-     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberStatusList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">loginCB</span>.setupSelect...
-     *     <span style="color: #553000">loginCB</span>.query().set...
-     *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * <span style="color: #70226C">for</span> (ImmuMemberStatus memberStatus : <span style="color: #553000">memberStatusList</span>) {
-     *     ... = memberStatus.<span style="color: #CC4747">getMemberLoginList()</span>;
-     * }
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setLoginMemberStatusCode_InScope(pkList);
-     * cb.query().addOrderBy_LoginMemberStatusCode_Asc();
-     * </pre>
-     * @param memberStatusList The entity list of memberStatus. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<ImmuMemberLogin> loadMemberLogin(List<ImmuMemberStatus> memberStatusList, ReferrerConditionSetupper<ImmuMemberLoginCB> refCBLambda) {
-        xassLRArg(memberStatusList, refCBLambda);
-        return doLoadMemberLogin(memberStatusList, new LoadReferrerOption<ImmuMemberLoginCB, ImmuMemberLogin>().xinit(refCBLambda));
-    }
-
-    /**
-     * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * (会員ログイン情報)MEMBER_LOGIN by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginList'.
-     * <pre>
-     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberStatus</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">loginCB</span>.setupSelect...
-     *     <span style="color: #553000">loginCB</span>.query().set...
-     *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
-     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
-     * <span style="color: #3F7E5E">//    ...</span>
-     * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">memberStatus</span>.<span style="color: #CC4747">getMemberLoginList()</span>;
-     * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
-     * The condition-bean, which the set-upper provides, has settings before callback as follows:
-     * <pre>
-     * cb.query().setLoginMemberStatusCode_InScope(pkList);
-     * cb.query().addOrderBy_LoginMemberStatusCode_Asc();
-     * </pre>
-     * @param memberStatus The entity of memberStatus. (NotNull)
-     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
-     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
-     */
-    public NestedReferrerListGateway<ImmuMemberLogin> loadMemberLogin(ImmuMemberStatus memberStatus, ReferrerConditionSetupper<ImmuMemberLoginCB> refCBLambda) {
-        xassLRArg(memberStatus, refCBLambda);
-        return doLoadMemberLogin(xnewLRLs(memberStatus), new LoadReferrerOption<ImmuMemberLoginCB, ImmuMemberLogin>().xinit(refCBLambda));
-    }
-
-    protected NestedReferrerListGateway<ImmuMemberLogin> doLoadMemberLogin(List<ImmuMemberStatus> memberStatusList, LoadReferrerOption<ImmuMemberLoginCB, ImmuMemberLogin> option) {
-        return helpLoadReferrerInternally(memberStatusList, option, "memberLoginList");
-    }
-
     // ===================================================================================
     //                                                                   Pull out Relation
     //                                                                   =================
+    /**
+     * Pull out the list of foreign table 'ImmuMember'.
+     * @param memberStatusList The list of memberStatus. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<ImmuMember> pulloutMember(List<ImmuMemberStatus> memberStatusList)
+    { return helpPulloutInternally(memberStatusList, "member"); }
+
+    /**
+     * Pull out the list of foreign table 'ImmuCdefMemberStatus'.
+     * @param memberStatusList The list of memberStatus. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<ImmuCdefMemberStatus> pulloutCdefMemberStatus(List<ImmuMemberStatus> memberStatusList)
+    { return helpPulloutInternally(memberStatusList, "cdefMemberStatus"); }
+
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
     /**
-     * Extract the value list of (single) primary key memberStatusCode.
+     * Extract the value list of (single) primary key memberStatusId.
      * @param memberStatusList The list of memberStatus. (NotNull, EmptyAllowed)
      * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<String> extractMemberStatusCodeList(List<ImmuMemberStatus> memberStatusList)
-    { return helpExtractListInternally(memberStatusList, "memberStatusCode"); }
-
-    /**
-     * Extract the value list of (single) unique key displayOrder.
-     * @param memberStatusList The list of memberStatus. (NotNull, EmptyAllowed)
-     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<Integer> extractDisplayOrderList(List<ImmuMemberStatus> memberStatusList)
-    { return helpExtractListInternally(memberStatusList, "displayOrder"); }
+    public List<Long> extractMemberStatusIdList(List<ImmuMemberStatus> memberStatusList)
+    { return helpExtractListInternally(memberStatusList, "memberStatusId"); }
 
     // ===================================================================================
     //                                                                       Entity Update

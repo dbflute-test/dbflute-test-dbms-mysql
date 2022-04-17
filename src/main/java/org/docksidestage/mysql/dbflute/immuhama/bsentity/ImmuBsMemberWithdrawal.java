@@ -31,7 +31,9 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
 /**
  * The entity of (会員退会情報)MEMBER_WITHDRAWAL as TABLE. <br>
  * 退会会員の退会に関する詳細な情報。<br>
- * 退会会員のみデータが存在する。
+ * 退会会員のみデータが存在し、"1 : 0..1" のパターンの one-to-one である。<br>
+ * 共通カラムがあってバージョンNOがないパターン。<br>
+ * 基本的に更新は入らないが、重要なデータなので万が一のために更新系の共通カラムも。
  * <pre>
  * [primary-key]
  *     MEMBER_ID
@@ -49,13 +51,13 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     
  *
  * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
+ *     MEMBER, CDEF_WITHDRAWAL_REASON
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, withdrawalReason
+ *     member, cdefWithdrawalReason
  *
  * [referrer property]
  *     
@@ -93,10 +95,10 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** MEMBER_ID: {PK, NotNull, INT(10), FK to member} */
+    /** (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member} */
     protected Integer _memberId;
 
-    /** (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason} */
+    /** (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason} */
     protected String _withdrawalReasonCode;
 
     /** (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} */
@@ -105,16 +107,16 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     /** (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _withdrawalDatetime;
 
-    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
+    /** (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
+    /** (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
 
     // ===================================================================================
@@ -144,18 +146,18 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     //                                                             =======================
     /**
      * Get the value of withdrawalReasonCode as the classification of WithdrawalReason. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason} <br>
+     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public ImmuCDef.WithdrawalReason getWithdrawalReasonCodeAsWithdrawalReason() {
-        return ImmuCDef.WithdrawalReason.codeOf(getWithdrawalReasonCode());
+        return ImmuCDef.WithdrawalReason.of(getWithdrawalReasonCode()).orElse(null);
     }
 
     /**
      * Set the value of withdrawalReasonCode as the classification of WithdrawalReason. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason} <br>
+     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason} <br>
      * reason for member withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -193,25 +195,25 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
         _member = member;
     }
 
-    /** (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. */
-    protected OptionalEntity<ImmuWithdrawalReason> _withdrawalReason;
+    /** ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'. */
+    protected OptionalEntity<ImmuCdefWithdrawalReason> _cdefWithdrawalReason;
 
     /**
-     * [get] (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'. <br>
+     * [get] ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
-     * @return The entity of foreign property 'withdrawalReason'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     * @return The entity of foreign property 'cdefWithdrawalReason'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public OptionalEntity<ImmuWithdrawalReason> getWithdrawalReason() {
-        if (_withdrawalReason == null) { _withdrawalReason = OptionalEntity.relationEmpty(this, "withdrawalReason"); }
-        return _withdrawalReason;
+    public OptionalEntity<ImmuCdefWithdrawalReason> getCdefWithdrawalReason() {
+        if (_cdefWithdrawalReason == null) { _cdefWithdrawalReason = OptionalEntity.relationEmpty(this, "cdefWithdrawalReason"); }
+        return _cdefWithdrawalReason;
     }
 
     /**
-     * [set] (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
-     * @param withdrawalReason The entity of foreign property 'withdrawalReason'. (NullAllowed)
+     * [set] ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'.
+     * @param cdefWithdrawalReason The entity of foreign property 'cdefWithdrawalReason'. (NullAllowed)
      */
-    public void setWithdrawalReason(OptionalEntity<ImmuWithdrawalReason> withdrawalReason) {
-        _withdrawalReason = withdrawalReason;
+    public void setCdefWithdrawalReason(OptionalEntity<ImmuCdefWithdrawalReason> cdefWithdrawalReason) {
+        _cdefWithdrawalReason = cdefWithdrawalReason;
     }
 
     // ===================================================================================
@@ -248,8 +250,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
         StringBuilder sb = new StringBuilder();
         if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
-        if (_withdrawalReason != null && _withdrawalReason.isPresent())
-        { sb.append(li).append(xbRDS(_withdrawalReason, "withdrawalReason")); }
+        if (_cdefWithdrawalReason != null && _cdefWithdrawalReason.isPresent())
+        { sb.append(li).append(xbRDS(_cdefWithdrawalReason, "cdefWithdrawalReason")); }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -279,8 +281,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
         StringBuilder sb = new StringBuilder();
         if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
-        if (_withdrawalReason != null && _withdrawalReason.isPresent())
-        { sb.append(dm).append("withdrawalReason"); }
+        if (_cdefWithdrawalReason != null && _cdefWithdrawalReason.isPresent())
+        { sb.append(dm).append("cdefWithdrawalReason"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
@@ -296,7 +298,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * [get] (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -305,7 +308,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * [set] (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -314,10 +318,10 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [get] (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason} <br>
-     * 退会した定型理由を参照するコード。<br>
+     * [get] (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason} <br>
+     * 定型的な退会した理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
-     * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed even if selected: for no constraint)
+     * @return The value of the column 'WITHDRAWAL_REASON_CODE'. (basically NotNull if selected: for the constraint)
      */
     public String getWithdrawalReasonCode() {
         checkSpecifiedProperty("withdrawalReasonCode");
@@ -325,10 +329,10 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason} <br>
-     * 退会した定型理由を参照するコード。<br>
+     * [set] (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason} <br>
+     * 定型的な退会した理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
-     * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed: null update allowed for no constraint)
+     * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (basically NotNull if update: for the constraint)
      */
     protected void setWithdrawalReasonCode(String withdrawalReasonCode) {
         checkClassificationCode("WITHDRAWAL_REASON_CODE", ImmuCDef.DefMeta.WithdrawalReason, withdrawalReasonCode);
@@ -339,7 +343,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     /**
      * [get] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
      * 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * もう言いたいこと言ってもらう感じ。サイト運営側としてはこういうのは真摯に受け止めて改善していきたいところ。
      * @return The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed even if selected: for no constraint)
      */
     public String getWithdrawalReasonInputText() {
@@ -350,7 +354,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     /**
      * [set] (退会理由入力テキスト)WITHDRAWAL_REASON_INPUT_TEXT: {TEXT(65535)} <br>
      * 会員がフリーテキストで入力できる退会理由。<br>
-     * もう言いたいこと言ってもらう感じ。
+     * もう言いたいこと言ってもらう感じ。サイト運営側としてはこういうのは真摯に受け止めて改善していきたいところ。
      * @param withdrawalReasonInputText The value of the column 'WITHDRAWAL_REASON_INPUT_TEXT'. (NullAllowed: null update allowed for no constraint)
      */
     public void setWithdrawalReasonInputText(String withdrawalReasonInputText) {
@@ -361,7 +365,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     /**
      * [get] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
      * 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * 正式会員日時と違い、こっちは one-to-one の別テーブルで管理されている。
      * @return The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getWithdrawalDatetime() {
@@ -372,7 +376,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     /**
      * [set] (退会日時)WITHDRAWAL_DATETIME: {NotNull, DATETIME(19)} <br>
      * 退会した瞬間の日時。<br>
-     * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
+     * 正式会員日時と違い、こっちは one-to-one の別テーブルで管理されている。
      * @param withdrawalDatetime The value of the column 'WITHDRAWAL_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalDatetime(java.time.LocalDateTime withdrawalDatetime) {
@@ -381,7 +385,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * レコードが登録された日時
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -390,7 +395,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * レコードが登録された日時
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -399,7 +405,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザー
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -408,7 +415,8 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザー
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -417,7 +425,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -426,7 +434,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -435,7 +443,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -444,7 +452,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
     }
 
     /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -454,7 +462,7 @@ public abstract class ImmuBsMemberWithdrawal extends AbstractEntity implements D
 
     /**
      * For framework so basically DON'T use this method.
-     * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (NullAllowed: null update allowed for no constraint)
+     * @param withdrawalReasonCode The value of the column 'WITHDRAWAL_REASON_CODE'. (basically NotNull if update: for the constraint)
      */
     public void mynativeMappingWithdrawalReasonCode(String withdrawalReasonCode) {
         setWithdrawalReasonCode(withdrawalReasonCode);

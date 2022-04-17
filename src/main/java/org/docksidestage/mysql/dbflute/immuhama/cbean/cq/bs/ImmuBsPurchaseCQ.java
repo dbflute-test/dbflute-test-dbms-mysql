@@ -142,25 +142,45 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
      */
     public ImmuBsPurchaseCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
 
-    protected ConditionValue _productId;
-    public ConditionValue xdfgetProductId()
-    { if (_productId == null) { _productId = nCV(); }
-      return _productId; }
-    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
+    protected ConditionValue _productDetailId;
+    public ConditionValue xdfgetProductDetailId()
+    { if (_productDetailId == null) { _productDetailId = nCV(); }
+      return _productDetailId; }
+    protected ConditionValue xgetCValueProductDetailId() { return xdfgetProductDetailId(); }
 
     /**
      * Add order-by as ascend. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
      * @return this. (NotNull)
      */
-    public ImmuBsPurchaseCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
+    public ImmuBsPurchaseCQ addOrderBy_ProductDetailId_Asc() { regOBA("PRODUCT_DETAIL_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
+     * (商品詳細ID)PRODUCT_DETAIL_ID: {IX, NotNull, BIGINT(19), FK to product_detail}
      * @return this. (NotNull)
      */
-    public ImmuBsPurchaseCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
+    public ImmuBsPurchaseCQ addOrderBy_ProductDetailId_Desc() { regOBD("PRODUCT_DETAIL_ID"); return this; }
+
+    protected ConditionValue _productPriceId;
+    public ConditionValue xdfgetProductPriceId()
+    { if (_productPriceId == null) { _productPriceId = nCV(); }
+      return _productPriceId; }
+    protected ConditionValue xgetCValueProductPriceId() { return xdfgetProductPriceId(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @return this. (NotNull)
+     */
+    public ImmuBsPurchaseCQ addOrderBy_ProductPriceId_Asc() { regOBA("PRODUCT_PRICE_ID"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * (商品価格ID)PRODUCT_PRICE_ID: {IX, NotNull, BIGINT(19), FK to product_price}
+     * @return this. (NotNull)
+     */
+    public ImmuBsPurchaseCQ addOrderBy_ProductPriceId_Desc() { regOBD("PRODUCT_PRICE_ID"); return this; }
 
     protected ConditionValue _purchaseDatetime;
     public ConditionValue xdfgetPurchaseDatetime()
@@ -222,26 +242,6 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
      */
     public ImmuBsPurchaseCQ addOrderBy_PurchasePrice_Desc() { regOBD("PURCHASE_PRICE"); return this; }
 
-    protected ConditionValue _paymentCompleteFlg;
-    public ConditionValue xdfgetPaymentCompleteFlg()
-    { if (_paymentCompleteFlg == null) { _paymentCompleteFlg = nCV(); }
-      return _paymentCompleteFlg; }
-    protected ConditionValue xgetCValuePaymentCompleteFlg() { return xdfgetPaymentCompleteFlg(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @return this. (NotNull)
-     */
-    public ImmuBsPurchaseCQ addOrderBy_PaymentCompleteFlg_Asc() { regOBA("PAYMENT_COMPLETE_FLG"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
-     * @return this. (NotNull)
-     */
-    public ImmuBsPurchaseCQ addOrderBy_PaymentCompleteFlg_Desc() { regOBD("PAYMENT_COMPLETE_FLG"); return this; }
-
     protected ConditionValue _registerDatetime;
     public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
@@ -250,14 +250,14 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -270,14 +270,14 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
@@ -290,14 +290,14 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -310,37 +310,17 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsPurchaseCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
-
-    protected ConditionValue _versionNo;
-    public ConditionValue xdfgetVersionNo()
-    { if (_versionNo == null) { _versionNo = nCV(); }
-      return _versionNo; }
-    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
-
-    /**
-     * Add order-by as ascend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsPurchaseCQ addOrderBy_VersionNo_Asc() { regOBA("VERSION_NO"); return this; }
-
-    /**
-     * Add order-by as descend. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @return this. (NotNull)
-     */
-    public ImmuBsPurchaseCQ addOrderBy_VersionNo_Desc() { regOBD("VERSION_NO"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -386,8 +366,14 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
         if (bq.hasConditionQueryMember()) {
             uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
         }
-        if (bq.hasConditionQueryProduct()) {
-            uq.queryProduct().reflectRelationOnUnionQuery(bq.queryProduct(), uq.queryProduct());
+        if (bq.hasConditionQueryProductDetail()) {
+            uq.queryProductDetail().reflectRelationOnUnionQuery(bq.queryProductDetail(), uq.queryProductDetail());
+        }
+        if (bq.hasConditionQueryProductPrice()) {
+            uq.queryProductPrice().reflectRelationOnUnionQuery(bq.queryProductPrice(), uq.queryProductPrice());
+        }
+        if (bq.hasConditionQueryPurchaseStatusAsOne()) {
+            uq.queryPurchaseStatusAsOne().reflectRelationOnUnionQuery(bq.queryPurchaseStatusAsOne(), uq.queryPurchaseStatusAsOne());
         }
     }
 
@@ -416,23 +402,61 @@ public class ImmuBsPurchaseCQ extends ImmuAbstractBsPurchaseCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (商品詳細)PRODUCT_DETAIL by my PRODUCT_DETAIL_ID, named 'productDetail'.
      * @return The instance of condition-query. (NotNull)
      */
-    public ImmuProductCQ queryProduct() {
-        return xdfgetConditionQueryProduct();
+    public ImmuProductDetailCQ queryProductDetail() {
+        return xdfgetConditionQueryProductDetail();
     }
-    public ImmuProductCQ xdfgetConditionQueryProduct() {
-        String prop = "product";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProduct()); xsetupOuterJoinProduct(); }
+    public ImmuProductDetailCQ xdfgetConditionQueryProductDetail() {
+        String prop = "productDetail";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductDetail()); xsetupOuterJoinProductDetail(); }
         return xgetQueRlMap(prop);
     }
-    protected ImmuProductCQ xcreateQueryProduct() {
-        String nrp = xresolveNRP("purchase", "product"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuProductCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "product", nrp);
+    protected ImmuProductDetailCQ xcreateQueryProductDetail() {
+        String nrp = xresolveNRP("purchase", "productDetail"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuProductDetailCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productDetail", nrp);
     }
-    protected void xsetupOuterJoinProduct() { xregOutJo("product"); }
-    public boolean hasConditionQueryProduct() { return xhasQueRlMap("product"); }
+    protected void xsetupOuterJoinProductDetail() { xregOutJo("productDetail"); }
+    public boolean hasConditionQueryProductDetail() { return xhasQueRlMap("productDetail"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (商品価格)PRODUCT_PRICE by my PRODUCT_PRICE_ID, named 'productPrice'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public ImmuProductPriceCQ queryProductPrice() {
+        return xdfgetConditionQueryProductPrice();
+    }
+    public ImmuProductPriceCQ xdfgetConditionQueryProductPrice() {
+        String prop = "productPrice";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductPrice()); xsetupOuterJoinProductPrice(); }
+        return xgetQueRlMap(prop);
+    }
+    protected ImmuProductPriceCQ xcreateQueryProductPrice() {
+        String nrp = xresolveNRP("purchase", "productPrice"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuProductPriceCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "productPrice", nrp);
+    }
+    protected void xsetupOuterJoinProductPrice() { xregOutJo("productPrice"); }
+    public boolean hasConditionQueryProductPrice() { return xhasQueRlMap("productPrice"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * (購入ステータス)purchase_status by PURCHASE_ID, named 'purchaseStatusAsOne'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public ImmuPurchaseStatusCQ queryPurchaseStatusAsOne() { return xdfgetConditionQueryPurchaseStatusAsOne(); }
+    public ImmuPurchaseStatusCQ xdfgetConditionQueryPurchaseStatusAsOne() {
+        String prop = "purchaseStatusAsOne";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryPurchaseStatusAsOne()); xsetupOuterJoinPurchaseStatusAsOne(); }
+        return xgetQueRlMap(prop);
+    }
+    protected ImmuPurchaseStatusCQ xcreateQueryPurchaseStatusAsOne() {
+        String nrp = xresolveNRP("purchase", "purchaseStatusAsOne"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuPurchaseStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "purchaseStatusAsOne", nrp);
+    }
+    protected void xsetupOuterJoinPurchaseStatusAsOne() { xregOutJo("purchaseStatusAsOne"); }
+    public boolean hasConditionQueryPurchaseStatusAsOne() { return xhasQueRlMap("purchaseStatusAsOne"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

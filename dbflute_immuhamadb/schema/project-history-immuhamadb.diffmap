@@ -1,4 +1,479 @@
 map:{
+    ; 2022/04/17 13:58:38 = map:{
+        ; diffDate = 2022/04/17 13:58:38
+        ; tableCount = map:{
+            ; next = 22
+            ; previous = 16
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; cdef_member_status = map:{
+                ; tableName = cdef_member_status
+                ; diffType = ADD
+            }
+            ; cdef_product_category = map:{
+                ; tableName = cdef_product_category
+                ; diffType = ADD
+            }
+            ; cdef_product_status = map:{
+                ; tableName = cdef_product_status
+                ; diffType = ADD
+            }
+            ; cdef_region = map:{
+                ; tableName = cdef_region
+                ; diffType = ADD
+            }
+            ; cdef_service_rank = map:{
+                ; tableName = cdef_service_rank
+                ; diffType = ADD
+            }
+            ; cdef_withdrawal_reason = map:{
+                ; tableName = cdef_withdrawal_reason
+                ; diffType = ADD
+            }
+            ; member_login_password = map:{
+                ; tableName = member_login_password
+                ; diffType = ADD
+            }
+            ; member_password_reminder = map:{
+                ; tableName = member_password_reminder
+                ; diffType = ADD
+            }
+            ; member_profile = map:{
+                ; tableName = member_profile
+                ; diffType = ADD
+            }
+            ; product_detail = map:{
+                ; tableName = product_detail
+                ; diffType = ADD
+            }
+            ; product_price = map:{
+                ; tableName = product_price
+                ; diffType = ADD
+            }
+            ; purchase_status = map:{
+                ; tableName = purchase_status
+                ; diffType = ADD
+            }
+            ; member = map:{
+                ; tableName = member
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_REGISTER_DATETIME = map:{
+                        ; columnName = MEMBER_REGISTER_DATETIME
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_NAME = map:{
+                        ; columnName = MEMBER_NAME
+                        ; diffType = DELETE
+                    }
+                    ; MEMBER_ACCOUNT = map:{
+                        ; columnName = MEMBER_ACCOUNT
+                        ; diffType = DELETE
+                    }
+                    ; MEMBER_STATUS_CODE = map:{
+                        ; columnName = MEMBER_STATUS_CODE
+                        ; diffType = DELETE
+                    }
+                    ; FORMALIZED_DATETIME = map:{
+                        ; columnName = FORMALIZED_DATETIME
+                        ; diffType = DELETE
+                    }
+                    ; BIRTHDATE = map:{
+                        ; columnName = BIRTHDATE
+                        ; diffType = DELETE
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_MEMBER_STATUS
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; MEMBER_ACCOUNT = map:{
+                        ; constraintName = MEMBER_ACCOUNT
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_MEMBER_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_MEMBER_STATUS
+                        ; diffType = DELETE
+                    }
+                    ; IX_MEMBER_FORMALIZED_DATETIME = map:{
+                        ; constraintName = IX_MEMBER_FORMALIZED_DATETIME
+                        ; diffType = DELETE
+                    }
+                    ; IX_MEMBER_MEMBER_NAME = map:{
+                        ; constraintName = IX_MEMBER_MEMBER_NAME
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VALID_END_DATE = map:{
+                        ; columnName = VALID_END_DATE
+                        ; diffType = DELETE
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_ADDRESS_REGION = map:{
+                        ; constraintName = FK_MEMBER_ADDRESS_REGION
+                        ; diffType = CHANGE
+                        ; foreignTableDiff = map:{
+                            ; next = cdef_region
+                            ; previous = region
+                        }
+                    }
+                }
+            }
+            ; member_following = map:{
+                ; tableName = member_following
+                ; diffType = CHANGE
+                ; indexDiff = map:{
+                    ; IX_MEMBER_FOLLOWING_YOUR_MEMBER = map:{
+                        ; constraintName = IX_MEMBER_FOLLOWING_YOUR_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; IX_MEMBER_FOLLOWING_UNIQUE_REVERSE = map:{
+                        ; constraintName = IX_MEMBER_FOLLOWING_UNIQUE_REVERSE
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = CHANGE
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_LOGIN_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_LOGIN_MEMBER_STATUS
+                        ; diffType = CHANGE
+                        ; foreignTableDiff = map:{
+                            ; next = cdef_member_status
+                            ; previous = member_status
+                        }
+                    }
+                }
+            }
+            ; member_service = map:{
+                ; tableName = member_service
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_SERVICE_SERVICE_RANK_CODE = map:{
+                        ; constraintName = FK_MEMBER_SERVICE_SERVICE_RANK_CODE
+                        ; diffType = CHANGE
+                        ; foreignTableDiff = map:{
+                            ; next = cdef_service_rank
+                            ; previous = service_rank
+                        }
+                    }
+                }
+            }
+            ; member_status = map:{
+                ; tableName = member_status
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; MEMBER_STATUS_ID = map:{
+                        ; columnName = MEMBER_STATUS_ID
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_ID = map:{
+                        ; columnName = MEMBER_ID
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_STATUS_UPDATE_DATETIME = map:{
+                        ; columnName = MEMBER_STATUS_UPDATE_DATETIME
+                        ; diffType = ADD
+                    }
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = ADD
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = ADD
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = ADD
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = ADD
+                    }
+                    ; MEMBER_STATUS_NAME = map:{
+                        ; columnName = MEMBER_STATUS_NAME
+                        ; diffType = DELETE
+                    }
+                    ; DESCRIPTION = map:{
+                        ; columnName = DESCRIPTION
+                        ; diffType = DELETE
+                    }
+                    ; DISPLAY_ORDER = map:{
+                        ; columnName = DISPLAY_ORDER
+                        ; diffType = DELETE
+                    }
+                }
+                ; primaryKeyDiff = map:{
+                    ; PRIMARY = map:{
+                        ; constraintName = PRIMARY
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = MEMBER_STATUS_ID
+                            ; previous = MEMBER_STATUS_CODE
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_STATUS_XX_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_STATUS_XX_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; FK_MEMBER_STATUS_XX_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_STATUS_XX_MEMBER_STATUS
+                        ; diffType = ADD
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; DISPLAY_ORDER = map:{
+                        ; constraintName = DISPLAY_ORDER
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_MEMBER_STATUS_XX_MEMBER = map:{
+                        ; constraintName = FK_MEMBER_STATUS_XX_MEMBER
+                        ; diffType = ADD
+                    }
+                    ; FK_MEMBER_STATUS_XX_MEMBER_STATUS = map:{
+                        ; constraintName = FK_MEMBER_STATUS_XX_MEMBER_STATUS
+                        ; diffType = ADD
+                    }
+                }
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; WITHDRAWAL_REASON_CODE = map:{
+                        ; columnName = WITHDRAWAL_REASON_CODE
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON = map:{
+                        ; constraintName = FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON
+                        ; diffType = CHANGE
+                        ; foreignTableDiff = map:{
+                            ; next = cdef_withdrawal_reason
+                            ; previous = withdrawal_reason
+                        }
+                    }
+                }
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_NAME = map:{
+                        ; columnName = PRODUCT_NAME
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_HANDLE_CODE = map:{
+                        ; columnName = PRODUCT_HANDLE_CODE
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_CATEGORY_CODE = map:{
+                        ; columnName = PRODUCT_CATEGORY_CODE
+                        ; diffType = DELETE
+                    }
+                    ; PRODUCT_STATUS_CODE = map:{
+                        ; columnName = PRODUCT_STATUS_CODE
+                        ; diffType = DELETE
+                    }
+                    ; REGULAR_PRICE = map:{
+                        ; columnName = REGULAR_PRICE
+                        ; diffType = DELETE
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_PRODUCT_PRODUCT_CATEGORY = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_CATEGORY
+                        ; diffType = DELETE
+                    }
+                    ; FK_PRODUCT_PRODUCT_STATUS = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_STATUS
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; PRODUCT_HANDLE_CODE = map:{
+                        ; constraintName = PRODUCT_HANDLE_CODE
+                        ; diffType = DELETE
+                    }
+                }
+                ; indexDiff = map:{
+                    ; FK_PRODUCT_PRODUCT_CATEGORY = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_CATEGORY
+                        ; diffType = DELETE
+                    }
+                    ; FK_PRODUCT_PRODUCT_STATUS = map:{
+                        ; constraintName = FK_PRODUCT_PRODUCT_STATUS
+                        ; diffType = DELETE
+                    }
+                    ; IX_PRODUCT_PRODUCT_NAME = map:{
+                        ; constraintName = IX_PRODUCT_PRODUCT_NAME
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_DETAIL_ID = map:{
+                        ; columnName = PRODUCT_DETAIL_ID
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_PRICE_ID = map:{
+                        ; columnName = PRODUCT_PRICE_ID
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_ID = map:{
+                        ; columnName = PRODUCT_ID
+                        ; diffType = DELETE
+                    }
+                    ; PAYMENT_COMPLETE_FLG = map:{
+                        ; columnName = PAYMENT_COMPLETE_FLG
+                        ; diffType = DELETE
+                    }
+                    ; VERSION_NO = map:{
+                        ; columnName = VERSION_NO
+                        ; diffType = DELETE
+                    }
+                }
+                ; foreignKeyDiff = map:{
+                    ; FK_PURCHASE_PRODUCT_DETAIL = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT_DETAIL
+                        ; diffType = ADD
+                    }
+                    ; FK_PURCHASE_PRODUCT_PRICE = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT_PRICE
+                        ; diffType = ADD
+                    }
+                    ; FK_PURCHASE_PRODUCT = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; UQ_PURCHASE = map:{
+                        ; constraintName = UQ_PURCHASE
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = MEMBER_ID, PURCHASE_DATETIME
+                            ; previous = MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME
+                        }
+                    }
+                }
+                ; indexDiff = map:{
+                    ; IX_PURCHASE_PRODUCT_DATETIME = map:{
+                        ; constraintName = IX_PURCHASE_PRODUCT_DATETIME
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = PURCHASE_DATETIME
+                            ; previous = PRODUCT_ID, PURCHASE_DATETIME
+                        }
+                    }
+                    ; FK_PURCHASE_PRODUCT_PRICE = map:{
+                        ; constraintName = FK_PURCHASE_PRODUCT_PRICE
+                        ; diffType = ADD
+                    }
+                    ; IX_PURCHASE_PRODUCT_ID = map:{
+                        ; constraintName = IX_PURCHASE_PRODUCT_ID
+                        ; diffType = ADD
+                    }
+                    ; PRODUCT_ID = map:{
+                        ; constraintName = PRODUCT_ID
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; purchase_payment = map:{
+                ; tableName = purchase_payment
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; REGISTER_DATETIME = map:{
+                        ; columnName = REGISTER_DATETIME
+                        ; diffType = DELETE
+                    }
+                    ; REGISTER_USER = map:{
+                        ; columnName = REGISTER_USER
+                        ; diffType = DELETE
+                    }
+                    ; UPDATE_DATETIME = map:{
+                        ; columnName = UPDATE_DATETIME
+                        ; diffType = DELETE
+                    }
+                    ; UPDATE_USER = map:{
+                        ; columnName = UPDATE_USER
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = DELETE
+            }
+            ; product_category = map:{
+                ; tableName = product_category
+                ; diffType = DELETE
+            }
+            ; product_status = map:{
+                ; tableName = product_status
+                ; diffType = DELETE
+            }
+            ; region = map:{
+                ; tableName = region
+                ; diffType = DELETE
+            }
+            ; service_rank = map:{
+                ; tableName = service_rank
+                ; diffType = DELETE
+            }
+            ; withdrawal_reason = map:{
+                ; tableName = withdrawal_reason
+                ; diffType = DELETE
+            }
+        }
+    }
     ; 2020/12/30 00:03:06 = map:{
         ; diffDate = 2020/12/30 00:03:06
         ; diffAuthor = p1us2er0

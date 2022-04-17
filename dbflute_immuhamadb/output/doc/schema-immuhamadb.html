@@ -521,11 +521,81 @@ pre.spolicyviodisp {
 	<tbody id="table-list-body">
 	<tr>
 		<td class="rownumcell">1</td>
-		<td class="aliascell">会員</td>
-		<td class="namecell" data-name="member"><a href="#member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">MEMBER</a></td>
+		<td class="aliascell">[区分値]会員ステータス</td>
+		<td class="namecell" data-name="cdef_member_status"><a href="#cdef_member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=18, columnCount=4">CDEF_MEMBER_STATUS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a></td>
-		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER_ADDRESS</a>, <a href="#member_following" title="FK_MEMBER_FOLLOWING_MY_MEMBER">MEMBER_FOLLOWING</a>, <a href="#member_following" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER">MEMBER_FOLLOWING</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER">MEMBER_LOGIN</a>, <a href="#member_security" title="FK_MEMBER_SECURITY_MEMBER">MEMBER_SECURITY</a>, <a href="#member_service" title="FK_MEMBER_SERVICE_MEMBER">MEMBER_SERVICE</a>, <a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER_WITHDRAWAL</a>, <a href="#purchase" title="FK_PURCHASE_MEMBER">PURCHASE</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>, <a href="#member_status" title="FK_MEMBER_STATUS_XX_MEMBER_STATUS">MEMBER_STATUS</a></td>
+		<td class="commentcell cdef_member_status_comment"><pre>会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！
+業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。
+
+こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。</pre></td>
+		<td class="subcell">CdefMemberStatus</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="aliascell">[区分値]商品カテゴリ</td>
+		<td class="namecell" data-name="cdef_product_category"><a href="#cdef_product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=21, columnCount=3">CDEF_PRODUCT_CATEGORY</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_PRODUCT_CATEGORY_PARENT">CDEF_PRODUCT_CATEGORY</a></td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_PRODUCT_CATEGORY_PARENT">CDEF_PRODUCT_CATEGORY</a>, <a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT_CATEGORY">PRODUCT_DETAIL</a></td>
+		<td class="commentcell cdef_product_category_comment"><pre>商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。</pre></td>
+		<td class="subcell">CdefProductCategory</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="aliascell">[区分値]商品ステータス</td>
+		<td class="namecell" data-name="cdef_product_status"><a href="#cdef_product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=19, columnCount=3">CDEF_PRODUCT_STATUS</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT_STATUS">PRODUCT_DETAIL</a></td>
+		<td class="commentcell cdef_product_status_comment"><pre>商品のステータスを表現する固定的なマスタ。</pre></td>
+		<td class="subcell">CdefProductStatus</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="aliascell">[区分値]地域</td>
+		<td class="namecell" data-name="cdef_region"><a href="#cdef_region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=11, columnCount=2">CDEF_REGION</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_REGION">MEMBER_ADDRESS</a></td>
+		<td class="commentcell cdef_region_comment"><pre>主に会員の住所に対応する漠然とした地域。
+かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。</pre></td>
+		<td class="subcell">CdefRegion</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="aliascell">[区分値]サービスランク</td>
+		<td class="namecell" data-name="cdef_service_rank"><a href="#cdef_service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=17, columnCount=6">CDEF_SERVICE_RANK</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#member_service" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">MEMBER_SERVICE</a></td>
+		<td class="commentcell cdef_service_rank_comment"><pre>会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)</pre></td>
+		<td class="subcell">CdefServiceRank</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="aliascell">[区分値]退会理由</td>
+		<td class="namecell" data-name="cdef_withdrawal_reason"><a href="#cdef_withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=22, columnCount=3">CDEF_WITHDRAWAL_REASON</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a></td>
+		<td class="commentcell cdef_withdrawal_reason_comment"><pre>会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...</pre></td>
+		<td class="subcell">CdefWithdrawalReason</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="aliascell">会員</td>
+		<td class="namecell" data-name="member"><a href="#member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=6">MEMBER</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER_ADDRESS</a>, <a href="#member_following" title="FK_MEMBER_FOLLOWING_MY_MEMBER_ID">MEMBER_FOLLOWING</a>, <a href="#member_following" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID">MEMBER_FOLLOWING</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER">MEMBER_LOGIN</a>, <a href="#member_login_password" title="FK_MEMBER_SECURITY_MEMBER">MEMBER_LOGIN_PASSWORD</a>, <a href="#member_password_reminder" title="FK_MEMBER_PASSWORD_REMINDER_MEMBER">MEMBER_PASSWORD_REMINDER</a>, <a href="#member_profile" title="FK_EVENT_MEMBER_MEMBER">MEMBER_PROFILE</a>, <a href="#member_service" title="FK_MEMBER_SERVICE_MEMBER">MEMBER_SERVICE</a>, <a href="#member_status" title="FK_MEMBER_STATUS_XX_MEMBER">MEMBER_STATUS</a>, <a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER_WITHDRAWAL</a>, <a href="#purchase" title="FK_PURCHASE_MEMBER">PURCHASE</a></td>
 		<td class="commentcell member_comment"><pre>会員のプロフィールやアカウントなどの基本情報を保持する。
 基本的に物理削除はなく、退会したらステータスが退会会員になる。
 ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</pre></td>
@@ -533,135 +603,164 @@ pre.spolicyviodisp {
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">2</td>
-		<td class="aliascell">会員住所情報</td>
-		<td class="namecell" data-name="member_address"><a href="#member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=11">MEMBER_ADDRESS</a></td>
+		<td class="rownumcell">8</td>
+		<td class="aliascell">会員住所</td>
+		<td class="namecell" data-name="member_address"><a href="#member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=9">MEMBER_ADDRESS</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER</a>, <a href="#region" title="FK_MEMBER_ADDRESS_REGION">REGION</a></td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER</a>, <a href="#cdef_region" title="FK_MEMBER_ADDRESS_REGION">CDEF_REGION</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_address_comment"><pre>会員の住所に関する情報。
-同時に有効期間ごとに履歴管理されている。</pre></td>
+		<td class="commentcell member_address_comment"><pre>会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。
+会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！
+有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。</pre></td>
 		<td class="subcell">MemberAddress</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">3</td>
+		<td class="rownumcell">9</td>
 		<td class="aliascell">会員フォローイング</td>
 		<td class="namecell" data-name="member_following"><a href="#member_following" title="type=TABLE, primaryKey={MEMBER_FOLLOWING_ID}, nameLength=16, columnCount=4">MEMBER_FOLLOWING</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_MY_MEMBER">MEMBER</a>, <a href="#member" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER">MEMBER</a></td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_MY_MEMBER_ID">MEMBER</a>, <a href="#member" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell member_following_comment"><pre>とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。</pre></td>
 		<td class="subcell">MemberFollowing</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">4</td>
-		<td class="aliascell">会員ログイン情報</td>
+		<td class="rownumcell">10</td>
+		<td class="aliascell">会員ログイン</td>
 		<td class="namecell" data-name="member_login"><a href="#member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">MEMBER_LOGIN</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>, <a href="#member" title="FK_MEMBER_LOGIN_MEMBER">MEMBER</a></td>
+		<td class="relcell"><a href="#cdef_member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">CDEF_MEMBER_STATUS</a>, <a href="#member" title="FK_MEMBER_LOGIN_MEMBER">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_login_comment"><pre>ログインするたびに登録されるログイン履歴。</pre></td>
+		<td class="commentcell member_login_comment"><pre>ログインするたびに登録されるログイン履歴。
+登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。</pre></td>
 		<td class="subcell">MemberLogin</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">5</td>
-		<td class="aliascell">会員セキュリティ情報</td>
-		<td class="namecell" data-name="member_security"><a href="#member_security" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=15, columnCount=10">MEMBER_SECURITY</a></td>
+		<td class="rownumcell">11</td>
+		<td class="aliascell">会員ログインパスワード</td>
+		<td class="namecell" data-name="member_login_password"><a href="#member_login_password" title="type=TABLE, primaryKey={MEMBER_LOGIN_PASSWORD_ID}, nameLength=21, columnCount=7">MEMBER_LOGIN_PASSWORD</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_SECURITY_MEMBER">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_security_comment"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></td>
-		<td class="subcell">MemberSecurity</td>
-		<td class="subcell">2020/11/30</td>
+		<td class="commentcell member_login_password_comment"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></td>
+		<td class="subcell">MemberLoginPassword</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">6</td>
-		<td class="aliascell">会員サービス</td>
-		<td class="namecell" data-name="member_service"><a href="#member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=9">MEMBER_SERVICE</a></td>
+		<td class="rownumcell">12</td>
+		<td class="aliascell">会員パスワードリマインダ</td>
+		<td class="namecell" data-name="member_password_reminder"><a href="#member_password_reminder" title="type=TABLE, primaryKey={MEMBER_PASSWORD_REMINDER_ID}, nameLength=24, columnCount=9">MEMBER_PASSWORD_REMINDER</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_SERVICE_MEMBER">MEMBER</a>, <a href="#service_rank" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">SERVICE_RANK</a></td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_PASSWORD_REMINDER_MEMBER">MEMBER</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="commentcell member_service_comment"><pre>会員のサービス情報（ポイントサービスなど）。</pre></td>
+		<td class="commentcell member_password_reminder_comment"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></td>
+		<td class="subcell">MemberPasswordReminder</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">13</td>
+		<td class="aliascell">会員プロフィール</td>
+		<td class="namecell" data-name="member_profile"><a href="#member_profile" title="type=TABLE, primaryKey={MEMBER_PROFILE_ID}, nameLength=14, columnCount=9">MEMBER_PROFILE</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#member" title="FK_EVENT_MEMBER_MEMBER">MEMBER</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell member_profile_comment"><pre>会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</pre></td>
+		<td class="subcell">MemberProfile</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">14</td>
+		<td class="aliascell">会員サービス</td>
+		<td class="namecell" data-name="member_service"><a href="#member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=8">MEMBER_SERVICE</a></td>
+		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_SERVICE_MEMBER">MEMBER</a>, <a href="#cdef_service_rank" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">CDEF_SERVICE_RANK</a></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="commentcell member_service_comment"><pre>会員のサービス情報（ポイントサービスなど）。
+テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。</pre></td>
 		<td class="subcell">MemberService</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">7</td>
+		<td class="rownumcell">15</td>
 		<td class="aliascell">会員ステータス</td>
-		<td class="namecell" data-name="member_status"><a href="#member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=4">MEMBER_STATUS</a></td>
+		<td class="namecell" data-name="member_status"><a href="#member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_ID}, nameLength=13, columnCount=8">MEMBER_STATUS</a></td>
 		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_STATUS_XX_MEMBER">MEMBER</a>, <a href="#cdef_member_status" title="FK_MEMBER_STATUS_XX_MEMBER_STATUS">CDEF_MEMBER_STATUS</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>, <a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a></td>
-		<td class="commentcell member_status_comment"><pre>&nbsp;</pre></td>
+		<td class="commentcell member_status_comment"><pre>会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</pre></td>
 		<td class="subcell">MemberStatus</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">8</td>
+		<td class="rownumcell">16</td>
 		<td class="aliascell">会員退会情報</td>
 		<td class="namecell" data-name="member_withdrawal"><a href="#member_withdrawal" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=17, columnCount=8">MEMBER_WITHDRAWAL</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER</a>, <a href="#withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">WITHDRAWAL_REASON</a></td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER</a>, <a href="#cdef_withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">CDEF_WITHDRAWAL_REASON</a></td>
 		<td class="relcell">&nbsp;</td>
 		<td class="commentcell member_withdrawal_comment"><pre>退会会員の退会に関する詳細な情報。
-退会会員のみデータが存在する。</pre></td>
+退会会員のみデータが存在し、"1 : 0..1" のパターンの one-to-one である。
+共通カラムがあってバージョンNOがないパターン。
+基本的に更新は入らないが、重要なデータなので万が一のために更新系の共通カラムも。</pre></td>
 		<td class="subcell">MemberWithdrawal</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">9</td>
+		<td class="rownumcell">17</td>
 		<td class="aliascell">商品</td>
-		<td class="namecell" data-name="product"><a href="#product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=11">PRODUCT</a></td>
+		<td class="namecell" data-name="product"><a href="#product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=5">PRODUCT</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT_CATEGORY</a>, <a href="#product_status" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT_STATUS</a></td>
-		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT">PURCHASE</a></td>
-		<td class="commentcell product_comment"><pre>会員へ販売する商品のマスタ。
-販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。</pre></td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT">PRODUCT_DETAIL</a>, <a href="#product_price" title="FK_PRODUCT_PRICE_PRODUCT">PRODUCT_PRICE</a></td>
+		<td class="commentcell product_comment"><pre>&nbsp;</pre></td>
 		<td class="subcell">Product</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">10</td>
-		<td class="aliascell">商品カテゴリ</td>
-		<td class="namecell" data-name="product_category"><a href="#product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=16, columnCount=3">PRODUCT_CATEGORY</a></td>
+		<td class="rownumcell">18</td>
+		<td class="aliascell">商品詳細</td>
+		<td class="namecell" data-name="product_detail"><a href="#product_detail" title="type=TABLE, primaryKey={PRODUCT_DETAIL_ID}, nameLength=14, columnCount=10">PRODUCT_DETAIL</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a></td>
-		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT</a>, <a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a></td>
-		<td class="commentcell product_category_comment"><pre>商品のカテゴリを表現するマスタ。
-自己参照の階層になっている。</pre></td>
-		<td class="subcell">ProductCategory</td>
-		<td class="subcell">2020/11/30</td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_EVENT_PRODUCT_PRODUCT_CATEGORY">CDEF_PRODUCT_CATEGORY</a>, <a href="#product" title="FK_EVENT_PRODUCT_PRODUCT">PRODUCT</a>, <a href="#cdef_product_status" title="FK_EVENT_PRODUCT_PRODUCT_STATUS">CDEF_PRODUCT_STATUS</a></td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT_DETAIL">PURCHASE</a></td>
+		<td class="commentcell product_detail_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">ProductDetail</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">11</td>
-		<td class="aliascell">商品ステータス</td>
-		<td class="namecell" data-name="product_status"><a href="#product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=3">PRODUCT_STATUS</a></td>
+		<td class="rownumcell">19</td>
+		<td class="aliascell">商品価格</td>
+		<td class="namecell" data-name="product_price"><a href="#product_price" title="type=TABLE, primaryKey={PRODUCT_PRICE_ID}, nameLength=13, columnCount=7">PRODUCT_PRICE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT</a></td>
-		<td class="commentcell product_status_comment"><pre>&nbsp;</pre></td>
-		<td class="subcell">ProductStatus</td>
-		<td class="subcell">2020/11/30</td>
+		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRICE_PRODUCT">PRODUCT</a></td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT_PRICE">PURCHASE</a></td>
+		<td class="commentcell product_price_comment"><pre>&nbsp;</pre></td>
+		<td class="subcell">ProductPrice</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">12</td>
+		<td class="rownumcell">20</td>
 		<td class="aliascell">購入</td>
-		<td class="namecell" data-name="purchase"><a href="#purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=12">PURCHASE</a></td>
+		<td class="namecell" data-name="purchase"><a href="#purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=11">PURCHASE</a></td>
 		<td class="typecell">TABLE</td>
-		<td class="relcell"><a href="#member" title="FK_PURCHASE_MEMBER">MEMBER</a>, <a href="#product" title="FK_PURCHASE_PRODUCT">PRODUCT</a></td>
-		<td class="relcell"><a href="#purchase_payment" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE_PAYMENT</a></td>
-		<td class="commentcell purchase_comment"><pre>一つの商品に対する一回の購入を表現する。
-一回の購入で一つの商品を複数個買うこともある。</pre></td>
+		<td class="relcell"><a href="#member" title="FK_PURCHASE_MEMBER">MEMBER</a>, <a href="#product_detail" title="FK_PURCHASE_PRODUCT_DETAIL">PRODUCT_DETAIL</a>, <a href="#product_price" title="FK_PURCHASE_PRODUCT_PRICE">PRODUCT_PRICE</a></td>
+		<td class="relcell"><a href="#purchase_payment" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE_PAYMENT</a>, <a href="#purchase_status" title="FK_PURCHASE_STATUS_PURCHASE">PURCHASE_STATUS</a></td>
+		<td class="commentcell purchase_comment"><pre>一つの商品に対する購入を表現する(購入履歴とも言える)。
+実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。</pre></td>
 		<td class="subcell">Purchase</td>
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">13</td>
+		<td class="rownumcell">21</td>
 		<td class="aliascell">購入支払</td>
-		<td class="namecell" data-name="purchase_payment"><a href="#purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=9">PURCHASE_PAYMENT</a></td>
+		<td class="namecell" data-name="purchase_payment"><a href="#purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=5">PURCHASE_PAYMENT</a></td>
 		<td class="typecell">TABLE</td>
 		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE</a></td>
 		<td class="relcell">&nbsp;</td>
@@ -671,44 +770,624 @@ pre.spolicyviodisp {
 		<td class="subcell">2020/11/30</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">14</td>
-		<td class="aliascell">地域</td>
-		<td class="namecell" data-name="region"><a href="#region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=6, columnCount=2">REGION</a></td>
+		<td class="rownumcell">22</td>
+		<td class="aliascell">購入ステータス</td>
+		<td class="namecell" data-name="purchase_status"><a href="#purchase_status" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=15, columnCount=6">PURCHASE_STATUS</a></td>
 		<td class="typecell">TABLE</td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_STATUS_PURCHASE">PURCHASE</a></td>
 		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_REGION">MEMBER_ADDRESS</a></td>
-		<td class="commentcell region_comment"><pre>主に会員の住所に対応する地域。
-かなりざっくりした感じではある。</pre></td>
-		<td class="subcell">Region</td>
-		<td class="subcell">2020/11/30</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">15</td>
-		<td class="aliascell">サービスランク</td>
-		<td class="namecell" data-name="service_rank"><a href="#service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=12, columnCount=6">SERVICE_RANK</a></td>
-		<td class="typecell">TABLE</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#member_service" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">MEMBER_SERVICE</a></td>
-		<td class="commentcell service_rank_comment"><pre>会員のサービスレベルを表現するランク。
-（ゴールドとかプラチナとか）</pre></td>
-		<td class="subcell">ServiceRank</td>
-		<td class="subcell">2020/11/30</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">16</td>
-		<td class="aliascell">退会理由</td>
-		<td class="namecell" data-name="withdrawal_reason"><a href="#withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=17, columnCount=3">WITHDRAWAL_REASON</a></td>
-		<td class="typecell">TABLE</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a></td>
-		<td class="commentcell withdrawal_reason_comment"><pre>会員に選ばせる定型的な退会理由のマスタ。</pre></td>
-		<td class="subcell">WithdrawalReason</td>
-		<td class="subcell">2020/11/30</td>
+		<td class="commentcell purchase_status_comment"><pre>一つの商品に対する購入を表現する(購入履歴とも言える)。
+実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。</pre></td>
+		<td class="subcell">PurchaseStatus</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=11">
+<h2 id="cdef_member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=18, columnCount=4">
+([区分値]会員ステータス)CDEF_MEMBER_STATUS
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_member_status_comment" data-name="cdef_member_status"><pre>会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！
+業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。
+
+こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。</pre></div>
+<input type="hidden" value="cdef_member_status">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_member_status-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員ステータスコード</td>
+		<td class=" columnnamecell" id="cdef_member_status_member_status_code">MEMBER_STATUS_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>,<br><a href="#member_status" title="FK_MEMBER_STATUS_XX_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
+		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
+		<td class="commentcell"><pre>会員ステータスを識別するコード。
+固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば "FML" とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)</pre></td>
+		<td class="subcell">memberStatusCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員ステータス名称</td>
+		<td class=" columnnamecell" id="cdef_member_status_member_status_name">MEMBER_STATUS_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>表示用の名称。
+国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。</pre></td>
+		<td class="subcell">memberStatusName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">説明</td>
+		<td class=" columnnamecell" id="cdef_member_status_description">DESCRIPTION</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>会員ステータスそれぞれの説明。
+区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。</pre></td>
+		<td class="subcell">description</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">表示順</td>
+		<td class=" columnnamecell" id="cdef_member_status_display_order">DISPLAY_ORDER</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>UI上のステータスの表示順を示すNO。
+並べるときは、このカラムに対して昇順のソート条件にする。</pre></td>
+		<td class="subcell">displayOrder</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="cdef_product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=21, columnCount=3">
+([区分値]商品カテゴリ)CDEF_PRODUCT_CATEGORY
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_product_category_comment" data-name="cdef_product_category"><pre>商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。</pre></div>
+<input type="hidden" value="cdef_product_category">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_product_category-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品カテゴリコード</td>
+		<td class=" columnnamecell" id="cdef_product_category_product_category_code">PRODUCT_CATEGORY_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_PRODUCT_CATEGORY_PARENT">CDEF_PRODUCT_CATEGORY</a>,<br><a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT_CATEGORY">PRODUCT_DETAIL</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>自分のテーブルの別のレコードからも参照される。</pre></td>
+		<td class="subcell">productCategoryCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品カテゴリ名称</td>
+		<td class=" columnnamecell" id="cdef_product_category_product_category_name">PRODUCT_CATEGORY_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">productCategoryName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_PRODUCT_CATEGORY_PARENT(PARENT_CATEGORY_CODE)">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="aliascell">親カテゴリコード</td>
+		<td class=" columnnamecell" id="cdef_product_category_parent_category_code">PARENT_CATEGORY_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_PRODUCT_CATEGORY_PARENT">CDEF_PRODUCT_CATEGORY</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>最上位の場合はデータなし。まさひく自己参照FKカラム！</pre></td>
+		<td class="subcell">parentCategoryCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="cdef_product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=19, columnCount=3">
+([区分値]商品ステータス)CDEF_PRODUCT_STATUS
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_product_status_comment" data-name="cdef_product_status"><pre>商品のステータスを表現する固定的なマスタ。</pre></div>
+<input type="hidden" value="cdef_product_status">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_product_status-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品ステータスコード</td>
+		<td class=" columnnamecell" id="cdef_product_status_product_status_code">PRODUCT_STATUS_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT_STATUS">PRODUCT_DETAIL</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>商品ステータスを識別するコード。</pre></td>
+		<td class="subcell">productStatusCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品ステータス名称</td>
+		<td class=" columnnamecell" id="cdef_product_status_product_status_name">PRODUCT_STATUS_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。</pre></td>
+		<td class="subcell">productStatusName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">表示順</td>
+		<td class=" columnnamecell" id="cdef_product_status_display_order">DISPLAY_ORDER</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>もう、ご想像の通りです。</pre></td>
+		<td class="subcell">displayOrder</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="cdef_region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=11, columnCount=2">
+([区分値]地域)CDEF_REGION
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_region_comment" data-name="cdef_region"><pre>主に会員の住所に対応する漠然とした地域。
+かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。</pre></div>
+<input type="hidden" value="cdef_region">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_region-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">地域ID</td>
+		<td class=" columnnamecell" id="cdef_region_region_id">REGION_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_REGION">MEMBER_ADDRESS</a>&nbsp;</td>
+		<td class="relcell"><a href="#RegionCls">Region</a></td>
+		<td class="commentcell"><pre>地域をしっかりと識別するID。
+珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。</pre></td>
+		<td class="subcell">regionId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">地域名称</td>
+		<td class=" columnnamecell" id="cdef_region_region_name">REGION_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>地域を漠然と表す名称。</pre></td>
+		<td class="subcell">regionName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="cdef_service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=17, columnCount=6">
+([区分値]サービスランク)CDEF_SERVICE_RANK
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_service_rank_comment" data-name="cdef_service_rank"><pre>会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)</pre></div>
+<input type="hidden" value="cdef_service_rank">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_service_rank-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">サービスランクコード</td>
+		<td class=" columnnamecell" id="cdef_service_rank_service_rank_code">SERVICE_RANK_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#member_service" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">MEMBER_SERVICE</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>サービスランクを識別するコード。</pre></td>
+		<td class="subcell">serviceRankCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">サービスランク名称</td>
+		<td class=" columnnamecell" id="cdef_service_rank_service_rank_name">SERVICE_RANK_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>サービスランクの名称。
+ゴールドとかプラチナとか基本的には威厳のある名前</pre></td>
+		<td class="subcell">serviceRankName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">サービスポイント発生率</td>
+		<td class=" columnnamecell" id="cdef_service_rank_service_point_incidence">SERVICE_POINT_INCIDENCE</td>
+		<td class="typecell">DECIMAL</td>
+		<td class="sizecell"> 5, 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>購入ごとのサービスポイントの発生率。
+購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。</pre></td>
+		<td class="subcell">servicePointIncidence</td>
+		<td class="subcell">BigDecimal</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">新規受け入れ可能フラグ</td>
+		<td class=" columnnamecell" id="cdef_service_rank_new_acceptable_flg">NEW_ACCEPTABLE_FLG</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#FlgCls">Flg</a></td>
+		<td class="commentcell"><pre>このランクへの新規受け入れができるかどうか。</pre></td>
+		<td class="subcell">newAcceptableFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">説明</td>
+		<td class=" columnnamecell" id="cdef_service_rank_description">DESCRIPTION</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>ランクに関する業務的な説明。</pre></td>
+		<td class="subcell">description</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">表示順</td>
+		<td class=" columnnamecell" id="cdef_service_rank_display_order">DISPLAY_ORDER</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>UI上の表示順を表現する番号。</pre></td>
+		<td class="subcell">displayOrder</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="cdef_withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=22, columnCount=3">
+([区分値]退会理由)CDEF_WITHDRAWAL_REASON
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment cdef_withdrawal_reason_comment" data-name="cdef_withdrawal_reason"><pre>会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...</pre></div>
+<input type="hidden" value="cdef_withdrawal_reason">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="cdef_withdrawal_reason-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">退会理由コード</td>
+		<td class=" columnnamecell" id="cdef_withdrawal_reason_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a>&nbsp;</td>
+		<td class="relcell"><a href="#WithdrawalReasonCls">WithdrawalReason</a></td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">withdrawalReasonCode</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">退会理由テキスト</td>
+		<td class=" columnnamecell" id="cdef_withdrawal_reason_withdrawal_reason_text">WITHDRAWAL_REASON_TEXT</td>
+		<td class="typecell">TEXT</td>
+		<td class="sizecell"> 65535 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>退会理由の内容。
+テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。</pre></td>
+		<td class="subcell">withdrawalReasonText</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">表示順</td>
+		<td class=" columnnamecell" id="cdef_withdrawal_reason_display_order">DISPLAY_ORDER</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>もう、ご想像の通りです。</pre></td>
+		<td class="subcell">displayOrder</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="member" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=6, columnCount=6">
 (会員)MEMBER
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
@@ -751,10 +1430,9 @@ pre.spolicyviodisp {
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER_ADDRESS</a>,<br><a href="#member_following" title="FK_MEMBER_FOLLOWING_MY_MEMBER">MEMBER_FOLLOWING</a>,<br><a href="#member_following" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER">MEMBER_FOLLOWING</a>,<br><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER">MEMBER_LOGIN</a>,<br><a href="#member_security" title="FK_MEMBER_SECURITY_MEMBER">MEMBER_SECURITY</a>,<br><a href="#member_service" title="FK_MEMBER_SERVICE_MEMBER">MEMBER_SERVICE</a>,<br><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER_WITHDRAWAL</a>,<br><a href="#purchase" title="FK_PURCHASE_MEMBER">PURCHASE</a>&nbsp;</td>
+		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_MEMBER">MEMBER_ADDRESS</a>,<br><a href="#member_following" title="FK_MEMBER_FOLLOWING_MY_MEMBER_ID">MEMBER_FOLLOWING</a>,<br><a href="#member_following" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID">MEMBER_FOLLOWING</a>,<br><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER">MEMBER_LOGIN</a>,<br><a href="#member_login_password" title="FK_MEMBER_SECURITY_MEMBER">MEMBER_LOGIN_PASSWORD</a>,<br><a href="#member_password_reminder" title="FK_MEMBER_PASSWORD_REMINDER_MEMBER">MEMBER_PASSWORD_REMINDER</a>,<br><a href="#member_profile" title="FK_EVENT_MEMBER_MEMBER">MEMBER_PROFILE</a>,<br><a href="#member_service" title="FK_MEMBER_SERVICE_MEMBER">MEMBER_SERVICE</a>,<br><a href="#member_status" title="FK_MEMBER_STATUS_XX_MEMBER">MEMBER_STATUS</a>,<br><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER_WITHDRAWAL</a>,<br><a href="#purchase" title="FK_PURCHASE_MEMBER">PURCHASE</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員を識別するID。連番として基本的に自動採番される。
-（会員IDだけに限らず）採番方法はDBMSによって変わる。</pre></td>
+		<td class="commentcell"><pre>連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。</pre></td>
 		<td class="subcell">memberId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -764,99 +1442,22 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="IX_MEMBER_MEMBER_NAME(MEMBER_NAME)">o</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">会員名称</td>
-		<td class=" columnnamecell" id="member_member_name">MEMBER_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 180 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員のフルネームの名称。</pre></td>
-		<td class="subcell">memberName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">3</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MEMBER_ACCOUNT(MEMBER_ACCOUNT)">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">会員アカウント</td>
-		<td class=" columnnamecell" id="member_member_account">MEMBER_ACCOUNT</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員がログイン時に利用するアカウントNO。</pre></td>
-		<td class="subcell">memberAccount</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">4</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="FK_MEMBER_MEMBER_STATUS(MEMBER_STATUS_CODE)">o</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">会員ステータスコード</td>
-		<td class=" columnnamecell" id="member_member_status_code">MEMBER_STATUS_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#member_status" title="FK_MEMBER_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">memberStatusCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">5</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="IX_MEMBER_FORMALIZED_DATETIME(FORMALIZED_DATETIME)">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="aliascell">正式会員日時</td>
-		<td class=" columnnamecell" id="member_formalized_datetime">FORMALIZED_DATETIME</td>
+		<td class="aliascell">会員登録日時</td>
+		<td class=" columnnamecell" id="member_member_register_datetime">MEMBER_REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員が正式に確定した日時。一度確定したら更新されない。
-仮会員のときはnull。</pre></td>
-		<td class="subcell">formalizedDatetime</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">memberRegisterDatetime</td>
 		<td class="subcell">LocalDateTime</td>
-		<td class="subcell">first</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">6</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="aliascell">生年月日</td>
-		<td class=" columnnamecell" id="member_birthdate">BIRTHDATE</td>
-		<td class="typecell">DATE</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>必須項目ではないので、このデータがない会員もいる。</pre></td>
-		<td class="subcell">birthdate</td>
-		<td class="subcell">LocalDate</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">7</td>
+		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -869,32 +1470,32 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>レコードが登録された日時。共通カラムの一つ。</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">8</td>
+		<td class="rownumcell">4</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell">登録ユーザ</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
 		<td class="comcolcell columnnamecell" id="member_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>レコードを登録したユーザ。共通カラムの一つ。</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">9</td>
+		<td class="rownumcell">5</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -907,13 +1508,13 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>レコードが（最後に）更新された日時。共通カラムの一つ。</pre></td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">updateDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">10</td>
+		<td class="rownumcell">6</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -926,40 +1527,21 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>レコードを更新したユーザ。</pre></td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">updateUser</td>
 		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">11</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell optcell">バージョンNO</td>
-		<td class="optcell columnnamecell" id="member_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>レコードのバージョンを示すNO。
-更新回数と等しく、主に排他制御のために利用される。</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=11">
-(会員住所情報)MEMBER_ADDRESS
+<h2 id="member_address" title="type=TABLE, primaryKey={MEMBER_ADDRESS_ID}, nameLength=14, columnCount=9">
+(会員住所)MEMBER_ADDRESS
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment member_address_comment" data-name="member_address"><pre>会員の住所に関する情報。
-同時に有効期間ごとに履歴管理されている。</pre></div>
+<div class="tablecomment member_address_comment" data-name="member_address"><pre>会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。
+会員を基点に考えた場合、構造的には one-to-many だが、業務的な定型条件で one-to-one になる。このような構造を「業務的one-to-one」と呼ぶ！
+有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0..1" である。</pre></div>
 <input type="hidden" value="member_address">
 <table class="tablecontent">
 	<thead>
@@ -999,7 +1581,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>会員住所を識別するID。
-履歴分も含むテーブルなので、これ自体はFKではない。</pre></td>
+期間ごとに同じ会員のデータを保持することがあるため、これは単なるPKであってFKではない。</pre></td>
 		<td class="subcell">memberAddressId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1008,7 +1590,7 @@ pre.spolicyviodisp {
 		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MEMBER_ID(MEMBER_ID, VALID_BEGIN_DATE)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="UQ_MEMBER_ADDRESS(MEMBER_ID, VALID_BEGIN_DATE)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
@@ -1019,7 +1601,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>会員を参照するID。
-履歴分を含むため、これだけではユニークにはならない。</pre></td>
+期間ごとのデータがあるので、これだけではユニークにはならない。有効開始日と合わせて複合ユニーク制約となるが、厳密には完全な制約にはなっていない。有効期間の概念はRDBでは表現しきれないのである。</pre></td>
 		<td class="subcell">memberId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1028,7 +1610,7 @@ pre.spolicyviodisp {
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MEMBER_ID(MEMBER_ID, VALID_BEGIN_DATE)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell" title="UQ_MEMBER_ADDRESS(MEMBER_ID, VALID_BEGIN_DATE)"><span class="flgplus">+</span>o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">有効開始日</td>
@@ -1051,27 +1633,6 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">有効終了日</td>
-		<td class=" columnnamecell" id="member_address_valid_end_date">VALID_END_DATE</td>
-		<td class="typecell">DATE</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>有効期間の終了日。
-次の有効開始日の一日前の値が格納される。
-ただし、次の有効期間がない場合は 9999/12/31 となる。</pre></td>
-		<td class="subcell">validEndDate</td>
-		<td class="subcell">LocalDate</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">5</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
 		<td class="aliascell">住所</td>
 		<td class=" columnnamecell" id="member_address_address">ADDRESS</td>
 		<td class="typecell">VARCHAR</td>
@@ -1085,7 +1646,7 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">6</td>
+		<td class="rownumcell">5</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -1095,13 +1656,31 @@ pre.spolicyviodisp {
 		<td class=" columnnamecell" id="member_address_region_id">REGION_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
-		<td class="relcell"><a href="#region" title="FK_MEMBER_ADDRESS_REGION">REGION</a>&nbsp;</td>
+		<td class="relcell"><a href="#cdef_region" title="FK_MEMBER_ADDRESS_REGION">CDEF_REGION</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#RegionCls">Region</a></td>
-		<td class="commentcell"><pre>地域を参照するID。
-ここでは特に住所の内容と連動しているわけではない。</pre></td>
+		<td class="commentcell"><pre>地域を参照するID。かなり漠然とした地域。</pre></td>
 		<td class="subcell">regionId</td>
 		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="member_address_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1111,16 +1690,16 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_address_register_datetime">REGISTER_DATETIME</td>
-		<td class="typecell">DATETIME</td>
-		<td class="sizecell"> 19 </td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="member_address_register_user">REGISTER_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">registerDatetime</td>
-		<td class="subcell">LocalDateTime</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -1130,26 +1709,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_address_register_user">REGISTER_USER</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">registerUser</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">9</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新日時</td>
 		<td class="comcolcell columnnamecell" id="member_address_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
@@ -1162,13 +1722,13 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">10</td>
+		<td class="rownumcell">9</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
 		<td class="comcolcell columnnamecell" id="member_address_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
@@ -1178,25 +1738,6 @@ pre.spolicyviodisp {
 		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">updateUser</td>
 		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">11</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell optcell"></td>
-		<td class="optcell columnnamecell" id="member_address_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -1254,14 +1795,14 @@ pre.spolicyviodisp {
 		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MY_MEMBER_ID(MY_MEMBER_ID, YOUR_MEMBER_ID)">o<span class="flgplus">+</span></td>
-		<td class="flgcell" title="IX_MEMBER_FOLLOWING_UNIQUE_REVERSE(YOUR_MEMBER_ID, MY_MEMBER_ID)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell" title="UQ_MEMBER_FOLLOWING(MY_MEMBER_ID, YOUR_MEMBER_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">わたし</td>
 		<td class=" columnnamecell" id="member_following_my_member_id">MY_MEMBER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_MY_MEMBER">MEMBER</a>&nbsp;</td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_MY_MEMBER_ID">MEMBER</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>気になった人がいて...勇気を振り絞った会員のID。</pre></td>
@@ -1273,14 +1814,14 @@ pre.spolicyviodisp {
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="MY_MEMBER_ID(MY_MEMBER_ID, YOUR_MEMBER_ID)"><span class="flgplus">+</span>o</td>
-		<td class="flgcell" title="IX_MEMBER_FOLLOWING_UNIQUE_REVERSE(YOUR_MEMBER_ID, MY_MEMBER_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="UQ_MEMBER_FOLLOWING(MY_MEMBER_ID, YOUR_MEMBER_ID)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell" title="IX_MEMBER_FOLLOWING_YOUR_MEMBER(YOUR_MEMBER_ID)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">あなた</td>
 		<td class=" columnnamecell" id="member_following_your_member_id">YOUR_MEMBER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER">MEMBER</a>&nbsp;</td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID">MEMBER</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>いきなりのアクションに...ちょっと心揺らいだ会員のID。</pre></td>
@@ -1293,7 +1834,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="IX_MEMBER_FOLLOWING_FOLLOW_DATETIME(FOLLOW_DATETIME)">o</td>
+		<td class="flgcell" title="IX_MEMBER_FOLLOWING_DATETIME(FOLLOW_DATETIME)">o</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">その瞬間</td>
 		<td class=" columnnamecell" id="member_following_follow_datetime">FOLLOW_DATETIME</td>
@@ -1311,10 +1852,11 @@ pre.spolicyviodisp {
 </table>
 
 <h2 id="member_login" title="type=TABLE, primaryKey={MEMBER_LOGIN_ID}, nameLength=12, columnCount=5">
-(会員ログイン情報)MEMBER_LOGIN
+(会員ログイン)MEMBER_LOGIN
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment member_login_comment" data-name="member_login"><pre>ログインするたびに登録されるログイン履歴。</pre></div>
+<div class="tablecomment member_login_comment" data-name="member_login"><pre>ログインするたびに登録されるログイン履歴。
+登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。</pre></div>
 <input type="hidden" value="member_login">
 <table class="tablecontent">
 	<thead>
@@ -1372,7 +1914,7 @@ pre.spolicyviodisp {
 		<td class="relcell"><a href="#member" title="FK_MEMBER_LOGIN_MEMBER">MEMBER</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。</pre></td>
 		<td class="subcell">memberId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1391,7 +1933,8 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>ログインした瞬間の日時。</pre></td>
+		<td class="commentcell"><pre>ログインした瞬間の日時。
+同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)</pre></td>
 		<td class="subcell">loginDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -1426,7 +1969,7 @@ pre.spolicyviodisp {
 		<td class=" columnnamecell" id="member_login_login_member_status_code">LOGIN_MEMBER_STATUS_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_STATUS</a>&nbsp;</td>
+		<td class="relcell"><a href="#cdef_member_status" title="FK_MEMBER_LOGIN_MEMBER_STATUS">CDEF_MEMBER_STATUS</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
 		<td class="commentcell"><pre>ログイン時の会員ステータス</pre></td>
@@ -1437,12 +1980,12 @@ pre.spolicyviodisp {
 	</tbody>
 </table>
 
-<h2 id="member_security" title="type=TABLE, primaryKey={MEMBER_ID}, nameLength=15, columnCount=10">
-(会員セキュリティ情報)MEMBER_SECURITY
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
+<h2 id="member_login_password" title="type=TABLE, primaryKey={MEMBER_LOGIN_PASSWORD_ID}, nameLength=21, columnCount=7">
+(会員ログインパスワード)MEMBER_LOGIN_PASSWORD
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
 </h2>
-<div class="tablecomment member_security_comment" data-name="member_security"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></div>
-<input type="hidden" value="member_security">
+<div class="tablecomment member_login_password_comment" data-name="member_login_password"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></div>
+<input type="hidden" value="member_login_password">
 <table class="tablecontent">
 	<thead>
 	<tr>
@@ -1465,16 +2008,35 @@ pre.spolicyviodisp {
 		<th>Since</th>
 	</tr>
 	</thead>
-	<tbody id="member_security-body">
+	<tbody id="member_login_password-body">
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
+		<td class="aliascell">会員ログインパスワードID</td>
+		<td class=" columnnamecell" id="member_login_password_member_login_password_id">MEMBER_LOGIN_PASSWORD_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">memberLoginPasswordId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_MEMBER_SECURITY_MEMBER(MEMBER_ID)">o</td>
+		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
-		<td class=" columnnamecell" id="member_security_member_id">MEMBER_ID</td>
+		<td class=" columnnamecell" id="member_login_password_member_id">MEMBER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_SECURITY_MEMBER">MEMBER</a>&nbsp;</td>
@@ -1486,16 +2048,16 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">2</td>
+		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">ログインパスワード</td>
-		<td class=" columnnamecell" id="member_security_login_password">LOGIN_PASSWORD</td>
+		<td class=" columnnamecell" id="member_login_password_login_password">LOGIN_PASSWORD</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
+		<td class="sizecell"> 100 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
@@ -1506,6 +2068,152 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="member_login_password_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="member_login_password_register_user">REGISTER_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="member_login_password_update_datetime">UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="member_login_password_update_user">UPDATE_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="member_password_reminder" title="type=TABLE, primaryKey={MEMBER_PASSWORD_REMINDER_ID}, nameLength=24, columnCount=9">
+(会員パスワードリマインダ)MEMBER_PASSWORD_REMINDER
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment member_password_reminder_comment" data-name="member_password_reminder"><pre>会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある</pre></div>
+<input type="hidden" value="member_password_reminder">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="member_password_reminder-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員パスワードリマインダID</td>
+		<td class=" columnnamecell" id="member_password_reminder_member_password_reminder_id">MEMBER_PASSWORD_REMINDER_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">memberPasswordReminderId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_MEMBER_PASSWORD_REMINDER_MEMBER(MEMBER_ID)">o</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員ID</td>
+		<td class=" columnnamecell" id="member_password_reminder_member_id">MEMBER_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_PASSWORD_REMINDER_MEMBER">MEMBER</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>そのまま one-to-one を構成するためのFKとなる。</pre></td>
+		<td class="subcell">memberId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
@@ -1513,7 +2221,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">リマインダ質問</td>
-		<td class=" columnnamecell" id="member_security_reminder_question">REMINDER_QUESTION</td>
+		<td class=" columnnamecell" id="member_password_reminder_reminder_question">REMINDER_QUESTION</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1532,7 +2240,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">リマインダ回答</td>
-		<td class=" columnnamecell" id="member_security_reminder_answer">REMINDER_ANSWER</td>
+		<td class=" columnnamecell" id="member_password_reminder_reminder_answer">REMINDER_ANSWER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 50 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1551,15 +2259,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">リマインダ利用回数</td>
-		<td class=" columnnamecell" id="member_security_reminder_use_count">REMINDER_USE_COUNT</td>
+		<td class=" columnnamecell" id="member_password_reminder_reminder_use_count">REMINDER_USE_COUNT</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>リマインダを利用した回数。
-多いと忘れっぽい会員と言えるが、
-そんなことを知ってもしょうがない。</pre></td>
+これが多いと忘れっぽい会員と言えるが、そんなことを知ってもしょうがない。</pre></td>
 		<td class="subcell">reminderUseCount</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1571,14 +2278,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_security_register_datetime">REGISTER_DATETIME</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="member_password_reminder_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -1590,14 +2297,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_security_register_user">REGISTER_USER</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="member_password_reminder_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1609,8 +2316,8 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_security_update_datetime">UPDATE_DATETIME</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="member_password_reminder_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1628,8 +2335,8 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="member_security_update_user">UPDATE_USER</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="member_password_reminder_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -1640,33 +2347,222 @@ pre.spolicyviodisp {
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
+	</tbody>
+</table>
+
+<h2 id="member_profile" title="type=TABLE, primaryKey={MEMBER_PROFILE_ID}, nameLength=14, columnCount=9">
+(会員プロフィール)MEMBER_PROFILE
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment member_profile_comment" data-name="member_profile"><pre>会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</pre></div>
+<input type="hidden" value="member_profile">
+<table class="tablecontent">
+	<thead>
 	<tr>
-		<td class="rownumcell">10</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="member_profile-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell optcell"></td>
-		<td class="optcell columnnamecell" id="member_security_version_no">VERSION_NO</td>
+		<td class="aliascell">会員プロフィールID</td>
+		<td class=" columnnamecell" id="member_profile_member_profile_id">MEMBER_PROFILE_ID</td>
 		<td class="typecell">BIGINT</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">versionNo</td>
+		<td class="subcell">memberProfileId</td>
 		<td class="subcell">Long</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_EVENT_MEMBER_MEMBER(MEMBER_ID)">o</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員ID</td>
+		<td class=" columnnamecell" id="member_profile_member_id">MEMBER_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#member" title="FK_EVENT_MEMBER_MEMBER">MEMBER</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。</pre></td>
+		<td class="subcell">memberId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員名称</td>
+		<td class=" columnnamecell" id="member_profile_member_name">MEMBER_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>会員のフルネームの名称。
+苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。</pre></td>
+		<td class="subcell">memberName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="MEMBER_ACCOUNT(MEMBER_ACCOUNT)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">会員アカウント</td>
+		<td class=" columnnamecell" id="member_profile_member_account">MEMBER_ACCOUNT</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>ログインIDとして利用する。
+昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?</pre></td>
+		<td class="subcell">memberAccount</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">生年月日</td>
+		<td class=" columnnamecell" id="member_profile_birthdate">BIRTHDATE</td>
+		<td class="typecell">DATE</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">birthdate</td>
+		<td class="subcell">LocalDate</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="member_profile_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="member_profile_register_user">REGISTER_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="member_profile_update_datetime">UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">9</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="member_profile_update_user">UPDATE_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateUser</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=9">
+<h2 id="member_service" title="type=TABLE, primaryKey={MEMBER_SERVICE_ID}, nameLength=14, columnCount=8">
 (会員サービス)MEMBER_SERVICE
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment member_service_comment" data-name="member_service"><pre>会員のサービス情報（ポイントサービスなど）。</pre></div>
+<div class="tablecomment member_service_comment" data-name="member_service"><pre>会員のサービス情報（ポイントサービスなど）。
+テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。</pre></div>
 <input type="hidden" value="member_service">
 <table class="tablecontent">
 	<thead>
@@ -1743,8 +2639,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員が現在利用できるサービスポイントの数。
-基本的に、購入時には増えてポイントを使ったら減る。</pre></td>
+		<td class="commentcell"><pre>購入したら増えて使ったら減る。</pre></td>
 		<td class="subcell">servicePointCount</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -1760,11 +2655,10 @@ pre.spolicyviodisp {
 		<td class=" columnnamecell" id="member_service_service_rank_code">SERVICE_RANK_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#service_rank" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">SERVICE_RANK</a>&nbsp;</td>
+		<td class="relcell"><a href="#cdef_service_rank" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">CDEF_SERVICE_RANK</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>サービスランクを参照するコード。
-どんなランクがあるのかドキドキですね。</pre></td>
+		<td class="commentcell"><pre>どんなランクがあるのかドキドキですね。</pre></td>
 		<td class="subcell">serviceRankCode</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1776,14 +2670,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録日時</td>
 		<td class="comcolcell columnnamecell" id="member_service_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -1795,14 +2689,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
 		<td class="comcolcell columnnamecell" id="member_service_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -1814,7 +2708,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新日時</td>
 		<td class="comcolcell columnnamecell" id="member_service_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
@@ -1833,7 +2727,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
 		<td class="comcolcell columnnamecell" id="member_service_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
@@ -1845,33 +2739,16 @@ pre.spolicyviodisp {
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
-	<tr>
-		<td class="rownumcell">9</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell optcell"></td>
-		<td class="optcell columnnamecell" id="member_service_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
-		<td class="subcell">first</td>
-	</tr>
 	</tbody>
 </table>
 
-<h2 id="member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_CODE}, nameLength=13, columnCount=4">
+<h2 id="member_status" title="type=TABLE, primaryKey={MEMBER_STATUS_ID}, nameLength=13, columnCount=8">
 (会員ステータス)MEMBER_STATUS
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment member_status_comment" data-name="member_status"><pre></pre></div>
+<div class="tablecomment member_status_comment" data-name="member_status"><pre>会員のプロフィールやアカウントなどの基本情報を保持する。
+基本的に物理削除はなく、退会したらステータスが退会会員になる。
+ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。</pre></div>
 <input type="hidden" value="member_status">
 <table class="tablecontent">
 	<thead>
@@ -1899,58 +2776,58 @@ pre.spolicyviodisp {
 	<tr>
 		<td class="rownumcell">1</td>
 		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">会員ステータスコード</td>
-		<td class=" columnnamecell" id="member_status_member_status_code">MEMBER_STATUS_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
+		<td class="aliascell">会員ステータスID</td>
+		<td class=" columnnamecell" id="member_status_member_status_id">MEMBER_STATUS_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member" title="FK_MEMBER_MEMBER_STATUS">MEMBER</a>,<br><a href="#member_login" title="FK_MEMBER_LOGIN_MEMBER_STATUS">MEMBER_LOGIN</a>&nbsp;</td>
-		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
-		<td class="commentcell"><pre>会員ステータスを識別するコード。</pre></td>
-		<td class="subcell">memberStatusCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">memberStatusId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_MEMBER_STATUS_XX_MEMBER(MEMBER_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">会員ステータス名称</td>
-		<td class=" columnnamecell" id="member_status_member_status_name">MEMBER_STATUS_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="aliascell">会員ID</td>
+		<td class=" columnnamecell" id="member_status_member_id">MEMBER_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#member" title="FK_MEMBER_STATUS_XX_MEMBER">MEMBER</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">memberStatusName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
+		<td class="commentcell"><pre>連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。</pre></td>
+		<td class="subcell">memberId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_MEMBER_STATUS_XX_MEMBER_STATUS(MEMBER_STATUS_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">説明</td>
-		<td class=" columnnamecell" id="member_status_description">DESCRIPTION</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="aliascell">会員ステータスコード</td>
+		<td class=" columnnamecell" id="member_status_member_status_code">MEMBER_STATUS_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell"><a href="#cdef_member_status" title="FK_MEMBER_STATUS_XX_MEMBER_STATUS">CDEF_MEMBER_STATUS</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>会員ステータスそれぞれの説明。
-気の利いた説明があるとディベロッパーがとても助かる。</pre></td>
-		<td class="subcell">description</td>
+		<td class="relcell"><a href="#MemberStatusCls">MemberStatus</a></td>
+		<td class="commentcell"><pre>会員ステータスを識別するコード。
+固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば "FML" とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)</pre></td>
+		<td class="subcell">memberStatusCode</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -1958,21 +2835,96 @@ pre.spolicyviodisp {
 		<td class="rownumcell">4</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">表示順</td>
-		<td class=" columnnamecell" id="member_status_display_order">DISPLAY_ORDER</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
+		<td class="aliascell">会員ステータス更新日時</td>
+		<td class=" columnnamecell" id="member_status_member_status_update_datetime">MEMBER_STATUS_UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>UI上のステータスの表示順を示すNO。
-並べるときは、このカラムに対して昇順のソート条件にする。</pre></td>
-		<td class="subcell">displayOrder</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">memberStatusUpdateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="member_status_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="member_status_register_user">REGISTER_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="member_status_update_datetime">UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">8</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="member_status_update_user">UPDATE_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	</tbody>
 </table>
@@ -1982,7 +2934,9 @@ pre.spolicyviodisp {
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
 <div class="tablecomment member_withdrawal_comment" data-name="member_withdrawal"><pre>退会会員の退会に関する詳細な情報。
-退会会員のみデータが存在する。</pre></div>
+退会会員のみデータが存在し、"1 : 0..1" のパターンの one-to-one である。
+共通カラムがあってバージョンNOがないパターン。
+基本的に更新は入らないが、重要なデータなので万が一のために更新系の共通カラムも。</pre></div>
 <input type="hidden" value="member_withdrawal">
 <table class="tablecontent">
 	<thead>
@@ -2014,14 +2968,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell"></td>
+		<td class="aliascell">会員ID</td>
 		<td class=" columnnamecell" id="member_withdrawal_member_id">MEMBER_ID</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell"><a href="#member" title="FK_MEMBER_WITHDRAWAL_MEMBER">MEMBER</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。</pre></td>
 		<td class="subcell">memberId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -2032,15 +2986,15 @@ pre.spolicyviodisp {
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON(WITHDRAWAL_REASON_CODE)">o</td>
-		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">*</td>
 		<td class="aliascell">退会理由コード</td>
 		<td class=" columnnamecell" id="member_withdrawal_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">WITHDRAWAL_REASON</a>&nbsp;</td>
+		<td class="relcell"><a href="#cdef_withdrawal_reason" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">CDEF_WITHDRAWAL_REASON</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"><a href="#WithdrawalReasonCls">WithdrawalReason</a></td>
-		<td class="commentcell"><pre>退会した定型理由を参照するコード。
+		<td class="commentcell"><pre>定型的な退会した理由を参照するコード。
 何も言わずに退会する会員もいるので必須項目ではない。</pre></td>
 		<td class="subcell">withdrawalReasonCode</td>
 		<td class="subcell">String</td>
@@ -2061,7 +3015,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>会員がフリーテキストで入力できる退会理由。
-もう言いたいこと言ってもらう感じ。</pre></td>
+もう言いたいこと言ってもらう感じ。サイト運営側としてはこういうのは真摯に受け止めて改善していきたいところ。</pre></td>
 		<td class="subcell">withdrawalReasonInputText</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -2081,7 +3035,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>退会した瞬間の日時。
-正式会員日時と違い、こっちはone-to-oneの別テーブルで。</pre></td>
+正式会員日時と違い、こっちは one-to-one の別テーブルで管理されている。</pre></td>
 		<td class="subcell">withdrawalDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -2093,14 +3047,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録日時</td>
 		<td class="comcolcell columnnamecell" id="member_withdrawal_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -2112,14 +3066,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
 		<td class="comcolcell columnnamecell" id="member_withdrawal_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -2131,7 +3085,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新日時</td>
 		<td class="comcolcell columnnamecell" id="member_withdrawal_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
@@ -2150,7 +3104,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
 		<td class="comcolcell columnnamecell" id="member_withdrawal_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
@@ -2165,12 +3119,11 @@ pre.spolicyviodisp {
 	</tbody>
 </table>
 
-<h2 id="product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=11">
+<h2 id="product" title="type=TABLE, primaryKey={PRODUCT_ID}, nameLength=7, columnCount=5">
 (商品)PRODUCT
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment product_comment" data-name="product"><pre>会員へ販売する商品のマスタ。
-販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。</pre></div>
+<div class="tablecomment product_comment" data-name="product"><pre></pre></div>
 <input type="hidden" value="product">
 <table class="tablecontent">
 	<thead>
@@ -2207,7 +3160,7 @@ pre.spolicyviodisp {
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT">PURCHASE</a>&nbsp;</td>
+		<td class="relcell"><a href="#product_detail" title="FK_EVENT_PRODUCT_PRODUCT">PRODUCT_DETAIL</a>,<br><a href="#product_price" title="FK_PRODUCT_PRICE_PRODUCT">PRODUCT_PRICE</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">productId</td>
@@ -2219,36 +3172,36 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="IX_PRODUCT_PRODUCT_NAME(PRODUCT_NAME)">o</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">商品名称</td>
-		<td class=" columnnamecell" id="product_product_name">PRODUCT_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="product_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productName</td>
-		<td class="subcell">String</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="PRODUCT_HANDLE_CODE(PRODUCT_HANDLE_CODE)">o</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">商品ハンドルコード</td>
-		<td class=" columnnamecell" id="product_product_handle_code">PRODUCT_HANDLE_CODE</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="product_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 100 </td>
+		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>商品を識別する業務上のコード。</pre></td>
-		<td class="subcell">productHandleCode</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -2257,17 +3210,145 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="FK_PRODUCT_PRODUCT_CATEGORY(PRODUCT_CATEGORY_CODE)">o</td>
+		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell"></td>
-		<td class=" columnnamecell" id="product_product_category_code">PRODUCT_CATEGORY_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT_CATEGORY</a>&nbsp;</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="product_update_datetime">UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productCategoryCode</td>
+		<td class="subcell">updateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="product_update_user">UPDATE_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	</tbody>
+</table>
+
+<h2 id="product_detail" title="type=TABLE, primaryKey={PRODUCT_DETAIL_ID}, nameLength=14, columnCount=10">
+(商品詳細)PRODUCT_DETAIL
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment product_detail_comment" data-name="product_detail"><pre></pre></div>
+<input type="hidden" value="product_detail">
+<table class="tablecontent">
+	<thead>
+	<tr>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="product_detail-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品詳細ID</td>
+		<td class=" columnnamecell" id="product_detail_product_detail_id">PRODUCT_DETAIL_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT_DETAIL">PURCHASE</a>&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">productDetailId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_EVENT_PRODUCT_PRODUCT(PRODUCT_ID)">o</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品ID</td>
+		<td class=" columnnamecell" id="product_detail_product_id">PRODUCT_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#product" title="FK_EVENT_PRODUCT_PRODUCT">PRODUCT</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">productId</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="IX_PRODUCT_PRODUCT_NAME(PRODUCT_NAME)">o</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品名称</td>
+		<td class=" columnnamecell" id="product_detail_product_name">PRODUCT_NAME</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 50 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。
+実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜</pre></td>
+		<td class="subcell">productName</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="PRODUCT_HANDLE_CODE(PRODUCT_HANDLE_CODE)">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品ハンドルコード</td>
+		<td class=" columnnamecell" id="product_detail_product_handle_code">PRODUCT_HANDLE_CODE</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 100 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...</pre></td>
+		<td class="subcell">productHandleCode</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -2276,17 +3357,17 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="FK_PRODUCT_PRODUCT_STATUS(PRODUCT_STATUS_CODE)">o</td>
+		<td class="flgcell" title="FK_EVENT_PRODUCT_PRODUCT_CATEGORY(PRODUCT_CATEGORY_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell"></td>
-		<td class=" columnnamecell" id="product_product_status_code">PRODUCT_STATUS_CODE</td>
+		<td class="aliascell">商品カテゴリコード</td>
+		<td class=" columnnamecell" id="product_detail_product_category_code">PRODUCT_CATEGORY_CODE</td>
 		<td class="typecell">CHAR</td>
 		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#product_status" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT_STATUS</a>&nbsp;</td>
+		<td class="relcell"><a href="#cdef_product_category" title="FK_EVENT_PRODUCT_PRODUCT_CATEGORY">CDEF_PRODUCT_CATEGORY</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productStatusCode</td>
+		<td class="commentcell"><pre>自分のテーブルの別のレコードからも参照される。</pre></td>
+		<td class="subcell">productCategoryCode</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -2295,18 +3376,18 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_EVENT_PRODUCT_PRODUCT_STATUS(PRODUCT_STATUS_CODE)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">定価</td>
-		<td class=" columnnamecell" id="product_regular_price">REGULAR_PRICE</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="aliascell">商品ステータスコード</td>
+		<td class=" columnnamecell" id="product_detail_product_status_code">PRODUCT_STATUS_CODE</td>
+		<td class="typecell">CHAR</td>
+		<td class="sizecell"> 3 </td>
+		<td class="relcell"><a href="#cdef_product_status" title="FK_EVENT_PRODUCT_PRODUCT_STATUS">CDEF_PRODUCT_STATUS</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>特に割引などがない場合の販売価格</pre></td>
-		<td class="subcell">regularPrice</td>
-		<td class="subcell">Integer</td>
+		<td class="commentcell"><pre>商品ステータスを識別するコード。</pre></td>
+		<td class="subcell">productStatusCode</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -2316,14 +3397,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="product_register_datetime">REGISTER_DATETIME</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="product_detail_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -2335,14 +3416,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="product_register_user">REGISTER_USER</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="product_detail_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -2354,8 +3435,8 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="product_update_datetime">UPDATE_DATETIME</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="product_detail_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2373,8 +3454,8 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="product_update_user">UPDATE_USER</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="product_detail_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -2385,94 +3466,74 @@ pre.spolicyviodisp {
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
+	</tbody>
+</table>
+
+<h2 id="product_price" title="type=TABLE, primaryKey={PRODUCT_PRICE_ID}, nameLength=13, columnCount=7">
+(商品価格)PRODUCT_PRICE
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment product_price_comment" data-name="product_price"><pre></pre></div>
+<input type="hidden" value="product_price">
+<table class="tablecontent">
+	<thead>
 	<tr>
-		<td class="rownumcell">11</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="product_price-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell optcell"></td>
-		<td class="optcell columnnamecell" id="product_version_no">VERSION_NO</td>
+		<td class="aliascell">商品価格ID</td>
+		<td class=" columnnamecell" id="product_price_product_price_id">PRODUCT_PRICE_ID</td>
 		<td class="typecell">BIGINT</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_PRODUCT_PRICE">PURCHASE</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">versionNo</td>
+		<td class="subcell">productPriceId</td>
 		<td class="subcell">Long</td>
 		<td class="subcell">first</td>
 	</tr>
-	</tbody>
-</table>
-
-<h2 id="product_category" title="type=TABLE, primaryKey={PRODUCT_CATEGORY_CODE}, nameLength=16, columnCount=3">
-(商品カテゴリ)PRODUCT_CATEGORY
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
-</h2>
-<div class="tablecomment product_category_comment" data-name="product_category"><pre>商品のカテゴリを表現するマスタ。
-自己参照の階層になっている。</pre></div>
-<input type="hidden" value="product_category">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Alias</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="product_category-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">商品カテゴリコード</td>
-		<td class=" columnnamecell" id="product_category_product_category_code">PRODUCT_CATEGORY_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_CATEGORY">PRODUCT</a>,<br><a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a>&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productCategoryCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
 	<tr>
 		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_PRODUCT_PRICE_PRODUCT(PRODUCT_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">商品カテゴリ名称</td>
-		<td class=" columnnamecell" id="product_category_product_category_name">PRODUCT_CATEGORY_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="aliascell">商品ID</td>
+		<td class=" columnnamecell" id="product_price_product_id">PRODUCT_ID</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRICE_PRODUCT">PRODUCT</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productCategoryName</td>
-		<td class="subcell">String</td>
+		<td class="subcell">productId</td>
+		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
@@ -2480,118 +3541,105 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell" title="FK_PRODUCT_CATEGORY_PARENT(PARENT_CATEGORY_CODE)">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="aliascell">親カテゴリコード</td>
-		<td class=" columnnamecell" id="product_category_parent_category_code">PARENT_CATEGORY_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell"><a href="#product_category" title="FK_PRODUCT_CATEGORY_PARENT">PRODUCT_CATEGORY</a>&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>最上位の場合はデータなし。</pre></td>
-		<td class="subcell">parentCategoryCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	</tbody>
-</table>
-
-<h2 id="product_status" title="type=TABLE, primaryKey={PRODUCT_STATUS_CODE}, nameLength=14, columnCount=3">
-(商品ステータス)PRODUCT_STATUS
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
-</h2>
-<div class="tablecomment product_status_comment" data-name="product_status"><pre></pre></div>
-<input type="hidden" value="product_status">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Alias</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="product_status-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">商品ステータスコード</td>
-		<td class=" columnnamecell" id="product_status_product_status_code">PRODUCT_STATUS_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#product" title="FK_PRODUCT_PRODUCT_STATUS">PRODUCT</a>&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productStatusCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">2</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">商品ステータス名称</td>
-		<td class=" columnnamecell" id="product_status_product_status_name">PRODUCT_STATUS_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">productStatusName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">3</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">表示順</td>
-		<td class=" columnnamecell" id="product_status_display_order">DISPLAY_ORDER</td>
+		<td class="aliascell">定価</td>
+		<td class=" columnnamecell" id="product_price_regular_price">REGULAR_PRICE</td>
 		<td class="typecell">INT</td>
 		<td class="sizecell"> 10 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">displayOrder</td>
+		<td class="subcell">regularPrice</td>
 		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">4</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="product_price_register_datetime">REGISTER_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
+		<td class="subcell">registerDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="product_price_register_user">REGISTER_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
+		<td class="subcell">registerUser</td>
+		<td class="subcell">String</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">6</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="product_price_update_datetime">UPDATE_DATETIME</td>
+		<td class="typecell">DATETIME</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateDatetime</td>
+		<td class="subcell">LocalDateTime</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">7</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="product_price_update_user">UPDATE_USER</td>
+		<td class="typecell">VARCHAR</td>
+		<td class="sizecell"> 200 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">updateUser</td>
+		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
 </table>
 
-<h2 id="purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=12">
+<h2 id="purchase" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=8, columnCount=11">
 (購入)PURCHASE
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
-<div class="tablecomment purchase_comment" data-name="purchase"><pre>一つの商品に対する一回の購入を表現する。
-一回の購入で一つの商品を複数個買うこともある。</pre></div>
+<div class="tablecomment purchase_comment" data-name="purchase"><pre>一つの商品に対する購入を表現する(購入履歴とも言える)。
+実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。</pre></div>
 <input type="hidden" value="purchase">
 <table class="tablecontent">
 	<thead>
@@ -2628,7 +3676,7 @@ pre.spolicyviodisp {
 		<td class="typecell">BIGINT</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#purchase_payment" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE_PAYMENT</a>&nbsp;</td>
+		<td class="relcell"><a href="#purchase_payment" title="FK_PURCHASE_PAYMENT_PURCHASE">PURCHASE_PAYMENT</a>,<br><a href="#purchase_status" title="FK_PURCHASE_STATUS_PURCHASE">PURCHASE_STATUS</a>&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>連番</pre></td>
 		<td class="subcell">purchaseId</td>
@@ -2639,8 +3687,8 @@ pre.spolicyviodisp {
 		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="UQ_PURCHASE(MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
-		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID), MEMBER_ID(MEMBER_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="UQ_PURCHASE(MEMBER_ID, PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
+		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID), IX_PURCHASE_MEMBER_ID(MEMBER_ID)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">会員ID</td>
 		<td class=" columnnamecell" id="purchase_member_id">MEMBER_ID</td>
@@ -2650,7 +3698,7 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>会員を参照するID。
-購入を識別する自然キー（複合ユニーク制約）の筆頭要素。</pre></td>
+購入を識別する自然キー(複合ユニーク制約)の筆頭要素。</pre></td>
 		<td class="subcell">memberId</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
@@ -2659,27 +3707,46 @@ pre.spolicyviodisp {
 		<td class="rownumcell">3</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="UQ_PURCHASE(MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME)"><span class="flgplus">+</span>o</td>
-		<td class="flgcell" title="IX_PURCHASE_PRODUCT_DATETIME(PRODUCT_ID, PURCHASE_DATETIME), PRODUCT_ID(PRODUCT_ID)">o<span class="flgplus">+</span></td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="IX_PURCHASE_PRODUCT_ID(PRODUCT_DETAIL_ID)">o</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell">商品ID</td>
-		<td class=" columnnamecell" id="purchase_product_id">PRODUCT_ID</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell"><a href="#product" title="FK_PURCHASE_PRODUCT">PRODUCT</a>&nbsp;</td>
+		<td class="aliascell">商品詳細ID</td>
+		<td class=" columnnamecell" id="purchase_product_detail_id">PRODUCT_DETAIL_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell"><a href="#product_detail" title="FK_PURCHASE_PRODUCT_DETAIL">PRODUCT_DETAIL</a>&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>商品を参照するID。</pre></td>
-		<td class="subcell">productId</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">productDetailId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">2022/04/17</td>
 	</tr>
 	<tr>
 		<td class="rownumcell">4</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="UQ_PURCHASE(MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME)"><span class="flgplus">+</span>o</td>
-		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID), IX_PURCHASE_PRODUCT_DATETIME(PRODUCT_ID, PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell" title="FK_PURCHASE_PRODUCT_PRICE(PRODUCT_PRICE_ID)">o</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">商品価格ID</td>
+		<td class=" columnnamecell" id="purchase_product_price_id">PRODUCT_PRICE_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell"><a href="#product_price" title="FK_PURCHASE_PRODUCT_PRICE">PRODUCT_PRICE</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="subcell">productPriceId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">2022/04/17</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">5</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell" title="UQ_PURCHASE(MEMBER_ID, PURCHASE_DATETIME)"><span class="flgplus">+</span>o</td>
+		<td class="flgcell" title="IX_PURCHASE_DATETIME_MEMBER(PURCHASE_DATETIME, MEMBER_ID), IX_PURCHASE_PRODUCT_DATETIME(PURCHASE_DATETIME)">o<span class="flgplus">+</span></td>
 		<td class="flgcell">*</td>
 		<td class="aliascell">購入日時</td>
 		<td class=" columnnamecell" id="purchase_purchase_datetime">PURCHASE_DATETIME</td>
@@ -2694,7 +3761,7 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">5</td>
+		<td class="rownumcell">6</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -2707,13 +3774,13 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>購入した商品の（一回の購入における）数量。</pre></td>
+		<td class="commentcell"><pre>購入した商品の一回の購入における数量。</pre></td>
 		<td class="subcell">purchaseCount</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">6</td>
+		<td class="rownumcell">7</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
@@ -2727,28 +3794,8 @@ pre.spolicyviodisp {
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
 		<td class="commentcell"><pre>購入によって実際に会員が支払った（支払う予定の）価格。
-基本は商品の定価に購入数量を掛けたものになるが、
-ポイント利用や割引があったりと必ずしもそうはならない。</pre></td>
+基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。</pre></td>
 		<td class="subcell">purchasePrice</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">7</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">支払完了フラグ</td>
-		<td class=" columnnamecell" id="purchase_payment_complete_flg">PAYMENT_COMPLETE_FLG</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#FlgCls">Flg</a></td>
-		<td class="commentcell"><pre>この購入に関しての支払いが完了しているか否か。</pre></td>
-		<td class="subcell">paymentCompleteFlg</td>
 		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
@@ -2759,14 +3806,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録日時</td>
 		<td class="comcolcell columnnamecell" id="purchase_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
@@ -2778,14 +3825,14 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
 		<td class="comcolcell columnnamecell" id="purchase_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
@@ -2797,7 +3844,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新日時</td>
 		<td class="comcolcell columnnamecell" id="purchase_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
@@ -2816,7 +3863,7 @@ pre.spolicyviodisp {
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
 		<td class="comcolcell columnnamecell" id="purchase_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
@@ -2828,29 +3875,10 @@ pre.spolicyviodisp {
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
-	<tr>
-		<td class="rownumcell">12</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell optcell"></td>
-		<td class="optcell columnnamecell" id="purchase_version_no">VERSION_NO</td>
-		<td class="typecell">BIGINT</td>
-		<td class="sizecell"> 19 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">versionNo</td>
-		<td class="subcell">Long</td>
-		<td class="subcell">first</td>
-	</tr>
 	</tbody>
 </table>
 
-<h2 id="purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=9">
+<h2 id="purchase_payment" title="type=TABLE, primaryKey={PURCHASE_PAYMENT_ID}, nameLength=16, columnCount=5">
 (購入支払)PURCHASE_PAYMENT
 &nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
 </h2>
@@ -2975,53 +4003,124 @@ pre.spolicyviodisp {
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
+	</tbody>
+</table>
+
+<h2 id="purchase_status" title="type=TABLE, primaryKey={PURCHASE_ID}, nameLength=15, columnCount=6">
+(購入ステータス)PURCHASE_STATUS
+&nbsp;<span class="tablefirstdatetitle">since 2022/04/17</span>
+</h2>
+<div class="tablecomment purchase_status_comment" data-name="purchase_status"><pre>一つの商品に対する購入を表現する(購入履歴とも言える)。
+実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。</pre></div>
+<input type="hidden" value="purchase_status">
+<table class="tablecontent">
+	<thead>
 	<tr>
-		<td class="rownumcell">6</td>
+		<th class="rownumhead">No.</th>
+		<th>PK</th>
+		<th>ID</th>
+		<th>UQ</th>
+		<th>IX</th>
+		<th>Not<br />Null</th>
+		<th>Alias</th>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Size</th>
+		<th>ForeignTable</th>
+		<th>ReferrerTable</th>
+		<th>Classification</th>
+		<th>ColumnComment</th>
+		<th>PropertyName</th>
+		<th>JavaType</th>
+		<th>Since</th>
+	</tr>
+	</thead>
+	<tbody id="purchase_status-body">
+	<tr>
+		<td class="rownumcell">1</td>
+		<td class="flgcell" title="PRIMARY">o</td>
+		<td class="flgcell">o</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell">購入ID</td>
+		<td class=" columnnamecell" id="purchase_status_purchase_id">PURCHASE_ID</td>
+		<td class="typecell">BIGINT</td>
+		<td class="sizecell"> 19 </td>
+		<td class="relcell"><a href="#purchase" title="FK_PURCHASE_STATUS_PURCHASE">PURCHASE</a>&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"> &nbsp;</td>
+		<td class="commentcell"><pre>連番</pre></td>
+		<td class="subcell">purchaseId</td>
+		<td class="subcell">Long</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">2</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="purchase_payment_register_datetime">REGISTER_DATETIME</td>
+		<td class="aliascell">支払完了フラグ</td>
+		<td class=" columnnamecell" id="purchase_status_payment_complete_flg">PAYMENT_COMPLETE_FLG</td>
+		<td class="typecell">INT</td>
+		<td class="sizecell"> 10 </td>
+		<td class="relcell">&nbsp;&nbsp;</td>
+		<td class="relcell">&nbsp;</td>
+		<td class="relcell"><a href="#FlgCls">Flg</a></td>
+		<td class="commentcell"><pre>この購入に関しての支払いが完了しているか否か。</pre></td>
+		<td class="subcell">paymentCompleteFlg</td>
+		<td class="subcell">Integer</td>
+		<td class="subcell">first</td>
+	</tr>
+	<tr>
+		<td class="rownumcell">3</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell"> &nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">&nbsp;</td>
+		<td class="flgcell">*</td>
+		<td class="aliascell comcolcell">登録日時</td>
+		<td class="comcolcell columnnamecell" id="purchase_status_register_datetime">REGISTER_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードが登録された日時</pre></td>
 		<td class="subcell">registerDatetime</td>
 		<td class="subcell">LocalDateTime</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">7</td>
+		<td class="rownumcell">4</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="purchase_payment_register_user">REGISTER_USER</td>
+		<td class="aliascell comcolcell">登録ユーザー</td>
+		<td class="comcolcell columnnamecell" id="purchase_status_register_user">REGISTER_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
 		<td class="relcell">&nbsp;</td>
 		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
+		<td class="commentcell"><pre>レコードを登録したユーザー</pre></td>
 		<td class="subcell">registerUser</td>
 		<td class="subcell">String</td>
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">8</td>
+		<td class="rownumcell">5</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="purchase_payment_update_datetime">UPDATE_DATETIME</td>
+		<td class="aliascell comcolcell">更新日時</td>
+		<td class="comcolcell columnnamecell" id="purchase_status_update_datetime">UPDATE_DATETIME</td>
 		<td class="typecell">DATETIME</td>
 		<td class="sizecell"> 19 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3033,14 +4132,14 @@ pre.spolicyviodisp {
 		<td class="subcell">first</td>
 	</tr>
 	<tr>
-		<td class="rownumcell">9</td>
+		<td class="rownumcell">6</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell"> &nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">&nbsp;</td>
 		<td class="flgcell">*</td>
-		<td class="aliascell comcolcell"></td>
-		<td class="comcolcell columnnamecell" id="purchase_payment_update_user">UPDATE_USER</td>
+		<td class="aliascell comcolcell">更新ユーザ</td>
+		<td class="comcolcell columnnamecell" id="purchase_status_update_user">UPDATE_USER</td>
 		<td class="typecell">VARCHAR</td>
 		<td class="sizecell"> 200 </td>
 		<td class="relcell">&nbsp;&nbsp;</td>
@@ -3049,316 +4148,6 @@ pre.spolicyviodisp {
 		<td class="commentcell"><pre>&nbsp;</pre></td>
 		<td class="subcell">updateUser</td>
 		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	</tbody>
-</table>
-
-<h2 id="region" title="type=TABLE, primaryKey={REGION_ID}, nameLength=6, columnCount=2">
-(地域)REGION
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
-</h2>
-<div class="tablecomment region_comment" data-name="region"><pre>主に会員の住所に対応する地域。
-かなりざっくりした感じではある。</pre></div>
-<input type="hidden" value="region">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Alias</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="region-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">地域ID</td>
-		<td class=" columnnamecell" id="region_region_id">REGION_ID</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member_address" title="FK_MEMBER_ADDRESS_REGION">MEMBER_ADDRESS</a>&nbsp;</td>
-		<td class="relcell"><a href="#RegionCls">Region</a></td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">regionId</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">2</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">地域名称</td>
-		<td class=" columnnamecell" id="region_region_name">REGION_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">regionName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	</tbody>
-</table>
-
-<h2 id="service_rank" title="type=TABLE, primaryKey={SERVICE_RANK_CODE}, nameLength=12, columnCount=6">
-(サービスランク)SERVICE_RANK
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
-</h2>
-<div class="tablecomment service_rank_comment" data-name="service_rank"><pre>会員のサービスレベルを表現するランク。
-（ゴールドとかプラチナとか）</pre></div>
-<input type="hidden" value="service_rank">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Alias</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="service_rank-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">サービスランクコード</td>
-		<td class=" columnnamecell" id="service_rank_service_rank_code">SERVICE_RANK_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member_service" title="FK_MEMBER_SERVICE_SERVICE_RANK_CODE">MEMBER_SERVICE</a>&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>サービスランクを識別するコード。</pre></td>
-		<td class="subcell">serviceRankCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">2</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">サービスランク名称</td>
-		<td class=" columnnamecell" id="service_rank_service_rank_name">SERVICE_RANK_NAME</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 50 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>サービスランクの名称。
-（ゴールドとかプラチナとか基本的には威厳のある名前）</pre></td>
-		<td class="subcell">serviceRankName</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">3</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">サービスポイント発生率</td>
-		<td class=" columnnamecell" id="service_rank_service_point_incidence">SERVICE_POINT_INCIDENCE</td>
-		<td class="typecell">DECIMAL</td>
-		<td class="sizecell"> 5, 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>購入ごとのサービスポイントの発生率。
-購入価格にこの値をかけた数が発生ポイント。</pre></td>
-		<td class="subcell">servicePointIncidence</td>
-		<td class="subcell">BigDecimal</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">4</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">新規受け入れ可能フラグ</td>
-		<td class=" columnnamecell" id="service_rank_new_acceptable_flg">NEW_ACCEPTABLE_FLG</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"><a href="#FlgCls">Flg</a></td>
-		<td class="commentcell"><pre>このランクへの新規受け入れができるかどうか。</pre></td>
-		<td class="subcell">newAcceptableFlg</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">5</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell"></td>
-		<td class=" columnnamecell" id="service_rank_description">DESCRIPTION</td>
-		<td class="typecell">VARCHAR</td>
-		<td class="sizecell"> 200 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">description</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">6</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell"></td>
-		<td class=" columnnamecell" id="service_rank_display_order">DISPLAY_ORDER</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">displayOrder</td>
-		<td class="subcell">Integer</td>
-		<td class="subcell">first</td>
-	</tr>
-	</tbody>
-</table>
-
-<h2 id="withdrawal_reason" title="type=TABLE, primaryKey={WITHDRAWAL_REASON_CODE}, nameLength=17, columnCount=3">
-(退会理由)WITHDRAWAL_REASON
-&nbsp;<span class="tablefirstdatetitle">since 2020/11/30</span>
-</h2>
-<div class="tablecomment withdrawal_reason_comment" data-name="withdrawal_reason"><pre>会員に選ばせる定型的な退会理由のマスタ。</pre></div>
-<input type="hidden" value="withdrawal_reason">
-<table class="tablecontent">
-	<thead>
-	<tr>
-		<th class="rownumhead">No.</th>
-		<th>PK</th>
-		<th>ID</th>
-		<th>UQ</th>
-		<th>IX</th>
-		<th>Not<br />Null</th>
-		<th>Alias</th>
-		<th>Name</th>
-		<th>Type</th>
-		<th>Size</th>
-		<th>ForeignTable</th>
-		<th>ReferrerTable</th>
-		<th>Classification</th>
-		<th>ColumnComment</th>
-		<th>PropertyName</th>
-		<th>JavaType</th>
-		<th>Since</th>
-	</tr>
-	</thead>
-	<tbody id="withdrawal_reason-body">
-	<tr>
-		<td class="rownumcell">1</td>
-		<td class="flgcell" title="PRIMARY">o</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">退会理由コード</td>
-		<td class=" columnnamecell" id="withdrawal_reason_withdrawal_reason_code">WITHDRAWAL_REASON_CODE</td>
-		<td class="typecell">CHAR</td>
-		<td class="sizecell"> 3 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell"><a href="#member_withdrawal" title="FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON">MEMBER_WITHDRAWAL</a>&nbsp;</td>
-		<td class="relcell"><a href="#WithdrawalReasonCls">WithdrawalReason</a></td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">withdrawalReasonCode</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">2</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">退会理由テキスト</td>
-		<td class=" columnnamecell" id="withdrawal_reason_withdrawal_reason_text">WITHDRAWAL_REASON_TEXT</td>
-		<td class="typecell">TEXT</td>
-		<td class="sizecell"> 65535 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>退会理由の内容。テキスト形式なので目いっぱい書けるが、
-そうするとUI側できれいに見せるのが大変でしょうね。</pre></td>
-		<td class="subcell">withdrawalReasonText</td>
-		<td class="subcell">String</td>
-		<td class="subcell">first</td>
-	</tr>
-	<tr>
-		<td class="rownumcell">3</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell"> &nbsp;</td>
-		<td class="flgcell" title="DISPLAY_ORDER(DISPLAY_ORDER)">o</td>
-		<td class="flgcell">&nbsp;</td>
-		<td class="flgcell">*</td>
-		<td class="aliascell">表示順</td>
-		<td class=" columnnamecell" id="withdrawal_reason_display_order">DISPLAY_ORDER</td>
-		<td class="typecell">INT</td>
-		<td class="sizecell"> 10 </td>
-		<td class="relcell">&nbsp;&nbsp;</td>
-		<td class="relcell">&nbsp;</td>
-		<td class="relcell"> &nbsp;</td>
-		<td class="commentcell"><pre>&nbsp;</pre></td>
-		<td class="subcell">displayOrder</td>
-		<td class="subcell">Integer</td>
 		<td class="subcell">first</td>
 	</tr>
 	</tbody>
@@ -3491,7 +4280,7 @@ pre.spolicyviodisp {
 <pre class="spolicydisp">
 
 [Schema Policy]
- tableExceptList: [prefix:VENDOR_, prefix:WHITE_, prefix:REGION]
+ tableExceptList: [prefix:VENDOR_, prefix:WHITE_, prefix:CDEF_REGION]
  tableTargetList: []
  columnExceptMap: {}
  isMainSchemaOnly: true
@@ -3501,8 +4290,6 @@ pre.spolicyviodisp {
  tableMap:
    themeList: [hasPK, upperCaseBasis, identityIfPureIDPK]
    statementList:
-    {if:{tableName is $$ALL$$}} {then:{fkName is prefix:FK_$$table$$}}
-    {if:{tableName is $$ALL$$}} {then:{uniqueName is prefix:UQ_$$table$$ or $$first_columnName$$}}
  columnMap:
    themeList: [upperCaseBasis]
    statementList:
@@ -4046,78 +4833,150 @@ function StoreClient() {
 		]
 	}
 	this.pickupStore = {
-		'member': {
+		'cdef_member_status': {
+			'databaseComment': '会員のステータスを示す固定的なマスタテーブル。いわゆるテーブル区分値！<br>業務運用上で増えることはなく、増減するときはプログラム修正ともなうレベルの業務変更と考えられる。<br><br>こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるというところで割り切っている。実業務では統一的に定義することもある。'
+			, 'columns': {
+				'MEMBER_STATUS_CODE': {
+					'databaseComment': '会員ステータスを識別するコード。<br>固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば&nbsp;"FML"&nbsp;とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)'
+				}
+				, 'MEMBER_STATUS_NAME': {
+					'databaseComment': '表示用の名称。<br>国際化対応するときはもっと色々考える必要があるかと...ということで英語名カラムがないので、そのまま区分値メソッド名の一部としても利用される。'
+				}
+				, 'DESCRIPTION': {
+					'databaseComment': '会員ステータスそれぞれの説明。<br>区分値の一つ一つの要素に気の利いた説明があるとディベロッパーがとても助かるので絶対に欲しい。'
+				}
+				, 'DISPLAY_ORDER': {
+					'databaseComment': 'UI上のステータスの表示順を示すNO。<br>並べるときは、このカラムに対して昇順のソート条件にする。'
+				}
+			}
+		}
+		, 'cdef_product_category': {
+			'databaseComment': '商品のカテゴリを表現するマスタ。自己参照FKの階層になっている。'
+			, 'columns': {
+				'PRODUCT_CATEGORY_CODE': {
+					'databaseComment': '自分のテーブルの別のレコードからも参照される。'
+				}
+				, 'PRODUCT_CATEGORY_NAME': {
+					'databaseComment': ''
+				}
+				, 'PARENT_CATEGORY_CODE': {
+					'databaseComment': '最上位の場合はデータなし。まさひく自己参照FKカラム！'
+				}
+			}
+		}
+		, 'cdef_product_status': {
+			'databaseComment': '商品のステータスを表現する固定的なマスタ。'
+			, 'columns': {
+				'PRODUCT_STATUS_CODE': {
+					'databaseComment': '商品ステータスを識別するコード。'
+				}
+				, 'PRODUCT_STATUS_NAME': {
+					'databaseComment': '表示用の名称、英語名カラムがないのでそのままメソッド名の一部としても利用される。'
+				}
+				, 'DISPLAY_ORDER': {
+					'databaseComment': 'もう、ご想像の通りです。'
+				}
+			}
+		}
+		, 'cdef_region': {
+			'databaseComment': '主に会員の住所に対応する漠然とした地域。<br>かなりざっくりした感じではある。唯一の業務的one-to-oneの親テーブルのケース。'
+			, 'columns': {
+				'REGION_ID': {
+					'databaseComment': '地域をしっかりと識別するID。<br>珍しく(固定的な)マスタテーブルとしては数値だが、Exampleなのでやはり色々なパターンがないとね、ってところで。'
+				}
+				, 'REGION_NAME': {
+					'databaseComment': '地域を漠然と表す名称。'
+				}
+			}
+		}
+		, 'cdef_service_rank': {
+			'databaseComment': '会員のサービスレベルを表現するランク。(ゴールドとかプラチナとか)'
+			, 'columns': {
+				'SERVICE_RANK_CODE': {
+					'databaseComment': 'サービスランクを識別するコード。'
+				}
+				, 'SERVICE_RANK_NAME': {
+					'databaseComment': 'サービスランクの名称。<br>ゴールドとかプラチナとか基本的には威厳のある名前'
+				}
+				, 'SERVICE_POINT_INCIDENCE': {
+					'databaseComment': '購入ごとのサービスポイントの発生率。<br>購入価格にこの値をかけた数が発生ポイント。ExampleDBとして数少ない貴重な小数点ありのカラム。'
+				}
+				, 'NEW_ACCEPTABLE_FLG': {
+					'databaseComment': 'このランクへの新規受け入れができるかどうか。'
+				}
+				, 'DESCRIPTION': {
+					'databaseComment': 'ランクに関する業務的な説明。'
+				}
+				, 'DISPLAY_ORDER': {
+					'databaseComment': 'UI上の表示順を表現する番号。'
+				}
+			}
+		}
+		, 'cdef_withdrawal_reason': {
+			'databaseComment': '会員に選ばせる定型的な退会理由のマスタ。そういえば、これ表示順カラムがないですねぇ...'
+			, 'columns': {
+				'WITHDRAWAL_REASON_CODE': {
+					'databaseComment': ''
+				}
+				, 'WITHDRAWAL_REASON_TEXT': {
+					'databaseComment': '退会理由の内容。<br>テキスト形式なので目いっぱい書けるが、そうするとUI側できれいに見せるのが大変でしょうね。'
+				}
+				, 'DISPLAY_ORDER': {
+					'databaseComment': 'もう、ご想像の通りです。'
+				}
+			}
+		}
+		, 'member': {
 			'databaseComment': '会員のプロフィールやアカウントなどの基本情報を保持する。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。'
 			, 'columns': {
 				'MEMBER_ID': {
-					'databaseComment': '会員を識別するID。連番として基本的に自動採番される。<br>（会員IDだけに限らず）採番方法はDBMSによって変わる。'
+					'databaseComment': '連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。'
 				}
-				, 'MEMBER_NAME': {
-					'databaseComment': '会員のフルネームの名称。'
-				}
-				, 'MEMBER_ACCOUNT': {
-					'databaseComment': '会員がログイン時に利用するアカウントNO。'
-				}
-				, 'MEMBER_STATUS_CODE': {
+				, 'MEMBER_REGISTER_DATETIME': {
 					'databaseComment': ''
 				}
-				, 'FORMALIZED_DATETIME': {
-					'databaseComment': '会員が正式に確定した日時。一度確定したら更新されない。<br>仮会員のときはnull。'
-				}
-				, 'BIRTHDATE': {
-					'databaseComment': '必須項目ではないので、このデータがない会員もいる。'
-				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': 'レコードが登録された日時。共通カラムの一つ。'
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': 'レコードを登録したユーザ。共通カラムの一つ。'
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
-					'databaseComment': 'レコードが（最後に）更新された日時。共通カラムの一つ。'
+					'databaseComment': ''
 				}
 				, 'UPDATE_USER': {
-					'databaseComment': 'レコードを更新したユーザ。'
-				}
-				, 'VERSION_NO': {
-					'databaseComment': 'レコードのバージョンを示すNO。<br>更新回数と等しく、主に排他制御のために利用される。'
+					'databaseComment': ''
 				}
 			}
 		}
 		, 'member_address': {
-			'databaseComment': '会員の住所に関する情報。<br>同時に有効期間ごとに履歴管理されている。'
+			'databaseComment': '会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>会員を基点に考えた場合、構造的には&nbsp;one-to-many&nbsp;だが、業務的な定型条件で&nbsp;one-to-one&nbsp;になる。このような構造を「業務的one-to-one」と呼ぶ！<br>有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な)&nbsp;"1&nbsp;:&nbsp;0..1"&nbsp;である。'
 			, 'columns': {
 				'MEMBER_ADDRESS_ID': {
-					'databaseComment': '会員住所を識別するID。<br>履歴分も含むテーブルなので、これ自体はFKではない。'
+					'databaseComment': '会員住所を識別するID。<br>期間ごとに同じ会員のデータを保持することがあるため、これは単なるPKであってFKではない。'
 				}
 				, 'MEMBER_ID': {
-					'databaseComment': '会員を参照するID。<br>履歴分を含むため、これだけではユニークにはならない。'
+					'databaseComment': '会員を参照するID。<br>期間ごとのデータがあるので、これだけではユニークにはならない。有効開始日と合わせて複合ユニーク制約となるが、厳密には完全な制約にはなっていない。有効期間の概念はRDBでは表現しきれないのである。'
 				}
 				, 'VALID_BEGIN_DATE': {
 					'databaseComment': '一つの有効期間の開始を示す日付。<br>前の有効終了日の次の日の値が格納される。'
-				}
-				, 'VALID_END_DATE': {
-					'databaseComment': '有効期間の終了日。<br>次の有効開始日の一日前の値が格納される。<br>ただし、次の有効期間がない場合は&nbsp;9999/12/31&nbsp;となる。'
 				}
 				, 'ADDRESS': {
 					'databaseComment': 'まるごと住所'
 				}
 				, 'REGION_ID': {
-					'databaseComment': '地域を参照するID。<br>ここでは特に住所の内容と連動しているわけではない。'
+					'databaseComment': '地域を参照するID。かなり漠然とした地域。'
 				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
 				}
 				, 'UPDATE_USER': {
-					'databaseComment': ''
-				}
-				, 'VERSION_NO': {
 					'databaseComment': ''
 				}
 			}
@@ -4140,16 +4999,16 @@ function StoreClient() {
 			}
 		}
 		, 'member_login': {
-			'databaseComment': 'ログインするたびに登録されるログイン履歴。'
+			'databaseComment': 'ログインするたびに登録されるログイン履歴。<br>登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。'
 			, 'columns': {
 				'MEMBER_LOGIN_ID': {
 					'databaseComment': ''
 				}
 				, 'MEMBER_ID': {
-					'databaseComment': ''
+					'databaseComment': '連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。'
 				}
 				, 'LOGIN_DATETIME': {
-					'databaseComment': 'ログインした瞬間の日時。'
+					'databaseComment': 'ログインした瞬間の日時。<br>同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)'
 				}
 				, 'MOBILE_LOGIN_FLG': {
 					'databaseComment': 'モバイル機器からのログインか否か。'
@@ -4159,14 +5018,40 @@ function StoreClient() {
 				}
 			}
 		}
-		, 'member_security': {
+		, 'member_login_password': {
 			'databaseComment': '会員とは&nbsp;one-to-one&nbsp;で、会員一人につき必ず一つのセキュリティ情報がある'
 			, 'columns': {
-				'MEMBER_ID': {
+				'MEMBER_LOGIN_PASSWORD_ID': {
+					'databaseComment': ''
+				}
+				, 'MEMBER_ID': {
 					'databaseComment': 'そのまま&nbsp;one-to-one&nbsp;を構成するためのFKとなる。'
 				}
 				, 'LOGIN_PASSWORD': {
 					'databaseComment': 'ログイン時に利用するパスワード。<br>本当は良くないが、Exampleなのでひとまず暗号化していない。'
+				}
+				, 'REGISTER_DATETIME': {
+					'databaseComment': 'レコードが登録された日時'
+				}
+				, 'REGISTER_USER': {
+					'databaseComment': 'レコードを登録したユーザー'
+				}
+				, 'UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'UPDATE_USER': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'member_password_reminder': {
+			'databaseComment': '会員とは&nbsp;one-to-one&nbsp;で、会員一人につき必ず一つのセキュリティ情報がある'
+			, 'columns': {
+				'MEMBER_PASSWORD_REMINDER_ID': {
+					'databaseComment': ''
+				}
+				, 'MEMBER_ID': {
+					'databaseComment': 'そのまま&nbsp;one-to-one&nbsp;を構成するためのFKとなる。'
 				}
 				, 'REMINDER_QUESTION': {
 					'databaseComment': 'パスワードを忘れた際のリマインダ機能における質問の内容。'
@@ -4175,13 +5060,13 @@ function StoreClient() {
 					'databaseComment': 'パスワードを忘れた際のリマインダ機能における質問の答え。'
 				}
 				, 'REMINDER_USE_COUNT': {
-					'databaseComment': 'リマインダを利用した回数。<br>多いと忘れっぽい会員と言えるが、<br>そんなことを知ってもしょうがない。'
+					'databaseComment': 'リマインダを利用した回数。<br>これが多いと忘れっぽい会員と言えるが、そんなことを知ってもしょうがない。'
 				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
@@ -4189,13 +5074,42 @@ function StoreClient() {
 				, 'UPDATE_USER': {
 					'databaseComment': ''
 				}
-				, 'VERSION_NO': {
+			}
+		}
+		, 'member_profile': {
+			'databaseComment': '会員のプロフィールやアカウントなどの基本情報を保持する。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。'
+			, 'columns': {
+				'MEMBER_PROFILE_ID': {
+					'databaseComment': ''
+				}
+				, 'MEMBER_ID': {
+					'databaseComment': '連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。'
+				}
+				, 'MEMBER_NAME': {
+					'databaseComment': '会員のフルネームの名称。<br>苗字と名前を分けて管理することが多いが、ここでは単純にひとまとめ。'
+				}
+				, 'MEMBER_ACCOUNT': {
+					'databaseComment': 'ログインIDとして利用する。<br>昨今メールアドレスをログインIDとすることが多いので、あまり見かけないかも!?'
+				}
+				, 'BIRTHDATE': {
+					'databaseComment': ''
+				}
+				, 'REGISTER_DATETIME': {
+					'databaseComment': 'レコードが登録された日時'
+				}
+				, 'REGISTER_USER': {
+					'databaseComment': 'レコードを登録したユーザー'
+				}
+				, 'UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'UPDATE_USER': {
 					'databaseComment': ''
 				}
 			}
 		}
 		, 'member_service': {
-			'databaseComment': '会員のサービス情報（ポイントサービスなど）。'
+			'databaseComment': '会員のサービス情報（ポイントサービスなど）。<br>テストケースのために、あえて統一性を崩してユニーク制約経由の&nbsp;one-to-one&nbsp;を表現している。'
 			, 'columns': {
 				'MEMBER_SERVICE_ID': {
 					'databaseComment': '独立した主キーとなるが、実質的に会員IDとは&nbsp;one-to-one&nbsp;である。'
@@ -4204,16 +5118,16 @@ function StoreClient() {
 					'databaseComment': '会員を参照するID。ユニークなので、会員とは&nbsp;one-to-one&nbsp;の関係に。'
 				}
 				, 'SERVICE_POINT_COUNT': {
-					'databaseComment': '会員が現在利用できるサービスポイントの数。<br>基本的に、購入時には増えてポイントを使ったら減る。'
+					'databaseComment': '購入したら増えて使ったら減る。'
 				}
 				, 'SERVICE_RANK_CODE': {
-					'databaseComment': 'サービスランクを参照するコード。<br>どんなランクがあるのかドキドキですね。'
+					'databaseComment': 'どんなランクがあるのかドキドキですね。'
 				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
@@ -4221,48 +5135,57 @@ function StoreClient() {
 				, 'UPDATE_USER': {
 					'databaseComment': ''
 				}
-				, 'VERSION_NO': {
-					'databaseComment': ''
-				}
 			}
 		}
 		, 'member_status': {
-			'databaseComment': ''
+			'databaseComment': '会員のプロフィールやアカウントなどの基本情報を保持する。<br>基本的に物理削除はなく、退会したらステータスが退会会員になる。<br>ライフサイクルやカテゴリの違う会員情報は、one-to-oneなどの関連テーブルにて。'
 			, 'columns': {
-				'MEMBER_STATUS_CODE': {
-					'databaseComment': '会員ステータスを識別するコード。'
-				}
-				, 'MEMBER_STATUS_NAME': {
+				'MEMBER_STATUS_ID': {
 					'databaseComment': ''
 				}
-				, 'DESCRIPTION': {
-					'databaseComment': '会員ステータスそれぞれの説明。<br>気の利いた説明があるとディベロッパーがとても助かる。'
+				, 'MEMBER_ID': {
+					'databaseComment': '連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。'
 				}
-				, 'DISPLAY_ORDER': {
-					'databaseComment': 'UI上のステータスの表示順を示すNO。<br>並べるときは、このカラムに対して昇順のソート条件にする。'
+				, 'MEMBER_STATUS_CODE': {
+					'databaseComment': '会員ステータスを識別するコード。<br>固定的なデータなので連番とか番号にはせず、データを直接見たときも人が直感的にわかるように、例えば&nbsp;"FML"&nbsp;とかの３桁のコード形式にしている。(3って何会員だっけ？とかの問答をやりたくないので)'
+				}
+				, 'MEMBER_STATUS_UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'REGISTER_DATETIME': {
+					'databaseComment': 'レコードが登録された日時'
+				}
+				, 'REGISTER_USER': {
+					'databaseComment': 'レコードを登録したユーザー'
+				}
+				, 'UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'UPDATE_USER': {
+					'databaseComment': ''
 				}
 			}
 		}
 		, 'member_withdrawal': {
-			'databaseComment': '退会会員の退会に関する詳細な情報。<br>退会会員のみデータが存在する。'
+			'databaseComment': '退会会員の退会に関する詳細な情報。<br>退会会員のみデータが存在し、"1&nbsp;:&nbsp;0..1"&nbsp;のパターンの&nbsp;one-to-one&nbsp;である。<br>共通カラムがあってバージョンNOがないパターン。<br>基本的に更新は入らないが、重要なデータなので万が一のために更新系の共通カラムも。'
 			, 'columns': {
 				'MEMBER_ID': {
-					'databaseComment': ''
+					'databaseComment': '連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。'
 				}
 				, 'WITHDRAWAL_REASON_CODE': {
-					'databaseComment': '退会した定型理由を参照するコード。<br>何も言わずに退会する会員もいるので必須項目ではない。'
+					'databaseComment': '定型的な退会した理由を参照するコード。<br>何も言わずに退会する会員もいるので必須項目ではない。'
 				}
 				, 'WITHDRAWAL_REASON_INPUT_TEXT': {
-					'databaseComment': '会員がフリーテキストで入力できる退会理由。<br>もう言いたいこと言ってもらう感じ。'
+					'databaseComment': '会員がフリーテキストで入力できる退会理由。<br>もう言いたいこと言ってもらう感じ。サイト運営側としてはこういうのは真摯に受け止めて改善していきたいところ。'
 				}
 				, 'WITHDRAWAL_DATETIME': {
-					'databaseComment': '退会した瞬間の日時。<br>正式会員日時と違い、こっちはone-to-oneの別テーブルで。'
+					'databaseComment': '退会した瞬間の日時。<br>正式会員日時と違い、こっちは&nbsp;one-to-one&nbsp;の別テーブルで管理されている。'
 				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
@@ -4273,31 +5196,16 @@ function StoreClient() {
 			}
 		}
 		, 'product': {
-			'databaseComment': '会員へ販売する商品のマスタ。<br>販売可能なものだけでなく、生産中止や販売中止などの商品も含まれる。'
+			'databaseComment': ''
 			, 'columns': {
 				'PRODUCT_ID': {
 					'databaseComment': ''
 				}
-				, 'PRODUCT_NAME': {
-					'databaseComment': ''
-				}
-				, 'PRODUCT_HANDLE_CODE': {
-					'databaseComment': '商品を識別する業務上のコード。'
-				}
-				, 'PRODUCT_CATEGORY_CODE': {
-					'databaseComment': ''
-				}
-				, 'PRODUCT_STATUS_CODE': {
-					'databaseComment': ''
-				}
-				, 'REGULAR_PRICE': {
-					'databaseComment': '特に割引などがない場合の販売価格'
-				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
@@ -4305,76 +5213,103 @@ function StoreClient() {
 				, 'UPDATE_USER': {
 					'databaseComment': ''
 				}
-				, 'VERSION_NO': {
-					'databaseComment': ''
-				}
 			}
 		}
-		, 'product_category': {
-			'databaseComment': '商品のカテゴリを表現するマスタ。<br>自己参照の階層になっている。'
-			, 'columns': {
-				'PRODUCT_CATEGORY_CODE': {
-					'databaseComment': ''
-				}
-				, 'PRODUCT_CATEGORY_NAME': {
-					'databaseComment': ''
-				}
-				, 'PARENT_CATEGORY_CODE': {
-					'databaseComment': '最上位の場合はデータなし。'
-				}
-			}
-		}
-		, 'product_status': {
+		, 'product_detail': {
 			'databaseComment': ''
 			, 'columns': {
-				'PRODUCT_STATUS_CODE': {
+				'PRODUCT_DETAIL_ID': {
 					'databaseComment': ''
 				}
-				, 'PRODUCT_STATUS_NAME': {
+				, 'PRODUCT_ID': {
 					'databaseComment': ''
 				}
-				, 'DISPLAY_ORDER': {
+				, 'PRODUCT_NAME': {
+					'databaseComment': 'ExampleDBとして、コメントの少ないケースを表現するため、あえてコメントを控えている。<br>実業務ではしっかりとコメントを入れることが強く強く推奨される。「よりによってこのテーブルでやらないでよ！」あわわ、何も聞こえません〜'
+				}
+				, 'PRODUCT_HANDLE_CODE': {
+					'databaseComment': 'これだけは書いておこう、商品を識別する業務上のコード。よく品番とか言うかもしれませんねぇ...'
+				}
+				, 'PRODUCT_CATEGORY_CODE': {
+					'databaseComment': '自分のテーブルの別のレコードからも参照される。'
+				}
+				, 'PRODUCT_STATUS_CODE': {
+					'databaseComment': '商品ステータスを識別するコード。'
+				}
+				, 'REGISTER_DATETIME': {
+					'databaseComment': 'レコードが登録された日時'
+				}
+				, 'REGISTER_USER': {
+					'databaseComment': 'レコードを登録したユーザー'
+				}
+				, 'UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'UPDATE_USER': {
+					'databaseComment': ''
+				}
+			}
+		}
+		, 'product_price': {
+			'databaseComment': ''
+			, 'columns': {
+				'PRODUCT_PRICE_ID': {
+					'databaseComment': ''
+				}
+				, 'PRODUCT_ID': {
+					'databaseComment': ''
+				}
+				, 'REGULAR_PRICE': {
+					'databaseComment': ''
+				}
+				, 'REGISTER_DATETIME': {
+					'databaseComment': 'レコードが登録された日時'
+				}
+				, 'REGISTER_USER': {
+					'databaseComment': 'レコードを登録したユーザー'
+				}
+				, 'UPDATE_DATETIME': {
+					'databaseComment': ''
+				}
+				, 'UPDATE_USER': {
 					'databaseComment': ''
 				}
 			}
 		}
 		, 'purchase': {
-			'databaseComment': '一つの商品に対する一回の購入を表現する。<br>一回の購入で一つの商品を複数個買うこともある。'
+			'databaseComment': '一つの商品に対する購入を表現する(購入履歴とも言える)。<br>実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。'
 			, 'columns': {
 				'PURCHASE_ID': {
 					'databaseComment': '連番'
 				}
 				, 'MEMBER_ID': {
-					'databaseComment': '会員を参照するID。<br>購入を識別する自然キー（複合ユニーク制約）の筆頭要素。'
+					'databaseComment': '会員を参照するID。<br>購入を識別する自然キー(複合ユニーク制約)の筆頭要素。'
 				}
-				, 'PRODUCT_ID': {
-					'databaseComment': '商品を参照するID。'
+				, 'PRODUCT_DETAIL_ID': {
+					'databaseComment': ''
+				}
+				, 'PRODUCT_PRICE_ID': {
+					'databaseComment': ''
 				}
 				, 'PURCHASE_DATETIME': {
 					'databaseComment': '購入した瞬間の日時。'
 				}
 				, 'PURCHASE_COUNT': {
-					'databaseComment': '購入した商品の（一回の購入における）数量。'
+					'databaseComment': '購入した商品の一回の購入における数量。'
 				}
 				, 'PURCHASE_PRICE': {
-					'databaseComment': '購入によって実際に会員が支払った（支払う予定の）価格。<br>基本は商品の定価に購入数量を掛けたものになるが、<br>ポイント利用や割引があったりと必ずしもそうはならない。'
-				}
-				, 'PAYMENT_COMPLETE_FLG': {
-					'databaseComment': 'この購入に関しての支払いが完了しているか否か。'
+					'databaseComment': '購入によって実際に会員が支払った（支払う予定の）価格。<br>基本は商品の定価に購入数量を掛けたものになるが、ポイント利用や割引があったりと必ずしもそうはならない。'
 				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
 				}
 				, 'UPDATE_USER': {
-					'databaseComment': ''
-				}
-				, 'VERSION_NO': {
 					'databaseComment': ''
 				}
 			}
@@ -4397,64 +5332,27 @@ function StoreClient() {
 				, 'PAYMENT_METHOD_CODE': {
 					'databaseComment': '手渡しや銀行振込など'
 				}
+			}
+		}
+		, 'purchase_status': {
+			'databaseComment': '一つの商品に対する購入を表現する(購入履歴とも言える)。<br>実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。'
+			, 'columns': {
+				'PURCHASE_ID': {
+					'databaseComment': '連番'
+				}
+				, 'PAYMENT_COMPLETE_FLG': {
+					'databaseComment': 'この購入に関しての支払いが完了しているか否か。'
+				}
 				, 'REGISTER_DATETIME': {
-					'databaseComment': ''
+					'databaseComment': 'レコードが登録された日時'
 				}
 				, 'REGISTER_USER': {
-					'databaseComment': ''
+					'databaseComment': 'レコードを登録したユーザー'
 				}
 				, 'UPDATE_DATETIME': {
 					'databaseComment': ''
 				}
 				, 'UPDATE_USER': {
-					'databaseComment': ''
-				}
-			}
-		}
-		, 'region': {
-			'databaseComment': '主に会員の住所に対応する地域。<br>かなりざっくりした感じではある。'
-			, 'columns': {
-				'REGION_ID': {
-					'databaseComment': ''
-				}
-				, 'REGION_NAME': {
-					'databaseComment': ''
-				}
-			}
-		}
-		, 'service_rank': {
-			'databaseComment': '会員のサービスレベルを表現するランク。<br>（ゴールドとかプラチナとか）'
-			, 'columns': {
-				'SERVICE_RANK_CODE': {
-					'databaseComment': 'サービスランクを識別するコード。'
-				}
-				, 'SERVICE_RANK_NAME': {
-					'databaseComment': 'サービスランクの名称。<br>（ゴールドとかプラチナとか基本的には威厳のある名前）'
-				}
-				, 'SERVICE_POINT_INCIDENCE': {
-					'databaseComment': '購入ごとのサービスポイントの発生率。<br>購入価格にこの値をかけた数が発生ポイント。'
-				}
-				, 'NEW_ACCEPTABLE_FLG': {
-					'databaseComment': 'このランクへの新規受け入れができるかどうか。'
-				}
-				, 'DESCRIPTION': {
-					'databaseComment': ''
-				}
-				, 'DISPLAY_ORDER': {
-					'databaseComment': ''
-				}
-			}
-		}
-		, 'withdrawal_reason': {
-			'databaseComment': '会員に選ばせる定型的な退会理由のマスタ。'
-			, 'columns': {
-				'WITHDRAWAL_REASON_CODE': {
-					'databaseComment': ''
-				}
-				, 'WITHDRAWAL_REASON_TEXT': {
-					'databaseComment': '退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>そうするとUI側できれいに見せるのが大変でしょうね。'
-				}
-				, 'DISPLAY_ORDER': {
 					'databaseComment': ''
 				}
 			}

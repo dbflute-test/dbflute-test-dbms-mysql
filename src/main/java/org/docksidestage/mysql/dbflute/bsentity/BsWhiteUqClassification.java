@@ -126,7 +126,7 @@ public abstract class BsWhiteUqClassification extends AbstractEntity implements 
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.UQClassificationType getUqClsCodeAsUQClassificationType() {
-        return CDef.UQClassificationType.codeOf(getUqClsCode());
+        return CDef.UQClassificationType.of(getUqClsCode()).orElse(null);
     }
 
     /**

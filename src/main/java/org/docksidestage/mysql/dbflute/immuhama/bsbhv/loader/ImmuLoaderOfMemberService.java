@@ -28,7 +28,7 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     MEMBER_SERVICE_ID
  *
  * [column]
- *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -37,16 +37,16 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     MEMBER_SERVICE_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, SERVICE_RANK
+ *     MEMBER, CDEF_SERVICE_RANK
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, serviceRank
+ *     member, cdefServiceRank
  *
  * [referrer property]
  *     
@@ -81,11 +81,11 @@ public class ImmuLoaderOfMemberService {
         return _foreignMemberLoader;
     }
 
-    protected ImmuLoaderOfServiceRank _foreignServiceRankLoader;
-    public ImmuLoaderOfServiceRank pulloutServiceRank() {
-        if (_foreignServiceRankLoader == null)
-        { _foreignServiceRankLoader = new ImmuLoaderOfServiceRank().ready(myBhv().pulloutServiceRank(_selectedList), _selector); }
-        return _foreignServiceRankLoader;
+    protected ImmuLoaderOfCdefServiceRank _foreignCdefServiceRankLoader;
+    public ImmuLoaderOfCdefServiceRank pulloutCdefServiceRank() {
+        if (_foreignCdefServiceRankLoader == null)
+        { _foreignCdefServiceRankLoader = new ImmuLoaderOfCdefServiceRank().ready(myBhv().pulloutCdefServiceRank(_selectedList), _selector); }
+        return _foreignCdefServiceRankLoader;
     }
 
     // ===================================================================================

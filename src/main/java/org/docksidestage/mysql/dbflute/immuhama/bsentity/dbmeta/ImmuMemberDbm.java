@@ -59,23 +59,11 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((ImmuMember)et).getMemberId(), (et, vl) -> ((ImmuMember)et).setMemberId(cti(vl)), "memberId");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getMemberName(), (et, vl) -> ((ImmuMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getMemberAccount(), (et, vl) -> ((ImmuMember)et).setMemberAccount((String)vl), "memberAccount");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getMemberStatusCode(), (et, vl) -> {
-            ImmuCDef.MemberStatus cls = (ImmuCDef.MemberStatus)gcls(et, columnMemberStatusCode(), vl);
-            if (cls != null) {
-                ((ImmuMember)et).setMemberStatusCodeAsMemberStatus(cls);
-            } else {
-                ((ImmuMember)et).mynativeMappingMemberStatusCode((String)vl);
-            }
-        }, "memberStatusCode");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getFormalizedDatetime(), (et, vl) -> ((ImmuMember)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getBirthdate(), (et, vl) -> ((ImmuMember)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((ImmuMember)et).getMemberRegisterDatetime(), (et, vl) -> ((ImmuMember)et).setMemberRegisterDatetime(ctldt(vl)), "memberRegisterDatetime");
         setupEpg(_epgMap, et -> ((ImmuMember)et).getRegisterDatetime(), (et, vl) -> ((ImmuMember)et).setRegisterDatetime(ctldt(vl)), "registerDatetime");
         setupEpg(_epgMap, et -> ((ImmuMember)et).getRegisterUser(), (et, vl) -> ((ImmuMember)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((ImmuMember)et).getUpdateDatetime(), (et, vl) -> ((ImmuMember)et).setUpdateDatetime(ctldt(vl)), "updateDatetime");
         setupEpg(_epgMap, et -> ((ImmuMember)et).getUpdateUser(), (et, vl) -> ((ImmuMember)et).setUpdateUser((String)vl), "updateUser");
-        setupEpg(_epgMap, et -> ((ImmuMember)et).getVersionNo(), (et, vl) -> ((ImmuMember)et).setVersionNo(ctl(vl)), "versionNo");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -87,8 +75,6 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     { xsetupEfpg(); }
     @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((ImmuMember)et).getMemberStatus(), (et, vl) -> ((ImmuMember)et).setMemberStatus((OptionalEntity<ImmuMemberStatus>)vl), "memberStatus");
-        setupEfpg(_efpgMap, et -> ((ImmuMember)et).getMemberSecurityAsOne(), (et, vl) -> ((ImmuMember)et).setMemberSecurityAsOne((OptionalEntity<ImmuMemberSecurity>)vl), "memberSecurityAsOne");
         setupEfpg(_efpgMap, et -> ((ImmuMember)et).getMemberServiceAsOne(), (et, vl) -> ((ImmuMember)et).setMemberServiceAsOne((OptionalEntity<ImmuMemberService>)vl), "memberServiceAsOne");
         setupEfpg(_efpgMap, et -> ((ImmuMember)et).getMemberWithdrawalAsOne(), (et, vl) -> ((ImmuMember)et).setMemberWithdrawalAsOne((OptionalEntity<ImmuMemberWithdrawal>)vl), "memberWithdrawalAsOne");
     }
@@ -115,17 +101,12 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。", null, "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,purchaseList", null, false);
-    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, "会員名称", String.class, "memberName", null, false, false, true, "VARCHAR", 180, 0, null, null, false, null, "会員のフルネームの名称。", null, null, null, false);
-    protected final ColumnInfo _columnMemberAccount = cci("MEMBER_ACCOUNT", "MEMBER_ACCOUNT", null, "会員アカウント", String.class, "memberAccount", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, "会員がログイン時に利用するアカウントNO。", null, null, null, false);
-    protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, "memberStatus", null, ImmuCDef.DefMeta.MemberStatus, false);
-    protected final ColumnInfo _columnFormalizedDatetime = cci("FORMALIZED_DATETIME", "FORMALIZED_DATETIME", null, "正式会員日時", java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, "会員が正式に確定した日時。一度確定したら更新されない。\n仮会員のときはnull。", null, null, null, false);
-    protected final ColumnInfo _columnBirthdate = cci("BIRTHDATE", "BIRTHDATE", null, "生年月日", java.time.LocalDate.class, "birthdate", null, false, false, false, "DATE", 10, 0, null, null, false, null, "必須項目ではないので、このデータがない会員もいる。", null, null, null, false);
-    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, "レコードが登録された日時。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, "登録ユーザ", String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "レコードを登録したユーザ。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, "レコードが（最後に）更新された日時。共通カラムの一つ。", null, null, null, false);
-    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "レコードを更新したユーザ。", null, null, null, false);
-    protected final ColumnInfo _columnVersionNo = cci("VERSION_NO", "VERSION_NO", null, "バージョンNO", Long.class, "versionNo", null, false, false, true, "BIGINT", 19, 0, null, null, false, OptimisticLockType.VERSION_NO, "レコードのバージョンを示すNO。\n更新回数と等しく、主に排他制御のために利用される。", null, null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, true, true, true, "INT", 10, 0, null, null, false, null, "連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。", null, "memberAddressList,memberFollowingByMyMemberIdList,memberFollowingByYourMemberIdList,memberLoginList,memberLoginPasswordList,memberPasswordReminderList,memberProfileList,memberStatusList,purchaseList", null, false);
+    protected final ColumnInfo _columnMemberRegisterDatetime = cci("MEMBER_REGISTER_DATETIME", "MEMBER_REGISTER_DATETIME", null, "会員登録日時", java.time.LocalDateTime.class, "memberRegisterDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("REGISTER_DATETIME", "REGISTER_DATETIME", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, "レコードが登録された日時", null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("REGISTER_USER", "REGISTER_USER", null, "登録ユーザー", String.class, "registerUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, "レコードを登録したユーザー", null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("UPDATE_DATETIME", "UPDATE_DATETIME", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("UPDATE_USER", "UPDATE_USER", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "VARCHAR", 200, 0, null, null, true, null, null, null, null, null, false);
 
     /**
      * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10)}
@@ -133,37 +114,17 @@ public class ImmuMemberDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnMemberId() { return _columnMemberId; }
     /**
-     * (会員名称)MEMBER_NAME: {IX, NotNull, VARCHAR(180)}
+     * (会員登録日時)MEMBER_REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnMemberName() { return _columnMemberName; }
-    /**
-     * (会員アカウント)MEMBER_ACCOUNT: {UQ, NotNull, VARCHAR(50)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnMemberAccount() { return _columnMemberAccount; }
-    /**
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnMemberStatusCode() { return _columnMemberStatusCode; }
-    /**
-     * (正式会員日時)FORMALIZED_DATETIME: {IX, DATETIME(19)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnFormalizedDatetime() { return _columnFormalizedDatetime; }
-    /**
-     * (生年月日)BIRTHDATE: {DATE(10)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnBirthdate() { return _columnBirthdate; }
+    public ColumnInfo columnMemberRegisterDatetime() { return _columnMemberRegisterDatetime; }
     /**
      * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegisterDatetime() { return _columnRegisterDatetime; }
     /**
-     * (登録ユーザ)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegisterUser() { return _columnRegisterUser; }
@@ -177,25 +138,15 @@ public class ImmuMemberDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnUpdateUser() { return _columnUpdateUser; }
-    /**
-     * (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)}
-     * @return The information object of specified column. (NotNull)
-     */
-    public ColumnInfo columnVersionNo() { return _columnVersionNo; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
         ls.add(columnMemberId());
-        ls.add(columnMemberName());
-        ls.add(columnMemberAccount());
-        ls.add(columnMemberStatusCode());
-        ls.add(columnFormalizedDatetime());
-        ls.add(columnBirthdate());
+        ls.add(columnMemberRegisterDatetime());
         ls.add(columnRegisterDatetime());
         ls.add(columnRegisterUser());
         ls.add(columnUpdateDatetime());
         ls.add(columnUpdateUser());
-        ls.add(columnVersionNo());
         return ls;
     }
 
@@ -211,11 +162,6 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
-    // -----------------------------------------------------
-    //                                        Unique Element
-    //                                        --------------
-    public UniqueInfo uniqueOf() { return hpcui(columnMemberAccount()); }
-
     // ===================================================================================
     //                                                                       Relation Info
     //                                                                       =============
@@ -225,28 +171,12 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     /**
-     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
-     * @return The information object of foreign property. (NotNull)
-     */
-    public ForeignInfo foreignMemberStatus() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberStatusCode(), ImmuMemberStatusDbm.getInstance().columnMemberStatusCode());
-        return cfi("FK_MEMBER_MEMBER_STATUS", "memberStatus", this, ImmuMemberStatusDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberList", false);
-    }
-    /**
-     * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
-     * @return The information object of foreign property(referrer-as-one). (NotNull)
-     */
-    public ForeignInfo foreignMemberSecurityAsOne() {
-        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberSecurityDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_SECURITY_MEMBER", "memberSecurityAsOne", this, ImmuMemberSecurityDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
-    }
-    /**
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * @return The information object of foreign property(referrer-as-one). (NotNull)
      */
     public ForeignInfo foreignMemberServiceAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberServiceDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_SERVICE_MEMBER", "memberServiceAsOne", this, ImmuMemberServiceDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
+        return cfi("FK_MEMBER_SERVICE_MEMBER", "memberServiceAsOne", this, ImmuMemberServiceDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
     /**
      * (会員退会情報)member_withdrawal by MEMBER_ID, named 'memberWithdrawalAsOne'.
@@ -254,14 +184,14 @@ public class ImmuMemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberWithdrawalAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberWithdrawalDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_WITHDRAWAL_MEMBER", "memberWithdrawalAsOne", this, ImmuMemberWithdrawalDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
+        return cfi("FK_MEMBER_WITHDRAWAL_MEMBER", "memberWithdrawalAsOne", this, ImmuMemberWithdrawalDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
 
     // -----------------------------------------------------
     //                                     Referrer Property
     //                                     -----------------
     /**
-     * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
+     * (会員住所)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberAddressList() {
@@ -274,7 +204,7 @@ public class ImmuMemberDbm extends AbstractDBMeta {
      */
     public ReferrerInfo referrerMemberFollowingByMyMemberIdList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberFollowingDbm.getInstance().columnMyMemberId());
-        return cri("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberFollowingByMyMemberIdList", this, ImmuMemberFollowingDbm.getInstance(), mp, false, "memberByMyMemberId");
+        return cri("FK_MEMBER_FOLLOWING_MY_MEMBER_ID", "memberFollowingByMyMemberIdList", this, ImmuMemberFollowingDbm.getInstance(), mp, false, "memberByMyMemberId");
     }
     /**
      * (会員フォローイング)MEMBER_FOLLOWING by YOUR_MEMBER_ID, named 'memberFollowingByYourMemberIdList'.
@@ -282,15 +212,47 @@ public class ImmuMemberDbm extends AbstractDBMeta {
      */
     public ReferrerInfo referrerMemberFollowingByYourMemberIdList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberFollowingDbm.getInstance().columnYourMemberId());
-        return cri("FK_MEMBER_FOLLOWING_YOUR_MEMBER", "memberFollowingByYourMemberIdList", this, ImmuMemberFollowingDbm.getInstance(), mp, false, "memberByYourMemberId");
+        return cri("FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID", "memberFollowingByYourMemberIdList", this, ImmuMemberFollowingDbm.getInstance(), mp, false, "memberByYourMemberId");
     }
     /**
-     * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
+     * (会員ログイン)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * @return The information object of referrer property. (NotNull)
      */
     public ReferrerInfo referrerMemberLoginList() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberLoginDbm.getInstance().columnMemberId());
         return cri("FK_MEMBER_LOGIN_MEMBER", "memberLoginList", this, ImmuMemberLoginDbm.getInstance(), mp, false, "member");
+    }
+    /**
+     * (会員ログインパスワード)MEMBER_LOGIN_PASSWORD by MEMBER_ID, named 'memberLoginPasswordList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerMemberLoginPasswordList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberLoginPasswordDbm.getInstance().columnMemberId());
+        return cri("FK_MEMBER_SECURITY_MEMBER", "memberLoginPasswordList", this, ImmuMemberLoginPasswordDbm.getInstance(), mp, false, "member");
+    }
+    /**
+     * (会員パスワードリマインダ)MEMBER_PASSWORD_REMINDER by MEMBER_ID, named 'memberPasswordReminderList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerMemberPasswordReminderList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberPasswordReminderDbm.getInstance().columnMemberId());
+        return cri("FK_MEMBER_PASSWORD_REMINDER_MEMBER", "memberPasswordReminderList", this, ImmuMemberPasswordReminderDbm.getInstance(), mp, false, "member");
+    }
+    /**
+     * (会員プロフィール)MEMBER_PROFILE by MEMBER_ID, named 'memberProfileList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerMemberProfileList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberProfileDbm.getInstance().columnMemberId());
+        return cri("FK_EVENT_MEMBER_MEMBER", "memberProfileList", this, ImmuMemberProfileDbm.getInstance(), mp, false, "member");
+    }
+    /**
+     * (会員ステータス)MEMBER_STATUS by MEMBER_ID, named 'memberStatusList'.
+     * @return The information object of referrer property. (NotNull)
+     */
+    public ReferrerInfo referrerMemberStatusList() {
+        Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), ImmuMemberStatusDbm.getInstance().columnMemberId());
+        return cri("FK_MEMBER_STATUS_XX_MEMBER", "memberStatusList", this, ImmuMemberStatusDbm.getInstance(), mp, false, "member");
     }
     /**
      * (購入)PURCHASE by MEMBER_ID, named 'purchaseList'.
@@ -305,8 +267,6 @@ public class ImmuMemberDbm extends AbstractDBMeta {
     //                                                                        Various Info
     //                                                                        ============
     public boolean hasIdentity() { return true; }
-    public boolean hasVersionNo() { return true; }
-    public ColumnInfo getVersionNoColumnInfo() { return _columnVersionNo; }
     public boolean hasCommonColumn() { return true; }
     public List<ColumnInfo> getCommonColumnInfoList()
     { return newArrayList(columnRegisterDatetime(), columnRegisterUser(), columnUpdateDatetime(), columnUpdateUser()); }

@@ -30,7 +30,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PURCHASE_ID
  *
  * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PURCHASE_ID, MEMBER_ID, PRODUCT_DETAIL_ID, PRODUCT_PRICE_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -39,16 +39,16 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PURCHASE_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, PRODUCT
+ *     MEMBER, PRODUCT_DETAIL, PRODUCT_PRICE, PURCHASE_STATUS(AsOne)
  *
  * [referrer table]
- *     PURCHASE_PAYMENT
+ *     PURCHASE_PAYMENT, PURCHASE_STATUS
  *
  * [foreign property]
- *     member, product
+ *     member, productDetail, productPrice, purchaseStatusAsOne
  *
  * [referrer property]
  *     purchasePaymentList
@@ -120,11 +120,25 @@ public class ImmuLoaderOfPurchase {
         return _foreignMemberLoader;
     }
 
-    protected ImmuLoaderOfProduct _foreignProductLoader;
-    public ImmuLoaderOfProduct pulloutProduct() {
-        if (_foreignProductLoader == null)
-        { _foreignProductLoader = new ImmuLoaderOfProduct().ready(myBhv().pulloutProduct(_selectedList), _selector); }
-        return _foreignProductLoader;
+    protected ImmuLoaderOfProductDetail _foreignProductDetailLoader;
+    public ImmuLoaderOfProductDetail pulloutProductDetail() {
+        if (_foreignProductDetailLoader == null)
+        { _foreignProductDetailLoader = new ImmuLoaderOfProductDetail().ready(myBhv().pulloutProductDetail(_selectedList), _selector); }
+        return _foreignProductDetailLoader;
+    }
+
+    protected ImmuLoaderOfProductPrice _foreignProductPriceLoader;
+    public ImmuLoaderOfProductPrice pulloutProductPrice() {
+        if (_foreignProductPriceLoader == null)
+        { _foreignProductPriceLoader = new ImmuLoaderOfProductPrice().ready(myBhv().pulloutProductPrice(_selectedList), _selector); }
+        return _foreignProductPriceLoader;
+    }
+
+    protected ImmuLoaderOfPurchaseStatus _foreignPurchaseStatusAsOneLoader;
+    public ImmuLoaderOfPurchaseStatus pulloutPurchaseStatusAsOne() {
+        if (_foreignPurchaseStatusAsOneLoader == null)
+        { _foreignPurchaseStatusAsOneLoader = new ImmuLoaderOfPurchaseStatus().ready(myBhv().pulloutPurchaseStatusAsOne(_selectedList), _selector); }
+        return _foreignPurchaseStatusAsOneLoader;
     }
 
     // ===================================================================================

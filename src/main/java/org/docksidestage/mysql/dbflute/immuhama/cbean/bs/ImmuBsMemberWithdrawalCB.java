@@ -100,7 +100,7 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
+     * @param memberId (会員ID): PK, NotNull, INT(10), FK to member. (NotNull)
      * @return this. (NotNull)
      */
     public ImmuMemberWithdrawalCB acceptPK(Integer memberId) {
@@ -285,22 +285,22 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'.
      * <pre>
      * <span style="color: #0000C0">memberWithdrawalBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_WithdrawalReason()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_CdefWithdrawalReason()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">memberWithdrawal</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">memberWithdrawal</span>.<span style="color: #CC4747">getWithdrawalReason()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     *     ... = <span style="color: #553000">memberWithdrawal</span>.<span style="color: #CC4747">getCdefWithdrawalReason()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      */
-    public void setupSelect_WithdrawalReason() {
-        assertSetupSelectPurpose("withdrawalReason");
+    public void setupSelect_CdefWithdrawalReason() {
+        assertSetupSelectPurpose("cdefWithdrawalReason");
         if (hasSpecifiedLocalColumn()) {
             specify().columnWithdrawalReasonCode();
         }
-        doSetupSelect(() -> query().queryWithdrawalReason());
+        doSetupSelect(() -> query().queryCdefWithdrawalReason());
     }
 
     // [DBFlute-0.7.4]
@@ -345,18 +345,18 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuMemberWithdrawalCQ> {
         protected ImmuMemberCB.HpSpecification _member;
-        protected ImmuWithdrawalReasonCB.HpSpecification _withdrawalReason;
+        protected ImmuCdefWithdrawalReasonCB.HpSpecification _cdefWithdrawalReason;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuMemberWithdrawalCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * MEMBER_ID: {PK, NotNull, INT(10), FK to member}
+         * (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnMemberId() { return doColumn("MEMBER_ID"); }
         /**
-         * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason}
+         * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("WITHDRAWAL_REASON_CODE"); }
@@ -371,22 +371,22 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnWithdrawalDatetime() { return doColumn("WITHDRAWAL_DATETIME"); }
         /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
@@ -395,8 +395,8 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
         @Override
         protected void doSpecifyRequiredColumn() {
             columnMemberId(); // PK
-            if (qyCall().qy().hasConditionQueryWithdrawalReason()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuWithdrawalReasonCQ) {
+            if (qyCall().qy().hasConditionQueryCdefWithdrawalReason()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuCdefWithdrawalReasonCQ) {
                 columnWithdrawalReasonCode(); // FK or one-to-one referrer
             }
         }
@@ -424,23 +424,23 @@ public class ImmuBsMemberWithdrawalCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+         * ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public ImmuWithdrawalReasonCB.HpSpecification specifyWithdrawalReason() {
-            assertRelation("withdrawalReason");
-            if (_withdrawalReason == null) {
-                _withdrawalReason = new ImmuWithdrawalReasonCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryWithdrawalReason()
-                                    , () -> _qyCall.qy().queryWithdrawalReason())
+        public ImmuCdefWithdrawalReasonCB.HpSpecification specifyCdefWithdrawalReason() {
+            assertRelation("cdefWithdrawalReason");
+            if (_cdefWithdrawalReason == null) {
+                _cdefWithdrawalReason = new ImmuCdefWithdrawalReasonCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryCdefWithdrawalReason()
+                                    , () -> _qyCall.qy().queryCdefWithdrawalReason())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _withdrawalReason.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWithdrawalReason()
-                      , () -> xsyncQyCall().qy().queryWithdrawalReason()));
+                    _cdefWithdrawalReason.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryCdefWithdrawalReason()
+                      , () -> xsyncQyCall().qy().queryCdefWithdrawalReason()));
                 }
             }
-            return _withdrawalReason;
+            return _cdefWithdrawalReason;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

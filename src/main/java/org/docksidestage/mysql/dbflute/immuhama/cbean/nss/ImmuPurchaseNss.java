@@ -44,11 +44,29 @@ public class ImmuPurchaseNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (商品)PRODUCT by my PRODUCT_ID, named 'product'.
+     * (商品詳細)PRODUCT_DETAIL by my PRODUCT_DETAIL_ID, named 'productDetail'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
-    public ImmuProductNss withProduct() {
-        _query.xdoNss(() -> _query.queryProduct());
-        return new ImmuProductNss(_query.queryProduct());
+    public ImmuProductDetailNss withProductDetail() {
+        _query.xdoNss(() -> _query.queryProductDetail());
+        return new ImmuProductDetailNss(_query.queryProductDetail());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * (商品価格)PRODUCT_PRICE by my PRODUCT_PRICE_ID, named 'productPrice'.
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public ImmuProductPriceNss withProductPrice() {
+        _query.xdoNss(() -> _query.queryProductPrice());
+        return new ImmuProductPriceNss(_query.queryProductPrice());
+    }
+    /**
+     * With nested relation columns to select clause. <br>
+     * (購入ステータス)purchase_status by PURCHASE_ID, named 'purchaseStatusAsOne'.
+     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
+     */
+    public ImmuPurchaseStatusNss withPurchaseStatusAsOne() {
+        _query.xdoNss(() -> _query.queryPurchaseStatusAsOne());
+        return new ImmuPurchaseStatusNss(_query.queryPurchaseStatusAsOne());
     }
 }

@@ -115,7 +115,7 @@ public class ImmuMemberFollowingDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnMyMemberId() { return _columnMyMemberId; }
     /**
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+     * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnYourMemberId() { return _columnYourMemberId; }
@@ -170,7 +170,7 @@ public class ImmuMemberFollowingDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberByMyMemberId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMyMemberId(), ImmuMemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER", "memberByMyMemberId", this, ImmuMemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
+        return cfi("FK_MEMBER_FOLLOWING_MY_MEMBER_ID", "memberByMyMemberId", this, ImmuMemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByMyMemberIdList", false);
     }
     /**
      * (会員)MEMBER by my YOUR_MEMBER_ID, named 'memberByYourMemberId'.
@@ -178,7 +178,7 @@ public class ImmuMemberFollowingDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberByYourMemberId() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnYourMemberId(), ImmuMemberDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_FOLLOWING_YOUR_MEMBER", "memberByYourMemberId", this, ImmuMemberDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByYourMemberIdList", false);
+        return cfi("FK_MEMBER_FOLLOWING_YOUR_MEMBER_ID", "memberByYourMemberId", this, ImmuMemberDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberFollowingByYourMemberIdList", false);
     }
 
     // -----------------------------------------------------

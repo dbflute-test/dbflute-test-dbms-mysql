@@ -77,26 +77,30 @@ public class ImmuProductCIQ extends ImmuAbstractBsProductCQ {
     //                                                                Override about Query
     //                                                                ====================
     protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
-    public String keepProductId_ExistsReferrer_PurchaseList(ImmuPurchaseCQ sq)
+    public String keepProductId_ExistsReferrer_ProductDetailList(ImmuProductDetailCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepProductId_NotExistsReferrer_PurchaseList(ImmuPurchaseCQ sq)
+    public String keepProductId_ExistsReferrer_ProductPriceList(ImmuProductPriceCQ sq)
+    { throwIICBOE("ExistsReferrer"); return null; }
+    public String keepProductId_NotExistsReferrer_ProductDetailList(ImmuProductDetailCQ sq)
     { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepProductId_SpecifyDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq)
+    public String keepProductId_NotExistsReferrer_ProductPriceList(ImmuProductPriceCQ sq)
+    { throwIICBOE("NotExistsReferrer"); return null; }
+    public String keepProductId_SpecifyDerivedReferrer_ProductDetailList(ImmuProductDetailCQ sq)
     { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepProductId_QueryDerivedReferrer_PurchaseList(ImmuPurchaseCQ sq)
+    public String keepProductId_SpecifyDerivedReferrer_ProductPriceList(ImmuProductPriceCQ sq)
+    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
+    public String keepProductId_QueryDerivedReferrer_ProductDetailList(ImmuProductDetailCQ sq)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object vl)
+    public String keepProductId_QueryDerivedReferrer_ProductDetailListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
-    protected ConditionValue xgetCValueProductHandleCode() { return _myCQ.xdfgetProductHandleCode(); }
-    protected ConditionValue xgetCValueProductCategoryCode() { return _myCQ.xdfgetProductCategoryCode(); }
-    protected ConditionValue xgetCValueProductStatusCode() { return _myCQ.xdfgetProductStatusCode(); }
-    protected ConditionValue xgetCValueRegularPrice() { return _myCQ.xdfgetRegularPrice(); }
+    public String keepProductId_QueryDerivedReferrer_ProductPriceList(ImmuProductPriceCQ sq)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
+    public String keepProductId_QueryDerivedReferrer_ProductPriceListParameter(Object vl)
+    { throwIICBOE("(Query)DerivedReferrer"); return null; }
     protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
     protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
     protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
     protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
-    protected ConditionValue xgetCValueVersionNo() { return _myCQ.xdfgetVersionNo(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ImmuProductCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

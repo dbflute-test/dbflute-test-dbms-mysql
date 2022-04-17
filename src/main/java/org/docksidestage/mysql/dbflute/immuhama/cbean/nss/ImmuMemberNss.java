@@ -35,22 +35,6 @@ public class ImmuMemberNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ステータス)MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'memberStatus'.
-     */
-    public void withMemberStatus() {
-        _query.xdoNss(() -> _query.queryMemberStatus());
-    }
-    /**
-     * With nested relation columns to select clause. <br>
-     * (会員セキュリティ情報)member_security by MEMBER_ID, named 'memberSecurityAsOne'.
-     * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
-     */
-    public ImmuMemberSecurityNss withMemberSecurityAsOne() {
-        _query.xdoNss(() -> _query.queryMemberSecurityAsOne());
-        return new ImmuMemberSecurityNss(_query.queryMemberSecurityAsOne());
-    }
-    /**
-     * With nested relation columns to select clause. <br>
      * (会員サービス)member_service by MEMBER_ID, named 'memberServiceAsOne'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

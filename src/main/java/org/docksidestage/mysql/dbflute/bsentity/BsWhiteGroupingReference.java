@@ -115,7 +115,7 @@ public abstract class BsWhiteGroupingReference extends AbstractEntity implements
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.GroupingReference getGroupingReferenceCodeAsGroupingReference() {
-        return CDef.GroupingReference.codeOf(getGroupingReferenceCode());
+        return CDef.GroupingReference.of(getGroupingReferenceCode()).orElse(null);
     }
 
     /**

@@ -35,10 +35,10 @@ public class ImmuMemberLoginNss {
     //                                                                     ===============
     /**
      * With nested relation columns to select clause. <br>
-     * (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
      */
-    public void withMemberStatus() {
-        _query.xdoNss(() -> _query.queryMemberStatus());
+    public void withCdefMemberStatus() {
+        _query.xdoNss(() -> _query.queryCdefMemberStatus());
     }
     /**
      * With nested relation columns to select clause. <br>

@@ -44,9 +44,9 @@ public class ImmuMemberWithdrawalNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'.
      */
-    public void withWithdrawalReason() {
-        _query.xdoNss(() -> _query.queryWithdrawalReason());
+    public void withCdefWithdrawalReason() {
+        _query.xdoNss(() -> _query.queryCdefWithdrawalReason());
     }
 }

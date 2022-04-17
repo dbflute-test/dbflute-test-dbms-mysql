@@ -81,10 +81,6 @@ public class ImmuPurchasePaymentCIQ extends ImmuAbstractBsPurchasePaymentCQ {
     protected ConditionValue xgetCValuePaymentAmount() { return _myCQ.xdfgetPaymentAmount(); }
     protected ConditionValue xgetCValuePaymentDatetime() { return _myCQ.xdfgetPaymentDatetime(); }
     protected ConditionValue xgetCValuePaymentMethodCode() { return _myCQ.xdfgetPaymentMethodCode(); }
-    protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
-    protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
-    protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
-    protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ImmuPurchasePaymentCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -300,22 +300,22 @@ public class ImmuBsMemberServiceCB extends AbstractConditionBean {
 
     /**
      * Set up relation columns to select clause. <br>
-     * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
+     * ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'.
      * <pre>
      * <span style="color: #0000C0">memberServiceBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ServiceRank()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_CdefServiceRank()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">memberService</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">memberService</span>.<span style="color: #CC4747">getServiceRank()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     *     ... = <span style="color: #553000">memberService</span>.<span style="color: #CC4747">getCdefServiceRank()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      */
-    public void setupSelect_ServiceRank() {
-        assertSetupSelectPurpose("serviceRank");
+    public void setupSelect_CdefServiceRank() {
+        assertSetupSelectPurpose("cdefServiceRank");
         if (hasSpecifiedLocalColumn()) {
             specify().columnServiceRankCode();
         }
-        doSetupSelect(() -> query().queryServiceRank());
+        doSetupSelect(() -> query().queryCdefServiceRank());
     }
 
     // [DBFlute-0.7.4]
@@ -360,7 +360,7 @@ public class ImmuBsMemberServiceCB extends AbstractConditionBean {
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuMemberServiceCQ> {
         protected ImmuMemberCB.HpSpecification _member;
-        protected ImmuServiceRankCB.HpSpecification _serviceRank;
+        protected ImmuCdefServiceRankCB.HpSpecification _cdefServiceRank;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuMemberServiceCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -381,35 +381,30 @@ public class ImmuBsMemberServiceCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnServicePointCount() { return doColumn("SERVICE_POINT_COUNT"); }
         /**
-         * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank}
+         * (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnServiceRankCode() { return doColumn("SERVICE_RANK_CODE"); }
         /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
-        /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -419,8 +414,8 @@ public class ImmuBsMemberServiceCB extends AbstractConditionBean {
                     || qyCall().qy().xgetReferrerQuery() instanceof ImmuMemberCQ) {
                 columnMemberId(); // FK or one-to-one referrer
             }
-            if (qyCall().qy().hasConditionQueryServiceRank()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuServiceRankCQ) {
+            if (qyCall().qy().hasConditionQueryCdefServiceRank()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuCdefServiceRankCQ) {
                 columnServiceRankCode(); // FK or one-to-one referrer
             }
         }
@@ -448,23 +443,23 @@ public class ImmuBsMemberServiceCB extends AbstractConditionBean {
         }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
+         * ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public ImmuServiceRankCB.HpSpecification specifyServiceRank() {
-            assertRelation("serviceRank");
-            if (_serviceRank == null) {
-                _serviceRank = new ImmuServiceRankCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryServiceRank()
-                                    , () -> _qyCall.qy().queryServiceRank())
+        public ImmuCdefServiceRankCB.HpSpecification specifyCdefServiceRank() {
+            assertRelation("cdefServiceRank");
+            if (_cdefServiceRank == null) {
+                _cdefServiceRank = new ImmuCdefServiceRankCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryCdefServiceRank()
+                                    , () -> _qyCall.qy().queryCdefServiceRank())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _serviceRank.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryServiceRank()
-                      , () -> xsyncQyCall().qy().queryServiceRank()));
+                    _cdefServiceRank.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryCdefServiceRank()
+                      , () -> xsyncQyCall().qy().queryCdefServiceRank()));
                 }
             }
-            return _serviceRank;
+            return _cdefServiceRank;
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

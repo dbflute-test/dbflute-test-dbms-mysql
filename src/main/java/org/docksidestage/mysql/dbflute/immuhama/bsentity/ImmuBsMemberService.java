@@ -29,13 +29,14 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
 
 /**
  * The entity of (会員サービス)MEMBER_SERVICE as TABLE. <br>
- * 会員のサービス情報（ポイントサービスなど）。
+ * 会員のサービス情報（ポイントサービスなど）。<br>
+ * テストケースのために、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。
  * <pre>
  * [primary-key]
  *     MEMBER_SERVICE_ID
  *
  * [column]
- *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -44,16 +45,16 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     MEMBER_SERVICE_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, SERVICE_RANK
+ *     MEMBER, CDEF_SERVICE_RANK
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, serviceRank
+ *     member, cdefServiceRank
  *
  * [referrer property]
  *     
@@ -68,7 +69,6 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  * String registerUser = entity.getRegisterUser();
  * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
- * Long versionNo = entity.getVersionNo();
  * entity.setMemberServiceId(memberServiceId);
  * entity.setMemberId(memberId);
  * entity.setServicePointCount(servicePointCount);
@@ -77,7 +77,6 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  * entity.setRegisterUser(registerUser);
  * entity.setUpdateDatetime(updateDatetime);
  * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -102,23 +101,20 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     /** (サービスポイント数)SERVICE_POINT_COUNT: {IX, NotNull, INT(10)} */
     protected Integer _servicePointCount;
 
-    /** (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank} */
+    /** (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank} */
     protected String _serviceRankCode;
 
-    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
+    /** (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _registerDatetime;
 
-    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
+    /** (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} */
     protected String _registerUser;
 
-    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
+    /** (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _updateDatetime;
 
-    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
+    /** (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} */
     protected String _updateUser;
-
-    /** VERSION_NO: {NotNull, BIGINT(19)} */
-    protected Long _versionNo;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -177,25 +173,25 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
         _member = member;
     }
 
-    /** (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'. */
-    protected OptionalEntity<ImmuServiceRank> _serviceRank;
+    /** ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'. */
+    protected OptionalEntity<ImmuCdefServiceRank> _cdefServiceRank;
 
     /**
-     * [get] (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'. <br>
+     * [get] ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
-     * @return The entity of foreign property 'serviceRank'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     * @return The entity of foreign property 'cdefServiceRank'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public OptionalEntity<ImmuServiceRank> getServiceRank() {
-        if (_serviceRank == null) { _serviceRank = OptionalEntity.relationEmpty(this, "serviceRank"); }
-        return _serviceRank;
+    public OptionalEntity<ImmuCdefServiceRank> getCdefServiceRank() {
+        if (_cdefServiceRank == null) { _cdefServiceRank = OptionalEntity.relationEmpty(this, "cdefServiceRank"); }
+        return _cdefServiceRank;
     }
 
     /**
-     * [set] (サービスランク)SERVICE_RANK by my SERVICE_RANK_CODE, named 'serviceRank'.
-     * @param serviceRank The entity of foreign property 'serviceRank'. (NullAllowed)
+     * [set] ([区分値]サービスランク)CDEF_SERVICE_RANK by my SERVICE_RANK_CODE, named 'cdefServiceRank'.
+     * @param cdefServiceRank The entity of foreign property 'cdefServiceRank'. (NullAllowed)
      */
-    public void setServiceRank(OptionalEntity<ImmuServiceRank> serviceRank) {
-        _serviceRank = serviceRank;
+    public void setCdefServiceRank(OptionalEntity<ImmuCdefServiceRank> cdefServiceRank) {
+        _cdefServiceRank = cdefServiceRank;
     }
 
     // ===================================================================================
@@ -232,8 +228,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
         StringBuilder sb = new StringBuilder();
         if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
-        if (_serviceRank != null && _serviceRank.isPresent())
-        { sb.append(li).append(xbRDS(_serviceRank, "serviceRank")); }
+        if (_cdefServiceRank != null && _cdefServiceRank.isPresent())
+        { sb.append(li).append(xbRDS(_cdefServiceRank, "cdefServiceRank")); }
         return sb.toString();
     }
     protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
@@ -251,7 +247,6 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
         sb.append(dm).append(xfND(_registerUser));
         sb.append(dm).append(xfND(_updateDatetime));
         sb.append(dm).append(xfND(_updateUser));
-        sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -264,8 +259,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
         StringBuilder sb = new StringBuilder();
         if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
-        if (_serviceRank != null && _serviceRank.isPresent())
-        { sb.append(dm).append("serviceRank"); }
+        if (_cdefServiceRank != null && _cdefServiceRank.isPresent())
+        { sb.append(dm).append("cdefServiceRank"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }
@@ -322,8 +317,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
 
     /**
      * [get] (サービスポイント数)SERVICE_POINT_COUNT: {IX, NotNull, INT(10)} <br>
-     * 会員が現在利用できるサービスポイントの数。<br>
-     * 基本的に、購入時には増えてポイントを使ったら減る。
+     * 購入したら増えて使ったら減る。
      * @return The value of the column 'SERVICE_POINT_COUNT'. (basically NotNull if selected: for the constraint)
      */
     public Integer getServicePointCount() {
@@ -333,8 +327,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
 
     /**
      * [set] (サービスポイント数)SERVICE_POINT_COUNT: {IX, NotNull, INT(10)} <br>
-     * 会員が現在利用できるサービスポイントの数。<br>
-     * 基本的に、購入時には増えてポイントを使ったら減る。
+     * 購入したら増えて使ったら減る。
      * @param servicePointCount The value of the column 'SERVICE_POINT_COUNT'. (basically NotNull if update: for the constraint)
      */
     public void setServicePointCount(Integer servicePointCount) {
@@ -343,8 +336,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank} <br>
-     * サービスランクを参照するコード。<br>
+     * [get] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank} <br>
      * どんなランクがあるのかドキドキですね。
      * @return The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if selected: for the constraint)
      */
@@ -354,8 +346,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to service_rank} <br>
-     * サービスランクを参照するコード。<br>
+     * [set] (サービスランクコード)SERVICE_RANK_CODE: {IX, NotNull, CHAR(3), FK to cdef_service_rank} <br>
      * どんなランクがあるのかドキドキですね。
      * @param serviceRankCode The value of the column 'SERVICE_RANK_CODE'. (basically NotNull if update: for the constraint)
      */
@@ -365,7 +356,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * レコードが登録された日時
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -374,7 +366,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * レコードが登録された日時
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
@@ -383,7 +376,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザー
      * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -392,7 +386,8 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * レコードを登録したユーザー
      * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -401,7 +396,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getUpdateDatetime() {
@@ -410,7 +405,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
      * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
@@ -419,7 +414,7 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [get] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -428,29 +423,11 @@ public abstract class ImmuBsMemberService extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * [set] (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
      * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
         registerModifiedProperty("updateUser");
         _updateUser = updateUser;
-    }
-
-    /**
-     * [get] VERSION_NO: {NotNull, BIGINT(19)} <br>
-     * @return The value of the column 'VERSION_NO'. (basically NotNull if selected: for the constraint)
-     */
-    public Long getVersionNo() {
-        checkSpecifiedProperty("versionNo");
-        return _versionNo;
-    }
-
-    /**
-     * [set] VERSION_NO: {NotNull, BIGINT(19)} <br>
-     * @param versionNo The value of the column 'VERSION_NO'. (basically NotNull if update: for the constraint)
-     */
-    public void setVersionNo(Long versionNo) {
-        registerModifiedProperty("versionNo");
-        _versionNo = versionNo;
     }
 }

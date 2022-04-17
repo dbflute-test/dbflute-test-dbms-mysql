@@ -122,7 +122,7 @@ public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity impl
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.VariantRelationMasterType getMasterTypeCodeAsVariantRelationMasterType() {
-        return CDef.VariantRelationMasterType.codeOf(getMasterTypeCode());
+        return CDef.VariantRelationMasterType.of(getMasterTypeCode()).orElse(null);
     }
 
     /**

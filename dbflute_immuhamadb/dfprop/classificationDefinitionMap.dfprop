@@ -48,7 +48,7 @@ map:{
     ; MemberStatus = list:{
         ; map:{topComment=status of member from entry to withdrawal; codeType=String}
         ; map:{
-            ; table=MEMBER_STATUS
+            ; table=CDEF_MEMBER_STATUS
             ; code=MEMBER_STATUS_CODE; name=MEMBER_STATUS_NAME
             ; comment=DESCRIPTION; orderBy=DISPLAY_ORDER
         }
@@ -56,7 +56,7 @@ map:{
     ; Region = list:{
         ; map:{topComment=mainly region of member address; codeType=Number}
         ; map:{
-            ; table=REGION
+            ; table=CDEF_REGION
             ; code=REGION_ID; name=REGION_NAME
             ; orderBy=REGION_ID
         }
@@ -66,7 +66,7 @@ map:{
             ; topComment=reason for member withdrawal; codeType=String
         }
         ; map:{
-            ; table=WITHDRAWAL_REASON
+            ; table=CDEF_WITHDRAWAL_REASON
             ; code=WITHDRAWAL_REASON_CODE; name=WITHDRAWAL_REASON_CODE
             ; comment=WITHDRAWAL_REASON_TEXT; orderBy=DISPLAY_ORDER
         }

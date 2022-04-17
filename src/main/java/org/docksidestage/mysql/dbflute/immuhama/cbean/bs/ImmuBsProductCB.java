@@ -33,7 +33,6 @@ import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedInvoker
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuImplementedSqlClauseCreator;
 import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
 import org.docksidestage.mysql.dbflute.immuhama.cbean.cq.*;
-import org.docksidestage.mysql.dbflute.immuhama.cbean.nss.*;
 
 /**
  * The base condition-bean of product.
@@ -107,18 +106,6 @@ public class ImmuBsProductCB extends AbstractConditionBean {
         assertObjectNotNull("productId", productId);
         ImmuBsProductCB cb = this;
         cb.query().setProductId_Equal(productId);
-        return (ImmuProductCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param productHandleCode (商品ハンドルコード): UQ, NotNull, VARCHAR(100). (NotNull)
-     * @return this. (NotNull)
-     */
-    public ImmuProductCB acceptUniqueOf(String productHandleCode) {
-        assertObjectNotNull("productHandleCode", productHandleCode);
-        ImmuBsProductCB cb = this;
-        cb.query().setProductHandleCode_Equal(productHandleCode);
         return (ImmuProductCB)this;
     }
 
@@ -269,55 +256,6 @@ public class ImmuBsProductCB extends AbstractConditionBean {
     // ===================================================================================
     //                                                                         SetupSelect
     //                                                                         ===========
-    protected ImmuProductCategoryNss _nssProductCategory;
-    public ImmuProductCategoryNss xdfgetNssProductCategory() {
-        if (_nssProductCategory == null) { _nssProductCategory = new ImmuProductCategoryNss(null); }
-        return _nssProductCategory;
-    }
-    /**
-     * Set up relation columns to select clause. <br>
-     * (商品カテゴリ)PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
-     * <pre>
-     * <span style="color: #0000C0">productBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ProductCategory()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">product</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getProductCategory()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
-     */
-    public ImmuProductCategoryNss setupSelect_ProductCategory() {
-        assertSetupSelectPurpose("productCategory");
-        if (hasSpecifiedLocalColumn()) {
-            specify().columnProductCategoryCode();
-        }
-        doSetupSelect(() -> query().queryProductCategory());
-        if (_nssProductCategory == null || !_nssProductCategory.hasConditionQuery())
-        { _nssProductCategory = new ImmuProductCategoryNss(query().queryProductCategory()); }
-        return _nssProductCategory;
-    }
-
-    /**
-     * Set up relation columns to select clause. <br>
-     * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
-     * <pre>
-     * <span style="color: #0000C0">productBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_ProductStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
-     *     <span style="color: #553000">cb</span>.query().set...
-     * }).alwaysPresent(<span style="color: #553000">product</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getProductStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
-     * });
-     * </pre>
-     */
-    public void setupSelect_ProductStatus() {
-        assertSetupSelectPurpose("productStatus");
-        if (hasSpecifiedLocalColumn()) {
-            specify().columnProductStatusCode();
-        }
-        doSetupSelect(() -> query().queryProductStatus());
-    }
-
     // [DBFlute-0.7.4]
     // ===================================================================================
     //                                                                             Specify
@@ -359,8 +297,6 @@ public class ImmuBsProductCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuProductCQ> {
-        protected ImmuProductCategoryCB.HpSpecification _productCategory;
-        protected ImmuProductStatusCB.HpSpecification _productStatus;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuProductCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
                              , HpSDRFunctionFactory sdrFuncFactory)
@@ -371,127 +307,66 @@ public class ImmuBsProductCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * (商品名称)PRODUCT_NAME: {IX, NotNull, VARCHAR(50)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
-        /**
-         * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
-        /**
-         * PRODUCT_CATEGORY_CODE: {IX, NotNull, CHAR(3), FK to product_category}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnProductCategoryCode() { return doColumn("PRODUCT_CATEGORY_CODE"); }
-        /**
-         * PRODUCT_STATUS_CODE: {IX, NotNull, CHAR(3), FK to product_status}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }
-        /**
-         * (定価)REGULAR_PRICE: {NotNull, INT(10)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnRegularPrice() { return doColumn("REGULAR_PRICE"); }
-        /**
-         * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+         * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterDatetime() { return doColumn("REGISTER_DATETIME"); }
         /**
-         * REGISTER_USER: {NotNull, VARCHAR(200)}
+         * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegisterUser() { return doColumn("REGISTER_USER"); }
         /**
-         * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+         * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateDatetime() { return doColumn("UPDATE_DATETIME"); }
         /**
-         * UPDATE_USER: {NotNull, VARCHAR(200)}
+         * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnUpdateUser() { return doColumn("UPDATE_USER"); }
-        /**
-         * VERSION_NO: {NotNull, BIGINT(19)}
-         * @return The information object of specified column. (NotNull)
-         */
-        public SpecifiedColumn columnVersionNo() { return doColumn("VERSION_NO"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
         protected void doSpecifyRequiredColumn() {
             columnProductId(); // PK
-            if (qyCall().qy().hasConditionQueryProductCategory()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuProductCategoryCQ) {
-                columnProductCategoryCode(); // FK or one-to-one referrer
-            }
-            if (qyCall().qy().hasConditionQueryProductStatus()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuProductStatusCQ) {
-                columnProductStatusCode(); // FK or one-to-one referrer
-            }
         }
         @Override
         protected String getTableDbName() { return "product"; }
         /**
-         * Prepare to specify functions about relation table. <br>
-         * (商品カテゴリ)PRODUCT_CATEGORY by my PRODUCT_CATEGORY_CODE, named 'productCategory'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public ImmuProductCategoryCB.HpSpecification specifyProductCategory() {
-            assertRelation("productCategory");
-            if (_productCategory == null) {
-                _productCategory = new ImmuProductCategoryCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProductCategory()
-                                    , () -> _qyCall.qy().queryProductCategory())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _productCategory.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProductCategory()
-                      , () -> xsyncQyCall().qy().queryProductCategory()));
-                }
-            }
-            return _productCategory;
-        }
-        /**
-         * Prepare to specify functions about relation table. <br>
-         * (商品ステータス)PRODUCT_STATUS by my PRODUCT_STATUS_CODE, named 'productStatus'.
-         * @return The instance for specification for relation table to specify. (NotNull)
-         */
-        public ImmuProductStatusCB.HpSpecification specifyProductStatus() {
-            assertRelation("productStatus");
-            if (_productStatus == null) {
-                _productStatus = new ImmuProductStatusCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryProductStatus()
-                                    , () -> _qyCall.qy().queryProductStatus())
-                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
-                if (xhasSyncQyCall()) { // inherits it
-                    _productStatus.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProductStatus()
-                      , () -> xsyncQyCall().qy().queryProductStatus()));
-                }
-            }
-            return _productStatus;
-        }
-        /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
-         * {select max(FOO) from purchase where ...) as FOO_MAX} <br>
-         * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
+         * {select max(FOO) from product_detail where ...) as FOO_MAX} <br>
+         * (商品詳細)PRODUCT_DETAIL by PRODUCT_ID, named 'productDetailList'.
          * <pre>
-         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-         *     purchaseCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *     purchaseCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
-         * }, ImmuPurchase.<span style="color: #CC4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(detailCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     detailCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     detailCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, ImmuProductDetail.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<ImmuPurchaseCB, ImmuProductCQ> derivedPurchase() {
-            assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ImmuPurchaseCB> sq, ImmuProductCQ cq, String al, DerivedReferrerOption op)
-                    -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
+        public HpSDRFunction<ImmuProductDetailCB, ImmuProductCQ> derivedProductDetail() {
+            assertDerived("productDetailList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ImmuProductDetailCB> sq, ImmuProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveProductDetailList(fn, sq, al, op), _dbmetaProvider);
+        }
+        /**
+         * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
+         * {select max(FOO) from product_price where ...) as FOO_MAX} <br>
+         * (商品価格)PRODUCT_PRICE by PRODUCT_ID, named 'productPriceList'.
+         * <pre>
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(priceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+         *     priceCB.specify().<span style="color: #CC4747">column...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     priceCB.query().set... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, ImmuProductPrice.<span style="color: #CC4747">ALIAS_foo...</span>);
+         * </pre>
+         * @return The object to set up a function for referrer table. (NotNull)
+         */
+        public HpSDRFunction<ImmuProductPriceCB, ImmuProductCQ> derivedProductPrice() {
+            assertDerived("productPriceList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<ImmuProductPriceCB> sq, ImmuProductCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveProductPriceList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).

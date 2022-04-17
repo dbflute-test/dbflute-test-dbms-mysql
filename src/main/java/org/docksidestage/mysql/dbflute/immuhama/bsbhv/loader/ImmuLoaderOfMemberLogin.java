@@ -22,7 +22,7 @@ import org.docksidestage.mysql.dbflute.immuhama.exbhv.*;
 import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
 
 /**
- * The referrer loader of (会員ログイン情報)MEMBER_LOGIN as TABLE. <br>
+ * The referrer loader of (会員ログイン)MEMBER_LOGIN as TABLE. <br>
  * <pre>
  * [primary key]
  *     MEMBER_LOGIN_ID
@@ -40,13 +40,13 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER
+ *     CDEF_MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     memberStatus, member
+ *     cdefMemberStatus, member
  *
  * [referrer property]
  *     
@@ -74,11 +74,11 @@ public class ImmuLoaderOfMemberLogin {
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================
-    protected ImmuLoaderOfMemberStatus _foreignMemberStatusLoader;
-    public ImmuLoaderOfMemberStatus pulloutMemberStatus() {
-        if (_foreignMemberStatusLoader == null)
-        { _foreignMemberStatusLoader = new ImmuLoaderOfMemberStatus().ready(myBhv().pulloutMemberStatus(_selectedList), _selector); }
-        return _foreignMemberStatusLoader;
+    protected ImmuLoaderOfCdefMemberStatus _foreignCdefMemberStatusLoader;
+    public ImmuLoaderOfCdefMemberStatus pulloutCdefMemberStatus() {
+        if (_foreignCdefMemberStatusLoader == null)
+        { _foreignCdefMemberStatusLoader = new ImmuLoaderOfCdefMemberStatus().ready(myBhv().pulloutCdefMemberStatus(_selectedList), _selector); }
+        return _foreignCdefMemberStatusLoader;
     }
 
     protected ImmuLoaderOfMember _foreignMemberLoader;

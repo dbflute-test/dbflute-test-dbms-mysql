@@ -30,7 +30,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_ID
  *
  * [column]
- *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, MEMBER_REGISTER_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -39,19 +39,19 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer table]
- *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
+ *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, MEMBER_LOGIN_PASSWORD, MEMBER_PASSWORD_REMINDER, MEMBER_PROFILE, MEMBER_STATUS, PURCHASE, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign property]
- *     memberStatus, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
- *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
+ *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, memberLoginPasswordList, memberPasswordReminderList, memberProfileList, memberStatusList, purchaseList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -80,7 +80,7 @@ public class ImmuLoaderOfMember {
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
+     * (会員住所)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -182,7 +182,7 @@ public class ImmuLoaderOfMember {
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
+     * (会員ログイン)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -210,6 +210,142 @@ public class ImmuLoaderOfMember {
     public NestedReferrerLoaderGateway<ImmuLoaderOfMemberLogin> loadMemberLogin(ReferrerConditionSetupper<ImmuMemberLoginCB> refCBLambda) {
         myBhv().loadMemberLogin(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberLogin = refLs);
         return hd -> hd.handle(new ImmuLoaderOfMemberLogin().ready(_referrerMemberLogin, _selector));
+    }
+
+    protected List<ImmuMemberLoginPassword> _referrerMemberLoginPassword;
+
+    /**
+     * Load referrer of memberLoginPasswordList by the set-upper of referrer. <br>
+     * (会員ログインパスワード)MEMBER_LOGIN_PASSWORD by MEMBER_ID, named 'memberLoginPasswordList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberLoginPassword</span>(<span style="color: #553000">passwordCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">passwordCB</span>.setupSelect...
+     *         <span style="color: #553000">passwordCB</span>.query().set...
+     *         <span style="color: #553000">passwordCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">passwordLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    passwordLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberLoginPasswordList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<ImmuLoaderOfMemberLoginPassword> loadMemberLoginPassword(ReferrerConditionSetupper<ImmuMemberLoginPasswordCB> refCBLambda) {
+        myBhv().loadMemberLoginPassword(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberLoginPassword = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfMemberLoginPassword().ready(_referrerMemberLoginPassword, _selector));
+    }
+
+    protected List<ImmuMemberPasswordReminder> _referrerMemberPasswordReminder;
+
+    /**
+     * Load referrer of memberPasswordReminderList by the set-upper of referrer. <br>
+     * (会員パスワードリマインダ)MEMBER_PASSWORD_REMINDER by MEMBER_ID, named 'memberPasswordReminderList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberPasswordReminder</span>(<span style="color: #553000">reminderCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">reminderCB</span>.setupSelect...
+     *         <span style="color: #553000">reminderCB</span>.query().set...
+     *         <span style="color: #553000">reminderCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">reminderLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    reminderLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberPasswordReminderList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<ImmuLoaderOfMemberPasswordReminder> loadMemberPasswordReminder(ReferrerConditionSetupper<ImmuMemberPasswordReminderCB> refCBLambda) {
+        myBhv().loadMemberPasswordReminder(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberPasswordReminder = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfMemberPasswordReminder().ready(_referrerMemberPasswordReminder, _selector));
+    }
+
+    protected List<ImmuMemberProfile> _referrerMemberProfile;
+
+    /**
+     * Load referrer of memberProfileList by the set-upper of referrer. <br>
+     * (会員プロフィール)MEMBER_PROFILE by MEMBER_ID, named 'memberProfileList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberProfile</span>(<span style="color: #553000">profileCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">profileCB</span>.setupSelect...
+     *         <span style="color: #553000">profileCB</span>.query().set...
+     *         <span style="color: #553000">profileCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">profileLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    profileLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberProfileList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<ImmuLoaderOfMemberProfile> loadMemberProfile(ReferrerConditionSetupper<ImmuMemberProfileCB> refCBLambda) {
+        myBhv().loadMemberProfile(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberProfile = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfMemberProfile().ready(_referrerMemberProfile, _selector));
+    }
+
+    protected List<ImmuMemberStatus> _referrerMemberStatus;
+
+    /**
+     * Load referrer of memberStatusList by the set-upper of referrer. <br>
+     * (会員ステータス)MEMBER_STATUS by MEMBER_ID, named 'memberStatusList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadMemberStatus</span>(<span style="color: #553000">statusCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">statusCB</span>.setupSelect...
+     *         <span style="color: #553000">statusCB</span>.query().set...
+     *         <span style="color: #553000">statusCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">statusLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    statusLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberStatusList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<ImmuLoaderOfMemberStatus> loadMemberStatus(ReferrerConditionSetupper<ImmuMemberStatusCB> refCBLambda) {
+        myBhv().loadMemberStatus(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberStatus = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfMemberStatus().ready(_referrerMemberStatus, _selector));
     }
 
     protected List<ImmuPurchase> _referrerPurchase;
@@ -249,20 +385,6 @@ public class ImmuLoaderOfMember {
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================
-    protected ImmuLoaderOfMemberStatus _foreignMemberStatusLoader;
-    public ImmuLoaderOfMemberStatus pulloutMemberStatus() {
-        if (_foreignMemberStatusLoader == null)
-        { _foreignMemberStatusLoader = new ImmuLoaderOfMemberStatus().ready(myBhv().pulloutMemberStatus(_selectedList), _selector); }
-        return _foreignMemberStatusLoader;
-    }
-
-    protected ImmuLoaderOfMemberSecurity _foreignMemberSecurityAsOneLoader;
-    public ImmuLoaderOfMemberSecurity pulloutMemberSecurityAsOne() {
-        if (_foreignMemberSecurityAsOneLoader == null)
-        { _foreignMemberSecurityAsOneLoader = new ImmuLoaderOfMemberSecurity().ready(myBhv().pulloutMemberSecurityAsOne(_selectedList), _selector); }
-        return _foreignMemberSecurityAsOneLoader;
-    }
-
     protected ImmuLoaderOfMemberService _foreignMemberServiceAsOneLoader;
     public ImmuLoaderOfMemberService pulloutMemberServiceAsOne() {
         if (_foreignMemberServiceAsOneLoader == null)

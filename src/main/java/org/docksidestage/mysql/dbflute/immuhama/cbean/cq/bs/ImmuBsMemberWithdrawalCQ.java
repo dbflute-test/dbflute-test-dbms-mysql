@@ -96,14 +96,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * MEMBER_ID: {PK, NotNull, INT(10), FK to member}
+     * (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * MEMBER_ID: {PK, NotNull, INT(10), FK to member}
+     * (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
@@ -116,14 +116,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason}
+     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_WithdrawalReasonCode_Asc() { regOBA("WITHDRAWAL_REASON_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, CHAR(3), FK to withdrawal_reason, classification=WithdrawalReason}
+     * (退会理由コード)WITHDRAWAL_REASON_CODE: {IX, NotNull, CHAR(3), FK to cdef_withdrawal_reason, classification=WithdrawalReason}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("WITHDRAWAL_REASON_CODE"); return this; }
@@ -176,14 +176,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
@@ -196,14 +196,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * REGISTER_USER: {NotNull, VARCHAR(200)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
@@ -216,14 +216,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
@@ -236,14 +236,14 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * UPDATE_USER: {NotNull, VARCHAR(200)}
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
     public ImmuBsMemberWithdrawalCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
@@ -292,8 +292,8 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
         if (bq.hasConditionQueryMember()) {
             uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
         }
-        if (bq.hasConditionQueryWithdrawalReason()) {
-            uq.queryWithdrawalReason().reflectRelationOnUnionQuery(bq.queryWithdrawalReason(), uq.queryWithdrawalReason());
+        if (bq.hasConditionQueryCdefWithdrawalReason()) {
+            uq.queryCdefWithdrawalReason().reflectRelationOnUnionQuery(bq.queryCdefWithdrawalReason(), uq.queryCdefWithdrawalReason());
         }
     }
 
@@ -322,23 +322,23 @@ public class ImmuBsMemberWithdrawalCQ extends ImmuAbstractBsMemberWithdrawalCQ {
 
     /**
      * Get the condition-query for relation table. <br>
-     * (退会理由)WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'withdrawalReason'.
+     * ([区分値]退会理由)CDEF_WITHDRAWAL_REASON by my WITHDRAWAL_REASON_CODE, named 'cdefWithdrawalReason'.
      * @return The instance of condition-query. (NotNull)
      */
-    public ImmuWithdrawalReasonCQ queryWithdrawalReason() {
-        return xdfgetConditionQueryWithdrawalReason();
+    public ImmuCdefWithdrawalReasonCQ queryCdefWithdrawalReason() {
+        return xdfgetConditionQueryCdefWithdrawalReason();
     }
-    public ImmuWithdrawalReasonCQ xdfgetConditionQueryWithdrawalReason() {
-        String prop = "withdrawalReason";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWithdrawalReason()); xsetupOuterJoinWithdrawalReason(); }
+    public ImmuCdefWithdrawalReasonCQ xdfgetConditionQueryCdefWithdrawalReason() {
+        String prop = "cdefWithdrawalReason";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryCdefWithdrawalReason()); xsetupOuterJoinCdefWithdrawalReason(); }
         return xgetQueRlMap(prop);
     }
-    protected ImmuWithdrawalReasonCQ xcreateQueryWithdrawalReason() {
-        String nrp = xresolveNRP("member_withdrawal", "withdrawalReason"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuWithdrawalReasonCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "withdrawalReason", nrp);
+    protected ImmuCdefWithdrawalReasonCQ xcreateQueryCdefWithdrawalReason() {
+        String nrp = xresolveNRP("member_withdrawal", "cdefWithdrawalReason"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuCdefWithdrawalReasonCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "cdefWithdrawalReason", nrp);
     }
-    protected void xsetupOuterJoinWithdrawalReason() { xregOutJo("withdrawalReason"); }
-    public boolean hasConditionQueryWithdrawalReason() { return xhasQueRlMap("withdrawalReason"); }
+    protected void xsetupOuterJoinCdefWithdrawalReason() { xregOutJo("cdefWithdrawalReason"); }
+    public boolean hasConditionQueryCdefWithdrawalReason() { return xhasQueRlMap("cdefWithdrawalReason"); }
 
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;

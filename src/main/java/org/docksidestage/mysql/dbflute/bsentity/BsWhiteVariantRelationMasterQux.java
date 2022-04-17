@@ -120,7 +120,7 @@ public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity imp
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.VariantRelationQuxType getQuxTypeCodeAsVariantRelationQuxType() {
-        return CDef.VariantRelationQuxType.codeOf(getQuxTypeCode());
+        return CDef.VariantRelationQuxType.of(getQuxTypeCode()).orElse(null);
     }
 
     /**

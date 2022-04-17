@@ -176,14 +176,14 @@ public class ImmuBsMemberLoginCQ extends ImmuAbstractBsMemberLoginCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
+     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public ImmuBsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Asc() { regOBA("LOGIN_MEMBER_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
+     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public ImmuBsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Desc() { regOBD("LOGIN_MEMBER_STATUS_CODE"); return this; }
@@ -229,8 +229,8 @@ public class ImmuBsMemberLoginCQ extends ImmuAbstractBsMemberLoginCQ {
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
         ImmuMemberLoginCQ bq = (ImmuMemberLoginCQ)bqs;
         ImmuMemberLoginCQ uq = (ImmuMemberLoginCQ)uqs;
-        if (bq.hasConditionQueryMemberStatus()) {
-            uq.queryMemberStatus().reflectRelationOnUnionQuery(bq.queryMemberStatus(), uq.queryMemberStatus());
+        if (bq.hasConditionQueryCdefMemberStatus()) {
+            uq.queryCdefMemberStatus().reflectRelationOnUnionQuery(bq.queryCdefMemberStatus(), uq.queryCdefMemberStatus());
         }
         if (bq.hasConditionQueryMember()) {
             uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
@@ -242,23 +242,23 @@ public class ImmuBsMemberLoginCQ extends ImmuAbstractBsMemberLoginCQ {
     //                                                                       =============
     /**
      * Get the condition-query for relation table. <br>
-     * (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
      * @return The instance of condition-query. (NotNull)
      */
-    public ImmuMemberStatusCQ queryMemberStatus() {
-        return xdfgetConditionQueryMemberStatus();
+    public ImmuCdefMemberStatusCQ queryCdefMemberStatus() {
+        return xdfgetConditionQueryCdefMemberStatus();
     }
-    public ImmuMemberStatusCQ xdfgetConditionQueryMemberStatus() {
-        String prop = "memberStatus";
-        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMemberStatus()); xsetupOuterJoinMemberStatus(); }
+    public ImmuCdefMemberStatusCQ xdfgetConditionQueryCdefMemberStatus() {
+        String prop = "cdefMemberStatus";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryCdefMemberStatus()); xsetupOuterJoinCdefMemberStatus(); }
         return xgetQueRlMap(prop);
     }
-    protected ImmuMemberStatusCQ xcreateQueryMemberStatus() {
-        String nrp = xresolveNRP("member_login", "memberStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
-        return xinitRelCQ(new ImmuMemberStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "memberStatus", nrp);
+    protected ImmuCdefMemberStatusCQ xcreateQueryCdefMemberStatus() {
+        String nrp = xresolveNRP("member_login", "cdefMemberStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuCdefMemberStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "cdefMemberStatus", nrp);
     }
-    protected void xsetupOuterJoinMemberStatus() { xregOutJo("memberStatus"); }
-    public boolean hasConditionQueryMemberStatus() { return xhasQueRlMap("memberStatus"); }
+    protected void xsetupOuterJoinCdefMemberStatus() { xregOutJo("cdefMemberStatus"); }
+    public boolean hasConditionQueryCdefMemberStatus() { return xhasQueRlMap("cdefMemberStatus"); }
 
     /**
      * Get the condition-query for relation table. <br>

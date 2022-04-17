@@ -76,30 +76,14 @@ public class ImmuMemberStatusCIQ extends ImmuAbstractBsMemberStatusCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
+    protected ConditionValue xgetCValueMemberStatusId() { return _myCQ.xdfgetMemberStatusId(); }
+    protected ConditionValue xgetCValueMemberId() { return _myCQ.xdfgetMemberId(); }
     protected ConditionValue xgetCValueMemberStatusCode() { return _myCQ.xdfgetMemberStatusCode(); }
-    public String keepMemberStatusCode_ExistsReferrer_MemberList(ImmuMemberCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepMemberStatusCode_ExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
-    { throwIICBOE("ExistsReferrer"); return null; }
-    public String keepMemberStatusCode_NotExistsReferrer_MemberList(ImmuMemberCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepMemberStatusCode_NotExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
-    { throwIICBOE("NotExistsReferrer"); return null; }
-    public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(ImmuMemberCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
-    { throwIICBOE("(Specify)DerivedReferrer"); return null; }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberList(ImmuMemberCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object vl)
-    { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue xgetCValueMemberStatusName() { return _myCQ.xdfgetMemberStatusName(); }
-    protected ConditionValue xgetCValueDescription() { return _myCQ.xdfgetDescription(); }
-    protected ConditionValue xgetCValueDisplayOrder() { return _myCQ.xdfgetDisplayOrder(); }
+    protected ConditionValue xgetCValueMemberStatusUpdateDatetime() { return _myCQ.xdfgetMemberStatusUpdateDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return _myCQ.xdfgetRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterUser() { return _myCQ.xdfgetRegisterUser(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return _myCQ.xdfgetUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateUser() { return _myCQ.xdfgetUpdateUser(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(ImmuMemberStatusCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -3,6 +3,7 @@ package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 import java.util.Arrays;
 import java.util.List;
 
+import org.dbflute.exception.ClassificationNotFoundException;
 import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.allcommon.CDef.GroupingReference;
 import org.docksidestage.mysql.dbflute.exentity.WhiteGroupingReference;
@@ -39,7 +40,7 @@ public class WxGroupingReferenceTest extends UnitContainerTestCase {
         //    assertEquals(Arrays.asList(CDef.GroupingReference.LAND_NAME, CDef.GroupingReference.SEA_NAME,
         //            CDef.GroupingReference.IKSPIARY_NAME), ls);
         //}
-        assertTrue(CDef.GroupingReference.groupOf("twoRef").isEmpty());
+        assertException(ClassificationNotFoundException.class, () -> CDef.GroupingReference.listByGroup("twoRef"));
         {
             List<GroupingReference> ls = CDef.GroupingReference.listOfDupRef();
             assertEquals(Arrays.asList(CDef.GroupingReference.LAND_NAME, CDef.GroupingReference.SEA_NAME,

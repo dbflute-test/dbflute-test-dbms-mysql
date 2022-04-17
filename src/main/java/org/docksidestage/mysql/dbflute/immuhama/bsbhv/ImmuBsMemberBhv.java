@@ -41,7 +41,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_ID
  *
  * [column]
- *     MEMBER_ID, MEMBER_NAME, MEMBER_ACCOUNT, MEMBER_STATUS_CODE, FORMALIZED_DATETIME, BIRTHDATE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_ID, MEMBER_REGISTER_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -50,19 +50,19 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER_SECURITY(AsOne), MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
+ *     MEMBER_SERVICE(AsOne), MEMBER_WITHDRAWAL(AsOne)
  *
  * [referrer table]
- *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, PURCHASE, MEMBER_SECURITY, MEMBER_SERVICE, MEMBER_WITHDRAWAL
+ *     MEMBER_ADDRESS, MEMBER_FOLLOWING, MEMBER_LOGIN, MEMBER_LOGIN_PASSWORD, MEMBER_PASSWORD_REMINDER, MEMBER_PROFILE, MEMBER_STATUS, PURCHASE, MEMBER_SERVICE, MEMBER_WITHDRAWAL
  *
  * [foreign property]
- *     memberStatus, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
+ *     memberServiceAsOne, memberWithdrawalAsOne
  *
  * [referrer property]
- *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, purchaseList
+ *     memberAddressList, memberFollowingByMyMemberIdList, memberFollowingByYourMemberIdList, memberLoginList, memberLoginPasswordList, memberPasswordReminderList, memberProfileList, memberStatusList, purchaseList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -197,31 +197,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     protected ImmuMemberCB xprepareCBAsPK(Integer memberId) {
         assertObjectNotNull("memberId", memberId);
         return newConditionBean().acceptPK(memberId);
-    }
-
-    /**
-     * Select the entity by the unique-key value.
-     * @param memberAccount (会員アカウント): UQ, NotNull, VARCHAR(50). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<ImmuMember> selectByUniqueOf(String memberAccount) {
-        return facadeSelectByUniqueOf(memberAccount);
-    }
-
-    protected OptionalEntity<ImmuMember> facadeSelectByUniqueOf(String memberAccount) {
-        return doSelectByUniqueOf(memberAccount, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends ImmuMember> OptionalEntity<ENTITY> doSelectByUniqueOf(String memberAccount, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberAccount), tp), memberAccount);
-    }
-
-    protected ImmuMemberCB xprepareCBAsUniqueOf(String memberAccount) {
-        assertObjectNotNull("memberAccount", memberAccount);
-        return newConditionBean().acceptUniqueOf(memberAccount);
     }
 
     // ===================================================================================
@@ -401,7 +376,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
+     * (会員住所)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
@@ -432,7 +407,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
-     * (会員住所情報)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
+     * (会員住所)MEMBER_ADDRESS by MEMBER_ID, named 'memberAddressList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">member</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
@@ -593,7 +568,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
+     * (会員ログイン)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...
@@ -624,7 +599,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
-     * (会員ログイン情報)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
+     * (会員ログイン)MEMBER_LOGIN by MEMBER_ID, named 'memberLoginList'.
      * <pre>
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">member</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...
@@ -653,6 +628,262 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
 
     protected NestedReferrerListGateway<ImmuMemberLogin> doLoadMemberLogin(List<ImmuMember> memberList, LoadReferrerOption<ImmuMemberLoginCB, ImmuMemberLogin> option) {
         return helpLoadReferrerInternally(memberList, option, "memberLoginList");
+    }
+
+    /**
+     * Load referrer of memberLoginPasswordList by the set-upper of referrer. <br>
+     * (会員ログインパスワード)MEMBER_LOGIN_PASSWORD by MEMBER_ID, named 'memberLoginPasswordList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLoginPassword</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">passwordCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">passwordCB</span>.setupSelect...
+     *     <span style="color: #553000">passwordCB</span>.query().set...
+     *     <span style="color: #553000">passwordCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberLoginPasswordList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param memberList The entity list of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberLoginPassword> loadMemberLoginPassword(List<ImmuMember> memberList, ReferrerConditionSetupper<ImmuMemberLoginPasswordCB> refCBLambda) {
+        xassLRArg(memberList, refCBLambda);
+        return doLoadMemberLoginPassword(memberList, new LoadReferrerOption<ImmuMemberLoginPasswordCB, ImmuMemberLoginPassword>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of memberLoginPasswordList by the set-upper of referrer. <br>
+     * (会員ログインパスワード)MEMBER_LOGIN_PASSWORD by MEMBER_ID, named 'memberLoginPasswordList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLoginPassword</span>(<span style="color: #553000">member</span>, <span style="color: #553000">passwordCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">passwordCB</span>.setupSelect...
+     *     <span style="color: #553000">passwordCB</span>.query().set...
+     *     <span style="color: #553000">passwordCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberLoginPasswordList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param member The entity of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberLoginPassword> loadMemberLoginPassword(ImmuMember member, ReferrerConditionSetupper<ImmuMemberLoginPasswordCB> refCBLambda) {
+        xassLRArg(member, refCBLambda);
+        return doLoadMemberLoginPassword(xnewLRLs(member), new LoadReferrerOption<ImmuMemberLoginPasswordCB, ImmuMemberLoginPassword>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<ImmuMemberLoginPassword> doLoadMemberLoginPassword(List<ImmuMember> memberList, LoadReferrerOption<ImmuMemberLoginPasswordCB, ImmuMemberLoginPassword> option) {
+        return helpLoadReferrerInternally(memberList, option, "memberLoginPasswordList");
+    }
+
+    /**
+     * Load referrer of memberPasswordReminderList by the set-upper of referrer. <br>
+     * (会員パスワードリマインダ)MEMBER_PASSWORD_REMINDER by MEMBER_ID, named 'memberPasswordReminderList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberPasswordReminder</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">reminderCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">reminderCB</span>.setupSelect...
+     *     <span style="color: #553000">reminderCB</span>.query().set...
+     *     <span style="color: #553000">reminderCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberPasswordReminderList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param memberList The entity list of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberPasswordReminder> loadMemberPasswordReminder(List<ImmuMember> memberList, ReferrerConditionSetupper<ImmuMemberPasswordReminderCB> refCBLambda) {
+        xassLRArg(memberList, refCBLambda);
+        return doLoadMemberPasswordReminder(memberList, new LoadReferrerOption<ImmuMemberPasswordReminderCB, ImmuMemberPasswordReminder>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of memberPasswordReminderList by the set-upper of referrer. <br>
+     * (会員パスワードリマインダ)MEMBER_PASSWORD_REMINDER by MEMBER_ID, named 'memberPasswordReminderList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberPasswordReminder</span>(<span style="color: #553000">member</span>, <span style="color: #553000">reminderCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">reminderCB</span>.setupSelect...
+     *     <span style="color: #553000">reminderCB</span>.query().set...
+     *     <span style="color: #553000">reminderCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberPasswordReminderList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param member The entity of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberPasswordReminder> loadMemberPasswordReminder(ImmuMember member, ReferrerConditionSetupper<ImmuMemberPasswordReminderCB> refCBLambda) {
+        xassLRArg(member, refCBLambda);
+        return doLoadMemberPasswordReminder(xnewLRLs(member), new LoadReferrerOption<ImmuMemberPasswordReminderCB, ImmuMemberPasswordReminder>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<ImmuMemberPasswordReminder> doLoadMemberPasswordReminder(List<ImmuMember> memberList, LoadReferrerOption<ImmuMemberPasswordReminderCB, ImmuMemberPasswordReminder> option) {
+        return helpLoadReferrerInternally(memberList, option, "memberPasswordReminderList");
+    }
+
+    /**
+     * Load referrer of memberProfileList by the set-upper of referrer. <br>
+     * (会員プロフィール)MEMBER_PROFILE by MEMBER_ID, named 'memberProfileList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberProfile</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">profileCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">profileCB</span>.setupSelect...
+     *     <span style="color: #553000">profileCB</span>.query().set...
+     *     <span style="color: #553000">profileCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberProfileList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param memberList The entity list of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberProfile> loadMemberProfile(List<ImmuMember> memberList, ReferrerConditionSetupper<ImmuMemberProfileCB> refCBLambda) {
+        xassLRArg(memberList, refCBLambda);
+        return doLoadMemberProfile(memberList, new LoadReferrerOption<ImmuMemberProfileCB, ImmuMemberProfile>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of memberProfileList by the set-upper of referrer. <br>
+     * (会員プロフィール)MEMBER_PROFILE by MEMBER_ID, named 'memberProfileList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberProfile</span>(<span style="color: #553000">member</span>, <span style="color: #553000">profileCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">profileCB</span>.setupSelect...
+     *     <span style="color: #553000">profileCB</span>.query().set...
+     *     <span style="color: #553000">profileCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberProfileList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param member The entity of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberProfile> loadMemberProfile(ImmuMember member, ReferrerConditionSetupper<ImmuMemberProfileCB> refCBLambda) {
+        xassLRArg(member, refCBLambda);
+        return doLoadMemberProfile(xnewLRLs(member), new LoadReferrerOption<ImmuMemberProfileCB, ImmuMemberProfile>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<ImmuMemberProfile> doLoadMemberProfile(List<ImmuMember> memberList, LoadReferrerOption<ImmuMemberProfileCB, ImmuMemberProfile> option) {
+        return helpLoadReferrerInternally(memberList, option, "memberProfileList");
+    }
+
+    /**
+     * Load referrer of memberStatusList by the set-upper of referrer. <br>
+     * (会員ステータス)MEMBER_STATUS by MEMBER_ID, named 'memberStatusList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberStatus</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">statusCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">statusCB</span>.setupSelect...
+     *     <span style="color: #553000">statusCB</span>.query().set...
+     *     <span style="color: #553000">statusCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (ImmuMember member : <span style="color: #553000">memberList</span>) {
+     *     ... = member.<span style="color: #CC4747">getMemberStatusList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param memberList The entity list of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberStatus> loadMemberStatus(List<ImmuMember> memberList, ReferrerConditionSetupper<ImmuMemberStatusCB> refCBLambda) {
+        xassLRArg(memberList, refCBLambda);
+        return doLoadMemberStatus(memberList, new LoadReferrerOption<ImmuMemberStatusCB, ImmuMemberStatus>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of memberStatusList by the set-upper of referrer. <br>
+     * (会員ステータス)MEMBER_STATUS by MEMBER_ID, named 'memberStatusList'.
+     * <pre>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberStatus</span>(<span style="color: #553000">member</span>, <span style="color: #553000">statusCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">statusCB</span>.setupSelect...
+     *     <span style="color: #553000">statusCB</span>.query().set...
+     *     <span style="color: #553000">statusCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">member</span>.<span style="color: #CC4747">getMemberStatusList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setMemberId_InScope(pkList);
+     * cb.query().addOrderBy_MemberId_Asc();
+     * </pre>
+     * @param member The entity of member. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuMemberStatus> loadMemberStatus(ImmuMember member, ReferrerConditionSetupper<ImmuMemberStatusCB> refCBLambda) {
+        xassLRArg(member, refCBLambda);
+        return doLoadMemberStatus(xnewLRLs(member), new LoadReferrerOption<ImmuMemberStatusCB, ImmuMemberStatus>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<ImmuMemberStatus> doLoadMemberStatus(List<ImmuMember> memberList, LoadReferrerOption<ImmuMemberStatusCB, ImmuMemberStatus> option) {
+        return helpLoadReferrerInternally(memberList, option, "memberStatusList");
     }
 
     /**
@@ -723,22 +954,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     //                                                                   Pull out Relation
     //                                                                   =================
     /**
-     * Pull out the list of foreign table 'ImmuMemberStatus'.
-     * @param memberList The list of member. (NotNull, EmptyAllowed)
-     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<ImmuMemberStatus> pulloutMemberStatus(List<ImmuMember> memberList)
-    { return helpPulloutInternally(memberList, "memberStatus"); }
-
-    /**
-     * Pull out the list of referrer-as-one table 'ImmuMemberSecurity'.
-     * @param memberList The list of member. (NotNull, EmptyAllowed)
-     * @return The list of referrer-as-one table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<ImmuMemberSecurity> pulloutMemberSecurityAsOne(List<ImmuMember> memberList)
-    { return helpPulloutInternally(memberList, "memberSecurityAsOne"); }
-
-    /**
      * Pull out the list of referrer-as-one table 'ImmuMemberService'.
      * @param memberList The list of member. (NotNull, EmptyAllowed)
      * @return The list of referrer-as-one table. (NotNull, EmptyAllowed, NotNullElement)
@@ -765,14 +980,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     public List<Integer> extractMemberIdList(List<ImmuMember> memberList)
     { return helpExtractListInternally(memberList, "memberId"); }
 
-    /**
-     * Extract the value list of (single) unique key memberAccount.
-     * @param memberList The list of member. (NotNull, EmptyAllowed)
-     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<String> extractMemberAccountList(List<ImmuMember> memberList)
-    { return helpExtractListInternally(memberList, "memberAccount"); }
-
     // ===================================================================================
     //                                                                       Entity Update
     //                                                                       =============
@@ -798,7 +1005,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
@@ -811,8 +1018,8 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
      * member.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">update</span>(member);
      * </pre>
-     * @param member The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @param member The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -821,35 +1028,11 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Update the entity non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
-     * member.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * member.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//member.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//member.set...;</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//member.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">updateNonstrict</span>(member);
-     * </pre>
-     * @param member The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void updateNonstrict(ImmuMember member) {
-        doUpdateNonstrict(member, null);
-    }
-
-    /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br>
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param member The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -858,20 +1041,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() }
-     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param member The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void insertOrUpdateNonstrict(ImmuMember member) {
-        doInsertOrUpdateNonstrict(member, null, null);
-    }
-
-    /**
-     * Delete the entity. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
@@ -884,31 +1054,12 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
      *     ...
      * }
      * </pre>
-     * @param member The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void delete(ImmuMember member) {
-        doDelete(member, null);
-    }
-
-    /**
-     * Delete the entity non-strictly. {ZeroUpdateException, NonExclusiveControl} <br>
-     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
-     * member.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//member.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">deleteNonstrict</span>(member);
-     * </pre>
      * @param member The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void deleteNonstrict(ImmuMember member) {
-        doDeleteNonstrict(member, null);
+    public void delete(ImmuMember member) {
+        doDelete(member, null);
     }
 
     // ===================================================================================
@@ -943,7 +1094,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br>
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
@@ -962,62 +1113,23 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
      * }
      * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberList);
      * </pre>
-     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<ImmuMember> memberList) {
         return doBatchUpdate(memberList, null);
     }
 
     /**
-     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
-     * <span style="color: #CC4747; font-size: 140%">You should specify same-set columns to all entities like this:</span>
-     * <pre>
-     * <span style="color: #70226C">for</span> (... : ...) {
-     *     ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
-     *     member.setFooName("foo");
-     *     <span style="color: #70226C">if</span> (...) {
-     *         member.setFooPrice(123);
-     *     } <span style="color: #70226C">else</span> {
-     *         member.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//member.setFooDate(...); // *not allowed, fragmented</span>
-     *     }
-     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
-     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     memberList.add(member);
-     * }
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberList);
-     * </pre>
-     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchUpdateNonstrict(List<ImmuMember> memberList) {
-        return doBatchUpdateNonstrict(memberList, null);
-    }
-
-    /**
-     * Batch-delete the entity list. (ExclusiveControl) <br>
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<ImmuMember> memberList) {
         return doBatchDelete(memberList, null);
-    }
-
-    /**
-     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchDeleteNonstrict(List<ImmuMember> memberList) {
-        return doBatchDeleteNonstrict(memberList, null);
     }
 
     // ===================================================================================
@@ -1124,7 +1236,7 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
@@ -1140,9 +1252,9 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param member The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param member The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -1151,40 +1263,12 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
-     * Other specifications are same as updateNonstrict(entity).
-     * <pre>
-     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * ImmuMember member = <span style="color: #70226C">new</span> ImmuMember();
-     * member.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * member.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//member.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">varyingUpdateNonstrict</span>(member, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     * });
-     * </pre>
-     * @param member The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingUpdateNonstrict(ImmuMember member, WritableOptionCall<ImmuMemberCB, UpdateOption<ImmuMemberCB>> opLambda) {
-        doUpdateNonstrict(member, createUpdateOption(opLambda));
-    }
-
-    /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param member The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -1193,43 +1277,16 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br>
-     * Other specifications are same as insertOrUpdateNonstrict(entity).
-     * @param member The entity of insert or update. (NotNull)
-     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
-     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingInsertOrUpdateNonstrict(ImmuMember member, WritableOptionCall<ImmuMemberCB, InsertOption<ImmuMemberCB>> insertOpLambda, WritableOptionCall<ImmuMemberCB, UpdateOption<ImmuMemberCB>> updateOpLambda) {
-        doInsertOrUpdateNonstrict(member, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param member The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(ImmuMember member, WritableOptionCall<ImmuMemberCB, DeleteOption<ImmuMemberCB>> opLambda) {
         doDelete(member, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br>
-     * Now a valid option does not exist. <br>
-     * Other specifications are same as deleteNonstrict(entity).
-     * @param member The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void varyingDeleteNonstrict(ImmuMember member, WritableOptionCall<ImmuMemberCB, DeleteOption<ImmuMemberCB>> opLambda) {
-        doDeleteNonstrict(member, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1262,19 +1319,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     }
 
     /**
-     * Batch-update the list with varying requests non-strictly. <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
-     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchUpdateNonstrict(List<ImmuMember> memberList, WritableOptionCall<ImmuMemberCB, UpdateOption<ImmuMemberCB>> opLambda) {
-        return doBatchUpdateNonstrict(memberList, createUpdateOption(opLambda));
-    }
-
-    /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
@@ -1284,18 +1328,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
      */
     public int[] varyingBatchDelete(List<ImmuMember> memberList, WritableOptionCall<ImmuMemberCB, DeleteOption<ImmuMemberCB>> opLambda) {
         return doBatchDelete(memberList, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Batch-delete the list with varying requests non-strictly. <br>
-     * For example, limitBatchDeleteLogging(). <br>
-     * Other specifications are same as batchDeleteNonstrict(entityList).
-     * @param memberList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchDeleteNonstrict(List<ImmuMember> memberList, WritableOptionCall<ImmuMemberCB, DeleteOption<ImmuMemberCB>> opLambda) {
-        return doBatchDeleteNonstrict(memberList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1399,12 +1431,6 @@ public abstract class ImmuBsMemberBhv extends AbstractBehaviorWritable<ImmuMembe
     public OutsideSqlAllFacadeExecutor<ImmuMemberBhv> outsideSql() {
         return doOutsideSql();
     }
-
-    // ===================================================================================
-    //                                                                Optimistic Lock Info
-    //                                                                ====================
-    @Override
-    protected boolean hasVersionNoValue(Entity et) { return downcast(et).getVersionNo() != null; }
 
     // ===================================================================================
     //                                                                         Type Helper

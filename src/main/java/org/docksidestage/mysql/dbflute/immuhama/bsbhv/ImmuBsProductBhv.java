@@ -41,7 +41,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PRODUCT_ID
  *
  * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PRODUCT_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -50,19 +50,19 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PRODUCT_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     PRODUCT_CATEGORY, PRODUCT_STATUS
+ *     
  *
  * [referrer table]
- *     PURCHASE
+ *     PRODUCT_DETAIL, PRODUCT_PRICE
  *
  * [foreign property]
- *     productCategory, productStatus
+ *     
  *
  * [referrer property]
- *     purchaseList
+ *     productDetailList, productPriceList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -197,31 +197,6 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     protected ImmuProductCB xprepareCBAsPK(Integer productId) {
         assertObjectNotNull("productId", productId);
         return newConditionBean().acceptPK(productId);
-    }
-
-    /**
-     * Select the entity by the unique-key value.
-     * @param productHandleCode (商品ハンドルコード): UQ, NotNull, VARCHAR(100). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<ImmuProduct> selectByUniqueOf(String productHandleCode) {
-        return facadeSelectByUniqueOf(productHandleCode);
-    }
-
-    protected OptionalEntity<ImmuProduct> facadeSelectByUniqueOf(String productHandleCode) {
-        return doSelectByUniqueOf(productHandleCode, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends ImmuProduct> OptionalEntity<ENTITY> doSelectByUniqueOf(String productHandleCode, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(productHandleCode), tp), productHandleCode);
-    }
-
-    protected ImmuProductCB xprepareCBAsUniqueOf(String productHandleCode) {
-        assertObjectNotNull("productHandleCode", productHandleCode);
-        return newConditionBean().acceptUniqueOf(productHandleCode);
     }
 
     // ===================================================================================
@@ -400,19 +375,19 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
+     * Load referrer of productDetailList by the set-upper of referrer. <br>
+     * (商品詳細)PRODUCT_DETAIL by PRODUCT_ID, named 'productDetailList'.
      * <pre>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">purchaseCB</span>.setupSelect...
-     *     <span style="color: #553000">purchaseCB</span>.query().set...
-     *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadProductDetail</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">detailCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">detailCB</span>.setupSelect...
+     *     <span style="color: #553000">detailCB</span>.query().set...
+     *     <span style="color: #553000">detailCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * <span style="color: #70226C">for</span> (ImmuProduct product : <span style="color: #553000">productList</span>) {
-     *     ... = product.<span style="color: #CC4747">getPurchaseList()</span>;
+     *     ... = product.<span style="color: #CC4747">getProductDetailList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
@@ -425,24 +400,24 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<ImmuPurchase> loadPurchase(List<ImmuProduct> productList, ReferrerConditionSetupper<ImmuPurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<ImmuProductDetail> loadProductDetail(List<ImmuProduct> productList, ReferrerConditionSetupper<ImmuProductDetailCB> refCBLambda) {
         xassLRArg(productList, refCBLambda);
-        return doLoadPurchase(productList, new LoadReferrerOption<ImmuPurchaseCB, ImmuPurchase>().xinit(refCBLambda));
+        return doLoadProductDetail(productList, new LoadReferrerOption<ImmuProductDetailCB, ImmuProductDetail>().xinit(refCBLambda));
     }
 
     /**
-     * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
+     * Load referrer of productDetailList by the set-upper of referrer. <br>
+     * (商品詳細)PRODUCT_DETAIL by PRODUCT_ID, named 'productDetailList'.
      * <pre>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">product</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">purchaseCB</span>.setupSelect...
-     *     <span style="color: #553000">purchaseCB</span>.query().set...
-     *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadProductDetail</span>(<span style="color: #553000">product</span>, <span style="color: #553000">detailCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">detailCB</span>.setupSelect...
+     *     <span style="color: #553000">detailCB</span>.query().set...
+     *     <span style="color: #553000">detailCB</span>.query().addOrderBy...
      * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
      * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getProductDetailList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -454,34 +429,82 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<ImmuPurchase> loadPurchase(ImmuProduct product, ReferrerConditionSetupper<ImmuPurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<ImmuProductDetail> loadProductDetail(ImmuProduct product, ReferrerConditionSetupper<ImmuProductDetailCB> refCBLambda) {
         xassLRArg(product, refCBLambda);
-        return doLoadPurchase(xnewLRLs(product), new LoadReferrerOption<ImmuPurchaseCB, ImmuPurchase>().xinit(refCBLambda));
+        return doLoadProductDetail(xnewLRLs(product), new LoadReferrerOption<ImmuProductDetailCB, ImmuProductDetail>().xinit(refCBLambda));
     }
 
-    protected NestedReferrerListGateway<ImmuPurchase> doLoadPurchase(List<ImmuProduct> productList, LoadReferrerOption<ImmuPurchaseCB, ImmuPurchase> option) {
-        return helpLoadReferrerInternally(productList, option, "purchaseList");
+    protected NestedReferrerListGateway<ImmuProductDetail> doLoadProductDetail(List<ImmuProduct> productList, LoadReferrerOption<ImmuProductDetailCB, ImmuProductDetail> option) {
+        return helpLoadReferrerInternally(productList, option, "productDetailList");
+    }
+
+    /**
+     * Load referrer of productPriceList by the set-upper of referrer. <br>
+     * (商品価格)PRODUCT_PRICE by PRODUCT_ID, named 'productPriceList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadProductPrice</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">priceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">priceCB</span>.setupSelect...
+     *     <span style="color: #553000">priceCB</span>.query().set...
+     *     <span style="color: #553000">priceCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * <span style="color: #70226C">for</span> (ImmuProduct product : <span style="color: #553000">productList</span>) {
+     *     ... = product.<span style="color: #CC4747">getProductPriceList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param productList The entity list of product. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuProductPrice> loadProductPrice(List<ImmuProduct> productList, ReferrerConditionSetupper<ImmuProductPriceCB> refCBLambda) {
+        xassLRArg(productList, refCBLambda);
+        return doLoadProductPrice(productList, new LoadReferrerOption<ImmuProductPriceCB, ImmuProductPrice>().xinit(refCBLambda));
+    }
+
+    /**
+     * Load referrer of productPriceList by the set-upper of referrer. <br>
+     * (商品価格)PRODUCT_PRICE by PRODUCT_ID, named 'productPriceList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">loadProductPrice</span>(<span style="color: #553000">product</span>, <span style="color: #553000">priceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">priceCB</span>.setupSelect...
+     *     <span style="color: #553000">priceCB</span>.query().set...
+     *     <span style="color: #553000">priceCB</span>.query().addOrderBy...
+     * }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     * <span style="color: #3F7E5E">//}).withNestedReferrer(referrerList -&gt; {</span>
+     * <span style="color: #3F7E5E">//    ...</span>
+     * <span style="color: #3F7E5E">//});</span>
+     * ... = <span style="color: #553000">product</span>.<span style="color: #CC4747">getProductPriceList()</span>;
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param product The entity of product. (NotNull)
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerListGateway<ImmuProductPrice> loadProductPrice(ImmuProduct product, ReferrerConditionSetupper<ImmuProductPriceCB> refCBLambda) {
+        xassLRArg(product, refCBLambda);
+        return doLoadProductPrice(xnewLRLs(product), new LoadReferrerOption<ImmuProductPriceCB, ImmuProductPrice>().xinit(refCBLambda));
+    }
+
+    protected NestedReferrerListGateway<ImmuProductPrice> doLoadProductPrice(List<ImmuProduct> productList, LoadReferrerOption<ImmuProductPriceCB, ImmuProductPrice> option) {
+        return helpLoadReferrerInternally(productList, option, "productPriceList");
     }
 
     // ===================================================================================
     //                                                                   Pull out Relation
     //                                                                   =================
-    /**
-     * Pull out the list of foreign table 'ImmuProductCategory'.
-     * @param productList The list of product. (NotNull, EmptyAllowed)
-     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<ImmuProductCategory> pulloutProductCategory(List<ImmuProduct> productList)
-    { return helpPulloutInternally(productList, "productCategory"); }
-
-    /**
-     * Pull out the list of foreign table 'ImmuProductStatus'.
-     * @param productList The list of product. (NotNull, EmptyAllowed)
-     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<ImmuProductStatus> pulloutProductStatus(List<ImmuProduct> productList)
-    { return helpPulloutInternally(productList, "productStatus"); }
-
     // ===================================================================================
     //                                                                      Extract Column
     //                                                                      ==============
@@ -492,14 +515,6 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      */
     public List<Integer> extractProductIdList(List<ImmuProduct> productList)
     { return helpExtractListInternally(productList, "productId"); }
-
-    /**
-     * Extract the value list of (single) unique key productHandleCode.
-     * @param productList The list of product. (NotNull, EmptyAllowed)
-     * @return The list of the column value. (NotNull, EmptyAllowed, NotNullElement)
-     */
-    public List<String> extractProductHandleCodeList(List<ImmuProduct> productList)
-    { return helpExtractListInternally(productList, "productHandleCode"); }
 
     // ===================================================================================
     //                                                                       Entity Update
@@ -526,7 +541,7 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
@@ -539,8 +554,8 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      * product.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">update</span>(product);
      * </pre>
-     * @param product The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @param product The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -549,35 +564,11 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Update the entity non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
-     * product.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * product.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//product.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//product.set...;</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//product.setVersionNo(value);</span>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">updateNonstrict</span>(product);
-     * </pre>
-     * @param product The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void updateNonstrict(ImmuProduct product) {
-        doUpdateNonstrict(product, null);
-    }
-
-    /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br>
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param product The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -586,20 +577,7 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() }
-     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param product The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void insertOrUpdateNonstrict(ImmuProduct product) {
-        doInsertOrUpdateNonstrict(product, null, null);
-    }
-
-    /**
-     * Delete the entity. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
@@ -612,31 +590,12 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      *     ...
      * }
      * </pre>
-     * @param product The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void delete(ImmuProduct product) {
-        doDelete(product, null);
-    }
-
-    /**
-     * Delete the entity non-strictly. {ZeroUpdateException, NonExclusiveControl} <br>
-     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
-     * product.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//product.setVersionNo(value);</span>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">deleteNonstrict</span>(product);
-     * </pre>
      * @param product The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void deleteNonstrict(ImmuProduct product) {
-        doDeleteNonstrict(product, null);
+    public void delete(ImmuProduct product) {
+        doDelete(product, null);
     }
 
     // ===================================================================================
@@ -671,7 +630,7 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br>
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
@@ -690,62 +649,23 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      * }
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">batchUpdate</span>(productList);
      * </pre>
-     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<ImmuProduct> productList) {
         return doBatchUpdate(productList, null);
     }
 
     /**
-     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
-     * <span style="color: #CC4747; font-size: 140%">You should specify same-set columns to all entities like this:</span>
-     * <pre>
-     * <span style="color: #70226C">for</span> (... : ...) {
-     *     ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
-     *     product.setFooName("foo");
-     *     <span style="color: #70226C">if</span> (...) {
-     *         product.setFooPrice(123);
-     *     } <span style="color: #70226C">else</span> {
-     *         product.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//product.setFooDate(...); // *not allowed, fragmented</span>
-     *     }
-     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
-     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     productList.add(product);
-     * }
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">batchUpdate</span>(productList);
-     * </pre>
-     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchUpdateNonstrict(List<ImmuProduct> productList) {
-        return doBatchUpdateNonstrict(productList, null);
-    }
-
-    /**
-     * Batch-delete the entity list. (ExclusiveControl) <br>
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<ImmuProduct> productList) {
         return doBatchDelete(productList, null);
-    }
-
-    /**
-     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchDeleteNonstrict(List<ImmuProduct> productList) {
-        return doBatchDeleteNonstrict(productList, null);
     }
 
     // ===================================================================================
@@ -852,7 +772,7 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
@@ -868,9 +788,9 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param product The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param product The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -879,40 +799,12 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
-     * Other specifications are same as updateNonstrict(entity).
-     * <pre>
-     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * ImmuProduct product = <span style="color: #70226C">new</span> ImmuProduct();
-     * product.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * product.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//product.setVersionNo(value);</span>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">varyingUpdateNonstrict</span>(product, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     * });
-     * </pre>
-     * @param product The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingUpdateNonstrict(ImmuProduct product, WritableOptionCall<ImmuProductCB, UpdateOption<ImmuProductCB>> opLambda) {
-        doUpdateNonstrict(product, createUpdateOption(opLambda));
-    }
-
-    /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param product The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -921,43 +813,16 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br>
-     * Other specifications are same as insertOrUpdateNonstrict(entity).
-     * @param product The entity of insert or update. (NotNull)
-     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
-     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingInsertOrUpdateNonstrict(ImmuProduct product, WritableOptionCall<ImmuProductCB, InsertOption<ImmuProductCB>> insertOpLambda, WritableOptionCall<ImmuProductCB, UpdateOption<ImmuProductCB>> updateOpLambda) {
-        doInsertOrUpdateNonstrict(product, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param product The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(ImmuProduct product, WritableOptionCall<ImmuProductCB, DeleteOption<ImmuProductCB>> opLambda) {
         doDelete(product, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br>
-     * Now a valid option does not exist. <br>
-     * Other specifications are same as deleteNonstrict(entity).
-     * @param product The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void varyingDeleteNonstrict(ImmuProduct product, WritableOptionCall<ImmuProductCB, DeleteOption<ImmuProductCB>> opLambda) {
-        doDeleteNonstrict(product, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -990,19 +855,6 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     }
 
     /**
-     * Batch-update the list with varying requests non-strictly. <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
-     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchUpdateNonstrict(List<ImmuProduct> productList, WritableOptionCall<ImmuProductCB, UpdateOption<ImmuProductCB>> opLambda) {
-        return doBatchUpdateNonstrict(productList, createUpdateOption(opLambda));
-    }
-
-    /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
@@ -1012,18 +864,6 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
      */
     public int[] varyingBatchDelete(List<ImmuProduct> productList, WritableOptionCall<ImmuProductCB, DeleteOption<ImmuProductCB>> opLambda) {
         return doBatchDelete(productList, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Batch-delete the list with varying requests non-strictly. <br>
-     * For example, limitBatchDeleteLogging(). <br>
-     * Other specifications are same as batchDeleteNonstrict(entityList).
-     * @param productList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchDeleteNonstrict(List<ImmuProduct> productList, WritableOptionCall<ImmuProductCB, DeleteOption<ImmuProductCB>> opLambda) {
-        return doBatchDeleteNonstrict(productList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1127,12 +967,6 @@ public abstract class ImmuBsProductBhv extends AbstractBehaviorWritable<ImmuProd
     public OutsideSqlAllFacadeExecutor<ImmuProductBhv> outsideSql() {
         return doOutsideSql();
     }
-
-    // ===================================================================================
-    //                                                                Optimistic Lock Info
-    //                                                                ====================
-    @Override
-    protected boolean hasVersionNoValue(Entity et) { return downcast(et).getVersionNo() != null; }
 
     // ===================================================================================
     //                                                                         Type Helper

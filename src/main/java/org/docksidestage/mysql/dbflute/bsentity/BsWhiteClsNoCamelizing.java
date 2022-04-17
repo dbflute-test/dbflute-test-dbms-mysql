@@ -115,7 +115,7 @@ public abstract class BsWhiteClsNoCamelizing extends AbstractEntity implements D
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.NamingDefaultCamelizingType getNoCamelizingCodeAsNamingDefaultCamelizingType() {
-        return CDef.NamingDefaultCamelizingType.codeOf(getNoCamelizingCode());
+        return CDef.NamingDefaultCamelizingType.of(getNoCamelizingCode()).orElse(null);
     }
 
     /**

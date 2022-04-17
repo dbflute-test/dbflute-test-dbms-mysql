@@ -30,7 +30,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PRODUCT_ID
  *
  * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_CATEGORY_CODE, PRODUCT_STATUS_CODE, REGULAR_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PRODUCT_ID, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -39,19 +39,19 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PRODUCT_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     PRODUCT_CATEGORY, PRODUCT_STATUS
+ *     
  *
  * [referrer table]
- *     PURCHASE
+ *     PRODUCT_DETAIL, PRODUCT_PRICE
  *
  * [foreign property]
- *     productCategory, productStatus
+ *     
  *
  * [referrer property]
- *     purchaseList
+ *     productDetailList, productPriceList
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
@@ -76,24 +76,24 @@ public class ImmuLoaderOfProduct {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<ImmuPurchase> _referrerPurchase;
+    protected List<ImmuProductDetail> _referrerProductDetail;
 
     /**
-     * Load referrer of purchaseList by the set-upper of referrer. <br>
-     * (購入)PURCHASE by PRODUCT_ID, named 'purchaseList'.
+     * Load referrer of productDetailList by the set-upper of referrer. <br>
+     * (商品詳細)PRODUCT_DETAIL by PRODUCT_ID, named 'productDetailList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
-     *         <span style="color: #553000">purchaseCB</span>.query().set...
-     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
+     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadProductDetail</span>(<span style="color: #553000">detailCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">detailCB</span>.setupSelect...
+     *         <span style="color: #553000">detailCB</span>.query().set...
+     *         <span style="color: #553000">detailCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt; {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.load...</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">detailLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    detailLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
      * for (ImmuProduct product : <span style="color: #553000">productList</span>) {
-     *     ... = product.<span style="color: #CC4747">getPurchaseList()</span>;
+     *     ... = product.<span style="color: #CC4747">getProductDetailList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
@@ -105,28 +105,48 @@ public class ImmuLoaderOfProduct {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<ImmuLoaderOfPurchase> loadPurchase(ReferrerConditionSetupper<ImmuPurchaseCB> refCBLambda) {
-        myBhv().loadPurchase(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerPurchase = refLs);
-        return hd -> hd.handle(new ImmuLoaderOfPurchase().ready(_referrerPurchase, _selector));
+    public NestedReferrerLoaderGateway<ImmuLoaderOfProductDetail> loadProductDetail(ReferrerConditionSetupper<ImmuProductDetailCB> refCBLambda) {
+        myBhv().loadProductDetail(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerProductDetail = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfProductDetail().ready(_referrerProductDetail, _selector));
+    }
+
+    protected List<ImmuProductPrice> _referrerProductPrice;
+
+    /**
+     * Load referrer of productPriceList by the set-upper of referrer. <br>
+     * (商品価格)PRODUCT_PRICE by PRODUCT_ID, named 'productPriceList'.
+     * <pre>
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadProductPrice</span>(<span style="color: #553000">priceCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">priceCB</span>.setupSelect...
+     *         <span style="color: #553000">priceCB</span>.query().set...
+     *         <span style="color: #553000">priceCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">priceLoader</span> -&gt; {</span>
+     *     <span style="color: #3F7E5E">//    priceLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (ImmuProduct product : <span style="color: #553000">productList</span>) {
+     *     ... = product.<span style="color: #CC4747">getProductPriceList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setProductId_InScope(pkList);
+     * cb.query().addOrderBy_ProductId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
+    public NestedReferrerLoaderGateway<ImmuLoaderOfProductPrice> loadProductPrice(ReferrerConditionSetupper<ImmuProductPriceCB> refCBLambda) {
+        myBhv().loadProductPrice(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerProductPrice = refLs);
+        return hd -> hd.handle(new ImmuLoaderOfProductPrice().ready(_referrerProductPrice, _selector));
     }
 
     // ===================================================================================
     //                                                                    Pull out Foreign
     //                                                                    ================
-    protected ImmuLoaderOfProductCategory _foreignProductCategoryLoader;
-    public ImmuLoaderOfProductCategory pulloutProductCategory() {
-        if (_foreignProductCategoryLoader == null)
-        { _foreignProductCategoryLoader = new ImmuLoaderOfProductCategory().ready(myBhv().pulloutProductCategory(_selectedList), _selector); }
-        return _foreignProductCategoryLoader;
-    }
-
-    protected ImmuLoaderOfProductStatus _foreignProductStatusLoader;
-    public ImmuLoaderOfProductStatus pulloutProductStatus() {
-        if (_foreignProductStatusLoader == null)
-        { _foreignProductStatusLoader = new ImmuLoaderOfProductStatus().ready(myBhv().pulloutProductStatus(_selectedList), _selector); }
-        return _foreignProductStatusLoader;
-    }
-
     // ===================================================================================
     //                                                                            Accessor
     //                                                                            ========

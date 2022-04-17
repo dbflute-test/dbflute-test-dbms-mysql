@@ -35,7 +35,7 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ ; prefix:REGION }
+    ; tableExceptList = list:{ prefix:VENDOR_ ; prefix:WHITE_ ; prefix:CDEF_REGION }
     ; tableTargetList = list:{}
     ; columnExceptMap = map:{}
     ; isMainSchemaOnly = true
@@ -52,8 +52,9 @@ map:{
     ; tableMap = map:{
         ; themeList = list:{ hasPK ; upperCaseBasis ; identityIfPureIDPK }
         ; statementList = list:{
-            ; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
-            ; if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$ or $$first_columnName$$
+            # #for_now check after arrangement of DDL by jflute (2022/04/17)
+            #; if tableName is $$ALL$$ then fkName is prefix:FK_$$table$$
+            #; if tableName is $$ALL$$ then uniqueName is prefix:UQ_$$table$$ or $$first_columnName$$
         }
     }
     ; columnMap = map:{

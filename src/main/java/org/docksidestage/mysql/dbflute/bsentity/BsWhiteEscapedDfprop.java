@@ -115,7 +115,7 @@ public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements Dom
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.EscapedDfpropCls getEscapedDfpropCodeAsEscapedDfpropCls() {
-        return CDef.EscapedDfpropCls.codeOf(getEscapedDfpropCode());
+        return CDef.EscapedDfpropCls.of(getEscapedDfpropCode()).orElse(null);
     }
 
     /**

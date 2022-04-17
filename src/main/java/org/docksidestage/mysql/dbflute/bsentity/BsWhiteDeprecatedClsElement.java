@@ -115,7 +115,7 @@ public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity impleme
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.DeprecatedMapCollaborationType getDeprecatedClsElementCodeAsDeprecatedMapCollaborationType() {
-        return CDef.DeprecatedMapCollaborationType.codeOf(getDeprecatedClsElementCode());
+        return CDef.DeprecatedMapCollaborationType.of(getDeprecatedClsElementCode()).orElse(null);
     }
 
     /**

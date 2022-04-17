@@ -59,8 +59,254 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
     //                                                                               Query
     //                                                                               =====
     /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_Equal(Long memberStatusId) {
+        doSetMemberStatusId_Equal(memberStatusId);
+    }
+
+    protected void doSetMemberStatusId_Equal(Long memberStatusId) {
+        regMemberStatusId(CK_EQ, memberStatusId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_NotEqual(Long memberStatusId) {
+        doSetMemberStatusId_NotEqual(memberStatusId);
+    }
+
+    protected void doSetMemberStatusId_NotEqual(Long memberStatusId) {
+        regMemberStatusId(CK_NES, memberStatusId);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_GreaterThan(Long memberStatusId) {
+        regMemberStatusId(CK_GT, memberStatusId);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_LessThan(Long memberStatusId) {
+        regMemberStatusId(CK_LT, memberStatusId);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_GreaterEqual(Long memberStatusId) {
+        regMemberStatusId(CK_GE, memberStatusId);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusId The value of memberStatusId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_LessEqual(Long memberStatusId) {
+        regMemberStatusId(CK_LE, memberStatusId);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param minNumber The min number of memberStatusId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberStatusId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setMemberStatusId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setMemberStatusId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param minNumber The min number of memberStatusId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberStatusId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setMemberStatusId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueMemberStatusId(), "MEMBER_STATUS_ID", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusIdList The collection of memberStatusId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_InScope(Collection<Long> memberStatusIdList) {
+        doSetMemberStatusId_InScope(memberStatusIdList);
+    }
+
+    protected void doSetMemberStatusId_InScope(Collection<Long> memberStatusIdList) {
+        regINS(CK_INS, cTL(memberStatusIdList), xgetCValueMemberStatusId(), "MEMBER_STATUS_ID");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberStatusIdList The collection of memberStatusId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setMemberStatusId_NotInScope(Collection<Long> memberStatusIdList) {
+        doSetMemberStatusId_NotInScope(memberStatusIdList);
+    }
+
+    protected void doSetMemberStatusId_NotInScope(Collection<Long> memberStatusIdList) {
+        regINS(CK_NINS, cTL(memberStatusIdList), xgetCValueMemberStatusId(), "MEMBER_STATUS_ID");
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     */
+    public void setMemberStatusId_IsNull() { regMemberStatusId(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     */
+    public void setMemberStatusId_IsNotNull() { regMemberStatusId(CK_ISNN, DOBJ); }
+
+    protected void regMemberStatusId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusId(), "MEMBER_STATUS_ID"); }
+    protected abstract ConditionValue xgetCValueMemberStatusId();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_Equal(Integer memberId) {
+        doSetMemberId_Equal(memberId);
+    }
+
+    protected void doSetMemberId_Equal(Integer memberId) {
+        regMemberId(CK_EQ, memberId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_NotEqual(Integer memberId) {
+        doSetMemberId_NotEqual(memberId);
+    }
+
+    protected void doSetMemberId_NotEqual(Integer memberId) {
+        regMemberId(CK_NES, memberId);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_GreaterThan(Integer memberId) {
+        regMemberId(CK_GT, memberId);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_LessThan(Integer memberId) {
+        regMemberId(CK_LT, memberId);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_GreaterEqual(Integer memberId) {
+        regMemberId(CK_GE, memberId);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_LessEqual(Integer memberId) {
+        regMemberId(CK_LE, memberId);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setMemberId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param minNumber The min number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of memberId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    protected void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "MEMBER_ID", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberIdList The collection of memberId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setMemberId_InScope(Collection<Integer> memberIdList) {
+        doSetMemberId_InScope(memberIdList);
+    }
+
+    protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @param memberIdList The collection of memberId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setMemberId_NotInScope(Collection<Integer> memberIdList) {
+        doSetMemberId_NotInScope(memberIdList);
+    }
+
+    protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "MEMBER_ID");
+    }
+
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "MEMBER_ID"); }
+    protected abstract ConditionValue xgetCValueMemberId();
+
+    /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @param memberStatusCode The value of memberStatusCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMemberStatusCode_Equal(String memberStatusCode) {
@@ -69,7 +315,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * Equal(=). As MemberStatus. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -83,7 +329,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @param memberStatusCode The value of memberStatusCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMemberStatusCode_NotEqual(String memberStatusCode) {
@@ -92,7 +338,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * NotEqual(&lt;&gt;). As MemberStatus. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -106,7 +352,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @param memberStatusCodeList The collection of memberStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
@@ -115,7 +361,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * InScope {in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -129,7 +375,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @param memberStatusCodeList The collection of memberStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setMemberStatusCode_NotInScope(Collection<String> memberStatusCodeList) {
@@ -138,7 +384,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
 
     /**
      * NotInScope {not in ('a', 'b')}. As MemberStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus} <br>
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -150,553 +396,503 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
         regINS(CK_NINS, cTL(memberStatusCodeList), xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE");
     }
 
-    /**
-     * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select MEMBER_STATUS_CODE from member where ...)} <br>
-     * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">existsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     memberCB.query().set...
-     * });
-     * </pre>
-     * @param subCBLambda The callback for sub-query of MemberList for 'exists'. (NotNull)
-     */
-    public void existsMember(SubQuery<ImmuMemberCB> subCBLambda) {
-        assertObjectNotNull("subCBLambda", subCBLambda);
-        ImmuMemberCB cb = new ImmuMemberCB(); cb.xsetupForExistsReferrer(this);
-        lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberList(cb.query());
-        registerExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList");
-    }
-    public abstract String keepMemberStatusCode_ExistsReferrer_MemberList(ImmuMemberCQ sq);
-
-    /**
-     * Set up ExistsReferrer (correlated sub-query). <br>
-     * {exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
-     * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     loginCB.query().set...
-     * });
-     * </pre>
-     * @param subCBLambda The callback for sub-query of MemberLoginList for 'exists'. (NotNull)
-     */
-    public void existsMemberLogin(SubQuery<ImmuMemberLoginCB> subCBLambda) {
-        assertObjectNotNull("subCBLambda", subCBLambda);
-        ImmuMemberLoginCB cb = new ImmuMemberLoginCB(); cb.xsetupForExistsReferrer(this);
-        lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_ExistsReferrer_MemberLoginList(cb.query());
-        registerExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList");
-    }
-    public abstract String keepMemberStatusCode_ExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq);
-
-    /**
-     * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select MEMBER_STATUS_CODE from member where ...)} <br>
-     * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMember</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     memberCB.query().set...
-     * });
-     * </pre>
-     * @param subCBLambda The callback for sub-query of MemberStatusCode_NotExistsReferrer_MemberList for 'not exists'. (NotNull)
-     */
-    public void notExistsMember(SubQuery<ImmuMemberCB> subCBLambda) {
-        assertObjectNotNull("subCBLambda", subCBLambda);
-        ImmuMemberCB cb = new ImmuMemberCB(); cb.xsetupForExistsReferrer(this);
-        lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberList(cb.query());
-        registerNotExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList");
-    }
-    public abstract String keepMemberStatusCode_NotExistsReferrer_MemberList(ImmuMemberCQ sq);
-
-    /**
-     * Set up NotExistsReferrer (correlated sub-query). <br>
-     * {not exists (select LOGIN_MEMBER_STATUS_CODE from member_login where ...)} <br>
-     * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     loginCB.query().set...
-     * });
-     * </pre>
-     * @param subCBLambda The callback for sub-query of MemberStatusCode_NotExistsReferrer_MemberLoginList for 'not exists'. (NotNull)
-     */
-    public void notExistsMemberLogin(SubQuery<ImmuMemberLoginCB> subCBLambda) {
-        assertObjectNotNull("subCBLambda", subCBLambda);
-        ImmuMemberLoginCB cb = new ImmuMemberLoginCB(); cb.xsetupForExistsReferrer(this);
-        lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberStatusCode_NotExistsReferrer_MemberLoginList(cb.query());
-        registerNotExistsReferrer(cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList");
-    }
-    public abstract String keepMemberStatusCode_NotExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq);
-
-    public void xsderiveMemberList(String fn, SubQuery<ImmuMemberCB> sq, String al, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        ImmuMemberCB cb = new ImmuMemberCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", pp, "memberList", al, op);
-    }
-    public abstract String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(ImmuMemberCQ sq);
-
-    public void xsderiveMemberLoginList(String fn, SubQuery<ImmuMemberLoginCB> sq, String al, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        ImmuMemberLoginCB cb = new ImmuMemberLoginCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(cb.query());
-        registerSpecifyDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", pp, "memberLoginList", al, op);
-    }
-    public abstract String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq);
-
-    /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
-     * {FOO &lt;= (select max(BAR) from member where ...)} <br>
-     * (会員)member by MEMBER_STATUS_CODE, named 'memberAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMember()</span>.<span style="color: #CC4747">max</span>(memberCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     memberCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *     memberCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
-     * </pre>
-     * @return The object to set up a function for referrer table. (NotNull)
-     */
-    public HpQDRFunction<ImmuMemberCB> derivedMember() {
-        return xcreateQDRFunctionMemberList();
-    }
-    protected HpQDRFunction<ImmuMemberCB> xcreateQDRFunctionMemberList() {
-        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveMemberList(fn, sq, rd, vl, op));
-    }
-    public void xqderiveMemberList(String fn, SubQuery<ImmuMemberCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        ImmuMemberCB cb = new ImmuMemberCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String sqpp = keepMemberStatusCode_QueryDerivedReferrer_MemberList(cb.query()); String prpp = keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", sqpp, "memberList", rd, vl, prpp, op);
-    }
-    public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberList(ImmuMemberCQ sq);
-    public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object vl);
-
-    /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
-     * {FOO &lt;= (select max(BAR) from member_login where ...)} <br>
-     * (会員ログイン情報)member_login by LOGIN_MEMBER_STATUS_CODE, named 'memberLoginAsOne'.
-     * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberLogin()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *     loginCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
-     * </pre>
-     * @return The object to set up a function for referrer table. (NotNull)
-     */
-    public HpQDRFunction<ImmuMemberLoginCB> derivedMemberLogin() {
-        return xcreateQDRFunctionMemberLoginList();
-    }
-    protected HpQDRFunction<ImmuMemberLoginCB> xcreateQDRFunctionMemberLoginList() {
-        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveMemberLoginList(fn, sq, rd, vl, op));
-    }
-    public void xqderiveMemberLoginList(String fn, SubQuery<ImmuMemberLoginCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-        assertObjectNotNull("subQuery", sq);
-        ImmuMemberLoginCB cb = new ImmuMemberLoginCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String sqpp = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(cb.query()); String prpp = keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(vl);
-        registerQueryDerivedReferrer(fn, cb.query(), "MEMBER_STATUS_CODE", "LOGIN_MEMBER_STATUS_CODE", sqpp, "memberLoginList", rd, vl, prpp, op);
-    }
-    public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq);
-    public abstract String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object vl);
-
-    /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
-     */
-    public void setMemberStatusCode_IsNull() { regMemberStatusCode(CK_ISN, DOBJ); }
-
-    /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
-     */
-    public void setMemberStatusCode_IsNotNull() { regMemberStatusCode(CK_ISNN, DOBJ); }
-
     protected void regMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusCode(), "MEMBER_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueMemberStatusCode();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_Equal(String memberStatusName) {
-        doSetMemberStatusName_Equal(fRES(memberStatusName));
-    }
-
-    protected void doSetMemberStatusName_Equal(String memberStatusName) {
-        regMemberStatusName(CK_EQ, memberStatusName);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_NotEqual(String memberStatusName) {
-        doSetMemberStatusName_NotEqual(fRES(memberStatusName));
-    }
-
-    protected void doSetMemberStatusName_NotEqual(String memberStatusName) {
-        regMemberStatusName(CK_NES, memberStatusName);
-    }
-
-    /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_GreaterThan(String memberStatusName) {
-        regMemberStatusName(CK_GT, fRES(memberStatusName));
-    }
-
-    /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_LessThan(String memberStatusName) {
-        regMemberStatusName(CK_LT, fRES(memberStatusName));
-    }
-
-    /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_GreaterEqual(String memberStatusName) {
-        regMemberStatusName(CK_GE, fRES(memberStatusName));
-    }
-
-    /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_LessEqual(String memberStatusName) {
-        regMemberStatusName(CK_LE, fRES(memberStatusName));
-    }
-
-    /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusNameList The collection of memberStatusName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_InScope(Collection<String> memberStatusNameList) {
-        doSetMemberStatusName_InScope(memberStatusNameList);
-    }
-
-    protected void doSetMemberStatusName_InScope(Collection<String> memberStatusNameList) {
-        regINS(CK_INS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME");
-    }
-
-    /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusNameList The collection of memberStatusName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setMemberStatusName_NotInScope(Collection<String> memberStatusNameList) {
-        doSetMemberStatusName_NotInScope(memberStatusNameList);
-    }
-
-    protected void doSetMemberStatusName_NotInScope(Collection<String> memberStatusNameList) {
-        regINS(CK_NINS, cTL(memberStatusNameList), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME");
-    }
-
-    /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
-     * <pre>e.g. setMemberStatusName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param memberStatusName The value of memberStatusName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setMemberStatusName_LikeSearch(String memberStatusName, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setMemberStatusName_LikeSearch(memberStatusName, xcLSOP(opLambda));
-    }
-
-    /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)} <br>
-     * <pre>e.g. setMemberStatusName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param memberStatusName The value of memberStatusName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    protected void setMemberStatusName_LikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(memberStatusName), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME", likeSearchOption);
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setMemberStatusName_NotLikeSearch(String memberStatusName, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setMemberStatusName_NotLikeSearch(memberStatusName, xcLSOP(opLambda));
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
-     * @param memberStatusName The value of memberStatusName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of not-like-search. (NotNull)
-     */
-    protected void setMemberStatusName_NotLikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(memberStatusName), xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME", likeSearchOption);
-    }
-
-    protected void regMemberStatusName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusName(), "MEMBER_STATUS_NAME"); }
-    protected abstract ConditionValue xgetCValueMemberStatusName();
-
-    /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_Equal(String description) {
-        doSetDescription_Equal(fRES(description));
-    }
-
-    protected void doSetDescription_Equal(String description) {
-        regDescription(CK_EQ, description);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_NotEqual(String description) {
-        doSetDescription_NotEqual(fRES(description));
-    }
-
-    protected void doSetDescription_NotEqual(String description) {
-        regDescription(CK_NES, description);
-    }
-
-    /**
-     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_GreaterThan(String description) {
-        regDescription(CK_GT, fRES(description));
-    }
-
-    /**
-     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_LessThan(String description) {
-        regDescription(CK_LT, fRES(description));
-    }
-
-    /**
-     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_GreaterEqual(String description) {
-        regDescription(CK_GE, fRES(description));
-    }
-
-    /**
-     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_LessEqual(String description) {
-        regDescription(CK_LE, fRES(description));
-    }
-
-    /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param descriptionList The collection of description as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_InScope(Collection<String> descriptionList) {
-        doSetDescription_InScope(descriptionList);
-    }
-
-    protected void doSetDescription_InScope(Collection<String> descriptionList) {
-        regINS(CK_INS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
-    }
-
-    /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param descriptionList The collection of description as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     */
-    public void setDescription_NotInScope(Collection<String> descriptionList) {
-        doSetDescription_NotInScope(descriptionList);
-    }
-
-    protected void doSetDescription_NotInScope(Collection<String> descriptionList) {
-        regINS(CK_NINS, cTL(descriptionList), xgetCValueDescription(), "DESCRIPTION");
-    }
-
-    /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
-     * <pre>e.g. setDescription_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param description The value of description as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setDescription_LikeSearch(String description, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setDescription_LikeSearch(description, xcLSOP(opLambda));
-    }
-
-    /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)} <br>
-     * <pre>e.g. setDescription_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param description The value of description as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    protected void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setDescription_NotLikeSearch(String description, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setDescription_NotLikeSearch(description, xcLSOP(opLambda));
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
-     * @param description The value of description as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
-     * @param likeSearchOption The option of not-like-search. (NotNull)
-     */
-    protected void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "DESCRIPTION", likeSearchOption);
-    }
-
-    protected void regDescription(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDescription(), "DESCRIPTION"); }
-    protected abstract ConditionValue xgetCValueDescription();
-
-    /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as equal. (basically NotNull: error as default, or no condition as option)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param memberStatusUpdateDatetime The value of memberStatusUpdateDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_Equal(Integer displayOrder) {
-        doSetDisplayOrder_Equal(displayOrder);
-    }
-
-    protected void doSetDisplayOrder_Equal(Integer displayOrder) {
-        regDisplayOrder(CK_EQ, displayOrder);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setDisplayOrder_NotEqual(Integer displayOrder) {
-        doSetDisplayOrder_NotEqual(displayOrder);
-    }
-
-    protected void doSetDisplayOrder_NotEqual(Integer displayOrder) {
-        regDisplayOrder(CK_NES, displayOrder);
+    public void setMemberStatusUpdateDatetime_Equal(java.time.LocalDateTime memberStatusUpdateDatetime) {
+        regMemberStatusUpdateDatetime(CK_EQ,  memberStatusUpdateDatetime);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as greaterThan. (basically NotNull: error as default, or no condition as option)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param memberStatusUpdateDatetime The value of memberStatusUpdateDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_GreaterThan(Integer displayOrder) {
-        regDisplayOrder(CK_GT, displayOrder);
+    public void setMemberStatusUpdateDatetime_GreaterThan(java.time.LocalDateTime memberStatusUpdateDatetime) {
+        regMemberStatusUpdateDatetime(CK_GT,  memberStatusUpdateDatetime);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as lessThan. (basically NotNull: error as default, or no condition as option)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param memberStatusUpdateDatetime The value of memberStatusUpdateDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_LessThan(Integer displayOrder) {
-        regDisplayOrder(CK_LT, displayOrder);
+    public void setMemberStatusUpdateDatetime_LessThan(java.time.LocalDateTime memberStatusUpdateDatetime) {
+        regMemberStatusUpdateDatetime(CK_LT,  memberStatusUpdateDatetime);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param memberStatusUpdateDatetime The value of memberStatusUpdateDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
-        regDisplayOrder(CK_GE, displayOrder);
+    public void setMemberStatusUpdateDatetime_GreaterEqual(java.time.LocalDateTime memberStatusUpdateDatetime) {
+        regMemberStatusUpdateDatetime(CK_GE,  memberStatusUpdateDatetime);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as lessEqual. (basically NotNull: error as default, or no condition as option)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param memberStatusUpdateDatetime The value of memberStatusUpdateDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_LessEqual(Integer displayOrder) {
-        regDisplayOrder(CK_LE, displayOrder);
+    public void setMemberStatusUpdateDatetime_LessEqual(java.time.LocalDateTime memberStatusUpdateDatetime) {
+        regMemberStatusUpdateDatetime(CK_LE, memberStatusUpdateDatetime);
     }
 
     /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param minNumber The min number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param opLambda The callback for option of range-of. (NotNull)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setMemberStatusUpdateDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of memberStatusUpdateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of memberStatusUpdateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setDisplayOrder_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    public void setMemberStatusUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setMemberStatusUpdateDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
     /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param minNumber The min number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param rangeOfOption The option of range-of. (NotNull)
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setMemberStatusUpdateDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of memberStatusUpdateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of memberStatusUpdateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
      */
-    protected void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "DISPLAY_ORDER", rangeOfOption);
+    protected void setMemberStatusUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "MEMBER_STATUS_UPDATE_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueMemberStatusUpdateDatetime(), nm, op);
+    }
+
+    protected void regMemberStatusUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberStatusUpdateDatetime(), "MEMBER_STATUS_UPDATE_DATETIME"); }
+    protected abstract ConditionValue xgetCValueMemberStatusUpdateDatetime();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrderList The collection of displayOrder as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_InScope(Collection<Integer> displayOrderList) {
-        doSetDisplayOrder_InScope(displayOrderList);
-    }
-
-    protected void doSetDisplayOrder_InScope(Collection<Integer> displayOrderList) {
-        regINS(CK_INS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_GT,  registerDatetime);
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrderList The collection of displayOrder as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
-        doSetDisplayOrder_NotInScope(displayOrderList);
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_LT,  registerDatetime);
     }
 
-    protected void doSetDisplayOrder_NotInScope(Collection<Integer> displayOrderList) {
-        regINS(CK_NINS, cTL(displayOrderList), xgetCValueDisplayOrder(), "DISPLAY_ORDER");
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_GE,  registerDatetime);
     }
 
-    protected void regDisplayOrder(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDisplayOrder(), "DISPLAY_ORDER"); }
-    protected abstract ConditionValue xgetCValueDisplayOrder();
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * @param registerDatetime The value of registerDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
+        regRegisterDatetime(CK_LE, registerDatetime);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setRegisterDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setRegisterDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "REGISTER_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueRegisterDatetime(), nm, op);
+    }
+
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "REGISTER_DATETIME"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_Equal(String registerUser) {
+        doSetRegisterUser_Equal(fRES(registerUser));
+    }
+
+    protected void doSetRegisterUser_Equal(String registerUser) {
+        regRegisterUser(CK_EQ, registerUser);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_NotEqual(String registerUser) {
+        doSetRegisterUser_NotEqual(fRES(registerUser));
+    }
+
+    protected void doSetRegisterUser_NotEqual(String registerUser) {
+        regRegisterUser(CK_NES, registerUser);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_GreaterThan(String registerUser) {
+        regRegisterUser(CK_GT, fRES(registerUser));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_LessThan(String registerUser) {
+        regRegisterUser(CK_LT, fRES(registerUser));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_GreaterEqual(String registerUser) {
+        regRegisterUser(CK_GE, fRES(registerUser));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_LessEqual(String registerUser) {
+        regRegisterUser(CK_LE, fRES(registerUser));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUserList The collection of registerUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_InScope(Collection<String> registerUserList) {
+        doSetRegisterUser_InScope(registerUserList);
+    }
+
+    protected void doSetRegisterUser_InScope(Collection<String> registerUserList) {
+        regINS(CK_INS, cTL(registerUserList), xgetCValueRegisterUser(), "REGISTER_USER");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUserList The collection of registerUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setRegisterUser_NotInScope(Collection<String> registerUserList) {
+        doSetRegisterUser_NotInScope(registerUserList);
+    }
+
+    protected void doSetRegisterUser_NotInScope(Collection<String> registerUserList) {
+        regINS(CK_NINS, cTL(registerUserList), xgetCValueRegisterUser(), "REGISTER_USER");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setRegisterUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param registerUser The value of registerUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setRegisterUser_LikeSearch(String registerUser, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setRegisterUser_LikeSearch(registerUser, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setRegisterUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param registerUser The value of registerUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setRegisterUser_LikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(registerUser), xgetCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setRegisterUser_NotLikeSearch(String registerUser, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setRegisterUser_NotLikeSearch(registerUser, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
+     * @param registerUser The value of registerUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setRegisterUser_NotLikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(registerUser), xgetCValueRegisterUser(), "REGISTER_USER", likeSearchOption);
+    }
+
+    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "REGISTER_USER"); }
+    protected abstract ConditionValue xgetCValueRegisterUser();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param updateDatetime The value of updateDatetime as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
+        regUpdateDatetime(CK_EQ,  updateDatetime);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param updateDatetime The value of updateDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdateDatetime_GreaterThan(java.time.LocalDateTime updateDatetime) {
+        regUpdateDatetime(CK_GT,  updateDatetime);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param updateDatetime The value of updateDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdateDatetime_LessThan(java.time.LocalDateTime updateDatetime) {
+        regUpdateDatetime(CK_LT,  updateDatetime);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param updateDatetime The value of updateDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdateDatetime_GreaterEqual(java.time.LocalDateTime updateDatetime) {
+        regUpdateDatetime(CK_GE,  updateDatetime);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @param updateDatetime The value of updateDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUpdateDatetime_LessEqual(java.time.LocalDateTime updateDatetime) {
+        regUpdateDatetime(CK_LE, updateDatetime);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setUpdateDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setUpdateDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * <pre>e.g. setUpdateDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    protected void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "UPDATE_DATETIME"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueUpdateDatetime(), nm, op);
+    }
+
+    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateDatetime(), "UPDATE_DATETIME"); }
+    protected abstract ConditionValue xgetCValueUpdateDatetime();
+
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_Equal(String updateUser) {
+        doSetUpdateUser_Equal(fRES(updateUser));
+    }
+
+    protected void doSetUpdateUser_Equal(String updateUser) {
+        regUpdateUser(CK_EQ, updateUser);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_NotEqual(String updateUser) {
+        doSetUpdateUser_NotEqual(fRES(updateUser));
+    }
+
+    protected void doSetUpdateUser_NotEqual(String updateUser) {
+        regUpdateUser(CK_NES, updateUser);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as greaterThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_GreaterThan(String updateUser) {
+        regUpdateUser(CK_GT, fRES(updateUser));
+    }
+
+    /**
+     * LessThan(&lt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as lessThan. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_LessThan(String updateUser) {
+        regUpdateUser(CK_LT, fRES(updateUser));
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as greaterEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_GreaterEqual(String updateUser) {
+        regUpdateUser(CK_GE, fRES(updateUser));
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as lessEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_LessEqual(String updateUser) {
+        regUpdateUser(CK_LE, fRES(updateUser));
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUserList The collection of updateUser as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_InScope(Collection<String> updateUserList) {
+        doSetUpdateUser_InScope(updateUserList);
+    }
+
+    protected void doSetUpdateUser_InScope(Collection<String> updateUserList) {
+        regINS(CK_INS, cTL(updateUserList), xgetCValueUpdateUser(), "UPDATE_USER");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUserList The collection of updateUser as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setUpdateUser_NotInScope(Collection<String> updateUserList) {
+        doSetUpdateUser_NotInScope(updateUserList);
+    }
+
+    protected void doSetUpdateUser_NotInScope(Collection<String> updateUserList) {
+        regINS(CK_NINS, cTL(updateUserList), xgetCValueUpdateUser(), "UPDATE_USER");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setUpdateUser_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param updateUser The value of updateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setUpdateUser_LikeSearch(String updateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setUpdateUser_LikeSearch(updateUser, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)} <br>
+     * <pre>e.g. setUpdateUser_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param updateUser The value of updateUser as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    protected void setUpdateUser_LikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(updateUser), xgetCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setUpdateUser_NotLikeSearch(String updateUser, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setUpdateUser_NotLikeSearch(updateUser, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @param updateUser The value of updateUser as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    protected void setUpdateUser_NotLikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(updateUser), xgetCValueUpdateUser(), "UPDATE_USER", likeSearchOption);
+    }
+
+    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "UPDATE_USER"); }
+    protected abstract ConditionValue xgetCValueUpdateUser();
 
     // ===================================================================================
     //                                                                     ScalarCondition
@@ -817,7 +1013,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
     public void xsmyselfDerive(String fn, SubQuery<ImmuMemberStatusCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ImmuMemberStatusCB cb = new ImmuMemberStatusCB(); cb.xsetupForDerivedReferrer(this);
-        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MEMBER_STATUS_CODE";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "MEMBER_STATUS_ID";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(ImmuMemberStatusCQ sq);
@@ -833,7 +1029,7 @@ public abstract class ImmuAbstractBsMemberStatusCQ extends AbstractConditionQuer
     protected <CB extends ConditionBean> void xqderiveMyselfDerived(String fn, SubQuery<CB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ImmuMemberStatusCB cb = new ImmuMemberStatusCB(); cb.xsetupForDerivedReferrer(this); sq.query((CB)cb);
-        String pk = "MEMBER_STATUS_CODE";
+        String pk = "MEMBER_STATUS_ID";
         String sqpp = keepQueryMyselfDerived(cb.query()); // for saving query-value.
         String prpp = keepQueryMyselfDerivedParameter(vl);
         registerQueryMyselfDerived(fn, cb.query(), pk, pk, sqpp, "myselfDerived", rd, vl, prpp, op);

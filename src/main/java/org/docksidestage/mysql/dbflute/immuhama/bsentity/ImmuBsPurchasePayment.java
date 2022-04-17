@@ -23,7 +23,6 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.dbflute.optional.OptionalEntity;
-import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuEntityDefinedCommonColumn;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuDBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuCDef;
 import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
@@ -37,7 +36,7 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     PURCHASE_PAYMENT_ID
  *
  * [column]
- *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
+ *     PURCHASE_PAYMENT_ID, PURCHASE_ID, PAYMENT_AMOUNT, PAYMENT_DATETIME, PAYMENT_METHOD_CODE
  *
  * [sequence]
  *     
@@ -67,24 +66,16 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  * java.math.BigDecimal paymentAmount = entity.getPaymentAmount();
  * java.time.LocalDateTime paymentDatetime = entity.getPaymentDatetime();
  * String paymentMethodCode = entity.getPaymentMethodCode();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
  * entity.setPurchasePaymentId(purchasePaymentId);
  * entity.setPurchaseId(purchaseId);
  * entity.setPaymentAmount(paymentAmount);
  * entity.setPaymentDatetime(paymentDatetime);
  * entity.setPaymentMethodCode(paymentMethodCode);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class ImmuBsPurchasePayment extends AbstractEntity implements DomainEntity, ImmuEntityDefinedCommonColumn {
+public abstract class ImmuBsPurchasePayment extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -109,18 +100,6 @@ public abstract class ImmuBsPurchasePayment extends AbstractEntity implements Do
 
     /** (支払方法コード)PAYMENT_METHOD_CODE: {NotNull, CHAR(3), classification=PaymentMethod} */
     protected String _paymentMethodCode;
-
-    /** REGISTER_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.time.LocalDateTime _registerDatetime;
-
-    /** REGISTER_USER: {NotNull, VARCHAR(200)} */
-    protected String _registerUser;
-
-    /** UPDATE_DATETIME: {NotNull, DATETIME(19)} */
-    protected java.time.LocalDateTime _updateDatetime;
-
-    /** UPDATE_USER: {NotNull, VARCHAR(200)} */
-    protected String _updateUser;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -155,7 +134,7 @@ public abstract class ImmuBsPurchasePayment extends AbstractEntity implements Do
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public ImmuCDef.PaymentMethod getPaymentMethodCodeAsPaymentMethod() {
-        return ImmuCDef.PaymentMethod.codeOf(getPaymentMethodCode());
+        return ImmuCDef.PaymentMethod.of(getPaymentMethodCode()).orElse(null);
     }
 
     /**
@@ -334,10 +313,6 @@ public abstract class ImmuBsPurchasePayment extends AbstractEntity implements Do
         sb.append(dm).append(xfND(_paymentAmount));
         sb.append(dm).append(xfND(_paymentDatetime));
         sb.append(dm).append(xfND(_paymentMethodCode));
-        sb.append(dm).append(xfND(_registerDatetime));
-        sb.append(dm).append(xfND(_registerUser));
-        sb.append(dm).append(xfND(_updateDatetime));
-        sb.append(dm).append(xfND(_updateUser));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -463,78 +438,6 @@ public abstract class ImmuBsPurchasePayment extends AbstractEntity implements Do
         checkClassificationCode("PAYMENT_METHOD_CODE", ImmuCDef.DefMeta.PaymentMethod, paymentMethodCode);
         registerModifiedProperty("paymentMethodCode");
         _paymentMethodCode = paymentMethodCode;
-    }
-
-    /**
-     * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
-     * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
-     */
-    public java.time.LocalDateTime getRegisterDatetime() {
-        checkSpecifiedProperty("registerDatetime");
-        return _registerDatetime;
-    }
-
-    /**
-     * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
-     * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
-     */
-    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
-        registerModifiedProperty("registerDatetime");
-        _registerDatetime = registerDatetime;
-    }
-
-    /**
-     * [get] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * @return The value of the column 'REGISTER_USER'. (basically NotNull if selected: for the constraint)
-     */
-    public String getRegisterUser() {
-        checkSpecifiedProperty("registerUser");
-        return _registerUser;
-    }
-
-    /**
-     * [set] REGISTER_USER: {NotNull, VARCHAR(200)} <br>
-     * @param registerUser The value of the column 'REGISTER_USER'. (basically NotNull if update: for the constraint)
-     */
-    public void setRegisterUser(String registerUser) {
-        registerModifiedProperty("registerUser");
-        _registerUser = registerUser;
-    }
-
-    /**
-     * [get] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
-     * @return The value of the column 'UPDATE_DATETIME'. (basically NotNull if selected: for the constraint)
-     */
-    public java.time.LocalDateTime getUpdateDatetime() {
-        checkSpecifiedProperty("updateDatetime");
-        return _updateDatetime;
-    }
-
-    /**
-     * [set] UPDATE_DATETIME: {NotNull, DATETIME(19)} <br>
-     * @param updateDatetime The value of the column 'UPDATE_DATETIME'. (basically NotNull if update: for the constraint)
-     */
-    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
-        registerModifiedProperty("updateDatetime");
-        _updateDatetime = updateDatetime;
-    }
-
-    /**
-     * [get] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
-     * @return The value of the column 'UPDATE_USER'. (basically NotNull if selected: for the constraint)
-     */
-    public String getUpdateUser() {
-        checkSpecifiedProperty("updateUser");
-        return _updateUser;
-    }
-
-    /**
-     * [set] UPDATE_USER: {NotNull, VARCHAR(200)} <br>
-     * @param updateUser The value of the column 'UPDATE_USER'. (basically NotNull if update: for the constraint)
-     */
-    public void setUpdateUser(String updateUser) {
-        registerModifiedProperty("updateUser");
-        _updateUser = updateUser;
     }
 
     /**

@@ -138,7 +138,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.BooleanFlg getTypeOfBooleanAsBooleanFlg() {
-        return CDef.BooleanFlg.codeOf(getTypeOfBoolean());
+        return CDef.BooleanFlg.of(getTypeOfBoolean()).orElse(null);
     }
 
     /**

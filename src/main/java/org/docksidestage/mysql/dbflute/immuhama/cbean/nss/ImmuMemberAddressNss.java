@@ -44,9 +44,9 @@ public class ImmuMemberAddressNss {
     }
     /**
      * With nested relation columns to select clause. <br>
-     * (地域)REGION by my REGION_ID, named 'region'.
+     * ([区分値]地域)CDEF_REGION by my REGION_ID, named 'cdefRegion'.
      */
-    public void withRegion() {
-        _query.xdoNss(() -> _query.queryRegion());
+    public void withCdefRegion() {
+        _query.xdoNss(() -> _query.queryCdefRegion());
     }
 }

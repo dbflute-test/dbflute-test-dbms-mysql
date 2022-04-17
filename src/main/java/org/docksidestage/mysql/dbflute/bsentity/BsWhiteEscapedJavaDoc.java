@@ -115,7 +115,7 @@ public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements Do
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.EscapedJavaDocCls getEscapedJavaDocCodeAsEscapedJavaDocCls() {
-        return CDef.EscapedJavaDocCls.codeOf(getEscapedJavaDocCode());
+        return CDef.EscapedJavaDocCls.of(getEscapedJavaDocCode()).orElse(null);
     }
 
     /**

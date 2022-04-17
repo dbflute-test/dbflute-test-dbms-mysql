@@ -46,22 +46,28 @@ public class ImmuDBMetaInstanceHandler implements DBMetaProvider {
     protected static final Map<String, String> _tableDbNameClassNameMap;
     static {
         final Map<String, String> tmpMap = newHashMap();
+        tmpMap.put("cdef_member_status", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefMemberStatusDbm");
+        tmpMap.put("cdef_product_category", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefProductCategoryDbm");
+        tmpMap.put("cdef_product_status", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefProductStatusDbm");
+        tmpMap.put("cdef_region", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefRegionDbm");
+        tmpMap.put("cdef_service_rank", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefServiceRankDbm");
+        tmpMap.put("cdef_withdrawal_reason", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuCdefWithdrawalReasonDbm");
         tmpMap.put("member", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberDbm");
         tmpMap.put("member_address", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberAddressDbm");
         tmpMap.put("member_following", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberFollowingDbm");
         tmpMap.put("member_login", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberLoginDbm");
-        tmpMap.put("member_security", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberSecurityDbm");
+        tmpMap.put("member_login_password", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberLoginPasswordDbm");
+        tmpMap.put("member_password_reminder", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberPasswordReminderDbm");
+        tmpMap.put("member_profile", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberProfileDbm");
         tmpMap.put("member_service", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberServiceDbm");
         tmpMap.put("member_status", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberStatusDbm");
         tmpMap.put("member_withdrawal", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuMemberWithdrawalDbm");
         tmpMap.put("product", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuProductDbm");
-        tmpMap.put("product_category", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuProductCategoryDbm");
-        tmpMap.put("product_status", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuProductStatusDbm");
+        tmpMap.put("product_detail", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuProductDetailDbm");
+        tmpMap.put("product_price", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuProductPriceDbm");
         tmpMap.put("purchase", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuPurchaseDbm");
         tmpMap.put("purchase_payment", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuPurchasePaymentDbm");
-        tmpMap.put("region", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuRegionDbm");
-        tmpMap.put("service_rank", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuServiceRankDbm");
-        tmpMap.put("withdrawal_reason", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuWithdrawalReasonDbm");
+        tmpMap.put("purchase_status", "org.docksidestage.mysql.dbflute.immuhama.bsentity.dbmeta.ImmuPurchaseStatusDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
 

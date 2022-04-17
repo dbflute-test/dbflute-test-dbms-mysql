@@ -41,7 +41,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_SERVICE_ID
  *
  * [column]
- *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     MEMBER_SERVICE_ID, MEMBER_ID, SERVICE_POINT_COUNT, SERVICE_RANK_CODE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -50,16 +50,16 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     MEMBER_SERVICE_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, SERVICE_RANK
+ *     MEMBER, CDEF_SERVICE_RANK
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     member, serviceRank
+ *     member, cdefServiceRank
  *
  * [referrer property]
  *     
@@ -411,12 +411,12 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     { return helpPulloutInternally(memberServiceList, "member"); }
 
     /**
-     * Pull out the list of foreign table 'ImmuServiceRank'.
+     * Pull out the list of foreign table 'ImmuCdefServiceRank'.
      * @param memberServiceList The list of memberService. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<ImmuServiceRank> pulloutServiceRank(List<ImmuMemberService> memberServiceList)
-    { return helpPulloutInternally(memberServiceList, "serviceRank"); }
+    public List<ImmuCdefServiceRank> pulloutCdefServiceRank(List<ImmuMemberService> memberServiceList)
+    { return helpPulloutInternally(memberServiceList, "cdefServiceRank"); }
 
     // ===================================================================================
     //                                                                      Extract Column
@@ -462,7 +462,7 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
@@ -475,8 +475,8 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
      * memberService.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">update</span>(memberService);
      * </pre>
-     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -485,35 +485,11 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Update the entity non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
-     * memberService.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * memberService.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//memberService.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//memberService.set...;</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//memberService.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">updateNonstrict</span>(memberService);
-     * </pre>
-     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void updateNonstrict(ImmuMemberService memberService) {
-        doUpdateNonstrict(memberService, null);
-    }
-
-    /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br>
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param memberService The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -522,20 +498,7 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() }
-     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param memberService The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void insertOrUpdateNonstrict(ImmuMemberService memberService) {
-        doInsertOrUpdateNonstrict(memberService, null, null);
-    }
-
-    /**
-     * Delete the entity. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
@@ -548,31 +511,12 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
      *     ...
      * }
      * </pre>
-     * @param memberService The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void delete(ImmuMemberService memberService) {
-        doDelete(memberService, null);
-    }
-
-    /**
-     * Delete the entity non-strictly. {ZeroUpdateException, NonExclusiveControl} <br>
-     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
-     * memberService.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//memberService.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">deleteNonstrict</span>(memberService);
-     * </pre>
      * @param memberService The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void deleteNonstrict(ImmuMemberService memberService) {
-        doDeleteNonstrict(memberService, null);
+    public void delete(ImmuMemberService memberService) {
+        doDelete(memberService, null);
     }
 
     // ===================================================================================
@@ -607,7 +551,7 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br>
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
@@ -626,62 +570,23 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
      * }
      * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberServiceList);
      * </pre>
-     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<ImmuMemberService> memberServiceList) {
         return doBatchUpdate(memberServiceList, null);
     }
 
     /**
-     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
-     * <span style="color: #CC4747; font-size: 140%">You should specify same-set columns to all entities like this:</span>
-     * <pre>
-     * <span style="color: #70226C">for</span> (... : ...) {
-     *     ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
-     *     memberService.setFooName("foo");
-     *     <span style="color: #70226C">if</span> (...) {
-     *         memberService.setFooPrice(123);
-     *     } <span style="color: #70226C">else</span> {
-     *         memberService.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//memberService.setFooDate(...); // *not allowed, fragmented</span>
-     *     }
-     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
-     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     memberServiceList.add(memberService);
-     * }
-     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">batchUpdate</span>(memberServiceList);
-     * </pre>
-     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchUpdateNonstrict(List<ImmuMemberService> memberServiceList) {
-        return doBatchUpdateNonstrict(memberServiceList, null);
-    }
-
-    /**
-     * Batch-delete the entity list. (ExclusiveControl) <br>
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<ImmuMemberService> memberServiceList) {
         return doBatchDelete(memberServiceList, null);
-    }
-
-    /**
-     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchDeleteNonstrict(List<ImmuMemberService> memberServiceList) {
-        return doBatchDeleteNonstrict(memberServiceList, null);
     }
 
     // ===================================================================================
@@ -788,7 +693,7 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
@@ -804,9 +709,9 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -815,40 +720,12 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
-     * Other specifications are same as updateNonstrict(entity).
-     * <pre>
-     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * ImmuMemberService memberService = <span style="color: #70226C">new</span> ImmuMemberService();
-     * memberService.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * memberService.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//memberService.setVersionNo(value);</span>
-     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">varyingUpdateNonstrict</span>(memberService, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     * });
-     * </pre>
-     * @param memberService The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingUpdateNonstrict(ImmuMemberService memberService, WritableOptionCall<ImmuMemberServiceCB, UpdateOption<ImmuMemberServiceCB>> opLambda) {
-        doUpdateNonstrict(memberService, createUpdateOption(opLambda));
-    }
-
-    /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param memberService The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -857,43 +734,16 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br>
-     * Other specifications are same as insertOrUpdateNonstrict(entity).
-     * @param memberService The entity of insert or update. (NotNull)
-     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
-     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingInsertOrUpdateNonstrict(ImmuMemberService memberService, WritableOptionCall<ImmuMemberServiceCB, InsertOption<ImmuMemberServiceCB>> insertOpLambda, WritableOptionCall<ImmuMemberServiceCB, UpdateOption<ImmuMemberServiceCB>> updateOpLambda) {
-        doInsertOrUpdateNonstrict(memberService, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param memberService The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(ImmuMemberService memberService, WritableOptionCall<ImmuMemberServiceCB, DeleteOption<ImmuMemberServiceCB>> opLambda) {
         doDelete(memberService, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br>
-     * Now a valid option does not exist. <br>
-     * Other specifications are same as deleteNonstrict(entity).
-     * @param memberService The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void varyingDeleteNonstrict(ImmuMemberService memberService, WritableOptionCall<ImmuMemberServiceCB, DeleteOption<ImmuMemberServiceCB>> opLambda) {
-        doDeleteNonstrict(memberService, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -926,19 +776,6 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     }
 
     /**
-     * Batch-update the list with varying requests non-strictly. <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
-     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchUpdateNonstrict(List<ImmuMemberService> memberServiceList, WritableOptionCall<ImmuMemberServiceCB, UpdateOption<ImmuMemberServiceCB>> opLambda) {
-        return doBatchUpdateNonstrict(memberServiceList, createUpdateOption(opLambda));
-    }
-
-    /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
@@ -948,18 +785,6 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
      */
     public int[] varyingBatchDelete(List<ImmuMemberService> memberServiceList, WritableOptionCall<ImmuMemberServiceCB, DeleteOption<ImmuMemberServiceCB>> opLambda) {
         return doBatchDelete(memberServiceList, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Batch-delete the list with varying requests non-strictly. <br>
-     * For example, limitBatchDeleteLogging(). <br>
-     * Other specifications are same as batchDeleteNonstrict(entityList).
-     * @param memberServiceList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchDeleteNonstrict(List<ImmuMemberService> memberServiceList, WritableOptionCall<ImmuMemberServiceCB, DeleteOption<ImmuMemberServiceCB>> opLambda) {
-        return doBatchDeleteNonstrict(memberServiceList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1063,12 +888,6 @@ public abstract class ImmuBsMemberServiceBhv extends AbstractBehaviorWritable<Im
     public OutsideSqlAllFacadeExecutor<ImmuMemberServiceBhv> outsideSql() {
         return doOutsideSql();
     }
-
-    // ===================================================================================
-    //                                                                Optimistic Lock Info
-    //                                                                ====================
-    @Override
-    protected boolean hasVersionNoValue(Entity et) { return downcast(et).getVersionNo() != null; }
 
     // ===================================================================================
     //                                                                         Type Helper

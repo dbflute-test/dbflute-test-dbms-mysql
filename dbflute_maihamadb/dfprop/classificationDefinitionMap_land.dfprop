@@ -32,8 +32,43 @@
 #
 map:{
     # ====================================================================================
-    #                                                                        Whitebox Test
-    #                                                                        =============
+    #                                                                    Tricky Table Test
+    #                                                                    =================
+    # the test of all-in-one table classification
+    ; $$SQL$$ =
+select category.CLS_CATEGORY_NAME as classificationName
+     , category.DESCRIPTION as topComment
+     , element.CLS_ELEMENT_CODE as code
+     , element.CLS_ELEMENT_NAME as name
+     , element.CLS_ELEMENT_NAME as alias
+     , element.CLS_ELEMENT_NAME as comment
+  from WHITE_ALL_IN_ONE_CLS_ELEMENT element
+    left outer join WHITE_ALL_IN_ONE_CLS_CATEGORY category
+      on element.CLS_CATEGORY_CODE = category.CLS_CATEGORY_CODE
+ order by classificationName, code
+ 
+    # the test of 'sql' expression
+    ; SelfReference = list:{
+        ; map:{topComment=The test of relation reference; codeType=Number}
+        ; map:{
+            ; table=$sql: WHITE_SELF_REFERENCE loc left outer join WHITE_SELF_REFERENCE rel on loc.PARENT_ID = rel.SELF_REFERENCE_ID
+            ; code=$sql: loc.SELF_REFERENCE_ID; name=$sql: loc.SELF_REFERENCE_NAME
+            ; comment=$sql: 'of ' || rel.SELF_REFERENCE_NAME
+            ; orderBy=loc.PARENT_ID is not null, loc.SELF_REFERENCE_ID
+        }
+    }
+
+    # the test of escaped for DfProp
+    ; EscapedNumberInitialCls = list:{
+        ; map:{
+            ; topComment=6; codeType=String
+        }
+        ; map:{table=WHITE_ESCAPED_NUMBER_INITIAL; code=NUMBER_INITIAL_CODE; name=NUMBER_INITIAL_NAME}
+    }
+
+    # ====================================================================================
+    #                                                                   Migrated to hangar
+    #                                                                   ==================
     ; GroupingReference = list:{
         ; map:{
             ; topComment=the test of reference variable in grouping map
@@ -65,17 +100,6 @@ map:{
         ; map:{code=SEA; name=SEA_NAME}
         ; map:{code=IKS; name=IKSPIARY_NAME}
         ; map:{code=AMP; name=AMPHI_NAME}
-    }
-
-    # the test of 'sql' expression
-    ; SelfReference = list:{
-        ; map:{topComment=The test of relation reference; codeType=Number}
-        ; map:{
-            ; table=$sql: WHITE_SELF_REFERENCE loc left outer join WHITE_SELF_REFERENCE rel on loc.PARENT_ID = rel.SELF_REFERENCE_ID
-            ; code=$sql: loc.SELF_REFERENCE_ID; name=$sql: loc.SELF_REFERENCE_NAME
-            ; comment=$sql: 'of ' || rel.SELF_REFERENCE_NAME
-            ; orderBy=loc.PARENT_ID is not null, loc.SELF_REFERENCE_ID
-        }
     }
 
     # the test of document only
@@ -182,19 +206,6 @@ lue
         ; map:{code=Qua} ; map:{code=Que} ; map:{code=Quo}
     }
 
-    # the test of all-in-one table classification
-    ; $$SQL$$ =
-select category.CLS_CATEGORY_NAME as classificationName
-     , category.DESCRIPTION as topComment
-     , element.CLS_ELEMENT_CODE as code
-     , element.CLS_ELEMENT_NAME as name
-     , element.CLS_ELEMENT_NAME as alias
-     , element.CLS_ELEMENT_NAME as comment
-  from WHITE_ALL_IN_ONE_CLS_ELEMENT element
-    left outer join WHITE_ALL_IN_ONE_CLS_CATEGORY category
-      on element.CLS_CATEGORY_CODE = category.CLS_CATEGORY_CODE
- order by classificationName, code
-
     # the test of all-in-one merged
     ; QuxCls = list:{
         ; map:{
@@ -239,14 +250,6 @@ select category.CLS_CATEGORY_NAME as classificationName
         ; map:{code=BAR; name=Second
             ; comment=/*IF pmb.yourBarComment*/><&
         }
-    }
-
-    # the test of escaped for DfProp
-    ; EscapedNumberInitialCls = list:{
-        ; map:{
-            ; topComment=6; codeType=String
-        }
-        ; map:{table=WHITE_ESCAPED_NUMBER_INITIAL; code=NUMBER_INITIAL_CODE; name=NUMBER_INITIAL_NAME}
     }
 
     # the test of line separator

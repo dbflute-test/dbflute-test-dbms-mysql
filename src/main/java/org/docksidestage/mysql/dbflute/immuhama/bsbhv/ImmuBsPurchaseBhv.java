@@ -41,7 +41,7 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PURCHASE_ID
  *
  * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
+ *     PURCHASE_ID, MEMBER_ID, PRODUCT_DETAIL_ID, PRODUCT_PRICE_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
  *
  * [sequence]
  *     
@@ -50,16 +50,16 @@ import org.docksidestage.mysql.dbflute.immuhama.cbean.*;
  *     PURCHASE_ID
  *
  * [version-no]
- *     VERSION_NO
+ *     
  *
  * [foreign table]
- *     MEMBER, PRODUCT
+ *     MEMBER, PRODUCT_DETAIL, PRODUCT_PRICE, PURCHASE_STATUS(AsOne)
  *
  * [referrer table]
- *     PURCHASE_PAYMENT
+ *     PURCHASE_PAYMENT, PURCHASE_STATUS
  *
  * [foreign property]
- *     member, product
+ *     member, productDetail, productPrice, purchaseStatusAsOne
  *
  * [referrer property]
  *     purchasePaymentList
@@ -202,28 +202,27 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     /**
      * Select the entity by the unique-key value.
      * @param memberId (会員ID): UQ+, IX+, NotNull, INT(10), FK to member. (NotNull)
-     * @param productId (商品ID): +UQ, IX+, NotNull, INT(10), FK to product. (NotNull)
      * @param purchaseDatetime (購入日時): +UQ, IX+, NotNull, DATETIME(19). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<ImmuPurchase> selectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        return facadeSelectByUniqueOf(memberId, productId, purchaseDatetime);
+    public OptionalEntity<ImmuPurchase> selectByUniqueOf(Integer memberId, java.time.LocalDateTime purchaseDatetime) {
+        return facadeSelectByUniqueOf(memberId, purchaseDatetime);
     }
 
-    protected OptionalEntity<ImmuPurchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        return doSelectByUniqueOf(memberId, productId, purchaseDatetime, typeOfSelectedEntity());
+    protected OptionalEntity<ImmuPurchase> facadeSelectByUniqueOf(Integer memberId, java.time.LocalDateTime purchaseDatetime) {
+        return doSelectByUniqueOf(memberId, purchaseDatetime, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends ImmuPurchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, productId, purchaseDatetime), tp), memberId, productId, purchaseDatetime);
+    protected <ENTITY extends ImmuPurchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, java.time.LocalDateTime purchaseDatetime, Class<? extends ENTITY> tp) {
+        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, purchaseDatetime), tp), memberId, purchaseDatetime);
     }
 
-    protected ImmuPurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
-        assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
-        return newConditionBean().acceptUniqueOf(memberId, productId, purchaseDatetime);
+    protected ImmuPurchaseCB xprepareCBAsUniqueOf(Integer memberId, java.time.LocalDateTime purchaseDatetime) {
+        assertObjectNotNull("memberId", memberId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
+        return newConditionBean().acceptUniqueOf(memberId, purchaseDatetime);
     }
 
     // ===================================================================================
@@ -477,12 +476,28 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     { return helpPulloutInternally(purchaseList, "member"); }
 
     /**
-     * Pull out the list of foreign table 'ImmuProduct'.
+     * Pull out the list of foreign table 'ImmuProductDetail'.
      * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
      * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
      */
-    public List<ImmuProduct> pulloutProduct(List<ImmuPurchase> purchaseList)
-    { return helpPulloutInternally(purchaseList, "product"); }
+    public List<ImmuProductDetail> pulloutProductDetail(List<ImmuPurchase> purchaseList)
+    { return helpPulloutInternally(purchaseList, "productDetail"); }
+
+    /**
+     * Pull out the list of foreign table 'ImmuProductPrice'.
+     * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
+     * @return The list of foreign table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<ImmuProductPrice> pulloutProductPrice(List<ImmuPurchase> purchaseList)
+    { return helpPulloutInternally(purchaseList, "productPrice"); }
+
+    /**
+     * Pull out the list of referrer-as-one table 'ImmuPurchaseStatus'.
+     * @param purchaseList The list of purchase. (NotNull, EmptyAllowed)
+     * @return The list of referrer-as-one table. (NotNull, EmptyAllowed, NotNullElement)
+     */
+    public List<ImmuPurchaseStatus> pulloutPurchaseStatusAsOne(List<ImmuPurchase> purchaseList)
+    { return helpPulloutInternally(purchaseList, "purchaseStatusAsOne"); }
 
     // ===================================================================================
     //                                                                      Extract Column
@@ -520,7 +535,7 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Update the entity modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can update by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
@@ -533,8 +548,8 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
      * purchase.<span style="color: #CC4747">setVersionNo</span>(value);
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">update</span>(purchase);
      * </pre>
-     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -543,35 +558,11 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Update the entity non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * By PK as default, and also you can update by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
-     * purchase.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * purchase.setFoo...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
-     * <span style="color: #3F7E5E">//purchase.setRegisterUser(value);</span>
-     * <span style="color: #3F7E5E">//purchase.set...;</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//purchase.setVersionNo(value);</span>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">updateNonstrict</span>(purchase);
-     * </pre>
-     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void updateNonstrict(ImmuPurchase purchase) {
-        doUpdateNonstrict(purchase, null);
-    }
-
-    /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br>
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
      * @param purchase The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -580,20 +571,7 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() }
-     * <p><span style="color: #994747; font-size: 120%">Also you can update by unique keys using entity's uniqueOf().</span></p>
-     * @param purchase The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void insertOrUpdateNonstrict(ImmuPurchase purchase) {
-        doInsertOrUpdateNonstrict(purchase, null, null);
-    }
-
-    /**
-     * Delete the entity. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity. (ZeroUpdateException, NonExclusiveControl) <br>
      * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
      * <pre>
      * ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
@@ -606,31 +584,12 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
      *     ...
      * }
      * </pre>
-     * @param purchase The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void delete(ImmuPurchase purchase) {
-        doDelete(purchase, null);
-    }
-
-    /**
-     * Delete the entity non-strictly. {ZeroUpdateException, NonExclusiveControl} <br>
-     * By PK as default, and also you can delete by unique keys using entity's uniqueOf().
-     * <pre>
-     * ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
-     * purchase.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//purchase.setVersionNo(value);</span>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">deleteNonstrict</span>(purchase);
-     * </pre>
      * @param purchase The entity of delete. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
-    public void deleteNonstrict(ImmuPurchase purchase) {
-        doDeleteNonstrict(purchase, null);
+    public void delete(ImmuPurchase purchase) {
+        doDelete(purchase, null);
     }
 
     // ===================================================================================
@@ -665,7 +624,7 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br>
+     * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
@@ -684,62 +643,23 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
      * }
      * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">batchUpdate</span>(purchaseList);
      * </pre>
-     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<ImmuPurchase> purchaseList) {
         return doBatchUpdate(purchaseList, null);
     }
 
     /**
-     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
-     * <span style="color: #CC4747; font-size: 140%">You should specify same-set columns to all entities like this:</span>
-     * <pre>
-     * <span style="color: #70226C">for</span> (... : ...) {
-     *     ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
-     *     purchase.setFooName("foo");
-     *     <span style="color: #70226C">if</span> (...) {
-     *         purchase.setFooPrice(123);
-     *     } <span style="color: #70226C">else</span> {
-     *         purchase.setFooPrice(null); <span style="color: #3F7E5E">// updated as null</span>
-     *         <span style="color: #3F7E5E">//purchase.setFooDate(...); // *not allowed, fragmented</span>
-     *     }
-     *     <span style="color: #3F7E5E">// FOO_NAME and FOO_PRICE (and record meta columns) are updated</span>
-     *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
-     *     purchaseList.add(purchase);
-     * }
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">batchUpdate</span>(purchaseList);
-     * </pre>
-     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchUpdateNonstrict(List<ImmuPurchase> purchaseList) {
-        return doBatchUpdateNonstrict(purchaseList, null);
-    }
-
-    /**
-     * Batch-delete the entity list. (ExclusiveControl) <br>
+     * Batch-delete the entity list. (NonExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws BatchEntityAlreadyUpdatedException When the entity has already been updated. This exception extends EntityAlreadyUpdatedException.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<ImmuPurchase> purchaseList) {
         return doBatchDelete(purchaseList, null);
-    }
-
-    /**
-     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br>
-     * This method uses executeBatch() of java.sql.PreparedStatement.
-     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     */
-    public int[] batchDeleteNonstrict(List<ImmuPurchase> purchaseList) {
-        return doBatchDeleteNonstrict(purchaseList, null);
     }
 
     // ===================================================================================
@@ -846,7 +766,7 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
@@ -862,9 +782,9 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
      * });
      * </pre>
-     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
+     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -873,40 +793,12 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
-     * Other specifications are same as updateNonstrict(entity).
-     * <pre>
-     * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
-     * ImmuPurchase purchase = <span style="color: #70226C">new</span> ImmuPurchase();
-     * purchase.setPK...(value); <span style="color: #3F7E5E">// required</span>
-     * purchase.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
-     * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
-     * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
-     * <span style="color: #3F7E5E">//purchase.setVersionNo(value);</span>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">varyingUpdateNonstrict</span>(purchase, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     * });
-     * </pre>
-     * @param purchase The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingUpdateNonstrict(ImmuPurchase purchase, WritableOptionCall<ImmuPurchaseCB, UpdateOption<ImmuPurchaseCB>> opLambda) {
-        doUpdateNonstrict(purchase, createUpdateOption(opLambda));
-    }
-
-    /**
      * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param purchase The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
@@ -915,43 +807,16 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br>
-     * Other specifications are same as insertOrUpdateNonstrict(entity).
-     * @param purchase The entity of insert or update. (NotNull)
-     * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
-     * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
-     */
-    public void varyingInsertOrUpdateNonstrict(ImmuPurchase purchase, WritableOptionCall<ImmuPurchaseCB, InsertOption<ImmuPurchaseCB>> insertOpLambda, WritableOptionCall<ImmuPurchaseCB, UpdateOption<ImmuPurchaseCB>> updateOpLambda) {
-        doInsertOrUpdateNonstrict(purchase, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br>
+     * Delete the entity with varying requests. (ZeroUpdateException, NonExclusiveControl) <br>
      * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param purchase The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyUpdatedException When the entity has already been updated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(ImmuPurchase purchase, WritableOptionCall<ImmuPurchaseCB, DeleteOption<ImmuPurchaseCB>> opLambda) {
         doDelete(purchase, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br>
-     * Now a valid option does not exist. <br>
-     * Other specifications are same as deleteNonstrict(entity).
-     * @param purchase The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     */
-    public void varyingDeleteNonstrict(ImmuPurchase purchase, WritableOptionCall<ImmuPurchaseCB, DeleteOption<ImmuPurchaseCB>> opLambda) {
-        doDeleteNonstrict(purchase, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -984,19 +849,6 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     }
 
     /**
-     * Batch-update the list with varying requests non-strictly. <br>
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
-     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @return The array of updated count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchUpdateNonstrict(List<ImmuPurchase> purchaseList, WritableOptionCall<ImmuPurchaseCB, UpdateOption<ImmuPurchaseCB>> opLambda) {
-        return doBatchUpdateNonstrict(purchaseList, createUpdateOption(opLambda));
-    }
-
-    /**
      * Batch-delete the list with varying requests. <br>
      * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
@@ -1006,18 +858,6 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
      */
     public int[] varyingBatchDelete(List<ImmuPurchase> purchaseList, WritableOptionCall<ImmuPurchaseCB, DeleteOption<ImmuPurchaseCB>> opLambda) {
         return doBatchDelete(purchaseList, createDeleteOption(opLambda));
-    }
-
-    /**
-     * Batch-delete the list with varying requests non-strictly. <br>
-     * For example, limitBatchDeleteLogging(). <br>
-     * Other specifications are same as batchDeleteNonstrict(entityList).
-     * @param purchaseList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
-     * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @return The array of deleted count. (NotNull, EmptyAllowed)
-     */
-    public int[] varyingBatchDeleteNonstrict(List<ImmuPurchase> purchaseList, WritableOptionCall<ImmuPurchaseCB, DeleteOption<ImmuPurchaseCB>> opLambda) {
-        return doBatchDeleteNonstrict(purchaseList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1121,12 +961,6 @@ public abstract class ImmuBsPurchaseBhv extends AbstractBehaviorWritable<ImmuPur
     public OutsideSqlAllFacadeExecutor<ImmuPurchaseBhv> outsideSql() {
         return doOutsideSql();
     }
-
-    // ===================================================================================
-    //                                                                Optimistic Lock Info
-    //                                                                ====================
-    @Override
-    protected boolean hasVersionNoValue(Entity et) { return downcast(et).getVersionNo() != null; }
 
     // ===================================================================================
     //                                                                         Type Helper

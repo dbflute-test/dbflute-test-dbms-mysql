@@ -28,8 +28,9 @@ import org.docksidestage.mysql.dbflute.immuhama.allcommon.ImmuCDef;
 import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
 
 /**
- * The entity of (会員ログイン情報)MEMBER_LOGIN as TABLE. <br>
- * ログインするたびに登録されるログイン履歴。
+ * The entity of (会員ログイン)MEMBER_LOGIN as TABLE. <br>
+ * ログインするたびに登録されるログイン履歴。<br>
+ * 登録されたら更新されるも削除されることもない。さらには、登録する人もプログラムもはっきりしているので、(紙面の都合上もあって)ここでは共通カラムは省略している。
  * <pre>
  * [primary-key]
  *     MEMBER_LOGIN_ID
@@ -47,13 +48,13 @@ import org.docksidestage.mysql.dbflute.immuhama.exentity.*;
  *     
  *
  * [foreign table]
- *     MEMBER_STATUS, MEMBER
+ *     CDEF_MEMBER_STATUS, MEMBER
  *
  * [referrer table]
  *     
  *
  * [foreign property]
- *     memberStatus, member
+ *     cdefMemberStatus, member
  *
  * [referrer property]
  *     
@@ -97,7 +98,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     /** (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INT(10), classification=Flg} */
     protected Integer _mobileLoginFlg;
 
-    /** (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} */
+    /** (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} */
     protected String _loginMemberStatusCode;
 
     // ===================================================================================
@@ -146,7 +147,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public ImmuCDef.Flg getMobileLoginFlgAsFlg() {
-        return ImmuCDef.Flg.codeOf(getMobileLoginFlg());
+        return ImmuCDef.Flg.of(getMobileLoginFlg()).orElse(null);
     }
 
     /**
@@ -161,18 +162,18 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
 
     /**
      * Get the value of loginMemberStatusCode as the classification of MemberStatus. <br>
-     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
+     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public ImmuCDef.MemberStatus getLoginMemberStatusCodeAsMemberStatus() {
-        return ImmuCDef.MemberStatus.codeOf(getLoginMemberStatusCode());
+        return ImmuCDef.MemberStatus.of(getLoginMemberStatusCode()).orElse(null);
     }
 
     /**
      * Set the value of loginMemberStatusCode as the classification of MemberStatus. <br>
-     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
+     * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -248,25 +249,25 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
-    /** (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. */
-    protected OptionalEntity<ImmuMemberStatus> _memberStatus;
+    /** ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'. */
+    protected OptionalEntity<ImmuCdefMemberStatus> _cdefMemberStatus;
 
     /**
-     * [get] (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'. <br>
+     * [get] ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'. <br>
      * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
-     * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
+     * @return The entity of foreign property 'cdefMemberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public OptionalEntity<ImmuMemberStatus> getMemberStatus() {
-        if (_memberStatus == null) { _memberStatus = OptionalEntity.relationEmpty(this, "memberStatus"); }
-        return _memberStatus;
+    public OptionalEntity<ImmuCdefMemberStatus> getCdefMemberStatus() {
+        if (_cdefMemberStatus == null) { _cdefMemberStatus = OptionalEntity.relationEmpty(this, "cdefMemberStatus"); }
+        return _cdefMemberStatus;
     }
 
     /**
-     * [set] (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
-     * @param memberStatus The entity of foreign property 'memberStatus'. (NullAllowed)
+     * [set] ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
+     * @param cdefMemberStatus The entity of foreign property 'cdefMemberStatus'. (NullAllowed)
      */
-    public void setMemberStatus(OptionalEntity<ImmuMemberStatus> memberStatus) {
-        _memberStatus = memberStatus;
+    public void setCdefMemberStatus(OptionalEntity<ImmuCdefMemberStatus> cdefMemberStatus) {
+        _cdefMemberStatus = cdefMemberStatus;
     }
 
     /** (会員)MEMBER by my MEMBER_ID, named 'member'. */
@@ -322,8 +323,8 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_memberStatus != null && _memberStatus.isPresent())
-        { sb.append(li).append(xbRDS(_memberStatus, "memberStatus")); }
+        if (_cdefMemberStatus != null && _cdefMemberStatus.isPresent())
+        { sb.append(li).append(xbRDS(_cdefMemberStatus, "cdefMemberStatus")); }
         if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
         return sb.toString();
@@ -350,8 +351,8 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_memberStatus != null && _memberStatus.isPresent())
-        { sb.append(dm).append("memberStatus"); }
+        if (_cdefMemberStatus != null && _cdefMemberStatus.isPresent())
+        { sb.append(dm).append("cdefMemberStatus"); }
         if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
         if (sb.length() > dm.length()) {
@@ -388,6 +389,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
 
     /**
      * [get] (会員ID)MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @return The value of the column 'MEMBER_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -397,6 +399,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
 
     /**
      * [set] (会員ID)MEMBER_ID: {UQ+, NotNull, INT(10), FK to member} <br>
+     * 連番として自動採番される。会員IDだけに限らず採番方法はDBMS次第。
      * @param memberId The value of the column 'MEMBER_ID'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -406,7 +409,8 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
 
     /**
      * [get] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)} <br>
-     * ログインした瞬間の日時。
+     * ログインした瞬間の日時。<br>
+     * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @return The value of the column 'LOGIN_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getLoginDatetime() {
@@ -416,7 +420,8 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
 
     /**
      * [set] (ログイン日時)LOGIN_DATETIME: {+UQ, IX, NotNull, DATETIME(19)} <br>
-     * ログインした瞬間の日時。
+     * ログインした瞬間の日時。<br>
+     * 同じ会員が同じ日時にログインはできない。(ユニーク制約で重複ログインできないようにしてある)
      * @param loginDatetime The value of the column 'LOGIN_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setLoginDatetime(java.time.LocalDateTime loginDatetime) {
@@ -446,7 +451,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     }
 
     /**
-     * [get] (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
+     * [get] (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * ログイン時の会員ステータス
      * @return The value of the column 'LOGIN_MEMBER_STATUS_CODE'. (basically NotNull if selected: for the constraint)
      */
@@ -456,7 +461,7 @@ public abstract class ImmuBsMemberLogin extends AbstractEntity implements Domain
     }
 
     /**
-     * [set] (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus} <br>
+     * [set] (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus} <br>
      * ログイン時の会員ステータス
      * @param loginMemberStatusCode The value of the column 'LOGIN_MEMBER_STATUS_CODE'. (basically NotNull if update: for the constraint)
      */

@@ -113,7 +113,7 @@ public class ImmuBsMemberFollowingCB extends AbstractConditionBean {
     /**
      * Accept the query condition of unique key as equal.
      * @param myMemberId (わたし): UQ+, NotNull, INT(10), FK to member. (NotNull)
-     * @param yourMemberId (あなた): +UQ, IX+, NotNull, INT(10), FK to member. (NotNull)
+     * @param yourMemberId (あなた): +UQ, IX, NotNull, INT(10), FK to member. (NotNull)
      * @return this. (NotNull)
      */
     public ImmuMemberFollowingCB acceptUniqueOf(Integer myMemberId, Integer yourMemberId) {
@@ -386,7 +386,7 @@ public class ImmuBsMemberFollowingCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnMyMemberId() { return doColumn("MY_MEMBER_ID"); }
         /**
-         * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
+         * (あなた)YOUR_MEMBER_ID: {+UQ, IX, NotNull, INT(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnYourMemberId() { return doColumn("YOUR_MEMBER_ID"); }

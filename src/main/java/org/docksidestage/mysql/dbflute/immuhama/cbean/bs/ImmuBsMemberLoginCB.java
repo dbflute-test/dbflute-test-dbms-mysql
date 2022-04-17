@@ -272,22 +272,22 @@ public class ImmuBsMemberLoginCB extends AbstractConditionBean {
     //                                                                         ===========
     /**
      * Set up relation columns to select clause. <br>
-     * (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+     * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
      * <pre>
      * <span style="color: #0000C0">memberLoginBhv</span>.selectEntity(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_MemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">setupSelect_CdefMemberStatus()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * }).alwaysPresent(<span style="color: #553000">memberLogin</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     ... = <span style="color: #553000">memberLogin</span>.<span style="color: #CC4747">getMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     *     ... = <span style="color: #553000">memberLogin</span>.<span style="color: #CC4747">getCdefMemberStatus()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * });
      * </pre>
      */
-    public void setupSelect_MemberStatus() {
-        assertSetupSelectPurpose("memberStatus");
+    public void setupSelect_CdefMemberStatus() {
+        assertSetupSelectPurpose("cdefMemberStatus");
         if (hasSpecifiedLocalColumn()) {
             specify().columnLoginMemberStatusCode();
         }
-        doSetupSelect(() -> query().queryMemberStatus());
+        doSetupSelect(() -> query().queryCdefMemberStatus());
     }
 
     protected ImmuMemberNss _nssMember;
@@ -360,7 +360,7 @@ public class ImmuBsMemberLoginCB extends AbstractConditionBean {
     }
 
     public static class HpSpecification extends HpAbstractSpecification<ImmuMemberLoginCQ> {
-        protected ImmuMemberStatusCB.HpSpecification _memberStatus;
+        protected ImmuCdefMemberStatusCB.HpSpecification _cdefMemberStatus;
         protected ImmuMemberCB.HpSpecification _member;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ImmuMemberLoginCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
@@ -387,7 +387,7 @@ public class ImmuBsMemberLoginCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnMobileLoginFlg() { return doColumn("MOBILE_LOGIN_FLG"); }
         /**
-         * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to member_status, classification=MemberStatus}
+         * (ログイン会員ステータスコード)LOGIN_MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnLoginMemberStatusCode() { return doColumn("LOGIN_MEMBER_STATUS_CODE"); }
@@ -396,8 +396,8 @@ public class ImmuBsMemberLoginCB extends AbstractConditionBean {
         @Override
         protected void doSpecifyRequiredColumn() {
             columnMemberLoginId(); // PK
-            if (qyCall().qy().hasConditionQueryMemberStatus()
-                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuMemberStatusCQ) {
+            if (qyCall().qy().hasConditionQueryCdefMemberStatus()
+                    || qyCall().qy().xgetReferrerQuery() instanceof ImmuCdefMemberStatusCQ) {
                 columnLoginMemberStatusCode(); // FK or one-to-one referrer
             }
             if (qyCall().qy().hasConditionQueryMember()
@@ -409,23 +409,23 @@ public class ImmuBsMemberLoginCB extends AbstractConditionBean {
         protected String getTableDbName() { return "member_login"; }
         /**
          * Prepare to specify functions about relation table. <br>
-         * (会員ステータス)MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'memberStatus'.
+         * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my LOGIN_MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public ImmuMemberStatusCB.HpSpecification specifyMemberStatus() {
-            assertRelation("memberStatus");
-            if (_memberStatus == null) {
-                _memberStatus = new ImmuMemberStatusCB.HpSpecification(_baseCB
-                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryMemberStatus()
-                                    , () -> _qyCall.qy().queryMemberStatus())
+        public ImmuCdefMemberStatusCB.HpSpecification specifyCdefMemberStatus() {
+            assertRelation("cdefMemberStatus");
+            if (_cdefMemberStatus == null) {
+                _cdefMemberStatus = new ImmuCdefMemberStatusCB.HpSpecification(_baseCB
+                    , xcreateSpQyCall(() -> _qyCall.has() && _qyCall.qy().hasConditionQueryCdefMemberStatus()
+                                    , () -> _qyCall.qy().queryCdefMemberStatus())
                     , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
-                    _memberStatus.xsetSyncQyCall(xcreateSpQyCall(
-                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryMemberStatus()
-                      , () -> xsyncQyCall().qy().queryMemberStatus()));
+                    _cdefMemberStatus.xsetSyncQyCall(xcreateSpQyCall(
+                        () -> xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryCdefMemberStatus()
+                      , () -> xsyncQyCall().qy().queryCdefMemberStatus()));
                 }
             }
-            return _memberStatus;
+            return _cdefMemberStatus;
         }
         /**
          * Prepare to specify functions about relation table. <br>

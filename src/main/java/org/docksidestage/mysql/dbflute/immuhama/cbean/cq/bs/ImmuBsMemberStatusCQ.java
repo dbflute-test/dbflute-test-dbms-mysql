@@ -88,113 +88,165 @@ public class ImmuBsMemberStatusCQ extends ImmuAbstractBsMemberStatusCQ {
     // ===================================================================================
     //                                                                               Query
     //                                                                               =====
+    protected ConditionValue _memberStatusId;
+    public ConditionValue xdfgetMemberStatusId()
+    { if (_memberStatusId == null) { _memberStatusId = nCV(); }
+      return _memberStatusId; }
+    protected ConditionValue xgetCValueMemberStatusId() { return xdfgetMemberStatusId(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusId_Asc() { regOBA("MEMBER_STATUS_ID"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * (会員ステータスID)MEMBER_STATUS_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusId_Desc() { regOBD("MEMBER_STATUS_ID"); return this; }
+
+    protected ConditionValue _memberId;
+    public ConditionValue xdfgetMemberId()
+    { if (_memberId == null) { _memberId = nCV(); }
+      return _memberId; }
+    protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_MemberId_Asc() { regOBA("MEMBER_ID"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * (会員ID)MEMBER_ID: {IX, NotNull, INT(10), FK to member}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_MemberId_Desc() { regOBD("MEMBER_ID"); return this; }
+
     protected ConditionValue _memberStatusCode;
     public ConditionValue xdfgetMemberStatusCode()
     { if (_memberStatusCode == null) { _memberStatusCode = nCV(); }
       return _memberStatusCode; }
     protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
-    public Map<String, ImmuMemberCQ> xdfgetMemberStatusCode_ExistsReferrer_MemberList() { return xgetSQueMap("memberStatusCode_ExistsReferrer_MemberList"); }
-    public String keepMemberStatusCode_ExistsReferrer_MemberList(ImmuMemberCQ sq) { return xkeepSQue("memberStatusCode_ExistsReferrer_MemberList", sq); }
-
-    public Map<String, ImmuMemberLoginCQ> xdfgetMemberStatusCode_ExistsReferrer_MemberLoginList() { return xgetSQueMap("memberStatusCode_ExistsReferrer_MemberLoginList"); }
-    public String keepMemberStatusCode_ExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq) { return xkeepSQue("memberStatusCode_ExistsReferrer_MemberLoginList", sq); }
-
-    public Map<String, ImmuMemberCQ> xdfgetMemberStatusCode_NotExistsReferrer_MemberList() { return xgetSQueMap("memberStatusCode_NotExistsReferrer_MemberList"); }
-    public String keepMemberStatusCode_NotExistsReferrer_MemberList(ImmuMemberCQ sq) { return xkeepSQue("memberStatusCode_NotExistsReferrer_MemberList", sq); }
-
-    public Map<String, ImmuMemberLoginCQ> xdfgetMemberStatusCode_NotExistsReferrer_MemberLoginList() { return xgetSQueMap("memberStatusCode_NotExistsReferrer_MemberLoginList"); }
-    public String keepMemberStatusCode_NotExistsReferrer_MemberLoginList(ImmuMemberLoginCQ sq) { return xkeepSQue("memberStatusCode_NotExistsReferrer_MemberLoginList", sq); }
-
-    public Map<String, ImmuMemberCQ> xdfgetMemberStatusCode_SpecifyDerivedReferrer_MemberList() { return xgetSQueMap("memberStatusCode_SpecifyDerivedReferrer_MemberList"); }
-    public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberList(ImmuMemberCQ sq) { return xkeepSQue("memberStatusCode_SpecifyDerivedReferrer_MemberList", sq); }
-
-    public Map<String, ImmuMemberLoginCQ> xdfgetMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberStatusCode_SpecifyDerivedReferrer_MemberLoginList"); }
-    public String keepMemberStatusCode_SpecifyDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq) { return xkeepSQue("memberStatusCode_SpecifyDerivedReferrer_MemberLoginList", sq); }
-
-    public Map<String, ImmuMemberCQ> xdfgetMemberStatusCode_QueryDerivedReferrer_MemberList() { return xgetSQueMap("memberStatusCode_QueryDerivedReferrer_MemberList"); }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberList(ImmuMemberCQ sq) { return xkeepSQue("memberStatusCode_QueryDerivedReferrer_MemberList", sq); }
-    public Map<String, Object> xdfgetMemberStatusCode_QueryDerivedReferrer_MemberListParameter() { return xgetSQuePmMap("memberStatusCode_QueryDerivedReferrer_MemberList"); }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberListParameter(Object pm) { return xkeepSQuePm("memberStatusCode_QueryDerivedReferrer_MemberList", pm); }
-
-    public Map<String, ImmuMemberLoginCQ> xdfgetMemberStatusCode_QueryDerivedReferrer_MemberLoginList() { return xgetSQueMap("memberStatusCode_QueryDerivedReferrer_MemberLoginList"); }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginList(ImmuMemberLoginCQ sq) { return xkeepSQue("memberStatusCode_QueryDerivedReferrer_MemberLoginList", sq); }
-    public Map<String, Object> xdfgetMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter() { return xgetSQuePmMap("memberStatusCode_QueryDerivedReferrer_MemberLoginList"); }
-    public String keepMemberStatusCode_QueryDerivedReferrer_MemberLoginListParameter(Object pm) { return xkeepSQuePm("memberStatusCode_QueryDerivedReferrer_MemberLoginList", pm); }
-
     /**
      * Add order-by as ascend. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public ImmuBsMemberStatusCQ addOrderBy_MemberStatusCode_Asc() { regOBA("MEMBER_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (会員ステータスコード)MEMBER_STATUS_CODE: {PK, NotNull, CHAR(3), classification=MemberStatus}
+     * (会員ステータスコード)MEMBER_STATUS_CODE: {IX, NotNull, CHAR(3), FK to cdef_member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public ImmuBsMemberStatusCQ addOrderBy_MemberStatusCode_Desc() { regOBD("MEMBER_STATUS_CODE"); return this; }
 
-    protected ConditionValue _memberStatusName;
-    public ConditionValue xdfgetMemberStatusName()
-    { if (_memberStatusName == null) { _memberStatusName = nCV(); }
-      return _memberStatusName; }
-    protected ConditionValue xgetCValueMemberStatusName() { return xdfgetMemberStatusName(); }
+    protected ConditionValue _memberStatusUpdateDatetime;
+    public ConditionValue xdfgetMemberStatusUpdateDatetime()
+    { if (_memberStatusUpdateDatetime == null) { _memberStatusUpdateDatetime = nCV(); }
+      return _memberStatusUpdateDatetime; }
+    protected ConditionValue xgetCValueMemberStatusUpdateDatetime() { return xdfgetMemberStatusUpdateDatetime(); }
 
     /**
      * Add order-by as ascend. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusName_Asc() { regOBA("MEMBER_STATUS_NAME"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusUpdateDatetime_Asc() { regOBA("MEMBER_STATUS_UPDATE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (会員ステータス名称)MEMBER_STATUS_NAME: {NotNull, VARCHAR(50)}
+     * (会員ステータス更新日時)MEMBER_STATUS_UPDATE_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusName_Desc() { regOBD("MEMBER_STATUS_NAME"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_MemberStatusUpdateDatetime_Desc() { regOBD("MEMBER_STATUS_UPDATE_DATETIME"); return this; }
 
-    protected ConditionValue _description;
-    public ConditionValue xdfgetDescription()
-    { if (_description == null) { _description = nCV(); }
-      return _description; }
-    protected ConditionValue xgetCValueDescription() { return xdfgetDescription(); }
+    protected ConditionValue _registerDatetime;
+    public ConditionValue xdfgetRegisterDatetime()
+    { if (_registerDatetime == null) { _registerDatetime = nCV(); }
+      return _registerDatetime; }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /**
      * Add order-by as ascend. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_Description_Asc() { regOBA("DESCRIPTION"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_RegisterDatetime_Asc() { regOBA("REGISTER_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (説明)DESCRIPTION: {NotNull, VARCHAR(200)}
+     * (登録日時)REGISTER_DATETIME: {NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_Description_Desc() { regOBD("DESCRIPTION"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_RegisterDatetime_Desc() { regOBD("REGISTER_DATETIME"); return this; }
 
-    protected ConditionValue _displayOrder;
-    public ConditionValue xdfgetDisplayOrder()
-    { if (_displayOrder == null) { _displayOrder = nCV(); }
-      return _displayOrder; }
-    protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
+    protected ConditionValue _registerUser;
+    public ConditionValue xdfgetRegisterUser()
+    { if (_registerUser == null) { _registerUser = nCV(); }
+      return _registerUser; }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /**
      * Add order-by as ascend. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("DISPLAY_ORDER"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_RegisterUser_Asc() { regOBA("REGISTER_USER"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * (登録ユーザー)REGISTER_USER: {NotNull, VARCHAR(200)}
      * @return this. (NotNull)
      */
-    public ImmuBsMemberStatusCQ addOrderBy_DisplayOrder_Desc() { regOBD("DISPLAY_ORDER"); return this; }
+    public ImmuBsMemberStatusCQ addOrderBy_RegisterUser_Desc() { regOBD("REGISTER_USER"); return this; }
+
+    protected ConditionValue _updateDatetime;
+    public ConditionValue xdfgetUpdateDatetime()
+    { if (_updateDatetime == null) { _updateDatetime = nCV(); }
+      return _updateDatetime; }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_UpdateDatetime_Asc() { regOBA("UPDATE_DATETIME"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * (更新日時)UPDATE_DATETIME: {NotNull, DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_UpdateDatetime_Desc() { regOBD("UPDATE_DATETIME"); return this; }
+
+    protected ConditionValue _updateUser;
+    public ConditionValue xdfgetUpdateUser()
+    { if (_updateUser == null) { _updateUser = nCV(); }
+      return _updateUser; }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_UpdateUser_Asc() { regOBA("UPDATE_USER"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * (更新ユーザ)UPDATE_USER: {NotNull, VARCHAR(200)}
+     * @return this. (NotNull)
+     */
+    public ImmuBsMemberStatusCQ addOrderBy_UpdateUser_Desc() { regOBD("UPDATE_USER"); return this; }
 
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
@@ -235,11 +287,59 @@ public class ImmuBsMemberStatusCQ extends ImmuAbstractBsMemberStatusCQ {
     //                                                                         Union Query
     //                                                                         ===========
     public void reflectRelationOnUnionQuery(ConditionQuery bqs, ConditionQuery uqs) {
+        ImmuMemberStatusCQ bq = (ImmuMemberStatusCQ)bqs;
+        ImmuMemberStatusCQ uq = (ImmuMemberStatusCQ)uqs;
+        if (bq.hasConditionQueryMember()) {
+            uq.queryMember().reflectRelationOnUnionQuery(bq.queryMember(), uq.queryMember());
+        }
+        if (bq.hasConditionQueryCdefMemberStatus()) {
+            uq.queryCdefMemberStatus().reflectRelationOnUnionQuery(bq.queryCdefMemberStatus(), uq.queryCdefMemberStatus());
+        }
     }
 
     // ===================================================================================
     //                                                                       Foreign Query
     //                                                                       =============
+    /**
+     * Get the condition-query for relation table. <br>
+     * (会員)MEMBER by my MEMBER_ID, named 'member'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public ImmuMemberCQ queryMember() {
+        return xdfgetConditionQueryMember();
+    }
+    public ImmuMemberCQ xdfgetConditionQueryMember() {
+        String prop = "member";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMember()); xsetupOuterJoinMember(); }
+        return xgetQueRlMap(prop);
+    }
+    protected ImmuMemberCQ xcreateQueryMember() {
+        String nrp = xresolveNRP("member_status", "member"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuMemberCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "member", nrp);
+    }
+    protected void xsetupOuterJoinMember() { xregOutJo("member"); }
+    public boolean hasConditionQueryMember() { return xhasQueRlMap("member"); }
+
+    /**
+     * Get the condition-query for relation table. <br>
+     * ([区分値]会員ステータス)CDEF_MEMBER_STATUS by my MEMBER_STATUS_CODE, named 'cdefMemberStatus'.
+     * @return The instance of condition-query. (NotNull)
+     */
+    public ImmuCdefMemberStatusCQ queryCdefMemberStatus() {
+        return xdfgetConditionQueryCdefMemberStatus();
+    }
+    public ImmuCdefMemberStatusCQ xdfgetConditionQueryCdefMemberStatus() {
+        String prop = "cdefMemberStatus";
+        if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryCdefMemberStatus()); xsetupOuterJoinCdefMemberStatus(); }
+        return xgetQueRlMap(prop);
+    }
+    protected ImmuCdefMemberStatusCQ xcreateQueryCdefMemberStatus() {
+        String nrp = xresolveNRP("member_status", "cdefMemberStatus"); String jan = xresolveJAN(nrp, xgetNNLvl());
+        return xinitRelCQ(new ImmuCdefMemberStatusCQ(this, xgetSqlClause(), jan, xgetNNLvl()), _baseCB, "cdefMemberStatus", nrp);
+    }
+    protected void xsetupOuterJoinCdefMemberStatus() { xregOutJo("cdefMemberStatus"); }
+    public boolean hasConditionQueryCdefMemberStatus() { return xhasQueRlMap("cdefMemberStatus"); }
+
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String property) {
         return null;
     }

@@ -213,6 +213,243 @@ dl.column-content dd span {
 <p class="sisterlink"><a href="./schema-immuhamadb.html">to SchemaHTML</a></p>
 </div>
 
+<div class="section diffCode_20220417135838">
+	<h2>
+		<span class="titlediffno">diffNo. 3:</span> <span class="titlediffdatepart">2022/04/17</span> <span class="titledifftimepart">13:58:38</span>
+		<span class="titlediffauthor">by jflute</span>
+		<span class="titlediffgitbranch">on master</span>
+	</h2>
+	<pre class="diffcomment"></pre>
+	<p class="tablecount">table count: 16&nbsp;-&gt;&nbsp;22</p>
+
+	<h3>Add Table</h3>
+	<ul class="table-content">
+		<li><a href="./schema-immuhamadb.html#cdef_member_status">CDEF_MEMBER_STATUS</a></li>
+		<li><a href="./schema-immuhamadb.html#cdef_product_category">CDEF_PRODUCT_CATEGORY</a></li>
+		<li><a href="./schema-immuhamadb.html#cdef_product_status">CDEF_PRODUCT_STATUS</a></li>
+		<li><a href="./schema-immuhamadb.html#cdef_region">CDEF_REGION</a></li>
+		<li><a href="./schema-immuhamadb.html#cdef_service_rank">CDEF_SERVICE_RANK</a></li>
+		<li><a href="./schema-immuhamadb.html#cdef_withdrawal_reason">CDEF_WITHDRAWAL_REASON</a></li>
+		<li><a href="./schema-immuhamadb.html#member_login_password">MEMBER_LOGIN_PASSWORD</a></li>
+		<li><a href="./schema-immuhamadb.html#member_password_reminder">MEMBER_PASSWORD_REMINDER</a></li>
+		<li><a href="./schema-immuhamadb.html#member_profile">MEMBER_PROFILE</a></li>
+		<li><a href="./schema-immuhamadb.html#product_detail">PRODUCT_DETAIL</a></li>
+		<li><a href="./schema-immuhamadb.html#product_price">PRODUCT_PRICE</a></li>
+		<li><a href="./schema-immuhamadb.html#purchase_status">PURCHASE_STATUS</a></li>
+	</ul>
+	<h3>Change Table</h3>
+	<div class="table-content">
+		<h4><a href="./schema-immuhamadb.html#member">MEMBER</a></h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>MEMBER_REGISTER_DATETIME</li>
+			</ul>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>MEMBER_NAME</li>
+				<li>MEMBER_ACCOUNT</li>
+				<li>MEMBER_STATUS_CODE</li>
+				<li>FORMALIZED_DATETIME</li>
+				<li>BIRTHDATE</li>
+				<li>VERSION_NO</li>
+			</ul>
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_MEMBER_STATUS</li>
+			</ul>
+			<h5>Delete UQ</h5>
+			<ul class="column-content">
+				<li>MEMBER_ACCOUNT</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_MEMBER_STATUS</li>
+				<li>IX_MEMBER_FORMALIZED_DATETIME</li>
+				<li>IX_MEMBER_MEMBER_NAME</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_address">MEMBER_ADDRESS</a></h4>
+		<div class="change-table-content">
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>VALID_END_DATE</li>
+				<li>VERSION_NO</li>
+			</ul>
+			<h5>Change FK</h5>
+			<dl class="column-content">
+				<dt>FK_MEMBER_ADDRESS_REGION</dt>
+			</dl>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_following">MEMBER_FOLLOWING</a></h4>
+		<div class="change-table-content">
+			<h5>Add Index</h5>
+			<ul class="column-content">
+				<li>IX_MEMBER_FOLLOWING_YOUR_MEMBER</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>IX_MEMBER_FOLLOWING_UNIQUE_REVERSE</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_login">MEMBER_LOGIN</a></h4>
+		<div class="change-table-content">
+			<h5>Change FK</h5>
+			<dl class="column-content">
+				<dt>FK_MEMBER_LOGIN_MEMBER_STATUS</dt>
+			</dl>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_service">MEMBER_SERVICE</a></h4>
+		<div class="change-table-content">
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>VERSION_NO</li>
+			</ul>
+			<h5>Change FK</h5>
+			<dl class="column-content">
+				<dt>FK_MEMBER_SERVICE_SERVICE_RANK_CODE</dt>
+			</dl>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_status">MEMBER_STATUS</a></h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>MEMBER_STATUS_ID</li>
+				<li>MEMBER_ID</li>
+				<li>MEMBER_STATUS_UPDATE_DATETIME</li>
+				<li>REGISTER_DATETIME</li>
+				<li>REGISTER_USER</li>
+				<li>UPDATE_DATETIME</li>
+				<li>UPDATE_USER</li>
+			</ul>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>MEMBER_STATUS_NAME</li>
+				<li>DESCRIPTION</li>
+				<li>DISPLAY_ORDER</li>
+			</ul>
+			<h5>Change PK</h5>
+			<dl class="column-content">
+				<dt>PRIMARY</dt>
+				<dd><span>Column</span>MEMBER_STATUS_CODE&nbsp;-&gt;&nbsp;MEMBER_STATUS_ID</dd>
+			</dl>
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_STATUS_XX_MEMBER</li>
+				<li>FK_MEMBER_STATUS_XX_MEMBER_STATUS</li>
+			</ul>
+			<h5>Delete UQ</h5>
+			<ul class="column-content">
+				<li>DISPLAY_ORDER</li>
+			</ul>
+			<h5>Add Index</h5>
+			<ul class="column-content">
+				<li>FK_MEMBER_STATUS_XX_MEMBER</li>
+				<li>FK_MEMBER_STATUS_XX_MEMBER_STATUS</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#member_withdrawal">MEMBER_WITHDRAWAL</a></h4>
+		<div class="change-table-content">
+			<h5>Change Column</h5>
+			<dl class="column-content">
+				<dt>WITHDRAWAL_REASON_CODE</dt>
+				<dd><span>Not Null</span>false&nbsp;-&gt;&nbsp;true</dd>
+			</dl>
+			<h5>Change FK</h5>
+			<dl class="column-content">
+				<dt>FK_MEMBER_WITHDRAWAL_WITHDRAWAL_REASON</dt>
+			</dl>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#product">PRODUCT</a></h4>
+		<div class="change-table-content">
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>PRODUCT_NAME</li>
+				<li>PRODUCT_HANDLE_CODE</li>
+				<li>PRODUCT_CATEGORY_CODE</li>
+				<li>PRODUCT_STATUS_CODE</li>
+				<li>REGULAR_PRICE</li>
+				<li>VERSION_NO</li>
+			</ul>
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_PRODUCT_PRODUCT_CATEGORY</li>
+				<li>FK_PRODUCT_PRODUCT_STATUS</li>
+			</ul>
+			<h5>Delete UQ</h5>
+			<ul class="column-content">
+				<li>PRODUCT_HANDLE_CODE</li>
+			</ul>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>FK_PRODUCT_PRODUCT_CATEGORY</li>
+				<li>FK_PRODUCT_PRODUCT_STATUS</li>
+				<li>IX_PRODUCT_PRODUCT_NAME</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#purchase">PURCHASE</a></h4>
+		<div class="change-table-content">
+			<h5>Add Column</h5>
+			<ul class="column-content">
+				<li>PRODUCT_DETAIL_ID</li>
+				<li>PRODUCT_PRICE_ID</li>
+			</ul>
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>PRODUCT_ID</li>
+				<li>PAYMENT_COMPLETE_FLG</li>
+				<li>VERSION_NO</li>
+			</ul>
+			<h5>Add FK</h5>
+			<ul class="column-content">
+				<li>FK_PURCHASE_PRODUCT_DETAIL</li>
+				<li>FK_PURCHASE_PRODUCT_PRICE</li>
+			</ul>
+			<h5>Delete FK</h5>
+			<ul class="column-content">
+				<li>FK_PURCHASE_PRODUCT</li>
+			</ul>
+			<h5>Change UQ</h5>
+			<dl class="column-content">
+				<dt>UQ_PURCHASE</dt>
+				<dd><span>Column</span>MEMBER_ID,&nbsp;PRODUCT_ID,&nbsp;PURCHASE_DATETIME&nbsp;-&gt;&nbsp;MEMBER_ID,&nbsp;PURCHASE_DATETIME</dd>
+			</dl>
+			<h5>Add Index</h5>
+			<ul class="column-content">
+				<li>FK_PURCHASE_PRODUCT_PRICE</li>
+				<li>IX_PURCHASE_PRODUCT_ID</li>
+			</ul>
+			<h5>Change Index</h5>
+			<dl class="column-content">
+				<dt>IX_PURCHASE_PRODUCT_DATETIME</dt>
+				<dd><span>Column</span>PRODUCT_ID,&nbsp;PURCHASE_DATETIME&nbsp;-&gt;&nbsp;PURCHASE_DATETIME</dd>
+			</dl>
+			<h5>Delete Index</h5>
+			<ul class="column-content">
+				<li>PRODUCT_ID</li>
+			</ul>
+		</div>
+		<h4><a href="./schema-immuhamadb.html#purchase_payment">PURCHASE_PAYMENT</a></h4>
+		<div class="change-table-content">
+			<h5>Delete Column</h5>
+			<ul class="column-content">
+				<li>REGISTER_DATETIME</li>
+				<li>REGISTER_USER</li>
+				<li>UPDATE_DATETIME</li>
+				<li>UPDATE_USER</li>
+			</ul>
+		</div>
+	</div>
+	<h3>Delete Table</h3>
+	<ul class="table-content">
+		<li>MEMBER_SECURITY</li>
+		<li>PRODUCT_CATEGORY</li>
+		<li>PRODUCT_STATUS</li>
+		<li>REGION</li>
+		<li>SERVICE_RANK</li>
+		<li>WITHDRAWAL_REASON</li>
+	</ul>
+</div>
 <div class="section diffCode_20201230000306">
 	<h2>
 		<span class="titlediffno">diffNo. 2:</span> <span class="titlediffdatepart">2020/12/30</span> <span class="titledifftimepart">00:03:06</span>
@@ -223,22 +460,22 @@ dl.column-content dd span {
 
 	<h3>Add Table</h3>
 	<ul class="table-content">
-		<li><a href="./schema-immuhamadb.html#member">MEMBER</a></li>
-		<li><a href="./schema-immuhamadb.html#member_address">MEMBER_ADDRESS</a></li>
-		<li><a href="./schema-immuhamadb.html#member_following">MEMBER_FOLLOWING</a></li>
-		<li><a href="./schema-immuhamadb.html#member_login">MEMBER_LOGIN</a></li>
-		<li><a href="./schema-immuhamadb.html#member_security">MEMBER_SECURITY</a></li>
-		<li><a href="./schema-immuhamadb.html#member_service">MEMBER_SERVICE</a></li>
-		<li><a href="./schema-immuhamadb.html#member_status">MEMBER_STATUS</a></li>
-		<li><a href="./schema-immuhamadb.html#member_withdrawal">MEMBER_WITHDRAWAL</a></li>
-		<li><a href="./schema-immuhamadb.html#product">PRODUCT</a></li>
-		<li><a href="./schema-immuhamadb.html#product_category">PRODUCT_CATEGORY</a></li>
-		<li><a href="./schema-immuhamadb.html#product_status">PRODUCT_STATUS</a></li>
-		<li><a href="./schema-immuhamadb.html#purchase">PURCHASE</a></li>
-		<li><a href="./schema-immuhamadb.html#purchase_payment">PURCHASE_PAYMENT</a></li>
-		<li><a href="./schema-immuhamadb.html#region">REGION</a></li>
-		<li><a href="./schema-immuhamadb.html#service_rank">SERVICE_RANK</a></li>
-		<li><a href="./schema-immuhamadb.html#withdrawal_reason">WITHDRAWAL_REASON</a></li>
+		<li>MEMBER</li>
+		<li>MEMBER_ADDRESS</li>
+		<li>MEMBER_FOLLOWING</li>
+		<li>MEMBER_LOGIN</li>
+		<li>MEMBER_SECURITY</li>
+		<li>MEMBER_SERVICE</li>
+		<li>MEMBER_STATUS</li>
+		<li>MEMBER_WITHDRAWAL</li>
+		<li>PRODUCT</li>
+		<li>PRODUCT_CATEGORY</li>
+		<li>PRODUCT_STATUS</li>
+		<li>PURCHASE</li>
+		<li>PURCHASE_PAYMENT</li>
+		<li>REGION</li>
+		<li>SERVICE_RANK</li>
+		<li>WITHDRAWAL_REASON</li>
 	</ul>
 	<h3>Delete Table</h3>
 	<ul class="table-content">
@@ -444,7 +681,11 @@ dl.column-content dd span {
             ]
         };
         this.pickupStore = {
-            '20201230000306' : {
+            '20220417135838' : {
+                'diffDate' : '2022/04/17 13:58:38',
+                'diffComment' : ''
+            }
+            , '20201230000306' : {
                 'diffDate' : '2020/12/30 00:03:06',
                 'diffComment' : ''
             }
