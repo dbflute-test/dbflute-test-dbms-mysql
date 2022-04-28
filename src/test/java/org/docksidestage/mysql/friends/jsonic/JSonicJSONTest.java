@@ -16,7 +16,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 /**
  * @author jflute
  */
-public class JSONTest extends PlainTestCase {
+public class JSonicJSONTest extends PlainTestCase {
 
     public void test_decode() throws Exception {
         // ## Arrange ##
@@ -53,7 +53,7 @@ public class JSONTest extends PlainTestCase {
 
     protected FileInputStream getSelectionJsonStream() throws FileNotFoundException {
         File buildDir = DfResourceUtil.getBuildDir(CDef.class);
-        FileInputStream ins = new FileInputStream(buildDir.getPath() + "/json/decode_test.json");
+        FileInputStream ins = new FileInputStream(buildDir.getPath() + "/json/jsonic_decode_test.json");
         return ins;
     }
 }
