@@ -15,9 +15,9 @@
 	<properties>
 		<seasar.version>2.4.46</seasar.version>
 		<javassist.version>3.20.0-GA</javassist.version> <!-- java8 needs newer version -->
-		<dbflute.version>1.2.6-C-SNAPSHOT</dbflute.version>
+		<dbflute.version>1.2.6-H-SNAPSHOT</dbflute.version>
 		<mysql.jdbc.version>8.0.16</mysql.jdbc.version>
-		<utflute.version>0.9.4</utflute.version>
+		<utflute.version>0.9.5</utflute.version>
 	</properties>
 
 	<licenses>
@@ -164,7 +164,7 @@
 		<repository>
 			<id>maven.seasar.org</id>
 			<name>The Seasar Foundation Maven2 Repository</name>
-			<url>http://maven.seasar.org/maven2</url>
+			<url>https://maven.seasar.org/maven2</url>
 		</repository>
 		<repository>
 			<snapshots>
@@ -172,7 +172,7 @@
 			</snapshots>
 			<id>snapshot.maven.seasar.org</id>
 			<name>The Seasar Foundation Maven2 Snapshot Repository</name>
-			<url>http://maven.seasar.org/maven2-snapshot</url>
+			<url>https://maven.seasar.org/maven2-snapshot</url>
 		</repository>
 		<repository>
 			<id>vvakame-jsonpullparser-release</id>
