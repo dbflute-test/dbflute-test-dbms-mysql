@@ -1,2 +1,2 @@
 # Configuration
-my.cnf is for MySQL-5.6
+my.cnf is for MySQL-5.7
