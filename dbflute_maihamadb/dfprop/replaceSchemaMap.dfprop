@@ -153,7 +153,7 @@ map:{
     #
     ; additionalUserMap = map:{
         ; system = map:{
-            ; url = jdbc:mysql://localhost:43306?allowPublicKeyRetrieval=true&sslMode=DISABLED
+            ; url = jdbc:mysql://localhost:43306?allowPublicKeyRetrieval=true&useSsl=false
             ; user = root
             ; password = df:dfprop/system-password.txt|
         }
