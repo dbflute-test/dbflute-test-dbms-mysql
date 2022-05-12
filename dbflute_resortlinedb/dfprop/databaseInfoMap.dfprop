@@ -16,7 +16,7 @@
 #
 map:{
 	; driver		= com.mysql.jdbc.Driver
-	; url			= jdbc:mysql://localhost:43306/resortlinedb?characterEncoding=UTF-8
+	; url			= jdbc:mysql://localhost:43306/resortlinedb?sslMode=DISABLED&allowPublicKeyRetrieval=true
 	; schema		=
 	; user			= resortlinedb
 	; password		= resortlinedb

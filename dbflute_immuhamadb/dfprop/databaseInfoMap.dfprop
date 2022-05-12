@@ -16,7 +16,7 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:43306/immuhamadb?characterEncoding=UTF-8
+    ; url      = jdbc:mysql://localhost:43306/immuhamadb?sslMode=DISABLED&allowPublicKeyRetrieval=true
     ; schema   = 
     ; user     = immuhamadb
     ; password = immuhamadb
