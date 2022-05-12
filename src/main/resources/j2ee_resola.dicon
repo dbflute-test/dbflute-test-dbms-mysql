@@ -14,11 +14,13 @@
 		<property name="driverClassName">
 			"com.mysql.jdbc.Driver"
 		</property>
+		<!-- test of no SSL option -->
 		<property name="URL">
 			"jdbc:mysql://localhost:43306/resortlinedb"
 		</property>
 		<property name="user">"resortlinedb"</property>
 		<property name="password">"resortlinedb"</property>
+		<!-- test of rewriteBatchedStatements -->
 		<initMethod name="addProperty">
 			<arg>"rewriteBatchedStatements"</arg>
 			<arg>"true"</arg>
