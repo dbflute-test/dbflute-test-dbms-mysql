@@ -9,7 +9,7 @@
 	<component name="xaDataSource"
 		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
 		<property name="driverClassName">
-			"com.mysql.jdbc.Driver"
+			"com.mysql.cj.jdbc.Driver"
 		</property>
 		<property name="URL">
 			"jdbc:mysql://localhost:43306/maihamadb?allowPublicKeyRetrieval=true&amp;sslMode=DISABLED"

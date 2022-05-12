@@ -11,6 +11,7 @@
 	<!-- for MySQL -->
 	<component name="xaDataSource"
 		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
+		<!-- test of old naming JDBC driver -->
 		<property name="driverClassName">
 			"com.mysql.jdbc.Driver"
 		</property>
