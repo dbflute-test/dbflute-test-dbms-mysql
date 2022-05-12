@@ -1,5 +1,5 @@
 map:{
-	; url			= jdbc:mysql://localhost:43306/maihamasyncdb?sslMode=DISABLED&allowPublicKeyRetrieval=true
+	; url			= jdbc:mysql://localhost:43306/maihamasyncdb?allowPublicKeyRetrieval=true&sslMode=DISABLED
 	; user			= maihamasyncdb
 	; password		= maihamasyncdb
 }

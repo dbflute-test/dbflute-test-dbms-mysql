@@ -16,7 +16,7 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:43306/immuhamadb?sslMode=DISABLED&allowPublicKeyRetrieval=true
+    ; url      = jdbc:mysql://localhost:43306/immuhamadb?allowPublicKeyRetrieval=true&sslMode=DISABLED
     ; schema   = 
     ; user     = immuhamadb
     ; password = immuhamadb
