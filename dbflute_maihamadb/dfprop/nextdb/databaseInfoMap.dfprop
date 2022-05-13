@@ -16,7 +16,8 @@
 #
 map:{
     ; driver   = com.mysql.jdbc.Driver
-    ; url      = jdbc:mysql://localhost:43306/newurayasudb?allowPublicKeyRetrieval=true&useSSL=false
+    # test of enabledTLSProtocols=TLSv1.2
+    ; url      = jdbc:mysql://localhost:43306/newurayasudb?allowPublicKeyRetrieval=true&useSSL=false&enabledTLSProtocols=TLSv1.2
     ; schema   =
     ; user     = newurayasudb
     ; password = newurayasudb
