@@ -32,7 +32,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  *     VENDOR_CHECK_ID
  *
  * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_DATETIME_3_MILLIS, TYPE_OF_DATETIME_6_MICROS, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_ENUM_INT, TYPE_OF_SET
+ *     VENDOR_CHECK_ID, TYPE_OF_CHAR, TYPE_OF_VARCHAR, TYPE_OF_TEXT, TYPE_OF_TINYTEXT, TYPE_OF_MEDIUMTEXT, TYPE_OF_LONGTEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_DECIMAL_DECIMAL, TYPE_OF_DECIMAL_INTEGER, TYPE_OF_DECIMAL_BIGINT, TYPE_OF_INTEGER, TYPE_OF_BIGINT, TYPE_OF_FLOAT, TYPE_OF_DOUBLE, TYPE_OF_DATE, TYPE_OF_DATETIME, TYPE_OF_DATETIME_3_MILLIS, TYPE_OF_DATETIME_6_MICROS, TYPE_OF_TIMESTAMP, TYPE_OF_TIME, TYPE_OF_YEAR, TYPE_OF_BOOLEAN, TYPE_OF_BLOB, TYPE_OF_TINYBLOB, TYPE_OF_MEDIUMBLOB, TYPE_OF_LONGBLOB, TYPE_OF_BINARY, TYPE_OF_VARBINARY, TYPE_OF_ENUM, TYPE_OF_ENUM_INT, TYPE_OF_SET, TYPE_OF_JSON
  *
  * [sequence]
  *     
@@ -91,6 +91,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * String typeOfEnum = entity.getTypeOfEnum();
  * String typeOfEnumInt = entity.getTypeOfEnumInt();
  * String typeOfSet = entity.getTypeOfSet();
+ * String typeOfJson = entity.getTypeOfJson();
  * entity.setVendorCheckId(vendorCheckId);
  * entity.setTypeOfChar(typeOfChar);
  * entity.setTypeOfVarchar(typeOfVarchar);
@@ -125,6 +126,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * entity.setTypeOfEnum(typeOfEnum);
  * entity.setTypeOfEnumInt(typeOfEnumInt);
  * entity.setTypeOfSet(typeOfSet);
+ * entity.setTypeOfJson(typeOfJson);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -241,6 +243,9 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
 
     /** TYPE_OF_SET: {SET(15)} */
     protected String _typeOfSet;
+
+    /** TYPE_OF_JSON: {JSON} */
+    protected String _typeOfJson;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -418,6 +423,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfND(_typeOfEnum));
         sb.append(dm).append(xfND(_typeOfEnumInt));
         sb.append(dm).append(xfND(_typeOfSet));
+        sb.append(dm).append(xfND(_typeOfJson));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -1048,5 +1054,23 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfSet(String typeOfSet) {
         registerModifiedProperty("typeOfSet");
         _typeOfSet = typeOfSet;
+    }
+
+    /**
+     * [get] TYPE_OF_JSON: {JSON} <br>
+     * @return The value of the column 'TYPE_OF_JSON'. (NullAllowed even if selected: for no constraint)
+     */
+    public String getTypeOfJson() {
+        checkSpecifiedProperty("typeOfJson");
+        return _typeOfJson;
+    }
+
+    /**
+     * [set] TYPE_OF_JSON: {JSON} <br>
+     * @param typeOfJson The value of the column 'TYPE_OF_JSON'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfJson(String typeOfJson) {
+        registerModifiedProperty("typeOfJson");
+        _typeOfJson = typeOfJson;
     }
 }

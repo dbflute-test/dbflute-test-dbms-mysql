@@ -594,6 +594,26 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
     }
 
     // -----------------------------------------------------
+    //                                                  JSON
+    //                                                  ----
+    public void test_typeHandling_JSON() {
+        // ## Arrange ##
+        VendorCheck vendorCheck = createVendorCheck();
+        vendorCheck.setTypeOfJson("{\"sea\": \"mystic\"}");
+
+        // ## Act ##
+        vendorCheckBhv.insert(vendorCheck);
+
+        // ## Assert ##
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(vendorCheck.getVendorCheckId());
+        // cannot hit
+        //cb.query().setTypeOfJson_Equal("{\"sea\": \"mystic\"}");
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        assertEquals("{\"sea\": \"mystic\"}", actual.getTypeOfJson());
+    }
+
+    // -----------------------------------------------------
     //                                         SUM(function)
     //                                         -------------
     @SuppressWarnings("unused")

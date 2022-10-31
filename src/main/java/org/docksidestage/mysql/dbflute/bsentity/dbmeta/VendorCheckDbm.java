@@ -94,6 +94,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfEnum(), (et, vl) -> ((VendorCheck)et).setTypeOfEnum((String)vl), "typeOfEnum");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfEnumInt(), (et, vl) -> ((VendorCheck)et).setTypeOfEnumInt((String)vl), "typeOfEnumInt");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfSet(), (et, vl) -> ((VendorCheck)et).setTypeOfSet((String)vl), "typeOfSet");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfJson(), (et, vl) -> ((VendorCheck)et).setTypeOfJson((String)vl), "typeOfJson");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -148,6 +149,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfEnum = cci("TYPE_OF_ENUM", "TYPE_OF_ENUM", null, null, String.class, "typeOfEnum", null, false, false, false, "ENUM", 6, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfEnumInt = cci("TYPE_OF_ENUM_INT", "TYPE_OF_ENUM_INT", null, null, String.class, "typeOfEnumInt", null, false, false, false, "ENUM", 2, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfSet = cci("TYPE_OF_SET", "TYPE_OF_SET", null, null, String.class, "typeOfSet", null, false, false, false, "SET", 15, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfJson = cci("TYPE_OF_JSON", "TYPE_OF_JSON", null, null, String.class, "typeOfJson", null, false, false, false, "JSON", null, null, null, null, false, null, null, null, null, null, false);
 
     /**
      * VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)}
@@ -319,6 +321,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfSet() { return _columnTypeOfSet; }
+    /**
+     * TYPE_OF_JSON: {JSON}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfJson() { return _columnTypeOfJson; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -356,6 +363,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfEnum());
         ls.add(columnTypeOfEnumInt());
         ls.add(columnTypeOfSet());
+        ls.add(columnTypeOfJson());
         return ls;
     }
 

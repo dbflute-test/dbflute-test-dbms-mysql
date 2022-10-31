@@ -471,6 +471,11 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTypeOfSet() { return doColumn("TYPE_OF_SET"); }
+        /**
+         * TYPE_OF_JSON: {JSON}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfJson() { return doColumn("TYPE_OF_JSON"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override

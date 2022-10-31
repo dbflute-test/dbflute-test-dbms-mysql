@@ -3107,6 +3107,123 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected void regTypeOfSet(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfSet(), "TYPE_OF_SET"); }
     protected abstract ConditionValue xgetCValueTypeOfSet();
 
+    /**
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJson The value of typeOfJson as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfJson_Equal(String typeOfJson) {
+        doSetTypeOfJson_Equal(fRES(typeOfJson));
+    }
+
+    protected void doSetTypeOfJson_Equal(String typeOfJson) {
+        regTypeOfJson(CK_EQ, typeOfJson);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJson The value of typeOfJson as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfJson_NotEqual(String typeOfJson) {
+        doSetTypeOfJson_NotEqual(fRES(typeOfJson));
+    }
+
+    protected void doSetTypeOfJson_NotEqual(String typeOfJson) {
+        regTypeOfJson(CK_NES, typeOfJson);
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJsonList The collection of typeOfJson as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfJson_InScope(Collection<String> typeOfJsonList) {
+        doSetTypeOfJson_InScope(typeOfJsonList);
+    }
+
+    protected void doSetTypeOfJson_InScope(Collection<String> typeOfJsonList) {
+        regINS(CK_INS, cTL(typeOfJsonList), xgetCValueTypeOfJson(), "TYPE_OF_JSON");
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJsonList The collection of typeOfJson as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfJson_NotInScope(Collection<String> typeOfJsonList) {
+        doSetTypeOfJson_NotInScope(typeOfJsonList);
+    }
+
+    protected void doSetTypeOfJson_NotInScope(Collection<String> typeOfJsonList) {
+        regINS(CK_NINS, cTL(typeOfJsonList), xgetCValueTypeOfJson(), "TYPE_OF_JSON");
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON} <br>
+     * <pre>e.g. setTypeOfJson_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * @param typeOfJson The value of typeOfJson as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTypeOfJson_LikeSearch(String typeOfJson, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTypeOfJson_LikeSearch(typeOfJson, xcLSOP(opLambda));
+    }
+
+    /**
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON} <br>
+     * <pre>e.g. setTypeOfJson_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
+     * @param typeOfJson The value of typeOfJson as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of like-search. (NotNull)
+     */
+    public void setTypeOfJson_LikeSearch(String typeOfJson, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_LS, fRES(typeOfJson), xgetCValueTypeOfJson(), "TYPE_OF_JSON", likeSearchOption);
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJson The value of typeOfJson as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param opLambda The callback for option of like-search. (NotNull)
+     */
+    public void setTypeOfJson_NotLikeSearch(String typeOfJson, ConditionOptionCall<LikeSearchOption> opLambda) {
+        setTypeOfJson_NotLikeSearch(typeOfJson, xcLSOP(opLambda));
+    }
+
+    /**
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     * @param typeOfJson The value of typeOfJson as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * @param likeSearchOption The option of not-like-search. (NotNull)
+     */
+    public void setTypeOfJson_NotLikeSearch(String typeOfJson, LikeSearchOption likeSearchOption) {
+        regLSQ(CK_NLS, fRES(typeOfJson), xgetCValueTypeOfJson(), "TYPE_OF_JSON", likeSearchOption);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     */
+    public void setTypeOfJson_IsNull() { regTypeOfJson(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     */
+    public void setTypeOfJson_IsNullOrEmpty() { regTypeOfJson(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_JSON: {JSON}
+     */
+    public void setTypeOfJson_IsNotNull() { regTypeOfJson(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfJson(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfJson(), "TYPE_OF_JSON"); }
+    protected abstract ConditionValue xgetCValueTypeOfJson();
+
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============

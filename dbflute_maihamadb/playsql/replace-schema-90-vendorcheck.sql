@@ -37,6 +37,7 @@ CREATE TABLE VENDOR_CHECK (
 	TYPE_OF_ENUM ENUM('red','blue','yellow'),
 	TYPE_OF_ENUM_INT ENUM('1','2','3'),
 	TYPE_OF_SET SET('red','blue','yellow'),
+	TYPE_OF_JSON JSON,
 	COLUMN_EXCEPT_TEST INTEGER -- actually except
 ) ;
 
