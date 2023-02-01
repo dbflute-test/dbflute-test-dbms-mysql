@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_PRODUCT_NESTED as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PRODUCT_NESTED_CODE
- *
- * [column]
- *     PRODUCT_NESTED_CODE, PRODUCT_NESTED_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_PRODUCT
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePerrottaOverProductList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String productNestedCode = entity.getProductNestedCode();
- * String productNestedName = entity.getProductNestedName();
- * entity.setProductNestedCode(productNestedCode);
- * entity.setProductNestedName(productNestedName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PERROTTA_OVER_PRODUCT_NESTED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverProductNested extends AbstractEntity implements DomainEntity {

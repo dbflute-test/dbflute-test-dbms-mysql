@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PRODUCT_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<NextSchemaProduct, NextSchemaProductCB> {
@@ -602,7 +574,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

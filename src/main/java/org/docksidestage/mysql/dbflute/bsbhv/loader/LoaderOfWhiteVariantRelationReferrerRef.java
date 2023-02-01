@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_REFERRER_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, REFERRER_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteVariantRelationReferrer
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_VARIANT_RELATION_REFERRER_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteVariantRelationReferrerRef {

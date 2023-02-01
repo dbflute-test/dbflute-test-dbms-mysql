@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [column]
- *     CLS_REF_ID, FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteAllInOneClsElementAsFoo, whiteAllInOneClsElementAsBar
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteAllInOneClsNormalColRef {

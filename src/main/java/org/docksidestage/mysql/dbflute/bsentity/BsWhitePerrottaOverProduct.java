@@ -27,45 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_PRODUCT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_NESTED_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_PRODUCT_NESTED, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_MEMBER, WHITE_PERROTTA_OVER_TRACE
- *
- * [foreign property]
- *     whitePerrottaOverProductNested, whitePerrottaOverTraceAsPerrotta
- *
- * [referrer property]
- *     whitePerrottaOverMemberList, whitePerrottaOverTraceByNextProductIdList, whitePerrottaOverTraceByPreviousProductIdList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer productId = entity.getProductId();
- * String productName = entity.getProductName();
- * String productNestedCode = entity.getProductNestedCode();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * entity.setProductNestedCode(productNestedCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PERROTTA_OVER_PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverProduct extends AbstractEntity implements DomainEntity {

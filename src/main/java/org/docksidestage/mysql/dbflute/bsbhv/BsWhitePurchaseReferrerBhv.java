@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_PURCHASE_REFERRER as TABLE. <br>
- * <pre>
- * [primary key]
- *     PURCHASE_REFERRER_ID
- *
- * [column]
- *     PURCHASE_REFERRER_ID, PURCHASE_REFERRER_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_REFERRER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     PURCHASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     purchase
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_PURCHASE_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritable<WhitePurchaseReferrer, WhitePurchaseReferrerCB> {
@@ -764,7 +736,7 @@ public abstract class BsWhitePurchaseReferrerBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePurchaseReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePurchaseReferrer, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePurchaseReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

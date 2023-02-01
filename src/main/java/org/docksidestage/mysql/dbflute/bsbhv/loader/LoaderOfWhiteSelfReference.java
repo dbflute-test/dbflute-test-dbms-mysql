@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SELF_REFERENCE as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELF_REFERENCE_ID
- *
- * [column]
- *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
- *
- * [referrer table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
- *
- * [foreign property]
- *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
- *
- * [referrer property]
- *     whiteSelfReferenceSelfList
- * </pre>
+ * The referrer loader of WHITE_SELF_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSelfReference {

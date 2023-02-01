@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ESCAPED_DFPROP as TABLE. <br>
- * <pre>
- * [primary key]
- *     ESCAPED_DFPROP_CODE
- *
- * [column]
- *     ESCAPED_DFPROP_CODE, ESCAPED_DFPROP_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_ESCAPED_DFPROP as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteEscapedDfprop {

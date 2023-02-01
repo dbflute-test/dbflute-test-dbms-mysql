@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_LARGE_TEXT_FILE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     LARGE_TEXT_FILE_ID
- *
- * [column]
- *     LARGE_TEXT_FILE_ID, LARGE_TEXT_FILE_TEXT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long largeTextFileId = entity.getLargeTextFileId();
- * String largeTextFileText = entity.getLargeTextFileText();
- * entity.setLargeTextFileId(largeTextFileId);
- * entity.setLargeTextFileText(largeTextFileText);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_LARGE_TEXT_FILE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteLargeTextFile extends AbstractEntity implements DomainEntity {

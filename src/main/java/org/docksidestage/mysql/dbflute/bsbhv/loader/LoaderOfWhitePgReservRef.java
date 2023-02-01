@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_PG_RESERV_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, CLASS
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PG_RESERV
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePgReserv
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_PG_RESERV_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePgReservRef {

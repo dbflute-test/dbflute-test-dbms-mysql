@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (購入)PURCHASE as TABLE. <br>
- * <pre>
- * [primary key]
- *     PURCHASE_ID
- *
- * [column]
- *     PURCHASE_ID, MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_ID
- *
- * [version-no]
- *     VERSION_NO
- *
- * [foreign table]
- *     MEMBER, PRODUCT, SUMMARY_PRODUCT, SUMMARY_WITHDRAWAL, WHITE_NO_PK_RELATION, PURCHASE, MEMBER_ADDRESS(AsSkipRelation), WHITE_PURCHASE_REFERRER(AsOne)
- *
- * [referrer table]
- *     PURCHASE_PAYMENT, WHITE_PURCHASE_REFERRER, PURCHASE
- *
- * [foreign property]
- *     member, product, summaryProduct, summaryWithdrawal, whiteNoPkRelation, purchaseSelf, memberAddressAsSkipRelation, whitePurchaseReferrerAsOne, purchaseSelfAsOne
- *
- * [referrer property]
- *     purchasePaymentList
- * </pre>
+ * The referrer loader of (購入)PURCHASE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfPurchase {

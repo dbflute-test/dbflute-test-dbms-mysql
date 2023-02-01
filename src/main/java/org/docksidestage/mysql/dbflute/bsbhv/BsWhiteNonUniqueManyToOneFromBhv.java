@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_NON_UNIQUE_MANY_TO_ONE_FROM as TABLE. <br>
- * <pre>
- * [primary key]
- *     FROM_ID
- *
- * [column]
- *     FROM_ID, FROM_NAME, NON_UNIQUE_CODE, BEGIN_DATE, END_DATE, MANY_POINT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     FROM_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_NON_UNIQUE_MANY_TO_ONE_TO(AsNonUniqueManyToOne)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteNonUniqueManyToOneToAsNonUniqueManyToOne
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_NON_UNIQUE_MANY_TO_ONE_FROM as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNonUniqueManyToOneFromBhv extends AbstractBehaviorWritable<WhiteNonUniqueManyToOneFrom, WhiteNonUniqueManyToOneFromCB> {
@@ -764,7 +736,7 @@ public abstract class BsWhiteNonUniqueManyToOneFromBhv extends AbstractBehaviorW
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteNonUniqueManyToOneFromBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteNonUniqueManyToOneFrom, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteNonUniqueManyToOneFromBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

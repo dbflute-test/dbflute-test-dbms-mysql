@@ -27,49 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     UQ_FK_REF_ID
- *
- * [column]
- *     UQ_FK_REF_ID, FK_TO_PK_ID, FK_TO_UQ_CODE, COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_UQ_FK
- *
- * [referrer table]
- *     WHITE_UQ_FK_REF_NEST
- *
- * [foreign property]
- *     whiteUqFkByFkToPkId, whiteUqFkByFkToUqCode
- *
- * [referrer property]
- *     whiteUqFkRefNestList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long uqFkRefId = entity.getUqFkRefId();
- * Long fkToPkId = entity.getFkToPkId();
- * String fkToUqCode = entity.getFkToUqCode();
- * String compoundUqFirstCode = entity.getCompoundUqFirstCode();
- * String compoundUqSecondCode = entity.getCompoundUqSecondCode();
- * entity.setUqFkRefId(uqFkRefId);
- * entity.setFkToPkId(fkToPkId);
- * entity.setFkToUqCode(fkToUqCode);
- * entity.setCompoundUqFirstCode(compoundUqFirstCode);
- * entity.setCompoundUqSecondCode(compoundUqSecondCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_UQ_FK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqFkRef extends AbstractEntity implements DomainEntity {

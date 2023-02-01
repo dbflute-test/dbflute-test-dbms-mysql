@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_TABLE_EXCEPT_GEN_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     GEN_REF_ID
- *
- * [column]
- *     GEN_REF_ID, GEN_REF_NAME, GEN_ONLY_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_TABLE_EXCEPT_GEN_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritable<WhiteTableExceptGenRef, WhiteTableExceptGenRefCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteTableExceptGenRefBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteTableExceptGenRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteTableExceptGenRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

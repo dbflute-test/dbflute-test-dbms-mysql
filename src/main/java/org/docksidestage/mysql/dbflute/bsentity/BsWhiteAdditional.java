@@ -27,46 +27,6 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 /**
  * The entity of (WXADD)WHITE_ADDITIONAL as TABLE. <br>
  * test table for additionalTable
- * <pre>
- * [primary-key]
- *     foo_id
- *
- * [column]
- *     foo_id, foo_name, foo_date, register_datetime
- *
- * [sequence]
- *     
- *
- * [identity]
- *     foo_id
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer fooId = entity.getFooId();
- * String fooName = entity.getFooName();
- * java.time.LocalDate fooDate = entity.getFooDate();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * entity.setFooId(fooId);
- * entity.setFooName(fooName);
- * entity.setFooDate(fooDate);
- * entity.setRegisterDatetime(registerDatetime);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteAdditional extends AbstractEntity implements DomainEntity {

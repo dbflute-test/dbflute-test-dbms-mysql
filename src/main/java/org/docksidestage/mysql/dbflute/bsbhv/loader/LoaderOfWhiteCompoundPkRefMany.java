@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF_MANY as TABLE. <br>
- * <pre>
- * [primary key]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
- *
- * [column]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID, REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, REF_MANY_CODE, REF_MANY_NAME, REF_MANY_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK(ToPK)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPkToPK
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_COMPOUND_PK_REF_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPkRefMany {

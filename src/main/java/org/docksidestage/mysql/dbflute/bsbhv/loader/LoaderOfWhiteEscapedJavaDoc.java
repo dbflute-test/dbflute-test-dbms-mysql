@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_ESCAPED_JAVA_DOC as TABLE. <br>
- * <pre>
- * [primary key]
- *     ESCAPED_JAVA_DOC_CODE
- *
- * [column]
- *     ESCAPED_JAVA_DOC_CODE, ESCAPED_JAVA_DOC_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_ESCAPED_JAVA_DOC as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteEscapedJavaDoc {

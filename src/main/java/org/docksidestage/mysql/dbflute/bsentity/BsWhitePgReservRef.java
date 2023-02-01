@@ -27,43 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PG_RESERV_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, CLASS
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PG_RESERV
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePgReserv
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer refId = entity.getRefId();
- * Integer classSynonym = entity.getClassSynonym();
- * entity.setRefId(refId);
- * entity.setClassSynonym(classSynonym);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PG_RESERV_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePgReservRef extends AbstractEntity implements DomainEntity {

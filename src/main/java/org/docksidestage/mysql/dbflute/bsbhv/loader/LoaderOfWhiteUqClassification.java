@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_UQ_CLASSIFICATION as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_UQ_CLASSIFICATION as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteUqClassification {

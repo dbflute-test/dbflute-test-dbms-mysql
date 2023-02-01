@@ -29,42 +29,6 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * The entity of (地域)REGION as TABLE. <br>
  * 主に会員の住所に対応する地域。<br>
  * かなりざっくりした感じではある。
- * <pre>
- * [primary-key]
- *     REGION_ID
- *
- * [column]
- *     REGION_ID, REGION_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     MEMBER_ADDRESS
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberAddressList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer regionId = entity.getRegionId();
- * String regionName = entity.getRegionName();
- * entity.setRegionId(regionId);
- * entity.setRegionName(regionName);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsRegion extends AbstractEntity implements DomainEntity {

@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE. <br>
- * <pre>
- * [primary key]
- *     NEXT_ID
- *
- * [column]
- *     NEXT_ID, SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSplitMultipleFkBaseList
- * </pre>
+ * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSplitMultipleFkNext {

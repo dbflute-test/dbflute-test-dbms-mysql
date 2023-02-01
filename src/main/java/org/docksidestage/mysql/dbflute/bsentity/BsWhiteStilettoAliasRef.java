@@ -27,63 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_STILETTO_ALIAS_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     REF_ID
- *
- * [column]
- *     REF_ID, FOO0, FOO_1, FOO2, FOO3, FOO_4, BAR_0, QUX_0, c21, c22, c23, STILETTO_ALIAS_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_STILETTO_ALIAS
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteStilettoAlias
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer refId = entity.getRefId();
- * String foo0 = entity.getFoo0();
- * String foo1 = entity.getFoo1();
- * String foo2 = entity.getFoo2();
- * String foo3 = entity.getFoo3();
- * String foo4 = entity.getFoo4();
- * String bar0 = entity.getBar0();
- * String qux0 = entity.getQux0();
- * String c21 = entity.getC21();
- * String c22 = entity.getC22();
- * String c23 = entity.getC23();
- * Integer stilettoAliasId = entity.getStilettoAliasId();
- * entity.setRefId(refId);
- * entity.setFoo0(foo0);
- * entity.setFoo1(foo1);
- * entity.setFoo2(foo2);
- * entity.setFoo3(foo3);
- * entity.setFoo4(foo4);
- * entity.setBar0(bar0);
- * entity.setQux0(qux0);
- * entity.setC21(c21);
- * entity.setC22(c22);
- * entity.setC23(c23);
- * entity.setStilettoAliasId(stilettoAliasId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_STILETTO_ALIAS_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteStilettoAliasRef extends AbstractEntity implements DomainEntity {

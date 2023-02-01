@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_DFPROP as TABLE. <br>
- * <pre>
- * [primary-key]
- *     ESCAPED_DFPROP_CODE
- *
- * [column]
- *     ESCAPED_DFPROP_CODE, ESCAPED_DFPROP_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String escapedDfpropCode = entity.getEscapedDfpropCode();
- * String escapedDfpropName = entity.getEscapedDfpropName();
- * entity.setEscapedDfpropCode(escapedDfpropCode);
- * entity.setEscapedDfpropName(escapedDfpropName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ESCAPED_DFPROP as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteEscapedDfprop extends AbstractEntity implements DomainEntity {

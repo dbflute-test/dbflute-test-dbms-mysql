@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SELF_REFERENCE as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELF_REFERENCE_ID
- *
- * [column]
- *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
- *
- * [referrer table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
- *
- * [foreign property]
- *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
- *
- * [referrer property]
- *     whiteSelfReferenceSelfList
- * </pre>
+ * The behavior of WHITE_SELF_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<WhiteSelfReference, WhiteSelfReferenceCB> {
@@ -860,7 +832,7 @@ public abstract class BsWhiteSelfReferenceBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSelfReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSelfReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

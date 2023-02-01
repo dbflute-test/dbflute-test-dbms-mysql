@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_STILETTO_ALIAS as TABLE. <br>
- * <pre>
- * [primary key]
- *     STILETTO_ALIAS_ID
- *
- * [column]
- *     STILETTO_ALIAS_ID, FOO, FOO_0, FOO_1, FOO2, FOO_3, FOO4, BAR, QUX
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_STILETTO_ALIAS_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteStilettoAliasRefList
- * </pre>
+ * The behavior of WHITE_STILETTO_ALIAS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<WhiteStilettoAlias, WhiteStilettoAliasCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhiteStilettoAliasBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteStilettoAlias, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteStilettoAliasBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

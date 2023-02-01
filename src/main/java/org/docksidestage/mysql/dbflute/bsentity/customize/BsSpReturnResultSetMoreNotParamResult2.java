@@ -25,47 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpReturnResultSetMoreNotParamResult2. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     MEMBER_STATUS_CODE, MEMBER_STATUS_NAME, DESCRIPTION, DISPLAY_ORDER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String memberStatusCode = entity.getMemberStatusCode();
- * String memberStatusName = entity.getMemberStatusName();
- * String description = entity.getDescription();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setMemberStatusName(memberStatusName);
- * entity.setDescription(description);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of SpReturnResultSetMoreNotParamResult2.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSpReturnResultSetMoreNotParamResult2 extends AbstractEntity implements CustomizeEntity {

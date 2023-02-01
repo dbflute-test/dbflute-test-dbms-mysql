@@ -27,49 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br>
- * <pre>
- * [primary-key]
- *     COMPOUND_PK_REF_NEST_ID
- *
- * [column]
- *     COMPOUND_PK_REF_NEST_ID, FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, NEST_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK_REF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPkRefByQuxMultipleId, whiteCompoundPkRefByFooMultipleId
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer compoundPkRefNestId = entity.getCompoundPkRefNestId();
- * Integer fooMultipleId = entity.getFooMultipleId();
- * Integer barMultipleId = entity.getBarMultipleId();
- * Integer quxMultipleId = entity.getQuxMultipleId();
- * String nestName = entity.getNestName();
- * entity.setCompoundPkRefNestId(compoundPkRefNestId);
- * entity.setFooMultipleId(fooMultipleId);
- * entity.setBarMultipleId(barMultipleId);
- * entity.setQuxMultipleId(quxMultipleId);
- * entity.setNestName(nestName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK_REF_NEST as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRefNest extends AbstractEntity implements DomainEntity {

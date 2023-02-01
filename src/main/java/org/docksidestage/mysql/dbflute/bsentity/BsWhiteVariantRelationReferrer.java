@@ -28,45 +28,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_REFERRER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     REFERRER_ID
- *
- * [column]
- *     REFERRER_ID, VARIANT_MASTER_ID, MASTER_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_MASTER_FOO(AsVariant), WHITE_VARIANT_RELATION_MASTER_BAR(AsVariant), WHITE_VARIANT_RELATION_MASTER_QUX(AsVariantByQue), WHITE_VARIANT_RELATION_MASTER_CORGE(AsVariantByQuxType)
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER_REF
- *
- * [foreign property]
- *     whiteVariantRelationMasterFooAsVariant, whiteVariantRelationMasterBarAsVariant, whiteVariantRelationMasterQuxAsVariantByQue, whiteVariantRelationMasterCorgeAsVariantByQuxType
- *
- * [referrer property]
- *     whiteVariantRelationReferrerRefList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long referrerId = entity.getReferrerId();
- * Long variantMasterId = entity.getVariantMasterId();
- * String masterTypeCode = entity.getMasterTypeCode();
- * entity.setReferrerId(referrerId);
- * entity.setVariantMasterId(variantMasterId);
- * entity.setMasterTypeCode(masterTypeCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationReferrer extends AbstractEntity implements DomainEntity {

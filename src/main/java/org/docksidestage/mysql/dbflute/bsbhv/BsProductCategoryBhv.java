@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of (商品カテゴリ)PRODUCT_CATEGORY as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_CATEGORY_CODE
- *
- * [column]
- *     PRODUCT_CATEGORY_CODE, PRODUCT_CATEGORY_NAME, PARENT_CATEGORY_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     PRODUCT_CATEGORY
- *
- * [referrer table]
- *     PRODUCT, PRODUCT_CATEGORY
- *
- * [foreign property]
- *     productCategorySelf
- *
- * [referrer property]
- *     productList, productCategorySelfList
- * </pre>
+ * The behavior of (商品カテゴリ)PRODUCT_CATEGORY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<ProductCategory, ProductCategoryCB> {
@@ -786,7 +758,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(productCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

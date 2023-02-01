@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_DEF_CHECK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     DEF_CHECK_ID
- *
- * [column]
- *     DEF_CHECK_ID, DEF_CHECK_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long defCheckId = entity.getDefCheckId();
- * String defCheckName = entity.getDefCheckName();
- * entity.setDefCheckId(defCheckId);
- * entity.setDefCheckName(defCheckName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SUPPRESS_DEF_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSuppressDefCheck extends AbstractEntity implements DomainEntity {

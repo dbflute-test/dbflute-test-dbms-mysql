@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_IMPLICIT_CONV_INTEGER as TABLE. <br>
- * <pre>
- * [primary key]
- *     IMPLICIT_CONV_INTEGER_ID
- *
- * [column]
- *     IMPLICIT_CONV_INTEGER_ID, IMPLICIT_CONV_NUMERIC_ID, IMPLICIT_CONV_STRING_ID, IMPLICIT_CONV_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
- *
- * [referrer table]
- *     WHITE_IMPLICIT_CONV_NUMERIC, WHITE_IMPLICIT_CONV_STRING
- *
- * [foreign property]
- *     whiteImplicitConvNumeric, whiteImplicitConvString
- *
- * [referrer property]
- *     whiteImplicitConvNumericList, whiteImplicitConvStringList
- * </pre>
+ * The referrer loader of WHITE_IMPLICIT_CONV_INTEGER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteImplicitConvInteger {

@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_DEF_CHECK as TABLE. <br>
- * <pre>
- * [primary key]
- *     DEF_CHECK_ID
- *
- * [column]
- *     DEF_CHECK_ID, DEF_CHECK_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SUPPRESS_DEF_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSuppressDefCheck {

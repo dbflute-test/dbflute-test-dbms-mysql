@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_PERROTTA_OVER_PRODUCT as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_NESTED_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_PRODUCT_NESTED, WHITE_PERROTTA_OVER_TRACE(AsPerrotta)
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_MEMBER, WHITE_PERROTTA_OVER_TRACE
- *
- * [foreign property]
- *     whitePerrottaOverProductNested, whitePerrottaOverTraceAsPerrotta
- *
- * [referrer property]
- *     whitePerrottaOverMemberList, whitePerrottaOverTraceByNextProductIdList, whitePerrottaOverTraceByPreviousProductIdList
- * </pre>
+ * The referrer loader of WHITE_PERROTTA_OVER_PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePerrottaOverProduct {

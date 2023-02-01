@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_QUOTED_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     WHERE
- *
- * [column]
- *     WHERE, ORDER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_QUOTED
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteQuoted
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_QUOTED_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteQuotedRef {

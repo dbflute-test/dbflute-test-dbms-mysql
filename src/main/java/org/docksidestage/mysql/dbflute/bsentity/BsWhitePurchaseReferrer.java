@@ -27,43 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PURCHASE_REFERRER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PURCHASE_REFERRER_ID
- *
- * [column]
- *     PURCHASE_REFERRER_ID, PURCHASE_REFERRER_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_REFERRER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     PURCHASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     purchase
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long purchaseReferrerId = entity.getPurchaseReferrerId();
- * String purchaseReferrerName = entity.getPurchaseReferrerName();
- * entity.setPurchaseReferrerId(purchaseReferrerId);
- * entity.setPurchaseReferrerName(purchaseReferrerName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PURCHASE_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePurchaseReferrer extends AbstractEntity implements DomainEntity {

@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br>
- * <pre>
- * [primary key]
- *     REVERSEFK_SUPPRESSED_ID
- *
- * [column]
- *     REVERSEFK_SUPPRESSED_ID, MASTER_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_MASTER_FOO(AsBizManyToOneLikeBizOneToOne)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteVariantRelationLocalPkReferrer {

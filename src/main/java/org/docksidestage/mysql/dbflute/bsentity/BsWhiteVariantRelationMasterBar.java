@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MASTER_BAR_ID
- *
- * [column]
- *     MASTER_BAR_ID, MASTER_BAR_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteVariantRelationReferrerAsVariantList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long masterBarId = entity.getMasterBarId();
- * String masterBarName = entity.getMasterBarName();
- * entity.setMasterBarId(masterBarId);
- * entity.setMasterBarName(masterBarName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterBar extends AbstractEntity implements DomainEntity {

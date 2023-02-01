@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_LOAD_DATA as TABLE. <br>
- * <pre>
- * [primary-key]
- *     LOAD_DATA_ID
- *
- * [column]
- *     LOAD_DATA_ID, LOAD_DATA_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long loadDataId = entity.getLoadDataId();
- * String loadDataName = entity.getLoadDataName();
- * entity.setLoadDataId(loadDataId);
- * entity.setLoadDataName(loadDataName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_LOAD_DATA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteLoadData extends AbstractEntity implements DomainEntity {

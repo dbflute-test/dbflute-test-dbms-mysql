@@ -26,45 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_CLASSIFICATION_FLG_BIT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_NAME, UQ_CLS_BIT_FLG
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long uqClsId = entity.getUqClsId();
- * String uqClsName = entity.getUqClsName();
- * Boolean uqClsBitFlg = entity.getUqClsBitFlg();
- * entity.setUqClsId(uqClsId);
- * entity.setUqClsName(uqClsName);
- * entity.setUqClsBitFlg(uqClsBitFlg);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_UQ_CLASSIFICATION_FLG_BIT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqClassificationFlgBit extends AbstractEntity implements DomainEntity {

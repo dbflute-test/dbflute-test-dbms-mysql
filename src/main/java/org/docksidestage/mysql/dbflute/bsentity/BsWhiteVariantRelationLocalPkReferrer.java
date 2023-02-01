@@ -27,43 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     REVERSEFK_SUPPRESSED_ID
- *
- * [column]
- *     REVERSEFK_SUPPRESSED_ID, MASTER_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_MASTER_FOO(AsBizManyToOneLikeBizOneToOne)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long reversefkSuppressedId = entity.getReversefkSuppressedId();
- * String masterTypeCode = entity.getMasterTypeCode();
- * entity.setReversefkSuppressedId(reversefkSuppressedId);
- * entity.setMasterTypeCode(masterTypeCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationLocalPkReferrer extends AbstractEntity implements DomainEntity {

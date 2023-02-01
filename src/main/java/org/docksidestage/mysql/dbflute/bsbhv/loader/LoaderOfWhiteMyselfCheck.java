@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_MYSELF_CHECK as TABLE. <br>
- * <pre>
- * [primary key]
- *     MYSELF_CHECK_ID
- *
- * [column]
- *     MYSELF_CHECK_ID, MYSELF_CHECK_NAME, MYSELF_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_MYSELF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteMyself
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_MYSELF_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteMyselfCheck {

@@ -26,49 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (VIEW)WHITE_NO_PK_RELATION as VIEW. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer productId = entity.getProductId();
- * String productName = entity.getProductName();
- * String productHandleCode = entity.getProductHandleCode();
- * String productStatusCode = entity.getProductStatusCode();
- * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * entity.setProductHandleCode(productHandleCode);
- * entity.setProductStatusCode(productStatusCode);
- * entity.setLatestPurchaseDatetime(latestPurchaseDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of (VIEW)WHITE_NO_PK_RELATION as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNoPkRelation extends AbstractEntity implements DomainEntity {

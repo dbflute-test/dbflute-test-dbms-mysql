@@ -27,47 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_TRACE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     TRACE_ID
- *
- * [column]
- *     TRACE_ID, PREVIOUS_PRODUCT_ID, NEXT_PRODUCT_ID, TRACE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePerrottaOverProductByNextProductId, whitePerrottaOverProductByPreviousProductId
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long traceId = entity.getTraceId();
- * Integer previousProductId = entity.getPreviousProductId();
- * Integer nextProductId = entity.getNextProductId();
- * String traceTypeCode = entity.getTraceTypeCode();
- * entity.setTraceId(traceId);
- * entity.setPreviousProductId(previousProductId);
- * entity.setNextProductId(nextProductId);
- * entity.setTraceTypeCode(traceTypeCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PERROTTA_OVER_TRACE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverTrace extends AbstractEntity implements DomainEntity {

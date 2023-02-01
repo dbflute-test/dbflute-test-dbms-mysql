@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_QUOTED as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SELECT
- *
- * [column]
- *     SELECT, FROM
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_QUOTED_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteQuotedRefList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer select = entity.getSelect();
- * String from = entity.getFrom();
- * entity.setSelect(select);
- * entity.setFrom(from);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_QUOTED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteQuoted extends AbstractEntity implements DomainEntity {

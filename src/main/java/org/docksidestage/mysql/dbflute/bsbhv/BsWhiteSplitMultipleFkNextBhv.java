@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE. <br>
- * <pre>
- * [primary key]
- *     NEXT_ID
- *
- * [column]
- *     NEXT_ID, SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSplitMultipleFkBaseList
- * </pre>
+ * The behavior of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWritable<WhiteSplitMultipleFkNext, WhiteSplitMultipleFkNextCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhiteSplitMultipleFkNextBhv extends AbstractBehaviorWrit
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkNext, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkNextBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

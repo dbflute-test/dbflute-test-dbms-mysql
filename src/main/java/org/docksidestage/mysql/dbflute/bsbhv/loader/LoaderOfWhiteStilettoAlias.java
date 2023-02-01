@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_STILETTO_ALIAS as TABLE. <br>
- * <pre>
- * [primary key]
- *     STILETTO_ALIAS_ID
- *
- * [column]
- *     STILETTO_ALIAS_ID, FOO, FOO_0, FOO_1, FOO2, FOO_3, FOO4, BAR, QUX
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_STILETTO_ALIAS_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteStilettoAliasRefList
- * </pre>
+ * The referrer loader of WHITE_STILETTO_ALIAS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteStilettoAlias {

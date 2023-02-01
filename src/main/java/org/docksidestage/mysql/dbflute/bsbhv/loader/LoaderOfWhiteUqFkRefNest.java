@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_UQ_FK_REF_NEST as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_FK_REF_NEST_ID
- *
- * [column]
- *     UQ_FK_REF_NEST_ID, COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_UQ_FK_REF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteUqFkRef
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_UQ_FK_REF_NEST as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteUqFkRefNest {

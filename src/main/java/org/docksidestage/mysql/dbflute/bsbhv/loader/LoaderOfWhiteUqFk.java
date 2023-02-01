@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_UQ_FK as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_FK_ID
- *
- * [column]
- *     UQ_FK_ID, UQ_FK_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_UQ_FK_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteUqFkRefByFkToPkIdList, whiteUqFkRefByFkToUqCodeList
- * </pre>
+ * The referrer loader of WHITE_UQ_FK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteUqFk {

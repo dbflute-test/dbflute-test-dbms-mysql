@@ -25,45 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_XLS_MAN as TABLE. <br>
- * <pre>
- * [primary-key]
- *     XLS_MAN_ID
- *
- * [column]
- *     XLS_MAN_ID, STRING_CONVERTED, TIMESTAMP_CONVERTED
- *
- * [sequence]
- *     
- *
- * [identity]
- *     XLS_MAN_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long xlsManId = entity.getXlsManId();
- * String stringConverted = entity.getStringConverted();
- * java.time.LocalDateTime timestampConverted = entity.getTimestampConverted();
- * entity.setXlsManId(xlsManId);
- * entity.setStringConverted(stringConverted);
- * entity.setTimestampConverted(timestampConverted);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_XLS_MAN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEntity {

@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     DEPRECATED_CLS_ELEMENT_CODE
- *
- * [column]
- *     DEPRECATED_CLS_ELEMENT_CODE, DEPRECATED_CLS_ELEMENT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String deprecatedClsElementCode = entity.getDeprecatedClsElementCode();
- * String deprecatedClsElementName = entity.getDeprecatedClsElementName();
- * entity.setDeprecatedClsElementCode(deprecatedClsElementCode);
- * entity.setDeprecatedClsElementName(deprecatedClsElementName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_DEPRECATED_CLS_ELEMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedClsElement extends AbstractEntity implements DomainEntity {

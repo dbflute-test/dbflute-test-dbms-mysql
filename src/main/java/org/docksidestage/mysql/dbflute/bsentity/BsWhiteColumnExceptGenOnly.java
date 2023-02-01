@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COLUMN_EXCEPT_GEN_ONLY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     GEN_ONLY_ID
- *
- * [column]
- *     GEN_ONLY_ID, GEN_ONLY_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long genOnlyId = entity.getGenOnlyId();
- * String genOnlyName = entity.getGenOnlyName();
- * entity.setGenOnlyId(genOnlyId);
- * entity.setGenOnlyName(genOnlyName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COLUMN_EXCEPT_GEN_ONLY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteColumnExceptGenOnly extends AbstractEntity implements DomainEntity {

@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_NON_UNIQUE_MANY_TO_ONE_FROM as TABLE. <br>
- * <pre>
- * [primary key]
- *     FROM_ID
- *
- * [column]
- *     FROM_ID, FROM_NAME, NON_UNIQUE_CODE, BEGIN_DATE, END_DATE, MANY_POINT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     FROM_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_NON_UNIQUE_MANY_TO_ONE_TO(AsNonUniqueManyToOne)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteNonUniqueManyToOneToAsNonUniqueManyToOne
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_NON_UNIQUE_MANY_TO_ONE_FROM as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteNonUniqueManyToOneFrom {

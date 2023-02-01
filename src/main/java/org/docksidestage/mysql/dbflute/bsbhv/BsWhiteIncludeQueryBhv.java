@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_INCLUDE_QUERY as TABLE. <br>
- * <pre>
- * [primary key]
- *     INCLUDE_QUERY_ID
- *
- * [column]
- *     INCLUDE_QUERY_ID, INCLUDE_QUERY_VARCHAR, INCLUDE_QUERY_INTEGER, INCLUDE_QUERY_DATE, INCLUDE_QUERY_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     INCLUDE_QUERY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_INCLUDE_QUERY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<WhiteIncludeQuery, WhiteIncludeQueryCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteIncludeQueryBhv extends AbstractBehaviorWritable<Wh
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteIncludeQuery, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteIncludeQueryBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_GEARED_CIPHER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     CIPHER_ID
- *
- * [column]
- *     CIPHER_ID, CIPHER_INTEGER, CIPHER_VARCHAR, CIPHER_DATE, CIPHER_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     CIPHER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long cipherId = entity.getCipherId();
- * Integer cipherInteger = entity.getCipherInteger();
- * String cipherVarchar = entity.getCipherVarchar();
- * java.time.LocalDate cipherDate = entity.getCipherDate();
- * java.time.LocalDateTime cipherDatetime = entity.getCipherDatetime();
- * entity.setCipherId(cipherId);
- * entity.setCipherInteger(cipherInteger);
- * entity.setCipherVarchar(cipherVarchar);
- * entity.setCipherDate(cipherDate);
- * entity.setCipherDatetime(cipherDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_GEARED_CIPHER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteGearedCipher extends AbstractEntity implements DomainEntity {

@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_DEPRECATED_CLS_ELEMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     DEPRECATED_CLS_ELEMENT_CODE
- *
- * [column]
- *     DEPRECATED_CLS_ELEMENT_CODE, DEPRECATED_CLS_ELEMENT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_DEPRECATED_CLS_ELEMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWritable<WhiteDeprecatedClsElement, WhiteDeprecatedClsElementCB> {
@@ -757,7 +729,7 @@ public abstract class BsWhiteDeprecatedClsElementBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteDeprecatedClsElementBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteDeprecatedClsElement, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteDeprecatedClsElementBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

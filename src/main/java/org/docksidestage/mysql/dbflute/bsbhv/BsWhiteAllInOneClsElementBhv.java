@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ALL_IN_ONE_CLS_ELEMENT as TABLE. <br>
- * <pre>
- * [primary key]
- *     CLS_CATEGORY_CODE, CLS_ELEMENT_CODE
- *
- * [column]
- *     CLS_CATEGORY_CODE, CLS_ELEMENT_CODE, CLS_ELEMENT_NAME, ATTRIBUTE_EXP
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ALL_IN_ONE_CLS_CATEGORY
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteAllInOneClsCategory
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ALL_IN_ONE_CLS_ELEMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWritable<WhiteAllInOneClsElement, WhiteAllInOneClsElementCB> {
@@ -757,7 +729,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsElementBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsElement, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsElementBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

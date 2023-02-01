@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SELF_REFERENCE_REF_ONE as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELF_REFERENCE_ID
- *
- * [column]
- *     SELF_REFERENCE_ID, SELF_REFERENCE_REF_ONE_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SELF_REFERENCE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSelfReference, whiteSelfReferenceAsDirectParent
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SELF_REFERENCE_REF_ONE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSelfReferenceRefOne {

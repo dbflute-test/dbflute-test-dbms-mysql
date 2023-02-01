@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_PURCHASE_REFERRER as TABLE. <br>
- * <pre>
- * [primary key]
- *     PURCHASE_REFERRER_ID
- *
- * [column]
- *     PURCHASE_REFERRER_ID, PURCHASE_REFERRER_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PURCHASE_REFERRER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     PURCHASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     purchase
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_PURCHASE_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePurchaseReferrer {

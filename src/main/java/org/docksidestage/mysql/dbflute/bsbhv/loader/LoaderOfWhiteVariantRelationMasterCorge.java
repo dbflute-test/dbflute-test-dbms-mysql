@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_CORGE_ID
- *
- * [column]
- *     MASTER_CORGE_ID, MASTER_CORGE_NAME, CORGE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteVariantRelationMasterCorge {

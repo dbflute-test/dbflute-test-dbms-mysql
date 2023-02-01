@@ -27,43 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MASTER_FOO_ID
- *
- * [column]
- *     MASTER_FOO_ID, MASTER_FOO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
- *
- * [foreign property]
- *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
- *
- * [referrer property]
- *     whiteVariantRelationReferrerAsVariantList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long masterFooId = entity.getMasterFooId();
- * String masterFooName = entity.getMasterFooName();
- * entity.setMasterFooId(masterFooId);
- * entity.setMasterFooName(masterFooName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterFoo extends AbstractEntity implements DomainEntity {

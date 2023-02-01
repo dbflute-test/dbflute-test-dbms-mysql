@@ -25,47 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE. <br>
- * <pre>
- * [primary-key]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- *
- * [column]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID, WHITE_IMPLICIT_REVERSE_FK_ID, VALID_BEGIN_DATE, VALID_END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer whiteImplicitReverseFkSuppressId = entity.getWhiteImplicitReverseFkSuppressId();
- * Integer whiteImplicitReverseFkId = entity.getWhiteImplicitReverseFkId();
- * java.time.LocalDate validBeginDate = entity.getValidBeginDate();
- * java.time.LocalDate validEndDate = entity.getValidEndDate();
- * entity.setWhiteImplicitReverseFkSuppressId(whiteImplicitReverseFkSuppressId);
- * entity.setWhiteImplicitReverseFkId(whiteImplicitReverseFkId);
- * entity.setValidBeginDate(validBeginDate);
- * entity.setValidEndDate(validEndDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteImplicitReverseFkSuppress extends AbstractEntity implements DomainEntity {

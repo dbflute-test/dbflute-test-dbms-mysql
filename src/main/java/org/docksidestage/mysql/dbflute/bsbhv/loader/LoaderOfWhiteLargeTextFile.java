@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_LARGE_TEXT_FILE as TABLE. <br>
- * <pre>
- * [primary key]
- *     LARGE_TEXT_FILE_ID
- *
- * [column]
- *     LARGE_TEXT_FILE_ID, LARGE_TEXT_FILE_TEXT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_LARGE_TEXT_FILE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteLargeTextFile {

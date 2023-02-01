@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_LARGE_TEXT_FILE as TABLE. <br>
- * <pre>
- * [primary key]
- *     LARGE_TEXT_FILE_ID
- *
- * [column]
- *     LARGE_TEXT_FILE_ID, LARGE_TEXT_FILE_TEXT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_LARGE_TEXT_FILE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteLargeTextFileBhv extends AbstractBehaviorWritable<WhiteLargeTextFile, WhiteLargeTextFileCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteLargeTextFileBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteLargeTextFileBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteLargeTextFile, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteLargeTextFileBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_IMPLICIT_CONV_STRING as TABLE. <br>
- * <pre>
- * [primary key]
- *     IMPLICIT_CONV_STRING_ID
- *
- * [column]
- *     IMPLICIT_CONV_STRING_ID, IMPLICIT_CONV_INTEGER_ID, IMPLICIT_CONV_NUMERIC_ID, IMPLICIT_CONV_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_NUMERIC
- *
- * [referrer table]
- *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_NUMERIC
- *
- * [foreign property]
- *     whiteImplicitConvInteger, whiteImplicitConvNumeric
- *
- * [referrer property]
- *     whiteImplicitConvIntegerList, whiteImplicitConvNumericList
- * </pre>
+ * The behavior of WHITE_IMPLICIT_CONV_STRING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWritable<WhiteImplicitConvString, WhiteImplicitConvStringCB> {
@@ -948,7 +920,7 @@ public abstract class BsWhiteImplicitConvStringBhv extends AbstractBehaviorWrita
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitConvString, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitConvStringBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

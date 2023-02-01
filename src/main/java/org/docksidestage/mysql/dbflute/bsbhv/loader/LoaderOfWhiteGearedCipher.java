@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_GEARED_CIPHER as TABLE. <br>
- * <pre>
- * [primary key]
- *     CIPHER_ID
- *
- * [column]
- *     CIPHER_ID, CIPHER_INTEGER, CIPHER_VARCHAR, CIPHER_DATE, CIPHER_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     CIPHER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_GEARED_CIPHER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteGearedCipher {

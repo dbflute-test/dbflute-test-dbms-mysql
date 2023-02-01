@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_DELIMITER as TABLE. <br>
- * <pre>
- * [primary key]
- *     DELIMITER_ID
- *
- * [column]
- *     DELIMITER_ID, NUMBER_NULLABLE, STRING_CONVERTED, STRING_NON_CONVERTED, DATE_DEFAULT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     DELIMITER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_DELIMITER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteDelimiter {

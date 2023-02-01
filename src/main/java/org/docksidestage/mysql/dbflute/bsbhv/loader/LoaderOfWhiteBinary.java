@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_BINARY as TABLE. <br>
- * <pre>
- * [primary key]
- *     BINARY_ID
- *
- * [column]
- *     BINARY_ID, BINARY_DATA, BLOB_DATA
- *
- * [sequence]
- *     
- *
- * [identity]
- *     BINARY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_BINARY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteBinary {

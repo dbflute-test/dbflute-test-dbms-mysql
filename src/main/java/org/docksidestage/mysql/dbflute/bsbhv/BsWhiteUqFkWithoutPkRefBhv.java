@@ -34,35 +34,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_UQ_FK_WITHOUT_PK_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     UQ_FK_REF_ID, FK_TO_UQ_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_UQ_FK_WITHOUT_PK
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteUqFkWithoutPk
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_UQ_FK_WITHOUT_PK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqFkWithoutPkRefBhv extends AbstractBehaviorReadable<WhiteUqFkWithoutPkRef, WhiteUqFkWithoutPkRefCB> {

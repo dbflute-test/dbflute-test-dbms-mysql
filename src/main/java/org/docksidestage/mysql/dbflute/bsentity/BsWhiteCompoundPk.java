@@ -27,47 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PK_FIRST_ID, PK_SECOND_ID
- *
- * [column]
- *     PK_FIRST_ID, PK_SECOND_ID, COMPOUND_PK_NAME, REFERRED_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_REFERRED_NORMALLY, WHITE_COMPOUND_REFERRED_PRIMARY, WHITE_COMPOUND_PK_REF_MANY(AsMax)
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK_REF, WHITE_COMPOUND_PK_REF_MANY
- *
- * [foreign property]
- *     whiteCompoundReferredNormally, whiteCompoundReferredPrimary, whiteCompoundPkRefManyAsMax, whiteCompoundPkRefManyAsMin
- *
- * [referrer property]
- *     whiteCompoundPkRefList, whiteCompoundPkRefManyToPKList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer pkFirstId = entity.getPkFirstId();
- * Integer pkSecondId = entity.getPkSecondId();
- * String compoundPkName = entity.getCompoundPkName();
- * Integer referredId = entity.getReferredId();
- * entity.setPkFirstId(pkFirstId);
- * entity.setPkSecondId(pkSecondId);
- * entity.setCompoundPkName(compoundPkName);
- * entity.setReferredId(referredId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPk extends AbstractEntity implements DomainEntity {

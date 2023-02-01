@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR_LARGE_DATA_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     LARGE_DATA_REF_ID
- *
- * [column]
- *     LARGE_DATA_REF_ID, LARGE_DATA_ID, DATE_INDEX, DATE_NO_INDEX, TIMESTAMP_INDEX, TIMESTAMP_NO_INDEX, NULLABLE_DECIMAL_INDEX, NULLABLE_DECIMAL_NO_INDEX, SELF_PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR_LARGE_DATA, VENDOR_LARGE_DATA_REF
- *
- * [referrer table]
- *     VENDOR_LARGE_DATA_REF
- *
- * [foreign property]
- *     vendorLargeData, vendorLargeDataRefSelf
- *
- * [referrer property]
- *     vendorLargeDataRefSelfList
- * </pre>
+ * The behavior of VENDOR_LARGE_DATA_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<VendorLargeDataRef, VendorLargeDataRefCB> {
@@ -864,7 +836,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

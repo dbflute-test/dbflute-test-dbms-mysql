@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MACHO_CODE
- *
- * [column]
- *     MACHO_CODE, MACHO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_MEMBER
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePerrottaOverMemberList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String machoCode = entity.getMachoCode();
- * String machoName = entity.getMachoName();
- * entity.setMachoCode(machoCode);
- * entity.setMachoName(machoName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverMemberMacho extends AbstractEntity implements DomainEntity {

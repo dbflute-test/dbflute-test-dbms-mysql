@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_IMPLICIT_REVERSE_FK_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     WHITE_IMPLICIT_REVERSE_FK_REF_ID
- *
- * [column]
- *     WHITE_IMPLICIT_REVERSE_FK_REF_ID, WHITE_IMPLICIT_REVERSE_FK_ID, VALID_BEGIN_DATE, VALID_END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     WHITE_IMPLICIT_REVERSE_FK_REF_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_IMPLICIT_REVERSE_FK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteImplicitReverseFkRef {

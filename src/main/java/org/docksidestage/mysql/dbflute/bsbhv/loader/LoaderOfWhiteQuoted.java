@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_QUOTED as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELECT
- *
- * [column]
- *     SELECT, FROM
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_QUOTED_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteQuotedRefList
- * </pre>
+ * The referrer loader of WHITE_QUOTED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteQuoted {

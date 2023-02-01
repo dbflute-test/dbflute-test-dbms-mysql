@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (WXADD)WHITE_ADDITIONAL as TABLE. <br>
- * <pre>
- * [primary key]
- *     foo_id
- *
- * [column]
- *     foo_id, foo_name, foo_date, register_datetime
- *
- * [sequence]
- *     
- *
- * [identity]
- *     foo_id
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (WXADD)WHITE_ADDITIONAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteAdditional {

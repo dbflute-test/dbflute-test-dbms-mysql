@@ -25,55 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     PRODUCT_ID
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, REGISTER_DATETIME, REGISTER_USER, REGISTER_PROCESS, UPDATE_DATETIME, UPDATE_USER, UPDATE_PROCESS
- *
- * [sequence]
- *     
- *
- * [identity]
- *     PRODUCT_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long productId = entity.getProductId();
- * String productName = entity.getProductName();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * String updateProcess = entity.getUpdateProcess();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * entity.setUpdateProcess(updateProcess);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of (隣の商品)NEXT_SCHEMA_PRODUCT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextSchemaProduct extends AbstractEntity implements DomainEntity {

@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE as TABLE. <br>
- * <pre>
- * [primary key]
- *     MANY_ONE_ID
- *
- * [column]
- *     MANY_ONE_ID, MANY_ONE_NAME, MANY_ONE_ONE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE_ONE
- *
- * [referrer table]
- *     WHITE_SUPPRESS_JOIN_SQ_MANY
- *
- * [foreign property]
- *     whiteSuppressJoinSqManyOneOne
- *
- * [referrer property]
- *     whiteSuppressJoinSqManyList
- * </pre>
+ * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_MANY_ONE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSuppressJoinSqManyOne {

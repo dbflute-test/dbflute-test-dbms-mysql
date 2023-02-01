@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_FOO_ID
- *
- * [column]
- *     MASTER_FOO_ID, MASTER_FOO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
- *
- * [foreign property]
- *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
- *
- * [referrer property]
- *     whiteVariantRelationReferrerAsVariantList
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterFooBhv extends AbstractBehaviorWritable<WhiteVariantRelationMasterFoo, WhiteVariantRelationMasterFooCB> {
@@ -860,7 +832,7 @@ public abstract class BsWhiteVariantRelationMasterFooBhv extends AbstractBehavio
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterFooBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterFoo, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterFooBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

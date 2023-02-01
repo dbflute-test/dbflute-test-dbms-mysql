@@ -10,51 +10,7 @@ import org.docksidestage.mysql.dbflute.resola.allcommon.ResolaDBMetaInstanceHand
 import org.docksidestage.mysql.dbflute.resola.exentity.*;
 
 /**
- * The entity of station as TABLE. <br>
- * <pre>
- * [primary-key]
- *     STATION_ID
- *
- * [column]
- *     STATION_ID, STATION_NAME, BIRTHDATE, FORMALIZED_DATETIME, HOME_COUNT, WORKING_KILOMETER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer stationId = entity.getStationId();
- * String stationName = entity.getStationName();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * Integer homeCount = entity.getHomeCount();
- * java.math.BigDecimal workingKilometer = entity.getWorkingKilometer();
- * entity.setStationId(stationId);
- * entity.setStationName(stationName);
- * entity.setBirthdate(birthdate);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setHomeCount(homeCount);
- * entity.setWorkingKilometer(workingKilometer);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of station as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class ResolaBsStation extends AbstractEntity implements DomainEntity {

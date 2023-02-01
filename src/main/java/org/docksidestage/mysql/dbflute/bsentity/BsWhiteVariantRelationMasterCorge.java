@@ -26,45 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MASTER_CORGE_ID
- *
- * [column]
- *     MASTER_CORGE_ID, MASTER_CORGE_NAME, CORGE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long masterCorgeId = entity.getMasterCorgeId();
- * String masterCorgeName = entity.getMasterCorgeName();
- * String corgeTypeCode = entity.getCorgeTypeCode();
- * entity.setMasterCorgeId(masterCorgeId);
- * entity.setMasterCorgeName(masterCorgeName);
- * entity.setCorgeTypeCode(corgeTypeCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterCorge extends AbstractEntity implements DomainEntity {

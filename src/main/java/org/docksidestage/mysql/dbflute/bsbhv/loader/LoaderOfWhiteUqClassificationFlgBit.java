@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_UQ_CLASSIFICATION_FLG_BIT as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_NAME, UQ_CLS_BIT_FLG
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_UQ_CLASSIFICATION_FLG_BIT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteUqClassificationFlgBit {

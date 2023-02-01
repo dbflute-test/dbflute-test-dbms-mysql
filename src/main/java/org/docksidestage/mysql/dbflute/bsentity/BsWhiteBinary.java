@@ -25,45 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_BINARY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     BINARY_ID
- *
- * [column]
- *     BINARY_ID, BINARY_DATA, BLOB_DATA
- *
- * [sequence]
- *     
- *
- * [identity]
- *     BINARY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long binaryId = entity.getBinaryId();
- * byte[] binaryData = entity.getBinaryData();
- * byte[] blobData = entity.getBlobData();
- * entity.setBinaryId(binaryId);
- * entity.setBinaryData(binaryData);
- * entity.setBlobData(blobData);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_BINARY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBinary extends AbstractEntity implements DomainEntity {

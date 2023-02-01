@@ -26,45 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MASTER_QUX_ID
- *
- * [column]
- *     MASTER_QUX_ID, MASTER_QUX_NAME, QUX_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long masterQuxId = entity.getMasterQuxId();
- * String masterQuxName = entity.getMasterQuxName();
- * String quxTypeCode = entity.getQuxTypeCode();
- * entity.setMasterQuxId(masterQuxId);
- * entity.setMasterQuxName(masterQuxName);
- * entity.setQuxTypeCode(quxTypeCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterQux extends AbstractEntity implements DomainEntity {

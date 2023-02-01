@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpReturnResultSetMoreNotParamResult1. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME, BIRTHDATE, FORMALIZED_DATETIME, MEMBER_STATUS_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * String memberStatusCode = entity.getMemberStatusCode();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setBirthdate(birthdate);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setMemberStatusCode(memberStatusCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of SpReturnResultSetMoreNotParamResult1.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSpReturnResultSetMoreNotParamResult1 extends AbstractEntity implements CustomizeEntity {

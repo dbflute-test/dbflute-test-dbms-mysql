@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_UQ_FK_REF_NEST as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_FK_REF_NEST_ID
- *
- * [column]
- *     UQ_FK_REF_NEST_ID, COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_UQ_FK_REF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteUqFkRef
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_UQ_FK_REF_NEST as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqFkRefNestBhv extends AbstractBehaviorWritable<WhiteUqFkRefNest, WhiteUqFkRefNestCB> {
@@ -764,7 +736,7 @@ public abstract class BsWhiteUqFkRefNestBhv extends AbstractBehaviorWritable<Whi
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteUqFkRefNestBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqFkRefNest, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqFkRefNestBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

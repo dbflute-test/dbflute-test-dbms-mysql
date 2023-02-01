@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_WRONG_ORDER as TABLE. <br>
- * <pre>
- * [primary key]
- *     SECOND_ID, THIRD_ID, FIRST_ID
- *
- * [column]
- *     FIRST_ID, SECOND_ID, THIRD_ID, WRONG_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_COMPOUND_PK_WRONG_ORDER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPkWrongOrder {

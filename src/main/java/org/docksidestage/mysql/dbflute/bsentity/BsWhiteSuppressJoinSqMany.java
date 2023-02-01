@@ -27,47 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MANY_ID
- *
- * [column]
- *     MANY_ID, MANY_NAME, SUPPRESS_JOIN_SQ_ID, MANY_ONE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE, WHITE_SUPPRESS_JOIN_SQ
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSuppressJoinSqManyOne, whiteSuppressJoinSq
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer manyId = entity.getManyId();
- * String manyName = entity.getManyName();
- * Integer suppressJoinSqId = entity.getSuppressJoinSqId();
- * Integer manyOneId = entity.getManyOneId();
- * entity.setManyId(manyId);
- * entity.setManyName(manyName);
- * entity.setSuppressJoinSqId(suppressJoinSqId);
- * entity.setManyOneId(manyOneId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SUPPRESS_JOIN_SQ_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSuppressJoinSqMany extends AbstractEntity implements DomainEntity {

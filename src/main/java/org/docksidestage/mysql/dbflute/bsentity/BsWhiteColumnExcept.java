@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COLUMN_EXCEPT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     EXCEPT_COLUMN_ID
- *
- * [column]
- *     EXCEPT_COLUMN_ID, COLUMN_EXCEPT_TEST
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long exceptColumnId = entity.getExceptColumnId();
- * Integer columnExceptTest = entity.getColumnExceptTest();
- * entity.setExceptColumnId(exceptColumnId);
- * entity.setColumnExceptTest(columnExceptTest);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COLUMN_EXCEPT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteColumnExcept extends AbstractEntity implements DomainEntity {

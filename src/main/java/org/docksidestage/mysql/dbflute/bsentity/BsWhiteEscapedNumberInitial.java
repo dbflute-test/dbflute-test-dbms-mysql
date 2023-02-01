@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_NUMBER_INITIAL as TABLE. <br>
- * <pre>
- * [primary-key]
- *     NUMBER_INITIAL_CODE
- *
- * [column]
- *     NUMBER_INITIAL_CODE, NUMBER_INITIAL_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String numberInitialCode = entity.getNumberInitialCode();
- * String numberInitialName = entity.getNumberInitialName();
- * entity.setNumberInitialCode(numberInitialCode);
- * entity.setNumberInitialName(numberInitialName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ESCAPED_NUMBER_INITIAL as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteEscapedNumberInitial extends AbstractEntity implements DomainEntity {

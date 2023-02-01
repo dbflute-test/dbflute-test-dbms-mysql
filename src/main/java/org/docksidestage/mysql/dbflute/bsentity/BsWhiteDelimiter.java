@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DELIMITER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     DELIMITER_ID
- *
- * [column]
- *     DELIMITER_ID, NUMBER_NULLABLE, STRING_CONVERTED, STRING_NON_CONVERTED, DATE_DEFAULT
- *
- * [sequence]
- *     
- *
- * [identity]
- *     DELIMITER_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long delimiterId = entity.getDelimiterId();
- * Integer numberNullable = entity.getNumberNullable();
- * String stringConverted = entity.getStringConverted();
- * String stringNonConverted = entity.getStringNonConverted();
- * java.time.LocalDate dateDefault = entity.getDateDefault();
- * entity.setDelimiterId(delimiterId);
- * entity.setNumberNullable(numberNullable);
- * entity.setStringConverted(stringConverted);
- * entity.setStringNonConverted(stringNonConverted);
- * entity.setDateDefault(dateDefault);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_DELIMITER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDelimiter extends AbstractEntity implements DomainEntity {

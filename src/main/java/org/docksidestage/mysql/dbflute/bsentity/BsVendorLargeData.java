@@ -25,53 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_LARGE_DATA as TABLE. <br>
- * <pre>
- * [primary-key]
- *     LARGE_DATA_ID
- *
- * [column]
- *     LARGE_DATA_ID, STRING_INDEX, STRING_NO_INDEX, STRING_UNIQUE_INDEX, INTFLG_INDEX, NUMERIC_INTEGER_INDEX, NUMERIC_INTEGER_NO_INDEX
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_LARGE_DATA_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorLargeDataRefList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long largeDataId = entity.getLargeDataId();
- * String stringIndex = entity.getStringIndex();
- * String stringNoIndex = entity.getStringNoIndex();
- * String stringUniqueIndex = entity.getStringUniqueIndex();
- * Integer intflgIndex = entity.getIntflgIndex();
- * Integer numericIntegerIndex = entity.getNumericIntegerIndex();
- * Integer numericIntegerNoIndex = entity.getNumericIntegerNoIndex();
- * entity.setLargeDataId(largeDataId);
- * entity.setStringIndex(stringIndex);
- * entity.setStringNoIndex(stringNoIndex);
- * entity.setStringUniqueIndex(stringUniqueIndex);
- * entity.setIntflgIndex(intflgIndex);
- * entity.setNumericIntegerIndex(numericIntegerIndex);
- * entity.setNumericIntegerNoIndex(numericIntegerNoIndex);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR_LARGE_DATA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorLargeData extends AbstractEntity implements DomainEntity {

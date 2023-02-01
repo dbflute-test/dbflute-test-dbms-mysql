@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_CLS_NO_CAMELIZING as TABLE. <br>
- * <pre>
- * [primary key]
- *     NO_CAMELIZING_CODE
- *
- * [column]
- *     NO_CAMELIZING_CODE, NO_CAMELIZING_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_CLS_NO_CAMELIZING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteClsNoCamelizingBhv extends AbstractBehaviorWritable<WhiteClsNoCamelizing, WhiteClsNoCamelizingCB> {
@@ -757,7 +729,7 @@ public abstract class BsWhiteClsNoCamelizingBhv extends AbstractBehaviorWritable
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteClsNoCamelizingBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteClsNoCamelizing, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteClsNoCamelizingBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

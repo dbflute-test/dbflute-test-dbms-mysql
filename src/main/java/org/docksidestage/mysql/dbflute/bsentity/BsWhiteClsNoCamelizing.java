@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_CLS_NO_CAMELIZING as TABLE. <br>
- * <pre>
- * [primary-key]
- *     NO_CAMELIZING_CODE
- *
- * [column]
- *     NO_CAMELIZING_CODE, NO_CAMELIZING_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String noCamelizingCode = entity.getNoCamelizingCode();
- * String noCamelizingName = entity.getNoCamelizingName();
- * entity.setNoCamelizingCode(noCamelizingCode);
- * entity.setNoCamelizingName(noCamelizingName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_CLS_NO_CAMELIZING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteClsNoCamelizing extends AbstractEntity implements DomainEntity {

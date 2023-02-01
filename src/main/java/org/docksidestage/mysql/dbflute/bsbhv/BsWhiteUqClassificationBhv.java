@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_UQ_CLASSIFICATION as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_UQ_CLASSIFICATION as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritable<WhiteUqClassification, WhiteUqClassificationCB> {
@@ -790,7 +762,7 @@ public abstract class BsWhiteUqClassificationBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqClassification, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqClassificationBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE. <br>
- * <pre>
- * [primary key]
- *     CHILD_ID
- *
- * [column]
- *     CHILD_ID, BASE_ID, CHILD_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSplitMultipleFkBase
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWritable<WhiteSplitMultipleFkChild, WhiteSplitMultipleFkChildCB> {
@@ -764,7 +736,7 @@ public abstract class BsWhiteSplitMultipleFkChildBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSplitMultipleFkChild, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSplitMultipleFkChildBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

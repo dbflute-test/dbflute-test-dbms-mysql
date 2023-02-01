@@ -27,51 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     CONSTRAINT_NAME_AUTO_REF_ID
- *
- * [column]
- *     CONSTRAINT_NAME_AUTO_REF_ID, CONSTRAINT_NAME_AUTO_FOO_ID, CONSTRAINT_NAME_AUTO_BAR_ID, CONSTRAINT_NAME_AUTO_QUX_ID, CONSTRAINT_NAME_AUTO_CORGE_ID, CONSTRAINT_NAME_AUTO_UNIQUE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR_CONSTRAINT_NAME_AUTO_BAR, VENDOR_CONSTRAINT_NAME_AUTO_FOO, VENDOR_CONSTRAINT_NAME_AUTO_QUX
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     vendorConstraintNameAutoBar, vendorConstraintNameAutoFoo, vendorConstraintNameAutoQux
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long constraintNameAutoRefId = entity.getConstraintNameAutoRefId();
- * Long constraintNameAutoFooId = entity.getConstraintNameAutoFooId();
- * Long constraintNameAutoBarId = entity.getConstraintNameAutoBarId();
- * Long constraintNameAutoQuxId = entity.getConstraintNameAutoQuxId();
- * Long constraintNameAutoCorgeId = entity.getConstraintNameAutoCorgeId();
- * String constraintNameAutoUnique = entity.getConstraintNameAutoUnique();
- * entity.setConstraintNameAutoRefId(constraintNameAutoRefId);
- * entity.setConstraintNameAutoFooId(constraintNameAutoFooId);
- * entity.setConstraintNameAutoBarId(constraintNameAutoBarId);
- * entity.setConstraintNameAutoQuxId(constraintNameAutoQuxId);
- * entity.setConstraintNameAutoCorgeId(constraintNameAutoCorgeId);
- * entity.setConstraintNameAutoUnique(constraintNameAutoUnique);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorConstraintNameAutoRef extends AbstractEntity implements DomainEntity {

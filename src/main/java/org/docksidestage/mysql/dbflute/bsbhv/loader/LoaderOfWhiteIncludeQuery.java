@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_INCLUDE_QUERY as TABLE. <br>
- * <pre>
- * [primary key]
- *     INCLUDE_QUERY_ID
- *
- * [column]
- *     INCLUDE_QUERY_ID, INCLUDE_QUERY_VARCHAR, INCLUDE_QUERY_INTEGER, INCLUDE_QUERY_DATE, INCLUDE_QUERY_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     INCLUDE_QUERY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_INCLUDE_QUERY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteIncludeQuery {

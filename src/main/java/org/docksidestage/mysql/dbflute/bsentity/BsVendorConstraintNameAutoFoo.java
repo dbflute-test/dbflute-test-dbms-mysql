@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_CONSTRAINT_NAME_AUTO_FOO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     CONSTRAINT_NAME_AUTO_FOO_ID
- *
- * [column]
- *     CONSTRAINT_NAME_AUTO_FOO_ID, CONSTRAINT_NAME_AUTO_FOO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_CONSTRAINT_NAME_AUTO_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorConstraintNameAutoRefList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long constraintNameAutoFooId = entity.getConstraintNameAutoFooId();
- * String constraintNameAutoFooName = entity.getConstraintNameAutoFooName();
- * entity.setConstraintNameAutoFooId(constraintNameAutoFooId);
- * entity.setConstraintNameAutoFooName(constraintNameAutoFooName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR_CONSTRAINT_NAME_AUTO_FOO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorConstraintNameAutoFoo extends AbstractEntity implements DomainEntity {

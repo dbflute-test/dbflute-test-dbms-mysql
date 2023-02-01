@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [column]
- *     CLS_REF_ID, FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteAllInOneClsElementAsFoo, whiteAllInOneClsElementAsBar
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehaviorWritable<WhiteAllInOneClsNormalColRef, WhiteAllInOneClsNormalColRefCB> {
@@ -766,7 +738,7 @@ public abstract class BsWhiteAllInOneClsNormalColRefBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteAllInOneClsNormalColRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteAllInOneClsNormalColRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

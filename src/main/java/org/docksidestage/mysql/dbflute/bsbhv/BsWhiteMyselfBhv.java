@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_MYSELF as TABLE. <br>
- * <pre>
- * [primary key]
- *     MYSELF_ID
- *
- * [column]
- *     MYSELF_ID, MYSELF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_MYSELF_CHECK
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteMyselfCheckList
- * </pre>
+ * The behavior of WHITE_MYSELF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteMyselfBhv extends AbstractBehaviorWritable<WhiteMyself, WhiteMyselfCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhiteMyselfBhv extends AbstractBehaviorWritable<WhiteMys
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteMyselfBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteMyself, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteMyselfBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

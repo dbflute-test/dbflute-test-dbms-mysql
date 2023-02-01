@@ -27,45 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE. <br>
- * <pre>
- * [primary-key]
- *     CHILD_ID
- *
- * [column]
- *     CHILD_ID, BASE_ID, CHILD_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSplitMultipleFkBase
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long childId = entity.getChildId();
- * Long baseId = entity.getBaseId();
- * String childName = entity.getChildName();
- * entity.setChildId(childId);
- * entity.setBaseId(baseId);
- * entity.setChildName(childName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSplitMultipleFkChild extends AbstractEntity implements DomainEntity {

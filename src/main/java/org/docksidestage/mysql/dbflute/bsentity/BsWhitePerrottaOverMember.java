@@ -27,49 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_PERROTTA_OVER_MEMBER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME, PRODUCT_ID, TRACE_TYPE_CODE, MACHO_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_MEMBER_MACHO, WHITE_PERROTTA_OVER_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePerrottaOverMemberMacho, whitePerrottaOverProduct
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * Integer productId = entity.getProductId();
- * String traceTypeCode = entity.getTraceTypeCode();
- * String machoCode = entity.getMachoCode();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setProductId(productId);
- * entity.setTraceTypeCode(traceTypeCode);
- * entity.setMachoCode(machoCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_PERROTTA_OVER_MEMBER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverMember extends AbstractEntity implements DomainEntity {

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_PERROTTA_OVER_PRODUCT_NESTED as TABLE. <br>
- * <pre>
- * [primary key]
- *     PRODUCT_NESTED_CODE
- *
- * [column]
- *     PRODUCT_NESTED_CODE, PRODUCT_NESTED_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_PRODUCT
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePerrottaOverProductList
- * </pre>
+ * The behavior of WHITE_PERROTTA_OVER_PRODUCT_NESTED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehaviorWritable<WhitePerrottaOverProductNested, WhitePerrottaOverProductNestedCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhitePerrottaOverProductNestedBhv extends AbstractBehavi
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverProductNested, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverProductNestedBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

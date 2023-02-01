@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_QUX as TABLE. <br>
- * <pre>
- * [primary key]
- *     CONSTRAINT_NAME_AUTO_QUX_ID
- *
- * [column]
- *     CONSTRAINT_NAME_AUTO_QUX_ID, CONSTRAINT_NAME_AUTO_QUX_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_CONSTRAINT_NAME_AUTO_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorConstraintNameAutoRefList
- * </pre>
+ * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_QUX as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorConstraintNameAutoQux {

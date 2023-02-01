@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     UQ_FK_ID
- *
- * [column]
- *     UQ_FK_ID, UQ_FK_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_UQ_FK_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteUqFkRefByFkToPkIdList, whiteUqFkRefByFkToUqCodeList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long uqFkId = entity.getUqFkId();
- * String uqFkCode = entity.getUqFkCode();
- * entity.setUqFkId(uqFkId);
- * entity.setUqFkCode(uqFkCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_UQ_FK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqFk extends AbstractEntity implements DomainEntity {

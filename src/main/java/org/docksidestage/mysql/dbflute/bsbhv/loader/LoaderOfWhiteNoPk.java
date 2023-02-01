@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_NO_PK as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_NO_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteNoPk {

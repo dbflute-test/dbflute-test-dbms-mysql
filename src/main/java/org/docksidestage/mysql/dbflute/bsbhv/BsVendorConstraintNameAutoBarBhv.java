@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR_CONSTRAINT_NAME_AUTO_BAR as TABLE. <br>
- * <pre>
- * [primary key]
- *     CONSTRAINT_NAME_AUTO_BAR_ID
- *
- * [column]
- *     CONSTRAINT_NAME_AUTO_BAR_ID, CONSTRAINT_NAME_AUTO_BAR_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_CONSTRAINT_NAME_AUTO_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorConstraintNameAutoRefList
- * </pre>
+ * The behavior of VENDOR_CONSTRAINT_NAME_AUTO_BAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorWritable<VendorConstraintNameAutoBar, VendorConstraintNameAutoBarCB> {
@@ -877,7 +849,7 @@ public abstract class BsVendorConstraintNameAutoBarBhv extends AbstractBehaviorW
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorConstraintNameAutoBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorConstraintNameAutoBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorConstraintNameAutoBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_QUOTED as TABLE. <br>
- * <pre>
- * [primary key]
- *     SELECT
- *
- * [column]
- *     SELECT, FROM
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_QUOTED_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteQuotedRefList
- * </pre>
+ * The behavior of WHITE_QUOTED as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuoted, WhiteQuotedCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhiteQuotedBhv extends AbstractBehaviorWritable<WhiteQuo
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteQuoted, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteQuotedBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

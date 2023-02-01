@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_BAR_ID
- *
- * [column]
- *     MASTER_BAR_ID, MASTER_BAR_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteVariantRelationReferrerAsVariantList
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_MASTER_BAR as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehaviorWritable<WhiteVariantRelationMasterBar, WhiteVariantRelationMasterBarCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhiteVariantRelationMasterBarBhv extends AbstractBehavio
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

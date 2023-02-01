@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ESCAPED_DFPROP as TABLE. <br>
- * <pre>
- * [primary key]
- *     ESCAPED_DFPROP_CODE
- *
- * [column]
- *     ESCAPED_DFPROP_CODE, ESCAPED_DFPROP_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ESCAPED_DFPROP as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<WhiteEscapedDfprop, WhiteEscapedDfpropCB> {
@@ -757,7 +729,7 @@ public abstract class BsWhiteEscapedDfpropBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteEscapedDfprop, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteEscapedDfpropBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

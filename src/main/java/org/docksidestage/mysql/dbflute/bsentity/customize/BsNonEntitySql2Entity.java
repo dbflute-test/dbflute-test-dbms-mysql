@@ -24,43 +24,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of NonEntitySql2Entity. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of NonEntitySql2Entity.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNonEntitySql2Entity extends AbstractEntity implements CustomizeEntity {

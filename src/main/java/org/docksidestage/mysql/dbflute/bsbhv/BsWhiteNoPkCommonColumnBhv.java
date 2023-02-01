@@ -34,35 +34,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_NO_PK_COMMON_COLUMN as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_NO_PK_COMMON_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNoPkCommonColumnBhv extends AbstractBehaviorReadable<WhiteNoPkCommonColumn, WhiteNoPkCommonColumnCB> {

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_REFERRER as TABLE. <br>
- * <pre>
- * [primary key]
- *     REFERRER_ID
- *
- * [column]
- *     REFERRER_ID, VARIANT_MASTER_ID, MASTER_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_MASTER_FOO(AsVariant), WHITE_VARIANT_RELATION_MASTER_BAR(AsVariant), WHITE_VARIANT_RELATION_MASTER_QUX(AsVariantByQue), WHITE_VARIANT_RELATION_MASTER_CORGE(AsVariantByQuxType)
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER_REF
- *
- * [foreign property]
- *     whiteVariantRelationMasterFooAsVariant, whiteVariantRelationMasterBarAsVariant, whiteVariantRelationMasterQuxAsVariantByQue, whiteVariantRelationMasterCorgeAsVariantByQuxType
- *
- * [referrer property]
- *     whiteVariantRelationReferrerRefList
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationReferrerBhv extends AbstractBehaviorWritable<WhiteVariantRelationReferrer, WhiteVariantRelationReferrerCB> {
@@ -876,7 +848,7 @@ public abstract class BsWhiteVariantRelationReferrerBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationReferrer, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

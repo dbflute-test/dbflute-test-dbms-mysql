@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE. <br>
- * <pre>
- * [primary key]
- *     MACHO_CODE
- *
- * [column]
- *     MACHO_CODE, MACHO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_MEMBER
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePerrottaOverMemberList
- * </pre>
+ * The referrer loader of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePerrottaOverMemberMacho {

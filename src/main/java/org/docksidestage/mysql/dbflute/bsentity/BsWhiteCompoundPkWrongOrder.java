@@ -25,47 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_WRONG_ORDER as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SECOND_ID, THIRD_ID, FIRST_ID
- *
- * [column]
- *     FIRST_ID, SECOND_ID, THIRD_ID, WRONG_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer firstId = entity.getFirstId();
- * Integer secondId = entity.getSecondId();
- * Integer thirdId = entity.getThirdId();
- * String wrongName = entity.getWrongName();
- * entity.setFirstId(firstId);
- * entity.setSecondId(secondId);
- * entity.setThirdId(thirdId);
- * entity.setWrongName(wrongName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK_WRONG_ORDER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkWrongOrder extends AbstractEntity implements DomainEntity {

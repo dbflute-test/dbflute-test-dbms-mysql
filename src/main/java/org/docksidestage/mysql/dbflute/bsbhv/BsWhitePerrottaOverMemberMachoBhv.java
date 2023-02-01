@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE. <br>
- * <pre>
- * [primary key]
- *     MACHO_CODE
- *
- * [column]
- *     MACHO_CODE, MACHO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PERROTTA_OVER_MEMBER
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePerrottaOverMemberList
- * </pre>
+ * The behavior of WHITE_PERROTTA_OVER_MEMBER_MACHO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehaviorWritable<WhitePerrottaOverMemberMacho, WhitePerrottaOverMemberMachoCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhitePerrottaOverMemberMachoBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverMemberMacho, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverMemberMachoBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

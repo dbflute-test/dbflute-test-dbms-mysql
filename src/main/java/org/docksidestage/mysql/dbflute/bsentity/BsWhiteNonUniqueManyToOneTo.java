@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_NON_UNIQUE_MANY_TO_ONE_TO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     TO_ID
- *
- * [column]
- *     TO_ID, TO_NAME, NON_UNIQUE_CODE, BEGIN_DATE, END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     TO_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long toId = entity.getToId();
- * String toName = entity.getToName();
- * String nonUniqueCode = entity.getNonUniqueCode();
- * java.time.LocalDate beginDate = entity.getBeginDate();
- * java.time.LocalDate endDate = entity.getEndDate();
- * entity.setToId(toId);
- * entity.setToName(toName);
- * entity.setNonUniqueCode(nonUniqueCode);
- * entity.setBeginDate(beginDate);
- * entity.setEndDate(endDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_NON_UNIQUE_MANY_TO_ONE_TO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNonUniqueManyToOneTo extends AbstractEntity implements DomainEntity {

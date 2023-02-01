@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ESCAPED_JAVA_DOC as TABLE. <br>
- * <pre>
- * [primary key]
- *     ESCAPED_JAVA_DOC_CODE
- *
- * [column]
- *     ESCAPED_JAVA_DOC_CODE, ESCAPED_JAVA_DOC_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ESCAPED_JAVA_DOC as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteEscapedJavaDocBhv extends AbstractBehaviorWritable<WhiteEscapedJavaDoc, WhiteEscapedJavaDocCB> {
@@ -757,7 +729,7 @@ public abstract class BsWhiteEscapedJavaDocBhv extends AbstractBehaviorWritable<
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteEscapedJavaDocBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteEscapedJavaDoc, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteEscapedJavaDocBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

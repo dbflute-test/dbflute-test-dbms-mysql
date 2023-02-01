@@ -24,57 +24,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of LargeAutoPaging. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     LARGE_DATA_REF_ID, LARGE_DATA_ID, DATE_INDEX, DATE_NO_INDEX, TIMESTAMP_INDEX, TIMESTAMP_NO_INDEX, NULLABLE_DECIMAL_INDEX, NULLABLE_DECIMAL_NO_INDEX, SELF_PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long largeDataRefId = entity.getLargeDataRefId();
- * Long largeDataId = entity.getLargeDataId();
- * java.time.LocalDate dateIndex = entity.getDateIndex();
- * java.time.LocalDate dateNoIndex = entity.getDateNoIndex();
- * java.time.LocalDateTime timestampIndex = entity.getTimestampIndex();
- * java.time.LocalDateTime timestampNoIndex = entity.getTimestampNoIndex();
- * java.math.BigDecimal nullableDecimalIndex = entity.getNullableDecimalIndex();
- * java.math.BigDecimal nullableDecimalNoIndex = entity.getNullableDecimalNoIndex();
- * Long selfParentId = entity.getSelfParentId();
- * entity.setLargeDataRefId(largeDataRefId);
- * entity.setLargeDataId(largeDataId);
- * entity.setDateIndex(dateIndex);
- * entity.setDateNoIndex(dateNoIndex);
- * entity.setTimestampIndex(timestampIndex);
- * entity.setTimestampNoIndex(timestampNoIndex);
- * entity.setNullableDecimalIndex(nullableDecimalIndex);
- * entity.setNullableDecimalNoIndex(nullableDecimalNoIndex);
- * entity.setSelfParentId(selfParentId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of LargeAutoPaging.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsLargeAutoPaging extends AbstractEntity implements CustomizeEntity {

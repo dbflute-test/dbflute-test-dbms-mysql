@@ -27,45 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ONLY_ONE_TO_ONE_TO as TABLE. <br>
- * <pre>
- * [primary-key]
- *     TO_ID
- *
- * [column]
- *     TO_ID, TO_NAME, FROM_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     TO_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ONLY_ONE_TO_ONE_FROM
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteOnlyOneToOneFrom
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long toId = entity.getToId();
- * String toName = entity.getToName();
- * Long fromId = entity.getFromId();
- * entity.setToId(toId);
- * entity.setToName(toName);
- * entity.setFromId(fromId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ONLY_ONE_TO_ONE_TO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnlyOneToOneTo extends AbstractEntity implements DomainEntity {

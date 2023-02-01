@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_COLUMN_EXCEPT_GEN_ONLY as TABLE. <br>
- * <pre>
- * [primary key]
- *     GEN_ONLY_ID
- *
- * [column]
- *     GEN_ONLY_ID, GEN_ONLY_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_COLUMN_EXCEPT_GEN_ONLY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteColumnExceptGenOnly {

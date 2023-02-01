@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_PERROTTA_OVER_MEMBER as TABLE. <br>
- * <pre>
- * [primary key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME, PRODUCT_ID, TRACE_TYPE_CODE, MACHO_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_MEMBER_MACHO, WHITE_PERROTTA_OVER_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePerrottaOverMemberMacho, whitePerrottaOverProduct
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_PERROTTA_OVER_MEMBER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePerrottaOverMember {

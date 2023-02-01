@@ -27,45 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SELF_REFERENCE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     SELF_REFERENCE_ID
- *
- * [column]
- *     SELF_REFERENCE_ID, SELF_REFERENCE_NAME, PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE(AsOne)
- *
- * [referrer table]
- *     WHITE_SELF_REFERENCE, WHITE_SELF_REFERENCE_REF_ONE
- *
- * [foreign property]
- *     whiteSelfReferenceSelf, whiteSelfReferenceRefOneAsOne
- *
- * [referrer property]
- *     whiteSelfReferenceSelfList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long selfReferenceId = entity.getSelfReferenceId();
- * String selfReferenceName = entity.getSelfReferenceName();
- * Long parentId = entity.getParentId();
- * entity.setSelfReferenceId(selfReferenceId);
- * entity.setSelfReferenceName(selfReferenceName);
- * entity.setParentId(parentId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SELF_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSelfReference extends AbstractEntity implements DomainEntity {

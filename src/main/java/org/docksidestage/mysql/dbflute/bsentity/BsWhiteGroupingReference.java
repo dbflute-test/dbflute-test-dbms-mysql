@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_GROUPING_REFERENCE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     GROUPING_REFERENCE_ID
- *
- * [column]
- *     GROUPING_REFERENCE_ID, GROUPING_REFERENCE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     GROUPING_REFERENCE_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long groupingReferenceId = entity.getGroupingReferenceId();
- * String groupingReferenceCode = entity.getGroupingReferenceCode();
- * entity.setGroupingReferenceId(groupingReferenceId);
- * entity.setGroupingReferenceCode(groupingReferenceCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_GROUPING_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteGroupingReference extends AbstractEntity implements DomainEntity {

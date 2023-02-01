@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     CONSTRAINT_NAME_AUTO_REF_ID
- *
- * [column]
- *     CONSTRAINT_NAME_AUTO_REF_ID, CONSTRAINT_NAME_AUTO_FOO_ID, CONSTRAINT_NAME_AUTO_BAR_ID, CONSTRAINT_NAME_AUTO_QUX_ID, CONSTRAINT_NAME_AUTO_CORGE_ID, CONSTRAINT_NAME_AUTO_UNIQUE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR_CONSTRAINT_NAME_AUTO_BAR, VENDOR_CONSTRAINT_NAME_AUTO_FOO, VENDOR_CONSTRAINT_NAME_AUTO_QUX
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     vendorConstraintNameAutoBar, vendorConstraintNameAutoFoo, vendorConstraintNameAutoQux
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of VENDOR_CONSTRAINT_NAME_AUTO_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorConstraintNameAutoRef {

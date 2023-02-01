@@ -27,47 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [column]
- *     CLS_REF_ID, FOO_CODE, BAR_CODE, QUX_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ALL_IN_ONE_CLS_ELEMENT(AsFoo)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteAllInOneClsElementAsFoo, whiteAllInOneClsElementAsBar
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer clsRefId = entity.getClsRefId();
- * String fooCode = entity.getFooCode();
- * String barCode = entity.getBarCode();
- * String quxCode = entity.getQuxCode();
- * entity.setClsRefId(clsRefId);
- * entity.setFooCode(fooCode);
- * entity.setBarCode(barCode);
- * entity.setQuxCode(quxCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ALL_IN_ONE_CLS_NORMAL_COL_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteAllInOneClsNormalColRef extends AbstractEntity implements DomainEntity {

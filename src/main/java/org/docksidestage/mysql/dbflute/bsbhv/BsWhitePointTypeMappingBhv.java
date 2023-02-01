@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_POINT_TYPE_MAPPING as TABLE. <br>
- * <pre>
- * [primary key]
- *     POINT_TYPE_MAPPING_ID
- *
- * [column]
- *     POINT_TYPE_MAPPING_ID, POINT_TYPE_MAPPING_MEMBER_NAME, POINT_TYPE_MAPPING_PRICE_COUNT, POINT_TYPE_MAPPING_SALE_DATE, POINT_TYPE_MAPPING_WANTED_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_POINT_TYPE_MAPPING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePointTypeMappingBhv extends AbstractBehaviorWritable<WhitePointTypeMapping, WhitePointTypeMappingCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhitePointTypeMappingBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePointTypeMappingBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePointTypeMapping, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePointTypeMappingBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

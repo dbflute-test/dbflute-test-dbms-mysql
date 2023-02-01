@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_MYSELF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MYSELF_ID
- *
- * [column]
- *     MYSELF_ID, MYSELF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_MYSELF_CHECK
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteMyselfCheckList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer myselfId = entity.getMyselfId();
- * String myselfName = entity.getMyselfName();
- * entity.setMyselfId(myselfId);
- * entity.setMyselfName(myselfName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_MYSELF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteMyself extends AbstractEntity implements DomainEntity {

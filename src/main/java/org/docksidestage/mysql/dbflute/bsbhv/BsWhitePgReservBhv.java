@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_PG_RESERV as TABLE. <br>
- * <pre>
- * [primary key]
- *     CLASS
- *
- * [column]
- *     CLASS, CASE, PACKAGE, DEFAULT, NEW, NATIVE, VOID, PUBLIC, PROTECTED, PRIVATE, INTERFACE, ABSTRACT, FINAL, FINALLY, RETURN, DOUBLE, FLOAT, SHORT, TYPE, RESERV_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PG_RESERV_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePgReservRefList
- * </pre>
+ * The behavior of WHITE_PG_RESERV as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhitePgReserv, WhitePgReservCB> {
@@ -844,7 +816,7 @@ public abstract class BsWhitePgReservBhv extends AbstractBehaviorWritable<WhiteP
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePgReserv, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePgReservBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_QUX_ID
- *
- * [column]
- *     MASTER_QUX_ID, MASTER_QUX_NAME, QUX_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_MASTER_QUX as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehaviorWritable<WhiteVariantRelationMasterQux, WhiteVariantRelationMasterQuxCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteVariantRelationMasterQuxBhv extends AbstractBehavio
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterQux, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterQuxBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

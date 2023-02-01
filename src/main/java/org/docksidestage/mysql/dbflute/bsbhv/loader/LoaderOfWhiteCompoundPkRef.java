@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_COMPOUND_PK_REF as TABLE. <br>
- * <pre>
- * [primary key]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
- *
- * [column]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID, REF_FIRST_ID, REF_SECOND_ID, REF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK_REF_NEST
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     whiteCompoundPkRefNestByQuxMultipleIdList, whiteCompoundPkRefNestByFooMultipleIdList
- * </pre>
+ * The referrer loader of WHITE_COMPOUND_PK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPkRef {

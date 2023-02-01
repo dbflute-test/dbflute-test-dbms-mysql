@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_PERROTTA_OVER_TRACE as TABLE. <br>
- * <pre>
- * [primary key]
- *     TRACE_ID
- *
- * [column]
- *     TRACE_ID, PREVIOUS_PRODUCT_ID, NEXT_PRODUCT_ID, TRACE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePerrottaOverProductByNextProductId, whitePerrottaOverProductByPreviousProductId
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_PERROTTA_OVER_TRACE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePerrottaOverTrace {

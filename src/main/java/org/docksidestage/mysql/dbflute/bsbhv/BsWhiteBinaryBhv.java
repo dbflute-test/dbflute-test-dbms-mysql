@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_BINARY as TABLE. <br>
- * <pre>
- * [primary key]
- *     BINARY_ID
- *
- * [column]
- *     BINARY_ID, BINARY_DATA, BLOB_DATA
- *
- * [sequence]
- *     
- *
- * [identity]
- *     BINARY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_BINARY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBinary, WhiteBinaryCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteBinaryBhv extends AbstractBehaviorWritable<WhiteBin
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteBinaryBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteBinary, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteBinaryBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

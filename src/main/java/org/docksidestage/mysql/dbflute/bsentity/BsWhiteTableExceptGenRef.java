@@ -25,45 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_TABLE_EXCEPT_GEN_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     GEN_REF_ID
- *
- * [column]
- *     GEN_REF_ID, GEN_REF_NAME, GEN_ONLY_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long genRefId = entity.getGenRefId();
- * String genRefName = entity.getGenRefName();
- * Long genOnlyId = entity.getGenOnlyId();
- * entity.setGenRefId(genRefId);
- * entity.setGenRefName(genRefName);
- * entity.setGenOnlyId(genOnlyId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_TABLE_EXCEPT_GEN_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteTableExceptGenRef extends AbstractEntity implements DomainEntity {

@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE. <br>
- * <pre>
- * [primary key]
- *     CHILD_ID
- *
- * [column]
- *     CHILD_ID, BASE_ID, CHILD_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSplitMultipleFkBase
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SPLIT_MULTIPLE_FK_CHILD as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSplitMultipleFkChild {

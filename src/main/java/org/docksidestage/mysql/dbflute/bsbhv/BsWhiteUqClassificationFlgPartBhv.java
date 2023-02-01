@@ -36,35 +36,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_UQ_CLASSIFICATION_FLG_PART as TABLE. <br>
- * <pre>
- * [primary key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_NAME, UQ_CLS_FLG
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_UQ_CLASSIFICATION_FLG_PART as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqClassificationFlgPartBhv extends AbstractBehaviorWritable<WhiteUqClassificationFlgPart, WhiteUqClassificationFlgPartCB> {
@@ -783,7 +755,7 @@ public abstract class BsWhiteUqClassificationFlgPartBhv extends AbstractBehavior
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteUqClassificationFlgPartBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteUqClassificationFlgPart, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteUqClassificationFlgPartBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

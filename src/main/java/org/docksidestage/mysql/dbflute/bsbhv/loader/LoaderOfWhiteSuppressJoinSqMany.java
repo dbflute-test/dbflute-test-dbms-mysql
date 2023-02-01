@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_MANY as TABLE. <br>
- * <pre>
- * [primary key]
- *     MANY_ID
- *
- * [column]
- *     MANY_ID, MANY_NAME, SUPPRESS_JOIN_SQ_ID, MANY_ONE_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SUPPRESS_JOIN_SQ_MANY_ONE, WHITE_SUPPRESS_JOIN_SQ
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSuppressJoinSqManyOne, whiteSuppressJoinSq
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_SUPPRESS_JOIN_SQ_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSuppressJoinSqMany {

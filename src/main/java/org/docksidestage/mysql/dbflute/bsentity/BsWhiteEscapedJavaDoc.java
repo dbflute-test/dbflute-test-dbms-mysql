@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_ESCAPED_JAVA_DOC as TABLE. <br>
- * <pre>
- * [primary-key]
- *     ESCAPED_JAVA_DOC_CODE
- *
- * [column]
- *     ESCAPED_JAVA_DOC_CODE, ESCAPED_JAVA_DOC_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String escapedJavaDocCode = entity.getEscapedJavaDocCode();
- * String escapedJavaDocName = entity.getEscapedJavaDocName();
- * entity.setEscapedJavaDocCode(escapedJavaDocCode);
- * entity.setEscapedJavaDocName(escapedJavaDocName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_ESCAPED_JAVA_DOC as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteEscapedJavaDoc extends AbstractEntity implements DomainEntity {

@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     NEXT_ID
- *
- * [column]
- *     NEXT_ID, SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_SPLIT_MULTIPLE_FK_BASE
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSplitMultipleFkBaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long nextId = entity.getNextId();
- * String secondCode = entity.getSecondCode();
- * entity.setNextId(nextId);
- * entity.setSecondCode(secondCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_NEXT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSplitMultipleFkNext extends AbstractEntity implements DomainEntity {

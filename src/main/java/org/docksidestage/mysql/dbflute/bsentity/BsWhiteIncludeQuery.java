@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_INCLUDE_QUERY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     INCLUDE_QUERY_ID
- *
- * [column]
- *     INCLUDE_QUERY_ID, INCLUDE_QUERY_VARCHAR, INCLUDE_QUERY_INTEGER, INCLUDE_QUERY_DATE, INCLUDE_QUERY_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     INCLUDE_QUERY_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long includeQueryId = entity.getIncludeQueryId();
- * String includeQueryVarchar = entity.getIncludeQueryVarchar();
- * Integer includeQueryInteger = entity.getIncludeQueryInteger();
- * java.time.LocalDate includeQueryDate = entity.getIncludeQueryDate();
- * java.time.LocalDateTime includeQueryDatetime = entity.getIncludeQueryDatetime();
- * entity.setIncludeQueryId(includeQueryId);
- * entity.setIncludeQueryVarchar(includeQueryVarchar);
- * entity.setIncludeQueryInteger(includeQueryInteger);
- * entity.setIncludeQueryDate(includeQueryDate);
- * entity.setIncludeQueryDatetime(includeQueryDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_INCLUDE_QUERY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteIncludeQuery extends AbstractEntity implements DomainEntity {

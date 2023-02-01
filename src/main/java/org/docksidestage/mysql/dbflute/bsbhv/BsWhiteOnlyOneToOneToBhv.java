@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_ONLY_ONE_TO_ONE_TO as TABLE. <br>
- * <pre>
- * [primary key]
- *     TO_ID
- *
- * [column]
- *     TO_ID, TO_NAME, FROM_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     TO_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_ONLY_ONE_TO_ONE_FROM
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteOnlyOneToOneFrom
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_ONLY_ONE_TO_ONE_TO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<WhiteOnlyOneToOneTo, WhiteOnlyOneToOneToCB> {
@@ -797,7 +769,7 @@ public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteOnlyOneToOneToBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteOnlyOneToOneTo, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteOnlyOneToOneToBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -27,47 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_CONV_STRING as TABLE. <br>
- * <pre>
- * [primary-key]
- *     IMPLICIT_CONV_STRING_ID
- *
- * [column]
- *     IMPLICIT_CONV_STRING_ID, IMPLICIT_CONV_INTEGER_ID, IMPLICIT_CONV_NUMERIC_ID, IMPLICIT_CONV_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_NUMERIC
- *
- * [referrer table]
- *     WHITE_IMPLICIT_CONV_INTEGER, WHITE_IMPLICIT_CONV_NUMERIC
- *
- * [foreign property]
- *     whiteImplicitConvInteger, whiteImplicitConvNumeric
- *
- * [referrer property]
- *     whiteImplicitConvIntegerList, whiteImplicitConvNumericList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String implicitConvStringId = entity.getImplicitConvStringId();
- * String implicitConvIntegerId = entity.getImplicitConvIntegerId();
- * String implicitConvNumericId = entity.getImplicitConvNumericId();
- * String implicitConvName = entity.getImplicitConvName();
- * entity.setImplicitConvStringId(implicitConvStringId);
- * entity.setImplicitConvIntegerId(implicitConvIntegerId);
- * entity.setImplicitConvNumericId(implicitConvNumericId);
- * entity.setImplicitConvName(implicitConvName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_IMPLICIT_CONV_STRING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteImplicitConvString extends AbstractEntity implements DomainEntity {

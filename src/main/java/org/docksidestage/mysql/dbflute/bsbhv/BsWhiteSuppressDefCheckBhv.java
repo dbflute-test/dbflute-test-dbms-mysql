@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SUPPRESS_DEF_CHECK as TABLE. <br>
- * <pre>
- * [primary key]
- *     DEF_CHECK_ID
- *
- * [column]
- *     DEF_CHECK_ID, DEF_CHECK_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SUPPRESS_DEF_CHECK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSuppressDefCheckBhv extends AbstractBehaviorWritable<WhiteSuppressDefCheck, WhiteSuppressDefCheckCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteSuppressDefCheckBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSuppressDefCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSuppressDefCheck, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSuppressDefCheckBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

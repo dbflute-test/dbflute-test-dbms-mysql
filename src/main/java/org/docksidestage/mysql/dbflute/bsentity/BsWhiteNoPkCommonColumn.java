@@ -26,53 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_NO_PK_COMMON_COLUMN as TABLE. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long noPkId = entity.getNoPkId();
- * String noPkName = entity.getNoPkName();
- * Integer noPkInteger = entity.getNoPkInteger();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * entity.setNoPkId(noPkId);
- * entity.setNoPkName(noPkName);
- * entity.setNoPkInteger(noPkInteger);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_NO_PK_COMMON_COLUMN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNoPkCommonColumn extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

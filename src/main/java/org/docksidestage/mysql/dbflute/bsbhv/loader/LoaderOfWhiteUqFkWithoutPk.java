@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_UQ_FK_WITHOUT_PK as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     UQ_FK_CODE, UQ_FK_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_UQ_FK_WITHOUT_PK_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteUqFkWithoutPkRefList
- * </pre>
+ * The referrer loader of WHITE_UQ_FK_WITHOUT_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteUqFkWithoutPk {

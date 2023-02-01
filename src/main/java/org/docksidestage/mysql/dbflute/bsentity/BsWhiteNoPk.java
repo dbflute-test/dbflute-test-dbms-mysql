@@ -25,45 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_NO_PK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     NO_PK_ID, NO_PK_NAME, NO_PK_INTEGER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long noPkId = entity.getNoPkId();
- * String noPkName = entity.getNoPkName();
- * Integer noPkInteger = entity.getNoPkInteger();
- * entity.setNoPkId(noPkId);
- * entity.setNoPkName(noPkName);
- * entity.setNoPkInteger(noPkInteger);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_NO_PK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNoPk extends AbstractEntity implements DomainEntity {

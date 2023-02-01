@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_CORGE_ID
- *
- * [column]
- *     MASTER_CORGE_ID, MASTER_CORGE_NAME, CORGE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_MASTER_CORGE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehaviorWritable<WhiteVariantRelationMasterCorge, WhiteVariantRelationMasterCorgeCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteVariantRelationMasterCorgeBhv extends AbstractBehav
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationMasterCorgeBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationMasterCorge, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationMasterCorgeBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

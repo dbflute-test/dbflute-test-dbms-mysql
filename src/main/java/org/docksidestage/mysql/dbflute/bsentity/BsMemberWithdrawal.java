@@ -32,54 +32,6 @@ import org.docksidestage.mysql.dbflute.exentity.*;
  * The entity of (会員退会情報)MEMBER_WITHDRAWAL as TABLE. <br>
  * 退会会員の退会に関する詳細な情報。<br>
  * 退会会員のみデータが存在する。
- * <pre>
- * [primary-key]
- *     MEMBER_ID
- *
- * [column]
- *     MEMBER_ID, WITHDRAWAL_REASON_CODE, WITHDRAWAL_REASON_INPUT_TEXT, WITHDRAWAL_DATETIME, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     MEMBER, WITHDRAWAL_REASON
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, withdrawalReason
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String withdrawalReasonCode = entity.getWithdrawalReasonCode();
- * String withdrawalReasonInputText = entity.getWithdrawalReasonInputText();
- * java.time.LocalDateTime withdrawalDatetime = entity.getWithdrawalDatetime();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * entity.setMemberId(memberId);
- * entity.setWithdrawalReasonCode(withdrawalReasonCode);
- * entity.setWithdrawalReasonInputText(withdrawalReasonInputText);
- * entity.setWithdrawalDatetime(withdrawalDatetime);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberWithdrawal extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

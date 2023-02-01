@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE. <br>
- * <pre>
- * [primary key]
- *     ONE_ID
- *
- * [column]
- *     ONE_ID, ONE_NAME, SUPPRESS_JOIN_SQ_ID, ONE_ADDI_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_SUPPRESS_JOIN_SQ, WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSuppressJoinSq, whiteSuppressJoinSqOneAddi
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_SUPPRESS_JOIN_SQ_ONE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritable<WhiteSuppressJoinSqOne, WhiteSuppressJoinSqOneCB> {
@@ -805,7 +777,7 @@ public abstract class BsWhiteSuppressJoinSqOneBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSuppressJoinSqOne, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSuppressJoinSqOneBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

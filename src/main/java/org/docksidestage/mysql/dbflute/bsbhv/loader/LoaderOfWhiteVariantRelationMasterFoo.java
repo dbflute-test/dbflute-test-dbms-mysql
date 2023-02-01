@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE. <br>
- * <pre>
- * [primary key]
- *     MASTER_FOO_ID
- *
- * [column]
- *     MASTER_FOO_ID, MASTER_FOO_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_REFERRER(AsBizOneToOneForBizManyToOne), WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER(AsOne)
- *
- * [referrer table]
- *     WHITE_VARIANT_RELATION_REFERRER, WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER
- *
- * [foreign property]
- *     whiteVariantRelationReferrerAsBizOneToOneForBizManyToOne, whiteVariantRelationLocalPkReferrerAsOne
- *
- * [referrer property]
- *     whiteVariantRelationReferrerAsVariantList
- * </pre>
+ * The referrer loader of WHITE_VARIANT_RELATION_MASTER_FOO as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteVariantRelationMasterFoo {

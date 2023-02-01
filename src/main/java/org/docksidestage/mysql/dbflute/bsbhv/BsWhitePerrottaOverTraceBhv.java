@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_PERROTTA_OVER_TRACE as TABLE. <br>
- * <pre>
- * [primary key]
- *     TRACE_ID
- *
- * [column]
- *     TRACE_ID, PREVIOUS_PRODUCT_ID, NEXT_PRODUCT_ID, TRACE_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_PERROTTA_OVER_PRODUCT
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whitePerrottaOverProductByNextProductId, whitePerrottaOverProductByPreviousProductId
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_PERROTTA_OVER_TRACE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePerrottaOverTraceBhv extends AbstractBehaviorWritable<WhitePerrottaOverTrace, WhitePerrottaOverTraceCB> {
@@ -798,7 +770,7 @@ public abstract class BsWhitePerrottaOverTraceBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whitePerrottaOverTraceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whitePerrottaOverTrace, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whitePerrottaOverTraceBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

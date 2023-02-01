@@ -24,45 +24,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of DoubleByteOnSql. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     MEMBER_ID, MEMBER_NAME_WITH_SPACE, MEMBER_STATUS_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * Long memberNameWithSpace = entity.getMemberNameWithSpace();
- * String memberStatusName = entity.getMemberStatusName();
- * entity.setMemberId(memberId);
- * entity.setMemberNameWithSpace(memberNameWithSpace);
- * entity.setMemberStatusName(memberStatusName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of DoubleByteOnSql.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsDoubleByteOnSql extends AbstractEntity implements CustomizeEntity {

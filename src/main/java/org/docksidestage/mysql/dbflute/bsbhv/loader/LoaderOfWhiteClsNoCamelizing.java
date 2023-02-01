@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_CLS_NO_CAMELIZING as TABLE. <br>
- * <pre>
- * [primary key]
- *     NO_CAMELIZING_CODE
- *
- * [column]
- *     NO_CAMELIZING_CODE, NO_CAMELIZING_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_CLS_NO_CAMELIZING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteClsNoCamelizing {

@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_CLASSIFICATION as TABLE. <br>
- * <pre>
- * [primary-key]
- *     UQ_CLS_ID
- *
- * [column]
- *     UQ_CLS_ID, UQ_CLS_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long uqClsId = entity.getUqClsId();
- * String uqClsCode = entity.getUqClsCode();
- * entity.setUqClsId(uqClsId);
- * entity.setUqClsCode(uqClsCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_UQ_CLASSIFICATION as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqClassification extends AbstractEntity implements DomainEntity {

@@ -22,35 +22,7 @@ import org.docksidestage.mysql.dbflute.exbhv.*;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The referrer loader of WHITE_XLS_MAN as TABLE. <br>
- * <pre>
- * [primary key]
- *     XLS_MAN_ID
- *
- * [column]
- *     XLS_MAN_ID, STRING_CONVERTED, TIMESTAMP_CONVERTED
- *
- * [sequence]
- *     
- *
- * [identity]
- *     XLS_MAN_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of WHITE_XLS_MAN as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteXlsMan {

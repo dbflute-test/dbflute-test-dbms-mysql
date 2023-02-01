@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of WHITE_PG_RESERV as TABLE. <br>
- * <pre>
- * [primary key]
- *     CLASS
- *
- * [column]
- *     CLASS, CASE, PACKAGE, DEFAULT, NEW, NATIVE, VOID, PUBLIC, PROTECTED, PRIVATE, INTERFACE, ABSTRACT, FINAL, FINALLY, RETURN, DOUBLE, FLOAT, SHORT, TYPE, RESERV_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_PG_RESERV_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whitePgReservRefList
- * </pre>
+ * The referrer loader of WHITE_PG_RESERV as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhitePgReserv {

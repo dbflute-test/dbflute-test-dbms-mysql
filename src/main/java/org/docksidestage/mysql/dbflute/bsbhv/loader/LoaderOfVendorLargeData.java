@@ -24,35 +24,7 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR_LARGE_DATA as TABLE. <br>
- * <pre>
- * [primary key]
- *     LARGE_DATA_ID
- *
- * [column]
- *     LARGE_DATA_ID, STRING_INDEX, STRING_NO_INDEX, STRING_UNIQUE_INDEX, INTFLG_INDEX, NUMERIC_INTEGER_INDEX, NUMERIC_INTEGER_NO_INDEX
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     VENDOR_LARGE_DATA_REF
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorLargeDataRefList
- * </pre>
+ * The referrer loader of VENDOR_LARGE_DATA as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorLargeData {

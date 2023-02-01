@@ -25,43 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_REFERRED_PRIMARY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     REFERRED_ID
- *
- * [column]
- *     REFERRED_ID, REFERRED_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteCompoundPkList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer referredId = entity.getReferredId();
- * String referredName = entity.getReferredName();
- * entity.setReferredId(referredId);
- * entity.setReferredName(referredName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_REFERRED_PRIMARY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundReferredPrimary extends AbstractEntity implements DomainEntity {

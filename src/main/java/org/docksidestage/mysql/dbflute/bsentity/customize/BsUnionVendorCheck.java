@@ -25,53 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
- * The entity of UnionVendorCheck. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     VENDOR_CHECK_ID, TYPE_OF_TEXT, TYPE_OF_NUMERIC_DECIMAL, TYPE_OF_NUMERIC_INTEGER, TYPE_OF_NUMERIC_BIGINT, TYPE_OF_BOOLEAN, TYPE_OF_BLOB
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long vendorCheckId = entity.getVendorCheckId();
- * String typeOfText = entity.getTypeOfText();
- * java.math.BigDecimal typeOfNumericDecimal = entity.getTypeOfNumericDecimal();
- * Integer typeOfNumericInteger = entity.getTypeOfNumericInteger();
- * Long typeOfNumericBigint = entity.getTypeOfNumericBigint();
- * Integer typeOfBoolean = entity.getTypeOfBoolean();
- * byte[] typeOfBlob = entity.getTypeOfBlob();
- * entity.setVendorCheckId(vendorCheckId);
- * entity.setTypeOfText(typeOfText);
- * entity.setTypeOfNumericDecimal(typeOfNumericDecimal);
- * entity.setTypeOfNumericInteger(typeOfNumericInteger);
- * entity.setTypeOfNumericBigint(typeOfNumericBigint);
- * entity.setTypeOfBoolean(typeOfBoolean);
- * entity.setTypeOfBlob(typeOfBlob);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of UnionVendorCheck.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsUnionVendorCheck extends AbstractEntity implements CustomizeEntity {

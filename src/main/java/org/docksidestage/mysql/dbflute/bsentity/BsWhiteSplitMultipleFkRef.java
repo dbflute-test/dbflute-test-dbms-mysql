@@ -25,45 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     FIRST_ID, SECOND_CODE
- *
- * [column]
- *     FIRST_ID, SECOND_CODE, REF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer firstId = entity.getFirstId();
- * String secondCode = entity.getSecondCode();
- * String refName = entity.getRefName();
- * entity.setFirstId(firstId);
- * entity.setSecondCode(secondCode);
- * entity.setRefName(refName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_SPLIT_MULTIPLE_FK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSplitMultipleFkRef extends AbstractEntity implements DomainEntity {

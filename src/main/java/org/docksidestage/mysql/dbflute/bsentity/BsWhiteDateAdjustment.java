@@ -25,61 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_DATE_ADJUSTMENT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     DATE_ADJUSTMENT_ID
- *
- * [column]
- *     DATE_ADJUSTMENT_ID, ADJUSTED_DATE, ADJUSTED_DATETIME, ADJUSTED_TIME, ADJUSTED_INTEGER, ADJUSTED_NAMED_STRING_LONG, ADJUSTED_NAMED_TYPED_LONG, ADJUSTED_PINPOINT_STRING_LONG, ADJUSTED_PINPOINT_TYPED_LONG, ADJUSTED_PLAIN_LONG, ADJUSTED_STRING
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long dateAdjustmentId = entity.getDateAdjustmentId();
- * java.time.LocalDate adjustedDate = entity.getAdjustedDate();
- * java.time.LocalDateTime adjustedDatetime = entity.getAdjustedDatetime();
- * java.time.LocalTime adjustedTime = entity.getAdjustedTime();
- * Integer adjustedInteger = entity.getAdjustedInteger();
- * Long adjustedNamedStringLong = entity.getAdjustedNamedStringLong();
- * Long adjustedNamedTypedLong = entity.getAdjustedNamedTypedLong();
- * Long adjustedPinpointStringLong = entity.getAdjustedPinpointStringLong();
- * Long adjustedPinpointTypedLong = entity.getAdjustedPinpointTypedLong();
- * Long adjustedPlainLong = entity.getAdjustedPlainLong();
- * String adjustedString = entity.getAdjustedString();
- * entity.setDateAdjustmentId(dateAdjustmentId);
- * entity.setAdjustedDate(adjustedDate);
- * entity.setAdjustedDatetime(adjustedDatetime);
- * entity.setAdjustedTime(adjustedTime);
- * entity.setAdjustedInteger(adjustedInteger);
- * entity.setAdjustedNamedStringLong(adjustedNamedStringLong);
- * entity.setAdjustedNamedTypedLong(adjustedNamedTypedLong);
- * entity.setAdjustedPinpointStringLong(adjustedPinpointStringLong);
- * entity.setAdjustedPinpointTypedLong(adjustedPinpointTypedLong);
- * entity.setAdjustedPlainLong(adjustedPlainLong);
- * entity.setAdjustedString(adjustedString);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_DATE_ADJUSTMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteDateAdjustment extends AbstractEntity implements DomainEntity {

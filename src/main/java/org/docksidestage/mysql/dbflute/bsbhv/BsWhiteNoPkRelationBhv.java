@@ -34,35 +34,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of (VIEW)WHITE_NO_PK_RELATION as VIEW. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     PRODUCT_ID, PRODUCT_NAME, PRODUCT_HANDLE_CODE, PRODUCT_STATUS_CODE, LATEST_PURCHASE_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (VIEW)WHITE_NO_PK_RELATION as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNoPkRelationBhv extends AbstractBehaviorReadable<WhiteNoPkRelation, WhiteNoPkRelationCB> {

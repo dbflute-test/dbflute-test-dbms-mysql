@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_GROUPING_REFERENCE as TABLE. <br>
- * <pre>
- * [primary key]
- *     GROUPING_REFERENCE_ID
- *
- * [column]
- *     GROUPING_REFERENCE_ID, GROUPING_REFERENCE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     GROUPING_REFERENCE_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_GROUPING_REFERENCE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritable<WhiteGroupingReference, WhiteGroupingReferenceCB> {
@@ -756,7 +728,7 @@ public abstract class BsWhiteGroupingReferenceBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteGroupingReference, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteGroupingReferenceBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

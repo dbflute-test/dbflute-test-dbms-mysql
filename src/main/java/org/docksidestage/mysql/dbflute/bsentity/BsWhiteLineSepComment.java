@@ -26,43 +26,7 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_LINE_SEP_COMMENT as TABLE. <br>
- * <pre>
- * [primary-key]
- *     LINE_SEP_COMMENT_CODE
- *
- * [column]
- *     LINE_SEP_COMMENT_CODE, LINE_SEP_COMMENT_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String lineSepCommentCode = entity.getLineSepCommentCode();
- * String lineSepCommentName = entity.getLineSepCommentName();
- * entity.setLineSepCommentCode(lineSepCommentCode);
- * entity.setLineSepCommentName(lineSepCommentName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_LINE_SEP_COMMENT as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteLineSepComment extends AbstractEntity implements DomainEntity {

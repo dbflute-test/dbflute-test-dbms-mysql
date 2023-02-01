@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_COMPOUND_PK_REF_NEST as TABLE. <br>
- * <pre>
- * [primary key]
- *     COMPOUND_PK_REF_NEST_ID
- *
- * [column]
- *     COMPOUND_PK_REF_NEST_ID, FOO_MULTIPLE_ID, BAR_MULTIPLE_ID, QUX_MULTIPLE_ID, NEST_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK_REF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPkRefByQuxMultipleId, whiteCompoundPkRefByFooMultipleId
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_COMPOUND_PK_REF_NEST as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRefNestBhv extends AbstractBehaviorWritable<WhiteCompoundPkRefNest, WhiteCompoundPkRefNestCB> {
@@ -772,7 +744,7 @@ public abstract class BsWhiteCompoundPkRefNestBhv extends AbstractBehaviorWritab
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefNestBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRefNest, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefNestBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

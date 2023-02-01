@@ -20,35 +20,7 @@ import org.docksidestage.mysql.dbflute.resola.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.resola.cbean.*;
 
 /**
- * The behavior of station as TABLE. <br>
- * <pre>
- * [primary key]
- *     STATION_ID
- *
- * [column]
- *     STATION_ID, STATION_NAME, BIRTHDATE, FORMALIZED_DATETIME, HOME_COUNT, WORKING_KILOMETER
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of station as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class ResolaBsStationBhv extends AbstractBehaviorWritable<ResolaStation, ResolaStationCB> {
@@ -587,7 +559,7 @@ public abstract class ResolaBsStationBhv extends AbstractBehaviorWritable<Resola
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">stationBhv</span>.<span style="color: #CC4747">queryDelete</span>(station, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">stationBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

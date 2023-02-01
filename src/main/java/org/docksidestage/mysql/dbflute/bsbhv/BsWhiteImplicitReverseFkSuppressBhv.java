@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE. <br>
- * <pre>
- * [primary key]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- *
- * [column]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID, WHITE_IMPLICIT_REVERSE_FK_ID, VALID_BEGIN_DATE, VALID_END_DATE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_IMPLICIT_REVERSE_FK_SUPPRESS as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehaviorWritable<WhiteImplicitReverseFkSuppress, WhiteImplicitReverseFkSuppressCB> {
@@ -782,7 +754,7 @@ public abstract class BsWhiteImplicitReverseFkSuppressBhv extends AbstractBehavi
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteImplicitReverseFkSuppress, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteImplicitReverseFkSuppressBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

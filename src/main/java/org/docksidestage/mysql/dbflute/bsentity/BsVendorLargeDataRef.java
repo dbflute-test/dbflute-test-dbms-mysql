@@ -27,57 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_LARGE_DATA_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     LARGE_DATA_REF_ID
- *
- * [column]
- *     LARGE_DATA_REF_ID, LARGE_DATA_ID, DATE_INDEX, DATE_NO_INDEX, TIMESTAMP_INDEX, TIMESTAMP_NO_INDEX, NULLABLE_DECIMAL_INDEX, NULLABLE_DECIMAL_NO_INDEX, SELF_PARENT_ID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR_LARGE_DATA, VENDOR_LARGE_DATA_REF
- *
- * [referrer table]
- *     VENDOR_LARGE_DATA_REF
- *
- * [foreign property]
- *     vendorLargeData, vendorLargeDataRefSelf
- *
- * [referrer property]
- *     vendorLargeDataRefSelfList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long largeDataRefId = entity.getLargeDataRefId();
- * Long largeDataId = entity.getLargeDataId();
- * java.time.LocalDate dateIndex = entity.getDateIndex();
- * java.time.LocalDate dateNoIndex = entity.getDateNoIndex();
- * java.time.LocalDateTime timestampIndex = entity.getTimestampIndex();
- * java.time.LocalDateTime timestampNoIndex = entity.getTimestampNoIndex();
- * java.math.BigDecimal nullableDecimalIndex = entity.getNullableDecimalIndex();
- * java.math.BigDecimal nullableDecimalNoIndex = entity.getNullableDecimalNoIndex();
- * Long selfParentId = entity.getSelfParentId();
- * entity.setLargeDataRefId(largeDataRefId);
- * entity.setLargeDataId(largeDataId);
- * entity.setDateIndex(dateIndex);
- * entity.setDateNoIndex(dateNoIndex);
- * entity.setTimestampIndex(timestampIndex);
- * entity.setTimestampNoIndex(timestampNoIndex);
- * entity.setNullableDecimalIndex(nullableDecimalIndex);
- * entity.setNullableDecimalNoIndex(nullableDecimalNoIndex);
- * entity.setSelfParentId(selfParentId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR_LARGE_DATA_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorLargeDataRef extends AbstractEntity implements DomainEntity {

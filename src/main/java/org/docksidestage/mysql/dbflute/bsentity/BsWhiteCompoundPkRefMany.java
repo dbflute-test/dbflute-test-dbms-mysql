@@ -27,53 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF_MANY as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
- *
- * [column]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID, REF_MANY_FIRST_ID, REF_MANY_SECOND_ID, REF_MANY_CODE, REF_MANY_NAME, REF_MANY_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK(ToPK)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPkToPK
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer multipleFirstId = entity.getMultipleFirstId();
- * Integer multipleSecondId = entity.getMultipleSecondId();
- * Integer refManyFirstId = entity.getRefManyFirstId();
- * Integer refManySecondId = entity.getRefManySecondId();
- * String refManyCode = entity.getRefManyCode();
- * String refManyName = entity.getRefManyName();
- * java.time.LocalDateTime refManyDatetime = entity.getRefManyDatetime();
- * entity.setMultipleFirstId(multipleFirstId);
- * entity.setMultipleSecondId(multipleSecondId);
- * entity.setRefManyFirstId(refManyFirstId);
- * entity.setRefManySecondId(refManySecondId);
- * entity.setRefManyCode(refManyCode);
- * entity.setRefManyName(refManyName);
- * entity.setRefManyDatetime(refManyDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK_REF_MANY as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRefMany extends AbstractEntity implements DomainEntity {

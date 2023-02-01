@@ -25,49 +25,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_POINT_TYPE_MAPPING as TABLE. <br>
- * <pre>
- * [primary-key]
- *     POINT_TYPE_MAPPING_ID
- *
- * [column]
- *     POINT_TYPE_MAPPING_ID, POINT_TYPE_MAPPING_MEMBER_NAME, POINT_TYPE_MAPPING_PRICE_COUNT, POINT_TYPE_MAPPING_SALE_DATE, POINT_TYPE_MAPPING_WANTED_DATETIME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long pointTypeMappingId = entity.getPointTypeMappingId();
- * org.docksidestage.mysql.mytype.MyMemberName pointTypeMappingMemberName = entity.getPointTypeMappingMemberName();
- * org.docksidestage.mysql.mytype.MyPriceCount pointTypeMappingPriceCount = entity.getPointTypeMappingPriceCount();
- * org.docksidestage.mysql.mytype.MySaleDate pointTypeMappingSaleDate = entity.getPointTypeMappingSaleDate();
- * java.time.LocalDate pointTypeMappingWantedDatetime = entity.getPointTypeMappingWantedDatetime();
- * entity.setPointTypeMappingId(pointTypeMappingId);
- * entity.setPointTypeMappingMemberName(pointTypeMappingMemberName);
- * entity.setPointTypeMappingPriceCount(pointTypeMappingPriceCount);
- * entity.setPointTypeMappingSaleDate(pointTypeMappingSaleDate);
- * entity.setPointTypeMappingWantedDatetime(pointTypeMappingWantedDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_POINT_TYPE_MAPPING as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhitePointTypeMapping extends AbstractEntity implements DomainEntity {

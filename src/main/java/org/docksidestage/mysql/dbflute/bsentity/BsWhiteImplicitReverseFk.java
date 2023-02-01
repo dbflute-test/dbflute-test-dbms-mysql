@@ -27,43 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_IMPLICIT_REVERSE_FK as TABLE. <br>
- * <pre>
- * [primary-key]
- *     WHITE_IMPLICIT_REVERSE_FK_ID
- *
- * [column]
- *     WHITE_IMPLICIT_REVERSE_FK_ID, WHITE_IMPLICIT_REVERSE_FK_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     WHITE_IMPLICIT_REVERSE_FK_ID
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_IMPLICIT_REVERSE_FK_REF(WithImplicitReverseFK), WHITE_IMPLICIT_REVERSE_FK_SUPPRESS(SuppressImplicitReverseFK)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteImplicitReverseFkRefWithImplicitReverseFK, whiteImplicitReverseFkSuppressSuppressImplicitReverseFK
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer whiteImplicitReverseFkId = entity.getWhiteImplicitReverseFkId();
- * String whiteImplicitReverseFkName = entity.getWhiteImplicitReverseFkName();
- * entity.setWhiteImplicitReverseFkId(whiteImplicitReverseFkId);
- * entity.setWhiteImplicitReverseFkName(whiteImplicitReverseFkName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_IMPLICIT_REVERSE_FK as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteImplicitReverseFk extends AbstractEntity implements DomainEntity {

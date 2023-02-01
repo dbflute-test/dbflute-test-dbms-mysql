@@ -27,45 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_UQ_FK_REF_NEST as TABLE. <br>
- * <pre>
- * [primary-key]
- *     UQ_FK_REF_NEST_ID
- *
- * [column]
- *     UQ_FK_REF_NEST_ID, COMPOUND_UQ_FIRST_CODE, COMPOUND_UQ_SECOND_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_UQ_FK_REF
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteUqFkRef
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long uqFkRefNestId = entity.getUqFkRefNestId();
- * String compoundUqFirstCode = entity.getCompoundUqFirstCode();
- * String compoundUqSecondCode = entity.getCompoundUqSecondCode();
- * entity.setUqFkRefNestId(uqFkRefNestId);
- * entity.setCompoundUqFirstCode(compoundUqFirstCode);
- * entity.setCompoundUqSecondCode(compoundUqSecondCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_UQ_FK_REF_NEST as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteUqFkRefNest extends AbstractEntity implements DomainEntity {

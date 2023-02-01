@@ -35,35 +35,7 @@ import org.docksidestage.mysql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.mysql.dbflute.cbean.*;
 
 /**
- * The behavior of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE. <br>
- * <pre>
- * [primary key]
- *     REVERSEFK_SUPPRESSED_ID
- *
- * [column]
- *     REVERSEFK_SUPPRESSED_ID, MASTER_TYPE_CODE
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_VARIANT_RELATION_MASTER_FOO(AsBizManyToOneLikeBizOneToOne)
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteVariantRelationMasterFooAsBizManyToOneLikeBizOneToOne
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of WHITE_VARIANT_RELATION_LOCAL_PK_REFERRER as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractBehaviorWritable<WhiteVariantRelationLocalPkReferrer, WhiteVariantRelationLocalPkReferrerCB> {
@@ -764,7 +736,7 @@ public abstract class BsWhiteVariantRelationLocalPkReferrerBhv extends AbstractB
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteVariantRelationLocalPkReferrer, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteVariantRelationLocalPkReferrerBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

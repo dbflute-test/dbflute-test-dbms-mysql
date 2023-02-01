@@ -27,49 +27,7 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of WHITE_COMPOUND_PK_REF as TABLE. <br>
- * <pre>
- * [primary-key]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID
- *
- * [column]
- *     MULTIPLE_FIRST_ID, MULTIPLE_SECOND_ID, REF_FIRST_ID, REF_SECOND_ID, REF_NAME
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     WHITE_COMPOUND_PK
- *
- * [referrer table]
- *     WHITE_COMPOUND_PK_REF_NEST
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     whiteCompoundPkRefNestByQuxMultipleIdList, whiteCompoundPkRefNestByFooMultipleIdList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer multipleFirstId = entity.getMultipleFirstId();
- * Integer multipleSecondId = entity.getMultipleSecondId();
- * Integer refFirstId = entity.getRefFirstId();
- * Integer refSecondId = entity.getRefSecondId();
- * String refName = entity.getRefName();
- * entity.setMultipleFirstId(multipleFirstId);
- * entity.setMultipleSecondId(multipleSecondId);
- * entity.setRefFirstId(refFirstId);
- * entity.setRefSecondId(refSecondId);
- * entity.setRefName(refName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of WHITE_COMPOUND_PK_REF as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements DomainEntity {
