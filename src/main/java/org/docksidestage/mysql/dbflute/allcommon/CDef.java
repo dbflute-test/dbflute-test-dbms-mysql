@@ -79,6 +79,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static ServiceRank nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -101,6 +102,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<ServiceRank> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -108,6 +110,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<ServiceRank> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -156,6 +159,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static Region nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -178,6 +182,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<Region> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -185,6 +190,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<Region> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -233,6 +239,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static WithdrawalReason nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -255,6 +262,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<WithdrawalReason> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -262,6 +270,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<WithdrawalReason> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -318,6 +327,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static PaymentMethod nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -341,6 +351,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<PaymentMethod> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -357,6 +368,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<PaymentMethod> groupOf(String groupName) {
             if ("recommended".equalsIgnoreCase(groupName)) { return listOfRecommended(); }
             return new ArrayList<>();
@@ -412,6 +424,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static SelfReference nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -434,6 +447,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<SelfReference> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -441,6 +455,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<SelfReference> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -489,6 +504,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static EscapedNumberInitialCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -511,6 +527,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<EscapedNumberInitialCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -518,6 +535,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<EscapedNumberInitialCls> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -604,6 +622,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static GroupingReference nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -631,6 +650,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<GroupingReference> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -679,6 +699,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<GroupingReference> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("servicePlus".equalsIgnoreCase(groupName)) { return listOfServicePlus(); }
@@ -727,6 +748,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static TopCommentOnly nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -749,6 +771,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<TopCommentOnly> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -756,6 +779,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<TopCommentOnly> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -829,6 +853,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static SubItemImplicit nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -851,6 +876,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<SubItemImplicit> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -858,6 +884,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<SubItemImplicit> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -954,6 +981,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static SubItemTable nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -978,6 +1006,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<SubItemTable> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -1002,6 +1031,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<SubItemTable> groupOf(String groupName) {
             if ("serviceAvailable".equalsIgnoreCase(groupName)) { return listOfServiceAvailable(); }
             if ("lastestStatus".equalsIgnoreCase(groupName)) { return listOfLastestStatus(); }
@@ -1050,6 +1080,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static BooleanFlg nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1072,6 +1103,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<BooleanFlg> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1079,6 +1111,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<BooleanFlg> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1137,6 +1170,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static VariantRelationMasterType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1160,6 +1194,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<VariantRelationMasterType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -1176,6 +1211,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<VariantRelationMasterType> groupOf(String groupName) {
             if ("fooBarQux".equalsIgnoreCase(groupName)) { return listOfFooBarQux(); }
             return new ArrayList<>();
@@ -1225,6 +1261,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static VariantRelationQuxType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1247,6 +1284,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<VariantRelationQuxType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1254,6 +1292,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<VariantRelationQuxType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1302,6 +1341,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static QuxCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1324,6 +1364,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<QuxCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1331,6 +1372,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<QuxCls> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1377,6 +1419,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static EscapedDfpropCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1399,6 +1442,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<EscapedDfpropCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1406,6 +1450,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<EscapedDfpropCls> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1460,6 +1505,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static EscapedJavaDocCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1483,6 +1529,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<EscapedJavaDocCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -1499,6 +1546,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<EscapedJavaDocCls> groupOf(String groupName) {
             if ("lineGroup".equalsIgnoreCase(groupName)) { return listOfLineGroup(); }
             return new ArrayList<>();
@@ -1556,6 +1604,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static LineSepCommentCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1579,6 +1628,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<LineSepCommentCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -1595,6 +1645,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<LineSepCommentCls> groupOf(String groupName) {
             if ("lineGroup".equalsIgnoreCase(groupName)) { return listOfLineGroup(); }
             return new ArrayList<>();
@@ -1648,6 +1699,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static NamingDefaultCamelizingType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1670,6 +1722,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<NamingDefaultCamelizingType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1677,6 +1730,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<NamingDefaultCamelizingType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1727,6 +1781,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static NamingNoCamelizingType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1749,6 +1804,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<NamingNoCamelizingType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1756,6 +1812,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<NamingNoCamelizingType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1803,6 +1860,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static DeprecatedTopBasicType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1825,6 +1883,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<DeprecatedTopBasicType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1832,6 +1891,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeprecatedTopBasicType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1879,6 +1939,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static DeprecatedMapBasicType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1901,6 +1962,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<DeprecatedMapBasicType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -1908,6 +1970,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeprecatedMapBasicType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -1966,6 +2029,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static DeprecatedMapCollaborationType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -1989,6 +2053,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<DeprecatedMapCollaborationType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * Get the list of group classification elements. (returns new copied list) <br>
@@ -2005,6 +2070,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<DeprecatedMapCollaborationType> groupOf(String groupName) {
             if ("containsDeprecated".equalsIgnoreCase(groupName)) { return listOfContainsDeprecated(); }
             return new ArrayList<>();
@@ -2049,6 +2115,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static UQClassificationType nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2071,6 +2138,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<UQClassificationType> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2078,6 +2146,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<UQClassificationType> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -2128,6 +2197,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static BarCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2150,6 +2220,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<BarCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2157,6 +2228,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<BarCls> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -2205,6 +2277,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static FooCls nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2227,6 +2300,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<FooCls> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2234,6 +2308,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<FooCls> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -2278,6 +2353,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static Flg nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2300,6 +2376,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<Flg> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2307,6 +2384,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<Flg> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -2353,6 +2431,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static MemberStatus nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2375,6 +2454,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<MemberStatus> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2382,6 +2462,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<MemberStatus> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }
@@ -2428,6 +2509,7 @@ public interface CDef extends Classification {
          * @return The instance of the corresponding classification to the name. (NullAllowed: if not found, returns null)
          * @deprecated use byName(name) instead.
          */
+        @Deprecated
         public static ProductStatus nameOf(String name) { return _slimmer.nameOf(name, nm -> valueOf(nm)); }
         /**
          * Get the list of all classification elements. (returns new copied list)
@@ -2450,6 +2532,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the code list. (NotNull, EmptyAllowed: when empty specified)
          * @deprecated use e.g. Stream API with of() instead.
          */
+        @Deprecated
         public static List<ProductStatus> listOf(Collection<String> codeList) { return _slimmer.listOf(codeList); }
         /**
          * <span style="color: #AD4747; font-size: 120%">Old style so use listByGroup(groupName).</span>
@@ -2457,6 +2540,7 @@ public interface CDef extends Classification {
          * @return The snapshot list of classification elements in the group. (NotNull, EmptyAllowed: if the group is not found)
          * @deprecated use listByGroup(groupName) instead.
          */
+        @Deprecated
         public static List<ProductStatus> groupOf(String groupName) { return new ArrayList<>(); }
         @Override public String toString() { return code(); }
     }

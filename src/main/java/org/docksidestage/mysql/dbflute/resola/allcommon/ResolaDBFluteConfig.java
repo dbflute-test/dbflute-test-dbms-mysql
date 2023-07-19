@@ -58,6 +58,7 @@ public class ResolaDBFluteConfig {
     protected boolean _pagingCountLater = true;
     protected boolean _pagingCountLeastJoin = true;
     protected boolean _innerJoinAutoDetect = true;
+    protected boolean _orScopeQueryPurposeCheckWarningOnly = false; // since 1.2.7
     protected boolean _thatsBadTimingDetect = true;
     protected boolean _thatsBadTimingWarningOnly = false;
     protected boolean _nullOrEmptyQueryAllowed = false;
@@ -184,6 +185,21 @@ public class ResolaDBFluteConfig {
             _log.info("...Setting innerJoinAutoDetect: " + innerJoinAutoDetect);
         }
         _innerJoinAutoDetect = innerJoinAutoDetect;
+    }
+
+    // ===================================================================================
+    //                                                                    CB Purpose Check
+    //                                                                    ================
+    public boolean isOrScopeQueryPurposeCheckWarningOnly() { // since 1.2.7
+        return _orScopeQueryPurposeCheckWarningOnly;
+    }
+
+    public void setOrScopeQueryPurposeCheckWarningOnly(boolean orScopeQueryPurposeCheckWarningOnly) {
+        assertUnlocked();
+        if (_log.isInfoEnabled()) {
+            _log.info("...Setting orScopeQueryPurposeCheckWarningOnly: " + orScopeQueryPurposeCheckWarningOnly);
+        }
+        _orScopeQueryPurposeCheckWarningOnly = orScopeQueryPurposeCheckWarningOnly;
     }
 
     // ===================================================================================
