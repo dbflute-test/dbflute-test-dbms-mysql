@@ -63,6 +63,7 @@ public class MemberMonthlyPurchaseDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((MemberMonthlyPurchase)et).getPurchasePriceAvg(), (et, vl) -> ((MemberMonthlyPurchase)et).setPurchasePriceAvg(ctb(vl)), "purchasePriceAvg");
         setupEpg(_epgMap, et -> ((MemberMonthlyPurchase)et).getPurchasePriceMax(), (et, vl) -> ((MemberMonthlyPurchase)et).setPurchasePriceMax(cti(vl)), "purchasePriceMax");
         setupEpg(_epgMap, et -> ((MemberMonthlyPurchase)et).getPurchaseCountAny(), (et, vl) -> ((MemberMonthlyPurchase)et).setPurchaseCountAny(cti(vl)), "purchaseCountAny");
+        setupEpg(_epgMap, et -> ((MemberMonthlyPurchase)et).getServicePointCount(), (et, vl) -> ((MemberMonthlyPurchase)et).setServicePointCount(cti(vl)), "servicePointCount");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -84,11 +85,12 @@ public class MemberMonthlyPurchaseDbm extends AbstractDBMeta {
     //                                                                         Column Info
     //                                                                         ===========
     protected final ColumnInfo _columnMemberId = cci("MEMBER_ID", "MEMBER_ID", null, "会員ID", Integer.class, "memberId", null, false, false, false, "INT", 11, 0, null, null, false, null, "会員を識別するID。連番として基本的に自動採番される。\n（会員IDだけに限らず）採番方法はDBMSによって変わる。\n// grouping item", null, null, null, false);
-    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, "会員名称", String.class, "memberName", null, false, false, false, "VARCHAR", 180, 0, null, null, false, null, "会員のフルネームの名称。\n// non grouping item is allowed on MySQL-5.7", null, null, null, false);
+    protected final ColumnInfo _columnMemberName = cci("MEMBER_NAME", "MEMBER_NAME", null, "会員名称", String.class, "memberName", null, false, false, false, "VARCHAR", 180, 0, null, null, false, null, "会員のフルネームの名称。\n// non grouping item (1:1 data) is allowed on MySQL-5.7", null, null, null, false);
     protected final ColumnInfo _columnPurchaseMonth = cci("PURCHASE_MONTH", "PURCHASE_MONTH", null, null, java.time.LocalDate.class, "purchaseMonth", null, false, false, false, "DATE", 10, 0, null, null, false, null, "// grouping item, depends on DBMS", null, null, null, false);
     protected final ColumnInfo _columnPurchasePriceAvg = cci("PURCHASE_PRICE_AVG", "PURCHASE_PRICE_AVG", null, null, java.math.BigDecimal.class, "purchasePriceAvg", null, false, false, false, "DECIMAL", 14, 4, null, null, false, null, "// aggregation item", null, null, null, false);
     protected final ColumnInfo _columnPurchasePriceMax = cci("PURCHASE_PRICE_MAX", "PURCHASE_PRICE_MAX", null, null, Integer.class, "purchasePriceMax", null, false, false, false, "INT", 11, 0, null, null, false, null, "// me too", null, null, null, false);
     protected final ColumnInfo _columnPurchaseCountAny = cci("PURCHASE_COUNT_ANY", "PURCHASE_COUNT_ANY", null, null, Integer.class, "purchaseCountAny", null, false, false, false, "INT", 11, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnServicePointCount = cci("SERVICE_POINT_COUNT", "SERVICE_POINT_COUNT", null, "サービスポイント数", Integer.class, "servicePointCount", null, false, false, false, "INT", 11, 0, null, null, false, null, "会員が現在利用できるサービスポイントの数。\n基本的に、購入時には増えてポイントを使ったら減る。\n// non grouping item (relationship 1:1 data) is allowed on MySQL-5.7", null, null, null, false);
 
     /**
      * (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID}
@@ -120,6 +122,11 @@ public class MemberMonthlyPurchaseDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPurchaseCountAny() { return _columnPurchaseCountAny; }
+    /**
+     * (サービスポイント数)SERVICE_POINT_COUNT: {INT(11), refers to member_service.SERVICE_POINT_COUNT}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnServicePointCount() { return _columnServicePointCount; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -129,6 +136,7 @@ public class MemberMonthlyPurchaseDbm extends AbstractDBMeta {
         ls.add(columnPurchasePriceAvg());
         ls.add(columnPurchasePriceMax());
         ls.add(columnPurchaseCountAny());
+        ls.add(columnServicePointCount());
         return ls;
     }
 
