@@ -444,11 +444,12 @@ public class ResolaImplementedInvokerAssistant implements InvokerAssistant {
     protected ResourceParameter createResourceParameter() {
         ResourceParameter parameter = newResourceParameter();
         parameter.setOutsideSqlPackage(ResolaDBFluteConfig.getInstance().getOutsideSqlPackage());
-        parameter.setMappingDateTimeZoneProvider(ResolaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider());
+        parameter.setMappingDateTimeZoneProvider(ResolaDBFluteConfig.getInstance().getMappingDateTimeZoneProvider()); // since 1.1.0
         parameter.setLogDatePattern(ResolaDBFluteConfig.getInstance().getLogDatePattern());
         parameter.setLogTimestampPattern(ResolaDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(ResolaDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(ResolaDBFluteConfig.getInstance().getLogTimeZoneProvider());
+        parameter.setErrorLogMaskProvider(ResolaDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }

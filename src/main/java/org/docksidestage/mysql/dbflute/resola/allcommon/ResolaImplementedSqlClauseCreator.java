@@ -144,6 +144,7 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
         doSetupSqlClauseNullOrEmptyQuery(sqlClause);
         doSetupSqlClauseEmptyStringQuery(sqlClause);
         doSetupSqlClauseOverridingQuery(sqlClause);
+        doSetupSqlClauseInvalidQueryAllowedWarning(sqlClause);
         doSetupSqlClauseColumnNullObject(sqlClause);
         doSetupSqlClauseColumnNullObjectGearedToSpecify(sqlClause);
         doSetupSqlClauseTruncateConditionDatetimePrecision(sqlClause);
@@ -159,6 +160,9 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
     protected void doSetupSqlClauseThatsBadTimingDetect(SqlClause sqlClause) {
         if (isThatsBadTimingDetect()) {
             sqlClause.enableThatsBadTimingDetect();
+        }
+        if (isThatsBadTimingWarningOnly()) {
+            sqlClause.enableThatsBadTimingWarningOnly();
         }
     }
 
@@ -181,6 +185,14 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
             sqlClause.enableOverridingQuery();
         } else { // default for 1.1
             sqlClause.disableOverridingQuery();
+        }
+    }
+
+    protected void doSetupSqlClauseInvalidQueryAllowedWarning(SqlClause sqlClause) { // since 1.2.7
+        if (isInvalidQueryAllowedWarning()) {
+            sqlClause.enableInvalidQueryAllowedWarning();
+        } else {
+            sqlClause.disableInvalidQueryAllowedWarning();
         }
     }
 
@@ -229,6 +241,10 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
         return ResolaDBFluteConfig.getInstance().isThatsBadTimingDetect();
     }
 
+    protected boolean isThatsBadTimingWarningOnly() {
+        return ResolaDBFluteConfig.getInstance().isThatsBadTimingWarningOnly();
+    }
+
     protected boolean isNullOrEmptyQueryAllowed() {
         return ResolaDBFluteConfig.getInstance().isNullOrEmptyQueryAllowed();
     }
@@ -239,6 +255,10 @@ public class ResolaImplementedSqlClauseCreator implements SqlClauseCreator {
 
     protected boolean isOverridingQueryAllowed() {
         return ResolaDBFluteConfig.getInstance().isOverridingQueryAllowed();
+    }
+
+    protected boolean isInvalidQueryAllowedWarning() {
+        return ResolaDBFluteConfig.getInstance().isInvalidQueryAllowedWarning();
     }
 
     protected boolean isColumnNullObjectAllowed() {

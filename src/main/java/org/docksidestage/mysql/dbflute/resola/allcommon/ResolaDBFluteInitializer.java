@@ -2,6 +2,7 @@ package org.docksidestage.mysql.dbflute.resola.allcommon;
 
 import org.dbflute.bhv.core.context.ConditionBeanContext;
 import org.dbflute.dbway.DBDef;
+import org.dbflute.hook.PrologueHook;
 import org.dbflute.system.DBFluteSystem;
 
 import org.slf4j.Logger;
@@ -21,6 +22,10 @@ public class ResolaDBFluteInitializer {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    // -----------------------------------------------------
+    //                                                Option
+    //                                                ------
+    protected PrologueHook _prologueHook; // null allowed
 
     // ===================================================================================
     //                                                                         Constructor
@@ -32,6 +37,21 @@ public class ResolaDBFluteInitializer {
         announce();
         prologue();
         standBy();
+    }
+
+    /**
+     * Hook the prologue process as you like it. <br>
+     * (basically for your original DBFluteConfig settings)
+     * @param prologueHook The hook interface of prologue process. (NotNull)
+     * @return this. (NotNull)
+     */
+    public ResolaDBFluteInitializer hookPrologue(PrologueHook prologueHook) {
+        if (prologueHook == null) {
+            String msg = "The argument 'prologueHook' should not be null!";
+            throw new IllegalArgumentException(msg);
+        }
+        _prologueHook = prologueHook;
+        return this;
     }
 
     // ===================================================================================
@@ -50,6 +70,9 @@ public class ResolaDBFluteInitializer {
      * with calling super.prologue() in it.
      */
     protected void prologue() {
+        if (_prologueHook != null) {
+            _prologueHook.hookBefore();
+        }
         loadCoolClasses();
         adjustDBFluteSystem();
     }
