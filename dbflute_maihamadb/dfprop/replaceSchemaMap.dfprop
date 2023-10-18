@@ -173,12 +173,13 @@ map:{
     #
     #; additionalDropMapList = list:{
     #    ; map:{
-    #        ; url = jdbc:oracle:thin:...
-    #        ; schema = NEXTEXAMPLEDB
-    #        ; user = NEXTEXAMPLEDB
-    #        ; password = NEXTEXAMPLEDB
-    #        ; propertiesMap = map:{}
-    #        ; objectTypeTargetList = list:{TABLE;VIEW}
+    #        ; url = jdbc:mysql://localhost:43306/maihamadb?allowPublicKeyRetrieval=true&useSSL=false
+    #        # MySQL does not have schema
+    #        #; schema = maihamadb
+    #        ; user = maihamadb
+    #        ; password = maihamadb
+    #        #; propertiesMap = map:{}
+    #        #; objectTypeTargetList = list:{TABLE;VIEW}
     #    }
     #}
     # - - - - - - - - - -/
