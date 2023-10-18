@@ -449,7 +449,7 @@ public class ResolaImplementedInvokerAssistant implements InvokerAssistant {
         parameter.setLogTimestampPattern(ResolaDBFluteConfig.getInstance().getLogTimestampPattern());
         parameter.setLogTimePattern(ResolaDBFluteConfig.getInstance().getLogTimePattern());
         parameter.setLogTimeZoneProvider(ResolaDBFluteConfig.getInstance().getLogTimeZoneProvider());
-        parameter.setErrorLogMaskProvider(ResolaDBFluteConfig.getInstance().getErrorLogMaskProvider()); // since 1.2.7
+        parameter.setBehaviorLogMaskProvider(ResolaDBFluteConfig.getInstance().getBehaviorLogMaskProvider()); // since 1.2.7
         parameter.setInternalDebug(ResolaDBFluteConfig.getInstance().isInternalDebug());
         return parameter;
     }
