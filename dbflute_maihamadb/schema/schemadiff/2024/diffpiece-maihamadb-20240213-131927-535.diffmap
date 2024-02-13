@@ -1,0 +1,21 @@
+map:{
+    ; 2024/02/13 13:19:27.535 = map:{
+        ; diffDate = 2024/02/13 13:19:27.535
+        ; tableCount = map:{
+            ; next = 121
+            ; previous = 119
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_summary_basic_product = map:{
+                ; tableName = white_summary_basic_product
+                ; diffType = ADD
+            }
+            ; white_summary_complex_product = map:{
+                ; tableName = white_summary_complex_product
+                ; diffType = ADD
+            }
+        }
+    }
+}

@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
+     * @param genRefId The value of genRefId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setGenRefId_NotEqual(Long genRefId) {
+        doSetGenRefId_NotEqual(genRefId);
+    }
+
+    protected void doSetGenRefId_NotEqual(Long genRefId) {
+        regGenRefId(CK_NES, genRefId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @param genRefId The value of genRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -284,6 +297,19 @@ public abstract class AbstractBsWhiteTableExceptGenRefCQ extends AbstractConditi
 
     protected void doSetGenOnlyId_Equal(Long genOnlyId) {
         regGenOnlyId(CK_EQ, genOnlyId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * GEN_ONLY_ID: {IX, DECIMAL(16)}
+     * @param genOnlyId The value of genOnlyId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setGenOnlyId_NotEqual(Long genOnlyId) {
+        doSetGenOnlyId_NotEqual(genOnlyId);
+    }
+
+    protected void doSetGenOnlyId_NotEqual(Long genOnlyId) {
+        regGenOnlyId(CK_NES, genOnlyId);
     }
 
     /**

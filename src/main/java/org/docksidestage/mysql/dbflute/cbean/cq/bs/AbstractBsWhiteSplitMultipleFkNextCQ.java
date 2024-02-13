@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteSplitMultipleFkNextCQ extends AbstractCondi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NEXT_ID: {PK, NotNull, BIGINT(19)}
+     * @param nextId The value of nextId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNextId_NotEqual(Long nextId) {
+        doSetNextId_NotEqual(nextId);
+    }
+
+    protected void doSetNextId_NotEqual(Long nextId) {
+        regNextId(CK_NES, nextId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NEXT_ID: {PK, NotNull, BIGINT(19)}
      * @param nextId The value of nextId as greaterThan. (basically NotNull: error as default, or no condition as option)

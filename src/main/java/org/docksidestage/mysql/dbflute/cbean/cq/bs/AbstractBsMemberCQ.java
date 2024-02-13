@@ -72,6 +72,19 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS}
+     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_NotEqual(Integer memberId) {
+        doSetMemberId_NotEqual(memberId);
+    }
+
+    protected void doSetMemberId_NotEqual(Integer memberId) {
+        regMemberId(CK_NES, memberId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (会員ID)MEMBER_ID: {PK, ID, NotNull, INT(10), FK to MEMBER_ADDRESS}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1148,6 +1161,19 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
 
     protected void doSetVersionNo_Equal(Long versionNo) {
         regVersionNo(CK_EQ, versionNo);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (バージョンNO)VERSION_NO: {NotNull, BIGINT(19)}
+     * @param versionNo The value of versionNo as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setVersionNo_NotEqual(Long versionNo) {
+        doSetVersionNo_NotEqual(versionNo);
+    }
+
+    protected void doSetVersionNo_NotEqual(Long versionNo) {
+        regVersionNo(CK_NES, versionNo);
     }
 
     /**

@@ -72,6 +72,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
+     * @param purchaseId The value of purchaseId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchaseId_NotEqual(Long purchaseId) {
+        doSetPurchaseId_NotEqual(purchaseId);
+    }
+
+    protected void doSetPurchaseId_NotEqual(Long purchaseId) {
+        regPurchaseId(CK_NES, purchaseId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (購入ID)PURCHASE_ID: {PK, ID, NotNull, BIGINT(19), FK to PURCHASE}
      * @param purchaseId The value of purchaseId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -261,6 +274,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_NotEqual(Integer memberId) {
+        doSetMemberId_NotEqual(memberId);
+    }
+
+    protected void doSetMemberId_NotEqual(Integer memberId) {
+        regMemberId(CK_NES, memberId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (会員ID)MEMBER_ID: {UQ+, IX+, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -362,6 +388,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     protected void doSetProductId_Equal(Integer productId) {
         regProductId(CK_EQ, productId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品ID)PRODUCT_ID: {+UQ, IX+, NotNull, INT(10), FK to product}
+     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_NotEqual(Integer productId) {
+        doSetProductId_NotEqual(productId);
+    }
+
+    protected void doSetProductId_NotEqual(Integer productId) {
+        regProductId(CK_NES, productId);
     }
 
     /**
@@ -544,6 +583,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (購入数量)PURCHASE_COUNT: {NotNull, INT(10)}
+     * @param purchaseCount The value of purchaseCount as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchaseCount_NotEqual(Integer purchaseCount) {
+        doSetPurchaseCount_NotEqual(purchaseCount);
+    }
+
+    protected void doSetPurchaseCount_NotEqual(Integer purchaseCount) {
+        regPurchaseCount(CK_NES, purchaseCount);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (購入数量)PURCHASE_COUNT: {NotNull, INT(10)}
      * @param purchaseCount The value of purchaseCount as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -645,6 +697,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     protected void doSetPurchasePrice_Equal(Integer purchasePrice) {
         regPurchasePrice(CK_EQ, purchasePrice);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * @param purchasePrice The value of purchasePrice as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchasePrice_NotEqual(Integer purchasePrice) {
+        doSetPurchasePrice_NotEqual(purchasePrice);
+    }
+
+    protected void doSetPurchasePrice_NotEqual(Integer purchasePrice) {
+        regPurchasePrice(CK_NES, purchasePrice);
     }
 
     /**
@@ -775,6 +840,45 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     protected void doSetPaymentCompleteFlg_Equal(Integer paymentCompleteFlg) {
         regPaymentCompleteFlg(CK_EQ, paymentCompleteFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg}
+     * @param paymentCompleteFlg The value of paymentCompleteFlg as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    protected void setPaymentCompleteFlg_NotEqual(Integer paymentCompleteFlg) {
+        doSetPaymentCompleteFlg_NotEqual(paymentCompleteFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
+     * (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} <br>
+     * フラグを示す
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPaymentCompleteFlg_NotEqual_AsFlg(CDef.Flg cdef) {
+        doSetPaymentCompleteFlg_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * はい: 有効を示す
+     */
+    public void setPaymentCompleteFlg_NotEqual_True() {
+        setPaymentCompleteFlg_NotEqual_AsFlg(CDef.Flg.True);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
+     * いいえ: 無効を示す
+     */
+    public void setPaymentCompleteFlg_NotEqual_False() {
+        setPaymentCompleteFlg_NotEqual_AsFlg(CDef.Flg.False);
+    }
+
+    protected void doSetPaymentCompleteFlg_NotEqual(Integer paymentCompleteFlg) {
+        regPaymentCompleteFlg(CK_NES, paymentCompleteFlg);
     }
 
     /**
@@ -937,6 +1041,19 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     protected void doSetVersionNo_Equal(Long versionNo) {
         regVersionNo(CK_EQ, versionNo);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * VERSION_NO: {NotNull, BIGINT(19)}
+     * @param versionNo The value of versionNo as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setVersionNo_NotEqual(Long versionNo) {
+        doSetVersionNo_NotEqual(versionNo);
+    }
+
+    protected void doSetVersionNo_NotEqual(Long versionNo) {
+        regVersionNo(CK_NES, versionNo);
     }
 
     /**

@@ -34,3 +34,28 @@ select withdrawal.MEMBER_ID
     left outer join MEMBER_STATUS status
       on mb.MEMBER_STATUS_CODE = status.MEMBER_STATUS_CODE
 ;
+
+-- _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+-- test of VIEW's metadata
+-- e.g. NOT NULL constrant may be unstable
+-- https://github.com/dbflute/dbflute-core/issues/200
+-- _/_/_/_/_/_/_/_/_/_/
+create view WHITE_SUMMARY_BASIC_PRODUCT as
+select product.PRODUCT_ID
+     , product.PRODUCT_NAME
+     , product.PRODUCT_HANDLE_CODE
+     , product.PRODUCT_STATUS_CODE
+  from PRODUCT product
+;
+
+create view WHITE_SUMMARY_COMPLEX_PRODUCT as
+select product.PRODUCT_ID
+     , product.PRODUCT_NAME
+     , product.PRODUCT_HANDLE_CODE
+     , product.PRODUCT_STATUS_CODE
+     , (select max(purchase.PURCHASE_DATETIME)
+          from PURCHASE purchase
+         where purchase.PRODUCT_ID = product.PRODUCT_ID
+       ) as LATEST_PURCHASE_DATETIME
+  from PRODUCT product
+;

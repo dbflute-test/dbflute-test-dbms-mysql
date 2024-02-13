@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
+     * @param uqFkRefId The value of uqFkRefId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUqFkRefId_NotEqual(Long uqFkRefId) {
+        doSetUqFkRefId_NotEqual(uqFkRefId);
+    }
+
+    protected void doSetUqFkRefId_NotEqual(Long uqFkRefId) {
+        regUqFkRefId(CK_NES, uqFkRefId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqFkRefId The value of uqFkRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -185,6 +198,19 @@ public abstract class AbstractBsWhiteUqFkRefCQ extends AbstractConditionQuery {
 
     protected void doSetFkToPkId_Equal(Long fkToPkId) {
         regFkToPkId(CK_EQ, fkToPkId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * FK_TO_PK_ID: {IX, NotNull, DECIMAL(16), FK to white_uq_fk}
+     * @param fkToPkId The value of fkToPkId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setFkToPkId_NotEqual(Long fkToPkId) {
+        doSetFkToPkId_NotEqual(fkToPkId);
+    }
+
+    protected void doSetFkToPkId_NotEqual(Long fkToPkId) {
+        regFkToPkId(CK_NES, fkToPkId);
     }
 
     /**

@@ -72,6 +72,19 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (購入支払ID)PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param purchasePaymentId The value of purchasePaymentId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchasePaymentId_NotEqual(Long purchasePaymentId) {
+        doSetPurchasePaymentId_NotEqual(purchasePaymentId);
+    }
+
+    protected void doSetPurchasePaymentId_NotEqual(Long purchasePaymentId) {
+        regPurchasePaymentId(CK_NES, purchasePaymentId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (購入支払ID)PURCHASE_PAYMENT_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param purchasePaymentId The value of purchasePaymentId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -188,6 +201,19 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (購入ID)PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase}
+     * @param purchaseId The value of purchaseId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchaseId_NotEqual(Long purchaseId) {
+        doSetPurchaseId_NotEqual(purchaseId);
+    }
+
+    protected void doSetPurchaseId_NotEqual(Long purchaseId) {
+        regPurchaseId(CK_NES, purchaseId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (購入ID)PURCHASE_ID: {IX, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseId The value of purchaseId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -289,6 +315,19 @@ public abstract class AbstractBsPurchasePaymentCQ extends AbstractConditionQuery
 
     protected void doSetPaymentAmount_Equal(java.math.BigDecimal paymentAmount) {
         regPaymentAmount(CK_EQ, paymentAmount);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (支払金額)PAYMENT_AMOUNT: {NotNull, DECIMAL(10, 2)}
+     * @param paymentAmount The value of paymentAmount as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPaymentAmount_NotEqual(java.math.BigDecimal paymentAmount) {
+        doSetPaymentAmount_NotEqual(paymentAmount);
+    }
+
+    protected void doSetPaymentAmount_NotEqual(java.math.BigDecimal paymentAmount) {
+        regPaymentAmount(CK_NES, paymentAmount);
     }
 
     /**

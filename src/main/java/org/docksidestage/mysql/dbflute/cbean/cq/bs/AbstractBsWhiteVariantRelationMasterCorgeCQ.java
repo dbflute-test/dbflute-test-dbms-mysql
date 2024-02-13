@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteVariantRelationMasterCorgeCQ extends Abstra
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
+     * @param masterCorgeId The value of masterCorgeId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMasterCorgeId_NotEqual(Long masterCorgeId) {
+        doSetMasterCorgeId_NotEqual(masterCorgeId);
+    }
+
+    protected void doSetMasterCorgeId_NotEqual(Long masterCorgeId) {
+        regMasterCorgeId(CK_NES, masterCorgeId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_CORGE_ID: {PK, NotNull, BIGINT(19)}
      * @param masterCorgeId The value of masterCorgeId as greaterThan. (basically NotNull: error as default, or no condition as option)

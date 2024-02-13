@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteUqFkCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * UQ_FK_ID: {PK, NotNull, DECIMAL(16)}
+     * @param uqFkId The value of uqFkId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUqFkId_NotEqual(Long uqFkId) {
+        doSetUqFkId_NotEqual(uqFkId);
+    }
+
+    protected void doSetUqFkId_NotEqual(Long uqFkId) {
+        regUqFkId(CK_NES, uqFkId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqFkId The value of uqFkId as greaterThan. (basically NotNull: error as default, or no condition as option)

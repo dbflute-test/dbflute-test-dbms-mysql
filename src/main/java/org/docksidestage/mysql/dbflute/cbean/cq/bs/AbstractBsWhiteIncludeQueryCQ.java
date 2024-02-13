@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteIncludeQueryCQ extends AbstractConditionQue
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param includeQueryId The value of includeQueryId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setIncludeQueryId_NotEqual(Long includeQueryId) {
+        doSetIncludeQueryId_NotEqual(includeQueryId);
+    }
+
+    protected void doSetIncludeQueryId_NotEqual(Long includeQueryId) {
+        regIncludeQueryId(CK_NES, includeQueryId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * INCLUDE_QUERY_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param includeQueryId The value of includeQueryId as greaterThan. (basically NotNull: error as default, or no condition as option)

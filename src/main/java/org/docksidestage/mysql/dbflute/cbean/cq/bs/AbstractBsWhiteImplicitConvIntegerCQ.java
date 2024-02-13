@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
+     * @param implicitConvIntegerId The value of implicitConvIntegerId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setImplicitConvIntegerId_NotEqual(Integer implicitConvIntegerId) {
+        doSetImplicitConvIntegerId_NotEqual(implicitConvIntegerId);
+    }
+
+    protected void doSetImplicitConvIntegerId_NotEqual(Integer implicitConvIntegerId) {
+        regImplicitConvIntegerId(CK_NES, implicitConvIntegerId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_INTEGER_ID: {PK, NotNull, INT(10)}
      * @param implicitConvIntegerId The value of implicitConvIntegerId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -334,6 +347,19 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
+     * @param implicitConvNumericId The value of implicitConvNumericId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setImplicitConvNumericId_NotEqual(Integer implicitConvNumericId) {
+        doSetImplicitConvNumericId_NotEqual(implicitConvNumericId);
+    }
+
+    protected void doSetImplicitConvNumericId_NotEqual(Integer implicitConvNumericId) {
+        regImplicitConvNumericId(CK_NES, implicitConvNumericId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * IMPLICIT_CONV_NUMERIC_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_NUMERIC}
      * @param implicitConvNumericId The value of implicitConvNumericId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -435,6 +461,19 @@ public abstract class AbstractBsWhiteImplicitConvIntegerCQ extends AbstractCondi
 
     protected void doSetImplicitConvStringId_Equal(Integer implicitConvStringId) {
         regImplicitConvStringId(CK_EQ, implicitConvStringId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * IMPLICIT_CONV_STRING_ID: {NotNull, INT(10), FK to WHITE_IMPLICIT_CONV_STRING}
+     * @param implicitConvStringId The value of implicitConvStringId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setImplicitConvStringId_NotEqual(Integer implicitConvStringId) {
+        doSetImplicitConvStringId_NotEqual(implicitConvStringId);
+    }
+
+    protected void doSetImplicitConvStringId_NotEqual(Integer implicitConvStringId) {
+        regImplicitConvStringId(CK_NES, implicitConvStringId);
     }
 
     /**

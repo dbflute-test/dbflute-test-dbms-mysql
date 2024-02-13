@@ -72,6 +72,19 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID: {PK, NotNull, BIGINT(19)}
+     * @param theLongAndWindingTableAndColumnId The value of theLongAndWindingTableAndColumnId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTheLongAndWindingTableAndColumnId_NotEqual(Long theLongAndWindingTableAndColumnId) {
+        doSetTheLongAndWindingTableAndColumnId_NotEqual(theLongAndWindingTableAndColumnId);
+    }
+
+    protected void doSetTheLongAndWindingTableAndColumnId_NotEqual(Long theLongAndWindingTableAndColumnId) {
+        regTheLongAndWindingTableAndColumnId(CK_NES, theLongAndWindingTableAndColumnId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * THE_LONG_AND_WINDING_TABLE_AND_COLUMN_ID: {PK, NotNull, BIGINT(19)}
      * @param theLongAndWindingTableAndColumnId The value of theLongAndWindingTableAndColumnId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -456,6 +469,19 @@ public abstract class AbstractBsVendorTheLongAndWindingTableAndColumnCQ extends 
 
     protected void doSetShortSize_Equal(Integer shortSize) {
         regShortSize(CK_EQ, shortSize);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * SHORT_SIZE: {NotNull, INT(10)}
+     * @param shortSize The value of shortSize as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setShortSize_NotEqual(Integer shortSize) {
+        doSetShortSize_NotEqual(shortSize);
+    }
+
+    protected void doSetShortSize_NotEqual(Integer shortSize) {
+        regShortSize(CK_NES, shortSize);
     }
 
     /**

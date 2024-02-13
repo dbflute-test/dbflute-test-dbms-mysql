@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
+     * @param myselfCheckId The value of myselfCheckId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMyselfCheckId_NotEqual(Integer myselfCheckId) {
+        doSetMyselfCheckId_NotEqual(myselfCheckId);
+    }
+
+    protected void doSetMyselfCheckId_NotEqual(Integer myselfCheckId) {
+        regMyselfCheckId(CK_NES, myselfCheckId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_CHECK_ID: {PK, NotNull, INT(10)}
      * @param myselfCheckId The value of myselfCheckId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -284,6 +297,19 @@ public abstract class AbstractBsWhiteMyselfCheckCQ extends AbstractConditionQuer
 
     protected void doSetMyselfId_Equal(Integer myselfId) {
         regMyselfId(CK_EQ, myselfId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * MYSELF_ID: {IX, INT(10), FK to white_myself}
+     * @param myselfId The value of myselfId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMyselfId_NotEqual(Integer myselfId) {
+        doSetMyselfId_NotEqual(myselfId);
+    }
+
+    protected void doSetMyselfId_NotEqual(Integer myselfId) {
+        regMyselfId(CK_NES, myselfId);
     }
 
     /**

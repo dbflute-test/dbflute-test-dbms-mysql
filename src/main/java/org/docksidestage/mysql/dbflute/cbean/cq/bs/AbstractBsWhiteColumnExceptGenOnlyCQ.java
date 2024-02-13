@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteColumnExceptGenOnlyCQ extends AbstractCondi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
+     * @param genOnlyId The value of genOnlyId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setGenOnlyId_NotEqual(Long genOnlyId) {
+        doSetGenOnlyId_NotEqual(genOnlyId);
+    }
+
+    protected void doSetGenOnlyId_NotEqual(Long genOnlyId) {
+        regGenOnlyId(CK_NES, genOnlyId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GEN_ONLY_ID: {PK, NotNull, DECIMAL(16)}
      * @param genOnlyId The value of genOnlyId as greaterThan. (basically NotNull: error as default, or no condition as option)

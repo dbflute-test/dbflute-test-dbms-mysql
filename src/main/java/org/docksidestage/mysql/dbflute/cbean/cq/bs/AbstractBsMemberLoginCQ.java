@@ -72,6 +72,19 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ログインID)MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param memberLoginId The value of memberLoginId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberLoginId_NotEqual(Long memberLoginId) {
+        doSetMemberLoginId_NotEqual(memberLoginId);
+    }
+
+    protected void doSetMemberLoginId_NotEqual(Long memberLoginId) {
+        regMemberLoginId(CK_NES, memberLoginId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (会員ログインID)MEMBER_LOGIN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberLoginId The value of memberLoginId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -185,6 +198,19 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     protected void doSetMemberId_Equal(Integer memberId) {
         regMemberId(CK_EQ, memberId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (会員ID)MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
+     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMemberId_NotEqual(Integer memberId) {
+        doSetMemberId_NotEqual(memberId);
+    }
+
+    protected void doSetMemberId_NotEqual(Integer memberId) {
+        regMemberId(CK_NES, memberId);
     }
 
     /**
@@ -390,6 +416,45 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
 
     protected void doSetMobileLoginFlg_Equal(Integer mobileLoginFlg) {
         regMobileLoginFlg(CK_EQ, mobileLoginFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INT(10), classification=Flg}
+     * @param mobileLoginFlg The value of mobileLoginFlg as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    protected void setMobileLoginFlg_NotEqual(Integer mobileLoginFlg) {
+        doSetMobileLoginFlg_NotEqual(mobileLoginFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
+     * (モバイルログインフラグ)MOBILE_LOGIN_FLG: {NotNull, INT(10), classification=Flg} <br>
+     * フラグを示す
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
+     */
+    public void setMobileLoginFlg_NotEqual_AsFlg(CDef.Flg cdef) {
+        doSetMobileLoginFlg_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * はい: 有効を示す
+     */
+    public void setMobileLoginFlg_NotEqual_True() {
+        setMobileLoginFlg_NotEqual_AsFlg(CDef.Flg.True);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
+     * いいえ: 無効を示す
+     */
+    public void setMobileLoginFlg_NotEqual_False() {
+        setMobileLoginFlg_NotEqual_AsFlg(CDef.Flg.False);
+    }
+
+    protected void doSetMobileLoginFlg_NotEqual(Integer mobileLoginFlg) {
+        regMobileLoginFlg(CK_NES, mobileLoginFlg);
     }
 
     /**

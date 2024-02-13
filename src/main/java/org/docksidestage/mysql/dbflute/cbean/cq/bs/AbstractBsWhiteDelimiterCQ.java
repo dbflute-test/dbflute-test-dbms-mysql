@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param delimiterId The value of delimiterId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setDelimiterId_NotEqual(Long delimiterId) {
+        doSetDelimiterId_NotEqual(delimiterId);
+    }
+
+    protected void doSetDelimiterId_NotEqual(Long delimiterId) {
+        regDelimiterId(CK_NES, delimiterId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DELIMITER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param delimiterId The value of delimiterId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -185,6 +198,19 @@ public abstract class AbstractBsWhiteDelimiterCQ extends AbstractConditionQuery 
 
     protected void doSetNumberNullable_Equal(Integer numberNullable) {
         regNumberNullable(CK_EQ, numberNullable);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NUMBER_NULLABLE: {INT(10)}
+     * @param numberNullable The value of numberNullable as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNumberNullable_NotEqual(Integer numberNullable) {
+        doSetNumberNullable_NotEqual(numberNullable);
+    }
+
+    protected void doSetNumberNullable_NotEqual(Integer numberNullable) {
+        regNumberNullable(CK_NES, numberNullable);
     }
 
     /**

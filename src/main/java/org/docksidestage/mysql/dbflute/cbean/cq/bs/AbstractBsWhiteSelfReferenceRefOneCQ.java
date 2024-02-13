@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteSelfReferenceRefOneCQ extends AbstractCondi
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
+     * @param selfReferenceId The value of selfReferenceId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setSelfReferenceId_NotEqual(Long selfReferenceId) {
+        doSetSelfReferenceId_NotEqual(selfReferenceId);
+    }
+
+    protected void doSetSelfReferenceId_NotEqual(Long selfReferenceId) {
+        regSelfReferenceId(CK_NES, selfReferenceId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16), FK to white_self_reference}
      * @param selfReferenceId The value of selfReferenceId as greaterThan. (basically NotNull: error as default, or no condition as option)

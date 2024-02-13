@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteCompoundReferredNormallyCQ extends Abstract
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REFERRED_ID: {PK, NotNull, INT(10)}
+     * @param referredId The value of referredId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setReferredId_NotEqual(Integer referredId) {
+        doSetReferredId_NotEqual(referredId);
+    }
+
+    protected void doSetReferredId_NotEqual(Integer referredId) {
+        regReferredId(CK_NES, referredId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRED_ID: {PK, NotNull, INT(10)}
      * @param referredId The value of referredId as greaterThan. (basically NotNull: error as default, or no condition as option)

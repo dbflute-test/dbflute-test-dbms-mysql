@@ -433,6 +433,19 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
+     * @param servicePointIncidence The value of servicePointIncidence as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setServicePointIncidence_NotEqual(java.math.BigDecimal servicePointIncidence) {
+        doSetServicePointIncidence_NotEqual(servicePointIncidence);
+    }
+
+    protected void doSetServicePointIncidence_NotEqual(java.math.BigDecimal servicePointIncidence) {
+        regServicePointIncidence(CK_NES, servicePointIncidence);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)SERVICE_POINT_INCIDENCE: {NotNull, DECIMAL(5, 3)}
      * @param servicePointIncidence The value of servicePointIncidence as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -560,6 +573,45 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     protected void doSetNewAcceptableFlg_Equal(Integer newAcceptableFlg) {
         regNewAcceptableFlg(CK_EQ, newAcceptableFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INT(10), classification=Flg}
+     * @param newAcceptableFlg The value of newAcceptableFlg as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    protected void setNewAcceptableFlg_NotEqual(Integer newAcceptableFlg) {
+        doSetNewAcceptableFlg_NotEqual(newAcceptableFlg);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
+     * (新規受け入れ可能フラグ)NEW_ACCEPTABLE_FLG: {NotNull, INT(10), classification=Flg} <br>
+     * フラグを示す
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNewAcceptableFlg_NotEqual_AsFlg(CDef.Flg cdef) {
+        doSetNewAcceptableFlg_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * はい: 有効を示す
+     */
+    public void setNewAcceptableFlg_NotEqual_True() {
+        setNewAcceptableFlg_NotEqual_AsFlg(CDef.Flg.True);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
+     * いいえ: 無効を示す
+     */
+    public void setNewAcceptableFlg_NotEqual_False() {
+        setNewAcceptableFlg_NotEqual_AsFlg(CDef.Flg.False);
+    }
+
+    protected void doSetNewAcceptableFlg_NotEqual(Integer newAcceptableFlg) {
+        regNewAcceptableFlg(CK_NES, newAcceptableFlg);
     }
 
     /**
@@ -721,6 +773,19 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     protected void doSetDisplayOrder_Equal(Integer displayOrder) {
         regDisplayOrder(CK_EQ, displayOrder);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DISPLAY_ORDER: {UQ, NotNull, INT(10)}
+     * @param displayOrder The value of displayOrder as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setDisplayOrder_NotEqual(Integer displayOrder) {
+        doSetDisplayOrder_NotEqual(displayOrder);
+    }
+
+    protected void doSetDisplayOrder_NotEqual(Integer displayOrder) {
+        regDisplayOrder(CK_NES, displayOrder);
     }
 
     /**

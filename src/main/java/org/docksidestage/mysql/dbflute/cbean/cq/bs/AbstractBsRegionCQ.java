@@ -114,6 +114,61 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (地域ID)REGION_ID: {PK, NotNull, INT(10), classification=Region}
+     * @param regionId The value of regionId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    protected void setRegionId_NotEqual(Integer regionId) {
+        doSetRegionId_NotEqual(regionId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Region. And NullIgnored, OnlyOnceRegistered. <br>
+     * (地域ID)REGION_ID: {PK, NotNull, INT(10), classification=Region} <br>
+     * mainly region of member address
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegionId_NotEqual_AsRegion(CDef.Region cdef) {
+        doSetRegionId_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As アメリカ (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * アメリカ
+     */
+    public void setRegionId_NotEqual_アメリカ() {
+        setRegionId_NotEqual_AsRegion(CDef.Region.アメリカ);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As カナダ (2). And NullIgnored, OnlyOnceRegistered. <br>
+     * カナダ
+     */
+    public void setRegionId_NotEqual_カナダ() {
+        setRegionId_NotEqual_AsRegion(CDef.Region.カナダ);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As 中国 (3). And NullIgnored, OnlyOnceRegistered. <br>
+     * 中国
+     */
+    public void setRegionId_NotEqual_中国() {
+        setRegionId_NotEqual_AsRegion(CDef.Region.中国);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As 千葉 (4). And NullIgnored, OnlyOnceRegistered. <br>
+     * 千葉
+     */
+    public void setRegionId_NotEqual_千葉() {
+        setRegionId_NotEqual_AsRegion(CDef.Region.千葉);
+    }
+
+    protected void doSetRegionId_NotEqual(Integer regionId) {
+        regRegionId(CK_NES, regionId);
+    }
+
+    /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (地域ID)REGION_ID: {PK, NotNull, INT(10), classification=Region}
      * @param regionIdList The collection of regionId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)

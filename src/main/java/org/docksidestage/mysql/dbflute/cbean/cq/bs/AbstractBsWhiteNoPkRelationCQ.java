@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_NotEqual(Integer productId) {
+        doSetProductId_NotEqual(productId);
+    }
+
+    protected void doSetProductId_NotEqual(Integer productId) {
+        regProductId(CK_NES, productId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteUqClassificationCQ extends AbstractConditio
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
+     * @param uqClsId The value of uqClsId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUqClsId_NotEqual(Long uqClsId) {
+        doSetUqClsId_NotEqual(uqClsId);
+    }
+
+    protected void doSetUqClsId_NotEqual(Long uqClsId) {
+        regUqClsId(CK_NES, uqClsId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as greaterThan. (basically NotNull: error as default, or no condition as option)

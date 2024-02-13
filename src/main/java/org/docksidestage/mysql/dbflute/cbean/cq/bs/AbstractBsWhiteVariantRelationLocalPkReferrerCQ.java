@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteVariantRelationLocalPkReferrerCQ extends Ab
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
+     * @param reversefkSuppressedId The value of reversefkSuppressedId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setReversefkSuppressedId_NotEqual(Long reversefkSuppressedId) {
+        doSetReversefkSuppressedId_NotEqual(reversefkSuppressedId);
+    }
+
+    protected void doSetReversefkSuppressedId_NotEqual(Long reversefkSuppressedId) {
+        regReversefkSuppressedId(CK_NES, reversefkSuppressedId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REVERSEFK_SUPPRESSED_ID: {PK, NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
      * @param reversefkSuppressedId The value of reversefkSuppressedId as greaterThan. (basically NotNull: error as default, or no condition as option)

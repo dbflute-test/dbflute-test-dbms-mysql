@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteUqFkWithoutPkRefCQ extends AbstractConditio
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * UQ_FK_REF_ID: {NotNull, DECIMAL(16)}
+     * @param uqFkRefId The value of uqFkRefId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setUqFkRefId_NotEqual(Long uqFkRefId) {
+        doSetUqFkRefId_NotEqual(uqFkRefId);
+    }
+
+    protected void doSetUqFkRefId_NotEqual(Long uqFkRefId) {
+        regUqFkRefId(CK_NES, uqFkRefId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_FK_REF_ID: {NotNull, DECIMAL(16)}
      * @param uqFkRefId The value of uqFkRefId as greaterThan. (basically NotNull: error as default, or no condition as option)

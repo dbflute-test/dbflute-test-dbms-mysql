@@ -101,6 +101,8 @@
     <component name="whiteSplitMultipleFkRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSplitMultipleFkRefBhv"/>
     <component name="whiteStilettoAliasBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteStilettoAliasBhv"/>
     <component name="whiteStilettoAliasRefBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteStilettoAliasRefBhv"/>
+    <component name="whiteSummaryBasicProductBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSummaryBasicProductBhv"/>
+    <component name="whiteSummaryComplexProductBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSummaryComplexProductBhv"/>
     <component name="whiteSuppressDefCheckBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSuppressDefCheckBhv"/>
     <component name="whiteSuppressJoinSqBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSuppressJoinSqBhv"/>
     <component name="whiteSuppressJoinSqManyBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteSuppressJoinSqManyBhv"/>

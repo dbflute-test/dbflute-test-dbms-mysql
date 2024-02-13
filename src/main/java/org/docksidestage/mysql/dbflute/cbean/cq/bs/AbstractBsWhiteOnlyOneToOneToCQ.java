@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TO_ID: {PK, ID, NotNull, BIGINT(19)}
+     * @param toId The value of toId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setToId_NotEqual(Long toId) {
+        doSetToId_NotEqual(toId);
+    }
+
+    protected void doSetToId_NotEqual(Long toId) {
+        regToId(CK_NES, toId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param toId The value of toId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -284,6 +297,19 @@ public abstract class AbstractBsWhiteOnlyOneToOneToCQ extends AbstractConditionQ
 
     protected void doSetFromId_Equal(Long fromId) {
         regFromId(CK_EQ, fromId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * FROM_ID: {UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from}
+     * @param fromId The value of fromId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setFromId_NotEqual(Long fromId) {
+        doSetFromId_NotEqual(fromId);
+    }
+
+    protected void doSetFromId_NotEqual(Long fromId) {
+        regFromId(CK_NES, fromId);
     }
 
     /**

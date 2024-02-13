@@ -135,6 +135,8 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_split_multiple_fk_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSplitMultipleFkRefDbm");
         tmpMap.put("white_stiletto_alias", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteStilettoAliasDbm");
         tmpMap.put("white_stiletto_alias_ref", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteStilettoAliasRefDbm");
+        tmpMap.put("white_summary_basic_product", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSummaryBasicProductDbm");
+        tmpMap.put("white_summary_complex_product", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSummaryComplexProductDbm");
         tmpMap.put("white_suppress_def_check", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSuppressDefCheckDbm");
         tmpMap.put("white_suppress_join_sq", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSuppressJoinSqDbm");
         tmpMap.put("white_suppress_join_sq_many", "org.docksidestage.mysql.dbflute.bsentity.dbmeta.WhiteSuppressJoinSqManyDbm");

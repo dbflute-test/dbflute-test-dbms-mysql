@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
+     * @param exceptColumnId The value of exceptColumnId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setExceptColumnId_NotEqual(Long exceptColumnId) {
+        doSetExceptColumnId_NotEqual(exceptColumnId);
+    }
+
+    protected void doSetExceptColumnId_NotEqual(Long exceptColumnId) {
+        regExceptColumnId(CK_NES, exceptColumnId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * EXCEPT_COLUMN_ID: {PK, NotNull, DECIMAL(16)}
      * @param exceptColumnId The value of exceptColumnId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -185,6 +198,19 @@ public abstract class AbstractBsWhiteColumnExceptCQ extends AbstractConditionQue
 
     protected void doSetColumnExceptTest_Equal(Integer columnExceptTest) {
         regColumnExceptTest(CK_EQ, columnExceptTest);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_EXCEPT_TEST: {INT(10)}
+     * @param columnExceptTest The value of columnExceptTest as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnExceptTest_NotEqual(Integer columnExceptTest) {
+        doSetColumnExceptTest_NotEqual(columnExceptTest);
+    }
+
+    protected void doSetColumnExceptTest_NotEqual(Integer columnExceptTest) {
+        regColumnExceptTest(CK_NES, columnExceptTest);
     }
 
     /**

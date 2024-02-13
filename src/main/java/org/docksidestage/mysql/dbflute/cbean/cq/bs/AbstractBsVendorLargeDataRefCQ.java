@@ -72,6 +72,19 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
+     * @param largeDataRefId The value of largeDataRefId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setLargeDataRefId_NotEqual(Long largeDataRefId) {
+        doSetLargeDataRefId_NotEqual(largeDataRefId);
+    }
+
+    protected void doSetLargeDataRefId_NotEqual(Long largeDataRefId) {
+        regLargeDataRefId(CK_NES, largeDataRefId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * LARGE_DATA_REF_ID: {PK, NotNull, BIGINT(19)}
      * @param largeDataRefId The value of largeDataRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -258,6 +271,19 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
 
     protected void doSetLargeDataId_Equal(Long largeDataId) {
         regLargeDataId(CK_EQ, largeDataId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * LARGE_DATA_ID: {IX, NotNull, BIGINT(19), FK to vendor_large_data}
+     * @param largeDataId The value of largeDataId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setLargeDataId_NotEqual(Long largeDataId) {
+        doSetLargeDataId_NotEqual(largeDataId);
+    }
+
+    protected void doSetLargeDataId_NotEqual(Long largeDataId) {
+        regLargeDataId(CK_NES, largeDataId);
     }
 
     /**
@@ -665,6 +691,19 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
+     * @param nullableDecimalIndex The value of nullableDecimalIndex as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNullableDecimalIndex_NotEqual(java.math.BigDecimal nullableDecimalIndex) {
+        doSetNullableDecimalIndex_NotEqual(nullableDecimalIndex);
+    }
+
+    protected void doSetNullableDecimalIndex_NotEqual(java.math.BigDecimal nullableDecimalIndex) {
+        regNullableDecimalIndex(CK_NES, nullableDecimalIndex);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_INDEX: {IX, DECIMAL(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -781,6 +820,19 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
+     * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNullableDecimalNoIndex_NotEqual(java.math.BigDecimal nullableDecimalNoIndex) {
+        doSetNullableDecimalNoIndex_NotEqual(nullableDecimalNoIndex);
+    }
+
+    protected void doSetNullableDecimalNoIndex_NotEqual(java.math.BigDecimal nullableDecimalNoIndex) {
+        regNullableDecimalNoIndex(CK_NES, nullableDecimalNoIndex);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NULLABLE_DECIMAL_NO_INDEX: {DECIMAL(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -894,6 +946,19 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
 
     protected void doSetSelfParentId_Equal(Long selfParentId) {
         regSelfParentId(CK_EQ, selfParentId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * SELF_PARENT_ID: {IX, BIGINT(19), FK to vendor_large_data_ref}
+     * @param selfParentId The value of selfParentId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setSelfParentId_NotEqual(Long selfParentId) {
+        doSetSelfParentId_NotEqual(selfParentId);
+    }
+
+    protected void doSetSelfParentId_NotEqual(Long selfParentId) {
+        regSelfParentId(CK_NES, selfParentId);
     }
 
     /**

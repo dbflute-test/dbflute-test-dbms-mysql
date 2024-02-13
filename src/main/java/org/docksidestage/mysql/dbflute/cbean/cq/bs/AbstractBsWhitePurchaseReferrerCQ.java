@@ -72,6 +72,19 @@ public abstract class AbstractBsWhitePurchaseReferrerCQ extends AbstractConditio
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
+     * @param purchaseReferrerId The value of purchaseReferrerId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setPurchaseReferrerId_NotEqual(Long purchaseReferrerId) {
+        doSetPurchaseReferrerId_NotEqual(purchaseReferrerId);
+    }
+
+    protected void doSetPurchaseReferrerId_NotEqual(Long purchaseReferrerId) {
+        regPurchaseReferrerId(CK_NES, purchaseReferrerId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PURCHASE_REFERRER_ID: {PK, ID, NotNull, BIGINT(19), FK to purchase}
      * @param purchaseReferrerId The value of purchaseReferrerId as greaterThan. (basically NotNull: error as default, or no condition as option)

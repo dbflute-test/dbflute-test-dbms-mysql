@@ -72,6 +72,19 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (商品ID)PRODUCT_ID: {PK, ID, NotNull, INT(10)}
+     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setProductId_NotEqual(Integer productId) {
+        doSetProductId_NotEqual(productId);
+    }
+
+    protected void doSetProductId_NotEqual(Integer productId) {
+        regProductId(CK_NES, productId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (商品ID)PRODUCT_ID: {PK, ID, NotNull, INT(10)}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -701,6 +714,19 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (定価)REGULAR_PRICE: {NotNull, INT(10)}
+     * @param regularPrice The value of regularPrice as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setRegularPrice_NotEqual(Integer regularPrice) {
+        doSetRegularPrice_NotEqual(regularPrice);
+    }
+
+    protected void doSetRegularPrice_NotEqual(Integer regularPrice) {
+        regRegularPrice(CK_NES, regularPrice);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (定価)REGULAR_PRICE: {NotNull, INT(10)}
      * @param regularPrice The value of regularPrice as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -902,6 +928,19 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
 
     protected void doSetVersionNo_Equal(Long versionNo) {
         regVersionNo(CK_EQ, versionNo);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * VERSION_NO: {NotNull, BIGINT(19)}
+     * @param versionNo The value of versionNo as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setVersionNo_NotEqual(Long versionNo) {
+        doSetVersionNo_NotEqual(versionNo);
+    }
+
+    protected void doSetVersionNo_NotEqual(Long versionNo) {
+        regVersionNo(CK_NES, versionNo);
     }
 
     /**

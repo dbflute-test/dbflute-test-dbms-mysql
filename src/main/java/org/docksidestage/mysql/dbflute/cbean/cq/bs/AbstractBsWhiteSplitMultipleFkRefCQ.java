@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteSplitMultipleFkRefCQ extends AbstractCondit
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * FIRST_ID: {PK, NotNull, INT(10)}
+     * @param firstId The value of firstId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setFirstId_NotEqual(Integer firstId) {
+        doSetFirstId_NotEqual(firstId);
+    }
+
+    protected void doSetFirstId_NotEqual(Integer firstId) {
+        regFirstId(CK_NES, firstId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
      * @param firstId The value of firstId as greaterThan. (basically NotNull: error as default, or no condition as option)

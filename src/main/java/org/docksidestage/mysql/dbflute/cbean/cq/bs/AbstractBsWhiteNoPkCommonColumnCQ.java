@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteNoPkCommonColumnCQ extends AbstractConditio
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NO_PK_ID: {NotNull, DECIMAL(16)}
+     * @param noPkId The value of noPkId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNoPkId_NotEqual(Long noPkId) {
+        doSetNoPkId_NotEqual(noPkId);
+    }
+
+    protected void doSetNoPkId_NotEqual(Long noPkId) {
+        regNoPkId(CK_NES, noPkId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NO_PK_ID: {NotNull, DECIMAL(16)}
      * @param noPkId The value of noPkId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -290,6 +303,19 @@ public abstract class AbstractBsWhiteNoPkCommonColumnCQ extends AbstractConditio
 
     protected void doSetNoPkInteger_Equal(Integer noPkInteger) {
         regNoPkInteger(CK_EQ, noPkInteger);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * NO_PK_INTEGER: {INT(10)}
+     * @param noPkInteger The value of noPkInteger as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setNoPkInteger_NotEqual(Integer noPkInteger) {
+        doSetNoPkInteger_NotEqual(noPkInteger);
+    }
+
+    protected void doSetNoPkInteger_NotEqual(Integer noPkInteger) {
+        regNoPkInteger(CK_NES, noPkInteger);
     }
 
     /**

@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteQuotedCQ extends AbstractConditionQuery {
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * SELECT: {PK, NotNull, INT(10)}
+     * @param select The value of select as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setSelect_NotEqual(Integer select) {
+        doSetSelect_NotEqual(select);
+    }
+
+    protected void doSetSelect_NotEqual(Integer select) {
+        regSelect(CK_NES, select);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELECT: {PK, NotNull, INT(10)}
      * @param select The value of select as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
+     * @param dateAdjustmentId The value of dateAdjustmentId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setDateAdjustmentId_NotEqual(Long dateAdjustmentId) {
+        doSetDateAdjustmentId_NotEqual(dateAdjustmentId);
+    }
+
+    protected void doSetDateAdjustmentId_NotEqual(Long dateAdjustmentId) {
+        regDateAdjustmentId(CK_NES, dateAdjustmentId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * DATE_ADJUSTMENT_ID: {PK, NotNull, BIGINT(19)}
      * @param dateAdjustmentId The value of dateAdjustmentId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -422,6 +435,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_INTEGER: {INT(10)}
+     * @param adjustedInteger The value of adjustedInteger as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedInteger_NotEqual(Integer adjustedInteger) {
+        doSetAdjustedInteger_NotEqual(adjustedInteger);
+    }
+
+    protected void doSetAdjustedInteger_NotEqual(Integer adjustedInteger) {
+        regAdjustedInteger(CK_NES, adjustedInteger);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ADJUSTED_INTEGER: {INT(10)}
      * @param adjustedInteger The value of adjustedInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -535,6 +561,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
 
     protected void doSetAdjustedNamedStringLong_Equal(Long adjustedNamedStringLong) {
         regAdjustedNamedStringLong(CK_EQ, adjustedNamedStringLong);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (adjusted)ADJUSTED_NAMED_STRING_LONG: {BIGINT(19)}
+     * @param adjustedNamedStringLong The value of adjustedNamedStringLong as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedNamedStringLong_NotEqual(Long adjustedNamedStringLong) {
+        doSetAdjustedNamedStringLong_NotEqual(adjustedNamedStringLong);
+    }
+
+    protected void doSetAdjustedNamedStringLong_NotEqual(Long adjustedNamedStringLong) {
+        regAdjustedNamedStringLong(CK_NES, adjustedNamedStringLong);
     }
 
     /**
@@ -654,6 +693,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
+     * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedNamedTypedLong_NotEqual(Long adjustedNamedTypedLong) {
+        doSetAdjustedNamedTypedLong_NotEqual(adjustedNamedTypedLong);
+    }
+
+    protected void doSetAdjustedNamedTypedLong_NotEqual(Long adjustedNamedTypedLong) {
+        regAdjustedNamedTypedLong(CK_NES, adjustedNamedTypedLong);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_NAMED_TYPED_LONG: {BIGINT(19)}
      * @param adjustedNamedTypedLong The value of adjustedNamedTypedLong as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -767,6 +819,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
 
     protected void doSetAdjustedPinpointStringLong_Equal(Long adjustedPinpointStringLong) {
         regAdjustedPinpointStringLong(CK_EQ, adjustedPinpointStringLong);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (adjusted)ADJUSTED_PINPOINT_STRING_LONG: {BIGINT(19)}
+     * @param adjustedPinpointStringLong The value of adjustedPinpointStringLong as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedPinpointStringLong_NotEqual(Long adjustedPinpointStringLong) {
+        doSetAdjustedPinpointStringLong_NotEqual(adjustedPinpointStringLong);
+    }
+
+    protected void doSetAdjustedPinpointStringLong_NotEqual(Long adjustedPinpointStringLong) {
+        regAdjustedPinpointStringLong(CK_NES, adjustedPinpointStringLong);
     }
 
     /**
@@ -886,6 +951,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
+     * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedPinpointTypedLong_NotEqual(Long adjustedPinpointTypedLong) {
+        doSetAdjustedPinpointTypedLong_NotEqual(adjustedPinpointTypedLong);
+    }
+
+    protected void doSetAdjustedPinpointTypedLong_NotEqual(Long adjustedPinpointTypedLong) {
+        regAdjustedPinpointTypedLong(CK_NES, adjustedPinpointTypedLong);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (adjusted)ADJUSTED_PINPOINT_TYPED_LONG: {BIGINT(19)}
      * @param adjustedPinpointTypedLong The value of adjustedPinpointTypedLong as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -999,6 +1077,19 @@ public abstract class AbstractBsWhiteDateAdjustmentCQ extends AbstractConditionQ
 
     protected void doSetAdjustedPlainLong_Equal(Long adjustedPlainLong) {
         regAdjustedPlainLong(CK_EQ, adjustedPlainLong);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * ADJUSTED_PLAIN_LONG: {BIGINT(19)}
+     * @param adjustedPlainLong The value of adjustedPlainLong as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setAdjustedPlainLong_NotEqual(Long adjustedPlainLong) {
+        doSetAdjustedPlainLong_NotEqual(adjustedPlainLong);
+    }
+
+    protected void doSetAdjustedPlainLong_NotEqual(Long adjustedPlainLong) {
+        regAdjustedPlainLong(CK_NES, adjustedPlainLong);
     }
 
     /**

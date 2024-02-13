@@ -72,6 +72,19 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
     }
 
     /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)}
+     * @param whiteImplicitReverseFkRefId The value of whiteImplicitReverseFkRefId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setWhiteImplicitReverseFkRefId_NotEqual(Integer whiteImplicitReverseFkRefId) {
+        doSetWhiteImplicitReverseFkRefId_NotEqual(whiteImplicitReverseFkRefId);
+    }
+
+    protected void doSetWhiteImplicitReverseFkRefId_NotEqual(Integer whiteImplicitReverseFkRefId) {
+        regWhiteImplicitReverseFkRefId(CK_NES, whiteImplicitReverseFkRefId);
+    }
+
+    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_REF_ID: {PK, ID, NotNull, INT(10)}
      * @param whiteImplicitReverseFkRefId The value of whiteImplicitReverseFkRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -185,6 +198,19 @@ public abstract class AbstractBsWhiteImplicitReverseFkRefCQ extends AbstractCond
 
     protected void doSetWhiteImplicitReverseFkId_Equal(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_EQ, whiteImplicitReverseFkId);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
+     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as notEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setWhiteImplicitReverseFkId_NotEqual(Integer whiteImplicitReverseFkId) {
+        doSetWhiteImplicitReverseFkId_NotEqual(whiteImplicitReverseFkId);
+    }
+
+    protected void doSetWhiteImplicitReverseFkId_NotEqual(Integer whiteImplicitReverseFkId) {
+        regWhiteImplicitReverseFkId(CK_NES, whiteImplicitReverseFkId);
     }
 
     /**
