@@ -1,0 +1,23 @@
+map:{
+    ; 2024/02/13 15:27:08.494 = map:{
+        ; diffDate = 2024/02/13 15:27:08.494
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; product = map:{
+                ; tableName = product
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; PRODUCT_NAME = map:{
+                        ; columnName = PRODUCT_NAME
+                        ; diffType = CHANGE
+                        ; notNullDiff = map:{
+                            ; next = true
+                            ; previous = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

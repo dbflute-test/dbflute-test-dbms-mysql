@@ -156,6 +156,16 @@ map:{
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isIgnoreViewNotNullDiff (NotRequired - Default false)
+    #  Does it ignore differences of view's not null constraint?
+    #
+    # test of view's not null constraint (2024/02/13)
+    # https://github.com/dbflute/dbflute-core/issues/200
+    #
+    ; isIgnoreViewNotNullDiff = true
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o loadDataReverseMap: (NotRequired - Default map:{})
     #  You can set LoadDataReverse settings.
     #  This property is valid when the property 'recordLimit' is set.
