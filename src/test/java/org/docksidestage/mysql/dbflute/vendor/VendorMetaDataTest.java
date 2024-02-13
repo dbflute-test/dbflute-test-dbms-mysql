@@ -338,8 +338,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             String catalog = rs.getString("PROCEDURE_CAT");
             String schema = rs.getString("PROCEDURE_SCHEM");
             String procedure = rs.getString("PROCEDURE_NAME");
+            String procedureSpecificName = rs.getString("SPECIFIC_NAME"); // e.g. SP_IN_OUT_PARAMETER
             ResultSet columnRs = metaData.getProcedureColumns(catalog, schema, procedure, null);
-            log(catalog + "." + schema + "." + procedure);
+            log(catalog + "." + schema + "." + procedure + " // " + procedureSpecificName);
             while (columnRs.next()) {
                 exists = true;
                 String columnName = columnRs.getString("COLUMN_NAME");
@@ -350,8 +351,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
+                String columnSpecificName = columnRs.getString("SPECIFIC_NAME"); // e.g. SP_IN_OUT_PARAMETER
                 log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
-                        + dataType + " // " + remarks);
+                        + dataType + " // " + columnSpecificName + ": " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
