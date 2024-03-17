@@ -72,19 +72,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)}
-     * @param vendorCheckId The value of vendorCheckId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVendorCheckId_NotEqual(Long vendorCheckId) {
-        doSetVendorCheckId_NotEqual(vendorCheckId);
-    }
-
-    protected void doSetVendorCheckId_NotEqual(Long vendorCheckId) {
-        regVendorCheckId(CK_NES, vendorCheckId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_CHECK_ID: {PK, NotNull, DECIMAL(16)}
      * @param vendorCheckId The value of vendorCheckId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -903,19 +890,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)}
-     * @param typeOfNumericDecimal The value of typeOfNumericDecimal as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfNumericDecimal_NotEqual(java.math.BigDecimal typeOfNumericDecimal) {
-        doSetTypeOfNumericDecimal_NotEqual(typeOfNumericDecimal);
-    }
-
-    protected void doSetTypeOfNumericDecimal_NotEqual(java.math.BigDecimal typeOfNumericDecimal) {
-        regTypeOfNumericDecimal(CK_NES, typeOfNumericDecimal);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_NUMERIC_DECIMAL: {DECIMAL(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1029,19 +1003,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void doSetTypeOfNumericInteger_Equal(Integer typeOfNumericInteger) {
         regTypeOfNumericInteger(CK_EQ, typeOfNumericInteger);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_NUMERIC_INTEGER: {DECIMAL(5)}
-     * @param typeOfNumericInteger The value of typeOfNumericInteger as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfNumericInteger_NotEqual(Integer typeOfNumericInteger) {
-        doSetTypeOfNumericInteger_NotEqual(typeOfNumericInteger);
-    }
-
-    protected void doSetTypeOfNumericInteger_NotEqual(Integer typeOfNumericInteger) {
-        regTypeOfNumericInteger(CK_NES, typeOfNumericInteger);
     }
 
     /**
@@ -1161,19 +1122,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)}
-     * @param typeOfNumericBigint The value of typeOfNumericBigint as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfNumericBigint_NotEqual(Long typeOfNumericBigint) {
-        doSetTypeOfNumericBigint_NotEqual(typeOfNumericBigint);
-    }
-
-    protected void doSetTypeOfNumericBigint_NotEqual(Long typeOfNumericBigint) {
-        regTypeOfNumericBigint(CK_NES, typeOfNumericBigint);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_NUMERIC_BIGINT: {DECIMAL(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1287,19 +1235,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void doSetTypeOfDecimalDecimal_Equal(java.math.BigDecimal typeOfDecimalDecimal) {
         regTypeOfDecimalDecimal(CK_EQ, typeOfDecimalDecimal);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DECIMAL_DECIMAL: {DECIMAL(5, 3)}
-     * @param typeOfDecimalDecimal The value of typeOfDecimalDecimal as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfDecimalDecimal_NotEqual(java.math.BigDecimal typeOfDecimalDecimal) {
-        doSetTypeOfDecimalDecimal_NotEqual(typeOfDecimalDecimal);
-    }
-
-    protected void doSetTypeOfDecimalDecimal_NotEqual(java.math.BigDecimal typeOfDecimalDecimal) {
-        regTypeOfDecimalDecimal(CK_NES, typeOfDecimalDecimal);
     }
 
     /**
@@ -1419,19 +1354,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)}
-     * @param typeOfDecimalInteger The value of typeOfDecimalInteger as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfDecimalInteger_NotEqual(Integer typeOfDecimalInteger) {
-        doSetTypeOfDecimalInteger_NotEqual(typeOfDecimalInteger);
-    }
-
-    protected void doSetTypeOfDecimalInteger_NotEqual(Integer typeOfDecimalInteger) {
-        regTypeOfDecimalInteger(CK_NES, typeOfDecimalInteger);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_DECIMAL_INTEGER: {DECIMAL(5)}
      * @param typeOfDecimalInteger The value of typeOfDecimalInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1545,19 +1467,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void doSetTypeOfDecimalBigint_Equal(Long typeOfDecimalBigint) {
         regTypeOfDecimalBigint(CK_EQ, typeOfDecimalBigint);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DECIMAL_BIGINT: {DECIMAL(12)}
-     * @param typeOfDecimalBigint The value of typeOfDecimalBigint as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfDecimalBigint_NotEqual(Long typeOfDecimalBigint) {
-        doSetTypeOfDecimalBigint_NotEqual(typeOfDecimalBigint);
-    }
-
-    protected void doSetTypeOfDecimalBigint_NotEqual(Long typeOfDecimalBigint) {
-        regTypeOfDecimalBigint(CK_NES, typeOfDecimalBigint);
     }
 
     /**
@@ -1677,19 +1586,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_INTEGER: {INT(10)}
-     * @param typeOfInteger The value of typeOfInteger as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfInteger_NotEqual(Integer typeOfInteger) {
-        doSetTypeOfInteger_NotEqual(typeOfInteger);
-    }
-
-    protected void doSetTypeOfInteger_NotEqual(Integer typeOfInteger) {
-        regTypeOfInteger(CK_NES, typeOfInteger);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_INTEGER: {INT(10)}
      * @param typeOfInteger The value of typeOfInteger as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1803,19 +1699,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void doSetTypeOfBigint_Equal(Long typeOfBigint) {
         regTypeOfBigint(CK_EQ, typeOfBigint);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_BIGINT: {BIGINT(19)}
-     * @param typeOfBigint The value of typeOfBigint as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfBigint_NotEqual(Long typeOfBigint) {
-        doSetTypeOfBigint_NotEqual(typeOfBigint);
-    }
-
-    protected void doSetTypeOfBigint_NotEqual(Long typeOfBigint) {
-        regTypeOfBigint(CK_NES, typeOfBigint);
     }
 
     /**
@@ -1935,19 +1818,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_FLOAT: {FLOAT(12)}
-     * @param typeOfFloat The value of typeOfFloat as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfFloat_NotEqual(java.math.BigDecimal typeOfFloat) {
-        doSetTypeOfFloat_NotEqual(typeOfFloat);
-    }
-
-    protected void doSetTypeOfFloat_NotEqual(java.math.BigDecimal typeOfFloat) {
-        regTypeOfFloat(CK_NES, typeOfFloat);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_FLOAT: {FLOAT(12)}
      * @param typeOfFloat The value of typeOfFloat as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -2061,19 +1931,6 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void doSetTypeOfDouble_Equal(java.math.BigDecimal typeOfDouble) {
         regTypeOfDouble(CK_EQ, typeOfDouble);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TYPE_OF_DOUBLE: {DOUBLE(22)}
-     * @param typeOfDouble The value of typeOfDouble as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTypeOfDouble_NotEqual(java.math.BigDecimal typeOfDouble) {
-        doSetTypeOfDouble_NotEqual(typeOfDouble);
-    }
-
-    protected void doSetTypeOfDouble_NotEqual(java.math.BigDecimal typeOfDouble) {
-        regTypeOfDouble(CK_NES, typeOfDouble);
     }
 
     /**

@@ -72,19 +72,6 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setProductId_NotEqual(Long productId) {
-        doSetProductId_NotEqual(productId);
-    }
-
-    protected void doSetProductId_NotEqual(Long productId) {
-        regProductId(CK_NES, productId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -472,19 +472,6 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
-     * @param displayOrder The value of displayOrder as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setDisplayOrder_NotEqual(Integer displayOrder) {
-        doSetDisplayOrder_NotEqual(displayOrder);
-    }
-
-    protected void doSetDisplayOrder_NotEqual(Integer displayOrder) {
-        regDisplayOrder(CK_NES, displayOrder);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)DISPLAY_ORDER: {UQ, NotNull, INT(10)}
      * @param displayOrder The value of displayOrder as greaterThan. (basically NotNull: error as default, or no condition as option)

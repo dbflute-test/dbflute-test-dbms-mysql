@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * WHERE: {PK, NotNull, INT(10)}
-     * @param where The value of where as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setWhere_NotEqual(Integer where) {
-        doSetWhere_NotEqual(where);
-    }
-
-    protected void doSetWhere_NotEqual(Integer where) {
-        regWhere(CK_NES, where);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHERE: {PK, NotNull, INT(10)}
      * @param where The value of where as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhiteQuotedRefCQ extends AbstractConditionQuery 
 
     protected void doSetOrder_Equal(Integer order) {
         regOrder(CK_EQ, order);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ORDER: {IX, INT(10), FK to white_quoted}
-     * @param order The value of order as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setOrder_NotEqual(Integer order) {
-        doSetOrder_NotEqual(order);
-    }
-
-    protected void doSetOrder_NotEqual(Integer order) {
-        regOrder(CK_NES, order);
     }
 
     /**

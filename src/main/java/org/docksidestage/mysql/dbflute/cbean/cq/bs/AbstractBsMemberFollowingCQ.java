@@ -72,19 +72,6 @@ public abstract class AbstractBsMemberFollowingCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param memberFollowingId The value of memberFollowingId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMemberFollowingId_NotEqual(Long memberFollowingId) {
-        doSetMemberFollowingId_NotEqual(memberFollowingId);
-    }
-
-    protected void doSetMemberFollowingId_NotEqual(Long memberFollowingId) {
-        regMemberFollowingId(CK_NES, memberFollowingId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (会員フォローイングID)MEMBER_FOLLOWING_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param memberFollowingId The value of memberFollowingId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -201,19 +188,6 @@ public abstract class AbstractBsMemberFollowingCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (わたし)MY_MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
-     * @param myMemberId The value of myMemberId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMyMemberId_NotEqual(Integer myMemberId) {
-        doSetMyMemberId_NotEqual(myMemberId);
-    }
-
-    protected void doSetMyMemberId_NotEqual(Integer myMemberId) {
-        regMyMemberId(CK_NES, myMemberId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (わたし)MY_MEMBER_ID: {UQ+, NotNull, INT(10), FK to member}
      * @param myMemberId The value of myMemberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -315,19 +289,6 @@ public abstract class AbstractBsMemberFollowingCQ extends AbstractConditionQuery
 
     protected void doSetYourMemberId_Equal(Integer yourMemberId) {
         regYourMemberId(CK_EQ, yourMemberId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (あなた)YOUR_MEMBER_ID: {+UQ, IX+, NotNull, INT(10), FK to member}
-     * @param yourMemberId The value of yourMemberId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setYourMemberId_NotEqual(Integer yourMemberId) {
-        doSetYourMemberId_NotEqual(yourMemberId);
-    }
-
-    protected void doSetYourMemberId_NotEqual(Integer yourMemberId) {
-        regYourMemberId(CK_NES, yourMemberId);
     }
 
     /**

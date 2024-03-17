@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MANY_ONE_ID: {PK, NotNull, INT(10)}
-     * @param manyOneId The value of manyOneId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setManyOneId_NotEqual(Integer manyOneId) {
-        doSetManyOneId_NotEqual(manyOneId);
-    }
-
-    protected void doSetManyOneId_NotEqual(Integer manyOneId) {
-        regManyOneId(CK_NES, manyOneId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ONE_ID: {PK, NotNull, INT(10)}
      * @param manyOneId The value of manyOneId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -370,19 +357,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyOneCQ extends AbstractCon
 
     protected void doSetManyOneOneId_Equal(Integer manyOneOneId) {
         regManyOneOneId(CK_EQ, manyOneOneId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MANY_ONE_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one_one}
-     * @param manyOneOneId The value of manyOneOneId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setManyOneOneId_NotEqual(Integer manyOneOneId) {
-        doSetManyOneOneId_NotEqual(manyOneOneId);
-    }
-
-    protected void doSetManyOneOneId_NotEqual(Integer manyOneOneId) {
-        regManyOneOneId(CK_NES, manyOneOneId);
     }
 
     /**

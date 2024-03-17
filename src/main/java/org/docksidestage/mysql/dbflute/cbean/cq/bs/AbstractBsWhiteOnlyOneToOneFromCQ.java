@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteOnlyOneToOneFromCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFromId_NotEqual(Long fromId) {
-        doSetFromId_NotEqual(fromId);
-    }
-
-    protected void doSetFromId_NotEqual(Long fromId) {
-        regFromId(CK_NES, fromId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param fromId The value of fromId as greaterThan. (basically NotNull: error as default, or no condition as option)

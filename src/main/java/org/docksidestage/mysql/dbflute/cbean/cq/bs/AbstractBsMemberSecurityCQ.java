@@ -72,19 +72,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member}
-     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMemberId_NotEqual(Integer memberId) {
-        doSetMemberId_NotEqual(memberId);
-    }
-
-    protected void doSetMemberId_NotEqual(Integer memberId) {
-        regMemberId(CK_NES, memberId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (会員ID)MEMBER_ID: {PK, NotNull, INT(10), FK to member}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -498,19 +485,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INT(10)}
-     * @param reminderUseCount The value of reminderUseCount as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setReminderUseCount_NotEqual(Integer reminderUseCount) {
-        doSetReminderUseCount_NotEqual(reminderUseCount);
-    }
-
-    protected void doSetReminderUseCount_NotEqual(Integer reminderUseCount) {
-        regReminderUseCount(CK_NES, reminderUseCount);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (リマインダ利用回数)REMINDER_USE_COUNT: {NotNull, INT(10)}
      * @param reminderUseCount The value of reminderUseCount as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -712,19 +686,6 @@ public abstract class AbstractBsMemberSecurityCQ extends AbstractConditionQuery 
 
     protected void doSetVersionNo_Equal(Long versionNo) {
         regVersionNo(CK_EQ, versionNo);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VERSION_NO: {NotNull, BIGINT(19)}
-     * @param versionNo The value of versionNo as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVersionNo_NotEqual(Long versionNo) {
-        doSetVersionNo_NotEqual(versionNo);
-    }
-
-    protected void doSetVersionNo_NotEqual(Long versionNo) {
-        regVersionNo(CK_NES, versionNo);
     }
 
     /**

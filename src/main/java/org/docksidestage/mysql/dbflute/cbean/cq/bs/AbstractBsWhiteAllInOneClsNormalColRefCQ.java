@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteAllInOneClsNormalColRefCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CLS_REF_ID: {NotNull, INT(10)}
-     * @param clsRefId The value of clsRefId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setClsRefId_NotEqual(Integer clsRefId) {
-        doSetClsRefId_NotEqual(clsRefId);
-    }
-
-    protected void doSetClsRefId_NotEqual(Integer clsRefId) {
-        regClsRefId(CK_NES, clsRefId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CLS_REF_ID: {NotNull, INT(10)}
      * @param clsRefId The value of clsRefId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterQuxCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterQuxId The value of masterQuxId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMasterQuxId_NotEqual(Long masterQuxId) {
-        doSetMasterQuxId_NotEqual(masterQuxId);
-    }
-
-    protected void doSetMasterQuxId_NotEqual(Long masterQuxId) {
-        regMasterQuxId(CK_NES, masterQuxId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_QUX_ID: {PK, NotNull, BIGINT(19)}
      * @param masterQuxId The value of masterQuxId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param cipherId The value of cipherId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setCipherId_NotEqual(Long cipherId) {
-        doSetCipherId_NotEqual(cipherId);
-    }
-
-    protected void doSetCipherId_NotEqual(Long cipherId) {
-        regCipherId(CK_NES, cipherId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CIPHER_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param cipherId The value of cipherId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhiteGearedCipherCQ extends AbstractConditionQue
 
     protected void doSetCipherInteger_Equal(Integer cipherInteger) {
         regCipherInteger(CK_EQ, cipherInteger);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CIPHER_INTEGER: {VARCHAR(100)}
-     * @param cipherInteger The value of cipherInteger as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setCipherInteger_NotEqual(Integer cipherInteger) {
-        doSetCipherInteger_NotEqual(cipherInteger);
-    }
-
-    protected void doSetCipherInteger_NotEqual(Integer cipherInteger) {
-        regCipherInteger(CK_NES, cipherInteger);
     }
 
     /**

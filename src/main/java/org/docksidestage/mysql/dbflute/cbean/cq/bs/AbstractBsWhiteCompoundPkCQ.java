@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
-     * @param pkFirstId The value of pkFirstId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPkFirstId_NotEqual(Integer pkFirstId) {
-        doSetPkFirstId_NotEqual(pkFirstId);
-    }
-
-    protected void doSetPkFirstId_NotEqual(Integer pkFirstId) {
-        regPkFirstId(CK_NES, pkFirstId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PK_FIRST_ID: {PK, +UQ, NotNull, INT(10), FK to WHITE_COMPOUND_PK_REF_MANY}
      * @param pkFirstId The value of pkFirstId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
 
     protected void doSetPkSecondId_Equal(Integer pkSecondId) {
         regPkSecondId(CK_EQ, pkSecondId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PK_SECOND_ID: {PK, UQ+, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_PRIMARY}
-     * @param pkSecondId The value of pkSecondId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPkSecondId_NotEqual(Integer pkSecondId) {
-        doSetPkSecondId_NotEqual(pkSecondId);
-    }
-
-    protected void doSetPkSecondId_NotEqual(Integer pkSecondId) {
-        regPkSecondId(CK_NES, pkSecondId);
     }
 
     /**
@@ -426,19 +400,6 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
 
     protected void doSetReferredId_Equal(Integer referredId) {
         regReferredId(CK_EQ, referredId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * REFERRED_ID: {+UQ, NotNull, INT(10), FK to WHITE_COMPOUND_REFERRED_NORMALLY}
-     * @param referredId The value of referredId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setReferredId_NotEqual(Integer referredId) {
-        doSetReferredId_NotEqual(referredId);
-    }
-
-    protected void doSetReferredId_NotEqual(Integer referredId) {
-        regReferredId(CK_NES, referredId);
     }
 
     /**

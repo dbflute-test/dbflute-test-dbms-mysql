@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {PK, NotNull, INT(10)}
-     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMemberId_NotEqual(Integer memberId) {
-        doSetMemberId_NotEqual(memberId);
-    }
-
-    protected void doSetMemberId_NotEqual(Integer memberId) {
-        regMemberId(CK_NES, memberId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {PK, NotNull, INT(10)}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -297,19 +284,6 @@ public abstract class AbstractBsWhitePerrottaOverMemberCQ extends AbstractCondit
 
     protected void doSetProductId_Equal(Integer productId) {
         regProductId(CK_EQ, productId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {IX, NotNull, INT(10), FK to white_perrotta_over_product}
-     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setProductId_NotEqual(Integer productId) {
-        doSetProductId_NotEqual(productId);
-    }
-
-    protected void doSetProductId_NotEqual(Integer productId) {
-        regProductId(CK_NES, productId);
     }
 
     /**

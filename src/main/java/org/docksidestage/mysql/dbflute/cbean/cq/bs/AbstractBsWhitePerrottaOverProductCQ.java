@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePerrottaOverProductCQ extends AbstractCondi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
-     * @param productId The value of productId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setProductId_NotEqual(Integer productId) {
-        doSetProductId_NotEqual(productId);
-    }
-
-    protected void doSetProductId_NotEqual(Integer productId) {
-        regProductId(CK_NES, productId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PRODUCT_ID: {PK, NotNull, INT(10), FK to WHITE_PERROTTA_OVER_TRACE}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)

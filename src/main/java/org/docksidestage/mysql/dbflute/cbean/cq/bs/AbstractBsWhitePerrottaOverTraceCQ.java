@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TRACE_ID: {PK, NotNull, BIGINT(19)}
-     * @param traceId The value of traceId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setTraceId_NotEqual(Long traceId) {
-        doSetTraceId_NotEqual(traceId);
-    }
-
-    protected void doSetTraceId_NotEqual(Long traceId) {
-        regTraceId(CK_NES, traceId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TRACE_ID: {PK, NotNull, BIGINT(19)}
      * @param traceId The value of traceId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -201,19 +188,6 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
-     * @param previousProductId The value of previousProductId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPreviousProductId_NotEqual(Integer previousProductId) {
-        doSetPreviousProductId_NotEqual(previousProductId);
-    }
-
-    protected void doSetPreviousProductId_NotEqual(Integer previousProductId) {
-        regPreviousProductId(CK_NES, previousProductId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PREVIOUS_PRODUCT_ID: {UQ+, NotNull, INT(10), FK to white_perrotta_over_product}
      * @param previousProductId The value of previousProductId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -315,19 +289,6 @@ public abstract class AbstractBsWhitePerrottaOverTraceCQ extends AbstractConditi
 
     protected void doSetNextProductId_Equal(Integer nextProductId) {
         regNextProductId(CK_EQ, nextProductId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_PRODUCT_ID: {+UQ, IX, NotNull, INT(10), FK to white_perrotta_over_product}
-     * @param nextProductId The value of nextProductId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setNextProductId_NotEqual(Integer nextProductId) {
-        doSetNextProductId_NotEqual(nextProductId);
-    }
-
-    protected void doSetNextProductId_NotEqual(Integer nextProductId) {
-        regNextProductId(CK_NES, nextProductId);
     }
 
     /**

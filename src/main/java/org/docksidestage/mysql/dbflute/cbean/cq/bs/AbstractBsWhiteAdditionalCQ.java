@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteAdditionalCQ extends AbstractConditionQuery
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * foo_id: {PK, ID, NotNull, INTEGER}
-     * @param fooId The value of fooId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFooId_NotEqual(Integer fooId) {
-        doSetFooId_NotEqual(fooId);
-    }
-
-    protected void doSetFooId_NotEqual(Integer fooId) {
-        regFooId(CK_NES, fooId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, ID, NotNull, INTEGER}
      * @param fooId The value of fooId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * REFERRER_ID: {PK, NotNull, BIGINT(19)}
-     * @param referrerId The value of referrerId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setReferrerId_NotEqual(Long referrerId) {
-        doSetReferrerId_NotEqual(referrerId);
-    }
-
-    protected void doSetReferrerId_NotEqual(Long referrerId) {
-        regReferrerId(CK_NES, referrerId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REFERRER_ID: {PK, NotNull, BIGINT(19)}
      * @param referrerId The value of referrerId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -271,19 +258,6 @@ public abstract class AbstractBsWhiteVariantRelationReferrerCQ extends AbstractC
 
     protected void doSetVariantMasterId_Equal(Long variantMasterId) {
         regVariantMasterId(CK_EQ, variantMasterId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VARIANT_MASTER_ID: {NotNull, BIGINT(19), FK to WHITE_VARIANT_RELATION_MASTER_FOO}
-     * @param variantMasterId The value of variantMasterId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVariantMasterId_NotEqual(Long variantMasterId) {
-        doSetVariantMasterId_NotEqual(variantMasterId);
-    }
-
-    protected void doSetVariantMasterId_NotEqual(Long variantMasterId) {
-        regVariantMasterId(CK_NES, variantMasterId);
     }
 
     /**

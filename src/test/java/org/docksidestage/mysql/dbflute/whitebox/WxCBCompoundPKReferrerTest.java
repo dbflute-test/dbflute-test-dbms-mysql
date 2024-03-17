@@ -7,7 +7,6 @@ import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.bhv.referrer.EntityListSetupper;
 import org.dbflute.bhv.referrer.LoadReferrerOption;
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.cbean.scoping.SpecifyQuery;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.util.Srl;
@@ -19,13 +18,11 @@ import org.docksidestage.mysql.dbflute.cbean.WhiteCompoundReferredNormallyCB;
 import org.docksidestage.mysql.dbflute.cbean.WhiteCompoundReferredPrimaryCB;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefBhv;
-import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefManyBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundPkRefNestBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundReferredNormallyBhv;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteCompoundReferredPrimaryBhv;
 import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundPk;
 import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundPkRef;
-import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundPkRefMany;
 import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundPkRefNest;
 import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundReferredNormally;
 import org.docksidestage.mysql.dbflute.exentity.WhiteCompoundReferredPrimary;
@@ -35,7 +32,7 @@ import org.docksidestage.mysql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 0.9.7.6 (2010/11/10 Tuesday)
  */
-public class WxCompoundPKMainTest extends UnitContainerTestCase {
+public class WxCBCompoundPKReferrerTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -43,73 +40,12 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
     private WhiteCompoundPkBhv whiteCompoundPkBhv;
     private WhiteCompoundPkRefBhv whiteCompoundPkRefBhv;
     private WhiteCompoundPkRefNestBhv whiteCompoundPkRefNestBhv;
-    private WhiteCompoundPkRefManyBhv whiteCompoundPkRefManyBhv;
     private WhiteCompoundReferredNormallyBhv whiteCompoundReferredNormallyBhv;
     private WhiteCompoundReferredPrimaryBhv whiteCompoundReferredPrimaryBhv;
 
     // ===================================================================================
-    //                                                                       ConditionBean
-    //                                                                       =============
-    // -----------------------------------------------------
-    //                                           SetupSelect
-    //                                           -----------
-    public void test_CompoundPK_SetupSelect_basic() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMax();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMin();
-        cb.setupSelect_WhiteCompoundReferredNormally();
-        cb.setupSelect_WhiteCompoundReferredPrimary();
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPk> pkList = whiteCompoundPkBhv.selectList(cb);
-
-        // ## Assert ##
-        assertHasAnyElement(pkList);
-        for (WhiteCompoundPk pk : pkList) {
-            log(pk);
-        }
-    }
-
-    public void test_CompoundPK_SetupSelect_CompoundToCompound() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-        cb.setupSelect_WhiteCompoundPk();
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPkRef> refList = whiteCompoundPkRefBhv.selectList(cb);
-
-        // ## Assert ##
-        assertNotSame(0, refList.size());
-        StringBuilder logSb = new StringBuilder();
-        for (WhiteCompoundPkRef ref : refList) {
-            logSb.append(ln() + ref.toStringWithRelation());
-            WhiteCompoundPk main = ref.getWhiteCompoundPk().get();
-            assertNotNull(main);
-            assertEquals(ref.getRefFirstId(), main.getPkFirstId());
-            assertEquals(ref.getRefSecondId(), main.getPkSecondId());
-        }
-        log(logSb);
-    }
-
-    public void test_CompoundPK_SetupSelect_BizManyToOneToCompound() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkRefManyCB cb = new WhiteCompoundPkRefManyCB();
-        cb.setupSelect_WhiteCompoundPkToPK();
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPkRefMany> manyList = whiteCompoundPkRefManyBhv.selectList(cb);
-
-        // ## Assert ##
-        assertHasZeroElement(manyList); // no data for now
-    }
-
-    // -----------------------------------------------------
-    //                                        ExistsReferrer
-    //                                        --------------
+    //                                                                      ExistsReferrer
+    //                                                                      ==============
     public void test_CompoundPK_ExistsReferrer_basic() {
         // ## Arrange ##
         registerTestData();
@@ -263,6 +199,9 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
                 " >= 0"));
     }
 
+    // -----------------------------------------------------
+    //                                     NotExistsReferrer
+    //                                     -----------------
     public void test_CompoundPK_NotExistsReferrer_basic() {
         // ## Arrange ##
         registerTestData();
@@ -287,9 +226,134 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
                 "  and sub1loc.REF_SECOND_ID < 0"));
     }
 
+    // ===================================================================================
+    //                                                                     InScopeReferrer
+    //                                                                     ===============
+    public void test_CompoundPK_InScopeReferrer_basic() {
+        // ## Arrange ##
+        registerTestData();
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.query().existsWhiteCompoundPkRef(refCB -> {
+            refCB.useInScopeSubQuery();
+            refCB.query().setRefSecondId_GreaterThan(1);
+        });
+
+        // ## Act ##
+        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
+
+        // ## Assert ##
+        assertHasAnyElement(mainList);
+        for (WhiteCompoundPk main : mainList) {
+            log(main);
+            assertTrue(main.getPkSecondId() > 1);
+        }
+        String sql = cb.toDisplaySql();
+        assertTrue(Srl.containsAll(sql, "in", //
+                "where (dfloc.PK_FIRST_ID, dfloc.PK_SECOND_ID) in (", //
+                ") in (select sub1loc.REF_FIRST_ID, sub1loc.REF_SECOND_ID", //
+                "       where sub1loc.REF_SECOND_ID > 1"));
+    }
+
+    public void test_CompoundPK_InScopeReferrer_fixedCondition() {
+        // ## Arrange ##
+        registerTestData();
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.query().existsWhiteCompoundPkRefManyToPK(refCB -> {
+            refCB.useInScopeSubQuery();
+        });
+
+        // ## Act ##
+        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
+
+        // ## Assert ##
+        assertHasZeroElement(mainList); // no data for now
+        assertTrue(Srl.containsAll(cb.toDisplaySql(), "in", //
+                "where (dfloc.PK_FIRST_ID, dfloc.PK_SECOND_ID) in (", //
+                ") in (select sub1loc.REF_MANY_FIRST_ID, sub1loc.REF_MANY_SECOND_ID", //
+                "       where sub1loc.REF_MANY_CODE = 'TPK'"));
+    }
+
+    public void test_CompoundPK_InScopeReferrer_union() {
+        // ## Arrange ##
+        registerTestData();
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.query().existsWhiteCompoundPkRef(refCB -> {
+            refCB.useInScopeSubQuery();
+            refCB.query().setRefSecondId_GreaterThan(1);
+            refCB.union(unionCB -> {
+                unionCB.query().setRefFirstId_LessEqual(99999);
+            });
+        });
+
+        // ## Act ##
+        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
+
+        // ## Assert ##
+        assertNotSame(0, mainList.size());
+        for (WhiteCompoundPk main : mainList) {
+            log(main);
+        }
+        assertTrue(Srl.containsAll(cb.toDisplaySql(), "union", "in", //
+                "where (dfloc.PK_FIRST_ID, dfloc.PK_SECOND_ID) in (", //
+                ") in (select sub1loc.REF_FIRST_ID, sub1loc.REF_SECOND_ID", //
+                "      select sub1loc.REF_FIRST_ID, sub1loc.REF_SECOND_ID ", //
+                "where sub1loc.REF_SECOND_ID > 1", //
+                "where sub1loc.REF_FIRST_ID <= 99999"));
+    }
+
+    public void test_CompoundPK_InScopeReferrer_union_fixedCondition() {
+        // ## Arrange ##
+        registerTestData();
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.query().existsWhiteCompoundPkRefManyToPK(refCB -> {
+            refCB.useInScopeSubQuery();
+            refCB.union(unionCB -> {});
+        });
+
+        // ## Act ##
+        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
+
+        // ## Assert ##
+        assertHasZeroElement(mainList); // no data for now
+        assertTrue(Srl.containsAll(cb.toDisplaySql(), "union", "in", //
+                "where (dfloc.PK_FIRST_ID, dfloc.PK_SECOND_ID) in (", //
+                ") in (select sub1loc.REF_MANY_FIRST_ID, sub1loc.REF_MANY_SECOND_ID", //
+                "where sub1loc.REF_MANY_CODE = 'TPK'"));
+        assertEquals(2, Srl.count(cb.toDisplaySql(), "select sub1loc.REF_MANY_FIRST_ID, sub1loc.REF_MANY_SECOND_ID"));
+        assertEquals(2, Srl.count(cb.toDisplaySql(), "where sub1loc.REF_MANY_CODE = 'TPK'"));
+    }
+
     // -----------------------------------------------------
-    //                              (Specify)DerivedReferrer
-    //                              ------------------------
+    //                                    NotInScopeReferrer
+    //                                    ------------------
+    public void test_CompoundPK_NotInScopeReferrer_basic() {
+        // ## Arrange ##
+        registerTestData();
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.query().notExistsWhiteCompoundPkRefManyToPK(refCB -> {
+            refCB.useInScopeSubQuery();
+            refCB.query().setMultipleFirstId_Equal(99999999);
+        });
+
+        // ## Act ##
+        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
+
+        // ## Assert ##
+        assertHasAnyElement(mainList);
+        for (WhiteCompoundPk main : mainList) {
+            log(main);
+        }
+        String sql = cb.toDisplaySql();
+        assertTrue(Srl.containsAll(sql, "not in", //
+                "where (dfloc.PK_FIRST_ID, dfloc.PK_SECOND_ID) not in (", //
+                ") not in (select sub1loc.REF_MANY_FIRST_ID, sub1loc.REF_MANY_SECOND_ID", //
+                "           where sub1loc.REF_MANY_CODE = 'TPK'", //
+                "             and sub1loc.MULTIPLE_FIRST_ID = 99999999"));
+    }
+
+    // ===================================================================================
+    //                                                            (Specify)DerivedReferrer
+    //                                                            ========================
     public void test_CompoundPK_SpecifyDerivedReferrer_basic() {
         // ## Arrange ##
         registerTestData();
@@ -490,8 +554,8 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
     // implemented at WxBhvQueryUpdateCompoundPKTest
 
     // ===================================================================================
-    //                                                                       Load Referrer
-    //                                                                       =============
+    //                                                                        LoadReferrer
+    //                                                                        ============
     public void test_CompoundPK_LoadReferrer_basic() {
         // ## Arrange ##
         registerTestData();
@@ -571,97 +635,6 @@ public class WxCompoundPKMainTest extends UnitContainerTestCase {
             }
         }
         assertTrue(exists);
-    }
-
-    // ===================================================================================
-    //                                                                      Specify Column
-    //                                                                      ==============
-    public void test_CompoundPK_SpecifyColumn_LoadReferrer_autoResolved() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPk> mainList = whiteCompoundPkBhv.selectList(cb);
-        whiteCompoundPkBhv.loadWhiteCompoundPkRef(mainList, new ConditionBeanSetupper<WhiteCompoundPkRefCB>() {
-            public void setup(WhiteCompoundPkRefCB cb) {
-                cb.specify().columnRefFirstId();
-            }
-        });
-
-        // ## Assert ##
-        assertNotSame(0, mainList.size());
-        StringBuilder logSb = new StringBuilder();
-        boolean exists = false;
-        for (WhiteCompoundPk main : mainList) {
-            logSb.append(ln() + main.toStringWithRelation());
-            List<WhiteCompoundPkRef> refList = main.getWhiteCompoundPkRefList();
-            if (!refList.isEmpty()) {
-                exists = true;
-                for (WhiteCompoundPkRef ref : refList) {
-                    assertNotNull(ref.getRefFirstId());
-                    assertNotNull(ref.getRefSecondId()); // auto-resolved
-                }
-            }
-        }
-        log(logSb);
-        assertTrue(exists);
-    }
-
-    // ===================================================================================
-    //                                                                    Scalar Condition
-    //                                                                    ================
-    public void test_CompoundPK_ScalarCondition_basic() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMax();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMin();
-        cb.setupSelect_WhiteCompoundReferredNormally();
-        cb.setupSelect_WhiteCompoundReferredPrimary();
-        cb.query().scalar_Equal().max(new SubQuery<WhiteCompoundPkCB>() {
-            public void query(WhiteCompoundPkCB subCB) {
-                subCB.specify().columnPkSecondId();
-                subCB.query().setPkFirstId_IsNotNull();
-            }
-        });
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPk> pkList = whiteCompoundPkBhv.selectList(cb);
-
-        // ## Assert ##
-        assertHasAnyElement(pkList);
-        for (WhiteCompoundPk pk : pkList) {
-            log(pk);
-        }
-    }
-
-    public void test_CompoundPK_ScalarCondition_partitionBy() {
-        // ## Arrange ##
-        registerTestData();
-        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMax();
-        cb.setupSelect_WhiteCompoundPkRefManyAsMin();
-        cb.setupSelect_WhiteCompoundReferredNormally();
-        cb.setupSelect_WhiteCompoundReferredPrimary();
-        cb.query().scalar_Equal().max(new SubQuery<WhiteCompoundPkCB>() {
-            public void query(WhiteCompoundPkCB subCB) {
-                subCB.specify().columnPkSecondId();
-            }
-        }).partitionBy(new SpecifyQuery<WhiteCompoundPkCB>() {
-            public void specify(WhiteCompoundPkCB cb) {
-                cb.specify().columnReferredId();
-            }
-        });
-
-        // ## Act ##
-        ListResultBean<WhiteCompoundPk> pkList = whiteCompoundPkBhv.selectList(cb);
-
-        // ## Assert ##
-        assertHasAnyElement(pkList);
-        for (WhiteCompoundPk pk : pkList) {
-            log(pk);
-        }
     }
 
     // ===================================================================================

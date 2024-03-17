@@ -72,19 +72,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
-     * @param constraintNameAutoRefId The value of constraintNameAutoRefId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setConstraintNameAutoRefId_NotEqual(Long constraintNameAutoRefId) {
-        doSetConstraintNameAutoRefId_NotEqual(constraintNameAutoRefId);
-    }
-
-    protected void doSetConstraintNameAutoRefId_NotEqual(Long constraintNameAutoRefId) {
-        regConstraintNameAutoRefId(CK_NES, constraintNameAutoRefId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_REF_ID: {PK, NotNull, DECIMAL(16)}
      * @param constraintNameAutoRefId The value of constraintNameAutoRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -201,19 +188,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
-     * @param constraintNameAutoFooId The value of constraintNameAutoFooId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setConstraintNameAutoFooId_NotEqual(Long constraintNameAutoFooId) {
-        doSetConstraintNameAutoFooId_NotEqual(constraintNameAutoFooId);
-    }
-
-    protected void doSetConstraintNameAutoFooId_NotEqual(Long constraintNameAutoFooId) {
-        regConstraintNameAutoFooId(CK_NES, constraintNameAutoFooId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_FOO_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_foo}
      * @param constraintNameAutoFooId The value of constraintNameAutoFooId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -315,19 +289,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
 
     protected void doSetConstraintNameAutoBarId_Equal(Long constraintNameAutoBarId) {
         regConstraintNameAutoBarId(CK_EQ, constraintNameAutoBarId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_BAR_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_bar}
-     * @param constraintNameAutoBarId The value of constraintNameAutoBarId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setConstraintNameAutoBarId_NotEqual(Long constraintNameAutoBarId) {
-        doSetConstraintNameAutoBarId_NotEqual(constraintNameAutoBarId);
-    }
-
-    protected void doSetConstraintNameAutoBarId_NotEqual(Long constraintNameAutoBarId) {
-        regConstraintNameAutoBarId(CK_NES, constraintNameAutoBarId);
     }
 
     /**
@@ -435,19 +396,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
-     * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setConstraintNameAutoQuxId_NotEqual(Long constraintNameAutoQuxId) {
-        doSetConstraintNameAutoQuxId_NotEqual(constraintNameAutoQuxId);
-    }
-
-    protected void doSetConstraintNameAutoQuxId_NotEqual(Long constraintNameAutoQuxId) {
-        regConstraintNameAutoQuxId(CK_NES, constraintNameAutoQuxId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CONSTRAINT_NAME_AUTO_QUX_ID: {IX, NotNull, DECIMAL(16), FK to vendor_constraint_name_auto_qux}
      * @param constraintNameAutoQuxId The value of constraintNameAutoQuxId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -549,19 +497,6 @@ public abstract class AbstractBsVendorConstraintNameAutoRefCQ extends AbstractCo
 
     protected void doSetConstraintNameAutoCorgeId_Equal(Long constraintNameAutoCorgeId) {
         regConstraintNameAutoCorgeId(CK_EQ, constraintNameAutoCorgeId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CONSTRAINT_NAME_AUTO_CORGE_ID: {NotNull, DECIMAL(16)}
-     * @param constraintNameAutoCorgeId The value of constraintNameAutoCorgeId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setConstraintNameAutoCorgeId_NotEqual(Long constraintNameAutoCorgeId) {
-        doSetConstraintNameAutoCorgeId_NotEqual(constraintNameAutoCorgeId);
-    }
-
-    protected void doSetConstraintNameAutoCorgeId_NotEqual(Long constraintNameAutoCorgeId) {
-        regConstraintNameAutoCorgeId(CK_NES, constraintNameAutoCorgeId);
     }
 
     /**

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
-     * @param classSynonym The value of classSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setClassSynonym_NotEqual(Integer classSynonym) {
-        doSetClassSynonym_NotEqual(classSynonym);
-    }
-
-    protected void doSetClassSynonym_NotEqual(Integer classSynonym) {
-        regClassSynonym(CK_NES, classSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CLASS: {PK, NotNull, INT(10)}
      * @param classSynonym The value of classSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -274,19 +261,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))CASE: {INT(10)}
-     * @param caseSynonym The value of caseSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setCaseSynonym_NotEqual(Integer caseSynonym) {
-        doSetCaseSynonym_NotEqual(caseSynonym);
-    }
-
-    protected void doSetCaseSynonym_NotEqual(Integer caseSynonym) {
-        regCaseSynonym(CK_NES, caseSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))CASE: {INT(10)}
      * @param caseSynonym The value of caseSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -400,19 +374,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetPackageSynonym_Equal(Integer packageSynonym) {
         regPackageSynonym(CK_EQ, packageSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))PACKAGE: {INT(10)}
-     * @param packageSynonym The value of packageSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPackageSynonym_NotEqual(Integer packageSynonym) {
-        doSetPackageSynonym_NotEqual(packageSynonym);
-    }
-
-    protected void doSetPackageSynonym_NotEqual(Integer packageSynonym) {
-        regPackageSynonym(CK_NES, packageSynonym);
     }
 
     /**
@@ -532,19 +493,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))DEFAULT: {INT(10)}
-     * @param defaultSynonym The value of defaultSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setDefaultSynonym_NotEqual(Integer defaultSynonym) {
-        doSetDefaultSynonym_NotEqual(defaultSynonym);
-    }
-
-    protected void doSetDefaultSynonym_NotEqual(Integer defaultSynonym) {
-        regDefaultSynonym(CK_NES, defaultSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DEFAULT: {INT(10)}
      * @param defaultSynonym The value of defaultSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -658,19 +606,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetNewSynonym_Equal(Integer newSynonym) {
         regNewSynonym(CK_EQ, newSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))NEW: {INT(10)}
-     * @param newSynonym The value of newSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setNewSynonym_NotEqual(Integer newSynonym) {
-        doSetNewSynonym_NotEqual(newSynonym);
-    }
-
-    protected void doSetNewSynonym_NotEqual(Integer newSynonym) {
-        regNewSynonym(CK_NES, newSynonym);
     }
 
     /**
@@ -790,19 +725,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))NATIVE: {INT(10)}
-     * @param nativeSynonym The value of nativeSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setNativeSynonym_NotEqual(Integer nativeSynonym) {
-        doSetNativeSynonym_NotEqual(nativeSynonym);
-    }
-
-    protected void doSetNativeSynonym_NotEqual(Integer nativeSynonym) {
-        regNativeSynonym(CK_NES, nativeSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))NATIVE: {INT(10)}
      * @param nativeSynonym The value of nativeSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -916,19 +838,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetVoidSynonym_Equal(Integer voidSynonym) {
         regVoidSynonym(CK_EQ, voidSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))VOID: {INT(10)}
-     * @param voidSynonym The value of voidSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVoidSynonym_NotEqual(Integer voidSynonym) {
-        doSetVoidSynonym_NotEqual(voidSynonym);
-    }
-
-    protected void doSetVoidSynonym_NotEqual(Integer voidSynonym) {
-        regVoidSynonym(CK_NES, voidSynonym);
     }
 
     /**
@@ -1048,19 +957,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))PUBLIC: {INT(10)}
-     * @param publicSynonym The value of publicSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPublicSynonym_NotEqual(Integer publicSynonym) {
-        doSetPublicSynonym_NotEqual(publicSynonym);
-    }
-
-    protected void doSetPublicSynonym_NotEqual(Integer publicSynonym) {
-        regPublicSynonym(CK_NES, publicSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PUBLIC: {INT(10)}
      * @param publicSynonym The value of publicSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1174,19 +1070,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetProtectedSynonym_Equal(Integer protectedSynonym) {
         regProtectedSynonym(CK_EQ, protectedSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))PROTECTED: {INT(10)}
-     * @param protectedSynonym The value of protectedSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setProtectedSynonym_NotEqual(Integer protectedSynonym) {
-        doSetProtectedSynonym_NotEqual(protectedSynonym);
-    }
-
-    protected void doSetProtectedSynonym_NotEqual(Integer protectedSynonym) {
-        regProtectedSynonym(CK_NES, protectedSynonym);
     }
 
     /**
@@ -1306,19 +1189,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))PRIVATE: {INT(10)}
-     * @param privateSynonym The value of privateSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPrivateSynonym_NotEqual(Integer privateSynonym) {
-        doSetPrivateSynonym_NotEqual(privateSynonym);
-    }
-
-    protected void doSetPrivateSynonym_NotEqual(Integer privateSynonym) {
-        regPrivateSynonym(CK_NES, privateSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))PRIVATE: {INT(10)}
      * @param privateSynonym The value of privateSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1432,19 +1302,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetInterfaceSynonym_Equal(Integer interfaceSynonym) {
         regInterfaceSynonym(CK_EQ, interfaceSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))INTERFACE: {INT(10)}
-     * @param interfaceSynonym The value of interfaceSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setInterfaceSynonym_NotEqual(Integer interfaceSynonym) {
-        doSetInterfaceSynonym_NotEqual(interfaceSynonym);
-    }
-
-    protected void doSetInterfaceSynonym_NotEqual(Integer interfaceSynonym) {
-        regInterfaceSynonym(CK_NES, interfaceSynonym);
     }
 
     /**
@@ -1564,19 +1421,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))ABSTRACT: {INT(10)}
-     * @param abstractSynonym The value of abstractSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setAbstractSynonym_NotEqual(Integer abstractSynonym) {
-        doSetAbstractSynonym_NotEqual(abstractSynonym);
-    }
-
-    protected void doSetAbstractSynonym_NotEqual(Integer abstractSynonym) {
-        regAbstractSynonym(CK_NES, abstractSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))ABSTRACT: {INT(10)}
      * @param abstractSynonym The value of abstractSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1690,19 +1534,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetFinalSynonym_Equal(Integer finalSynonym) {
         regFinalSynonym(CK_EQ, finalSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))FINAL: {INT(10)}
-     * @param finalSynonym The value of finalSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFinalSynonym_NotEqual(Integer finalSynonym) {
-        doSetFinalSynonym_NotEqual(finalSynonym);
-    }
-
-    protected void doSetFinalSynonym_NotEqual(Integer finalSynonym) {
-        regFinalSynonym(CK_NES, finalSynonym);
     }
 
     /**
@@ -1822,19 +1653,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))FINALLY: {INT(10)}
-     * @param finallySynonym The value of finallySynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFinallySynonym_NotEqual(Integer finallySynonym) {
-        doSetFinallySynonym_NotEqual(finallySynonym);
-    }
-
-    protected void doSetFinallySynonym_NotEqual(Integer finallySynonym) {
-        regFinallySynonym(CK_NES, finallySynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FINALLY: {INT(10)}
      * @param finallySynonym The value of finallySynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1948,19 +1766,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetReturnSynonym_Equal(Integer returnSynonym) {
         regReturnSynonym(CK_EQ, returnSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))RETURN: {INT(10)}
-     * @param returnSynonym The value of returnSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setReturnSynonym_NotEqual(Integer returnSynonym) {
-        doSetReturnSynonym_NotEqual(returnSynonym);
-    }
-
-    protected void doSetReturnSynonym_NotEqual(Integer returnSynonym) {
-        regReturnSynonym(CK_NES, returnSynonym);
     }
 
     /**
@@ -2080,19 +1885,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))DOUBLE: {INT(10)}
-     * @param doubleSynonym The value of doubleSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setDoubleSynonym_NotEqual(Integer doubleSynonym) {
-        doSetDoubleSynonym_NotEqual(doubleSynonym);
-    }
-
-    protected void doSetDoubleSynonym_NotEqual(Integer doubleSynonym) {
-        regDoubleSynonym(CK_NES, doubleSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))DOUBLE: {INT(10)}
      * @param doubleSynonym The value of doubleSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -2209,19 +2001,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))FLOAT: {INT(10)}
-     * @param floatSynonym The value of floatSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFloatSynonym_NotEqual(Integer floatSynonym) {
-        doSetFloatSynonym_NotEqual(floatSynonym);
-    }
-
-    protected void doSetFloatSynonym_NotEqual(Integer floatSynonym) {
-        regFloatSynonym(CK_NES, floatSynonym);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ((using DBFlute synonym))FLOAT: {INT(10)}
      * @param floatSynonym The value of floatSynonym as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -2335,19 +2114,6 @@ public abstract class AbstractBsWhitePgReservCQ extends AbstractConditionQuery {
 
     protected void doSetShortSynonym_Equal(Integer shortSynonym) {
         regShortSynonym(CK_EQ, shortSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))SHORT: {INT(10)}
-     * @param shortSynonym The value of shortSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setShortSynonym_NotEqual(Integer shortSynonym) {
-        doSetShortSynonym_NotEqual(shortSynonym);
-    }
-
-    protected void doSetShortSynonym_NotEqual(Integer shortSynonym) {
-        regShortSynonym(CK_NES, shortSynonym);
     }
 
     /**

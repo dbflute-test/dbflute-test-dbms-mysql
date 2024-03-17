@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * REF_ID: {PK, NotNull, INT(10)}
-     * @param refId The value of refId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setRefId_NotEqual(Integer refId) {
-        doSetRefId_NotEqual(refId);
-    }
-
-    protected void doSetRefId_NotEqual(Integer refId) {
-        regRefId(CK_NES, refId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * REF_ID: {PK, NotNull, INT(10)}
      * @param refId The value of refId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhitePgReservRefCQ extends AbstractConditionQuer
 
     protected void doSetClassSynonym_Equal(Integer classSynonym) {
         regClassSynonym(CK_EQ, classSynonym);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ((using DBFlute synonym))CLASS: {IX, INT(10), FK to white_pg_reserv}
-     * @param classSynonym The value of classSynonym as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setClassSynonym_NotEqual(Integer classSynonym) {
-        doSetClassSynonym_NotEqual(classSynonym);
-    }
-
-    protected void doSetClassSynonym_NotEqual(Integer classSynonym) {
-        regClassSynonym(CK_NES, classSynonym);
     }
 
     /**

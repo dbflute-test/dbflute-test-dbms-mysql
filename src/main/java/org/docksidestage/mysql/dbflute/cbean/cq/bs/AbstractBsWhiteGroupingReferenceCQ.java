@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteGroupingReferenceCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param groupingReferenceId The value of groupingReferenceId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setGroupingReferenceId_NotEqual(Long groupingReferenceId) {
-        doSetGroupingReferenceId_NotEqual(groupingReferenceId);
-    }
-
-    protected void doSetGroupingReferenceId_NotEqual(Long groupingReferenceId) {
-        regGroupingReferenceId(CK_NES, groupingReferenceId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * GROUPING_REFERENCE_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param groupingReferenceId The value of groupingReferenceId as greaterThan. (basically NotNull: error as default, or no condition as option)

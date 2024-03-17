@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
-     * @param selfReferenceId The value of selfReferenceId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setSelfReferenceId_NotEqual(Long selfReferenceId) {
-        doSetSelfReferenceId_NotEqual(selfReferenceId);
-    }
-
-    protected void doSetSelfReferenceId_NotEqual(Long selfReferenceId) {
-        regSelfReferenceId(CK_NES, selfReferenceId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SELF_REFERENCE_ID: {PK, NotNull, DECIMAL(16)}
      * @param selfReferenceId The value of selfReferenceId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -370,19 +357,6 @@ public abstract class AbstractBsWhiteSelfReferenceCQ extends AbstractConditionQu
 
     protected void doSetParentId_Equal(Long parentId) {
         regParentId(CK_EQ, parentId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * PARENT_ID: {IX, DECIMAL(16), FK to white_self_reference}
-     * @param parentId The value of parentId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setParentId_NotEqual(Long parentId) {
-        doSetParentId_NotEqual(parentId);
-    }
-
-    protected void doSetParentId_NotEqual(Long parentId) {
-        regParentId(CK_NES, parentId);
     }
 
     /**

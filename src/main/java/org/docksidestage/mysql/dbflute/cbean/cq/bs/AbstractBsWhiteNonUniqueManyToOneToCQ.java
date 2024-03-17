@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteNonUniqueManyToOneToCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * TO_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param toId The value of toId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setToId_NotEqual(Long toId) {
-        doSetToId_NotEqual(toId);
-    }
-
-    protected void doSetToId_NotEqual(Long toId) {
-        regToId(CK_NES, toId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * TO_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param toId The value of toId as greaterThan. (basically NotNull: error as default, or no condition as option)

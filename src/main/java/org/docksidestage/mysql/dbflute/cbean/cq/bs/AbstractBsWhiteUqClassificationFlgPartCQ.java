@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
-     * @param uqClsId The value of uqClsId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setUqClsId_NotEqual(Long uqClsId) {
-        doSetUqClsId_NotEqual(uqClsId);
-    }
-
-    protected void doSetUqClsId_NotEqual(Long uqClsId) {
-        regUqClsId(CK_NES, uqClsId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * UQ_CLS_ID: {PK, NotNull, DECIMAL(16)}
      * @param uqClsId The value of uqClsId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -323,45 +310,6 @@ public abstract class AbstractBsWhiteUqClassificationFlgPartCQ extends AbstractC
 
     protected void doSetUqClsFlg_Equal(Integer uqClsFlg) {
         regUqClsFlg(CK_EQ, uqClsFlg);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg}
-     * @param uqClsFlg The value of uqClsFlg as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    protected void setUqClsFlg_NotEqual(Integer uqClsFlg) {
-        doSetUqClsFlg_NotEqual(uqClsFlg);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
-     * UQ_CLS_FLG: {+UQ, NotNull, INT(10), classification=Flg} <br>
-     * フラグを示す
-     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
-     */
-    public void setUqClsFlg_NotEqual_AsFlg(CDef.Flg cdef) {
-        doSetUqClsFlg_NotEqual(cTNum(cdef != null ? cdef.code() : null, Integer.class));
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As True (1). And NullIgnored, OnlyOnceRegistered. <br>
-     * はい: 有効を示す
-     */
-    public void setUqClsFlg_NotEqual_True() {
-        setUqClsFlg_NotEqual_AsFlg(CDef.Flg.True);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). As False (0). And NullIgnored, OnlyOnceRegistered. <br>
-     * いいえ: 無効を示す
-     */
-    public void setUqClsFlg_NotEqual_False() {
-        setUqClsFlg_NotEqual_AsFlg(CDef.Flg.False);
-    }
-
-    protected void doSetUqClsFlg_NotEqual(Integer uqClsFlg) {
-        regUqClsFlg(CK_NES, uqClsFlg);
     }
 
     /**

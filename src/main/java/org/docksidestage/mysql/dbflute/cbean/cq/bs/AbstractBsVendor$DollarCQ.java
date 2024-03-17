@@ -72,19 +72,6 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
-     * @param vendor$DollarId The value of vendor$DollarId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setVendor$DollarId_NotEqual(Integer vendor$DollarId) {
-        doSetVendor$DollarId_NotEqual(vendor$DollarId);
-    }
-
-    protected void doSetVendor$DollarId_NotEqual(Integer vendor$DollarId) {
-        regVendor$DollarId(CK_NES, vendor$DollarId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * VENDOR_$_DOLLAR_ID: {PK, NotNull, INT(10)}
      * @param vendor$DollarId The value of vendor$DollarId as greaterThan. (basically NotNull: error as default, or no condition as option)

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * CHILD_ID: {PK, NotNull, BIGINT(19)}
-     * @param childId The value of childId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setChildId_NotEqual(Long childId) {
-        doSetChildId_NotEqual(childId);
-    }
-
-    protected void doSetChildId_NotEqual(Long childId) {
-        regChildId(CK_NES, childId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * CHILD_ID: {PK, NotNull, BIGINT(19)}
      * @param childId The value of childId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkChildCQ extends AbstractCond
 
     protected void doSetBaseId_Equal(Long baseId) {
         regBaseId(CK_EQ, baseId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BASE_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_base}
-     * @param baseId The value of baseId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setBaseId_NotEqual(Long baseId) {
-        doSetBaseId_NotEqual(baseId);
-    }
-
-    protected void doSetBaseId_NotEqual(Long baseId) {
-        regBaseId(CK_NES, baseId);
     }
 
     /**

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * BASE_ID: {PK, NotNull, BIGINT(19)}
-     * @param baseId The value of baseId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setBaseId_NotEqual(Long baseId) {
-        doSetBaseId_NotEqual(baseId);
-    }
-
-    protected void doSetBaseId_NotEqual(Long baseId) {
-        regBaseId(CK_NES, baseId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * BASE_ID: {PK, NotNull, BIGINT(19)}
      * @param baseId The value of baseId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -274,19 +261,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
-     * @param firstId The value of firstId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFirstId_NotEqual(Integer firstId) {
-        doSetFirstId_NotEqual(firstId);
-    }
-
-    protected void doSetFirstId_NotEqual(Integer firstId) {
-        regFirstId(CK_NES, firstId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {NotNull, INT(10), FK to WHITE_SPLIT_MULTIPLE_FK_REF}
      * @param firstId The value of firstId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -388,19 +362,6 @@ public abstract class AbstractBsWhiteSplitMultipleFkBaseCQ extends AbstractCondi
 
     protected void doSetNextId_Equal(Long nextId) {
         regNextId(CK_EQ, nextId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * NEXT_ID: {IX, NotNull, BIGINT(19), FK to white_split_multiple_fk_next}
-     * @param nextId The value of nextId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setNextId_NotEqual(Long nextId) {
-        doSetNextId_NotEqual(nextId);
-    }
-
-    protected void doSetNextId_NotEqual(Long nextId) {
-        regNextId(CK_NES, nextId);
     }
 
     /**

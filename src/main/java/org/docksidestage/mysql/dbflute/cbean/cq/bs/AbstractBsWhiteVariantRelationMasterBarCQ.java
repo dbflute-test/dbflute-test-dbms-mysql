@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteVariantRelationMasterBarCQ extends Abstract
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
-     * @param masterBarId The value of masterBarId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMasterBarId_NotEqual(Long masterBarId) {
-        doSetMasterBarId_NotEqual(masterBarId);
-    }
-
-    protected void doSetMasterBarId_NotEqual(Long masterBarId) {
-        regMasterBarId(CK_NES, masterBarId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MASTER_BAR_ID: {PK, NotNull, BIGINT(19)}
      * @param masterBarId The value of masterBarId as greaterThan. (basically NotNull: error as default, or no condition as option)

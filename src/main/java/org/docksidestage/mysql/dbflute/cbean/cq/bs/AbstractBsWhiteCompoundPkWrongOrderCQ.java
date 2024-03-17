@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * FIRST_ID: {PK, NotNull, INT(10)}
-     * @param firstId The value of firstId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFirstId_NotEqual(Integer firstId) {
-        doSetFirstId_NotEqual(firstId);
-    }
-
-    protected void doSetFirstId_NotEqual(Integer firstId) {
-        regFirstId(CK_NES, firstId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FIRST_ID: {PK, NotNull, INT(10)}
      * @param firstId The value of firstId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -201,19 +188,6 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SECOND_ID: {PK, NotNull, INT(10)}
-     * @param secondId The value of secondId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setSecondId_NotEqual(Integer secondId) {
-        doSetSecondId_NotEqual(secondId);
-    }
-
-    protected void doSetSecondId_NotEqual(Integer secondId) {
-        regSecondId(CK_NES, secondId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SECOND_ID: {PK, NotNull, INT(10)}
      * @param secondId The value of secondId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -327,19 +301,6 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
 
     protected void doSetThirdId_Equal(Integer thirdId) {
         regThirdId(CK_EQ, thirdId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * THIRD_ID: {PK, NotNull, INT(10)}
-     * @param thirdId The value of thirdId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setThirdId_NotEqual(Integer thirdId) {
-        doSetThirdId_NotEqual(thirdId);
-    }
-
-    protected void doSetThirdId_NotEqual(Integer thirdId) {
-        regThirdId(CK_NES, thirdId);
     }
 
     /**

@@ -72,19 +72,6 @@ public abstract class AbstractBsWhitePointTypeMappingCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
-     * @param pointTypeMappingId The value of pointTypeMappingId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setPointTypeMappingId_NotEqual(Long pointTypeMappingId) {
-        doSetPointTypeMappingId_NotEqual(pointTypeMappingId);
-    }
-
-    protected void doSetPointTypeMappingId_NotEqual(Long pointTypeMappingId) {
-        regPointTypeMappingId(CK_NES, pointTypeMappingId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * POINT_TYPE_MAPPING_ID: {PK, NotNull, DECIMAL(16)}
      * @param pointTypeMappingId The value of pointTypeMappingId as greaterThan. (basically NotNull: error as default, or no condition as option)

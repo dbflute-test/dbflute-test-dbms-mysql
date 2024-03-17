@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteNonUniqueManyToOneFromCQ extends AbstractCo
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param fromId The value of fromId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setFromId_NotEqual(Long fromId) {
-        doSetFromId_NotEqual(fromId);
-    }
-
-    protected void doSetFromId_NotEqual(Long fromId) {
-        regFromId(CK_NES, fromId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * FROM_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param fromId The value of fromId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -546,19 +533,6 @@ public abstract class AbstractBsWhiteNonUniqueManyToOneFromCQ extends AbstractCo
 
     protected void doSetManyPoint_Equal(Integer manyPoint) {
         regManyPoint(CK_EQ, manyPoint);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MANY_POINT: {NotNull, INT(10)}
-     * @param manyPoint The value of manyPoint as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setManyPoint_NotEqual(Integer manyPoint) {
-        doSetManyPoint_NotEqual(manyPoint);
-    }
-
-    protected void doSetManyPoint_NotEqual(Integer manyPoint) {
-        regManyPoint(CK_NES, manyPoint);
     }
 
     /**

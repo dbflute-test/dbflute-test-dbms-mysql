@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MANY_ID: {PK, NotNull, INT(10)}
-     * @param manyId The value of manyId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setManyId_NotEqual(Integer manyId) {
-        doSetManyId_NotEqual(manyId);
-    }
-
-    protected void doSetManyId_NotEqual(Integer manyId) {
-        regManyId(CK_NES, manyId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MANY_ID: {PK, NotNull, INT(10)}
      * @param manyId The value of manyId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -300,19 +287,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SUPPRESS_JOIN_SQ_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setSuppressJoinSqId_NotEqual(Integer suppressJoinSqId) {
-        doSetSuppressJoinSqId_NotEqual(suppressJoinSqId);
-    }
-
-    protected void doSetSuppressJoinSqId_NotEqual(Integer suppressJoinSqId) {
-        regSuppressJoinSqId(CK_NES, suppressJoinSqId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq}
      * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -414,19 +388,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqManyCQ extends AbstractCondit
 
     protected void doSetManyOneId_Equal(Integer manyOneId) {
         regManyOneId(CK_EQ, manyOneId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MANY_ONE_ID: {IX, NotNull, INT(10), FK to white_suppress_join_sq_many_one}
-     * @param manyOneId The value of manyOneId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setManyOneId_NotEqual(Integer manyOneId) {
-        doSetManyOneId_NotEqual(manyOneId);
-    }
-
-    protected void doSetManyOneId_NotEqual(Integer manyOneId) {
-        regManyOneId(CK_NES, manyOneId);
     }
 
     /**

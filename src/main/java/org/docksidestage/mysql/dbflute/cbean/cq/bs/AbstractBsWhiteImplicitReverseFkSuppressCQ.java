@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setWhiteImplicitReverseFkSuppressId_NotEqual(Integer whiteImplicitReverseFkSuppressId) {
-        doSetWhiteImplicitReverseFkSuppressId_NotEqual(whiteImplicitReverseFkSuppressId);
-    }
-
-    protected void doSetWhiteImplicitReverseFkSuppressId_NotEqual(Integer whiteImplicitReverseFkSuppressId) {
-        regWhiteImplicitReverseFkSuppressId(CK_NES, whiteImplicitReverseFkSuppressId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * WHITE_IMPLICIT_REVERSE_FK_SUPPRESS_ID: {PK, ID, NotNull, INT(10)}
      * @param whiteImplicitReverseFkSuppressId The value of whiteImplicitReverseFkSuppressId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -198,19 +185,6 @@ public abstract class AbstractBsWhiteImplicitReverseFkSuppressCQ extends Abstrac
 
     protected void doSetWhiteImplicitReverseFkId_Equal(Integer whiteImplicitReverseFkId) {
         regWhiteImplicitReverseFkId(CK_EQ, whiteImplicitReverseFkId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * WHITE_IMPLICIT_REVERSE_FK_ID: {UQ+, NotNull, INT(10)}
-     * @param whiteImplicitReverseFkId The value of whiteImplicitReverseFkId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setWhiteImplicitReverseFkId_NotEqual(Integer whiteImplicitReverseFkId) {
-        doSetWhiteImplicitReverseFkId_NotEqual(whiteImplicitReverseFkId);
-    }
-
-    protected void doSetWhiteImplicitReverseFkId_NotEqual(Integer whiteImplicitReverseFkId) {
-        regWhiteImplicitReverseFkId(CK_NES, whiteImplicitReverseFkId);
     }
 
     /**

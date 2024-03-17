@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteMyselfCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MYSELF_ID: {PK, NotNull, INT(10)}
-     * @param myselfId The value of myselfId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMyselfId_NotEqual(Integer myselfId) {
-        doSetMyselfId_NotEqual(myselfId);
-    }
-
-    protected void doSetMyselfId_NotEqual(Integer myselfId) {
-        regMyselfId(CK_NES, myselfId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MYSELF_ID: {PK, NotNull, INT(10)}
      * @param myselfId The value of myselfId as greaterThan. (basically NotNull: error as default, or no condition as option)

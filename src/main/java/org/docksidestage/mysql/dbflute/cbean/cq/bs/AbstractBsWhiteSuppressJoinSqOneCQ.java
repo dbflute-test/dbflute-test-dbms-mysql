@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ONE_ID: {PK, NotNull, INT(10)}
-     * @param oneId The value of oneId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setOneId_NotEqual(Integer oneId) {
-        doSetOneId_NotEqual(oneId);
-    }
-
-    protected void doSetOneId_NotEqual(Integer oneId) {
-        regOneId(CK_NES, oneId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * ONE_ID: {PK, NotNull, INT(10)}
      * @param oneId The value of oneId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -300,19 +287,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
-     * @param suppressJoinSqId The value of suppressJoinSqId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setSuppressJoinSqId_NotEqual(Integer suppressJoinSqId) {
-        doSetSuppressJoinSqId_NotEqual(suppressJoinSqId);
-    }
-
-    protected void doSetSuppressJoinSqId_NotEqual(Integer suppressJoinSqId) {
-        regSuppressJoinSqId(CK_NES, suppressJoinSqId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * SUPPRESS_JOIN_SQ_ID: {UQ, NotNull, INT(10), FK to white_suppress_join_sq}
      * @param suppressJoinSqId The value of suppressJoinSqId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -414,19 +388,6 @@ public abstract class AbstractBsWhiteSuppressJoinSqOneCQ extends AbstractConditi
 
     protected void doSetOneAddiId_Equal(Integer oneAddiId) {
         regOneAddiId(CK_EQ, oneAddiId);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * ONE_ADDI_ID: {NotNull, INT(10), FK to WHITE_SUPPRESS_JOIN_SQ_ONE_ADDI}
-     * @param oneAddiId The value of oneAddiId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setOneAddiId_NotEqual(Integer oneAddiId) {
-        doSetOneAddiId_NotEqual(oneAddiId);
-    }
-
-    protected void doSetOneAddiId_NotEqual(Integer oneAddiId) {
-        regOneAddiId(CK_NES, oneAddiId);
     }
 
     /**

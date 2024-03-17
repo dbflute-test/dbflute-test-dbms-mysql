@@ -72,19 +72,6 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
-     * @param xlsManId The value of xlsManId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setXlsManId_NotEqual(Long xlsManId) {
-        doSetXlsManId_NotEqual(xlsManId);
-    }
-
-    protected void doSetXlsManId_NotEqual(Long xlsManId) {
-        regXlsManId(CK_NES, xlsManId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * XLS_MAN_ID: {PK, ID, NotNull, BIGINT(19)}
      * @param xlsManId The value of xlsManId as greaterThan. (basically NotNull: error as default, or no condition as option)

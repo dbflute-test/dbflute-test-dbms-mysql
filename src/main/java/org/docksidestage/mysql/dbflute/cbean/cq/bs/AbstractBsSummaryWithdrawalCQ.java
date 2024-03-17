@@ -72,19 +72,6 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MEMBER_ID: {NotNull, INT(10)}
-     * @param memberId The value of memberId as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMemberId_NotEqual(Integer memberId) {
-        doSetMemberId_NotEqual(memberId);
-    }
-
-    protected void doSetMemberId_NotEqual(Integer memberId) {
-        regMemberId(CK_NES, memberId);
-    }
-
-    /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * MEMBER_ID: {NotNull, INT(10)}
      * @param memberId The value of memberId as greaterThan. (basically NotNull: error as default, or no condition as option)
@@ -1007,19 +994,6 @@ public abstract class AbstractBsSummaryWithdrawalCQ extends AbstractConditionQue
 
     protected void doSetMaxPurchasePrice_Equal(Long maxPurchasePrice) {
         regMaxPurchasePrice(CK_EQ, maxPurchasePrice);
-    }
-
-    /**
-     * NotEqual(&lt;&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * MAX_PURCHASE_PRICE: {BIGINT(19)}
-     * @param maxPurchasePrice The value of maxPurchasePrice as notEqual. (basically NotNull: error as default, or no condition as option)
-     */
-    public void setMaxPurchasePrice_NotEqual(Long maxPurchasePrice) {
-        doSetMaxPurchasePrice_NotEqual(maxPurchasePrice);
-    }
-
-    protected void doSetMaxPurchasePrice_NotEqual(Long maxPurchasePrice) {
-        regMaxPurchasePrice(CK_NES, maxPurchasePrice);
     }
 
     /**
