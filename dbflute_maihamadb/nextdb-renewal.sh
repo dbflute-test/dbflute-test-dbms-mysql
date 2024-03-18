@@ -26,6 +26,8 @@ echo "nnnnnnnnnn/"
 sh $DBFLUTE_HOME/etc/cmd/_df-doc.sh $MY_PROPERTIES_PATH
 taskReturnCode=$?
 
+unset DBFLUTE_ENVIRONMENT_TYPE
+
 if [ $taskReturnCode -ne 0 ];then
   exit $taskReturnCode;
 fi
