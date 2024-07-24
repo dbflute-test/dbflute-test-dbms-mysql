@@ -357,7 +357,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
-                assertNotNull(precision);
+                //assertNotNull(precision); null allowed since JDBC-8.0.x
                 assertNotNull(length);
                 //assertNotNull(scale); null or not null
                 assertNotNull(dataType);
