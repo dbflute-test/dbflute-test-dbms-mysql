@@ -1,0 +1,85 @@
+map:{
+    ; 2024/07/25 15:54:55.313 = map:{
+        ; diffDate = 2024/07/25 15:54:55.313
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_DATETIME_3_MILLIS = map:{
+                        ; columnName = TYPE_OF_DATETIME_3_MILLIS
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 23
+                            ; previous = 19
+                        }
+                    }
+                    ; TYPE_OF_DATETIME_6_MICROS = map:{
+                        ; columnName = TYPE_OF_DATETIME_6_MICROS
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 26
+                            ; previous = 19
+                        }
+                    }
+                    ; TYPE_OF_TIMESTAMP = map:{
+                        ; columnName = TYPE_OF_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = "CURRENT_TIMESTAMP"
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                    ; TYPE_OF_YEAR = map:{
+                        ; columnName = TYPE_OF_YEAR
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 4
+                            ; previous = null
+                        }
+                    }
+                    ; TYPE_OF_BOOLEAN = map:{
+                        ; columnName = TYPE_OF_BOOLEAN
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 1
+                            ; previous = null
+                        }
+                    }
+                    ; TYPE_OF_ENUM_INT = map:{
+                        ; columnName = TYPE_OF_ENUM_INT
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 1
+                            ; previous = 2
+                        }
+                    }
+                    ; TYPE_OF_JSON = map:{
+                        ; columnName = TYPE_OF_JSON
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 1073741824
+                            ; previous = null
+                        }
+                    }
+                }
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.SP_VARIOUS_TYPE_PARAMETER = map:{
+                ; procedureName = maihamadb.SP_VARIOUS_TYPE_PARAMETER
+                ; diffType = CHANGE
+                ; sourceHashDiff = map:{
+                    ; next = "2c884da6"
+                    ; previous = "49890c55"
+                }
+            }
+        }
+    }
+}

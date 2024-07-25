@@ -16,7 +16,10 @@
 		<seasar.version>2.4.46</seasar.version>
 		<javassist.version>3.20.0-GA</javassist.version> <!-- java8 needs newer version -->
 		<dbflute.version>1.2.8</dbflute.version>
-		<mysql.jdbc.version>8.0.30</mysql.jdbc.version>
+		<mysql.jdbc.version>8.0.33</mysql.jdbc.version>
+		<!-- for the test of other JDBC versions
+		<mysql.jdbc.version>5.1.49</mysql.jdbc.version>
+		 -->
 		<utflute.version>0.9.5</utflute.version>
 	</properties>
 
@@ -204,8 +207,14 @@
 			<version>${dbflute.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<!-- old groupId (until e.g. 8.0.x)
+			-->
+			 <groupId>mysql</groupId>
+			 <artifactId>mysql-connector-java</artifactId>
+			<!-- new groupId (since e.g. 8.0.x)
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			 -->
 			<version>${mysql.jdbc.version}</version>
 			<!-- use RowData in MemberBhv for test -->
 			<!-- <scope>runtime</scope> -->
