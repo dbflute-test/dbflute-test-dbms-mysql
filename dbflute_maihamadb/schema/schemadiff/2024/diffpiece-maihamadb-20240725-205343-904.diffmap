@@ -1,0 +1,17 @@
+map:{
+    ; 2024/07/25 20:53:43.904 = map:{
+        ; diffDate = 2024/07/25 20:53:43.904
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; procedureDiff = map:{
+            ; newurayasudb.SP_NEXT_IN_OUT_PARAMETER = map:{
+                ; procedureName = newurayasudb.SP_NEXT_IN_OUT_PARAMETER
+                ; diffType = CHANGE
+                ; sourceHashDiff = map:{
+                    ; next = "72943c2c"
+                    ; previous = "ade8e4ea"
+                }
+            }
+        }
+    }
+}

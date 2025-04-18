@@ -1,0 +1,13 @@
+map:{
+    ; 2025/04/18 19:44:34.175 = map:{
+        ; diffDate = 2025/04/18 19:44:34.175
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; procedureDiff = map:{
+            ; maihamadb.SP_POINT_TYPE_MAPPING = map:{
+                ; procedureName = maihamadb.SP_POINT_TYPE_MAPPING
+                ; diffType = ADD
+            }
+        }
+    }
+}
