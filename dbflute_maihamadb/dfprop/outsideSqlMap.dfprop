@@ -21,6 +21,13 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # you can change the property type for procedure parameter by naming
+    ; procedureParameterPointJdbcTypeMappingMap = map:{
+        ; SP_POINT_TYPE_MAPPING = map:{
+            ; prefix:v_in_var = DATE
+        }
+    }
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isGenerateProcedureParameterBean: (NotRequired - Default false)
     #   [true]

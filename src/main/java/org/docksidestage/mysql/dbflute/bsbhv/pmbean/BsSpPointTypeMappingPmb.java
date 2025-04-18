@@ -44,7 +44,7 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
     //                                                                           Attribute
     //                                                                           =========
     /** The parameter of VInVarchar: {VARCHAR(32) as In}. */
-    protected String _vInVarchar;
+    protected java.time.LocalDate _vInVarchar;
 
     /** The parameter of VOutVarchar: {VARCHAR(32) as Out}. */
     protected String _vOutVarchar;
@@ -168,15 +168,15 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
      * [get] VInVarchar: {VARCHAR(32) as In} <br>
      * @return The value of VInVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public String getVInVarchar() {
-        return filterStringParameter(_vInVarchar);
+    public java.time.LocalDate getVInVarchar() {
+        return _vInVarchar;
     }
 
     /**
      * [set] VInVarchar: {VARCHAR(32) as In} <br>
      * @param vInVarchar The value of VInVarchar. (NullAllowed)
      */
-    public void setVInVarchar(String vInVarchar) {
+    public void setVInVarchar(java.time.LocalDate vInVarchar) {
         _vInVarchar = vInVarchar;
     }
 

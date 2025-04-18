@@ -1,5 +1,7 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
+import java.time.LocalDate;
+
 import org.docksidestage.mysql.dbflute.exbhv.WhitePointTypeMappingBhv;
 import org.docksidestage.mysql.dbflute.exbhv.pmbean.SpPointTypeMappingPmb;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
@@ -14,17 +16,21 @@ public class WxProcedurePointTypeMappingTest extends UnitContainerTestCase {
 
     public void test_procedureParameter_pointTypeMapping() throws Exception { // expects compile-safe
         // ## Arrange ##
+        LocalDate inDate = LocalDate.of(2025, 4, 18);
         SpPointTypeMappingPmb pmb = new SpPointTypeMappingPmb();
-        pmb.setVInVarchar("sea");
+        pmb.setVInVarchar(inDate);
         pmb.setVInoutVarchar("land");
 
         // ## Act ##
         whitePointTypeMappingBhv.outsideSql().call(pmb);
 
         // ## Assert ##
-        String vInVarchar = pmb.getVInVarchar();
+        LocalDate vInVarchar = pmb.getVInVarchar();
         String vOutVarchar = pmb.getVOutVarchar();
         String vInoutVarchar = pmb.getVInoutVarchar();
         log(vInVarchar, vOutVarchar, vInoutVarchar);
+        assertEquals(inDate, vInVarchar);
+        assertEquals("land", vOutVarchar);
+        assertEquals(inDate.toString(), vInoutVarchar);
     }
 }
