@@ -22,6 +22,7 @@ import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.mysql.dbflute.allcommon.*;
+import org.docksidestage.mysql.dbflute.exentity.customize.*;
 
 /**
  * The base class for procedure parameter-bean of SpPointTypeMapping. <br>
@@ -39,6 +40,7 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
     public static final String VInVarchar_PROCEDURE_PARAMETER = "in, 0";
     public static final String VOutVarchar_PROCEDURE_PARAMETER = "out, 1";
     public static final String VInoutVarchar_PROCEDURE_PARAMETER = "inout, 2";
+    public static final String notParamResult1_PROCEDURE_PARAMETER = "notParamResult, 1000";
 
     // ===================================================================================
     //                                                                           Attribute
@@ -51,6 +53,9 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
 
     /** The parameter of VInoutVarchar: {VARCHAR(32) as InOut}. */
     protected String _vInoutVarchar;
+
+    /** The parameter of notParamResult1. */
+    protected List<SpPointTypeMappingNotParamResult1> _notParamResult1;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -156,6 +161,7 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
         sb.append(dm).append(_vInVarchar);
         sb.append(dm).append(_vOutVarchar);
         sb.append(dm).append(_vInoutVarchar);
+        sb.append(dm).append(_notParamResult1);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
@@ -210,5 +216,21 @@ public class BsSpPointTypeMappingPmb implements ProcedurePmb, FetchBean {
      */
     public void setVInoutVarchar(String vInoutVarchar) {
         _vInoutVarchar = vInoutVarchar;
+    }
+
+    /**
+     * [get] notParamResult1 <br>
+     * @return The value of notParamResult1. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<SpPointTypeMappingNotParamResult1> getNotParamResult1() {
+        return _notParamResult1;
+    }
+
+    /**
+     * [set] notParamResult1 <br>
+     * @param notParamResult1 The value of notParamResult1. (NullAllowed)
+     */
+    public void setNotParamResult1(List<SpPointTypeMappingNotParamResult1> notParamResult1) {
+        _notParamResult1 = notParamResult1;
     }
 }

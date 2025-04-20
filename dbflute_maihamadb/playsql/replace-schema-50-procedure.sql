@@ -111,6 +111,8 @@ create procedure SP_POINT_TYPE_MAPPING(
 begin
   set v_out_varchar = v_inout_varchar;
   set v_inout_varchar = v_in_varchar;
+  select MEMBER_ID, MEMBER_NAME, BIRTHDATE, FORMALIZED_DATETIME, MEMBER_STATUS_CODE
+    from `MEMBER`
+   where MEMBER_STATUS_CODE = v_in_varchar;
 end;
 -- #df:end#
-

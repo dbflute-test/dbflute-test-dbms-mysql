@@ -1,9 +1,11 @@
 package org.docksidestage.mysql.dbflute.whitebox.dfprop;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.docksidestage.mysql.dbflute.exbhv.WhitePointTypeMappingBhv;
 import org.docksidestage.mysql.dbflute.exbhv.pmbean.SpPointTypeMappingPmb;
+import org.docksidestage.mysql.dbflute.exentity.customize.SpPointTypeMappingNotParamResult1;
 import org.docksidestage.mysql.unit.UnitContainerTestCase;
 
 /**
@@ -32,5 +34,11 @@ public class WxProcedurePointTypeMappingTest extends UnitContainerTestCase {
         assertEquals(inDate, vInVarchar);
         assertEquals("land", vOutVarchar);
         assertEquals(inDate.toString(), vInoutVarchar);
+
+        List<SpPointTypeMappingNotParamResult1> result1List = pmb.getNotParamResult1();
+        for (SpPointTypeMappingNotParamResult1 result1 : result1List) {
+            LocalDate memberName = result1.getMemberName(); // changed by typeMapping
+            log(memberName);
+        }
     }
 }
