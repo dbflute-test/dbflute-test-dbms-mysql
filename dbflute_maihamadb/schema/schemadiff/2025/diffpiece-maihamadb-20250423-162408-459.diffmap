@@ -1,0 +1,33 @@
+map:{
+    ; 2025/04/23 16:24:08.459 = map:{
+        ; diffDate = 2025/04/23 16:24:08.459
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; procedureDiff = map:{
+            ; maihamadb.FN_IN_OUT_PARAMETER = map:{
+                ; procedureName = maihamadb.FN_IN_OUT_PARAMETER
+                ; diffType = ADD
+            }
+            ; maihamadb.FN_NO_PARAMETER = map:{
+                ; procedureName = maihamadb.FN_NO_PARAMETER
+                ; diffType = ADD
+            }
+            ; maihamadb.SP_POINT_TYPE_MAPPING = map:{
+                ; procedureName = maihamadb.SP_POINT_TYPE_MAPPING
+                ; diffType = CHANGE
+                ; sourceLineDiff = map:{
+                    ; next = "7"
+                    ; previous = "4"
+                }
+                ; sourceSizeDiff = map:{
+                    ; next = "232"
+                    ; previous = "86"
+                }
+                ; sourceHashDiff = map:{
+                    ; next = "d2c2506e"
+                    ; previous = "cf957bfd"
+                }
+            }
+        }
+    }
+}

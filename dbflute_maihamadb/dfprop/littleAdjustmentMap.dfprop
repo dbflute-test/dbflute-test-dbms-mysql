@@ -44,6 +44,10 @@ map:{
     # comment out if you test
     #; isInsertOrUpdateCountPreCheck = true
 
+    # the test of compatible for procedure (function) return value name
+    # comment out if you test
+    #; isCompatibleProcedureReturnValueNameAsArg = true
+    
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]
