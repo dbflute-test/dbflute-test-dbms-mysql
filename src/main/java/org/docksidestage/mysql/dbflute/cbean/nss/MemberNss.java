@@ -116,7 +116,6 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      * @deprecated the test of dep
      */
-    @SuppressWarnings("deprecation")
     public MemberLoginNss withMemberLoginAsLocalBindOverTest(final Integer displayOrder) {
         _query.xdoNss(() -> _query.queryMemberLoginAsLocalBindOverTest(displayOrder));
         return new MemberLoginNss(_query.queryMemberLoginAsLocalBindOverTest(displayOrder));
