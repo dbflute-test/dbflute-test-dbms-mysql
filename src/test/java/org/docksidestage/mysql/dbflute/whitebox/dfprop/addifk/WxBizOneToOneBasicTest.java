@@ -120,13 +120,17 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         });
 
         // ## Act ##
-        memberBhv.selectList(cb -> {
-            cb.setupSelect_MemberLoginAsLoginStatusFixedCls();
-        });
+        try {
+            memberBhv.selectList(cb -> {
+                cb.setupSelect_MemberLoginAsLoginStatusFixedCls();
+            });
 
-        // ## Assert ##
-        String sql = displaySqlSet.iterator().next();
-        assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE = 'SEA'");
+            // ## Assert ##
+            String sql = displaySqlSet.iterator().next();
+            assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE = 'SEA'");
+        } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
+        }
     }
 
     public void test_FixedCls_grouping() throws Exception {
@@ -139,13 +143,17 @@ public class WxBizOneToOneBasicTest extends UnitContainerTestCase {
         });
 
         // ## Act ##
-        memberBhv.selectList(cb -> {
-            cb.setupSelect_MemberLoginAsLoginStatusFixedClsGrouping();
-        });
+        try {
+            memberBhv.selectList(cb -> {
+                cb.setupSelect_MemberLoginAsLoginStatusFixedClsGrouping();
+            });
 
-        // ## Assert ##
-        String sql = displaySqlSet.iterator().next();
-        assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')");
+            // ## Assert ##
+            String sql = displaySqlSet.iterator().next();
+            assertContains(sql, ".LOGIN_MEMBER_STATUS_CODE in ('LND', 'SEA')");
+        } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
+        }
     }
 
     // ===================================================================================

@@ -39,6 +39,12 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
     //                                                                             Prepare
     //                                                                             =======
     @Override
+    public void setUp() throws Exception {
+        CallbackContext.clearCallbackContextOnThread(); // for independent test
+        super.setUp();
+    }
+
+    @Override
     protected boolean isUseOneTimeContainer() {
         return true;
     }
@@ -93,7 +99,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlLogHandlerOnThread(new SqlLogHandler() {
             public void handle(SqlLogInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
             }
         });
 
@@ -121,7 +127,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlLogHandlerOnThread(new SqlLogHandler() {
             public void handle(SqlLogInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
                 String displaySql = info.getDisplaySql();
                 log(ln() + displaySql);
                 assertNotNull(displaySql);
@@ -156,7 +162,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlResultHandlerOnThread(new SqlResultHandler() {
             public void handle(SqlResultInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
             }
         });
 
@@ -184,7 +190,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlResultHandlerOnThread(new SqlResultHandler() {
             public void handle(SqlResultInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
                 String displaySql = info.getSqlLogInfo().getDisplaySql();
                 log(ln() + displaySql);
                 assertNotNull(displaySql);
@@ -220,7 +226,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlResultHandlerOnThread(new SqlResultHandler() {
             public void handle(SqlResultInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
                 String displaySql = info.getSqlLogInfo().getDisplaySql();
                 log(ln() + displaySql);
                 assertNotNull(displaySql);
@@ -263,7 +269,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlResultHandlerOnThread(new SqlResultHandler() {
             public void handle(SqlResultInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
                 String displaySql = info.getSqlLogInfo().getDisplaySql();
                 log(ln() + displaySql);
                 assertNotNull(displaySql);
@@ -297,7 +303,7 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
         CallbackContext.setSqlResultHandlerOnThread(new SqlResultHandler() {
             public void handle(SqlResultInfo info) {
                 traceSet.add("handle");
-                assertNull(getCachedDisplaySql(info));
+                assertNull("info: " + info, getCachedDisplaySql(info));
                 String displaySql = info.getSqlLogInfo().getDisplaySql();
                 log(ln() + displaySql);
                 assertNotNull(displaySql);

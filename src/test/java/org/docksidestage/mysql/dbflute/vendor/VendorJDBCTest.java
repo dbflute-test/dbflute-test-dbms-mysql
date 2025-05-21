@@ -341,6 +341,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
             }
             // ## Assert ##
         } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
             CallbackContext.clearSqlStringFilterOnThread();
         }
     }

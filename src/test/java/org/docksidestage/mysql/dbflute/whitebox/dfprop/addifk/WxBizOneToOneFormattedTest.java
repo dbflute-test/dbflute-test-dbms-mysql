@@ -32,13 +32,17 @@ public class WxBizOneToOneFormattedTest extends UnitContainerTestCase {
                 sqlList.add(info.getDisplaySql());
             }
         });
-        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+        try {
+            ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
-        // ## Assert ##
-        assertHasAnyElement(memberList);
-        String sql = sqlList.get(0);
-        log(ln() + sql);
-        assertEquals(2, Srl.count(sql, "     and dfrel"));
+            // ## Assert ##
+            assertHasAnyElement(memberList);
+            String sql = sqlList.get(0);
+            log(ln() + sql);
+            assertEquals(2, Srl.count(sql, "     and dfrel"));
+        } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
+        }
     }
 
     public void test_formatted_long() {
@@ -53,13 +57,17 @@ public class WxBizOneToOneFormattedTest extends UnitContainerTestCase {
                 sqlList.add(info.getDisplaySql());
             }
         });
-        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+        try {
+            ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
-        // ## Assert ##
-        assertHasAnyElement(memberList);
-        String sql = sqlList.get(0);
-        log(ln() + sql);
-        assertEquals(2, Srl.count(sql, "     and dfrel"));
+            // ## Assert ##
+            assertHasAnyElement(memberList);
+            String sql = sqlList.get(0);
+            log(ln() + sql);
+            assertEquals(2, Srl.count(sql, "     and dfrel"));
+        } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
+        }
     }
 
     public void test_formatted_many() {
@@ -74,15 +82,19 @@ public class WxBizOneToOneFormattedTest extends UnitContainerTestCase {
                 sqlList.add(info.getDisplaySql());
             }
         });
-        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+        try {
+            ListResultBean<Member> memberList = memberBhv.selectList(cb);
 
-        // ## Assert ##
-        assertHasAnyElement(memberList);
-        String sql = sqlList.get(0);
-        log(ln() + sql);
-        assertEquals(5, Srl.count(sql, "\n                         left outer join "));
-        assertEquals(1, Srl.count(sql, "\n                      where dffixedjoin"));
-        assertEquals(4, Srl.count(sql, "\n                        and dffixedjoin"));
-        assertEquals(2, Srl.count(sql, "\n     and dfrel"));
+            // ## Assert ##
+            assertHasAnyElement(memberList);
+            String sql = sqlList.get(0);
+            log(ln() + sql);
+            assertEquals(5, Srl.count(sql, "\n                         left outer join "));
+            assertEquals(1, Srl.count(sql, "\n                      where dffixedjoin"));
+            assertEquals(4, Srl.count(sql, "\n                        and dffixedjoin"));
+            assertEquals(2, Srl.count(sql, "\n     and dfrel"));
+        } finally {
+            CallbackContext.clearSqlLogHandlerOnThread();
+        }
     }
 }
