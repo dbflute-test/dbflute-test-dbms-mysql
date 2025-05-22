@@ -39,12 +39,6 @@ public class WxSqlLoggingDetailTest extends UnitContainerTestCase {
     //                                                                             Prepare
     //                                                                             =======
     @Override
-    public void setUp() throws Exception {
-        CallbackContext.clearCallbackContextOnThread(); // for independent test
-        super.setUp();
-    }
-
-    @Override
     protected boolean isUseOneTimeContainer() {
         return true;
     }
