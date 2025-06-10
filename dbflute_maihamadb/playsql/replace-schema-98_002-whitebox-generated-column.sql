@@ -1,0 +1,21 @@
+
+-- /= = = = = = = = = = = = = = = = = = = = = = = = =
+-- for the test of generated column (virtual)
+-- = = = = = = = = = =/
+create table WHITE_GENERATED_COLUMN_BASE (
+    COLUMN_BASE_ID BIGINT AUTO_INCREMENT NOT NULL,
+    COLUMN_BASE_NAME VARCHAR(200) NOT NULL,
+    COLUMN_BASE_NUMBER INTEGER NOT NULL,
+    COLUMN_BASE_DATETIME DATETIME NOT NULL,
+    -- unfortunately failed
+    -- Expression of generated column 'COLUMN_BASE_VIRTUAL_DATE_FORAMT' contains a disallowed function: `dateformat`.
+    -- COLUMN_BASE_VIRTUAL_DATE_FORAMT DATE generated always as (dateformat(COLUMN_BASE_DATETIME, '%Y-%m-%d')) virtual NOT NULL,
+    COLUMN_BASE_VIRTUAL_DATE_CAST DATE generated always as (cast(COLUMN_BASE_DATETIME as date)) virtual NOT NULL,
+    PRIMARY KEY (COLUMN_BASE_ID)
+);
+
+-- actually function index
+create index IX_WHITE_GENERATED_COLUMN_BASE_VIRTUAL_DATE_CAST
+    on `WHITE_GENERATED_COLUMN_BASE`(COLUMN_BASE_VIRTUAL_DATE_CAST);
+
+    
