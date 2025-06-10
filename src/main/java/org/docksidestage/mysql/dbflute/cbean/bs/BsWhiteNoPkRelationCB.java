@@ -290,22 +290,22 @@ public class BsWhiteNoPkRelationCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+         * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+         * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
         /**
-         * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+         * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
-         * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+         * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }

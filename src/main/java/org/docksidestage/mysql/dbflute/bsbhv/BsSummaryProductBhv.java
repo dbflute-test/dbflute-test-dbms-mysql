@@ -144,7 +144,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
 
     /**
      * Select the entity by the primary-key value.
-     * @param productId (商品ID): PK, NotNull, INT(10), default=[0]. (NotNull)
+     * @param productId (商品ID): PK, INT(10), default=[0]. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
@@ -173,7 +173,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorWritable<Summa
 
     /**
      * Select the entity by the unique-key value.
-     * @param productHandleCode (商品ハンドルコード): UQ, NotNull, VARCHAR(100). (NotNull)
+     * @param productHandleCode (商品ハンドルコード): UQ, VARCHAR(100). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
      * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.

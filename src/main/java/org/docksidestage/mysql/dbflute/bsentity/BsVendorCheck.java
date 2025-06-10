@@ -103,7 +103,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     /** TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)} */
     protected java.time.LocalDateTime _typeOfDatetime6Micros;
 
-    /** TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} */
+    /** TYPE_OF_TIMESTAMP: {TIMESTAMP(19)} */
     protected java.time.LocalDateTime _typeOfTimestamp;
 
     /** TYPE_OF_TIME: {TIME(8)} */
@@ -721,8 +721,8 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
-     * @return The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if selected: for the constraint)
+     * [get] TYPE_OF_TIMESTAMP: {TIMESTAMP(19)} <br>
+     * @return The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDateTime getTypeOfTimestamp() {
         checkSpecifiedProperty("typeOfTimestamp");
@@ -730,8 +730,8 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] TYPE_OF_TIMESTAMP: {NotNull, TIMESTAMP(19), default=[CURRENT_TIMESTAMP]} <br>
-     * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (basically NotNull if update: for the constraint)
+     * [set] TYPE_OF_TIMESTAMP: {TIMESTAMP(19)} <br>
+     * @param typeOfTimestamp The value of the column 'TYPE_OF_TIMESTAMP'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTimestamp(java.time.LocalDateTime typeOfTimestamp) {
         registerModifiedProperty("typeOfTimestamp");

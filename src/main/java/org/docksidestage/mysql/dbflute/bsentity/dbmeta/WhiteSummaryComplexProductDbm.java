@@ -92,29 +92,29 @@ public class WhiteSummaryComplexProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, true, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, "商品名称", String.class, "productName", null, false, false, true, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, "商品ハンドルコード", String.class, "productHandleCode", null, false, false, true, "VARCHAR", 100, 0, null, null, false, null, "商品を識別する業務上のコード。", null, null, null, false);
-    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, true, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.ProductStatus, false);
+    protected final ColumnInfo _columnProductId = cci("PRODUCT_ID", "PRODUCT_ID", null, "商品ID", Integer.class, "productId", null, false, false, false, "INT", 10, 0, null, "0", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductName = cci("PRODUCT_NAME", "PRODUCT_NAME", null, "商品名称", String.class, "productName", null, false, false, false, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductHandleCode = cci("PRODUCT_HANDLE_CODE", "PRODUCT_HANDLE_CODE", null, "商品ハンドルコード", String.class, "productHandleCode", null, false, false, false, "VARCHAR", 100, 0, null, null, false, null, "商品を識別する業務上のコード。", null, null, null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("PRODUCT_STATUS_CODE", "PRODUCT_STATUS_CODE", null, null, String.class, "productStatusCode", null, false, false, false, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.ProductStatus, false);
     protected final ColumnInfo _columnLatestPurchaseDatetime = cci("LATEST_PURCHASE_DATETIME", "LATEST_PURCHASE_DATETIME", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
 
     /**
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductId() { return _columnProductId; }
     /**
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductName() { return _columnProductName; }
     /**
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductHandleCode() { return _columnProductHandleCode; }
     /**
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnProductStatusCode() { return _columnProductStatusCode; }

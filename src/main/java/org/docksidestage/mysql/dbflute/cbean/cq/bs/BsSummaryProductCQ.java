@@ -110,14 +110,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductId_Asc() { regOBA("PRODUCT_ID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductId_Desc() { regOBD("PRODUCT_ID"); return this; }
@@ -130,14 +130,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("PRODUCT_NAME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Desc() { regOBD("PRODUCT_NAME"); return this; }
@@ -150,14 +150,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductHandleCode_Asc() { regOBA("PRODUCT_HANDLE_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("PRODUCT_HANDLE_CODE"); return this; }
@@ -170,14 +170,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("PRODUCT_STATUS_CODE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("PRODUCT_STATUS_CODE"); return this; }

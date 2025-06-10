@@ -42,16 +42,16 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]} */
+    /** (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]} */
     protected Integer _productId;
 
-    /** (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} */
+    /** (商品名称)PRODUCT_NAME: {VARCHAR(50)} */
     protected String _productName;
 
-    /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} */
+    /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)} */
     protected String _productHandleCode;
 
-    /** PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} */
+    /** PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} */
     protected String _productStatusCode;
 
     /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
@@ -82,7 +82,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     /**
      * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
-     * @param productHandleCode (商品ハンドルコード): UQ, NotNull, VARCHAR(100). (NotNull)
+     * @param productHandleCode (商品ハンドルコード): UQ, VARCHAR(100). (NotNull)
      */
     public void uniqueBy(String productHandleCode) {
         __uniqueDrivenProperties.clear();
@@ -95,7 +95,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     //                                                             =======================
     /**
      * Get the value of productStatusCode as the classification of ProductStatus. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -106,7 +106,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
 
     /**
      * Set the value of productStatusCode as the classification of ProductStatus. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -321,8 +321,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]} <br>
-     * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
+     * [get] (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]} <br>
+     * @return The value of the column 'PRODUCT_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProductId() {
         checkSpecifiedProperty("productId");
@@ -330,8 +330,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]} <br>
-     * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
+     * [set] (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]} <br>
+     * @param productId The value of the column 'PRODUCT_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
@@ -339,8 +339,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
-     * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
+     * [get] (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
+     * @return The value of the column 'PRODUCT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductName() {
         checkSpecifiedProperty("productName");
@@ -348,8 +348,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
-     * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
+     * [set] (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
+     * @param productName The value of the column 'PRODUCT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductName(String productName) {
         registerModifiedProperty("productName");
@@ -357,9 +357,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
+     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
-     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductHandleCode() {
         checkSpecifiedProperty("productHandleCode");
@@ -367,9 +367,9 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)} <br>
+     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
-     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
+     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductHandleCode(String productHandleCode) {
         registerModifiedProperty("productHandleCode");
@@ -377,8 +377,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [get] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
-     * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
+     * @return The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductStatusCode() {
         checkSpecifiedProperty("productStatusCode");
@@ -386,8 +386,8 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     }
 
     /**
-     * [set] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
-     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus} <br>
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setProductStatusCode(String productStatusCode) {
         checkClassificationCode("PRODUCT_STATUS_CODE", CDef.DefMeta.ProductStatus, productStatusCode);
@@ -415,7 +415,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
 
     /**
      * For framework so basically DON'T use this method.
-     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void mynativeMappingProductStatusCode(String productStatusCode) {
         setProductStatusCode(productStatusCode);

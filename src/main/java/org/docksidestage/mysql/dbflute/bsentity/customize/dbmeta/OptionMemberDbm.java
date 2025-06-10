@@ -109,8 +109,8 @@ public class OptionMemberDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnMemberStatusCode = cci("MEMBER_STATUS_CODE", "MEMBER_STATUS_CODE", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, false, "CHAR", 3, 0, null, null, false, null, null, null, null, CDef.DefMeta.MemberStatus, false);
     protected final ColumnInfo _columnStatusDisplayOrder = cci("STATUS_DISPLAY_ORDER", "STATUS_DISPLAY_ORDER", null, "表示順", Integer.class, "statusDisplayOrder", null, false, false, false, "INT", 11, 0, null, null, false, null, "UI上のステータスの表示順を示すNO。\n並べるときは、このカラムに対して昇順のソート条件にする。", null, null, null, false);
     protected final ColumnInfo _columnMemberStatusName = cci("MEMBER_STATUS_NAME", "MEMBER_STATUS_NAME", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "VARCHAR", 50, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnDummyFlg = cci("DUMMY_FLG", "DUMMY_FLG", null, null, Long.class, "dummyFlg", null, false, false, false, "BIGINT", 1, 0, null, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnDummyNoflg = cci("DUMMY_NOFLG", "DUMMY_NOFLG", null, null, Long.class, "dummyNoflg", null, false, false, false, "BIGINT", 1, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDummyFlg = cci("DUMMY_FLG", "DUMMY_FLG", null, null, Long.class, "dummyFlg", null, false, false, false, "BIGINT", 2, 0, null, null, false, null, null, null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnDummyNoflg = cci("DUMMY_NOFLG", "DUMMY_NOFLG", null, null, Long.class, "dummyNoflg", null, false, false, false, "BIGINT", 2, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * (会員ID)MEMBER_ID: {INT(11), refers to member.MEMBER_ID}
@@ -148,12 +148,12 @@ public class OptionMemberDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnMemberStatusName() { return _columnMemberStatusName; }
     /**
-     * DUMMY_FLG: {BIGINT(1), classification=Flg}
+     * DUMMY_FLG: {BIGINT(2), classification=Flg}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDummyFlg() { return _columnDummyFlg; }
     /**
-     * DUMMY_NOFLG: {BIGINT(1)}
+     * DUMMY_NOFLG: {BIGINT(2)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnDummyNoflg() { return _columnDummyNoflg; }

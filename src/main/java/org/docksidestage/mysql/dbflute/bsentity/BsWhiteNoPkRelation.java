@@ -40,16 +40,16 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} */
+    /** (商品ID)PRODUCT_ID: {INT(10), default=[0]} */
     protected Integer _productId;
 
-    /** (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} */
+    /** (商品名称)PRODUCT_NAME: {VARCHAR(50)} */
     protected String _productName;
 
-    /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} */
+    /** (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)} */
     protected String _productHandleCode;
 
-    /** PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} */
+    /** PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} */
     protected String _productStatusCode;
 
     /** LATEST_PURCHASE_DATETIME: {DATETIME(19)} */
@@ -81,7 +81,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     //                                                             =======================
     /**
      * Get the value of productStatusCode as the classification of ProductStatus. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -92,7 +92,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
 
     /**
      * Set the value of productStatusCode as the classification of ProductStatus. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -258,8 +258,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
-     * @return The value of the column 'PRODUCT_ID'. (basically NotNull if selected: for the constraint)
+     * [get] (商品ID)PRODUCT_ID: {INT(10), default=[0]} <br>
+     * @return The value of the column 'PRODUCT_ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProductId() {
         checkSpecifiedProperty("productId");
@@ -267,8 +267,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]} <br>
-     * @param productId The value of the column 'PRODUCT_ID'. (basically NotNull if update: for the constraint)
+     * [set] (商品ID)PRODUCT_ID: {INT(10), default=[0]} <br>
+     * @param productId The value of the column 'PRODUCT_ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductId(Integer productId) {
         registerModifiedProperty("productId");
@@ -276,8 +276,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
-     * @return The value of the column 'PRODUCT_NAME'. (basically NotNull if selected: for the constraint)
+     * [get] (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
+     * @return The value of the column 'PRODUCT_NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductName() {
         checkSpecifiedProperty("productName");
@@ -285,8 +285,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
-     * @param productName The value of the column 'PRODUCT_NAME'. (basically NotNull if update: for the constraint)
+     * [set] (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
+     * @param productName The value of the column 'PRODUCT_NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductName(String productName) {
         registerModifiedProperty("productName");
@@ -294,9 +294,9 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * [get] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
-     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if selected: for the constraint)
+     * @return The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductHandleCode() {
         checkSpecifiedProperty("productHandleCode");
@@ -304,9 +304,9 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * [set] (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)} <br>
      * 商品を識別する業務上のコード。
-     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (basically NotNull if update: for the constraint)
+     * @param productHandleCode The value of the column 'PRODUCT_HANDLE_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductHandleCode(String productHandleCode) {
         registerModifiedProperty("productHandleCode");
@@ -314,8 +314,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [get] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
-     * @return The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if selected: for the constraint)
+     * [get] PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
+     * @return The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductStatusCode() {
         checkSpecifiedProperty("productStatusCode");
@@ -323,8 +323,8 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
     }
 
     /**
-     * [set] PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
-     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
+     * [set] PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setProductStatusCode(String productStatusCode) {
         checkClassificationCode("PRODUCT_STATUS_CODE", CDef.DefMeta.ProductStatus, productStatusCode);
@@ -352,7 +352,7 @@ public abstract class BsWhiteNoPkRelation extends AbstractEntity implements Doma
 
     /**
      * For framework so basically DON'T use this method.
-     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (basically NotNull if update: for the constraint)
+     * @param productStatusCode The value of the column 'PRODUCT_STATUS_CODE'. (NullAllowed: null update allowed for no constraint)
      */
     public void mynativeMappingProductStatusCode(String productStatusCode) {
         setProductStatusCode(productStatusCode);

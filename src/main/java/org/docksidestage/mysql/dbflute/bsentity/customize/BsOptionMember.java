@@ -60,10 +60,10 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     /** (会員ステータス名称)MEMBER_STATUS_NAME: {VARCHAR(50), refers to member_status.MEMBER_STATUS_NAME} */
     protected String _memberStatusName;
 
-    /** DUMMY_FLG: {BIGINT(1), classification=Flg} */
+    /** DUMMY_FLG: {BIGINT(2), classification=Flg} */
     protected Long _dummyFlg;
 
-    /** DUMMY_NOFLG: {BIGINT(1)} */
+    /** DUMMY_NOFLG: {BIGINT(2)} */
     protected Long _dummyNoflg;
 
     // ===================================================================================
@@ -113,7 +113,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
 
     /**
      * Get the value of dummyFlg as the classification of Flg. <br>
-     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
+     * DUMMY_FLG: {BIGINT(2), classification=Flg} <br>
      * フラグを示す
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -124,7 +124,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
 
     /**
      * Set the value of dummyFlg as the classification of Flg. <br>
-     * DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
+     * DUMMY_FLG: {BIGINT(2), classification=Flg} <br>
      * フラグを示す
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -501,7 +501,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
+     * [get] DUMMY_FLG: {BIGINT(2), classification=Flg} <br>
      * @return The value of the column 'DUMMY_FLG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getDummyFlg() {
@@ -510,7 +510,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] DUMMY_FLG: {BIGINT(1), classification=Flg} <br>
+     * [set] DUMMY_FLG: {BIGINT(2), classification=Flg} <br>
      * @param dummyFlg The value of the column 'DUMMY_FLG'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setDummyFlg(Long dummyFlg) {
@@ -520,7 +520,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [get] DUMMY_NOFLG: {BIGINT(1)} <br>
+     * [get] DUMMY_NOFLG: {BIGINT(2)} <br>
      * @return The value of the column 'DUMMY_NOFLG'. (NullAllowed even if selected: for no constraint)
      */
     public Long getDummyNoflg() {
@@ -529,7 +529,7 @@ public abstract class BsOptionMember extends AbstractEntity implements Customize
     }
 
     /**
-     * [set] DUMMY_NOFLG: {BIGINT(1)} <br>
+     * [set] DUMMY_NOFLG: {BIGINT(2)} <br>
      * @param dummyNoflg The value of the column 'DUMMY_NOFLG'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDummyNoflg(Long dummyNoflg) {

@@ -99,7 +99,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param productId (商品ID): PK, NotNull, INT(10), default=[0]. (NotNull)
+     * @param productId (商品ID): PK, INT(10), default=[0]. (NotNull)
      * @return this. (NotNull)
      */
     public SummaryProductCB acceptPK(Integer productId) {
@@ -111,7 +111,7 @@ public class BsSummaryProductCB extends AbstractConditionBean {
 
     /**
      * Accept the query condition of unique key as equal.
-     * @param productHandleCode (商品ハンドルコード): UQ, NotNull, VARCHAR(100). (NotNull)
+     * @param productHandleCode (商品ハンドルコード): UQ, VARCHAR(100). (NotNull)
      * @return this. (NotNull)
      */
     public SummaryProductCB acceptUniqueOf(String productHandleCode) {
@@ -335,22 +335,22 @@ public class BsSummaryProductCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (商品ID)PRODUCT_ID: {PK, NotNull, INT(10), default=[0]}
+         * (商品ID)PRODUCT_ID: {PK, INT(10), default=[0]}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductId() { return doColumn("PRODUCT_ID"); }
         /**
-         * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+         * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductName() { return doColumn("PRODUCT_NAME"); }
         /**
-         * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, NotNull, VARCHAR(100)}
+         * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {UQ, VARCHAR(100)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductHandleCode() { return doColumn("PRODUCT_HANDLE_CODE"); }
         /**
-         * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
+         * PRODUCT_STATUS_CODE: {CHAR(3), FK to PRODUCT_STATUS, classification=ProductStatus}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnProductStatusCode() { return doColumn("PRODUCT_STATUS_CODE"); }

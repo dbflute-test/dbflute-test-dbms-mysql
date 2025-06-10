@@ -61,7 +61,9 @@
     <component name="whiteEscapedDfpropBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteEscapedDfpropBhv"/>
     <component name="whiteEscapedJavaDocBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteEscapedJavaDocBhv"/>
     <component name="whiteEscapedNumberInitialBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteEscapedNumberInitialBhv"/>
+    <component name="whiteFunctionIndexBaseBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteFunctionIndexBaseBhv"/>
     <component name="whiteGearedCipherBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteGearedCipherBhv"/>
+    <component name="whiteGeneratedColumnBaseBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteGeneratedColumnBaseBhv"/>
     <component name="whiteGroupingReferenceBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteGroupingReferenceBhv"/>
     <component name="whiteImplicitConvIntegerBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteImplicitConvIntegerBhv"/>
     <component name="whiteImplicitConvNumericBhv" class="org.docksidestage.mysql.dbflute.exbhv.WhiteImplicitConvNumericBhv"/>

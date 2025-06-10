@@ -60,7 +60,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productId The value of productId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_Equal(Integer productId) {
@@ -73,7 +73,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productId The value of productId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_GreaterThan(Integer productId) {
@@ -82,7 +82,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productId The value of productId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_LessThan(Integer productId) {
@@ -91,7 +91,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productId The value of productId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_GreaterEqual(Integer productId) {
@@ -100,7 +100,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productId The value of productId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setProductId_LessEqual(Integer productId) {
@@ -111,7 +111,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -124,7 +124,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param minNumber The min number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -135,7 +135,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productIdList The collection of productId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_InScope(Collection<Integer> productIdList) {
@@ -148,7 +148,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (商品ID)PRODUCT_ID: {NotNull, INT(10), default=[0]}
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
      * @param productIdList The collection of productId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductId_NotInScope(Collection<Integer> productIdList) {
@@ -159,12 +159,24 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
         regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "PRODUCT_ID");
     }
 
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
+     */
+    public void setProductId_IsNull() { regProductId(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * (商品ID)PRODUCT_ID: {INT(10), default=[0]}
+     */
+    public void setProductId_IsNotNull() { regProductId(CK_ISNN, DOBJ); }
+
     protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "PRODUCT_ID"); }
     protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productName The value of productName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_Equal(String productName) {
@@ -177,7 +189,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productName The value of productName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotEqual(String productName) {
@@ -190,7 +202,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productNameList The collection of productName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_InScope(Collection<String> productNameList) {
@@ -203,7 +215,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productNameList The collection of productName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductName_NotInScope(Collection<String> productNameList) {
@@ -216,7 +228,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -227,7 +239,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)} <br>
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)} <br>
      * <pre>e.g. setProductName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -239,7 +251,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -250,7 +262,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品名称)PRODUCT_NAME: {NotNull, VARCHAR(50)}
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -258,12 +270,30 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
         regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "PRODUCT_NAME", likeSearchOption);
     }
 
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
+     */
+    public void setProductName_IsNull() { regProductName(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
+     */
+    public void setProductName_IsNullOrEmpty() { regProductName(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * (商品名称)PRODUCT_NAME: {VARCHAR(50)}
+     */
+    public void setProductName_IsNotNull() { regProductName(CK_ISNN, DOBJ); }
+
     protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "PRODUCT_NAME"); }
     protected abstract ConditionValue xgetCValueProductName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCode The value of productHandleCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductHandleCode_Equal(String productHandleCode) {
@@ -276,7 +306,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCode The value of productHandleCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductHandleCode_NotEqual(String productHandleCode) {
@@ -289,7 +319,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCodeList The collection of productHandleCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductHandleCode_InScope(Collection<String> productHandleCodeList) {
@@ -302,7 +332,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCodeList The collection of productHandleCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setProductHandleCode_NotInScope(Collection<String> productHandleCodeList) {
@@ -315,7 +345,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)} <br>
      * <pre>e.g. setProductHandleCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productHandleCode The value of productHandleCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -326,7 +356,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)} <br>
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)} <br>
      * <pre>e.g. setProductHandleCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param productHandleCode The value of productHandleCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -338,7 +368,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCode The value of productHandleCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -349,7 +379,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     /**
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {NotNull, VARCHAR(100)}
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
      * @param productHandleCode The value of productHandleCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
@@ -357,12 +387,30 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
         regLSQ(CK_NLS, fRES(productHandleCode), xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE", likeSearchOption);
     }
 
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
+     */
+    public void setProductHandleCode_IsNull() { regProductHandleCode(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
+     */
+    public void setProductHandleCode_IsNullOrEmpty() { regProductHandleCode(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * (商品ハンドルコード)PRODUCT_HANDLE_CODE: {VARCHAR(100)}
+     */
+    public void setProductHandleCode_IsNotNull() { regProductHandleCode(CK_ISNN, DOBJ); }
+
     protected void regProductHandleCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductHandleCode(), "PRODUCT_HANDLE_CODE"); }
     protected abstract ConditionValue xgetCValueProductHandleCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
      * @param productStatusCode The value of productStatusCode as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setProductStatusCode_Equal(String productStatusCode) {
@@ -371,7 +419,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * Equal(=). As ProductStatus. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -409,7 +457,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
      * @param productStatusCode The value of productStatusCode as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setProductStatusCode_NotEqual(String productStatusCode) {
@@ -418,7 +466,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotEqual(&lt;&gt;). As ProductStatus. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
@@ -456,7 +504,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
      * @param productStatusCodeList The collection of productStatusCode as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setProductStatusCode_InScope(Collection<String> productStatusCodeList) {
@@ -465,7 +513,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * InScope {in ('a', 'b')}. As ProductStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -479,7 +527,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus}
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
      * @param productStatusCodeList The collection of productStatusCode as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
@@ -488,7 +536,7 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
 
     /**
      * NotInScope {not in ('a', 'b')}. As ProductStatus. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * PRODUCT_STATUS_CODE: {NotNull, CHAR(3), classification=ProductStatus} <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus} <br>
      * 商品ステータス: 商品の状態を示す
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
@@ -499,6 +547,24 @@ public abstract class AbstractBsWhiteNoPkRelationCQ extends AbstractConditionQue
     protected void doSetProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
         regINS(CK_NINS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE");
     }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
+     */
+    public void setProductStatusCode_IsNull() { regProductStatusCode(CK_ISN, DOBJ); }
+
+    /**
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
+     */
+    public void setProductStatusCode_IsNullOrEmpty() { regProductStatusCode(CK_ISNOE, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * PRODUCT_STATUS_CODE: {CHAR(3), classification=ProductStatus}
+     */
+    public void setProductStatusCode_IsNotNull() { regProductStatusCode(CK_ISNN, DOBJ); }
 
     protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusCode(), "PRODUCT_STATUS_CODE"); }
     protected abstract ConditionValue xgetCValueProductStatusCode();

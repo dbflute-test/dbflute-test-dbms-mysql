@@ -1,0 +1,39 @@
+map:{
+    ; 2025/06/10 17:23:26.279 = map:{
+        ; diffDate = 2025/06/10 17:23:26.279
+        ; tableCount = map:{
+            ; next = 123
+            ; previous = 121
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_function_index_base = map:{
+                ; tableName = white_function_index_base
+                ; diffType = ADD
+            }
+            ; white_generated_column_base = map:{
+                ; tableName = white_generated_column_base
+                ; diffType = ADD
+            }
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_TIMESTAMP = map:{
+                        ; columnName = TYPE_OF_TIMESTAMP
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = null
+                            ; previous = "CURRENT_TIMESTAMP"
+                        }
+                        ; notNullDiff = map:{
+                            ; next = false
+                            ; previous = true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

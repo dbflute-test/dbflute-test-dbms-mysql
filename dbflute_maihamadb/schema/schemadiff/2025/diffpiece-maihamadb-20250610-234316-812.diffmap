@@ -1,0 +1,27 @@
+map:{
+    ; 2025/06/10 23:43:16.812 = map:{
+        ; diffDate = 2025/06/10 23:43:16.812
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_generated_column_base = map:{
+                ; tableName = white_generated_column_base
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; COLUMN_BASE_NUMBER_FIRST = map:{
+                        ; columnName = COLUMN_BASE_NUMBER_FIRST
+                        ; diffType = ADD
+                    }
+                    ; COLUMN_BASE_NUMBER_SECOND = map:{
+                        ; columnName = COLUMN_BASE_NUMBER_SECOND
+                        ; diffType = ADD
+                    }
+                    ; COLUMN_BASE_NUMBER = map:{
+                        ; columnName = COLUMN_BASE_NUMBER
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+    }
+}
