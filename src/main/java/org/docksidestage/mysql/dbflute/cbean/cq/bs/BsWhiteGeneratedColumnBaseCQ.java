@@ -208,6 +208,26 @@ public class BsWhiteGeneratedColumnBaseCQ extends AbstractBsWhiteGeneratedColumn
      */
     public BsWhiteGeneratedColumnBaseCQ addOrderBy_ColumnBaseVirtualDateCast_Desc() { regOBD("COLUMN_BASE_VIRTUAL_DATE_CAST"); return this; }
 
+    protected ConditionValue _columnBaseVirtualDateFormat;
+    public ConditionValue xdfgetColumnBaseVirtualDateFormat()
+    { if (_columnBaseVirtualDateFormat == null) { _columnBaseVirtualDateFormat = nCV(); }
+      return _columnBaseVirtualDateFormat; }
+    protected ConditionValue xgetCValueColumnBaseVirtualDateFormat() { return xdfgetColumnBaseVirtualDateFormat(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteGeneratedColumnBaseCQ addOrderBy_ColumnBaseVirtualDateFormat_Asc() { regOBA("COLUMN_BASE_VIRTUAL_DATE_FORMAT"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @return this. (NotNull)
+     */
+    public BsWhiteGeneratedColumnBaseCQ addOrderBy_ColumnBaseVirtualDateFormat_Desc() { regOBD("COLUMN_BASE_VIRTUAL_DATE_FORMAT"); return this; }
+
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
     //                                                             =======================

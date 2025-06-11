@@ -82,6 +82,7 @@ public class WhiteGeneratedColumnBaseCIQ extends AbstractBsWhiteGeneratedColumnB
     protected ConditionValue xgetCValueColumnBaseNumberSecond() { return _myCQ.xdfgetColumnBaseNumberSecond(); }
     protected ConditionValue xgetCValueColumnBaseDatetime() { return _myCQ.xdfgetColumnBaseDatetime(); }
     protected ConditionValue xgetCValueColumnBaseVirtualDateCast() { return _myCQ.xdfgetColumnBaseVirtualDateCast(); }
+    protected ConditionValue xgetCValueColumnBaseVirtualDateFormat() { return _myCQ.xdfgetColumnBaseVirtualDateFormat(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteGeneratedColumnBaseCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

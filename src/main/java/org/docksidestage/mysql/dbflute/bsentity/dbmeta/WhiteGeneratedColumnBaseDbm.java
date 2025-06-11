@@ -63,6 +63,7 @@ public class WhiteGeneratedColumnBaseDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((WhiteGeneratedColumnBase)et).getColumnBaseNumberSecond(), (et, vl) -> ((WhiteGeneratedColumnBase)et).setColumnBaseNumberSecond(cti(vl)), "columnBaseNumberSecond");
         setupEpg(_epgMap, et -> ((WhiteGeneratedColumnBase)et).getColumnBaseDatetime(), (et, vl) -> ((WhiteGeneratedColumnBase)et).setColumnBaseDatetime(ctldt(vl)), "columnBaseDatetime");
         setupEpg(_epgMap, et -> ((WhiteGeneratedColumnBase)et).getColumnBaseVirtualDateCast(), (et, vl) -> ((WhiteGeneratedColumnBase)et).setColumnBaseVirtualDateCast(ctld(vl)), "columnBaseVirtualDateCast");
+        setupEpg(_epgMap, et -> ((WhiteGeneratedColumnBase)et).getColumnBaseVirtualDateFormat(), (et, vl) -> ((WhiteGeneratedColumnBase)et).setColumnBaseVirtualDateFormat(ctld(vl)), "columnBaseVirtualDateFormat");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -89,6 +90,7 @@ public class WhiteGeneratedColumnBaseDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnColumnBaseNumberSecond = cci("COLUMN_BASE_NUMBER_SECOND", "COLUMN_BASE_NUMBER_SECOND", null, null, Integer.class, "columnBaseNumberSecond", null, false, false, true, "INT", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnColumnBaseDatetime = cci("COLUMN_BASE_DATETIME", "COLUMN_BASE_DATETIME", null, null, java.time.LocalDateTime.class, "columnBaseDatetime", null, false, false, true, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnColumnBaseVirtualDateCast = cci("COLUMN_BASE_VIRTUAL_DATE_CAST", "COLUMN_BASE_VIRTUAL_DATE_CAST", null, null, java.time.LocalDate.class, "columnBaseVirtualDateCast", null, false, false, true, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnColumnBaseVirtualDateFormat = cci("COLUMN_BASE_VIRTUAL_DATE_FORMAT", "COLUMN_BASE_VIRTUAL_DATE_FORMAT", null, null, java.time.LocalDate.class, "columnBaseVirtualDateFormat", null, false, false, true, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * COLUMN_BASE_ID: {PK, ID, NotNull, BIGINT(19)}
@@ -120,6 +122,11 @@ public class WhiteGeneratedColumnBaseDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnColumnBaseVirtualDateCast() { return _columnColumnBaseVirtualDateCast; }
+    /**
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnColumnBaseVirtualDateFormat() { return _columnColumnBaseVirtualDateFormat; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -129,6 +136,7 @@ public class WhiteGeneratedColumnBaseDbm extends AbstractDBMeta {
         ls.add(columnColumnBaseNumberSecond());
         ls.add(columnColumnBaseDatetime());
         ls.add(columnColumnBaseVirtualDateCast());
+        ls.add(columnColumnBaseVirtualDateFormat());
         return ls;
     }
 

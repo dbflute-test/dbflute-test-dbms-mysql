@@ -57,6 +57,9 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
     /** COLUMN_BASE_VIRTUAL_DATE_CAST: {IX, NotNull, DATE(10)} */
     protected java.time.LocalDate _columnBaseVirtualDateCast;
 
+    /** COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)} */
+    protected java.time.LocalDate _columnBaseVirtualDateFormat;
+
     // ===================================================================================
     //                                                                             DB Meta
     //                                                                             =======
@@ -125,6 +128,7 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
         sb.append(dm).append(xfND(_columnBaseNumberSecond));
         sb.append(dm).append(xfND(_columnBaseDatetime));
         sb.append(dm).append(xfND(_columnBaseVirtualDateCast));
+        sb.append(dm).append(xfND(_columnBaseVirtualDateFormat));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -251,5 +255,23 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
     public void setColumnBaseVirtualDateCast(java.time.LocalDate columnBaseVirtualDateCast) {
         registerModifiedProperty("columnBaseVirtualDateCast");
         _columnBaseVirtualDateCast = columnBaseVirtualDateCast;
+    }
+
+    /**
+     * [get] COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)} <br>
+     * @return The value of the column 'COLUMN_BASE_VIRTUAL_DATE_FORMAT'. (basically NotNull if selected: for the constraint)
+     */
+    public java.time.LocalDate getColumnBaseVirtualDateFormat() {
+        checkSpecifiedProperty("columnBaseVirtualDateFormat");
+        return _columnBaseVirtualDateFormat;
+    }
+
+    /**
+     * [set] COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)} <br>
+     * @param columnBaseVirtualDateFormat The value of the column 'COLUMN_BASE_VIRTUAL_DATE_FORMAT'. (basically NotNull if update: for the constraint)
+     */
+    public void setColumnBaseVirtualDateFormat(java.time.LocalDate columnBaseVirtualDateFormat) {
+        registerModifiedProperty("columnBaseVirtualDateFormat");
+        _columnBaseVirtualDateFormat = columnBaseVirtualDateFormat;
     }
 }

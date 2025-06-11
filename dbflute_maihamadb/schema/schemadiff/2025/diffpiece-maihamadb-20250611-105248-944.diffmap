@@ -1,0 +1,17 @@
+map:{
+    ; 2025/06/11 10:52:48.944 = map:{
+        ; diffDate = 2025/06/11 10:52:48.944
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_generated_column_base = map:{
+                ; tableName = white_generated_column_base
+                ; diffType = CHANGE
+                ; columnDefOrderDiff = map:{
+                    ; next = COLUMN_BASE_VIRTUAL_DATE_CAST(6)
+                    ; previous = COLUMN_BASE_VIRTUAL_DATE_CAST(7)
+                }
+            }
+        }
+    }
+}

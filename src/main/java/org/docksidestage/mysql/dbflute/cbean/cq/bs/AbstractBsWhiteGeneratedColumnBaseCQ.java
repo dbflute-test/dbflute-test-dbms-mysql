@@ -631,6 +631,81 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
     protected void regColumnBaseVirtualDateCast(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueColumnBaseVirtualDateCast(), "COLUMN_BASE_VIRTUAL_DATE_CAST"); }
     protected abstract ConditionValue xgetCValueColumnBaseVirtualDateCast();
 
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @param columnBaseVirtualDateFormat The value of columnBaseVirtualDateFormat as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnBaseVirtualDateFormat_Equal(java.time.LocalDate columnBaseVirtualDateFormat) {
+        regColumnBaseVirtualDateFormat(CK_EQ,  columnBaseVirtualDateFormat);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @param columnBaseVirtualDateFormat The value of columnBaseVirtualDateFormat as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnBaseVirtualDateFormat_GreaterThan(java.time.LocalDate columnBaseVirtualDateFormat) {
+        regColumnBaseVirtualDateFormat(CK_GT,  columnBaseVirtualDateFormat);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @param columnBaseVirtualDateFormat The value of columnBaseVirtualDateFormat as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnBaseVirtualDateFormat_LessThan(java.time.LocalDate columnBaseVirtualDateFormat) {
+        regColumnBaseVirtualDateFormat(CK_LT,  columnBaseVirtualDateFormat);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @param columnBaseVirtualDateFormat The value of columnBaseVirtualDateFormat as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnBaseVirtualDateFormat_GreaterEqual(java.time.LocalDate columnBaseVirtualDateFormat) {
+        regColumnBaseVirtualDateFormat(CK_GE,  columnBaseVirtualDateFormat);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * @param columnBaseVirtualDateFormat The value of columnBaseVirtualDateFormat as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setColumnBaseVirtualDateFormat_LessEqual(java.time.LocalDate columnBaseVirtualDateFormat) {
+        regColumnBaseVirtualDateFormat(CK_LE, columnBaseVirtualDateFormat);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * <pre>e.g. setColumnBaseVirtualDateFormat_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseVirtualDateFormat. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseVirtualDateFormat. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setColumnBaseVirtualDateFormat_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setColumnBaseVirtualDateFormat_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+     * <pre>e.g. setColumnBaseVirtualDateFormat_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseVirtualDateFormat. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseVirtualDateFormat. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    public void setColumnBaseVirtualDateFormat_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "COLUMN_BASE_VIRTUAL_DATE_FORMAT"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueColumnBaseVirtualDateFormat(), nm, op);
+    }
+
+    protected void regColumnBaseVirtualDateFormat(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueColumnBaseVirtualDateFormat(), "COLUMN_BASE_VIRTUAL_DATE_FORMAT"); }
+    protected abstract ConditionValue xgetCValueColumnBaseVirtualDateFormat();
+
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============

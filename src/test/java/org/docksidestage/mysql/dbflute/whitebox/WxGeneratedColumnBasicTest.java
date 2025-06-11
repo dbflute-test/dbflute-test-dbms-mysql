@@ -3,6 +3,7 @@ package org.docksidestage.mysql.dbflute.whitebox;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.exception.SQLFailureException;
 import org.docksidestage.mysql.dbflute.exbhv.WhiteGeneratedColumnBaseBhv;
 import org.docksidestage.mysql.dbflute.exentity.WhiteGeneratedColumnBase;
@@ -26,14 +27,59 @@ public class WxGeneratedColumnBasicTest extends UnitContainerTestCase {
 
         // ## Act ##
         WhiteGeneratedColumnBase base = whiteGeneratedColumnBaseBhv.selectEntity(cb -> {
-            cb.query().setColumnBaseDatetime_Equal(LocalDateTime.of(2025, 6, 10, 23, 19, 48));
+            cb.query().setColumnBaseDatetime_Equal(prepareExistingBaseDatetime());
         }).orElseThrow();
 
         // ## Assert ##
-        LocalDateTime columnBaseDatetime = base.getColumnBaseDatetime();
-        LocalDate columnBaseVirtualDateCast = base.getColumnBaseVirtualDateCast();
-        log(base.getColumnBaseId(), base.getColumnBaseName(), columnBaseDatetime, columnBaseVirtualDateCast);
-        assertEquals(columnBaseDatetime.toLocalDate(), columnBaseVirtualDateCast);
+        LocalDateTime baseDatetime = base.getColumnBaseDatetime();
+        LocalDate dateCast = base.getColumnBaseVirtualDateCast();
+        LocalDate dateForamt = base.getColumnBaseVirtualDateFormat();
+        log(base.getColumnBaseId(), base.getColumnBaseName(), baseDatetime, dateCast, dateForamt);
+        LocalDate expectedDate = baseDatetime.toLocalDate();
+        assertEquals(expectedDate, dateCast);
+        assertEquals(expectedDate, dateForamt);
+    }
+
+    public void test_generatedColumn_select_byDateCast() throws Exception {
+        // ## Arrange ##
+
+        // ## Act ##
+        ListResultBean<WhiteGeneratedColumnBase> baseList = whiteGeneratedColumnBaseBhv.selectList(cb -> {
+            cb.query().setColumnBaseVirtualDateCast_Equal(prepareExistingBaseDate());
+        });
+
+        // ## Assert ##
+        assertHasAnyElement(baseList);
+        for (WhiteGeneratedColumnBase base : baseList) {
+            LocalDateTime baseDatetime = base.getColumnBaseDatetime();
+            LocalDate dateCast = base.getColumnBaseVirtualDateCast();
+            LocalDate dateForamt = base.getColumnBaseVirtualDateFormat();
+            log(base.getColumnBaseId(), base.getColumnBaseName(), baseDatetime, dateCast, dateForamt);
+            LocalDate expectedDate = baseDatetime.toLocalDate();
+            assertEquals(expectedDate, dateCast);
+            assertEquals(expectedDate, dateForamt);
+        }
+    }
+
+    public void test_generatedColumn_select_byDateFormat() throws Exception {
+        // ## Arrange ##
+
+        // ## Act ##
+        ListResultBean<WhiteGeneratedColumnBase> baseList = whiteGeneratedColumnBaseBhv.selectList(cb -> {
+            cb.query().setColumnBaseVirtualDateFormat_Equal(prepareExistingBaseDate());
+        });
+
+        // ## Assert ##
+        assertHasAnyElement(baseList);
+        for (WhiteGeneratedColumnBase base : baseList) {
+            LocalDateTime baseDatetime = base.getColumnBaseDatetime();
+            LocalDate dateCast = base.getColumnBaseVirtualDateCast();
+            LocalDate dateForamt = base.getColumnBaseVirtualDateFormat();
+            log(base.getColumnBaseId(), base.getColumnBaseName(), baseDatetime, dateCast, dateForamt);
+            LocalDate expectedDate = baseDatetime.toLocalDate();
+            assertEquals(expectedDate, dateCast);
+            assertEquals(expectedDate, dateForamt);
+        }
     }
 
     // ===================================================================================
@@ -63,7 +109,7 @@ public class WxGeneratedColumnBasicTest extends UnitContainerTestCase {
         // ## Arrange ##
         LocalDateTime currentTime = LocalDateTime.of(2012, 12, 12, 12, 12, 12); // no millisecond
         WhiteGeneratedColumnBase base = whiteGeneratedColumnBaseBhv.selectEntity(cb -> {
-            cb.query().setColumnBaseDatetime_Equal(LocalDateTime.of(2025, 6, 10, 23, 19, 48));
+            cb.query().setColumnBaseDatetime_Equal(prepareExistingBaseDatetime());
         }).orElseThrow();
         base.setColumnBaseId(null);
         base.setColumnBaseName("inserted");
@@ -82,6 +128,7 @@ public class WxGeneratedColumnBasicTest extends UnitContainerTestCase {
         }).handle(cause -> {
             // The value specified for generated column 'COLUMN_BASE_VIRTUAL_DATE_CAST'
             // in table 'white_generated_column_base' is not allowed.
+            assertContainsAll(cause.getMessage(), "COLUMN_BASE_VIRTUAL_DATE_CAST", "is not allowed");
         });
     }
 
@@ -89,7 +136,7 @@ public class WxGeneratedColumnBasicTest extends UnitContainerTestCase {
         // ## Arrange ##
         LocalDateTime currentTime = LocalDateTime.of(2012, 12, 12, 12, 12, 12); // no millisecond
         WhiteGeneratedColumnBase base = whiteGeneratedColumnBaseBhv.selectEntity(cb -> {
-            cb.query().setColumnBaseDatetime_Equal(LocalDateTime.of(2025, 6, 10, 23, 19, 48));
+            cb.query().setColumnBaseDatetime_Equal(prepareExistingBaseDatetime());
         }).orElseThrow();
         base.setColumnBaseId(null);
         base.setColumnBaseName("inserted");
@@ -111,5 +158,16 @@ public class WxGeneratedColumnBasicTest extends UnitContainerTestCase {
             cb.query().setColumnBaseDatetime_Equal(currentTime); // also no millisecond
         }).orElseThrow(); // so surely selected
         log(actual);
+    }
+
+    // ===================================================================================
+    //                                                                        Small Helper
+    //                                                                        ============
+    private LocalDate prepareExistingBaseDate() {
+        return LocalDate.of(2025, 6, 10);
+    }
+
+    private LocalDateTime prepareExistingBaseDatetime() {
+        return LocalDateTime.of(2025, 6, 10, 23, 19, 48);
     }
 }

@@ -331,6 +331,11 @@ public class BsWhiteGeneratedColumnBaseCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnColumnBaseVirtualDateCast() { return doColumn("COLUMN_BASE_VIRTUAL_DATE_CAST"); }
+        /**
+         * COLUMN_BASE_VIRTUAL_DATE_FORMAT: {IX, NotNull, DATE(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnColumnBaseVirtualDateFormat() { return doColumn("COLUMN_BASE_VIRTUAL_DATE_FORMAT"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
