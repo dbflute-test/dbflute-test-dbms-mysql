@@ -113,7 +113,7 @@ public class WhiteGeneratedColumnBaseDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnColumnBaseNumberSecond() { return _columnColumnBaseNumberSecond; }
     /**
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnColumnBaseDatetime() { return _columnColumnBaseDatetime; }

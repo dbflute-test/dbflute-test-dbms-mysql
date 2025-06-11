@@ -322,7 +322,7 @@ public class BsWhiteGeneratedColumnBaseCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnColumnBaseNumberSecond() { return doColumn("COLUMN_BASE_NUMBER_SECOND"); }
         /**
-         * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+         * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnColumnBaseDatetime() { return doColumn("COLUMN_BASE_DATETIME"); }

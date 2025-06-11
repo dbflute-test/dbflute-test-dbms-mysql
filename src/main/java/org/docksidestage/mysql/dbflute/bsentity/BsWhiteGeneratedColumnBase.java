@@ -51,7 +51,7 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
     /** COLUMN_BASE_NUMBER_SECOND: {NotNull, INT(10)} */
     protected Integer _columnBaseNumberSecond;
 
-    /** COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)} */
+    /** COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)} */
     protected java.time.LocalDateTime _columnBaseDatetime;
 
     /** COLUMN_BASE_VIRTUAL_DATE_CAST: {IX, NotNull, DATE(10)} */
@@ -222,7 +222,7 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
     }
 
     /**
-     * [get] COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [get] COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)} <br>
      * @return The value of the column 'COLUMN_BASE_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getColumnBaseDatetime() {
@@ -231,7 +231,7 @@ public abstract class BsWhiteGeneratedColumnBase extends AbstractEntity implemen
     }
 
     /**
-     * [set] COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)} <br>
+     * [set] COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)} <br>
      * @param columnBaseDatetime The value of the column 'COLUMN_BASE_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setColumnBaseDatetime(java.time.LocalDateTime columnBaseDatetime) {

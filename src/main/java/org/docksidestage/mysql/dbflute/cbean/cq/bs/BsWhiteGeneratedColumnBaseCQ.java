@@ -176,14 +176,14 @@ public class BsWhiteGeneratedColumnBaseCQ extends AbstractBsWhiteGeneratedColumn
 
     /**
      * Add order-by as ascend. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteGeneratedColumnBaseCQ addOrderBy_ColumnBaseDatetime_Asc() { regOBA("COLUMN_BASE_DATETIME"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @return this. (NotNull)
      */
     public BsWhiteGeneratedColumnBaseCQ addOrderBy_ColumnBaseDatetime_Desc() { regOBD("COLUMN_BASE_DATETIME"); return this; }

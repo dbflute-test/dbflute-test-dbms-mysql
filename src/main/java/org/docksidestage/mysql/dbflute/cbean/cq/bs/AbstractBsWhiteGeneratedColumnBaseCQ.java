@@ -483,7 +483,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @param columnBaseDatetime The value of columnBaseDatetime as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setColumnBaseDatetime_Equal(java.time.LocalDateTime columnBaseDatetime) {
@@ -492,7 +492,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @param columnBaseDatetime The value of columnBaseDatetime as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setColumnBaseDatetime_GreaterThan(java.time.LocalDateTime columnBaseDatetime) {
@@ -501,7 +501,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @param columnBaseDatetime The value of columnBaseDatetime as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setColumnBaseDatetime_LessThan(java.time.LocalDateTime columnBaseDatetime) {
@@ -510,7 +510,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @param columnBaseDatetime The value of columnBaseDatetime as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setColumnBaseDatetime_GreaterEqual(java.time.LocalDateTime columnBaseDatetime) {
@@ -519,7 +519,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * @param columnBaseDatetime The value of columnBaseDatetime as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setColumnBaseDatetime_LessEqual(java.time.LocalDateTime columnBaseDatetime) {
@@ -529,7 +529,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * <pre>e.g. setColumnBaseDatetime_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
@@ -542,7 +542,7 @@ public abstract class AbstractBsWhiteGeneratedColumnBaseCQ extends AbstractCondi
     /**
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * COLUMN_BASE_DATETIME: {NotNull, DATETIME(19)}
+     * COLUMN_BASE_DATETIME: {IX, NotNull, DATETIME(19)}
      * <pre>e.g. setColumnBaseDatetime_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of columnBaseDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
