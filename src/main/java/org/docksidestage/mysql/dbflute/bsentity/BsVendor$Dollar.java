@@ -25,7 +25,8 @@ import org.docksidestage.mysql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR_$_DOLLAR as TABLE.
+ * The entity of VENDOR_$_DOLLAR as TABLE. <br>
+ * aaaaa
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendor$Dollar extends AbstractEntity implements DomainEntity {

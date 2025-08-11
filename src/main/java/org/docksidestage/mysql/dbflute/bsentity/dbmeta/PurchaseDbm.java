@@ -161,7 +161,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnPurchaseCount() { return _columnPurchaseCount; }
     /**
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnPurchasePrice() { return _columnPurchasePrice; }

@@ -636,7 +636,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePrice The value of purchasePrice as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchasePrice_Equal(Integer purchasePrice) {
@@ -649,7 +649,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePrice The value of purchasePrice as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchasePrice_GreaterThan(Integer purchasePrice) {
@@ -658,7 +658,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePrice The value of purchasePrice as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchasePrice_LessThan(Integer purchasePrice) {
@@ -667,7 +667,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePrice The value of purchasePrice as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchasePrice_GreaterEqual(Integer purchasePrice) {
@@ -676,7 +676,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePrice The value of purchasePrice as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPurchasePrice_LessEqual(Integer purchasePrice) {
@@ -687,7 +687,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param minNumber The min number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -700,7 +700,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param minNumber The min number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param maxNumber The max number of purchasePrice. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -711,7 +711,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePriceList The collection of purchasePrice as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchasePrice_InScope(Collection<Integer> purchasePriceList) {
@@ -724,7 +724,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @param purchasePriceList The collection of purchasePrice as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPurchasePrice_NotInScope(Collection<Integer> purchasePriceList) {

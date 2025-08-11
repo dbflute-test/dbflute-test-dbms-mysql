@@ -87,6 +87,8 @@ public class MemberStatusDbm extends AbstractDBMeta {
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "会員ステータス";
     public String getTableAlias() { return _tableAlias; }
+    protected final String _tableComment = "sea\n---\nseasea";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info

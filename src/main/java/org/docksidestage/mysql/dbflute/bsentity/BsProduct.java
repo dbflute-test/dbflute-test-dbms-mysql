@@ -487,6 +487,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [get] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * sea
      * @return The value of the column 'REGISTER_DATETIME'. (basically NotNull if selected: for the constraint)
      */
     public java.time.LocalDateTime getRegisterDatetime() {
@@ -496,6 +497,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
 
     /**
      * [set] REGISTER_DATETIME: {NotNull, DATETIME(19)} <br>
+     * sea
      * @param registerDatetime The value of the column 'REGISTER_DATETIME'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {

@@ -26,7 +26,8 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (商品ステータス)PRODUCT_STATUS as TABLE.
+ * The entity of (商品ステータス)PRODUCT_STATUS as TABLE. <br>
+ * seasealand
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductStatus extends AbstractEntity implements DomainEntity {

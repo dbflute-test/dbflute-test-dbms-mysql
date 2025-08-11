@@ -132,6 +132,7 @@ public abstract class ResolaBsStation extends AbstractEntity implements DomainEn
     //                                                                            ========
     /**
      * [get] STATION_ID: {PK, NotNull, INT(10)} <br>
+     * sea
      * @return The value of the column 'STATION_ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getStationId() {
@@ -141,6 +142,7 @@ public abstract class ResolaBsStation extends AbstractEntity implements DomainEn
 
     /**
      * [set] STATION_ID: {PK, NotNull, INT(10)} <br>
+     * sea
      * @param stationId The value of the column 'STATION_ID'. (basically NotNull if update: for the constraint)
      */
     public void setStationId(Integer stationId) {

@@ -158,7 +158,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
 
     /**
      * [get] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
-     * It's joke!
+     * It&amp;#x27;s joke!joke!
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
@@ -168,7 +168,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
 
     /**
      * [set] (Mr.FOO's name)foo_name: {NotNull, UnknownType(123)} <br>
-     * It's joke!
+     * It&amp;#x27;s joke!joke!
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {
@@ -178,6 +178,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
 
     /**
      * [get] foo_date: {UnknownType} <br>
+     * &amp;#x27;&amp;#x27;&amp;#x27;
      * @return The value of the column 'foo_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.time.LocalDate getFooDate() {
@@ -187,6 +188,7 @@ public abstract class BsWhiteAdditional extends AbstractEntity implements Domain
 
     /**
      * [set] foo_date: {UnknownType} <br>
+     * &amp;#x27;&amp;#x27;&amp;#x27;
      * @param fooDate The value of the column 'foo_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFooDate(java.time.LocalDate fooDate) {

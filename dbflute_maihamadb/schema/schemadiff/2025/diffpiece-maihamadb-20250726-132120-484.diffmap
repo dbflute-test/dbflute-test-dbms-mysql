@@ -1,0 +1,43 @@
+map:{
+    ; 2025/07/26 13:21:20.484 = map:{
+        ; diffDate = 2025/07/26 13:21:20.484
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; VALID_BEGIN_DATE = map:{
+                        ; columnName = VALID_BEGIN_DATE
+                        ; diffType = ADD
+                    }
+                    ; valid_begin_date = map:{
+                        ; columnName = valid_begin_date
+                        ; diffType = DELETE
+                    }
+                }
+                ; uniqueKeyDiff = map:{
+                    ; MEMBER_ID = map:{
+                        ; constraintName = MEMBER_ID
+                        ; diffType = CHANGE
+                        ; columnDiff = map:{
+                            ; next = MEMBER_ID, VALID_BEGIN_DATE
+                            ; previous = MEMBER_ID, valid_begin_date
+                        }
+                    }
+                }
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = CHANGE
+                ; indexDiff = map:{
+                    ; IX_PURCHASE_MEMBER_ID_PURCHASE_PRICE = map:{
+                        ; constraintName = IX_PURCHASE_MEMBER_ID_PURCHASE_PRICE
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

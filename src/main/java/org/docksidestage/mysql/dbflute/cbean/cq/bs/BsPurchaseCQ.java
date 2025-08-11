@@ -210,14 +210,14 @@ public class BsPurchaseCQ extends AbstractBsPurchaseCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchasePrice_Asc() { regOBA("PURCHASE_PRICE"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+     * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
      * @return this. (NotNull)
      */
     public BsPurchaseCQ addOrderBy_PurchasePrice_Desc() { regOBD("PURCHASE_PRICE"); return this; }

@@ -60,7 +60,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     /** (購入数量)PURCHASE_COUNT: {NotNull, INT(10)} */
     protected Integer _purchaseCount;
 
-    /** (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)} */
+    /** (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)} */
     protected Integer _purchasePrice;
 
     /** (支払完了フラグ)PAYMENT_COMPLETE_FLG: {NotNull, INT(10), classification=Flg} */
@@ -639,7 +639,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     }
 
     /**
-     * [get] (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)} <br>
+     * [get] (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)} <br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、<br>
      * ポイント利用や割引があったりと必ずしもそうはならない。
@@ -651,7 +651,7 @@ public abstract class BsPurchase extends AbstractEntity implements DomainEntity,
     }
 
     /**
-     * [set] (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)} <br>
+     * [set] (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)} <br>
      * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
      * 基本は商品の定価に購入数量を掛けたものになるが、<br>
      * ポイント利用や割引があったりと必ずしもそうはならない。

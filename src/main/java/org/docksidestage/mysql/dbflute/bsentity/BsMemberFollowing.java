@@ -28,7 +28,8 @@ import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
  * The entity of (会員フォローイング)MEMBER_FOLLOWING as TABLE. <br>
- * とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。
+ * とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。<br>
+ * cabo
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberFollowing extends AbstractEntity implements DomainEntity {

@@ -86,6 +86,8 @@ public class ProductStatusDbm extends AbstractDBMeta {
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "商品ステータス";
     public String getTableAlias() { return _tableAlias; }
+    protected final String _tableComment = "seasealand";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info

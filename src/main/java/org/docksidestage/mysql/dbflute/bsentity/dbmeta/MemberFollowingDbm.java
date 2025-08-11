@@ -93,7 +93,7 @@ public class MemberFollowingDbm extends AbstractDBMeta {
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "会員フォローイング";
     public String getTableAlias() { return _tableAlias; }
-    protected final String _tableComment = "とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。";
+    protected final String _tableComment = "とある会員が他の会員をフォローできる。すると、フォローした会員の購入履歴が閲覧できる。\ncabo";
     public String getTableComment() { return _tableComment; }
 
     // ===================================================================================

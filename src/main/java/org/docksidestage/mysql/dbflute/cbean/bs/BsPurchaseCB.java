@@ -586,7 +586,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnPurchaseCount() { return doColumn("PURCHASE_COUNT"); }
         /**
-         * (購入価格)PURCHASE_PRICE: {IX, NotNull, INT(10)}
+         * (購入価格)PURCHASE_PRICE: {IX+, NotNull, INT(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnPurchasePrice() { return doColumn("PURCHASE_PRICE"); }

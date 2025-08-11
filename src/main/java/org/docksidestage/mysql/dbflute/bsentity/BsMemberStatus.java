@@ -26,7 +26,10 @@ import org.docksidestage.mysql.dbflute.allcommon.CDef;
 import org.docksidestage.mysql.dbflute.exentity.*;
 
 /**
- * The entity of (会員ステータス)MEMBER_STATUS as TABLE.
+ * The entity of (会員ステータス)MEMBER_STATUS as TABLE. <br>
+ * sea<br>
+ * ---<br>
+ * seasea
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberStatus extends AbstractEntity implements DomainEntity {
