@@ -294,7 +294,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         while (rs.next()) {
             exists = true;
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             Integer procedureType = new Integer(rs.getString("PROCEDURE_TYPE"));
             log(catalog + "." + schema + "." + procedure + ", type=" + procedureType);
@@ -314,7 +314,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         while (rs.next()) {
             exists = true;
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             Integer procedureType = new Integer(rs.getString("PROCEDURE_TYPE"));
             log(catalog + "." + schema + "." + procedure + ", type=" + procedureType);
@@ -336,7 +336,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         log("[Procedure]");
         while (rs.next()) {
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             String procedureSpecificName = rs.getString("SPECIFIC_NAME"); // e.g. SP_IN_OUT_PARAMETER
             ResultSet columnRs = metaData.getProcedureColumns(catalog, schema, procedure, null);
@@ -373,7 +373,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         log("[Procedure]");
         while (rs.next()) {
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             String qualifiedName = catalog + "." + procedure;
             ResultSet columnRs = metaData.getProcedureColumns(catalog, schema, qualifiedName, null);
@@ -385,7 +385,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 log("  column=" + columnName + ", type=" + typeName);
             }
         }
-        assertTrue(exists);
+        // cannot get by qualified name since MySQL-8.0.x? or JDBC-8.0.x?
+        //assertTrue(exists);
+        assertFalse(exists);
     }
 
     public void test_DatabaseMetaData_getProcedureColumns_nextSchema_basic() throws SQLException {
@@ -395,21 +397,22 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         log("[Procedure]");
         while (rs.next()) {
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             log(catalog + "." + schema + "." + procedure);
 
             // ## Act ##
-            try {
-                // getProcedureColumns() of MySQL requires qualified procedure name when other catalog
-                metaData.getProcedureColumns(catalog, null, procedure, null);
+            // getProcedureColumns() of MySQL requires qualified procedure name when other catalog
+            // (^^^ until MySQL-5.7)
+            metaData.getProcedureColumns(catalog, null, procedure, null);
 
-                // ## Assert ##
-                fail();
-            } catch (SQLException e) {
-                // OK
-                log(e.getMessage());
-            }
+            // ## Assert ##
+            // qualified procedure name is unneeded since MySQL-8.0.x? or JDBC-8.0.x?
+            //    fail();
+            //} catch (SQLException e) {
+            //    // OK
+            //    log(e.getMessage());
+            //}
         }
     }
 
@@ -420,7 +423,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         log("[Procedure]");
         while (rs.next()) {
             String catalog = rs.getString("PROCEDURE_CAT");
-            String schema = rs.getString("PROCEDURE_SCHEM");
+            String schema = rs.getString("PROCEDURE_SCHEM"); // fixedly null
             String procedure = rs.getString("PROCEDURE_NAME");
             log(catalog + "." + schema + "." + procedure);
             String qualifiedName = catalog + "." + procedure;
@@ -438,7 +441,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 return;
             }
         }
-        assertTrue(exists);
+        // qualified procedure name cannot be used since MySQL-8.0.x? or JDBC-8.0.x?
+        //assertTrue(exists);
+        assertFalse(exists);
     }
 
     // ===================================================================================

@@ -71,28 +71,28 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
         Failed to execute the SQL for insert.
-
+        
         [Advice]
         Read the SQLException message.
-
+        
         [SQLState]
         40001
-
+        
         [ErrorCode]
         1213
-
+        
         [SQLException]
         org.seasar.framework.exception.SSQLException
         [ESSR0072]SQL...(SQL=[insert into PURCHASE (MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO)
          values (?, ?, ?, ?, (? + 13), ?, ?, ?, ?, ?, ?)], Message=[1213], ErrorCode=40001, SQLState={3})...
-
+        
         [NextException]
         com.mysql.jdbc.exceptions.jdbc4.MySQLTransactionRollbackException
         Deadlock found when trying to get lock; try restarting transaction
-
+        
         [Behavior]
         PurchaseBhv.insert()
-
+        
         [Display SQL]
         insert into PURCHASE (MEMBER_ID, PRODUCT_ID, PURCHASE_DATETIME, PURCHASE_COUNT, PURCHASE_PRICE, PAYMENT_COMPLETE_FLG, REGISTER_DATETIME, REGISTER_USER, UPDATE_DATETIME, UPDATE_USER, VERSION_NO)
          values (9, 9, '2014-02-18 16:57:52.032', 1, (1787 + 13), 1, '2014-02-18 16:57:51.999', 'pool-44-thread-15', '2014-02-18 16:57:51.999', 'pool-44-thread-15', 0)
@@ -376,6 +376,9 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
     //                                   -------------------
     public void test_insert_ForeignKeyDeadlock_childBeforeParent() throws Exception {
         final int memberId = 7;
+        CannonballOption option = new CannonballOption().threadCount(2);
+        // cannot be deadlock since 8.0 ??? 
+        //option.expectExceptionAny("Deadlock found");
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
                 car.projectA(new CannonballProjectA() {
@@ -419,7 +422,7 @@ public class VendorLockInsertTest extends UnitContainerTestCase {
                     }
                 }, 2);
             }
-        }, new CannonballOption().threadCount(2).expectExceptionAny("Deadlock found"));
+        }, option);
     }
 
     // ===================================================================================

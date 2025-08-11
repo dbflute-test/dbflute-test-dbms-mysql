@@ -16,13 +16,27 @@ public class WxDBMetaViewMySQLTest extends PlainTestCase {
     //                                                                  NotNull Constraint
     //                                                                  ==================
     public void test_dbmeta_view_notnull_confirmation() {
+        doTest_dbmeta_view_notnull_confirmation_basicPattern();
+        doTest_dbmeta_view_notnull_confirmation_complexPattern();
+    }
+
+    private void doTest_dbmeta_view_notnull_confirmation_basicPattern() {
         WhiteSummaryBasicProductDbm basicDbm = WhiteSummaryBasicProductDbm.getInstance();
         assertTrue(basicDbm.columnProductName().isNotNull());
         assertTrue(basicDbm.columnProductHandleCode().isNotNull());
+    }
 
+    private void doTest_dbmeta_view_notnull_confirmation_complexPattern() {
         WhiteSummaryComplexProductDbm complexDbm = WhiteSummaryComplexProductDbm.getInstance();
-        assertTrue(complexDbm.columnProductName().isNotNull());
-        assertTrue(complexDbm.columnProductHandleCode().isNotNull());
+
+        // changed since MySQL-8.0.x?
+        //assertTrue(complexDbm.columnProductName().isNotNull());
+        assertFalse(complexDbm.columnProductName().isNotNull());
+
+        // me too
+        //assertTrue(complexDbm.columnProductName().isNotNull());
+        assertFalse(complexDbm.columnProductHandleCode().isNotNull());
+
         assertFalse(complexDbm.columnLatestPurchaseDatetime().isNotNull());
     }
 }

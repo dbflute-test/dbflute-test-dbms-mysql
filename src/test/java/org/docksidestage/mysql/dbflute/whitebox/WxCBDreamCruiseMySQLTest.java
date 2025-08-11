@@ -197,7 +197,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
                 cb.mysticRhythms(toLocalDate("2014/09/01"));
             }
         }).convert(op -> {
-            // addMinute(1) may be rounded so addDay(1)
+            // addMinute(1) may be rounded since 8.0 ??? so addDay(1)
             op.addDay(dreamCruiseCB.specify().columnMemberId()).addDay(1);
         });
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
