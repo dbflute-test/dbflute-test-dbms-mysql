@@ -196,7 +196,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
             public void specify(MemberCB cb) {
                 cb.mysticRhythms(toLocalDate("2014/09/01"));
             }
-        }).convert(op -> op.addDay(dreamCruiseCB.specify().columnMemberId()).addMinute(1));
+        }).convert(op -> {
+            // addMinute(1) may be rounded so addDay(1)
+            op.addDay(dreamCruiseCB.specify().columnMemberId()).addDay(1);
+        });
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
                 cb.specify().columnBirthdate();
@@ -223,7 +226,7 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertMarked("exists");
         String sql = cb.toDisplaySql();
         assertContains(sql, "where dfloc.BIRTHDATE <= date_add('2015-04-05', interval dfloc.VERSION_NO month)");
-        assertContains(sql, "and dfloc.BIRTHDATE < date_add(date_add('2014-09-01', interval dfloc.MEMBER_ID day), interval 1 minute)");
+        assertContains(sql, "and dfloc.BIRTHDATE < date_add(date_add('2014-09-01', interval dfloc.MEMBER_ID day), interval 1 day)");
         assertContains(sql, "and dfloc.BIRTHDATE >= '2006-09-26'");
     }
 
