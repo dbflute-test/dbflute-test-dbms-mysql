@@ -45,22 +45,14 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
-            public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
-                    public void query(PurchaseCB subCB) {
-                        subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
-                            public void specify(PurchaseCB cb) {
-                                cb.specify().columnMemberId();
-                            }
-                        }).notEqual(new SpecifyQuery<PurchaseCB>() {
-                            public void specify(PurchaseCB cb) {
-                                cb.overTheWaves(dreamCruiseCB.specify().columnMemberId());
-                            }
-                        });
-                    }
+        cb.query().existsPurchase(purchaseCB -> {
+            purchaseCB.query().queryProduct().notExistsPurchase(productPurchaseCB -> {
+                productPurchaseCB.columnQuery(colCB -> {
+                    colCB.specify().columnMemberId();
+                }).notEqual(colCB -> {
+                    colCB.overTheWaves(dreamCruiseCB.specify().columnMemberId());
                 });
-            }
+            });
         });
         cb.addOrderBy_PK_Asc();
 
@@ -81,21 +73,15 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
-            public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
-                    public void query(PurchaseCB subCB) {
-                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
-                        subCB.columnQuery(colCB -> {
-                            colCB.specify().columnMemberId();
-                        }).notEqual(new SpecifyQuery<PurchaseCB>() {
-                            public void specify(PurchaseCB cb) {
-                                cb.overTheWaves(dreamCruiseCB.specify().columnMemberId());
-                            }
-                        }).multiply(pointColumn).divide(pointColumn);
-                    }
-                });
-            }
+        cb.query().existsPurchase(purchaseCB -> {
+            purchaseCB.query().queryProduct().notExistsPurchase(productPurchaseCB -> {
+                SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
+                productPurchaseCB.columnQuery(colCB -> {
+                    colCB.specify().columnMemberId();
+                }).notEqual(colCB -> {
+                    colCB.overTheWaves(dreamCruiseCB.specify().columnMemberId());
+                }).multiply(pointColumn).divide(pointColumn);
+            });
         });
         cb.addOrderBy_PK_Asc();
 
@@ -114,14 +100,10 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
 
     protected List<Member> selectMyOnlyProductMember() throws Exception {
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
-            public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().derivedPurchase().countDistinct(new SubQuery<PurchaseCB>() {
-                    public void query(PurchaseCB subCB) {
-                        subCB.specify().columnMemberId();
-                    }
-                }).equal(1);
-            }
+        cb.query().existsPurchase(purchaseCB -> {
+            purchaseCB.query().queryProduct().derivedPurchase().countDistinct(productPurchaseCB -> {
+                productPurchaseCB.specify().columnMemberId();
+            }).equal(1);
         });
         cb.addOrderBy_PK_Asc();
         return memberBhv.selectList(cb);
@@ -179,36 +161,17 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         cb.setupSelect_MemberStatus();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
 
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).lessEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2015/04/05"));
-            }
-        }).convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).lessThan(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2014/09/01"));
-            }
-        }).convert(op -> {
-            // addMinute(1) may be rounded since 8.0 ??? so addDay(1)
-            op.addDay(dreamCruiseCB.specify().columnMemberId()).addDay(1);
-        });
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).greaterEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2006/09/26"));
-            }
-        });
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate())
+                .lessEqual(colCB -> colCB.mysticRhythms(toLocalDate("2015/04/05")))
+                .convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate())
+                .lessThan(colCB -> colCB.mysticRhythms(toLocalDate("2014/09/01")))
+                .convert(op -> {
+                    // addMinute(1) may be rounded since 8.0 ??? so addDay(1)
+                    op.addDay(dreamCruiseCB.specify().columnMemberId()).addDay(1);
+                });
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate()) //
+                .greaterEqual(colCB -> colCB.mysticRhythms(toLocalDate("2006/09/26")));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -240,33 +203,14 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberStatus();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnFormalizedDatetime();
-            }
-        }).lessEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDateTime("2015/04/05 12:34:56"));
-            }
-        }).convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnFormalizedDatetime();
-            }
-        }).lessEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDateTime("2014/09/01 15:00:00"));
-            }
-        }).convert(op -> op.addDay(dreamCruiseCB.specify().columnMemberId()).addHour(-3));
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnFormalizedDatetime();
-            }
-        }).greaterEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDateTime("2006/09/26 12:34:56.789"));
-            }
-        });
+        cb.columnQuery(colCB -> colCB.specify().columnFormalizedDatetime())
+                .lessEqual(colCB -> colCB.mysticRhythms(toLocalDateTime("2015/04/05 12:34:56")))
+                .convert(op -> op.addMonth(dreamCruiseCB.specify().columnVersionNo()));
+        cb.columnQuery(colCB -> colCB.specify().columnFormalizedDatetime())
+                .lessEqual(colCB -> colCB.mysticRhythms(toLocalDateTime("2014/09/01 15:00:00")))
+                .convert(op -> op.addDay(dreamCruiseCB.specify().columnMemberId()).addHour(-3));
+        cb.columnQuery(colCB -> colCB.specify().columnFormalizedDatetime())
+                .greaterEqual(colCB -> colCB.mysticRhythms(toLocalDateTime("2006/09/26 12:34:56.789")));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -294,33 +238,14 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.setupSelect_MemberStatus();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).greaterEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2006/09/26"));
-            }
-        }).convert(op -> op.subtractMonth(dreamCruiseCB.specify().columnVersionNo()));
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).lessEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2014/09/20"));
-            }
-        }).convert(op -> op.subtractDay(dreamCruiseCB.specify().columnMemberId()).addMinute(-1));
-        cb.columnQuery(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.specify().columnBirthdate();
-            }
-        }).lessEqual(new SpecifyQuery<MemberCB>() {
-            public void specify(MemberCB cb) {
-                cb.mysticRhythms(toLocalDate("2015/04/05"));
-            }
-        });
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate())
+                .greaterEqual(colCB -> colCB.mysticRhythms(toLocalDate("2006/09/26")))
+                .convert(op -> op.subtractMonth(dreamCruiseCB.specify().columnVersionNo()));
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate())
+                .lessEqual(colCB -> colCB.mysticRhythms(toLocalDate("2014/09/20")))
+                .convert(op -> op.subtractDay(dreamCruiseCB.specify().columnMemberId()).addMinute(-1));
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate()) //
+                .lessEqual(colCB -> colCB.mysticRhythms(toLocalDate("2015/04/05")));
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -340,6 +265,27 @@ public class WxCBDreamCruiseMySQLTest extends UnitContainerTestCase {
         assertContains(sql, "where dfloc.BIRTHDATE >= date_add('2006-09-26', interval -dfloc.VERSION_NO month)");
         assertContains(sql, "and dfloc.BIRTHDATE <= date_add(date_add('2014-09-20', interval -dfloc.MEMBER_ID day), interval -1 minute)");
         assertContains(sql, "and dfloc.BIRTHDATE <= '2015-04-05'");
+    }
+
+    // -----------------------------------------------------
+    //                                               WeekDay
+    //                                               -------
+    // #hope jflute weekday search (2025/08/12)
+    // ideal way: query().setBirthdate_Equal(DayOfWeek.MONDAY);
+    // but optional by conditionBeanMap.dfprop?
+    // however, internally columnQuery? 
+    public void test_ColumnQuery_MysticRhythms_weekday() throws Exception {
+        MemberCB cb = new MemberCB();
+        cb.columnQuery(colCB -> colCB.specify().columnBirthdate().convert(op -> {
+            op.addDay(1); // want to use weekday function?
+        })).greaterEqual(colCB -> {
+            colCB.mysticRhythms(toLocalDate("2006/09/26")); // want to specify weekday
+        });
+
+        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+        for (Member member : memberList) {
+            log(member.getMemberName(), member.getBirthdate());
+        }
     }
 
     // ===================================================================================
