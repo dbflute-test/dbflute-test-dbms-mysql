@@ -24,7 +24,7 @@ public class WxSuppressNameCamelizingTest extends UnitContainerTestCase {
         final List<CDef.NamingNoCamelizingType> noCamelizingList = new ArrayList<CDef.NamingNoCamelizingType>();
         noCamelizingList.add(CDef.NamingNoCamelizingType.SEA海MYSTIC);
         noCamelizingList.add(CDef.NamingNoCamelizingType.LAND陸oneman);
-        noCamelizingList.add(CDef.NamingNoCamelizingType.PI_ARI);
+        noCamelizingList.add(CDef.NamingNoCamelizingType.PI_AR_I);
         noCamelizingList.add(CDef.NamingNoCamelizingType.Bonvo);
         noCamelizingList.add(CDef.NamingNoCamelizingType.dstore);
     }
