@@ -122,7 +122,7 @@ public abstract class BsWhiteCompoundPkWrongOrderBhv extends AbstractBehaviorWri
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkWrongOrder. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -155,7 +155,7 @@ public abstract class BsWhiteCompoundPkWrongOrderBhv extends AbstractBehaviorWri
      * </pre>
      * @param cb The condition-bean of WhiteCompoundPkWrongOrder. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -215,7 +215,7 @@ public abstract class BsWhiteCompoundPkWrongOrderBhv extends AbstractBehaviorWri
      * @param thirdId : PK, NotNull, INT(10). (NotNull)
      * @param firstId : PK, NotNull, INT(10). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */

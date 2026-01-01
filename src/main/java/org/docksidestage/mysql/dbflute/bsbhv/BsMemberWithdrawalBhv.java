@@ -122,7 +122,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -155,7 +155,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * </pre>
      * @param cb The condition-bean of MemberWithdrawal. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -213,7 +213,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * Select the entity by the primary-key value.
      * @param memberId : PK, NotNull, INT(10), FK to member. (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -1043,13 +1043,18 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     }
 
     // ===================================================================================
-    //                                                                     Filter Override
-    //                                                                     ===============
+    //                                                           Framework Filter Override
+    //                                                           =========================
     @Override
-    protected void filterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
-        super.filterEntityOfInsert(tgt, op);
-        MemberWithdrawal et = downcast(tgt);
-        et.setWithdrawalDatetime(org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread());
+    protected void frameworkFilterEntityOfInsert(Entity tgt, org.dbflute.optional.OptionalThing<InsertOption<? extends ConditionBean>> op) {
+        super.frameworkFilterEntityOfInsert(tgt, op);
+        MemberWithdrawal entity = downcast(tgt);
+        entity.setWithdrawalDatetime(org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread());
+    }
+
+    @Override
+    protected void frameworkFilterEntityOfUpdate(Entity tgt, org.dbflute.optional.OptionalThing<UpdateOption<? extends ConditionBean>> op) {
+        super.frameworkFilterEntityOfUpdate(tgt, op);
     }
 
     // ===================================================================================

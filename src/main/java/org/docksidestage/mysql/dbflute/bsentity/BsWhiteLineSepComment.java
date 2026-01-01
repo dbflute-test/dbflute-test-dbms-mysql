@@ -74,7 +74,9 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
     /**
      * Get the value of lineSepCommentCode as the classification of LineSepCommentCls. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
@@ -85,7 +87,9 @@ public abstract class BsWhiteLineSepComment extends AbstractEntity implements Do
     /**
      * Set the value of lineSepCommentCode as the classification of LineSepCommentCls. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
     public void setLineSepCommentCodeAsLineSepCommentCls(CDef.LineSepCommentCls cdef) {

@@ -122,7 +122,7 @@ public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteOnlyOneToOneTo. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -155,7 +155,7 @@ public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<
      * </pre>
      * @param cb The condition-bean of WhiteOnlyOneToOneTo. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -213,7 +213,7 @@ public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<
      * Select the entity by the primary-key value.
      * @param toId : PK, ID, NotNull, BIGINT(19). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -242,7 +242,7 @@ public abstract class BsWhiteOnlyOneToOneToBhv extends AbstractBehaviorWritable<
      * Select the entity by the unique-key value.
      * @param fromId : UQ, NotNull, BIGINT(19), FK to white_only_one_to_one_from. (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */

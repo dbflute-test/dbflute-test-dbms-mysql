@@ -123,7 +123,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteUqClassificationFlgBit. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -156,7 +156,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * </pre>
      * @param cb The condition-bean of WhiteUqClassificationFlgBit. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -214,7 +214,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * Select the entity by the primary-key value.
      * @param uqClsId : PK, NotNull, DECIMAL(16). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -244,7 +244,7 @@ public abstract class BsWhiteUqClassificationFlgBitBhv extends AbstractBehaviorW
      * @param uqClsName : UQ+, NotNull, VARCHAR(30). (NotNull)
      * @param uqClsBitFlg : +UQ, NotNull, BIT(1), classification=BooleanFlg. (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */

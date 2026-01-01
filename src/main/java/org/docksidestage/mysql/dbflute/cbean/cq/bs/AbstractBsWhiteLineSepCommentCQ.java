@@ -70,7 +70,9 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * Equal(=). As LineSepCommentCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_Equal_AsLineSepCommentCls(CDef.LineSepCommentCls cdef) {
@@ -109,7 +111,9 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotEqual(&lt;&gt;). As LineSepCommentCls. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_NotEqual_AsLineSepCommentCls(CDef.LineSepCommentCls cdef) {
@@ -148,7 +152,9 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * InScope {in ('a', 'b')}. As LineSepCommentCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_InScope_AsLineSepCommentCls(Collection<CDef.LineSepCommentCls> cdefList) {
@@ -157,7 +163,9 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
 
     /**
      * InScope {in ('a', 'b')}. As LineSepCommentCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * top first line            top second line            top third line <br>
+     * top first line<br>
+     *             top second line<br>
+     *             top third line <br>
      * group first line                    group second line <br>
      * The group elements:[First, Second]
      */
@@ -181,7 +189,9 @@ public abstract class AbstractBsWhiteLineSepCommentCQ extends AbstractConditionQ
     /**
      * NotInScope {not in ('a', 'b')}. As LineSepCommentCls. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * LINE_SEP_COMMENT_CODE: {PK, NotNull, CHAR(3), classification=LineSepCommentCls} <br>
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setLineSepCommentCode_NotInScope_AsLineSepCommentCls(Collection<CDef.LineSepCommentCls> cdefList) {

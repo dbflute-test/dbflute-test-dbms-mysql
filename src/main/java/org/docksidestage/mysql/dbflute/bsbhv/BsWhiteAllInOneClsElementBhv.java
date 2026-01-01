@@ -122,7 +122,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -155,7 +155,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * </pre>
      * @param cb The condition-bean of WhiteAllInOneClsElement. (NotNull)
      * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
@@ -214,7 +214,7 @@ public abstract class BsWhiteAllInOneClsElementBhv extends AbstractBehaviorWrita
      * @param clsCategoryCode : PK, NotNull, CHAR(3), FK to white_all_in_one_cls_category. (NotNull)
      * @param clsElementCode : PK, NotNull, CHAR(3). (NotNull)
      * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityAlreadyDeletedException When get(), alwaysPresent() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */

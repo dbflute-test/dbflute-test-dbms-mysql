@@ -1555,7 +1555,9 @@ public interface CDef extends Classification {
     }
 
     /**
-     * top first line            top second line            top third line
+     * top first line<br>
+     *             top second line<br>
+     *             top third line
      */
     public enum LineSepCommentCls implements CDef {
         /** First: foo first line            foo second line */
@@ -1746,7 +1748,7 @@ public interface CDef extends Classification {
         /** LAND陸oneman */
         LAND陸oneman("LAND", "LAND陸oneman"),
         /** PI AR-I */
-        PI_ARI("PIARI", "PI AR-I"),
+        PI_AR_I("PIARI", "PI AR-I"),
         /** SEA海MYSTIC */
         SEA海MYSTIC("SEA", "SEA海MYSTIC");
         private static ZzzoneSlimmer<NamingNoCamelizingType> _slimmer = new ZzzoneSlimmer<>(NamingNoCamelizingType.class, values());
@@ -2626,7 +2628,9 @@ public interface CDef extends Classification {
         , () -> CDef.EscapedJavaDocCls.listAll(), gp -> CDef.EscapedJavaDocCls.listByGroup(gp)
         , ClassificationCodeType.String, ClassificationUndefinedHandlingType.EXCEPTION),
 
-        /** top first line            top second line            top third line */
+        /** top first line<br>
+         *             top second line<br>
+         *             top third line */
         LineSepCommentCls(cd -> CDef.LineSepCommentCls.of(cd), nm -> CDef.LineSepCommentCls.byName(nm)
         , () -> CDef.LineSepCommentCls.listAll(), gp -> CDef.LineSepCommentCls.listByGroup(gp)
         , ClassificationCodeType.String, ClassificationUndefinedHandlingType.EXCEPTION),
