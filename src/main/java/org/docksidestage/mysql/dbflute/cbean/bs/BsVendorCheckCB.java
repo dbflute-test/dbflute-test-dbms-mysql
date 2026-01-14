@@ -397,10 +397,30 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTypeOfDatetime() { return doColumn("TYPE_OF_DATETIME"); }
         /**
+         * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime1Millis() { return doColumn("TYPE_OF_DATETIME_1_MILLIS"); }
+        /**
+         * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime2Millis() { return doColumn("TYPE_OF_DATETIME_2_MILLIS"); }
+        /**
          * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTypeOfDatetime3Millis() { return doColumn("TYPE_OF_DATETIME_3_MILLIS"); }
+        /**
+         * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime4Micros() { return doColumn("TYPE_OF_DATETIME_4_MICROS"); }
+        /**
+         * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfDatetime5Micros() { return doColumn("TYPE_OF_DATETIME_5_MICROS"); }
         /**
          * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
          * @return The information object of specified column. (NotNull)

@@ -468,6 +468,46 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      */
     public BsVendorCheckCQ addOrderBy_TypeOfDatetime_Desc() { regOBD("TYPE_OF_DATETIME"); return this; }
 
+    protected ConditionValue _typeOfDatetime1Millis;
+    public ConditionValue xdfgetTypeOfDatetime1Millis()
+    { if (_typeOfDatetime1Millis == null) { _typeOfDatetime1Millis = nCV(); }
+      return _typeOfDatetime1Millis; }
+    protected ConditionValue xgetCValueTypeOfDatetime1Millis() { return xdfgetTypeOfDatetime1Millis(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime1Millis_Asc() { regOBA("TYPE_OF_DATETIME_1_MILLIS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime1Millis_Desc() { regOBD("TYPE_OF_DATETIME_1_MILLIS"); return this; }
+
+    protected ConditionValue _typeOfDatetime2Millis;
+    public ConditionValue xdfgetTypeOfDatetime2Millis()
+    { if (_typeOfDatetime2Millis == null) { _typeOfDatetime2Millis = nCV(); }
+      return _typeOfDatetime2Millis; }
+    protected ConditionValue xgetCValueTypeOfDatetime2Millis() { return xdfgetTypeOfDatetime2Millis(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime2Millis_Asc() { regOBA("TYPE_OF_DATETIME_2_MILLIS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime2Millis_Desc() { regOBD("TYPE_OF_DATETIME_2_MILLIS"); return this; }
+
     protected ConditionValue _typeOfDatetime3Millis;
     public ConditionValue xdfgetTypeOfDatetime3Millis()
     { if (_typeOfDatetime3Millis == null) { _typeOfDatetime3Millis = nCV(); }
@@ -487,6 +527,46 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfDatetime3Millis_Desc() { regOBD("TYPE_OF_DATETIME_3_MILLIS"); return this; }
+
+    protected ConditionValue _typeOfDatetime4Micros;
+    public ConditionValue xdfgetTypeOfDatetime4Micros()
+    { if (_typeOfDatetime4Micros == null) { _typeOfDatetime4Micros = nCV(); }
+      return _typeOfDatetime4Micros; }
+    protected ConditionValue xgetCValueTypeOfDatetime4Micros() { return xdfgetTypeOfDatetime4Micros(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime4Micros_Asc() { regOBA("TYPE_OF_DATETIME_4_MICROS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime4Micros_Desc() { regOBD("TYPE_OF_DATETIME_4_MICROS"); return this; }
+
+    protected ConditionValue _typeOfDatetime5Micros;
+    public ConditionValue xdfgetTypeOfDatetime5Micros()
+    { if (_typeOfDatetime5Micros == null) { _typeOfDatetime5Micros = nCV(); }
+      return _typeOfDatetime5Micros; }
+    protected ConditionValue xgetCValueTypeOfDatetime5Micros() { return xdfgetTypeOfDatetime5Micros(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime5Micros_Asc() { regOBA("TYPE_OF_DATETIME_5_MICROS"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfDatetime5Micros_Desc() { regOBD("TYPE_OF_DATETIME_5_MICROS"); return this; }
 
     protected ConditionValue _typeOfDatetime6Micros;
     public ConditionValue xdfgetTypeOfDatetime6Micros()

@@ -97,8 +97,20 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     /** TYPE_OF_DATETIME: {DATETIME(19)} */
     protected java.time.LocalDateTime _typeOfDatetime;
 
+    /** TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime1Millis;
+
+    /** TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime2Millis;
+
     /** TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)} */
     protected java.time.LocalDateTime _typeOfDatetime3Millis;
+
+    /** TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime4Micros;
+
+    /** TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)} */
+    protected java.time.LocalDateTime _typeOfDatetime5Micros;
 
     /** TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)} */
     protected java.time.LocalDateTime _typeOfDatetime6Micros;
@@ -306,7 +318,11 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfND(_typeOfDouble));
         sb.append(dm).append(xfND(_typeOfDate));
         sb.append(dm).append(xfND(_typeOfDatetime));
+        sb.append(dm).append(xfND(_typeOfDatetime1Millis));
+        sb.append(dm).append(xfND(_typeOfDatetime2Millis));
         sb.append(dm).append(xfND(_typeOfDatetime3Millis));
+        sb.append(dm).append(xfND(_typeOfDatetime4Micros));
+        sb.append(dm).append(xfND(_typeOfDatetime5Micros));
         sb.append(dm).append(xfND(_typeOfDatetime6Micros));
         sb.append(dm).append(xfND(_typeOfTimestamp));
         sb.append(dm).append(xfND(_typeOfTime));
@@ -685,6 +701,42 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
+     * [get] TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_1_MILLIS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime1Millis() {
+        checkSpecifiedProperty("typeOfDatetime1Millis");
+        return _typeOfDatetime1Millis;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)} <br>
+     * @param typeOfDatetime1Millis The value of the column 'TYPE_OF_DATETIME_1_MILLIS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime1Millis(java.time.LocalDateTime typeOfDatetime1Millis) {
+        registerModifiedProperty("typeOfDatetime1Millis");
+        _typeOfDatetime1Millis = typeOfDatetime1Millis;
+    }
+
+    /**
+     * [get] TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_2_MILLIS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime2Millis() {
+        checkSpecifiedProperty("typeOfDatetime2Millis");
+        return _typeOfDatetime2Millis;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)} <br>
+     * @param typeOfDatetime2Millis The value of the column 'TYPE_OF_DATETIME_2_MILLIS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime2Millis(java.time.LocalDateTime typeOfDatetime2Millis) {
+        registerModifiedProperty("typeOfDatetime2Millis");
+        _typeOfDatetime2Millis = typeOfDatetime2Millis;
+    }
+
+    /**
      * [get] TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)} <br>
      * @return The value of the column 'TYPE_OF_DATETIME_3_MILLIS'. (NullAllowed even if selected: for no constraint)
      */
@@ -700,6 +752,42 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfDatetime3Millis(java.time.LocalDateTime typeOfDatetime3Millis) {
         registerModifiedProperty("typeOfDatetime3Millis");
         _typeOfDatetime3Millis = typeOfDatetime3Millis;
+    }
+
+    /**
+     * [get] TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_4_MICROS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime4Micros() {
+        checkSpecifiedProperty("typeOfDatetime4Micros");
+        return _typeOfDatetime4Micros;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)} <br>
+     * @param typeOfDatetime4Micros The value of the column 'TYPE_OF_DATETIME_4_MICROS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime4Micros(java.time.LocalDateTime typeOfDatetime4Micros) {
+        registerModifiedProperty("typeOfDatetime4Micros");
+        _typeOfDatetime4Micros = typeOfDatetime4Micros;
+    }
+
+    /**
+     * [get] TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)} <br>
+     * @return The value of the column 'TYPE_OF_DATETIME_5_MICROS'. (NullAllowed even if selected: for no constraint)
+     */
+    public java.time.LocalDateTime getTypeOfDatetime5Micros() {
+        checkSpecifiedProperty("typeOfDatetime5Micros");
+        return _typeOfDatetime5Micros;
+    }
+
+    /**
+     * [set] TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)} <br>
+     * @param typeOfDatetime5Micros The value of the column 'TYPE_OF_DATETIME_5_MICROS'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfDatetime5Micros(java.time.LocalDateTime typeOfDatetime5Micros) {
+        registerModifiedProperty("typeOfDatetime5Micros");
+        _typeOfDatetime5Micros = typeOfDatetime5Micros;
     }
 
     /**

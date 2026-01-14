@@ -1,0 +1,31 @@
+map:{
+    ; 2026/01/10 11:25:57.010 = map:{
+        ; diffDate = 2026/01/10 11:25:57.010
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; TYPE_OF_DATETIME_1_MILLIS = map:{
+                        ; columnName = TYPE_OF_DATETIME_1_MILLIS
+                        ; diffType = ADD
+                    }
+                    ; TYPE_OF_DATETIME_2_MILLIS = map:{
+                        ; columnName = TYPE_OF_DATETIME_2_MILLIS
+                        ; diffType = ADD
+                    }
+                    ; TYPE_OF_DATETIME_4_MICROS = map:{
+                        ; columnName = TYPE_OF_DATETIME_4_MICROS
+                        ; diffType = ADD
+                    }
+                    ; TYPE_OF_DATETIME_5_MICROS = map:{
+                        ; columnName = TYPE_OF_DATETIME_5_MICROS
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
+}

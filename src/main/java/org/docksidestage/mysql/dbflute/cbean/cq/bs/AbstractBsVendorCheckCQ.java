@@ -2212,6 +2212,180 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime1Millis The value of typeOfDatetime1Millis as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime1Millis_Equal(java.time.LocalDateTime typeOfDatetime1Millis) {
+        regTypeOfDatetime1Millis(CK_EQ,  typeOfDatetime1Millis);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime1Millis The value of typeOfDatetime1Millis as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime1Millis_GreaterThan(java.time.LocalDateTime typeOfDatetime1Millis) {
+        regTypeOfDatetime1Millis(CK_GT,  typeOfDatetime1Millis);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime1Millis The value of typeOfDatetime1Millis as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime1Millis_LessThan(java.time.LocalDateTime typeOfDatetime1Millis) {
+        regTypeOfDatetime1Millis(CK_LT,  typeOfDatetime1Millis);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime1Millis The value of typeOfDatetime1Millis as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime1Millis_GreaterEqual(java.time.LocalDateTime typeOfDatetime1Millis) {
+        regTypeOfDatetime1Millis(CK_GE,  typeOfDatetime1Millis);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime1Millis The value of typeOfDatetime1Millis as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime1Millis_LessEqual(java.time.LocalDateTime typeOfDatetime1Millis) {
+        regTypeOfDatetime1Millis(CK_LE, typeOfDatetime1Millis);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime1Millis_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime1Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime1Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime1Millis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setTypeOfDatetime1Millis_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime1Millis_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime1Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime1Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime1Millis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATETIME_1_MILLIS"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDatetime1Millis(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime1Millis_IsNull() { regTypeOfDatetime1Millis(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime1Millis_IsNotNull() { regTypeOfDatetime1Millis(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfDatetime1Millis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime1Millis(), "TYPE_OF_DATETIME_1_MILLIS"); }
+    protected abstract ConditionValue xgetCValueTypeOfDatetime1Millis();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime2Millis The value of typeOfDatetime2Millis as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime2Millis_Equal(java.time.LocalDateTime typeOfDatetime2Millis) {
+        regTypeOfDatetime2Millis(CK_EQ,  typeOfDatetime2Millis);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime2Millis The value of typeOfDatetime2Millis as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime2Millis_GreaterThan(java.time.LocalDateTime typeOfDatetime2Millis) {
+        regTypeOfDatetime2Millis(CK_GT,  typeOfDatetime2Millis);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime2Millis The value of typeOfDatetime2Millis as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime2Millis_LessThan(java.time.LocalDateTime typeOfDatetime2Millis) {
+        regTypeOfDatetime2Millis(CK_LT,  typeOfDatetime2Millis);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime2Millis The value of typeOfDatetime2Millis as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime2Millis_GreaterEqual(java.time.LocalDateTime typeOfDatetime2Millis) {
+        regTypeOfDatetime2Millis(CK_GE,  typeOfDatetime2Millis);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @param typeOfDatetime2Millis The value of typeOfDatetime2Millis as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime2Millis_LessEqual(java.time.LocalDateTime typeOfDatetime2Millis) {
+        regTypeOfDatetime2Millis(CK_LE, typeOfDatetime2Millis);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime2Millis_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime2Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime2Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime2Millis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setTypeOfDatetime2Millis_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime2Millis_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime2Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime2Millis. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime2Millis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATETIME_2_MILLIS"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDatetime2Millis(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime2Millis_IsNull() { regTypeOfDatetime2Millis(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime2Millis_IsNotNull() { regTypeOfDatetime2Millis(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfDatetime2Millis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime2Millis(), "TYPE_OF_DATETIME_2_MILLIS"); }
+    protected abstract ConditionValue xgetCValueTypeOfDatetime2Millis();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
      * @param typeOfDatetime3Millis The value of typeOfDatetime3Millis as equal. (basically NotNull: error as default, or no condition as option)
      */
@@ -2296,6 +2470,180 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void regTypeOfDatetime3Millis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime3Millis(), "TYPE_OF_DATETIME_3_MILLIS"); }
     protected abstract ConditionValue xgetCValueTypeOfDatetime3Millis();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime4Micros The value of typeOfDatetime4Micros as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime4Micros_Equal(java.time.LocalDateTime typeOfDatetime4Micros) {
+        regTypeOfDatetime4Micros(CK_EQ,  typeOfDatetime4Micros);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime4Micros The value of typeOfDatetime4Micros as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime4Micros_GreaterThan(java.time.LocalDateTime typeOfDatetime4Micros) {
+        regTypeOfDatetime4Micros(CK_GT,  typeOfDatetime4Micros);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime4Micros The value of typeOfDatetime4Micros as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime4Micros_LessThan(java.time.LocalDateTime typeOfDatetime4Micros) {
+        regTypeOfDatetime4Micros(CK_LT,  typeOfDatetime4Micros);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime4Micros The value of typeOfDatetime4Micros as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime4Micros_GreaterEqual(java.time.LocalDateTime typeOfDatetime4Micros) {
+        regTypeOfDatetime4Micros(CK_GE,  typeOfDatetime4Micros);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime4Micros The value of typeOfDatetime4Micros as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime4Micros_LessEqual(java.time.LocalDateTime typeOfDatetime4Micros) {
+        regTypeOfDatetime4Micros(CK_LE, typeOfDatetime4Micros);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime4Micros_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime4Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime4Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime4Micros_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setTypeOfDatetime4Micros_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime4Micros_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime4Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime4Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime4Micros_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATETIME_4_MICROS"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDatetime4Micros(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime4Micros_IsNull() { regTypeOfDatetime4Micros(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime4Micros_IsNotNull() { regTypeOfDatetime4Micros(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfDatetime4Micros(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime4Micros(), "TYPE_OF_DATETIME_4_MICROS"); }
+    protected abstract ConditionValue xgetCValueTypeOfDatetime4Micros();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime5Micros The value of typeOfDatetime5Micros as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime5Micros_Equal(java.time.LocalDateTime typeOfDatetime5Micros) {
+        regTypeOfDatetime5Micros(CK_EQ,  typeOfDatetime5Micros);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime5Micros The value of typeOfDatetime5Micros as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime5Micros_GreaterThan(java.time.LocalDateTime typeOfDatetime5Micros) {
+        regTypeOfDatetime5Micros(CK_GT,  typeOfDatetime5Micros);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime5Micros The value of typeOfDatetime5Micros as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime5Micros_LessThan(java.time.LocalDateTime typeOfDatetime5Micros) {
+        regTypeOfDatetime5Micros(CK_LT,  typeOfDatetime5Micros);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime5Micros The value of typeOfDatetime5Micros as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime5Micros_GreaterEqual(java.time.LocalDateTime typeOfDatetime5Micros) {
+        regTypeOfDatetime5Micros(CK_GE,  typeOfDatetime5Micros);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @param typeOfDatetime5Micros The value of typeOfDatetime5Micros as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfDatetime5Micros_LessEqual(java.time.LocalDateTime typeOfDatetime5Micros) {
+        regTypeOfDatetime5Micros(CK_LE, typeOfDatetime5Micros);
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime5Micros_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime5Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime5Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime5Micros_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+        setTypeOfDatetime5Micros_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
+    }
+
+    /**
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * <pre>e.g. setTypeOfDatetime5Micros_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
+     * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime5Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDatetime5Micros. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param fromToOption The option of from-to. (NotNull)
+     */
+    public void setTypeOfDatetime5Micros_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "TYPE_OF_DATETIME_5_MICROS"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDatetime5Micros(), nm, op);
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime5Micros_IsNull() { regTypeOfDatetime5Micros(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     */
+    public void setTypeOfDatetime5Micros_IsNotNull() { regTypeOfDatetime5Micros(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfDatetime5Micros(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfDatetime5Micros(), "TYPE_OF_DATETIME_5_MICROS"); }
+    protected abstract ConditionValue xgetCValueTypeOfDatetime5Micros();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

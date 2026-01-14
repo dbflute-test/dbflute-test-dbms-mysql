@@ -76,7 +76,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDouble(), (et, vl) -> ((VendorCheck)et).setTypeOfDouble(ctb(vl)), "typeOfDouble");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate(ctld(vl)), "typeOfDate");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime(ctldt(vl)), "typeOfDatetime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime1Millis(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime1Millis(ctldt(vl)), "typeOfDatetime1Millis");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime2Millis(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime2Millis(ctldt(vl)), "typeOfDatetime2Millis");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime3Millis(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime3Millis(ctldt(vl)), "typeOfDatetime3Millis");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime4Micros(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime4Micros(ctldt(vl)), "typeOfDatetime4Micros");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime5Micros(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime5Micros(ctldt(vl)), "typeOfDatetime5Micros");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDatetime6Micros(), (et, vl) -> ((VendorCheck)et).setTypeOfDatetime6Micros(ctldt(vl)), "typeOfDatetime6Micros");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp(ctldt(vl)), "typeOfTimestamp");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime(ctlt(vl)), "typeOfTime");
@@ -134,7 +138,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfDouble = cci("TYPE_OF_DOUBLE", "TYPE_OF_DOUBLE", null, null, java.math.BigDecimal.class, "typeOfDouble", null, false, false, false, "DOUBLE", 22, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDate = cci("TYPE_OF_DATE", "TYPE_OF_DATE", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "DATE", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDatetime = cci("TYPE_OF_DATETIME", "TYPE_OF_DATETIME", null, null, java.time.LocalDateTime.class, "typeOfDatetime", null, false, false, false, "DATETIME", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime1Millis = cci("TYPE_OF_DATETIME_1_MILLIS", "TYPE_OF_DATETIME_1_MILLIS", null, null, java.time.LocalDateTime.class, "typeOfDatetime1Millis", null, false, false, false, "DATETIME", 19, 0, 1, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime2Millis = cci("TYPE_OF_DATETIME_2_MILLIS", "TYPE_OF_DATETIME_2_MILLIS", null, null, java.time.LocalDateTime.class, "typeOfDatetime2Millis", null, false, false, false, "DATETIME", 19, 0, 2, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDatetime3Millis = cci("TYPE_OF_DATETIME_3_MILLIS", "TYPE_OF_DATETIME_3_MILLIS", null, null, java.time.LocalDateTime.class, "typeOfDatetime3Millis", null, false, false, false, "DATETIME", 19, 0, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime4Micros = cci("TYPE_OF_DATETIME_4_MICROS", "TYPE_OF_DATETIME_4_MICROS", null, null, java.time.LocalDateTime.class, "typeOfDatetime4Micros", null, false, false, false, "DATETIME", 19, 0, 4, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDatetime5Micros = cci("TYPE_OF_DATETIME_5_MICROS", "TYPE_OF_DATETIME_5_MICROS", null, null, java.time.LocalDateTime.class, "typeOfDatetime5Micros", null, false, false, false, "DATETIME", 19, 0, 5, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDatetime6Micros = cci("TYPE_OF_DATETIME_6_MICROS", "TYPE_OF_DATETIME_6_MICROS", null, null, java.time.LocalDateTime.class, "typeOfDatetime6Micros", null, false, false, false, "DATETIME", 19, 0, 6, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfTimestamp = cci("TYPE_OF_TIMESTAMP", "TYPE_OF_TIMESTAMP", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, false, "TIMESTAMP", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfTime = cci("TYPE_OF_TIME", "TYPE_OF_TIME", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "TIME", 8, 0, null, null, false, null, null, null, null, null, false);
@@ -247,10 +255,30 @@ public class VendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfDatetime() { return _columnTypeOfDatetime; }
     /**
+     * TYPE_OF_DATETIME_1_MILLIS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime1Millis() { return _columnTypeOfDatetime1Millis; }
+    /**
+     * TYPE_OF_DATETIME_2_MILLIS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime2Millis() { return _columnTypeOfDatetime2Millis; }
+    /**
      * TYPE_OF_DATETIME_3_MILLIS: {DATETIME(19)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfDatetime3Millis() { return _columnTypeOfDatetime3Millis; }
+    /**
+     * TYPE_OF_DATETIME_4_MICROS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime4Micros() { return _columnTypeOfDatetime4Micros; }
+    /**
+     * TYPE_OF_DATETIME_5_MICROS: {DATETIME(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfDatetime5Micros() { return _columnTypeOfDatetime5Micros; }
     /**
      * TYPE_OF_DATETIME_6_MICROS: {DATETIME(19)}
      * @return The information object of specified column. (NotNull)
@@ -348,7 +376,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfDouble());
         ls.add(columnTypeOfDate());
         ls.add(columnTypeOfDatetime());
+        ls.add(columnTypeOfDatetime1Millis());
+        ls.add(columnTypeOfDatetime2Millis());
         ls.add(columnTypeOfDatetime3Millis());
+        ls.add(columnTypeOfDatetime4Micros());
+        ls.add(columnTypeOfDatetime5Micros());
         ls.add(columnTypeOfDatetime6Micros());
         ls.add(columnTypeOfTimestamp());
         ls.add(columnTypeOfTime());
