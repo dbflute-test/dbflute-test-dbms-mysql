@@ -60,34 +60,64 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
     }
 
     // ===================================================================================
-    //                                                                          Fetch Size
-    //                                                                          ==========
-    public void test_cursorSelectFetchSize_basic() {
+    //                                                                       ConditionBean
+    //                                                                       =============
+    public void test_selectList_static_fixedly() {
         // ## Arrange ##
-        PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
-
-        PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
-            @Override
-            protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
-                // ## Assert ##
-                ResultSet rs = cursor.cursor();
-                log("ResultSet   = " + rs.getClass());
-                rs.next(); // select first row
-                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
-                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
-                log("rowData     = " + rowData.getClass());
-                assertTrue(rowData instanceof com.mysql.cj.protocol.a.result.ResultsetRowsStreaming);
-                assertDbAccess();
-                return null;
-            }
-        };
+        MemberCB cb = new MemberCB();
+        int countAll = memberBhv.selectCount(cb);
 
         // ## Act ##
-        memberBhv.outsideSql().selectCursor(pmb, handler);
+        ListResultBean<Member> memberList = memberBhv.selectList(cb);
+
+        // ## Assert ##
+        assertHasAnyElement(memberList);
+        assertEquals(countAll, memberList.size());
+        assertEquals(0, memberBhv.getFetchSizeMap().get("selectList"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
     }
 
-    public void test_cursorSelectFetchSize_default() {
+    public void test_selectCursor_minValue_streaming() {
+        // ## Arrange ##
+        MemberCB cb = new MemberCB();
+        int countAll = memberBhv.selectCount(cb);
+
+        // ## Act ##
+        List<Member> memberList = newArrayList();
+        memberBhv.selectCursor(cb, member -> {
+            log(member);
+            memberList.add(member);
+        });
+
+        // ## Assert ##
+        assertEquals(countAll, memberList.size());
+        assertEquals(Integer.MIN_VALUE, memberBhv.getFetchSizeMap().get("selectCursor"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStreaming.class, memberBhv.getRowDataClassMap().get("selectCursor"));
+    }
+
+    public void test_selectCursor_normalValue_static_afterAll() {
+        // ## Arrange ##
+        MemberCB cb = new MemberCB();
+        cb.configure(conf -> conf.fetchSize(7));
+        int countAll = memberBhv.selectCount(cb);
+
+        // ## Act ##
+        List<Member> memberList = newArrayList();
+        memberBhv.selectCursor(cb, member -> {
+            log(member);
+            memberList.add(member);
+        });
+
+        // ## Assert ##
+        assertEquals(countAll, memberList.size());
+        assertEquals(7, memberBhv.getFetchSizeMap().get("selectCursor"));
+        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectCursor"));
+    }
+
+    // ===================================================================================
+    //                                                                          OutsideSql
+    //                                                                          ==========
+    public void test_outsideSql_selectCursor_default_static() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
         DBFluteConfig.getInstance().unlock();
@@ -114,6 +144,31 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
+    public void test_outsideSql_selectCursor_minValue_streaming() {
+        // ## Arrange ##
+        PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
+        assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
+
+        PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
+            @Override
+            protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
+                // ## Assert ##
+                ResultSet rs = cursor.cursor();
+                log("ResultSet   = " + rs.getClass());
+                rs.next(); // select first row
+                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
+                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
+                log("rowData     = " + rowData.getClass());
+                assertTrue(rowData instanceof com.mysql.cj.protocol.a.result.ResultsetRowsStreaming);
+                assertDbAccess();
+                return null;
+            }
+        };
+
+        // ## Act ##
+        memberBhv.outsideSql().selectCursor(pmb, handler);
+    }
+
     protected void assertDbAccess() {
         try {
             memberBhv.selectCount(new MemberCB());
@@ -124,7 +179,7 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         }
     }
 
-    public void test_cursorSelectFetchSize_configure() {
+    public void test_outsideSql_selectCursor_normalValue_one_static_afterAll() {
         // ## Arrange ##
         assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
         final int countAll = memberBhv.selectCount(new MemberCB());
@@ -155,19 +210,35 @@ public class WxCursorSelectMySQLTest extends UnitContainerTestCase {
         memberBhv.outsideSql().configure(conf -> conf.fetchSize(1)).selectCursor(pmb, handler);
     }
 
-    public void test_cursorSelectFetchSize_selectList_static() {
+    public void test_outsideSql_selectCursor_normalValue_seven_static_afterAll() {
         // ## Arrange ##
-        MemberCB cb = new MemberCB();
-        int countAll = memberBhv.selectCount(cb);
+        assertEquals(Integer.MIN_VALUE, DBFluteConfig.getInstance().getCursorSelectFetchSize());
+        final int countAll = memberBhv.selectCount(new MemberCB());
+        PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
+
+        PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
+            @Override
+            protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
+                // ## Assert ##
+                ResultSet rs = cursor.cursor();
+                log("ResultSet   = " + rs.getClass());
+                rs.next(); // select first row
+                com.mysql.cj.jdbc.result.ResultSetImpl rsImpl = (com.mysql.cj.jdbc.result.ResultSetImpl) rs;
+                com.mysql.cj.protocol.ResultsetRows rowData = extractRowDataOnResutSet(rsImpl);
+                log("rowData     = " + rowData.getClass());
+                List<?> rows = extractRowsOnRowData(rowData);
+                log("rows.size() = " + rows.size());
+                assertEquals(countAll, rows.size());
+                memberBhv.selectCount(new MemberCB()); // no exception
+                memberBhv.selectList(new MemberCB()); // no exception
+                assertEquals(0, memberBhv.getFetchSizeMap().get("selectList"));
+                assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
+                return null;
+            }
+        };
 
         // ## Act ##
-        ListResultBean<Member> memberList = memberBhv.selectList(cb);
-
-        // ## Assert ##
-        assertHasAnyElement(memberList);
-        assertEquals(countAll, memberList.size());
-        assertEquals(0, memberBhv.getFetchSizeMap().get("selectList"));
-        assertEquals(com.mysql.cj.protocol.a.result.ResultsetRowsStatic.class, memberBhv.getRowDataClassMap().get("selectList"));
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(7)).selectCursor(pmb, handler);
     }
 
     // ===================================================================================

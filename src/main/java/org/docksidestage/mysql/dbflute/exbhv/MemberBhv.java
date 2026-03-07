@@ -18,6 +18,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.dbflute.bhv.core.BehaviorCommand;
 import org.dbflute.bhv.core.command.BatchUpdateNonstrictCommand;
+import org.dbflute.bhv.core.command.SelectCursorCBCommand;
 import org.dbflute.bhv.core.command.SelectListCBCommand;
 import org.dbflute.bhv.core.execution.SelectCBExecution;
 import org.dbflute.hook.SqlLogInfo.SqlLogDisplaySqlBuilder;
@@ -113,6 +114,9 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
         return super.invoke(behaviorCommand);
     }
 
+    // -----------------------------------------------------
+    //                                          selectList()
+    //                                          ------------
     @Override
     protected <RESULT extends Member> SelectListCBCommand<RESULT> newSelectListCBCommand() {
         return new SelectListCBCommand<RESULT>() {
@@ -167,6 +171,66 @@ public class MemberBhv extends org.docksidestage.mysql.dbflute.bsbhv.BsMemberBhv
         };
     }
 
+    // -----------------------------------------------------
+    //                                        selectCursor()
+    //                                        --------------
+    @Override
+    protected <RESULT extends Member> SelectCursorCBCommand<RESULT> newSelectCursorCBCommand() {
+        return new SelectCursorCBCommand<RESULT>() {
+            @Override
+            protected SelectCBExecution newSelectCBExecution(Map<String, Class<?>> argNameTypeMap, TnResultSetHandler handler) {
+                return new SelectCBExecution(_dataSource, _statementFactory, argNameTypeMap, handler) {
+                    @Override
+                    protected TnBasicParameterHandler newBasicParameterHandler(String executedSql) {
+                        return new TnBasicSelectHandler(_dataSource, executedSql, _resultSetHandler, _statementFactory) {
+                            @Override
+                            protected void doLogSql(Object[] args, Class<?>[] argTypes, boolean logEnabled, boolean sqlFireHook,
+                                    boolean hasSqlLog, boolean hasSqlResult) {
+                                _loggingMarkMap.put("doLogSql", logEnabled + ", " + sqlFireHook + ", " + hasSqlLog + ", " + hasSqlResult);
+                                super.doLogSql(args, argTypes, logEnabled, sqlFireHook, hasSqlLog, hasSqlResult);
+                            };
+
+                            @Override
+                            protected String buildDisplaySql(String sql, Object[] args) {
+                                _loggingMarkMap.put("buildDisplaySql", args);
+                                return super.buildDisplaySql(sql, args);
+                            }
+
+                            @Override
+                            protected SqlLogDisplaySqlBuilder createSqlLogDisplaySqlBuilder(String alreadyBuiltDisplaySql) {
+                                _loggingMarkMap.put("createSqlLogDisplaySqlBuilder", new Object());
+                                return super.createSqlLogDisplaySqlBuilder(alreadyBuiltDisplaySql);
+                            }
+
+                            @Override
+                            protected PreparedStatement prepareStatement(Connection conn) {
+                                PreparedStatement ps = super.prepareStatement(conn);
+                                try {
+                                    _fetchSizeMap.put("selectCursor", ps.getFetchSize());
+                                } catch (SQLException e) {
+                                    throw new IllegalStateException(e);
+                                }
+                                return ps;
+                            }
+
+                            @Override
+                            protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
+                                ResultSet rs = super.executeQuery(ps);
+                                com.mysql.cj.protocol.ResultsetRows rowData =
+                                        extractRowDataOnResutSet((com.mysql.cj.jdbc.result.ResultSetImpl) rs);
+                                _rowDataClassMap.put("selectCursor", rowData.getClass());
+                                return rs;
+                            }
+                        };
+                    }
+                };
+            }
+        };
+    }
+
+    // -----------------------------------------------------
+    //                                batchUpdateNonstrict()
+    //                                ----------------------
     @Override
     protected BatchUpdateNonstrictCommand newBatchUpdateNonstrictCommand() {
         return new BatchUpdateNonstrictCommand() {

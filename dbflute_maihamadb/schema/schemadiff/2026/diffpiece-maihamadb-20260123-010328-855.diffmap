@@ -1,0 +1,17 @@
+map:{
+    ; 2026/01/23 01:03:28.855 = map:{
+        ; diffDate = 2026/01/23 01:03:28.855
+        ; tableCount = map:{
+            ; next = 123
+            ; previous = 124
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; test_vendor_check = map:{
+                ; tableName = test_vendor_check
+                ; diffType = DELETE
+            }
+        }
+    }
+}

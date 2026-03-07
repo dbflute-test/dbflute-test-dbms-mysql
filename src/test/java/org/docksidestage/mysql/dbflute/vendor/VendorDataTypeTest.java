@@ -511,7 +511,9 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         log(plain, millis, micros);
         assertEquals(0, plain.getNano()); // completely truncated
         assertEquals(988000000, millis.getNano()); // round when insert
-        assertEquals(987000000, micros.getNano()); // DBFlute supports millisecond only so truncated
+        // old version DBFlute supports millisecond only so truncated
+        //assertEquals(987000000, micros.getNano());
+        assertEquals(987654000, micros.getNano()); // @since 1.3.2
     }
 
     // ===================================================================================
